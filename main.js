@@ -77,6 +77,7 @@ const G = {
   quizDeck: [], currentQuiz: null, quizMode: 'wave', quizTotal: 0,
   quizT: 0, quizAnswered: false, quizCorrectCount: 0,
   weapon: 0, pipeOpen: false, quizDiff: 'mid', liverPulseT: 4,
+  pancStrain: 0, pancWarned: false,
   fatsRescued: 0, fatsLost: 0,
   fireCooldown: 0,
   over: false,
@@ -825,8 +826,13 @@ function liverStage() {
 const LIVER_STAGE_TEXT = ['건강해요 · 정화 파동 가동 중', '지방간(MASLD) · 파동이 느려져요', 'MASH · 파동이 많이 느려져요', '섬유화 · 파동이 거의 멎어가요'];
 const LIVER_DISSOLVE = [2.4, 3.4, 4.8, 6.5];
 
+// T2D 흐름: 저항성으로 인슐린이 '무력화'(계속 쏘지만 데미지 급감) → 지속 혹사 시 췌장부전(영구 정지)
 function pancMult() {
-  if (G.beta <= 0) return 0; if (G.beta > 60) return 1; if (G.beta > 30) return 0.7; return 0.45;
+  if (G.pancDown) return 0;
+  if (G.beta > 60) return 1;
+  if (G.beta > 30) return 0.7;
+  if (G.beta > 10) return 0.45;
+  return 0.2;   // 무력화: 발사는 되지만 거의 안 박힘
 }
 
 function updateHUD() {
@@ -843,11 +849,13 @@ function updateHUD() {
   const tints = ['transparent', 'rgba(214,150,60,.14)', 'rgba(170,80,80,.22)', 'rgba(120,115,130,.34)'];
   $('liver-tint').style.background = `linear-gradient(to top, ${tints[st]}, transparent 45%)`;
   liverSprite.material.color.setHex([0xffffff, 0xe8cba6, 0xc99a90, 0x8f8f96][st]);   // 간이 굳을수록 수호탑도 탁해짐
-  if (G.pancDown) $('panc-state').textContent = '⛔ 기능 정지 · 이번 판엔 못 일어나요';
+  if (G.pancDown) $('panc-state').textContent = '⛔ 췌장부전 · 회복 불가';
   else {
     const m = pancMult();
     $('panc-state').textContent = m >= 1 ? `기능 ${Math.round(G.beta)}% · 지원 사격 중`
-      : m >= 0.7 ? `기능 ${Math.round(G.beta)}% · 인슐린이 약해졌어요` : `기능 ${Math.round(G.beta)}% · 과로 상태!`;
+      : m >= 0.7 ? `기능 ${Math.round(G.beta)}% · 인슐린이 약해졌어요`
+      : m >= 0.45 ? `기능 ${Math.round(G.beta)}% · 과로 상태!`
+      : `기능 ${Math.round(G.beta)}% · 무력화(인슐린 저항성)`;
   }
   const third = Math.ceil((G.core / 100) * 3);
   [$('core-heart'), $('core-kidney'), $('core-brain')].forEach((el, i) => {
@@ -965,21 +973,33 @@ function pancreasUpdate(dt) {
   // 회복/소모
   if (sugarEnemies.length === 0) G.beta = Math.min(100, G.beta + 2.2 * dt);
   else G.beta = Math.min(100, G.beta + 0.4 * dt);
+  // 저항성 상태로 계속 혹사되면 췌장부전으로 진행 (회복하면 부담이 천천히 풀림)
+  if (G.beta <= 5 && sugarEnemies.length > 0) {
+    G.pancStrain += dt;
+    if (G.pancStrain >= 12) {
+      G.pancDown = true;
+      showMsg('⛔ 췌장부전… 이번 판엔 인슐린이 다시 나오지 않아요', 3600);
+      sfx.no();
+      return;
+    }
+  } else if (G.beta > 30) {
+    G.pancStrain = Math.max(0, G.pancStrain - dt * 0.5);
+  }
   pancTimer -= dt;
   if (pancTimer <= 0 && sugarEnemies.length > 0) {
     pancTimer = 1.0;
     let nearest = sugarEnemies[0];
     for (const e of sugarEnemies) if (e.mesh.position.z > nearest.mesh.position.z) nearest = e;
     const cost = G.sugar > 70 ? 5.0 : 2.2;   // 고혈당 = 과로
-    G.beta -= cost;
+    G.beta = Math.max(0, G.beta - cost);
     const mult = pancMult();
-    if (G.beta <= 0) {
-      G.beta = 0; G.pancDown = true;
-      showMsg('⛔ 췌장이 번아웃됐어요… 인슐린 지원이 끊깁니다', 3200);
+    if (G.beta <= 10 && !G.pancWarned) {
+      G.pancWarned = true;
+      showMsg('💉 인슐린 저항성! 쏘고는 있지만 거의 듣지 않아요', 3200);
       sfx.no();
-      return;
     }
-    const p = new THREE.Mesh(new THREE.SphereGeometry(mult >= 1 ? 0.22 : 0.3, 8, 6),
+    // 무력화여도 계속 발사한다 — 저항성 시기의 고인슐린혈증
+    const p = new THREE.Mesh(new THREE.SphereGeometry(mult >= 1 ? 0.22 : 0.32, 8, 6),
       new THREE.MeshBasicMaterial({ color: 0x9ad0ff }));
     p.position.copy(pancTip.getWorldPosition(new THREE.Vector3()));
     projectiles.push({ mesh: p, target: nearest, dmg: 1.2 * mult, speed: 26 });
@@ -1259,7 +1279,7 @@ function answerQuiz(correct, btn) {
       const upgraded = weaponUp();
       if (!upgraded) {
         G.fibrosis = Math.max(0, G.fibrosis - 20);
-        if (!G.pancDown) G.beta = Math.min(100, G.beta + 20);
+        if (!G.pancDown) { G.beta = Math.min(100, G.beta + 20); G.pancStrain = Math.max(0, G.pancStrain - 6); }
         G.metabolic = Math.min(100, G.metabolic + 10);
       }
       $('quiz-feedback').textContent = upgraded
@@ -1267,7 +1287,7 @@ function answerQuiz(correct, btn) {
         : `정답! +${gain.toLocaleString()} · 🧪 간 회복 포션! 간이 부드러워졌어요`;
     } else {
       G.fibrosis = Math.max(0, G.fibrosis - 25);
-      if (!G.pancDown) G.beta = Math.min(100, G.beta + 30);
+      if (!G.pancDown) { G.beta = Math.min(100, G.beta + 30); G.pancStrain = Math.max(0, G.pancStrain - 6); }
       G.metabolic = Math.min(100, G.metabolic + 8);
       weaponUp();
       $('quiz-feedback').textContent = `정답! +${gain.toLocaleString()} · 간 성벽이 수리되고 췌장이 회복됐어요`;
@@ -1326,7 +1346,7 @@ function finishGame(victory) {
   $('result-breakdown').innerHTML =
     `사격 ${G.shootScore.toLocaleString()} · 퀴즈 ${G.quizScore.toLocaleString()} · 지방이 구출 ${G.rescueScore.toLocaleString()} (${G.fatsRescued}명) · 최종 무기 ${WEAPONS[G.weapon].icon} ${WEAPONS[G.weapon].name}` +
     `<br>피니시 보너스 ${G.finishBonus.toLocaleString()} — 장기를 건강하게 지킬수록 점수가 커져요` +
-    (G.pancDown ? '<br>⚠️ 이번 판엔 췌장이 번아웃됐어요. 당류 적을 빨리 잡을수록 췌장이 오래 버텨요' : '');
+    (G.pancDown ? '<br>⚠️ 이번 판엔 췌장부전까지 진행됐어요. 저항성(무력화) 단계에서 당류 적을 빨리 정리하면 부전을 막을 수 있어요' : '');
   $('screen-result').classList.remove('hidden');
   hud.classList.add('hidden');
   setTimeout(() => { canRestart = true; }, 1200);
@@ -1483,6 +1503,44 @@ window.addEventListener('pointerdown', (e) => {
   if (G.state === 'WAVE') shootAt(e.clientX, e.clientY);
   if (G.state === 'RESULT' && canRestart) location.reload();
 });
+// 시작 화면 인트로 이중 언어
+const INTRO_STRINGS = {
+  ko: {
+    sub: 'CKLM ARCADE — 몸속 최후의 방어선',
+    press: '화면을 쏘면 시작합니다',
+    pressAgain: '화면을 쏘면 다시 시작합니다',
+    diffLabel: '문제 난이도',
+    howto: '걸어오는 <b>정크푸드</b>를 쏘고, <b>퀴즈</b>를 맞혀 점수를 올리세요<br>' +
+      '<b>간 성벽</b>은 놓친 적을 묵묵히 막아주지만, 혹사되면 서서히 굳어가요<br>' +
+      '<b>췌장 망루</b>는 당류 적을 자동 요격하지만, 과로하면 인슐린이 약해져요<br>' +
+      '덫에 갇힌 <b>지방이</b>는 자물쇠만 정확히 쏴서 구해주세요 (지방이를 쏘면 안 돼요!)',
+  },
+  en: {
+    sub: 'CKLM ARCADE — LAST DEFENSE INSIDE THE BODY',
+    press: 'Shoot the screen to start',
+    pressAgain: 'Shoot the screen to play again',
+    diffLabel: 'Quiz difficulty',
+    howto: 'Shoot the marching <b>junk food</b> and answer <b>quizzes</b> to score<br>' +
+      'The <b>liver wall</b> quietly absorbs what you miss — overwork slowly hardens it<br>' +
+      'The <b>pancreas turret</b> auto-fires insulin at sugar enemies, but overwork weakens it<br>' +
+      'Free trapped <b>Fatty</b> by shooting only the lock (never shoot Fatty!)',
+  },
+};
+function applyLang(lang) {
+  G.lang = lang;
+  loadQuizLang(lang);
+  const S = INTRO_STRINGS[lang];
+  const press = document.querySelectorAll('.press-start');
+  if (press[0]) press[0].textContent = S.press;
+  if (press[1]) press[1].textContent = S.pressAgain;
+  const subs = document.querySelectorAll('.title-sub');
+  if (subs[0]) subs[0].textContent = S.sub;
+  const labels = document.querySelectorAll('.opt-label');
+  if (labels[1]) labels[1].textContent = S.diffLabel;
+  const howto = document.querySelector('.howto');
+  if (howto) howto.innerHTML = S.howto;
+}
+
 // 시작 화면 옵션 (언어·문제 난이도) — 클릭이 게임 시작으로 번지지 않게 전파 차단
 document.querySelectorAll('.opt-btn').forEach((b) => {
   b.addEventListener('pointerdown', (ev) => {
@@ -1490,13 +1548,14 @@ document.querySelectorAll('.opt-btn').forEach((b) => {
     audio();
     const { opt, val } = b.dataset;
     document.querySelectorAll(`.opt-btn[data-opt="${opt}"]`).forEach((x) => x.classList.toggle('sel', x === b));
-    if (opt === 'lang') loadQuizLang(val);
+    if (opt === 'lang') applyLang(val);
     else G.quizDiff = val;
     beep(620, 0.05, 'triangle', 0.05);
   });
 });
 if (QUIZ_LANG_INIT === 'en') {
   document.querySelectorAll('.opt-btn[data-opt="lang"]').forEach((x) => x.classList.toggle('sel', x.dataset.val === 'en'));
+  applyLang('en');
 }
 
 window.addEventListener('keydown', (e) => {
@@ -1574,5 +1633,5 @@ function tick() {
   requestAnimationFrame(tick);
   step(Math.min(clock.getDelta(), 0.05));
 }
-window.DBG = { G, enemies, traps, fatWalls, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
+window.DBG = { G, enemies, traps, fatWalls, projectiles, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
 tick();
