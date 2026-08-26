@@ -261,6 +261,18 @@ const pancTip = new THREE.Object3D();
 pancTip.position.set(5.7, 3.2, -1.6);   // 반전된 대포의 총구 지점
 scene.add(pancTip);
 
+// 포탑 위치: 디버그 편집(4·5키)으로 이동 가능, localStorage 저장
+const ORGAN_DEFAULTS = { liver: [-3.2, 1.9], panc: [7.6, -1.6] };
+function placeOrgan(which, x, z) {
+  if (which === 'liver') { liverSprite.position.x = x; liverSprite.position.z = z; }
+  else { pancSprite.position.x = x; pancSprite.position.z = z; pancTip.position.set(x - 1.9, 3.2, z); }
+}
+try {
+  const o = JSON.parse(localStorage.getItem('xg_organs') || '{}');
+  if (o.liver) placeOrgan('liver', o.liver[0], o.liver[1]);
+  if (o.panc) placeOrgan('panc', o.panc[0], o.panc[1]);
+} catch (err) { /* 무시 */ }
+
 // ---------- 간 정화 파동: 주기적 광역 해독 — 지상 적 전체 체력을 조금씩 깎는다 ----------
 // 간이 굳을수록(섬유화) 파동 주기가 느려진다. 묵묵하지만 확실한 지원.
 const LIVER_PULSE_INTERVAL = [6, 7.5, 9, 12];   // 단계별 주기(초)
@@ -1358,23 +1370,42 @@ function debugCoords(clientX, clientY) {
 }
 
 // ---------- 루트 드로잉 편집기 (디버그): 1/2/3 = 그리기 시작, 클릭 = 점 추가, Enter = 저장, Esc = 취소, 0 = 기본 복원 ----------
-let editRoute = -1, editPts = [], editMarkers = null;
+let editRoute = -1, editPts = [], editMarkers = null, routeAutoDebug = false;
 
 // ---------- 지방 둔덕 배치 모드 (F): 클릭한 곳으로 둔덕이 순서대로 이동, 자동 저장 ----------
-let wallEdit = false, wallEditIdx = 0;
+let wallEdit = false, wallEditIdx = 0, wallAutoDebug = false;
 function toggleWallEdit() {
   wallEdit = !wallEdit;
   wallEditIdx = 0;
-  if (wallEdit && !debugOn) toggleDebug();
+  if (wallEdit && !debugOn) { toggleDebug(); wallAutoDebug = true; }
+  if (!wallEdit && wallAutoDebug) { if (debugOn) toggleDebug(); wallAutoDebug = false; }
   showMsg(wallEdit ? '🍞 둔덕 배치 모드 — 빈 땅 클릭=추가(최대 6), 둔덕 클릭=제거 (F로 종료)' : '🍞 둔덕 배치 종료', 3200);
+}
+
+// ---------- 포탑 이동 모드 (4=간, 5=췌장): 클릭 위치로 이동, 자동 저장 ----------
+let organEdit = null, organAutoDebug = false;
+function toggleOrganEdit(which) {
+  if (organEdit === which) { organEdit = null; }
+  else organEdit = which;
+  if (organEdit && !debugOn) { toggleDebug(); organAutoDebug = true; }
+  if (!organEdit && organAutoDebug) { if (debugOn) toggleDebug(); organAutoDebug = false; }
+  showMsg(organEdit
+    ? `${organEdit === 'liver' ? '🫀 간 수호탑' : '💉 췌장 포탑'} 이동 모드 — 클릭한 자리로 옮겨요 (같은 키로 종료)`
+    : '포탑 이동 종료', 3000);
+}
+function saveOrganPos() {
+  localStorage.setItem('xg_organs', JSON.stringify({
+    liver: [+liverSprite.position.x.toFixed(1), +liverSprite.position.z.toFixed(1)],
+    panc: [+pancSprite.position.x.toFixed(1), +pancSprite.position.z.toFixed(1)],
+  }));
 }
 function saveWallPos() {
   localStorage.setItem('xg_fatwalls2', JSON.stringify(
     fatWalls.map((w) => [+w.mesh.position.x.toFixed(1), +w.mesh.position.z.toFixed(1)])));
 }
 function startRouteEdit(idx) {
-  if (!debugOn) toggleDebug();
-  finishRouteEdit(false);
+  finishRouteEdit(false);   // 이전 편집 정리 후에 디버그 자동점등 (순서 중요)
+  if (!debugOn) { toggleDebug(); routeAutoDebug = true; }
   editRoute = idx; editPts = [];
   editMarkers = new THREE.Group(); scene.add(editMarkers);
   showMsg(`✏️ ${['터널(1번)', '심장(2번)', '파이프(3번)'][idx]} 루트 그리기 — 스폰 지점부터 방어선까지 길을 따라 클릭한 뒤 Enter`, 5200);
@@ -1389,12 +1420,13 @@ function finishRouteEdit(save) {
     applyRoutePoints(editRoute, pts);
     console.log(`[route ${editRoute}]`, JSON.stringify(pts));
     showMsg('✅ 루트 저장! 새로 나오는 적부터 이 길을 따라와요 (0 키 = 기본 복원)', 3600);
-    if (debugOn) { toggleDebug(); toggleDebug(); }   // 경로 마커 갱신
+    if (debugOn && !routeAutoDebug) { toggleDebug(); toggleDebug(); }   // 경로 마커 갱신
   } else if (editPts.length) {
     showMsg('↩️ 루트 그리기 취소', 1600);
   }
   editRoute = -1; editPts = [];
   if (editMarkers) { scene.remove(editMarkers); editMarkers = null; }
+  if (routeAutoDebug) { if (debugOn) toggleDebug(); routeAutoDebug = false; }   // 자동으로 켠 디버그는 같이 끔
 }
 
 // ---------- 입력 ----------
@@ -1413,6 +1445,15 @@ window.addEventListener('pointerdown', (e) => {
       mk.position.copy(g.p); mk.position.y = 0.3;
       editMarkers.add(mk);
       $('debug-info').textContent = debugCoords(e.clientX, e.clientY);
+    }
+    return;
+  }
+  if (organEdit) {   // 포탑 이동 중: 클릭 = 이동 (사격 안 함)
+    const g = groundPoint(e.clientX, e.clientY);
+    if (g.p) {
+      placeOrgan(organEdit, +g.p.x.toFixed(1), +g.p.z.toFixed(1));
+      saveOrganPos();
+      showMsg(`${organEdit === 'liver' ? '🫀 간 수호탑' : '💉 췌장 포탑'} 이동 완료 (자동 저장)`, 1500);
     }
     return;
   }
@@ -1467,11 +1508,16 @@ window.addEventListener('keydown', (e) => {
   if (k === 'Digit3' || k === 'Numpad3') startRouteEdit(2);
   if (k === 'Enter' || k === 'NumpadEnter') finishRouteEdit(true);
   if (k === 'KeyF') toggleWallEdit();
-  if (k === 'Escape') { finishRouteEdit(false); if (wallEdit) toggleWallEdit(); }
+  if (k === 'Digit4' || k === 'Numpad4') toggleOrganEdit('liver');
+  if (k === 'Digit5' || k === 'Numpad5') toggleOrganEdit('panc');
+  if (k === 'Escape') { finishRouteEdit(false); if (wallEdit) toggleWallEdit(); if (organEdit) toggleOrganEdit(organEdit); }
   if (k === 'Digit0' || k === 'Numpad0') {
     localStorage.removeItem('xg_routes');
     localStorage.removeItem('xg_fatwalls2');
+    localStorage.removeItem('xg_organs');
     ROUTES.forEach((_, i) => applyRoutePoints(i, DEFAULT_ROUTES[i]));
+    placeOrgan('liver', ORGAN_DEFAULTS.liver[0], ORGAN_DEFAULTS.liver[1]);
+    placeOrgan('panc', ORGAN_DEFAULTS.panc[0], ORGAN_DEFAULTS.panc[1]);
     fatWalls.slice().forEach((w) => { shootRoot.remove(w.mesh); });
     fatWalls.length = 0;
     DEFAULT_WALL_POS.forEach(([x, z]) => makeFatWall(x, z));
