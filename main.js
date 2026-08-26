@@ -605,11 +605,17 @@ function buildEnemyMesh(type) {
     cone.rotation.x = Math.PI;   // 꼭짓점 아래
     cone.position.y = 0.6; g.add(cone);
     const scoop = new THREE.Mesh(new THREE.SphereGeometry(0.45, 12, 10),
-      new THREE.MeshStandardMaterial({ color: 0xff9ec4, roughness: 0.45, emissive: 0x7a2c47, emissiveIntensity: 0.35 }));
+      new THREE.MeshStandardMaterial({ color: 0x9fe8c9, roughness: 0.45, emissive: 0x2c6a52, emissiveIntensity: 0.3 }));
     scoop.position.y = 1.28; g.add(scoop);
-    const cherry = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 6),
-      new THREE.MeshStandardMaterial({ color: 0xd9302e, roughness: 0.4 }));
-    cherry.position.set(0.1, 1.66, 0.05); g.add(cherry);
+    // 민트초코: 초코칩 알갱이
+    const chipMat2 = new THREE.MeshStandardMaterial({ color: 0x3a2418, roughness: 0.5 });
+    for (const [cx, cy, cz] of [[-0.18, 1.42, 0.3], [0.15, 1.3, 0.38], [-0.05, 1.18, 0.42], [0.28, 1.45, 0.2]]) {
+      const chip = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 5), chipMat2);
+      chip.position.set(cx, cy, cz); g.add(chip);
+    }
+    const choco = new THREE.Mesh(new THREE.SphereGeometry(0.11, 8, 6),
+      new THREE.MeshStandardMaterial({ color: 0x4a2c1a, roughness: 0.45 }));
+    choco.position.set(0.08, 1.68, 0.05); g.add(choco);
     const eyeMat = new THREE.MeshBasicMaterial({ color: 0x1a1a1a });
     for (const dx of [-0.16, 0.16]) {
       const e = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), eyeMat);
