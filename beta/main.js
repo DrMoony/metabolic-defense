@@ -11,27 +11,30 @@ const SPAWN_Z = -62;          // 적 스폰 z
 const LEAK_Z = 7;             // 성벽 통과한 적이 코어를 때리는 지점
 
 const ENEMY_TYPES = {
-  soda:   { hp: 2,  speed: 3.2, score: 150, wallDmg: 5,  sugar: true,  label: '소용돌이 캔디' },
-  fries:  { hp: 3,  speed: 2.2, score: 200, wallDmg: 7,  sugar: false, label: '트랜스 프라이' },
-  burger: { hp: 8,  speed: 1.35, score: 400, wallDmg: 13, sugar: false, label: '미드나잇 버거' },
-  pizza:  { hp: 5,  speed: 1.8, score: 300, wallDmg: 9,  sugar: false, label: '기름진 피자' },
-  ramen:  { hp: 6,  speed: 1.5, score: 350, wallDmg: 11, sugar: false, label: '나트륨 컵라면' },
-  icecream: { hp: 2, speed: 2.8, score: 200, wallDmg: 6, sugar: true,  label: '아이스크림 콘' },
-  ciga:   { hp: 3,  speed: 2.5, score: 250, wallDmg: 8,  sugar: false, label: '꽁초 니코틴' },
-  soju:   { hp: 4,  speed: 2.0, score: 320, wallDmg: 6,  sugar: false, liverX: 2.4, label: '초록 소주병' },
-  donut:  { hp: 1,  speed: 3.4, score: 250, wallDmg: 0,  sugar: true,  fly: true, label: '슈가 도넛' },
-  moth:   { hp: 1,  speed: 4.2, score: 250, wallDmg: 0,  sugar: false, fly: true, label: '날아온 과자봉지' },
+  soda:   { hp: 2,  speed: 3.2, score: 150, wallDmg: 5,  sugar: true,  label: '소용돌이 캔디', labelEn: 'Swirl Candy' },
+  fries:  { hp: 3,  speed: 2.2, score: 200, wallDmg: 7,  sugar: false, label: '트랜스 프라이', labelEn: 'Trans Fries' },
+  burger: { hp: 8,  speed: 1.35, score: 400, wallDmg: 13, sugar: false, label: '미드나잇 버거', labelEn: 'Midnight Burger' },
+  pizza:  { hp: 5,  speed: 1.8, score: 300, wallDmg: 9,  sugar: false, label: '기름진 피자', labelEn: 'Greasy Pizza' },
+  ramen:  { hp: 6,  speed: 1.5, score: 350, wallDmg: 11, sugar: false, label: '나트륨 컵라면', labelEn: 'Sodium Cup Noodles' },
+  icecream: { hp: 2, speed: 2.8, score: 200, wallDmg: 6, sugar: true,  label: '아이스크림 콘', labelEn: 'Mint-Choco Cone' },
+  ciga:   { hp: 3,  speed: 2.5, score: 250, wallDmg: 8,  sugar: false, label: '꽁초 니코틴', labelEn: 'Nicotine Butt' },
+  soju:   { hp: 4,  speed: 2.0, score: 320, wallDmg: 6,  sugar: false, liverX: 2.4, label: '초록 소주병', labelEn: 'Green Soju Bottle' },
+  donut:  { hp: 1,  speed: 3.4, score: 250, wallDmg: 0,  sugar: true,  fly: true, label: '슈가 도넛', labelEn: 'Sugar Donut' },
+  moth:   { hp: 1,  speed: 4.2, score: 250, wallDmg: 0,  sugar: false, fly: true, label: '날아온 과자봉지', labelEn: 'Flying Chip Bag' },
   // 보스 3종 (판마다 로테이션)
-  boss:   { hp: 45, speed: 0.85, score: 2000, wallDmg: 30, sugar: false, boss: true, label: '킹 버거' },
-  cancer: { hp: 40, speed: 0.95, score: 2200, wallDmg: 26, sugar: false, boss: true, splits: 4, label: '암세포' },
-  plaque: { hp: 34, speed: 1.25, score: 2400, wallDmg: 34, sugar: false, boss: true, ram: true, label: '죽상경화 플라크' },
-  cancerlet: { hp: 2, speed: 3.4, score: 150, wallDmg: 5, sugar: false, label: '암세포 조각' },
+  boss:   { hp: 45, speed: 0.85, score: 2000, wallDmg: 30, sugar: false, boss: true, label: '킹 버거', labelEn: 'King Burger' },
+  cancer: { hp: 40, speed: 0.95, score: 2200, wallDmg: 26, sugar: false, boss: true, splits: 4, label: '암세포', labelEn: 'Cancer Cell' },
+  plaque: { hp: 34, speed: 1.25, score: 2400, wallDmg: 34, sugar: false, boss: true, ram: true, label: '죽상경화 플라크', labelEn: 'Atherosclerotic Plaque' },
+  cancerlet: { hp: 2, speed: 3.4, score: 150, wallDmg: 5, sugar: false, label: '암세포 조각', labelEn: 'Cancer Fragment' },
 };
 const BOSS_POOL = ['boss', 'cancer', 'plaque'];
 const BOSS_INTRO = {
-  boss: '👑 킹 버거 등장! 영양성분표가 약점이에요',
-  cancer: '🧬 암세포 등장! 쓰러뜨리면 조각으로 흩어져요',
-  plaque: '🩸 죽상경화 플라크 등장! 간 성벽을 뚫고 코어로 돌진해요',
+  ko: { boss: '👑 킹 버거 등장! 영양성분표가 약점이에요',
+        cancer: '🧬 암세포 등장! 쓰러뜨리면 조각으로 흩어져요',
+        plaque: '🩸 죽상경화 플라크 등장! 간 성벽을 뚫고 코어로 돌진해요' },
+  en: { boss: '👑 King Burger! The nutrition label is its weak point',
+        cancer: '🧬 Cancer Cell! It splits into fragments when destroyed',
+        plaque: '🩸 Atherosclerotic Plaque! It rams through the liver wall to the core' },
 };
 
 const WAVES = [
@@ -78,17 +81,109 @@ loadQuizLang(QUIZ_LANG_INIT);
 
 // 무기 성장: 트랩 아이템 퀴즈·웨이브 퀴즈 정답으로 승급
 const WEAPONS = [
-  { name: '새총',     icon: '🪀', dmg: 1, cd: 0.46, flash: 0xd9c9a8, beam: false },
-  { name: '석궁',     icon: '🏹', dmg: 1, cd: 0.28, flash: 0xd9c9a8, beam: false },
-  { name: '화승총',   icon: '🧨', dmg: 2, cd: 0.42, flash: 0xffb060, beam: false },
-  { name: '권총',     icon: '🔫', dmg: 2, cd: 0.18, flash: 0xffe9a8, beam: false },
-  { name: '샷건',     icon: '💥', dmg: 1, cd: 0.55, flash: 0xffc070, beam: false, pellets: 5 },
-  { name: '기관단총', icon: '⚙️', dmg: 1, cd: 0.08, flash: 0xffe9a8, beam: false },
-  { name: '소총',     icon: '🎯', dmg: 3, cd: 0.14, flash: 0xfff2c8, beam: false },
-  { name: '기관총',   icon: '🔩', dmg: 2, cd: 0.36, flash: 0xfff2c8, beam: false, burst: 3 },
-  { name: '바주카',   icon: '🚀', dmg: 5, cd: 0.75, flash: 0xffa060, beam: false, rocket: true, splash: 3.2, splashDmg: 2 },
-  { name: '레이저',   icon: '⚡', dmg: 4, cd: 0.10, flash: 0x8ff2ff, beam: true },
+  { name: '새총',     en: 'Slingshot',   icon: '🪀', dmg: 1, cd: 0.46, flash: 0xd9c9a8, beam: false, mag: 6,  rl: 1.3 },
+  { name: '석궁',     en: 'Crossbow',    icon: '🏹', dmg: 1, cd: 0.28, flash: 0xd9c9a8, beam: false, mag: 5,  rl: 1.5 },
+  { name: '화승총',   en: 'Matchlock',   icon: '🧨', dmg: 2, cd: 0.42, flash: 0xffb060, beam: false, mag: 1,  rl: 1.7 },
+  { name: '권총',     en: 'Pistol',      icon: '🔫', dmg: 2, cd: 0.18, flash: 0xffe9a8, beam: false, mag: 12, rl: 1.2 },
+  { name: '샷건',     en: 'Shotgun',     icon: '💥', dmg: 1, cd: 0.55, flash: 0xffc070, beam: false, pellets: 5, mag: 6, rl: 1.9 },
+  { name: '기관단총', en: 'SMG',         icon: '⚙️', dmg: 1, cd: 0.08, flash: 0xffe9a8, beam: false, mag: 30, rl: 1.6 },
+  { name: '소총',     en: 'Rifle',       icon: '🎯', dmg: 3, cd: 0.14, flash: 0xfff2c8, beam: false, mag: 20, rl: 1.6 },
+  { name: '기관총',   en: 'Machine Gun', icon: '🔩', dmg: 2, cd: 0.36, flash: 0xfff2c8, beam: false, burst: 3, mag: 45, rl: 2.3 },
+  { name: '바주카',   en: 'Bazooka',     icon: '🚀', dmg: 5, cd: 0.75, flash: 0xffa060, beam: false, rocket: true, splash: 3.2, splashDmg: 2, mag: 1, rl: 2.1 },
+  { name: '레이저',   en: 'Laser',       icon: '⚡', dmg: 4, cd: 0.10, flash: 0x8ff2ff, beam: true, mag: 40, rl: 1.4 },
 ];
+function wName(i) { const w = WEAPONS[i]; return G.lang === 'en' ? w.en : w.name; }
+
+// ---------- 문자열 테이블 (전체 이중 언어) ----------
+const STR = {
+  ko: {
+    lblCore: 'CORE (심장·콩팥·뇌혈관)', lblMeta: '대사 건강 (M)', lblSugar: '혈당',
+    lblLiver: '🟤 간 성벽 (L)', lblPanc: '인슐린 망루 (췌장) 🔵',
+    liverStage: ['건강해요 · 정화 파동 가동 중', '지방간(MASLD) · 파동이 느려져요', 'MASH · 파동이 많이 느려져요', '섬유화 · 파동이 거의 멎어가요'],
+    liverShort: ['건강', '지방간(MASLD)', 'MASH', '섬유화'],
+    pancDown: '⛔ 췌장부전 · 회복 불가',
+    pancOk: (n) => `기능 ${n}% · 지원 사격 중`, pancWeak: (n) => `기능 ${n}% · 인슐린이 약해졌어요`,
+    pancTired: (n) => `기능 ${n}% · 과로 상태!`, pancResist: (n) => `기능 ${n}% · 무력화(인슐린 저항성)`,
+    waveStart: (n) => `${n} 시작!`, finalWave: '🚨 최종 웨이브! 좌측 혈관 파이프까지 열렸어요',
+    trapWarn: '⚠️ 내장지방 덫! 자물쇠를 쏴서 지방이를 구해주세요',
+    rescue: '🔥 지방이 구출! 에너지로 연소 +800',
+    shotBlob: '😢 지방이를 맞히면 안 돼요! 보너스가 사라졌어요',
+    dragged: '🫠 내장지방이 간으로 흘러갔어요… 간이 더 굳습니다',
+    wallHint: '🟡 지방 둔덕이 길을 막고 있어요! 뚫으려면 꽤 맞혀야 해요',
+    wallDown: '🧨 지방 둔덕 제거! +1,000 · 보너스 퀴즈 찬스',
+    leak: '💔 성벽이 뚫렸어요! 코어가 공격받았습니다',
+    flyHit: '🪽 날아드는 간식이 코어를 스쳤어요!',
+    pancResistWarn: '💉 인슐린 저항성! 쏘고는 있지만 거의 듣지 않아요',
+    pancFail: '⛔ 췌장부전… 이번 판엔 인슐린이 다시 나오지 않아요',
+    sojuHit: '🍶 알코올이 간을 직접 때렸어요!',
+    cancerSplit: '🧬 암세포가 조각으로 분열했어요!',
+    plaqueRam: '🩸 플라크가 성벽을 뚫고 돌진해요!',
+    bossKill: (l, g) => `${l} 격파! +${g}`,
+    weaponUp: (i, n) => `⬆️ 무기 업그레이드! ${i} ${n} 획득`,
+    reloading: '재장전', reloadHint: '⟳ 재장전 중… 우클릭으로 무기를 바꿀 수 있어요',
+    swap: (i, n) => `🔄 ${i} ${n}(으)로 교체`,
+    quizTagWave: 'QUIZ TIME · 정답을 쏘세요!', quizTagItem: 'ITEM CHANCE · 정답을 쏘면 보상!',
+    quizSubWave: '정답을 맞히면 간 성벽이 수리되고 췌장이 회복되고 무기도 좋아져요',
+    quizSubItem: '정답이면 무기 업그레이드, 무기가 최고면 간 회복 포션을 얻어요',
+    okWave: (g) => `정답! +${g} · 간 성벽이 수리되고 췌장이 회복됐어요`,
+    okItemGun: (g) => `정답! +${g} · 새 무기를 손에 넣었어요`,
+    okItemPot: (g) => `정답! +${g} · 🧪 간 회복 포션! 간이 부드러워졌어요`,
+    ngItem: (a) => `아쉬워요! 정답은 "${a}" — 보상 없이 전투로 복귀해요`,
+    ngWave: (a) => `아쉬워요! 정답은 "${a}" — 수리 없이 다음 웨이브로 가요`,
+    grades: [[60000, 'S · 대사 마스터'], [42000, 'A · 간 지킴이'], [28000, 'B · 성실한 수호자'], [0, 'C · 다음엔 더 잘할 수 있어요']],
+    defeat: '💔 코어 함락 · 다시 도전해요',
+    repCK: '심장·콩팥·뇌혈관', repL: '간 상태', repM: '대사 건강', repQ: '지식 점수',
+    breakdown: (a, b, c, n, w) => `사격 ${a} · 퀴즈 ${b} · 지방이 구출 ${c} (${n}명) · 최종 무기 ${w}`,
+    finishBonus: (v) => `<br>피니시 보너스 ${v} — 장기를 건강하게 지킬수록 점수가 커져요`,
+    pancNote: '<br>⚠️ 이번 판엔 췌장부전까지 진행됐어요. 저항성(무력화) 단계에서 당류 적을 빨리 정리하면 부전을 막을 수 있어요',
+  },
+  en: {
+    lblCore: 'CORE (Heart · Kidney · Brain)', lblMeta: 'Metabolic health (M)', lblSugar: 'Blood glucose',
+    lblLiver: '🟤 Liver Wall (L)', lblPanc: 'Insulin Turret (Pancreas) 🔵',
+    liverStage: ['Healthy · detox pulse active', 'Steatosis (MASLD) · pulse slowing', 'MASH · pulse much slower', 'Fibrosis · pulse nearly stopped'],
+    liverShort: ['Healthy', 'MASLD', 'MASH', 'Fibrosis'],
+    pancDown: '⛔ Pancreatic failure · unrecoverable',
+    pancOk: (n) => `Function ${n}% · supporting fire`, pancWeak: (n) => `Function ${n}% · insulin weakening`,
+    pancTired: (n) => `Function ${n}% · overworked!`, pancResist: (n) => `Function ${n}% · blunted (insulin resistance)`,
+    waveStart: (n) => `${n} START!`, finalWave: '🚨 Final wave! The left vessel pipe is open too',
+    trapWarn: '⚠️ Visceral fat trap! Shoot the lock to free Fatty',
+    rescue: '🔥 Fatty freed! Burned as energy +800',
+    shotBlob: '😢 Never shoot Fatty! Bonus lost',
+    dragged: '🫠 Visceral fat drifted into the liver… it hardens further',
+    wallHint: '🟡 A fat mound blocks the path! It takes many hits to clear',
+    wallDown: '🧨 Fat mound cleared! +1,000 · bonus quiz',
+    leak: '💔 The wall was breached! The core is under attack',
+    flyHit: '🪽 A flying snack grazed the core!',
+    pancResistWarn: '💉 Insulin resistance! Still firing, but barely working',
+    pancFail: '⛔ Pancreatic failure… no more insulin this run',
+    sojuHit: '🍶 Alcohol hit the liver directly!',
+    cancerSplit: '🧬 The cancer split into fragments!',
+    plaqueRam: '🩸 The plaque smashed through the wall!',
+    bossKill: (l, g) => `${l} down! +${g}`,
+    weaponUp: (i, n) => `⬆️ Weapon upgrade! Got ${i} ${n}`,
+    reloading: 'RELOAD', reloadHint: '⟳ Reloading… right-click to switch weapons',
+    swap: (i, n) => `🔄 Switched to ${i} ${n}`,
+    quizTagWave: 'QUIZ TIME · Shoot the answer!', quizTagItem: 'ITEM CHANCE · Answer right for a reward!',
+    quizSubWave: 'A correct answer repairs the liver wall, revives the pancreas and upgrades your weapon',
+    quizSubItem: 'Correct = weapon upgrade; if maxed, you get a liver recovery potion',
+    okWave: (g) => `Correct! +${g} · liver wall repaired, pancreas recovered`,
+    okItemGun: (g) => `Correct! +${g} · new weapon acquired`,
+    okItemPot: (g) => `Correct! +${g} · 🧪 Liver potion! The liver softened`,
+    ngItem: (a) => `Close! The answer was "${a}" — back to battle with no reward`,
+    ngWave: (a) => `Close! The answer was "${a}" — on to the next wave without repairs`,
+    grades: [[60000, 'S · Metabolic Master'], [42000, 'A · Liver Guardian'], [28000, 'B · Steady Defender'], [0, 'C · Better luck next run']],
+    defeat: '💔 Core lost · try again',
+    repCK: 'Heart · Kidney · Brain', repL: 'Liver stage', repM: 'Metabolic health', repQ: 'Knowledge',
+    breakdown: (a, b, c, n, w) => `Shooting ${a} · Quiz ${b} · Fatty rescues ${c} (${n}) · Final weapon ${w}`,
+    finishBonus: (v) => `<br>Finish bonus ${v} — the healthier your organs, the bigger the score`,
+    pancNote: '<br>⚠️ The pancreas failed this run. Clearing sugar enemies fast during the resistance stage prevents it',
+  },
+};
+function eLabel(def) { return G.lang === 'en' ? (def.labelEn || def.label) : def.label; }
+function T(k, ...a) {
+  const t = (STR[G.lang] || STR.ko)[k];
+  return typeof t === 'function' ? t(...a) : t;
+}
 
 // ---------- 게임 상태 ----------
 const G = {
@@ -104,6 +199,7 @@ const G = {
   quizT: 0, quizAnswered: false, quizCorrectCount: 0,
   weapon: 0, pipeOpen: false, quizDiff: 'mid', liverPulseT: 4,
   pancStrain: 0, pancWarned: false, bossesUsed: [],
+  lang: 'ko', ammo: {}, reloadT: 0, nextWeaponScore: 18000,
   fatsRescued: 0, fatsLost: 0,
   fireCooldown: 0,
   over: false,
@@ -567,13 +663,54 @@ function buildGunModel(tier) {
 }
 
 function applyWeaponVisual() {
-  const W = WEAPONS[G.weapon];
   while (gun.children.length) gun.remove(gun.children[0]);
   const built = buildGunModel(G.weapon);
   gun.add(built.group);
   muzzle = built.mz;
+  updateWeaponChip();
+}
+
+// ---------- 탄약 · 재장전 · 무기 교체 (NORMAL 이상에서 작동) ----------
+function ammoOn() { return G.quizDiff !== 'easy'; }
+function magOf(i) { return WEAPONS[i].mag || 99; }
+function ammoOf(i) { if (G.ammo[i] === undefined) G.ammo[i] = magOf(i); return G.ammo[i]; }
+function startReload() {
+  if (G.reloadT > 0) return;
+  G.reloadT = WEAPONS[G.weapon].rl || 1.5;
+  beep(240, 0.1, 'square', 0.04, -60);
+  showMsg(T('reloadHint'), 1800);
+}
+function reloadUpdate(dt) {
+  if (G.reloadT <= 0) return;
+  G.reloadT -= dt;
+  if (G.reloadT <= 0) {
+    G.reloadT = 0;
+    G.ammo[G.weapon] = magOf(G.weapon);
+    beep(760, 0.09, 'sine', 0.05);
+  }
+}
+function swapWeapon() {
+  if (G.weapon <= 0 && !ammoOn()) return;
+  const owned = WEAPONS.map((_, i) => i).filter((i) => i <= G.weapon);
+  if (owned.length < 2) return;
+  const cur = owned.indexOf(G.weapon);
+  G.weapon = owned[(cur + 1) % owned.length];
+  G.reloadT = 0;                      // 교체하면 재장전은 중단
+  G.fireCooldown = 0.12;
+  applyWeaponVisual();
+  beep(520, 0.06, 'triangle', 0.05);
+  showMsg(T('swap', WEAPONS[G.weapon].icon, wName(G.weapon)), 1500);
+  if (ammoOn() && ammoOf(G.weapon) <= 0) startReload();
+}
+function updateWeaponChip() {
   const chip = $('hud-weapon');
-  if (chip) chip.textContent = `${W.icon} ${W.name}`;
+  if (!chip) return;
+  const W = WEAPONS[G.weapon];
+  let txt = `${W.icon} ${wName(G.weapon)}`;
+  if (ammoOn()) {
+    txt += G.reloadT > 0 ? ` · ⟳ ${T('reloading')}` : ` · ${ammoOf(G.weapon)}/${magOf(G.weapon)}`;
+  }
+  chip.textContent = txt;
 }
 applyWeaponVisual();
 
@@ -668,7 +805,7 @@ function destroyFatWall(wl, hitPoint) {
   G.score += 1000; G.shootScore += 1000;
   G.metabolic = Math.min(100, G.metabolic + 8);
   sfx.rescue();
-  showMsg('🧨 지방 둔덕 제거! +1,000 · 보너스 퀴즈 찬스');
+  showMsg(T('wallDown'));
   setTimeout(() => { if (G.state === 'WAVE' && !G.over) startQuiz('item'); }, 900);
 }
 
@@ -1146,7 +1283,7 @@ function spawnTrap() {
   blob.userData.entity = { kind: 'blob', trap };
   shootRoot.add(g);
   traps.push(trap);
-  showMsg('⚠️ 내장지방 덫! 자물쇠를 쏴서 지방이를 구해주세요');
+  showMsg(T('trapWarn'));
 }
 
 // ---------- 파티클 ----------
@@ -1226,7 +1363,7 @@ function flashDamage() {
 function liverStage() {
   if (G.fibrosis < 25) return 0; if (G.fibrosis < 50) return 1; if (G.fibrosis < 75) return 2; return 3;
 }
-const LIVER_STAGE_TEXT = ['건강해요 · 정화 파동 가동 중', '지방간(MASLD) · 파동이 느려져요', 'MASH · 파동이 많이 느려져요', '섬유화 · 파동이 거의 멎어가요'];
+
 const LIVER_DISSOLVE = [2.4, 3.4, 4.8, 6.5];
 
 // T2D 흐름: 저항성으로 인슐린이 '무력화'(계속 쏘지만 데미지 급감) → 지속 혹사 시 췌장부전(영구 정지)
@@ -1239,6 +1376,12 @@ function pancMult() {
 }
 
 function updateHUD() {
+  // 점수 마일스톤마다 자동 승급 — 퀴즈를 놓쳐도 무기 트리를 끝까지 탈 수 있게
+  while (G.score >= G.nextWeaponScore && G.weapon < WEAPONS.length - 1) {
+    G.nextWeaponScore += 18000;
+    weaponUp(1);
+  }
+  updateWeaponChip();
   $('score-val').textContent = G.score.toLocaleString();
   const mult = comboMult();
   $('combo-val').textContent = G.streak >= 3 ? `${G.streak} COMBO · x${mult.toFixed(1)}` : '';
@@ -1248,17 +1391,16 @@ function updateHUD() {
   $('bar-liver').style.width = `${Math.max(0, 100 - G.fibrosis)}%`;
   $('bar-beta').style.width = `${Math.max(0, G.beta)}%`;
   const st = liverStage();
-  $('liver-state').textContent = LIVER_STAGE_TEXT[st];
+  $('liver-state').textContent = T('liverStage')[st];
   const tints = ['transparent', 'rgba(214,150,60,.14)', 'rgba(170,80,80,.22)', 'rgba(120,115,130,.34)'];
   $('liver-tint').style.background = `linear-gradient(to top, ${tints[st]}, transparent 45%)`;
   liverSprite.material.color.setHex([0xffffff, 0xe8cba6, 0xc99a90, 0x8f8f96][st]);   // 간이 굳을수록 수호탑도 탁해짐
-  if (G.pancDown) $('panc-state').textContent = '⛔ 췌장부전 · 회복 불가';
+  if (G.pancDown) $('panc-state').textContent = T('pancDown');
   else {
     const m = pancMult();
-    $('panc-state').textContent = m >= 1 ? `기능 ${Math.round(G.beta)}% · 지원 사격 중`
-      : m >= 0.7 ? `기능 ${Math.round(G.beta)}% · 인슐린이 약해졌어요`
-      : m >= 0.45 ? `기능 ${Math.round(G.beta)}% · 과로 상태!`
-      : `기능 ${Math.round(G.beta)}% · 무력화(인슐린 저항성)`;
+    const bn = Math.round(G.beta);
+    $('panc-state').textContent = m >= 1 ? T('pancOk', bn) : m >= 0.7 ? T('pancWeak', bn)
+      : m >= 0.45 ? T('pancTired', bn) : T('pancResist', bn);
   }
   const third = Math.ceil((G.core / 100) * 3);
   [$('core-heart'), $('core-kidney'), $('core-brain')].forEach((el, i) => {
@@ -1301,7 +1443,7 @@ function processRay(ndcX, ndcY, W) {
   }
   if (ent.kind === 'fatwall') {
     const wl = ent.ref;
-    if (!wl.hinted) { wl.hinted = true; showMsg('🟡 지방 둔덕이 길을 막고 있어요! 뚫으려면 꽤 맞혀야 해요'); }
+    if (!wl.hinted) { wl.hinted = true; showMsg(T('wallHint')); }
     wl.hp -= W.dmg;
     G.score += 5; G.shootScore += 5;   // 콤보는 유지, 소량 점수
     burst(hit.point, 0xffdf9e, 6, 3);
@@ -1323,6 +1465,11 @@ function processRay(ndcX, ndcY, W) {
 function shootAt(clientX, clientY) {
   if (G.fireCooldown > 0) return;
   const W = WEAPONS[G.weapon];
+  if (ammoOn()) {
+    if (G.reloadT > 0) return;                       // 재장전 중엔 발사 불가 (우클릭으로 교체 가능)
+    if (ammoOf(G.weapon) <= 0) { startReload(); return; }
+    G.ammo[G.weapon] = Math.max(0, ammoOf(G.weapon) - (W.burst || 1));
+  }
   G.fireCooldown = W.cd;
   sfx.shoot();
   gunKick = 1;
@@ -1345,6 +1492,7 @@ function shootAt(clientX, clientY) {
     scene.add(r);
     rockets.push({ mesh: r, target, speed: 34, W });
     beep(180, 0.16, 'sawtooth', 0.06, -60);
+    if (ammoOn() && ammoOf(G.weapon) <= 0) startReload();
     return;
   }
 
@@ -1363,6 +1511,7 @@ function shootAt(clientX, clientY) {
   }
   if (results.includes('enemy')) G.streak += 1;
   else if (!results.includes('fatwall') && !results.includes('trap')) G.streak = 0;
+  if (ammoOn() && ammoOf(G.weapon) <= 0) startReload();
 }
 
 // ---------- 로켓(바주카): 착탄 시 광역 폭발 ----------
@@ -1415,7 +1564,7 @@ function killEnemy(e, byPlayer) {
     G.score += gain; G.shootScore += gain;
     burst(e.mesh.position.clone().add(new THREE.Vector3(0, 1, 0)), 0xffd166, 24, 8);
     sfx.kill();
-    if (e.def.boss) showMsg(`${e.def.label} 격파! +${gain.toLocaleString()}`, 3000);
+    if (e.def.boss) showMsg(T('bossKill', eLabel(e.def), gain.toLocaleString()), 3000);
   }
   // 암세포는 쓰러져도 조각으로 흩어진다
   if (e.def.splits) {
@@ -1428,7 +1577,7 @@ function killEnemy(e, byPlayer) {
       child.mesh.position.copy(e.mesh.position);
     }
     burst(e.mesh.position.clone().add(new THREE.Vector3(0, 1.2, 0)), 0xff4d8a, 26, 9);
-    showMsg('🧬 암세포가 조각으로 분열했어요!', 2600);
+    showMsg(T('cancerSplit'), 2600);
   }
 }
 
@@ -1439,14 +1588,14 @@ function freeTrap(trap) {
   G.metabolic = Math.min(100, G.metabolic + 12);
   burst(trap.blob.getWorldPosition(new THREE.Vector3()), 0xffa040, 16, 4);
   sfx.rescue();
-  showMsg('🔥 지방이 구출! 에너지로 연소 +800');
+  showMsg(T('rescue'));
   // 구출 보상: 아이템 퀴즈 찬스 (무기 업그레이드 / 간 회복 포션)
   setTimeout(() => { if (G.state === 'WAVE' && !G.over) startQuiz('item'); }, 900);
 }
 function loseTrap(trap, shotBlob) {
   trap.state = 'lost'; trap.t = 0;
   G.fatsLost += 1;
-  if (shotBlob) { showMsg('😢 지방이를 맞히면 안 돼요! 보너스가 사라졌어요'); sfx.no(); G.streak = 0; }
+  if (shotBlob) { showMsg(T('shotBlob')); sfx.no(); G.streak = 0; }
 }
 
 // ---------- 췌장 자동 사격 ----------
@@ -1462,7 +1611,7 @@ function pancreasUpdate(dt) {
     G.pancStrain += dt;
     if (G.pancStrain >= 12) {
       G.pancDown = true;
-      showMsg('⛔ 췌장부전… 이번 판엔 인슐린이 다시 나오지 않아요', 3600);
+      showMsg(T('pancFail'), 3600);
       sfx.no();
       return;
     }
@@ -1479,7 +1628,7 @@ function pancreasUpdate(dt) {
     const mult = pancMult();
     if (G.beta <= 10 && !G.pancWarned) {
       G.pancWarned = true;
-      showMsg('💉 인슐린 저항성! 쏘고는 있지만 거의 듣지 않아요', 3200);
+      showMsg(T('pancResistWarn'), 3200);
       sfx.no();
     }
     // 무력화여도 계속 발사한다 — 저항성 시기의 고인슐린혈증 (약할수록 옅고 작은 탄)
@@ -1504,9 +1653,9 @@ function startWave(idx) {
   $('hud-wave').textContent = w.name;
   if (idx === WAVES.length - 1) {
     G.pipeOpen = true;
-    showMsg('🚨 최종 웨이브! 좌측 혈관 파이프까지 열렸어요', 3400);
+    showMsg(T('finalWave'), 3400);
   } else {
-    showMsg(`${w.name} 시작!`);
+    showMsg(T('waveStart', w.name));
   }
 }
 
@@ -1527,7 +1676,7 @@ function waveUpdate(dt) {
           const pick = src[Math.floor(Math.random() * src.length)];
           G.bossesUsed.push(pick);
           spawnEnemy(pick);
-          showMsg(BOSS_INTRO[pick], 3600);
+          showMsg((BOSS_INTRO[G.lang] || BOSS_INTRO.ko)[pick], 3600);
         }
       }
     }
@@ -1605,7 +1754,7 @@ function enemiesUpdate(dt, t) {
         G.core = Math.max(0, G.core - 6);
         G.metabolic = Math.max(0, G.metabolic - 3);
         flashDamage(); sfx.dmg();
-        showMsg('🪽 날아드는 간식이 코어를 스쳤어요!');
+        showMsg(T('flyHit'));
         removeEnemy(e);
         if (G.core <= 0 && !G.over) { finishGame(false); return; }
       }
@@ -1626,11 +1775,11 @@ function enemiesUpdate(dt, t) {
         // 섬유화 단계면 일부가 성벽을 샌다
         if (e.def.ram || (stage >= 3 && Math.random() < 0.45 && !e.def.boss)) {
           e.state = 'leak';
-          if (e.def.ram) showMsg('🩸 플라크가 성벽을 뚫고 돌진해요!', 2400);
+          if (e.def.ram) showMsg(T('plaqueRam'), 2400);
         } else {
           e.state = 'attack'; e.attackT = LIVER_DISSOLVE[stage];
           G.fibrosis = Math.min(100, G.fibrosis + e.def.wallDmg * 0.55 * (e.def.liverX || 1));
-          if (e.def.liverX) showMsg('🍶 알코올이 간을 직접 때렸어요!', 1800);
+          if (e.def.liverX) showMsg(T('sojuHit'), 1800);
           G.metabolic = Math.max(0, G.metabolic - 3);
         }
       }
@@ -1650,7 +1799,7 @@ function enemiesUpdate(dt, t) {
         G.core = Math.max(0, G.core - e.def.wallDmg);
         G.metabolic = Math.max(0, G.metabolic - 4);
         flashDamage(); sfx.dmg();
-        showMsg('💔 성벽이 뚫렸어요! 코어가 공격받았습니다');
+        showMsg(T('leak'));
         removeEnemy(e);
         if (G.core <= 0 && !G.over) { finishGame(false); return; }
       }
@@ -1671,7 +1820,7 @@ function trapsUpdate(dt) {
       p.x += (0 - p.x) * dt * 1.4; p.z += (WALL_Z - p.z) * dt * 1.4;
       if (tr.t > 1.8) {
         G.fibrosis = Math.min(100, G.fibrosis + 12);
-        showMsg('🫠 내장지방이 간으로 흘러갔어요… 간이 더 굳습니다');
+        showMsg(T('dragged'));
         sfx.no();
         loseTrap(tr, false);
       }
@@ -1744,7 +1893,7 @@ function weaponUp(steps = 1) {
   if (G.weapon >= WEAPONS.length - 1) return false;
   G.weapon = Math.min(WEAPONS.length - 1, G.weapon + steps);
   applyWeaponVisual();
-  showMsg(`⬆️ 무기 업그레이드! ${WEAPONS[G.weapon].icon} ${WEAPONS[G.weapon].name} 획득`, 3000);
+  showMsg(T('weaponUp', WEAPONS[G.weapon].icon, wName(G.weapon)), 3000);
   return true;
 }
 
@@ -1753,10 +1902,8 @@ function startQuiz(mode = 'wave') {
   G.currentQuiz = drawQuiz(); G.quizTotal += 1;
   const quiz = G.currentQuiz;
   const diffLabel = { easy: 'EASY', mid: 'NORMAL', hard: 'HARD' }[G.quizDiff] || 'NORMAL';
-  $('quiz-tag').textContent = (mode === 'item' ? 'ITEM CHANCE · 정답을 쏘면 보상!' : 'QUIZ TIME · 정답을 쏘세요!') + ` · ${diffLabel}`;
-  $('quiz-sub').textContent = mode === 'item'
-    ? '정답이면 무기 업그레이드, 무기가 최고면 간 회복 포션을 얻어요'
-    : '정답을 맞히면 간 성벽이 수리되고 췌장이 회복되고 무기도 좋아져요';
+  $('quiz-tag').textContent = (mode === 'item' ? T('quizTagItem') : T('quizTagWave')) + ` · ${diffLabel}`;
+  $('quiz-sub').textContent = mode === 'item' ? T('quizSubItem') : T('quizSubWave');
   // 보기 셔플
   const order = quiz.a.map((_, i) => i).sort(() => Math.random() - 0.5);
   $('quiz-q').textContent = quiz.q;
@@ -1790,23 +1937,19 @@ function answerQuiz(correct, btn) {
         if (!G.pancDown) { G.beta = Math.min(100, G.beta + 20); G.pancStrain = Math.max(0, G.pancStrain - 6); }
         G.metabolic = Math.min(100, G.metabolic + 10);
       }
-      $('quiz-feedback').textContent = upgraded
-        ? `정답! +${gain.toLocaleString()} · 새 무기를 손에 넣었어요`
-        : `정답! +${gain.toLocaleString()} · 🧪 간 회복 포션! 간이 부드러워졌어요`;
+      $('quiz-feedback').textContent = upgraded ? T('okItemGun', gain.toLocaleString()) : T('okItemPot', gain.toLocaleString());
     } else {
       G.fibrosis = Math.max(0, G.fibrosis - 25);
       if (!G.pancDown) { G.beta = Math.min(100, G.beta + 30); G.pancStrain = Math.max(0, G.pancStrain - 6); }
       G.metabolic = Math.min(100, G.metabolic + 8);
-      weaponUp(2);
-      $('quiz-feedback').textContent = `정답! +${gain.toLocaleString()} · 간 성벽이 수리되고 췌장이 회복됐어요`;
+      weaponUp(1);   // 점수 마일스톤 승급이 있어 1단계씩 — 모든 무기를 거치게
+      $('quiz-feedback').textContent = T('okWave', gain.toLocaleString());
     }
     sfx.ok();
   } else {
     if (btn) btn.classList.add('wrong');
     buttons.find((b) => b.textContent === quiz.a[quiz.correct])?.classList.add('correct');
-    $('quiz-feedback').textContent = G.quizMode === 'item'
-      ? `아쉬워요! 정답은 "${quiz.a[quiz.correct]}" — 보상 없이 전투로 복귀해요`
-      : `아쉬워요! 정답은 "${quiz.a[quiz.correct]}" — 수리 없이 다음 웨이브로 가요`;
+    $('quiz-feedback').textContent = G.quizMode === 'item' ? T('ngItem', quiz.a[quiz.correct]) : T('ngWave', quiz.a[quiz.correct]);
     sfx.no();
   }
   setTimeout(() => {
@@ -1832,7 +1975,7 @@ function startGame() {
   startWave(0);
 }
 
-const GRADES = [[60000, 'S · 대사 마스터'], [42000, 'A · 간 지킴이'], [28000, 'B · 성실한 수호자'], [0, 'C · 다음엔 더 잘할 수 있어요']];
+
 
 function finishGame(victory) {
   if (G.over) return;
@@ -1842,19 +1985,19 @@ function finishGame(victory) {
   if (victory) G.score += G.finishBonus; else G.finishBonus = 0;
 
   $('result-score').textContent = G.score.toLocaleString();
-  $('result-grade').textContent = victory ? GRADES.find(([min]) => G.score >= min)[1] : '💔 코어 함락 · 다시 도전해요';
+  $('result-grade').textContent = victory ? T('grades').find(([min]) => G.score >= min)[1] : T('defeat');
 
   const stage = liverStage();
-  const stageName = ['건강', '지방간(MASLD)', 'MASH', '섬유화'][stage];
+  const stageName = T('liverShort')[stage];
   $('result-report').innerHTML = `
-    <div class="rep-card"><div class="rep-k">C · K</div><div class="rep-v">${Math.round(Math.max(0, G.core))}%</div><div class="rep-s">심장·콩팥·뇌혈관</div></div>
-    <div class="rep-card"><div class="rep-k">L</div><div class="rep-v">${stageName}</div><div class="rep-s">간 상태</div></div>
-    <div class="rep-card"><div class="rep-k">M</div><div class="rep-v">${Math.round(Math.max(0, G.metabolic))}%</div><div class="rep-s">대사 건강</div></div>
-    <div class="rep-card"><div class="rep-k">QUIZ</div><div class="rep-v">${G.quizCorrectCount}/${Math.max(1, G.quizTotal)}</div><div class="rep-s">지식 점수</div></div>`;
+    <div class="rep-card"><div class="rep-k">C · K</div><div class="rep-v">${Math.round(Math.max(0, G.core))}%</div><div class="rep-s">${T('repCK')}</div></div>
+    <div class="rep-card"><div class="rep-k">L</div><div class="rep-v">${stageName}</div><div class="rep-s">${T('repL')}</div></div>
+    <div class="rep-card"><div class="rep-k">M</div><div class="rep-v">${Math.round(Math.max(0, G.metabolic))}%</div><div class="rep-s">${T('repM')}</div></div>
+    <div class="rep-card"><div class="rep-k">QUIZ</div><div class="rep-v">${G.quizCorrectCount}/${Math.max(1, G.quizTotal)}</div><div class="rep-s">${T('repQ')}</div></div>`;
   $('result-breakdown').innerHTML =
-    `사격 ${G.shootScore.toLocaleString()} · 퀴즈 ${G.quizScore.toLocaleString()} · 지방이 구출 ${G.rescueScore.toLocaleString()} (${G.fatsRescued}명) · 최종 무기 ${WEAPONS[G.weapon].icon} ${WEAPONS[G.weapon].name}` +
-    `<br>피니시 보너스 ${G.finishBonus.toLocaleString()} — 장기를 건강하게 지킬수록 점수가 커져요` +
-    (G.pancDown ? '<br>⚠️ 이번 판엔 췌장부전까지 진행됐어요. 저항성(무력화) 단계에서 당류 적을 빨리 정리하면 부전을 막을 수 있어요' : '');
+    T('breakdown', G.shootScore.toLocaleString(), G.quizScore.toLocaleString(), G.rescueScore.toLocaleString(),
+      G.fatsRescued, `${WEAPONS[G.weapon].icon} ${wName(G.weapon)}`) +
+    T('finishBonus', G.finishBonus.toLocaleString()) + (G.pancDown ? T('pancNote') : '');
   $('screen-result').classList.remove('hidden');
   hud.classList.add('hidden');
   setTimeout(() => { canRestart = true; }, 1200);
@@ -1963,8 +2106,13 @@ window.addEventListener('pointermove', (e) => {
   crosshair.style.top = e.clientY + 'px';
   if (debugOn) $('debug-info').textContent = debugCoords(e.clientX, e.clientY);
 });
+window.addEventListener('contextmenu', (e) => { e.preventDefault(); });
 window.addEventListener('pointerdown', (e) => {
   audio();
+  if (e.button === 2) {   // 우클릭: 보유 무기 순환 (재장전 중에도 가능)
+    if (G.state === 'WAVE') swapWeapon();
+    return;
+  }
   if (editRoute >= 0) {   // 루트 그리기 중: 클릭 = 점 추가 (사격 안 함)
     const g = groundPoint(e.clientX, e.clientY);
     if (g.p) {
@@ -2047,6 +2195,11 @@ function applyLang(lang) {
   if (labels[1]) labels[1].textContent = S.diffLabel;
   const howto = document.querySelector('.howto');
   if (howto) howto.innerHTML = S.howto;
+  // 인게임 HUD 고정 라벨도 함께 전환
+  const setTxt = (id, v) => { const el = $(id); if (el) el.textContent = v; };
+  setTxt('lbl-core', T('lblCore')); setTxt('lbl-meta', T('lblMeta')); setTxt('lbl-sugar', T('lblSugar'));
+  setTxt('lbl-liver', T('lblLiver')); setTxt('lbl-panc', T('lblPanc'));
+  applyWeaponVisual();
 }
 
 // 시작 화면 옵션 (언어·문제 난이도) — 클릭이 게임 시작으로 번지지 않게 전파 차단
@@ -2138,6 +2291,7 @@ function step(dt) {
     enemiesUpdate(dt, t);
     trapsUpdate(dt);
     pancreasUpdate(dt);
+    reloadUpdate(dt);
     liverPulseUpdate(dt);
     projectilesUpdate(dt);
     metersUpdate(dt);
