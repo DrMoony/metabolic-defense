@@ -37,6 +37,17 @@ const WAVES = [
 // 문제은행은 AASLD 'Unmasking MASH and MASLD' 덱 추출본만 사용 (ko/en 분리 파일)
 // 언어·난이도는 시작 화면에서 선택. ?lang=en 은 초기 선택값만 바꾼다
 const QUIZ_LANG_INIT = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'ko';
+
+// ?layout=<코드> 로 열면 다른 컴퓨터에서 내보낸 배치(루트·둔덕·포탑)를 이어받는다 (9키 = 내보내기)
+try {
+  const lp = new URLSearchParams(location.search).get('layout');
+  if (lp) {
+    const lay = JSON.parse(decodeURIComponent(escape(atob(lp))));
+    if (lay.routes) localStorage.setItem('xg_routes', JSON.stringify(lay.routes));
+    if (lay.walls) localStorage.setItem('xg_fatwalls2', JSON.stringify(lay.walls));
+    if (lay.organs) localStorage.setItem('xg_organs', JSON.stringify(lay.organs));
+  }
+} catch (err) { /* 무시 */ }
 const QUIZ_POOL = [];
 function loadQuizLang(lang) {
   fetch(`./assets/quiz_aasld_${lang}.json`)
@@ -1602,6 +1613,20 @@ window.addEventListener('keydown', (e) => {
   if (k === 'Digit3' || k === 'Numpad3') startRouteEdit(2);
   if (k === 'Enter' || k === 'NumpadEnter') finishRouteEdit(true);
   if (k === 'KeyF') toggleWallEdit();
+  if (k === 'Digit9' || k === 'Numpad9') {   // 현재 배치 전체를 공유 주소로 복사
+    const layout = {
+      routes: Object.fromEntries(ROUTES.map((r, i) => [i, r.curve.points.map((p) => [+p.x.toFixed(1), +p.z.toFixed(1)])])),
+      walls: fatWalls.map((w) => [+w.mesh.position.x.toFixed(1), +w.mesh.position.z.toFixed(1)]),
+      organs: { liver: [+liverSprite.position.x.toFixed(1), +liverSprite.position.z.toFixed(1)], panc: [+pancSprite.position.x.toFixed(1), +pancSprite.position.z.toFixed(1)] },
+    };
+    const code = btoa(unescape(encodeURIComponent(JSON.stringify(layout))));
+    const url = location.origin + location.pathname + '?layout=' + code;
+    console.log('[layout]', url);
+    if (navigator.clipboard) navigator.clipboard.writeText(url).then(
+      () => showMsg('📋 배치 주소가 복사됐어요 — 다른 컴퓨터에서 열면 그대로 적용돼요', 3600),
+      () => showMsg('콘솔(F12)에 배치 주소를 출력했어요', 3000));
+    else showMsg('콘솔(F12)에 배치 주소를 출력했어요', 3000);
+  }
   if (k === 'Digit4' || k === 'Numpad4') toggleOrganEdit('liver');
   if (k === 'Digit5' || k === 'Numpad5') toggleOrganEdit('panc');
   if (k === 'Escape') { finishRouteEdit(false); if (wallEdit) toggleWallEdit(); if (organEdit) toggleOrganEdit(organEdit); }
