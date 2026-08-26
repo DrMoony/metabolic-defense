@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메타볼릭 디펜스 BETA — CKLM Arcade</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #2e1226; }
+  body { font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; cursor: none; }
+  #game-canvas { display: block; width: 100%; height: 100%; }
+
+  /* ---------- 16:9 고정 스테이지 (부스 TV 기준) ---------- */
+  #stage { position: fixed; overflow: hidden; background: #2e1226 url('../assets/bg.jpg') center / 100% 100% no-repeat; container-type: size; }
+  #liver-tint { position: absolute; inset: 0; pointer-events: none; z-index: 5; transition: background .6s; }
+  #stage canvas { width: 100%; height: 100%; display: block; }
+
+  /* ---------- 공통 ---------- */
+  .overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 40; }
+  .hidden { display: none !important; }
+  .chip { border-radius: 10px; padding: 8px 12px; background: rgba(10,4,8,.62); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,.12); color: #fff; }
+
+  /* ---------- 크로스헤어 ---------- */
+  #crosshair { position: fixed; width: 34px; height: 34px; pointer-events: none; z-index: 100;
+    transform: translate(-50%,-50%); transition: transform .05s; }
+  #crosshair::before, #crosshair::after { content:""; position:absolute; background:#7dffb0; box-shadow: 0 0 6px #7dffb0; }
+  #crosshair::before { left:50%; top:0; width:2px; height:100%; transform:translateX(-50%); }
+  #crosshair::after { top:50%; left:0; height:2px; width:100%; transform:translateY(-50%); }
+  #crosshair .ring { position:absolute; inset:4px; border:2px solid rgba(125,255,176,.8); border-radius:50%; }
+  #crosshair.kick { transform: translate(-50%,-50%) scale(1.35); }
+
+  /* ---------- HUD ---------- */
+  #hud { position: absolute; inset: 0; pointer-events: none; z-index: 30; color: #fff; }
+  #hud-score { position: absolute; top: 18px; left: 20px; text-align: left; }
+  #score-val { font-size: 34px; font-weight: 800; letter-spacing: 1px; text-shadow: 0 2px 8px rgba(0,0,0,.6); font-variant-numeric: tabular-nums; }
+  #combo-val { font-size: 15px; font-weight: 700; color: #ffd166; min-height: 20px; }
+  #hud-wave { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); font-size: 17px; font-weight: 700; letter-spacing: 2px; opacity: .92; }
+  #hud-cores { position: absolute; top: 16px; right: 20px; display: flex; gap: 8px; align-items:center; }
+  .core-ico { font-size: 24px; filter: drop-shadow(0 2px 4px rgba(0,0,0,.6)); transition: opacity .3s, filter .3s; }
+  #core-bar-wrap { width: 110px; }
+
+  .bar-wrap { height: 10px; border-radius: 6px; background: rgba(255,255,255,.14); overflow: hidden; }
+  .bar { height: 100%; border-radius: 6px; transition: width .25s ease, background .3s; }
+  .bar-label { font-size: 11px; opacity: .85; margin-bottom: 3px; letter-spacing: .5px; }
+
+  #hud-meters { position: absolute; top: 64px; left: 50%; transform: translateX(-50%); width: min(420px, 44%); display:flex; flex-direction:column; gap:7px; }
+  #bar-meta { background: linear-gradient(90deg,#37d99a,#7dffb0); }
+  #bar-sugar { background: linear-gradient(90deg,#ffb84d,#ff5d73); }
+
+  #hud-liver { position: absolute; left: 20px; bottom: 20px; width: 210px; }
+  #hud-panc  { position: absolute; right: 20px; bottom: 20px; width: 210px; text-align: right; }
+  .organ-title { font-size: 14px; font-weight: 800; margin-bottom: 4px; display:flex; align-items:center; gap:6px; }
+  #hud-panc .organ-title { justify-content: flex-end; }
+  .organ-state { font-size: 12px; opacity: .9; margin-bottom: 5px; }
+  #bar-liver { background: linear-gradient(90deg,#c96b4e,#e8a05c); }
+  #bar-beta  { background: linear-gradient(90deg,#5aa9ff,#9ad0ff); }
+
+  #hud-weapon { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 16px; font-weight: 800; }
+  #hud-msg { position: absolute; bottom: 32%; left: 50%; transform: translateX(-50%); font-size: 20px; font-weight: 800;
+    color: #ffe9a8; text-shadow: 0 2px 10px rgba(0,0,0,.75); opacity: 0; transition: opacity .3s; text-align:center; white-space: nowrap; }
+  #hud-msg.show { opacity: 1; }
+
+  #dmg-flash { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at center, transparent 40%, rgba(255,30,30,.45) 100%); opacity: 0; transition: opacity .12s; z-index: 35; }
+
+  /* ---------- 퀴즈 ---------- */
+  #quiz { background: rgba(8,3,10,.78); backdrop-filter: blur(3px); cursor: none; }
+  #quiz-inner { width: min(760px, 90vw); text-align: center; }
+  #quiz-tag { font-size: 15px; letter-spacing: 4px; color: #7dffb0; font-weight: 800; margin-bottom: 14px; }
+  #quiz-q { font-size: clamp(22px, 3.2vw, 32px); font-weight: 800; color: #fff; line-height: 1.45; margin-bottom: 10px; word-break: keep-all; }
+  #quiz-sub { font-size: 14px; color: rgba(255,255,255,.65); margin-bottom: 26px; }
+  #quiz-timer-wrap { width: 60%; margin: 0 auto 26px; height: 8px; }
+  #quiz-timer { background: linear-gradient(90deg,#7dffb0,#ffd166); }
+  #quiz-answers { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .quiz-btn { pointer-events: auto; padding: 22px 16px; font-size: 19px; font-weight: 700; color: #fff; word-break: keep-all;
+    background: rgba(255,255,255,.08); border: 2px solid rgba(255,255,255,.25); border-radius: 14px; cursor: none;
+    font-family: inherit; transition: background .15s, border-color .15s, transform .1s; }
+  .quiz-btn:hover { background: rgba(125,255,176,.14); border-color: #7dffb0; }
+  .quiz-btn.correct { background: rgba(66,214,143,.35); border-color: #42d68f; }
+  .quiz-btn.wrong { background: rgba(255,77,109,.3); border-color: #ff4d6d; }
+  #quiz-feedback { min-height: 34px; margin-top: 22px; font-size: 19px; font-weight: 800; color: #ffe9a8; }
+
+  /* ---------- 시작/결과 ---------- */
+  #screen-start, #screen-result { background: radial-gradient(ellipse at center, rgba(60,10,22,.88), rgba(10,3,8,.96)); }
+  .title-big { font-size: clamp(24px, 7cqh, 72px); font-weight: 900; color: #fff; letter-spacing: 2px;
+    text-shadow: 0 0 30px rgba(255,80,100,.55); margin-bottom: 8px; text-align:center; }
+  .title-sub { font-size: clamp(11px, 2.4cqh, 20px); color: #ffb3c1; margin-bottom: 3.2cqh; letter-spacing: 6px; font-weight: 700; }
+  .press-start { font-size: clamp(13px, 2.4cqh, 20px); color: #7dffb0; font-weight: 800; animation: blink 1.1s infinite; }
+  #start-opts { margin-top: 2.6cqh; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+  .opt-row { display: flex; gap: 8px; align-items: center; justify-content: center; }
+  .opt-label { font-size: clamp(10px, 1.7cqh, 13px); color: rgba(255,255,255,.65); letter-spacing: 1px; margin-right: 6px; font-weight: 700; }
+  .opt-btn { pointer-events: auto; padding: 0.9cqh 2.4cqw; border-radius: 10px; border: 2px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.07); color: #fff; font-weight: 700; font-size: clamp(11px, 1.9cqh, 15px);
+    cursor: none; font-family: inherit; transition: background .15s, border-color .15s; }
+  .opt-btn:hover { border-color: rgba(125,255,176,.6); }
+  .opt-btn.sel { border-color: #7dffb0; background: rgba(125,255,176,.16); color: #7dffb0; }
+  @keyframes blink { 50% { opacity: .25; } }
+  .howto { margin-top: 3.6cqh; color: rgba(255,255,255,.75); font-size: clamp(10px, 1.9cqh, 15px); line-height: 2; text-align: center; }
+  .howto b { color: #ffd166; }
+
+  #result-score { font-size: clamp(30px, 9cqh, 84px); font-weight: 900; color: #ffd166; text-shadow: 0 0 24px rgba(255,209,102,.5); font-variant-numeric: tabular-nums; }
+  #result-grade { font-size: clamp(15px, 3cqh, 26px); font-weight: 900; color: #7dffb0; margin: 4px 0 2.4cqh; letter-spacing: 3px; }
+  #result-report { display: grid; grid-template-columns: repeat(4, minmax(15cqw, 150px)); gap: 12px; margin-bottom: 2.2cqh; }
+  .rep-card { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.16); border-radius: 14px; padding: 1.6cqh 10px; text-align: center; color:#fff; }
+  .rep-k { font-size: clamp(9px, 1.5cqh, 12px); letter-spacing: 2px; color: #ffb3c1; font-weight: 800; margin-bottom: 6px; }
+  .rep-v { font-size: clamp(13px, 2.5cqh, 20px); font-weight: 800; }
+  .rep-s { font-size: clamp(8px, 1.4cqh, 11.5px); opacity: .75; margin-top: 4px; }
+  #result-breakdown { color: rgba(255,255,255,.85); font-size: clamp(10px, 1.9cqh, 14.5px); line-height: 1.9; margin-bottom: 2.4cqh; text-align: center; }
+</style>
+</head>
+<body>
+<div id="stage">
+<canvas id="game-canvas"></canvas>
+<div id="liver-tint"></div>
+<div id="debug-info" class="chip hidden" style="position:absolute; bottom:64px; left:20px; z-index:60; font-family:monospace; font-size:12.5px; color:#7dffb0;"></div>
+
+<div id="dmg-flash"></div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="hud-score" class="chip">
+    <div id="score-val">0</div>
+    <div id="combo-val"></div>
+  </div>
+  <div id="hud-wave" class="chip">WAVE 1</div>
+  <div id="hud-cores" class="chip">
+    <span class="core-ico" id="core-heart">🫀</span>
+    <span class="core-ico" id="core-kidney">🫘</span>
+    <span class="core-ico" id="core-brain">🧠</span>
+    <div id="core-bar-wrap"><div class="bar-label">CORE (심장·콩팥·뇌혈관)</div>
+      <div class="bar-wrap"><div class="bar" id="bar-core" style="width:100%; background:linear-gradient(90deg,#ff5d73,#ff8fa3);"></div></div>
+    </div>
+  </div>
+  <div id="hud-meters">
+    <div><div class="bar-label">대사 건강 (M)</div><div class="bar-wrap"><div class="bar" id="bar-meta" style="width:100%"></div></div></div>
+    <div><div class="bar-label">혈당</div><div class="bar-wrap"><div class="bar" id="bar-sugar" style="width:10%"></div></div></div>
+  </div>
+  <div id="hud-liver" class="chip">
+    <div class="organ-title">🟤 간 성벽 (L)</div>
+    <div class="organ-state" id="liver-state">건강해요 · 묵묵히 막는 중</div>
+    <div class="bar-wrap"><div class="bar" id="bar-liver" style="width:100%"></div></div>
+  </div>
+  <div id="hud-panc" class="chip">
+    <div class="organ-title">인슐린 망루 (췌장) 🔵</div>
+    <div class="organ-state" id="panc-state">기능 100% · 지원 사격 중</div>
+    <div class="bar-wrap"><div class="bar" id="bar-beta" style="width:100%"></div></div>
+  </div>
+  <div id="hud-weapon" class="chip">🏹 석궁</div>
+  <div id="hud-msg"></div>
+</div>
+
+<!-- 퀴즈 -->
+<div id="quiz" class="overlay hidden">
+  <div id="quiz-inner">
+    <div id="quiz-tag">QUIZ TIME · 정답을 쏘세요!</div>
+    <div id="quiz-q"></div>
+    <div id="quiz-sub">정답을 맞히면 간 성벽이 수리되고 췌장 기능이 회복돼요</div>
+    <div id="quiz-timer-wrap" class="bar-wrap"><div class="bar" id="quiz-timer" style="width:100%"></div></div>
+    <div id="quiz-answers"></div>
+    <div id="quiz-feedback"></div>
+  </div>
+</div>
+
+<!-- 시작 화면 -->
+<div id="screen-start" class="overlay">
+  <div class="title-big">메타볼릭 디펜스</div>
+  <div class="title-sub">CKLM ARCADE — 몸속 최후의 방어선 · BETA</div>
+  <div class="press-start">화면을 쏘면 시작합니다</div>
+  <div id="start-opts">
+    <div class="opt-row"><span class="opt-label">언어 · Language</span>
+      <button class="opt-btn sel" data-opt="lang" data-val="ko">한국어</button>
+      <button class="opt-btn" data-opt="lang" data-val="en">English</button>
+    </div>
+    <div class="opt-row"><span class="opt-label">문제 난이도</span>
+      <button class="opt-btn" data-opt="diff" data-val="easy">EASY</button>
+      <button class="opt-btn sel" data-opt="diff" data-val="mid">NORMAL</button>
+      <button class="opt-btn" data-opt="diff" data-val="hard">HARD</button>
+    </div>
+  </div>
+  <div class="howto">
+    걸어오는 <b>정크푸드</b>를 쏘고, <b>퀴즈</b>를 맞혀 점수를 올리세요<br>
+    <b>간 성벽</b>은 놓친 적을 묵묵히 막아주지만, 혹사되면 서서히 굳어가요<br>
+    <b>췌장 망루</b>는 당류 적을 자동 요격하지만, 과로하면 인슐린이 약해져요<br>
+    덫에 갇힌 <b>지방이</b>는 자물쇠만 정확히 쏴서 구해주세요 (지방이를 쏘면 안 돼요!)
+  </div>
+</div>
+
+<!-- 결과 화면 -->
+<div id="screen-result" class="overlay hidden">
+  <div class="title-sub" style="margin-bottom:6px">FINAL SCORE</div>
+  <div id="result-score">0</div>
+  <div id="result-grade">A</div>
+  <div id="result-report"></div>
+  <div id="result-breakdown"></div>
+  <div class="press-start">화면을 쏘면 다시 시작합니다</div>
+</div>
+</div><!-- /stage -->
+
+<div id="crosshair"><div class="ring"></div></div>
+
+<script type="importmap">{ "imports": { "three": "../vendor/three.module.js" } }</script>
+<script type="module" src="./main.js?v=b1"></script>
+</body>
+</html>
