@@ -811,6 +811,34 @@ function burst(pos, color, n = 9, speed = 5) {
   }
 }
 
+// ---------- 데미지 숫자 팝업 ----------
+const popups = [];
+function damagePopup(pos, text, color, scale = 1) {
+  const c = document.createElement('canvas'); c.width = 128; c.height = 64;
+  const ctx = c.getContext('2d');
+  ctx.font = 'bold 42px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.strokeStyle = 'rgba(0,0,0,0.85)'; ctx.lineWidth = 8; ctx.strokeText(text, 64, 32);
+  ctx.fillStyle = color; ctx.fillText(text, 64, 32);
+  const tex = new THREE.CanvasTexture(c);
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false }));
+  sp.scale.set(1.7 * scale, 0.85 * scale, 1);
+  sp.position.copy(pos); sp.position.y += 0.5;
+  sp.renderOrder = 10;
+  scene.add(sp);
+  popups.push({ mesh: sp, life: 0.8 });
+}
+function popupsUpdate(dt) {
+  for (const p of [...popups]) {
+    p.life -= dt;
+    p.mesh.position.y += dt * 1.7;
+    p.mesh.material.opacity = Math.min(1, p.life / 0.35);
+    if (p.life <= 0) {
+      p.mesh.material.map.dispose(); p.mesh.material.dispose();
+      scene.remove(p.mesh); popups.splice(popups.indexOf(p), 1);
+    }
+  }
+}
+
 // ---------- HUD 헬퍼 ----------
 function showMsg(text, dur = 2400) {
   const el = $('hud-msg'); el.textContent = text; el.classList.add('show');
@@ -885,10 +913,12 @@ function processRay(ndcX, ndcY, W) {
     const e = ent.ref;
     if (e.state === 'dying') return 'miss';
     const weak = !!hit.object.userData.weakpoint;
-    e.hp -= (weak ? 2 : 1) * W.dmg;
+    const pdmg = (weak ? 2 : 1) * W.dmg;
+    e.hp -= pdmg;
     const gain = Math.round((weak ? 140 : 80) * comboMult());
     G.score += gain; G.shootScore += gain;
     damageFx(e, hit.point, weak ? 0xffe9a8 : 0xff8fa3, weak ? 22 : 15);
+    damagePopup(hit.point, `-${pdmg}`, weak ? '#ffd166' : '#ffffff', weak ? 1 : 0.85);
     sfx.hit();
     e.mesh.position.z -= 0.18; // 넉백
     if (e.hp <= 0) killEnemy(e, true);
@@ -998,11 +1028,12 @@ function pancreasUpdate(dt) {
       showMsg('💉 인슐린 저항성! 쏘고는 있지만 거의 듣지 않아요', 3200);
       sfx.no();
     }
-    // 무력화여도 계속 발사한다 — 저항성 시기의 고인슐린혈증
-    const p = new THREE.Mesh(new THREE.SphereGeometry(mult >= 1 ? 0.22 : 0.32, 8, 6),
-      new THREE.MeshBasicMaterial({ color: 0x9ad0ff }));
+    // 무력화여도 계속 발사한다 — 저항성 시기의 고인슐린혈증 (약할수록 옅고 작은 탄)
+    const tier = mult >= 1 ? 0 : mult >= 0.7 ? 1 : mult >= 0.45 ? 2 : 3;
+    const p = new THREE.Mesh(new THREE.SphereGeometry([0.24, 0.21, 0.18, 0.14][tier], 8, 6),
+      new THREE.MeshBasicMaterial({ color: [0x7dc8ff, 0xa5c2dd, 0xc2bda0, 0x9a9aa2][tier] }));
     p.position.copy(pancTip.getWorldPosition(new THREE.Vector3()));
-    projectiles.push({ mesh: p, target: nearest, dmg: 1.2 * mult, speed: 26 });
+    projectiles.push({ mesh: p, target: nearest, dmg: 1.2 * mult, speed: 26, tier });
     scene.add(p);
     beep(980, 0.05, 'sine', 0.03);
   }
@@ -1195,6 +1226,10 @@ function projectilesUpdate(dt) {
       p.target.hp -= p.dmg;
       G.sugar = Math.max(0, G.sugar - 7);
       damageFx(p.target, p.mesh.position, 0x9ad0ff, 8);
+      // 인슐린 위력 단계가 눈에 보이게: 약할수록 옅고 작은 숫자
+      damagePopup(p.mesh.position, `-${p.dmg.toFixed(1)}`,
+        ['#7dc8ff', '#a5c2dd', '#c2bda0', '#9a9aa2'][p.tier || 0],
+        [1, 0.9, 0.78, 0.62][p.tier || 0]);
       if (p.target.hp <= 0) killEnemy(p.target, false);
       drop(); continue;
     }
@@ -1626,6 +1661,7 @@ function step(dt) {
   particlesUpdate(dt);
   beamsUpdate(dt);
   liverRingsUpdate(dt);
+  popupsUpdate(dt);
 
   renderer.render(scene, camera);
 }
