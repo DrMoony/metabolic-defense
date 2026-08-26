@@ -1,0 +1,554 @@
+[
+ {
+  "q": "In 2023, which new name replaced NAFLD?",
+  "a": [
+   "MASLD (metabolic dysfunction-associated steatotic liver disease)",
+   "ALD (alcohol-associated liver disease)",
+   "Cirrhosis",
+   "Hepatitis A"
+  ],
+  "correct": 0,
+  "src": "slide 9-11",
+  "diff": "easy"
+ },
+ {
+  "q": "What is the new umbrella term for all liver disease with >5% hepatic fat?",
+  "a": [
+   "SLD (steatotic liver disease)",
+   "MASH",
+   "Hepatocellular carcinoma",
+   "Gallstone disease"
+  ],
+  "correct": 0,
+  "src": "slide 9",
+  "diff": "easy"
+ },
+ {
+  "q": "What was one reason for retiring the name NAFLD?",
+  "a": [
+   "Concern about stigma from 'non-alcoholic' and 'fatty'",
+   "It was hard to pronounce",
+   "It clashed with a drug name",
+   "Insurance coding issues"
+  ],
+  "correct": 0,
+  "src": "slide 9",
+  "diff": "easy"
+ },
+ {
+  "q": "What does MASH describe?",
+  "a": [
+   "A subtype of MASLD with inflammation",
+   "Simple steatosis only",
+   "Alcoholic hepatitis",
+   "Biliary disease"
+  ],
+  "correct": 0,
+  "src": "slide 11",
+  "diff": "easy"
+ },
+ {
+  "q": "MASH can be diagnosed even at F0. What defines 'at-risk MASH'?",
+  "a": [
+   "MASH with fibrosis stage F2 or higher",
+   "Any hepatic fat at all",
+   "Presence of jaundice",
+   "Age over 65"
+  ],
+  "correct": 0,
+  "src": "slide 11, 17",
+  "diff": "mid"
+ },
+ {
+  "q": "Roughly how prevalent is MASLD among US adults?",
+  "a": [
+   "Up to 1 in 3 adults",
+   "1 in 100",
+   "1 in 1,000",
+   "Almost none"
+  ],
+  "correct": 0,
+  "src": "slide 19",
+  "diff": "easy"
+ },
+ {
+  "q": "Why is MASLD commonly underdiagnosed?",
+  "a": [
+   "It is asymptomatic and liver tests are often normal",
+   "Testing is prohibited",
+   "The pain is too severe",
+   "It is contagious"
+  ],
+  "correct": 0,
+  "src": "slide 19",
+  "diff": "easy"
+ },
+ {
+  "q": "Compared with the general population, overall mortality in MASLD is:",
+  "a": [
+   "About 2-fold higher",
+   "Half as high",
+   "The same",
+   "10-fold higher"
+  ],
+  "correct": 0,
+  "src": "slide 15",
+  "diff": "easy"
+ },
+ {
+  "q": "Which factor most strongly drives prognosis in MASLD?",
+  "a": [
+   "Severity of hepatic fibrosis",
+   "Amount of hepatic fat",
+   "Height",
+   "Blood type"
+  ],
+  "correct": 0,
+  "src": "slide 15, 17",
+  "diff": "easy"
+ },
+ {
+  "q": "On average, MASH fibrosis progresses by one stage every:",
+  "a": [
+   "About 7 years",
+   "1 month",
+   "6 months",
+   "30 years"
+  ],
+  "correct": 0,
+  "src": "slide 17",
+  "diff": "mid"
+ },
+ {
+  "q": "What is the initial non-invasive index for fibrosis screening in primary care?",
+  "a": [
+   "FIB-4 index",
+   "MRI",
+   "Liver transplant",
+   "Colonoscopy"
+  ],
+  "correct": 0,
+  "src": "slide 27",
+  "diff": "mid"
+ },
+ {
+  "q": "What is the FIB-4 low-risk cutoff for ages 35-65?",
+  "a": [
+   "Below 1.3",
+   "Above 5",
+   "Above 10",
+   "Below 0.1"
+  ],
+  "correct": 0,
+  "src": "slide 27",
+  "diff": "mid"
+ },
+ {
+  "q": "If FIB-4 is 1.3 or higher, what comes next?",
+  "a": [
+   "ELF blood panel or transient elastography (VCTE)",
+   "Immediate surgery",
+   "Watch and wait only",
+   "Antibiotics"
+  ],
+  "correct": 0,
+  "src": "slide 33",
+  "diff": "mid"
+ },
+ {
+  "q": "What does VCTE (transient elastography) measure?",
+  "a": [
+   "Liver stiffness (degree of fibrosis)",
+   "Gastric acid output",
+   "Lung capacity",
+   "Bone density"
+  ],
+  "correct": 0,
+  "src": "slide 36",
+  "diff": "mid"
+ },
+ {
+  "q": "AASLD recommends MASLD screening in which patients?",
+  "a": [
+   "Type 2 diabetes and obesity",
+   "All newborns",
+   "Healthy people in their 20s",
+   "Athletes"
+  ],
+  "correct": 0,
+  "src": "slide 24",
+  "diff": "easy"
+ },
+ {
+  "q": "A 5-7% weight loss is expected to bring:",
+  "a": [
+   "Reduced liver inflammation",
+   "No change",
+   "More liver fat",
+   "Worse fibrosis"
+  ],
+  "correct": 0,
+  "src": "slide 42",
+  "diff": "easy"
+ },
+ {
+  "q": "A 7-10% weight loss can additionally bring:",
+  "a": [
+   "Fibrosis regression",
+   "Hair loss",
+   "Glucose spikes",
+   "Liver shrinkage"
+  ],
+  "correct": 0,
+  "src": "slide 42",
+  "diff": "easy"
+ },
+ {
+  "q": "Which diet has the strongest evidence in MASLD?",
+  "a": [
+   "Mediterranean diet",
+   "Late-night snack diet",
+   "Sugary drink diet",
+   "Fried-food diet"
+  ],
+  "correct": 0,
+  "src": "slide 43-44",
+  "diff": "easy"
+ },
+ {
+  "q": "An exercise prescription that improved MASLD parameters was:",
+  "a": [
+   "40-minute sessions, 3 times a week",
+   "One walk per month",
+   "No exercise at all",
+   "Sitting all day"
+  ],
+  "correct": 0,
+  "src": "slide 43",
+  "diff": "easy"
+ },
+ {
+  "q": "Which drug pair is FDA-approved for MASH with F2-F3 fibrosis (as of 2025)?",
+  "a": [
+   "Resmetirom and semaglutide",
+   "Aspirin and acetaminophen",
+   "Two antibiotics",
+   "Vitamins C and D"
+  ],
+  "correct": 0,
+  "src": "slide 47, 49",
+  "diff": "mid"
+ },
+ {
+  "q": "Statin use in MASLD patients is:",
+  "a": [
+   "Appropriate when indicated",
+   "Absolutely contraindicated",
+   "Always liver-toxic",
+   "Completely ineffective"
+  ],
+  "correct": 0,
+  "src": "slide 50-51",
+  "diff": "mid"
+ },
+ {
+  "q": "Which medications can cause hepatic fat accumulation?",
+  "a": [
+   "Corticosteroids, amiodarone, tamoxifen",
+   "Vitamins",
+   "Normal saline",
+   "Probiotics"
+  ],
+  "correct": 0,
+  "src": "slide 45",
+  "diff": "mid"
+ },
+ {
+  "q": "Which blood biomarker helps overcome underreported alcohol intake?",
+  "a": [
+   "PEth (phosphatidylethanol)",
+   "CRP",
+   "Hemoglobin",
+   "Uric acid"
+  ],
+  "correct": 0,
+  "src": "slide 13",
+  "diff": "mid"
+ },
+ {
+  "q": "In MASLD, even low-level alcohol intake is:",
+  "a": [
+   "Still potentially harmful to the liver",
+   "Completely safe",
+   "Actually therapeutic",
+   "Recommended"
+  ],
+  "correct": 0,
+  "src": "slide 53",
+  "diff": "easy"
+ },
+ {
+  "q": "By 2050, the number of US MASLD patients is projected to:",
+  "a": [
+   "Rise to about 122 million",
+   "Fall sharply",
+   "Nearly disappear",
+   "Stay unchanged"
+  ],
+  "correct": 0,
+  "src": "slide 20",
+  "diff": "easy"
+ },
+ {
+  "q": "In fibrosis staging, what does F4 mean?",
+  "a": [
+   "Cirrhosis",
+   "Normal liver",
+   "Fat only",
+   "Inflammation only"
+  ],
+  "correct": 0,
+  "src": "slide 18, 21",
+  "diff": "easy"
+ },
+ {
+  "q": "What does MetALD describe?",
+  "a": [
+   "Steatotic liver disease with alcohol intake above MASLD limits",
+   "Alcohol-free fatty liver",
+   "Viral hepatitis",
+   "Drug-induced hepatitis"
+  ],
+  "correct": 0,
+  "src": "slide 11",
+  "diff": "mid"
+ },
+ {
+  "q": "What is the female alcohol threshold within the MASLD definition?",
+  "a": [
+   "Under about 1.5 drinks/day (20 g)",
+   "Unlimited",
+   "Up to 5 drinks a day",
+   "Two bottles of soju"
+  ],
+  "correct": 0,
+  "src": "slide 11",
+  "diff": "mid"
+ },
+ {
+  "q": "In the US, one 'standard drink' of beer is:",
+  "a": [
+   "12 ounces of 5% ABV beer",
+   "One liter",
+   "Three 500 mL cans",
+   "Any amount"
+  ],
+  "correct": 0,
+  "src": "slide 12",
+  "diff": "mid"
+ },
+ {
+  "q": "Serum PEth reflects alcohol intake over the prior:",
+  "a": [
+   "1 to 4 weeks",
+   "10 years",
+   "24 hours",
+   "Lifetime"
+  ],
+  "correct": 0,
+  "src": "slide 13",
+  "diff": "hard"
+ },
+ {
+  "q": "Which item is NOT part of the FIB-4 formula?",
+  "a": [
+   "Blood pressure",
+   "Age",
+   "AST and ALT",
+   "Platelet count"
+  ],
+  "correct": 0,
+  "src": "slide 27",
+  "diff": "hard"
+ },
+ {
+  "q": "What is the FIB-4 low-risk cutoff for patients 65 or older?",
+  "a": [
+   "Below 2.0",
+   "Below 1.3",
+   "Below 5.0",
+   "Below 0.5"
+  ],
+  "correct": 0,
+  "src": "slide 28",
+  "diff": "hard"
+ },
+ {
+  "q": "The specificity of FIB-4 above 2.67 is about:",
+  "a": [
+   "98%",
+   "30%",
+   "50%",
+   "10%"
+  ],
+  "correct": 0,
+  "src": "slide 28",
+  "diff": "hard"
+ },
+ {
+  "q": "Which is NOT a component of the ELF panel?",
+  "a": [
+   "Cholesterol",
+   "Hyaluronic acid",
+   "TIMP-1",
+   "PIIINP"
+  ],
+  "correct": 0,
+  "src": "slide 34",
+  "diff": "hard"
+ },
+ {
+  "q": "An ELF score below 7.7 suggests:",
+  "a": [
+   "At-risk MASH can largely be ruled out",
+   "Confirmed cirrhosis",
+   "Confirmed liver cancer",
+   "Immediate transplant needed"
+  ],
+  "correct": 0,
+  "src": "slide 35",
+  "diff": "hard"
+ },
+ {
+  "q": "What preparation does a VCTE exam require?",
+  "a": [
+   "Fasting for at least 3 hours",
+   "A 3-day fast",
+   "Drinking 2 liters of water",
+   "Vigorous exercise"
+  ],
+  "correct": 0,
+  "src": "slide 36",
+  "diff": "hard"
+ },
+ {
+  "q": "VCTE readings can be unreliable in patients with:",
+  "a": [
+   "Severe obesity, ascites, or heart failure",
+   "Normal weight",
+   "Morning appointments",
+   "Young age"
+  ],
+  "correct": 0,
+  "src": "slide 37",
+  "diff": "hard"
+ },
+ {
+  "q": "The CAP score from VCTE reflects:",
+  "a": [
+   "The amount of hepatic steatosis (liver fat)",
+   "Bone density",
+   "Muscle mass",
+   "Lung function"
+  ],
+  "correct": 0,
+  "src": "slide 37",
+  "diff": "hard"
+ },
+ {
+  "q": "FIB-4 of 1.3 or more plus liver stiffness above 8 kPa calls for:",
+  "a": [
+   "Referral to hepatology",
+   "Observation only",
+   "Antibiotics",
+   "Painkillers"
+  ],
+  "correct": 0,
+  "src": "slide 39",
+  "diff": "hard"
+ },
+ {
+  "q": "Progression from F3 fibrosis to cirrhosis takes on average:",
+  "a": [
+   "About 2 years",
+   "About 20 years",
+   "About 1 month",
+   "About 50 years"
+  ],
+  "correct": 0,
+  "src": "slide 17",
+  "diff": "hard"
+ },
+ {
+  "q": "The intensive lifestyle trial that improved MASLD prescribed:",
+  "a": [
+   "A 750 kcal daily deficit plus 200 minutes of walking weekly",
+   "An extra 2,000 kcal daily",
+   "No walking",
+   "Water only"
+  ],
+  "correct": 0,
+  "src": "slide 42",
+  "diff": "mid"
+ },
+ {
+  "q": "Which GLP-1 drug did the FDA approve for MASH in August 2025?",
+  "a": [
+   "Semaglutide (Wegovy)",
+   "Aspirin",
+   "Penicillin",
+   "Caffeine"
+  ],
+  "correct": 0,
+  "src": "slide 49",
+  "diff": "mid"
+ },
+ {
+  "q": "Which drug pair warrants caution for hepatic fat accumulation?",
+  "a": [
+   "Methotrexate and tamoxifen",
+   "Vitamin D and omega-3",
+   "Probiotics and fiber",
+   "IV fluids and saline"
+  ],
+  "correct": 0,
+  "src": "slide 45",
+  "diff": "hard"
+ },
+ {
+  "q": "Which hydrophilic statins are relatively safer in cirrhosis?",
+  "a": [
+   "Rosuvastatin and pravastatin",
+   "All statins are contraindicated",
+   "Ibuprofen",
+   "Acetaminophen"
+  ],
+  "correct": 0,
+  "src": "slide 51",
+  "diff": "hard"
+ },
+ {
+  "q": "Which brief alcohol screening tool is used in primary care?",
+  "a": [
+   "AUDIT-C",
+   "MRI",
+   "ECG",
+   "Hearing test"
+  ],
+  "correct": 0,
+  "src": "slide 53",
+  "diff": "mid"
+ },
+ {
+  "q": "In the Mediterranean diet, what should be kept low?",
+  "a": [
+   "Processed meat and added sugar",
+   "Olive oil",
+   "Fish",
+   "Whole grains"
+  ],
+  "correct": 0,
+  "src": "slide 44",
+  "diff": "mid"
+ }
+]
