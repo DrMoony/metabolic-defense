@@ -843,15 +843,15 @@ function spawnEnemy(type) {
       mats.push({ m: o.material, color: o.material.color.clone(), em: o.material.emissive.clone(), emi: o.material.emissiveIntensity });
     }
   });
-  // 탱커 체력바
+  // 체력바: 원샷 비행체 빼고 전원 표시 (명시적 체력)
   let hpBar = null;
-  if (def.hp >= 8) {
+  if (def.hp >= 2) {
     hpBar = new THREE.Group();
-    const bg = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 0.14), new THREE.MeshBasicMaterial({ color: 0x1a1016, transparent: true, opacity: 0.75 }));
-    const fg = new THREE.Mesh(new THREE.PlaneGeometry(1.04, 0.09), new THREE.MeshBasicMaterial({ color: 0x42d68f }));
+    const bg = new THREE.Mesh(new THREE.PlaneGeometry(1.1, 0.16), new THREE.MeshBasicMaterial({ color: 0x1a1016, transparent: true, opacity: 0.8 }));
+    const fg = new THREE.Mesh(new THREE.PlaneGeometry(1.04, 0.1), new THREE.MeshBasicMaterial({ color: 0x42d68f }));
     fg.position.z = 0.001;
     hpBar.add(bg); hpBar.add(fg); hpBar.userData.fg = fg;
-    hpBar.position.y = 2.4;
+    hpBar.position.y = def.hp >= 8 ? 2.4 : 2.15;
     mesh.add(hpBar);
   }
   const enemy = {
@@ -928,11 +928,11 @@ function damagePopup(pos, text, color, scale = 1) {
   ctx.fillStyle = color; ctx.fillText(text, 64, 32);
   const tex = new THREE.CanvasTexture(c);
   const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false }));
-  sp.scale.set(1.7 * scale, 0.85 * scale, 1);
+  sp.scale.set(2.2 * scale, 1.1 * scale, 1);
   sp.position.copy(pos); sp.position.y += 0.5;
   sp.renderOrder = 10;
   scene.add(sp);
-  popups.push({ mesh: sp, life: 0.8 });
+  popups.push({ mesh: sp, life: 0.95 });
 }
 function popupsUpdate(dt) {
   for (const p of [...popups]) {
@@ -1025,7 +1025,7 @@ function processRay(ndcX, ndcY, W) {
     const gain = Math.round((weak ? 140 : 80) * comboMult());
     G.score += gain; G.shootScore += gain;
     damageFx(e, hit.point, weak ? 0xffe9a8 : 0xff8fa3, weak ? 22 : 15);
-    damagePopup(hit.point, `-${pdmg}`, weak ? '#ffd166' : '#ffffff', weak ? 1 : 0.85);
+    damagePopup(hit.point, `-${pdmg}`, weak ? '#ffd166' : '#ffffff', weak ? 1.3 : 1.05);
     sfx.hit();
     e.mesh.position.z -= 0.18; // 넉백
     if (e.hp <= 0) killEnemy(e, true);
@@ -1346,7 +1346,7 @@ function projectilesUpdate(dt) {
       // 인슐린 위력 단계가 눈에 보이게: 약할수록 옅고 작은 숫자
       damagePopup(p.mesh.position, `-${p.dmg.toFixed(1)}`,
         ['#7dc8ff', '#a5c2dd', '#c2bda0', '#9a9aa2'][p.tier || 0],
-        [1, 0.9, 0.78, 0.62][p.tier || 0]);
+        [1.2, 1.05, 0.9, 0.7][p.tier || 0]);
       if (p.target.hp <= 0) killEnemy(p.target, false);
       drop(); continue;
     }
