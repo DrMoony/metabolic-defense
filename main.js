@@ -555,100 +555,170 @@ function makeSwirlTexture() {
 }
 const swirlTex = makeSwirlTexture();
 
+// 공통 파츠: 카툰 눈(흰자+동공+화난 눈썹) · 팔다리 · 바닥 그림자
+function addFace(g, y, z, s = 1, gap = 0.18) {
+  for (const dx of [-gap * s, gap * s]) {
+    const white = new THREE.Mesh(new THREE.SphereGeometry(0.11 * s, 8, 6), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+    white.position.set(dx, y, z); g.add(white);
+    const pupil = new THREE.Mesh(new THREE.SphereGeometry(0.055 * s, 6, 5), new THREE.MeshBasicMaterial({ color: 0x18181c }));
+    pupil.position.set(dx, y, z + 0.075 * s); g.add(pupil);
+    const brow = new THREE.Mesh(new THREE.BoxGeometry(0.17 * s, 0.04 * s, 0.03), new THREE.MeshBasicMaterial({ color: 0x18181c }));
+    brow.position.set(dx, y + 0.15 * s, z + 0.02);
+    brow.rotation.z = dx < 0 ? -0.45 : 0.45;   // 화난 눈썹
+    g.add(brow);
+  }
+}
+function addLimbs(g, color, armY, armX, legX) {
+  const mat = new THREE.MeshStandardMaterial({ color, roughness: 0.6 });
+  const arms = [], legs = [];
+  for (const s of [-1, 1]) {
+    const arm = new THREE.Mesh(new THREE.CapsuleGeometry(0.055, 0.3, 3, 6), mat);
+    arm.position.set(s * armX, armY, 0); arm.rotation.z = s * 0.7;
+    g.add(arm); arms.push(arm);
+    const leg = new THREE.Mesh(new THREE.CapsuleGeometry(0.06, 0.2, 3, 6), mat);
+    leg.position.set(s * legX, 0.16, 0);
+    g.add(leg); legs.push(leg);
+  }
+  g.userData.limbs = { arms, legs };
+}
+function addShadow(g, r) {
+  const sh = new THREE.Mesh(new THREE.CircleGeometry(r, 16),
+    new THREE.MeshBasicMaterial({ color: 0x2a0e14, transparent: true, opacity: 0.32, depthWrite: false }));
+  sh.rotation.x = -Math.PI / 2; sh.position.y = 0.03; sh.renderOrder = 1;
+  g.add(sh);
+  g.userData.shadow = sh;
+}
+
 function buildEnemyMesh(type) {
   const g = new THREE.Group();
   if (type === 'soda') {   // 소용돌이 막대사탕
-    const capMat = new THREE.MeshStandardMaterial({ map: swirlTex, roughness: 0.35 });
+    const capMat = new THREE.MeshStandardMaterial({ map: swirlTex, roughness: 0.3 });
     const sideMat = new THREE.MeshStandardMaterial({ color: 0xff8fb3, roughness: 0.4 });
     const disc = new THREE.Mesh(new THREE.CylinderGeometry(0.72, 0.72, 0.2, 24), [sideMat, capMat, capMat]);
-    disc.rotation.x = Math.PI / 2;   // 납작면이 정면을 보게
-    disc.position.y = 1.25; g.add(disc);
+    disc.rotation.x = Math.PI / 2; disc.position.y = 1.25; g.add(disc);
+    const gloss = new THREE.Mesh(new THREE.SphereGeometry(0.12, 8, 6),
+      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.75 }));
+    gloss.scale.set(1.4, 0.7, 0.4); gloss.position.set(-0.3, 1.7, 0.12); g.add(gloss);
     const stick = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.85, 8),
       new THREE.MeshStandardMaterial({ color: 0xfff2e0, roughness: 0.5 }));
     stick.position.y = 0.35; g.add(stick);
-    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x1a1a1a });
-    for (const dx of [-0.24, 0.24]) {
-      const e = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), eyeMat);
-      e.position.set(dx, 1.32, 0.14); g.add(e);
+    for (const s of [-1, 1]) {   // 리본 매듭
+      const rb = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.22, 4),
+        new THREE.MeshStandardMaterial({ color: 0xff4d8a, roughness: 0.5 }));
+      rb.position.set(s * 0.12, 0.62, 0); rb.rotation.z = s * 1.9; g.add(rb);
     }
+    addFace(g, 1.32, 0.14, 1, 0.24);
+    addLimbs(g, 0xfff2e0, 0.9, 0.72, 0.14);
+    addShadow(g, 0.55);
   } else if (type === 'fries') {
     const box = new THREE.Mesh(new THREE.BoxGeometry(0.9, 1.0, 0.55),
-      new THREE.MeshStandardMaterial({ color: 0xe03131, roughness: 0.55, emissive: 0x550a0a, emissiveIntensity: 0.5 }));
+      new THREE.MeshStandardMaterial({ color: 0xe03131, roughness: 0.5, emissive: 0x550a0a, emissiveIntensity: 0.4 }));
     box.position.y = 0.8; g.add(box);
-    const fryMat = new THREE.MeshStandardMaterial({ color: 0xffd166, roughness: 0.6, emissive: 0x664d10, emissiveIntensity: 0.5 });
-    for (let i = 0; i < 5; i++) {
-      const f = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.85, 0.13), fryMat);
-      f.position.set(-0.3 + i * 0.15, 1.55, (Math.random() - 0.5) * 0.2); f.rotation.z = (Math.random() - 0.5) * 0.35; g.add(f);
+    const lip = new THREE.Mesh(new THREE.BoxGeometry(0.98, 0.1, 0.62),
+      new THREE.MeshStandardMaterial({ color: 0xf2f2e6, roughness: 0.5 }));
+    lip.position.y = 1.28; g.add(lip);
+    const fryMat = new THREE.MeshStandardMaterial({ color: 0xffd166, roughness: 0.55, emissive: 0x664d10, emissiveIntensity: 0.4 });
+    const saltMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    for (let i = 0; i < 6; i++) {
+      const f = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.6 + Math.random() * 0.5, 0.13), fryMat);
+      f.position.set(-0.32 + i * 0.13, 1.55, (Math.random() - 0.5) * 0.25);
+      f.rotation.z = (Math.random() - 0.5) * 0.4; g.add(f);
+      const salt = new THREE.Mesh(new THREE.SphereGeometry(0.025, 4, 4), saltMat);
+      salt.position.set(f.position.x, 1.6 + Math.random() * 0.3, f.position.z + 0.09); g.add(salt);
     }
-    const eyeMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
-    for (const dx of [-0.2, 0.2]) {
-      const e = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 6), eyeMat);
-      e.position.set(dx, 0.95, 0.31); g.add(e);
-      const p = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 5), new THREE.MeshBasicMaterial({ color: 0x111111 }));
-      p.position.set(dx, 0.95, 0.4); g.add(p);
-    }
-  } else if (type === 'pizza') { // 기름진 피자 조각 (삼각 프리즘)
+    addFace(g, 0.92, 0.29, 1, 0.2);
+    addLimbs(g, 0xe03131, 0.7, 0.52, 0.2);
+    addShadow(g, 0.6);
+  } else if (type === 'pizza') { // 기름진 피자 조각
     const slice = new THREE.Mesh(new THREE.CylinderGeometry(0.85, 0.85, 0.2, 3),
-      new THREE.MeshStandardMaterial({ color: 0xf2c15c, roughness: 0.6, emissive: 0x5a4010, emissiveIntensity: 0.35 }));
-    slice.rotation.x = Math.PI / 2; slice.rotation.z = Math.PI;   // 꼭짓점 아래로
-    slice.position.y = 0.95; g.add(slice);
-    const crust = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.22, 0.26),
-      new THREE.MeshStandardMaterial({ color: 0xc98a3a, roughness: 0.65 }));
-    crust.position.y = 1.36; g.add(crust);
-    const pepMat = new THREE.MeshStandardMaterial({ color: 0xd94f3d, roughness: 0.5 });
-    for (const [px, py] of [[-0.25, 1.1], [0.22, 1.05], [0, 0.72]]) {
-      const pep = new THREE.Mesh(new THREE.CircleGeometry(0.13, 10), pepMat);
-      pep.position.set(px, py, 0.12); g.add(pep);
+      new THREE.MeshStandardMaterial({ color: 0xf2c15c, roughness: 0.55, emissive: 0x5a4010, emissiveIntensity: 0.3 }));
+    slice.rotation.x = Math.PI / 2; slice.rotation.z = Math.PI; slice.position.y = 0.95; g.add(slice);
+    const crust = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 1.5, 8),
+      new THREE.MeshStandardMaterial({ color: 0xc98a3a, roughness: 0.6 }));
+    crust.rotation.z = Math.PI / 2; crust.position.y = 1.38; g.add(crust);
+    const pepMat = new THREE.MeshStandardMaterial({ color: 0xd94f3d, roughness: 0.45, emissive: 0x4a0f0a, emissiveIntensity: 0.35 });
+    for (const [px, py] of [[-0.28, 1.12], [0.24, 1.06], [0, 0.7]]) {
+      const pep = new THREE.Mesh(new THREE.CylinderGeometry(0.13, 0.13, 0.06, 10), pepMat);
+      pep.rotation.x = Math.PI / 2; pep.position.set(px, py, 0.12); g.add(pep);
     }
-    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x1a1a1a });
-    for (const dx of [-0.16, 0.16]) {
-      const e = new THREE.Mesh(new THREE.SphereGeometry(0.07, 8, 6), eyeMat);
-      e.position.set(dx, 0.9, 0.13); g.add(e);
+    const cheese = new THREE.MeshStandardMaterial({ color: 0xffdf7a, roughness: 0.4 });
+    for (const [cx, cy, l] of [[-0.42, 0.62, 0.3], [0.1, 0.42, 0.42], [0.45, 0.68, 0.26]]) {
+      const d = new THREE.Mesh(new THREE.CapsuleGeometry(0.05, l, 3, 6), cheese);
+      d.position.set(cx, cy, 0.1); g.add(d);
     }
+    addFace(g, 0.95, 0.16, 0.9, 0.2);
+    addLimbs(g, 0xc98a3a, 0.85, 0.62, 0.16);
+    addShadow(g, 0.6);
   } else if (type === 'ramen') { // 나트륨 컵라면
     const cup = new THREE.Mesh(new THREE.CylinderGeometry(0.55, 0.38, 0.95, 14),
-      new THREE.MeshStandardMaterial({ color: 0xf2ece0, roughness: 0.55 }));
+      new THREE.MeshStandardMaterial({ color: 0xf2ece0, roughness: 0.5 }));
     cup.position.y = 0.85; g.add(cup);
     const band = new THREE.Mesh(new THREE.CylinderGeometry(0.57, 0.53, 0.22, 14),
-      new THREE.MeshStandardMaterial({ color: 0xd9483b, roughness: 0.5 }));
+      new THREE.MeshStandardMaterial({ color: 0xd9483b, roughness: 0.45 }));
     band.position.y = 1.05; g.add(band);
     const noodleMat = new THREE.MeshStandardMaterial({ color: 0xffd166, roughness: 0.5 });
-    for (let k = 0; k < 3; k++) {
-      const n = new THREE.Mesh(new THREE.TorusGeometry(0.16, 0.05, 6, 10, Math.PI), noodleMat);
-      n.position.set(-0.2 + k * 0.2, 1.36, 0.07 * (k % 2 ? 1 : -1));
+    for (let k = 0; k < 4; k++) {
+      const n = new THREE.Mesh(new THREE.TorusGeometry(0.15, 0.05, 6, 10, Math.PI), noodleMat);
+      n.position.set(-0.24 + k * 0.16, 1.38, 0.07 * (k % 2 ? 1 : -1));
       n.rotation.x = -0.4; g.add(n);
     }
-    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x1a1a1a });
-    for (const dx of [-0.18, 0.18]) {
-      const e = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), eyeMat);
-      e.position.set(dx, 0.8, 0.5); g.add(e);
+    const drape = new THREE.Mesh(new THREE.TorusGeometry(0.22, 0.045, 6, 10, Math.PI * 0.9), noodleMat);
+    drape.position.set(0.5, 1.25, 0.05); drape.rotation.z = -1.4; g.add(drape);   // 흘러넘친 면발
+    const chop = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.028, 0.85, 6),
+      new THREE.MeshStandardMaterial({ color: 0x8a5a32, roughness: 0.6 }));
+    chop.position.set(-0.3, 1.62, -0.05); chop.rotation.z = 0.5; g.add(chop);   // 젓가락
+    for (const [sx2, sy2] of [[-0.12, 1.85], [0.16, 1.98]]) {   // 김
+      const steam = new THREE.Mesh(new THREE.SphereGeometry(0.11, 8, 6),
+        new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.32 }));
+      steam.position.set(sx2, sy2, 0); g.add(steam);
     }
-  } else if (type === 'icecream') { // 아이스크림 콘 (당류)
+    addFace(g, 0.78, 0.5, 1, 0.2);
+    addLimbs(g, 0xf2ece0, 0.75, 0.58, 0.18);
+    addShadow(g, 0.55);
+  } else if (type === 'icecream') { // 민트초코 콘
     const cone = new THREE.Mesh(new THREE.ConeGeometry(0.42, 0.9, 10),
-      new THREE.MeshStandardMaterial({ color: 0xc98a4a, roughness: 0.7 }));
-    cone.rotation.x = Math.PI;   // 꼭짓점 아래
-    cone.position.y = 0.6; g.add(cone);
+      new THREE.MeshStandardMaterial({ color: 0xc98a4a, roughness: 0.65 }));
+    cone.rotation.x = Math.PI; cone.position.y = 0.6; g.add(cone);
+    const lat = new THREE.MeshStandardMaterial({ color: 0xa8703a, roughness: 0.7 });
+    for (const ly of [0.45, 0.7]) {   // 와플 링
+      const line = new THREE.Mesh(new THREE.TorusGeometry(0.42 * (ly - 0.15) / 0.9 + 0.12, 0.02, 4, 12), lat);
+      line.rotation.x = Math.PI / 2; line.position.y = ly; g.add(line);
+    }
     const scoop = new THREE.Mesh(new THREE.SphereGeometry(0.45, 12, 10),
-      new THREE.MeshStandardMaterial({ color: 0x9fe8c9, roughness: 0.45, emissive: 0x2c6a52, emissiveIntensity: 0.3 }));
+      new THREE.MeshStandardMaterial({ color: 0x9fe8c9, roughness: 0.4, emissive: 0x2c6a52, emissiveIntensity: 0.3 }));
     scoop.position.y = 1.28; g.add(scoop);
-    // 민트초코: 초코칩 알갱이
+    const dripMat = new THREE.MeshStandardMaterial({ color: 0x9fe8c9, roughness: 0.4 });
+    for (const [dx2, dy2, l2] of [[-0.3, 1.0, 0.18], [0.28, 0.96, 0.24], [0, 1.02, 0.14]]) {
+      const d2 = new THREE.Mesh(new THREE.CapsuleGeometry(0.05, l2, 3, 6), dripMat);
+      d2.position.set(dx2, dy2, 0.16); g.add(d2);   // 흘러내리는 민트
+    }
     const chipMat2 = new THREE.MeshStandardMaterial({ color: 0x3a2418, roughness: 0.5 });
-    for (const [cx, cy, cz] of [[-0.18, 1.42, 0.3], [0.15, 1.3, 0.38], [-0.05, 1.18, 0.42], [0.28, 1.45, 0.2]]) {
-      const chip = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 5), chipMat2);
+    for (const [cx, cy, cz] of [[-0.18, 1.42, 0.3], [0.15, 1.3, 0.38], [-0.05, 1.18, 0.42], [0.28, 1.45, 0.2], [0.02, 1.55, 0.32]]) {
+      const chip = new THREE.Mesh(new THREE.SphereGeometry(0.055, 6, 5), chipMat2);
       chip.position.set(cx, cy, cz); g.add(chip);
     }
     const choco = new THREE.Mesh(new THREE.SphereGeometry(0.11, 8, 6),
       new THREE.MeshStandardMaterial({ color: 0x4a2c1a, roughness: 0.45 }));
     choco.position.set(0.08, 1.68, 0.05); g.add(choco);
-    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x1a1a1a });
-    for (const dx of [-0.16, 0.16]) {
-      const e = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), eyeMat);
-      e.position.set(dx, 1.32, 0.4); g.add(e);
-    }
+    addFace(g, 1.3, 0.36, 1, 0.17);
+    addLimbs(g, 0xc98a4a, 0.7, 0.42, 0.13);
+    addShadow(g, 0.5);
   } else if (type === 'donut') { // 비행: 슈가 도넛
     const ring = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.26, 10, 18),
       new THREE.MeshStandardMaterial({ color: 0xff8fb3, roughness: 0.45, emissive: 0x77203c, emissiveIntensity: 0.5 }));
-    ring.rotation.x = Math.PI / 2 - 0.5; ring.position.y = 0; g.add(ring);
+    ring.rotation.x = Math.PI / 2 - 0.5; g.add(ring);
+    const icing = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.2, 10, 18),
+      new THREE.MeshStandardMaterial({ color: 0xffc2d6, roughness: 0.35 }));
+    icing.rotation.x = Math.PI / 2 - 0.5; icing.position.y = 0.06; g.add(icing);
+    const sprColors = [0xffd166, 0x7dffb0, 0x66aaff, 0xffffff, 0xd94f3d];
+    for (let i = 0; i < 10; i++) {   // 스프링클
+      const a = (i / 10) * Math.PI * 2;
+      const spr = new THREE.Mesh(new THREE.CapsuleGeometry(0.02, 0.08, 2, 5),
+        new THREE.MeshBasicMaterial({ color: sprColors[i % sprColors.length] }));
+      spr.position.set(Math.cos(a) * 0.55, 0.16 + Math.sin(a) * 0.24, Math.sin(a) * 0.4);
+      spr.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+      g.add(spr);
+    }
     const wings = [];
     for (const s of [-1, 1]) {
       const w = new THREE.Mesh(new THREE.CircleGeometry(0.45, 10),
@@ -657,17 +727,13 @@ function buildEnemyMesh(type) {
       w.position.set(s * 0.72, 0.25, 0); w.rotation.z = s * 0.5;
       g.add(w); wings.push(w);
     }
-    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x1a1a1a });
-    for (const dx of [-0.2, 0.2]) {
-      const e = new THREE.Mesh(new THREE.SphereGeometry(0.08, 8, 6), eyeMat);
-      e.position.set(dx, 0.12, 0.62); g.add(e);
-    }
+    addFace(g, 0.12, 0.58, 0.9, 0.2);
+    addShadow(g, 0.5);
     g.userData.wings = wings;
-  } else if (type === 'moth') { // 비행: 날아다니는 과자봉지 (은박 파우치)
+  } else if (type === 'moth') { // 비행: 날아다니는 과자봉지
     const foil = new THREE.MeshStandardMaterial({ color: 0x6aa0e0, roughness: 0.35, metalness: 0.55, emissive: 0x1a3050, emissiveIntensity: 0.35 });
     const bag = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.85, 0.22), foil);
     bag.position.y = 0.1; g.add(bag);
-    // 위아래 절취선 크림프(톱니)
     const crimpMat = new THREE.MeshStandardMaterial({ color: 0x8fb8ec, roughness: 0.4, metalness: 0.5 });
     for (const sy of [-1, 1]) {
       for (let k = -1; k <= 1; k++) {
@@ -677,7 +743,9 @@ function buildEnemyMesh(type) {
         g.add(tooth);
       }
     }
-    // 앞면 라벨: 노란 띠 + 감자칩 그림
+    const shine = new THREE.Mesh(new THREE.PlaneGeometry(0.1, 0.9),
+      new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.35 }));
+    shine.position.set(-0.18, 0.1, 0.115); shine.rotation.z = 0.35; g.add(shine);   // 은박 광택
     const band = new THREE.Mesh(new THREE.PlaneGeometry(0.62, 0.3),
       new THREE.MeshStandardMaterial({ color: 0xffd166, roughness: 0.5 }));
     band.position.set(0, 0.02, 0.115); g.add(band);
@@ -685,6 +753,13 @@ function buildEnemyMesh(type) {
     for (const [cx, cy] of [[-0.08, 0.0], [0.09, 0.05]]) {
       const chip = new THREE.Mesh(new THREE.CircleGeometry(0.13, 12), chipMat);
       chip.position.set(cx, cy, 0.12); g.add(chip);
+    }
+    for (const s of [-1, 1]) {   // 더듬이
+      const ant = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.3, 5),
+        new THREE.MeshStandardMaterial({ color: 0x2a3a55, roughness: 0.5 }));
+      ant.position.set(s * 0.12, 0.72, 0); ant.rotation.z = s * -0.4; g.add(ant);
+      const tip = new THREE.Mesh(new THREE.SphereGeometry(0.035, 6, 5), new THREE.MeshBasicMaterial({ color: 0xffd166 }));
+      tip.position.set(s * 0.18, 0.86, 0); g.add(tip);
     }
     const wings = [];
     for (const s of [-1, 1]) {
@@ -694,11 +769,8 @@ function buildEnemyMesh(type) {
       w.position.set(s * 0.55, 0.42, 0); w.rotation.z = s * 0.5;
       g.add(w); wings.push(w);
     }
-    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x1a1a1a });
-    for (const dx of [-0.14, 0.14]) {
-      const e = new THREE.Mesh(new THREE.SphereGeometry(0.06, 8, 6), eyeMat);
-      e.position.set(dx, 0.38, 0.12); g.add(e);
-    }
+    addFace(g, 0.36, 0.12, 0.85, 0.17);
+    addShadow(g, 0.45);
     g.userData.wings = wings;
   } else { // burger / boss
     const stack = [
@@ -710,17 +782,41 @@ function buildEnemyMesh(type) {
         new THREE.MeshStandardMaterial({ color: c, roughness: 0.6, emissive: c, emissiveIntensity: 0.12 }));
       m.position.y = y; y += h * 0.9; g.add(m);
     }
+    const seedMat = new THREE.MeshStandardMaterial({ color: 0xfff2d9, roughness: 0.6 });
+    for (let i = 0; i < 8; i++) {   // 참깨
+      const a = Math.random() * Math.PI * 2, rr = Math.random() * 0.6;
+      const seed = new THREE.Mesh(new THREE.SphereGeometry(0.045, 5, 4), seedMat);
+      seed.scale.set(1, 0.6, 1.4);
+      seed.position.set(Math.cos(a) * rr, 1.28 + (0.6 - rr) * 0.18, Math.sin(a) * rr + 0.1);
+      g.add(seed);
+    }
+    const cheeseMat = new THREE.MeshStandardMaterial({ color: 0xffc93c, roughness: 0.4 });
+    for (const [cx, cz] of [[-0.6, 0.6], [0.5, 0.72], [0, 0.9]]) {   // 늘어진 치즈
+      const d = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.22, 0.06), cheeseMat);
+      d.position.set(cx, 0.62, cz); g.add(d);
+    }
     // 약점: 영양성분표
     const label = new THREE.Mesh(new THREE.PlaneGeometry(0.55, 0.42),
       new THREE.MeshBasicMaterial({ color: 0xffffff }));
     label.position.set(0, 0.85, 0.97); g.add(label);
     label.userData.weakpoint = true;
-    const eyeMat = new THREE.MeshBasicMaterial({ color: 0x1a1a1a });
-    for (const dx of [-0.28, 0.28]) {
-      const e = new THREE.Mesh(new THREE.SphereGeometry(0.1, 8, 6), eyeMat);
-      e.position.set(dx, 1.45, 0.85); g.add(e);
+    addFace(g, 1.42, 0.82, 1.1, 0.26);
+    addLimbs(g, 0xe8a95c, 0.8, 1.02, 0.34);
+    addShadow(g, 0.85);
+    if (type === 'boss') {   // 왕관
+      const gold = new THREE.MeshStandardMaterial({ color: 0xf2c14e, roughness: 0.3, metalness: 0.7 });
+      const base = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.46, 0.2, 10), gold);
+      base.position.y = 1.66; g.add(base);
+      for (let i = 0; i < 4; i++) {
+        const a = (i / 4) * Math.PI * 2;
+        const spike = new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.26, 6), gold);
+        spike.position.set(Math.cos(a) * 0.3, 1.86, Math.sin(a) * 0.3); g.add(spike);
+        const jewel = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 5),
+          new THREE.MeshStandardMaterial({ color: 0xd9302e, roughness: 0.3, emissive: 0x661010, emissiveIntensity: 0.8 }));
+        jewel.position.set(Math.cos(a + 0.8) * 0.42, 1.66, Math.sin(a + 0.8) * 0.42); g.add(jewel);
+      }
+      g.scale.setScalar(1.6);
     }
-    if (type === 'boss') g.scale.setScalar(1.6);
   }
   return g;
 }
@@ -762,7 +858,7 @@ function spawnEnemy(type) {
     type, def, mesh, hp: def.hp, maxhp: def.hp, mats, hpBar, flashT: 0,
     curve: route.curve, clen: route.len,
     x0: mesh.position.x, z0: mesh.position.z, xT: mesh.position.x, yT: mesh.position.y, jinkT: 0,
-    wings: mesh.userData.wings || null,
+    wings: mesh.userData.wings || null, limbs: mesh.userData.limbs || null, shadow: mesh.userData.shadow || null,
     progress: Math.random() * 0.01, lane: (Math.random() - 0.5) * 2.4,
     phase: Math.random() * Math.PI * 2,
     state: 'walk',           // walk | attack | leak | dying
@@ -1112,12 +1208,22 @@ function enemiesUpdate(dt, t) {
       if (e.flashT <= 0) for (const r of e.mats) { r.m.emissive.copy(r.em); r.m.emissiveIntensity = r.emi; }
     }
     if (e.hpBar) {
-      const ratio = Math.max(0, e.hp) / e.maxhp;
+      const ratio = Math.min(1, Math.max(0, e.hp) / e.maxhp);
       const fg = e.hpBar.userData.fg;
       fg.scale.x = Math.max(0.02, ratio);
       fg.position.x = -(1 - fg.scale.x) * 0.52;
       fg.material.color.setHex(ratio > 0.5 ? 0x42d68f : ratio > 0.25 ? 0xffd166 : 0xff5d73);
       e.hpBar.quaternion.copy(e.mesh.quaternion).invert().multiply(camera.quaternion);
+    }
+    // 그림자는 바닥에 고정, 팔다리는 걸음에 맞춰 흔들기
+    if (e.shadow) {
+      e.shadow.position.y = 0.03 - m.position.y;
+      e.shadow.scale.setScalar(Math.max(0.35, 1 - m.position.y * 0.09));
+    }
+    if (e.limbs && e.state === 'walk') {
+      const sw = Math.sin(t * 9 + e.phase) * 0.55;
+      e.limbs.legs.forEach((l, i) => { l.rotation.x = sw * (i ? -1 : 1); });
+      e.limbs.arms.forEach((a, i) => { a.rotation.x = sw * (i ? 1 : -1) * 0.7; });
     }
     if (e.state === 'dying') {
       e.dyingT -= dt;
