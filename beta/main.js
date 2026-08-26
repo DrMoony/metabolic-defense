@@ -98,6 +98,8 @@ function wName(i) { const w = WEAPONS[i]; return G.lang === 'en' ? w.en : w.name
 const STR = {
   ko: {
     lblCore: 'CORE · 생명', lblMeta: '대사 건강 (M)', lblSugar: '혈당',
+    sCore: '생명', sAcc: '명중률', sQuiz: '퀴즈',
+    badgeSugar: '🩸 고혈당 · 간에 지방 축적', badgeMetaBad: '⚡ 대사 저하 · 적이 빨라짐', badgeMetaGood: '⚡ 대사 양호 · 장기 지원 강화',
     coreState: (n) => `${n}%`,
     metaState: { good: '좋음 · 간·췌장 지원 강화', mid: '보통', bad: '나쁨 · 적이 빨라져요' },
     sugarOk: '안정', sugarHigh: '⚠️ 고혈당 · 간에 지방이 쌓여요',
@@ -138,11 +140,14 @@ const STR = {
     defeat: '💔 코어 함락 · 다시 도전해요',
     repCK: '심장·콩팥·뇌혈관', repL: '간 상태', repM: '대사 건강', repQ: '지식 점수',
     breakdown: (a, b, c, n, w) => `사격 ${a} · 퀴즈 ${b} · 지방이 구출 ${c} (${n}명) · 최종 무기 ${w}`,
+    accLine: (p, h, s2) => `<br>명중률 ${p}% (${h}/${s2}발)`,
     finishBonus: (v) => `<br>피니시 보너스 ${v} — 장기를 건강하게 지킬수록 점수가 커져요`,
     pancNote: '<br>⚠️ 이번 판엔 췌장부전까지 진행됐어요. 저항성(무력화) 단계에서 당류 적을 빨리 정리하면 부전을 막을 수 있어요',
   },
   en: {
     lblCore: 'CORE · LIFE', lblMeta: 'Metabolic health (M)', lblSugar: 'Blood glucose',
+    sCore: 'Life', sAcc: 'Accuracy', sQuiz: 'Quiz',
+    badgeSugar: '🩸 High glucose · liver fat rising', badgeMetaBad: '⚡ Low metabolism · enemies faster', badgeMetaGood: '⚡ Good metabolism · organs boosted',
     coreState: (n) => `${n}%`,
     metaState: { good: 'Good · organ support boosted', mid: 'Fair', bad: 'Poor · enemies move faster' },
     sugarOk: 'Stable', sugarHigh: '⚠️ Hyperglycemia · fat building up in the liver',
@@ -183,6 +188,7 @@ const STR = {
     defeat: '💔 Core lost · try again',
     repCK: 'Heart · Kidney · Brain', repL: 'Liver stage', repM: 'Metabolic health', repQ: 'Knowledge',
     breakdown: (a, b, c, n, w) => `Shooting ${a} · Quiz ${b} · Fatty rescues ${c} (${n}) · Final weapon ${w}`,
+    accLine: (p, h, s2) => `<br>Accuracy ${p}% (${h}/${s2} shots)`,
     finishBonus: (v) => `<br>Finish bonus ${v} — the healthier your organs, the bigger the score`,
     pancNote: '<br>⚠️ The pancreas failed this run. Clearing sugar enemies fast during the resistance stage prevents it',
   },
@@ -208,6 +214,7 @@ const G = {
   weapon: 0, pipeOpen: false, quizDiff: 'mid', liverPulseT: 4,
   pancStrain: 0, pancWarned: false, bossesUsed: [],
   lang: 'ko', ammo: {}, reloadT: 0, nextWeaponScore: 18000,
+  shots: 0, hits: 0,
   fatsRescued: 0, fatsLost: 0,
   fireCooldown: 0,
   over: false,
@@ -435,6 +442,8 @@ function metaPulseMul() { return { good: 0.75, mid: 1, bad: 1.4 }[metaTier()]; }
 function metaRegenMul() { return { good: 1.5, mid: 1, bad: 0.6 }[metaTier()]; }    // 췌장 회복 배수
 function metaEnemyMul() { return { good: 1, mid: 1, bad: 1.1 }[metaTier()]; }     // 적 이동속도 배수
 function hyperglycemic() { return G.sugar > 70; }
+function accuracy() { return G.shots >= 6 ? G.hits / G.shots : 1; }   // 초반 6발까지는 만점 취급
+function quizRate() { return G.quizTotal ? G.quizCorrectCount / G.quizTotal : 1; }
 
 function liverPulseUpdate(dt) {
   G.liverPulseT -= dt;
@@ -1403,21 +1412,32 @@ function updateHUD() {
   $('score-val').textContent = G.score.toLocaleString();
   const mult = comboMult();
   $('combo-val').textContent = G.streak >= 3 ? `${G.streak} COMBO · x${mult.toFixed(1)}` : '';
-  $('bar-core').style.width = `${Math.max(0, G.core)}%`;
-  $('bar-meta').style.width = `${Math.max(0, G.metabolic)}%`;
-  $('bar-sugar').style.width = `${Math.min(100, G.sugar)}%`;
+  const setStat = (k, val, pct, color) => {
+    const v = $('sv-' + k), b = $('sb-' + k);
+    if (v) { v.textContent = val; if (color) v.style.color = color; }
+    if (b) b.style.width = `${Math.max(0, Math.min(100, pct))}%`;
+  };
+  const accPct = G.shots >= 6 ? Math.round(accuracy() * 100) : null;
+  setStat('core', Math.max(0, Math.round(G.core)), G.core, G.core <= 30 ? '#ff5d73' : '#fff');
+  setStat('acc', accPct === null ? '—' : `${accPct}%`, accPct === null ? 100 : accPct,
+    accPct === null ? '#fff' : accPct >= 70 ? '#7dffb0' : accPct <= 40 ? '#ff8fa3' : '#fff');
+  setStat('quiz', `${G.quizCorrectCount}/${G.quizTotal}`, quizRate() * 100, '#fff');
+  // 대사·혈당은 평소엔 숨기고 나빠질 때만 경고 배지로 알린다
+  const al = $('hud-alert');
+  if (al) {
+    const badges = [];
+    if (hyperglycemic()) badges.push(`<span style="color:#ff8fa3">${T('badgeSugar')}</span>`);
+    if (G.metabolic <= 30) badges.push(`<span style="color:#ff8fa3">${T('badgeMetaBad')}</span>`);
+    else if (G.metabolic >= 70) badges.push(`<span style="color:#7dffb0">${T('badgeMetaGood')}</span>`);
+    al.innerHTML = badges.join('');
+  }
   $('bar-liver').style.width = `${Math.max(0, 100 - G.fibrosis)}%`;
   $('bar-beta').style.width = `${Math.max(0, G.beta)}%`;
   const st = liverStage();
   $('liver-state').textContent = T('liverStage')[st];
   // 게이지별 현재 효과를 한 줄로 알려준다
   const mt = metaTier();
-  const stMeta = $('st-meta');
-  if (stMeta) { stMeta.textContent = T('metaState')[mt]; stMeta.style.color = mt === 'good' ? '#7dffb0' : mt === 'bad' ? '#ff8fa3' : 'rgba(255,255,255,.6)'; }
-  const stSugar = $('st-sugar');
-  if (stSugar) { stSugar.textContent = hyperglycemic() ? T('sugarHigh') : T('sugarOk'); stSugar.style.color = hyperglycemic() ? '#ff5d73' : 'rgba(255,255,255,.6)'; }
-  const stCore = $('st-core');
-  if (stCore) stCore.textContent = T('coreState', Math.max(0, Math.round(G.core)));
+
   const tints = ['transparent', 'rgba(214,150,60,.14)', 'rgba(170,80,80,.22)', 'rgba(120,115,130,.34)'];
   $('liver-tint').style.background = `linear-gradient(to top, ${tints[st]}, transparent 45%)`;
   liverSprite.material.color.setHex([0xffffff, 0xe8cba6, 0xc99a90, 0x8f8f96][st]);   // 간이 굳을수록 수호탑도 탁해짐
@@ -1428,11 +1448,7 @@ function updateHUD() {
     $('panc-state').textContent = m >= 1 ? T('pancOk', bn) : m >= 0.7 ? T('pancWeak', bn)
       : m >= 0.45 ? T('pancTired', bn) : T('pancResist', bn);
   }
-  const third = Math.ceil((G.core / 100) * 3);
-  [$('core-heart'), $('core-kidney'), $('core-brain')].forEach((el, i) => {
-    el.style.opacity = i < third ? 1 : 0.22;
-    el.style.filter = i < third ? '' : 'grayscale(1)';
-  });
+
 }
 
 function comboMult() { return Math.min(4, 1 + G.streak * 0.12); }
@@ -1518,6 +1534,7 @@ function shootAt(clientX, clientY) {
     scene.add(r);
     rockets.push({ mesh: r, target, speed: 34, W });
     beep(180, 0.16, 'sawtooth', 0.06, -60);
+    G.shots += 1;
     if (ammoOn() && ammoOf(G.weapon) <= 0) startReload();
     return;
   }
@@ -1535,7 +1552,8 @@ function shootAt(clientX, clientY) {
       setTimeout(() => sfx.shoot(), i * 65);
     }
   }
-  if (results.includes('enemy')) G.streak += 1;
+  G.shots += 1;
+  if (results.includes('enemy')) { G.hits += 1; G.streak += 1; }
   else if (!results.includes('fatwall') && !results.includes('trap')) G.streak = 0;
   if (ammoOn() && ammoOf(G.weapon) <= 0) startReload();
 }
@@ -1574,7 +1592,7 @@ function rocketsUpdate(dt) {
         wl.bar.userData.fg.scale.x = Math.max(0.02, ratio);
         if (wl.hp <= 0) destroyFatWall(wl, at);
       }
-      G.streak = hitAny ? G.streak + 1 : 0;
+      if (hitAny) { G.hits += 1; G.streak += 1; } else G.streak = 0;
       scene.remove(r.mesh); rockets.splice(rockets.indexOf(r), 1);
       continue;
     }
@@ -1909,6 +1927,12 @@ function metersUpdate(dt) {
     G.hyperT = 0;
     if (G.sugar < 50) G.metabolic = Math.min(100, G.metabolic + 0.9 * dt);   // 혈당이 안정되면 대사가 서서히 회복
   }
+  // 명중률이 대사 건강으로 이어진다 — 정확히 잡을수록 몸이 덜 상한다
+  const acc = accuracy();
+  if (acc >= 0.7) G.metabolic = Math.min(100, G.metabolic + 0.55 * dt);
+  else if (acc <= 0.4) {
+    G.metabolic = Math.max(0, G.metabolic - 0.5 * dt);
+  }
 }
 
 // ---------- 퀴즈 ----------
@@ -1972,11 +1996,13 @@ function answerQuiz(correct, btn) {
         if (!G.pancDown) { G.beta = Math.min(100, G.beta + 20); G.pancStrain = Math.max(0, G.pancStrain - 6); }
         G.metabolic = Math.min(100, G.metabolic + 10);
       }
+      G.core = Math.min(100, G.core + 5);
       $('quiz-feedback').textContent = upgraded ? T('okItemGun', gain.toLocaleString()) : T('okItemPot', gain.toLocaleString());
     } else {
       G.fibrosis = Math.max(0, G.fibrosis - 25);
       if (!G.pancDown) { G.beta = Math.min(100, G.beta + 30); G.pancStrain = Math.max(0, G.pancStrain - 6); }
       G.metabolic = Math.min(100, G.metabolic + 8);
+      G.core = Math.min(100, G.core + 8);   // 지식이 장기를 지킨다
       weaponUp(1);   // 점수 마일스톤 승급이 있어 1단계씩 — 모든 무기를 거치게
       $('quiz-feedback').textContent = T('okWave', gain.toLocaleString());
     }
@@ -2032,6 +2058,7 @@ function finishGame(victory) {
   $('result-breakdown').innerHTML =
     T('breakdown', G.shootScore.toLocaleString(), G.quizScore.toLocaleString(), G.rescueScore.toLocaleString(),
       G.fatsRescued, `${WEAPONS[G.weapon].icon} ${wName(G.weapon)}`) +
+    T('accLine', G.shots ? Math.round((G.hits / G.shots) * 100) : 0, G.hits, G.shots) +
     T('finishBonus', G.finishBonus.toLocaleString()) + (G.pancDown ? T('pancNote') : '');
   $('screen-result').classList.remove('hidden');
   hud.classList.add('hidden');
@@ -2205,7 +2232,7 @@ const INTRO_STRINGS = {
       '<b>간 성벽</b>은 놓친 적을 묵묵히 막아주지만, 혹사되면 서서히 굳어가요<br>' +
       '<b>췌장 망루</b>는 당류 적을 자동 요격하지만, 과로하면 인슐린이 약해져요<br>' +
       '덫에 갇힌 <b>지방이</b>는 자물쇠만 정확히 쏴서 구해주세요 (지방이를 쏘면 안 돼요!)<br>' +
-      '<b>CORE</b>가 0이면 게임 오버, <b>대사 건강</b>이 높으면 장기가 더 도와주고, <b>혈당</b>이 높으면 간에 지방이 쌓여요',
+      '우측 상단 지표 셋 — ❤️<b>생명</b>이 0이면 끝, 🎯<b>명중률</b>이 높을수록 몸이 덜 상하고, 🧠<b>퀴즈</b> 정답은 생명을 되살려요',
   },
   en: {
     sub: 'CKLM ARCADE — LAST DEFENSE INSIDE THE BODY',
@@ -2216,7 +2243,7 @@ const INTRO_STRINGS = {
       'The <b>liver wall</b> quietly absorbs what you miss — overwork slowly hardens it<br>' +
       'The <b>pancreas turret</b> auto-fires insulin at sugar enemies, but overwork weakens it<br>' +
       'Free trapped <b>Fatty</b> by shooting only the lock (never shoot Fatty!)<br>' +
-      '<b>CORE</b> at 0 ends the run · high <b>metabolic health</b> boosts your organs · high <b>glucose</b> fattens the liver',
+      'Three meters, top right — ❤️<b>Life</b> at 0 ends the run, high 🎯<b>Accuracy</b> keeps your body healthy, and 🧠<b>Quiz</b> answers restore Life',
   },
 };
 function applyLang(lang) {
@@ -2234,7 +2261,7 @@ function applyLang(lang) {
   if (howto) howto.innerHTML = S.howto;
   // 인게임 HUD 고정 라벨도 함께 전환
   const setTxt = (id, v) => { const el = $(id); if (el) el.textContent = v; };
-  setTxt('lbl-core', T('lblCore')); setTxt('lbl-meta', T('lblMeta')); setTxt('lbl-sugar', T('lblSugar'));
+  setTxt('sl-core', T('sCore')); setTxt('sl-acc', T('sAcc')); setTxt('sl-quiz', T('sQuiz'));
   setTxt('lbl-liver', T('lblLiver')); setTxt('lbl-panc', T('lblPanc'));
   applyWeaponVisual();
 }
