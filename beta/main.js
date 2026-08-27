@@ -21,6 +21,7 @@ const ENEMY_TYPES = {
   soju:   { hp: 4,  speed: 2.0, score: 320, wallDmg: 6,  sugar: false, liverX: 2.4, label: '초록 소주병', labelEn: 'Green Soju Bottle' },
   donut:  { hp: 1,  speed: 3.4, score: 250, wallDmg: 0,  sugar: true,  fly: true, label: '슈가 도넛', labelEn: 'Sugar Donut' },
   moth:   { hp: 1,  speed: 4.2, score: 250, wallDmg: 0,  sugar: false, fly: true, label: '날아온 과자봉지', labelEn: 'Flying Chip Bag' },
+  bat:    { hp: 2,  speed: 3.6, score: 300, wallDmg: 0,  sugar: true,  fly: true, side: 'left', label: '초콜릿 박쥐', labelEn: 'Chocolate Bat' },
   // 보스 3종 (판마다 로테이션)
   boss:   { hp: 45, speed: 0.85, score: 2000, wallDmg: 30, sugar: false, boss: true, label: '킹 버거', labelEn: 'King Burger' },
   cancer: { hp: 40, speed: 0.95, score: 2200, wallDmg: 26, sugar: false, boss: true, splits: 4, label: '암세포', labelEn: 'Cancer Cell' },
@@ -42,10 +43,10 @@ const WAVES = [
     spawns: [ { type: 'soda', interval: 2.3, firstAt: 1.0 }, { type: 'fries', interval: 4.6, firstAt: 3.0 }, { type: 'icecream', interval: 7, firstAt: 8.0 } ],
     events: [ { t: 20, type: 'quiz' } ] },
   { name: 'WAVE 2', duration: 55,
-    spawns: [ { type: 'soda', interval: 1.9, firstAt: 1.0 }, { type: 'fries', interval: 3.4, firstAt: 2.0 }, { type: 'burger', interval: 10, firstAt: 6.0 }, { type: 'pizza', interval: 9, firstAt: 8.0 }, { type: 'icecream', interval: 6.5, firstAt: 4.0 }, { type: 'ciga', interval: 12, firstAt: 14.0 }, { type: 'soju', interval: 14, firstAt: 24.0 }, { type: 'donut', interval: 10, firstAt: 9.0 } ],
+    spawns: [ { type: 'soda', interval: 1.9, firstAt: 1.0 }, { type: 'fries', interval: 3.4, firstAt: 2.0 }, { type: 'burger', interval: 10, firstAt: 6.0 }, { type: 'pizza', interval: 9, firstAt: 8.0 }, { type: 'icecream', interval: 6.5, firstAt: 4.0 }, { type: 'ciga', interval: 12, firstAt: 14.0 }, { type: 'soju', interval: 14, firstAt: 24.0 }, { type: 'donut', interval: 10, firstAt: 9.0 }, { type: 'bat', interval: 13, firstAt: 19.0 } ],
     events: [ { t: 13, type: 'trap' }, { t: 24, type: 'quiz' }, { t: 38, type: 'trap' }, { t: 47, type: 'quiz' } ] },
   { name: 'FINAL WAVE', duration: 65,
-    spawns: [ { type: 'soda', interval: 1.6, firstAt: 1.0 }, { type: 'fries', interval: 3.0, firstAt: 2.0 }, { type: 'burger', interval: 8.5, firstAt: 5.0 }, { type: 'pizza', interval: 7.5, firstAt: 3.0 }, { type: 'ramen', interval: 9.5, firstAt: 7.0 }, { type: 'icecream', interval: 6, firstAt: 4.5 }, { type: 'ciga', interval: 10, firstAt: 9.0 }, { type: 'soju', interval: 12, firstAt: 17.0 }, { type: 'donut', interval: 8, firstAt: 6.0 }, { type: 'moth', interval: 9, firstAt: 11.0 } ],
+    spawns: [ { type: 'soda', interval: 1.6, firstAt: 1.0 }, { type: 'fries', interval: 3.0, firstAt: 2.0 }, { type: 'burger', interval: 8.5, firstAt: 5.0 }, { type: 'pizza', interval: 7.5, firstAt: 3.0 }, { type: 'ramen', interval: 9.5, firstAt: 7.0 }, { type: 'icecream', interval: 6, firstAt: 4.5 }, { type: 'ciga', interval: 10, firstAt: 9.0 }, { type: 'soju', interval: 12, firstAt: 17.0 }, { type: 'donut', interval: 8, firstAt: 6.0 }, { type: 'moth', interval: 9, firstAt: 11.0 }, { type: 'bat', interval: 9.5, firstAt: 8.0 } ],
     events: [ { t: 9, type: 'boss' }, { t: 20, type: 'quiz' }, { t: 30, type: 'trap' }, { t: 34, type: 'boss' }, { t: 44, type: 'quiz' }, { t: 56, type: 'quiz' } ] },
 ];
 
@@ -440,22 +441,26 @@ try {
 
 // ---------- 간 정화 파동: 주기적 광역 해독 — 지상 적 전체 체력을 조금씩 깎는다 ----------
 // 간이 굳을수록(섬유화) 파동 주기가 느려진다. 묵묵하지만 확실한 지원.
-const LIVER_PULSE_INTERVAL = [6, 7.5, 9, 12];   // 단계별 주기(초)
-const LIVER_PULSE_RANGE = 34;   // 스폰 지점까지 덮는 전 구간 사거리
+const LIVER_PULSE_INTERVAL = [9.5, 11.5, 13.5, 17];   // 단계별 주기(초) — 평소엔 드물게
+const LIVER_PULSE_RANGE = 25;         // 기본 사거리 (16 ↔ 34의 중간)
+const LIVER_BOOST_RANGE_MUL = 1.6;    // 글루카곤 부스트 중엔 더 넓게
+function liverPulseRange() { return LIVER_PULSE_RANGE * (G.liverBoostT > 0 ? LIVER_BOOST_RANGE_MUL : 1); }
 const liverRings = [];
 function spawnLiverRing() {
-  const m = new THREE.Mesh(new THREE.RingGeometry(0.6, 1.0, 40),
-    new THREE.MeshBasicMaterial({ color: 0x7dffb0, transparent: true, opacity: 0.75, side: THREE.DoubleSide, depthWrite: false }));
+  const boosted = G.liverBoostT > 0;
+  const m = new THREE.Mesh(new THREE.RingGeometry(0.6, boosted ? 1.5 : 1.0, 40),
+    new THREE.MeshBasicMaterial({ color: boosted ? 0xffb347 : 0x7dffb0, transparent: true,
+      opacity: boosted ? 0.9 : 0.75, side: THREE.DoubleSide, depthWrite: false }));
   m.rotation.x = -Math.PI / 2;
   m.position.set(liverSprite.position.x, 0.15, liverSprite.position.z);
   m.renderOrder = 3;
   scene.add(m);
-  liverRings.push({ mesh: m, life: 1.0 });
+  liverRings.push({ mesh: m, life: 1.0, grow: liverPulseRange() });
 }
 function liverRingsUpdate(dt) {
   for (const r of [...liverRings]) {
     r.life -= dt * 1.1;
-    r.mesh.scale.setScalar(1 + (1 - r.life) * LIVER_PULSE_RANGE);
+    r.mesh.scale.setScalar(1 + (1 - r.life) * (r.grow || LIVER_PULSE_RANGE));
     r.mesh.material.opacity = Math.max(0, r.life) * 0.7;
     if (r.life <= 0) { scene.remove(r.mesh); liverRings.splice(liverRings.indexOf(r), 1); }
   }
@@ -496,14 +501,15 @@ function liverFadeUpdate() {
 function liverPulseUpdate(dt) {
   G.liverPulseT -= dt;
   if (G.liverPulseT > 0) return;
-  G.liverPulseT = LIVER_PULSE_INTERVAL[liverStage()] * metaPulseMul() * (G.liverBoostT > 0 ? 0.5 : 1);
+  G.liverPulseT = LIVER_PULSE_INTERVAL[liverStage()] * metaPulseMul() * (G.liverBoostT > 0 ? 0.35 : 1);   // 부스트 땐 3배 가까이 잦게
   spawnLiverRing();
   beep(520, 0.14, 'sine', 0.045);
   for (const e of [...enemies]) {
     if (e.def.fly || e.state === 'dying') continue;
     const dx = e.mesh.position.x - liverSprite.position.x;
     const dz = e.mesh.position.z - liverSprite.position.z;
-    if (dx * dx + dz * dz > LIVER_PULSE_RANGE * LIVER_PULSE_RANGE) continue;
+    const R = liverPulseRange();
+    if (dx * dx + dz * dz > R * R) continue;
     e.hp -= 1;
     damageFx(e, e.mesh.position.clone().add(new THREE.Vector3(0, 1, 0)), 0x7dffb0, 5);
     if (e.hp <= 0) killEnemy(e, false);   // 간이 처리 — 점수 없음 (묵묵히)
@@ -1215,6 +1221,46 @@ function buildEnemyMesh(type) {
     addFace(g, 0.12, 0.58, 0.9, 0.2);
     addShadow(g, 0.5);
     g.userData.wings = wings;
+  } else if (type === 'bat') { // 비행: 초콜릿 박쥐
+    const choco = new THREE.MeshStandardMaterial({ color: 0x4a2c1a, roughness: 0.35, emissive: 0x1c0f08, emissiveIntensity: 0.5 });
+    const milk = new THREE.MeshStandardMaterial({ color: 0x8a5a34, roughness: 0.45 });
+    const body = new THREE.Mesh(new THREE.SphereGeometry(0.42, 12, 10), choco);
+    body.scale.set(0.9, 1, 0.85); body.position.y = 0.05; g.add(body);
+    const head = new THREE.Mesh(new THREE.SphereGeometry(0.3, 12, 10), choco);
+    head.position.set(0, 0.42, 0.06); g.add(head);
+    for (const sgn of [-1, 1]) {                       // 귀
+      const ear = new THREE.Mesh(new THREE.ConeGeometry(0.11, 0.3, 5), choco);
+      ear.position.set(sgn * 0.17, 0.68, 0.02); ear.rotation.z = sgn * 0.35; g.add(ear);
+      const inner = new THREE.Mesh(new THREE.ConeGeometry(0.06, 0.17, 5), milk);
+      inner.position.set(sgn * 0.17, 0.66, 0.06); inner.rotation.z = sgn * 0.35; g.add(inner);
+    }
+    for (const [gx, gy, gz, gr] of [[-0.16, 0.2, 0.34, 0.07], [0.18, -0.05, 0.33, 0.06], [0.02, -0.28, 0.3, 0.055]]) {
+      const chunk = new THREE.Mesh(new THREE.BoxGeometry(gr * 2, gr * 2, gr), milk);   // 초코 조각 무늬
+      chunk.position.set(gx, gy, gz); chunk.rotation.z = Math.random(); g.add(chunk);
+    }
+    const fangMat = new THREE.MeshBasicMaterial({ color: 0xfff6e6 });
+    for (const sgn of [-1, 1]) {                       // 송곳니
+      const fang = new THREE.Mesh(new THREE.ConeGeometry(0.045, 0.13, 4), fangMat);
+      fang.position.set(sgn * 0.09, 0.26, 0.29); fang.rotation.x = Math.PI; g.add(fang);
+    }
+    const wings = [];
+    for (const sgn of [-1, 1]) {                       // 가리비 모양 날개
+      const w = new THREE.Group();
+      for (let k = 0; k < 3; k++) {
+        const lobe = new THREE.Mesh(new THREE.CircleGeometry(0.3 - k * 0.05, 10),
+          new THREE.MeshStandardMaterial({ color: 0x3a2114, roughness: 0.5, side: THREE.DoubleSide,
+            transparent: true, opacity: 0.95, emissive: 0x150b05, emissiveIntensity: 0.4 }));
+        lobe.position.set(sgn * (0.34 + k * 0.34), -0.02 - k * 0.06, 0);
+        lobe.scale.set(1, 0.85, 1);
+        w.add(lobe);
+      }
+      const bone = new THREE.Mesh(new THREE.CylinderGeometry(0.028, 0.028, 1.05, 5), choco);
+      bone.position.set(sgn * 0.55, 0.06, 0.01); bone.rotation.z = Math.PI / 2; w.add(bone);
+      g.add(w); wings.push(w);
+    }
+    addFace(g, 0.44, 0.3, 0.85, 0.13);
+    addShadow(g, 0.45);
+    g.userData.wings = wings;
   } else if (type === 'moth') { // 비행: 날아다니는 과자봉지
     const foil = new THREE.MeshStandardMaterial({ color: 0x6aa0e0, roughness: 0.35, metalness: 0.55, emissive: 0x1a3050, emissiveIntensity: 0.35 });
     const bag = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.85, 0.22), foil);
@@ -1319,7 +1365,11 @@ function spawnEnemy(type) {
     else route = r < 0.6 ? ROUTES[0] : ROUTES[1];
   }
   // 비행 몬스터는 우상단 '간의 성'에서 출발해 활강해 온다
-  if (def.fly) mesh.position.set(24.6 + (Math.random() - 0.5) * 8, 7.6 + (Math.random() - 0.5) * 2.5, -43.7 + (Math.random() - 0.5) * 6);
+  if (def.fly) {
+    // 기본은 우상단 '간의 성', side:'left'면 좌상단 어둠 속에서 날아온다
+    const sx = def.side === 'left' ? -26.5 : 24.6;
+    mesh.position.set(sx + (Math.random() - 0.5) * 9, 8.0 + (Math.random() - 0.5) * 2.6, -43.7 + (Math.random() - 0.5) * 7);
+  }
   else mesh.position.copy(route.curve.getPointAt(0));
   // 피격 시 어두워질 재질 원본 수집
   const mats = [];
