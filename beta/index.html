@@ -100,6 +100,14 @@
   .quiz-btn:hover { background: rgba(125,255,176,.14); border-color: #7dffb0; }
   .quiz-btn.correct { background: rgba(66,214,143,.35); border-color: #42d68f; }
   .quiz-btn.wrong { background: rgba(255,77,109,.3); border-color: #ff4d6d; }
+  .quiz-btn.sel { background: rgba(125,255,176,.22); border-color: #7dffb0; box-shadow: 0 0 16px rgba(125,255,176,.35); }
+  #quiz-submit-wrap { margin-top: 2.2cqh; height: 6.4cqh; }
+  #quiz-submit { pointer-events: auto; padding: 1.4cqh 4cqw; font-size: clamp(13px, 2.4cqh, 19px); font-weight: 900;
+    border-radius: 12px; font-family: inherit; cursor: none; letter-spacing: 1px;
+    background: rgba(255,255,255,.06); border: 2px solid rgba(255,255,255,.2); color: rgba(255,255,255,.35);
+    transition: all .15s; }
+  #quiz-submit.on { background: rgba(125,255,176,.2); border-color: #7dffb0; color: #7dffb0; }
+  #quiz-submit.on:hover { background: rgba(125,255,176,.32); }
   #quiz-feedback { min-height: 34px; margin-top: 22px; font-size: 19px; font-weight: 800; color: #ffe9a8; }
 
   /* ---------- 시작/결과 ---------- */
@@ -183,6 +191,7 @@
     <div id="quiz-sub">정답을 맞히면 간 성벽이 수리되고 췌장 기능이 회복돼요</div>
     <div id="quiz-timer-wrap" class="bar-wrap"><div class="bar" id="quiz-timer" style="width:100%"></div></div>
     <div id="quiz-answers"></div>
+    <div id="quiz-submit-wrap"><button id="quiz-submit" disabled>제출</button></div>
     <div id="quiz-feedback"></div>
   </div>
 </div>
@@ -233,6 +242,6 @@
 <div id="crosshair"><div class="ring"></div><div id="ch-fx"><div class="prog"></div><span class="txt"></span></div></div>
 
 <script type="importmap">{ "imports": { "three": "../vendor/three.module.js" } }</script>
-<script type="module" src="./main.js?v=b19"></script>
+<script type="module" src="./main.js?v=b20"></script>
 </body>
 </html>

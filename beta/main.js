@@ -40,13 +40,13 @@ const BOSS_INTRO = {
 const WAVES = [
   { name: 'WAVE 1', duration: 35,
     spawns: [ { type: 'soda', interval: 2.3, firstAt: 1.0 }, { type: 'fries', interval: 4.6, firstAt: 3.0 }, { type: 'icecream', interval: 7, firstAt: 8.0 } ],
-    events: [] },
+    events: [ { t: 20, type: 'quiz' } ] },
   { name: 'WAVE 2', duration: 55,
     spawns: [ { type: 'soda', interval: 1.9, firstAt: 1.0 }, { type: 'fries', interval: 3.4, firstAt: 2.0 }, { type: 'burger', interval: 10, firstAt: 6.0 }, { type: 'pizza', interval: 9, firstAt: 8.0 }, { type: 'icecream', interval: 6.5, firstAt: 4.0 }, { type: 'ciga', interval: 12, firstAt: 14.0 }, { type: 'soju', interval: 14, firstAt: 24.0 }, { type: 'donut', interval: 10, firstAt: 9.0 } ],
-    events: [ { t: 13, type: 'trap' }, { t: 38, type: 'trap' } ] },
+    events: [ { t: 13, type: 'trap' }, { t: 24, type: 'quiz' }, { t: 38, type: 'trap' }, { t: 47, type: 'quiz' } ] },
   { name: 'FINAL WAVE', duration: 65,
     spawns: [ { type: 'soda', interval: 1.6, firstAt: 1.0 }, { type: 'fries', interval: 3.0, firstAt: 2.0 }, { type: 'burger', interval: 8.5, firstAt: 5.0 }, { type: 'pizza', interval: 7.5, firstAt: 3.0 }, { type: 'ramen', interval: 9.5, firstAt: 7.0 }, { type: 'icecream', interval: 6, firstAt: 4.5 }, { type: 'ciga', interval: 10, firstAt: 9.0 }, { type: 'soju', interval: 12, firstAt: 17.0 }, { type: 'donut', interval: 8, firstAt: 6.0 }, { type: 'moth', interval: 9, firstAt: 11.0 } ],
-    events: [ { t: 9, type: 'boss' }, { t: 34, type: 'boss' }, { t: 30, type: 'trap' } ] },
+    events: [ { t: 9, type: 'boss' }, { t: 20, type: 'quiz' }, { t: 30, type: 'trap' }, { t: 34, type: 'boss' }, { t: 44, type: 'quiz' }, { t: 56, type: 'quiz' } ] },
 ];
 
 // 문제은행은 AASLD 'Unmasking MASH and MASLD' 덱 추출본만 사용 (ko/en 분리 파일)
@@ -129,8 +129,10 @@ const STR = {
     reloading: '재장전', reloadHint: '⟳ 재장전 중… 우클릭으로 무기를 바꿀 수 있어요',
     reloadDone: '장전 완료',
     dropBoss: '💉 GCGR 작용제 투하! 쏴서 획득하세요',
-    glp1Msg: '💊 GLP-1 수용체 작용제! 혈당↓ 췌장 회복 · 간도 조금 좋아졌어요',
-    gcgrMsg: '💉 글루카곤 수용체 작용제! 간 지방이 크게 줄었어요',
+    glp1Msg: '💊 GLP-1 작용제! 5초간 모든 음식이 절반 속도로 느려져요 (혈당↓ 췌장 회복)',
+    gcgrMsg: '💉 글루카곤 작용제! 간이 크게 회복되고 5초간 정화 파동이 2배 빨라져요',
+    badgeSlow: (t) => `🐌 GLP-1 감속 ${t}s`, badgeBoost: (t) => `⚡ 대사 부스트 ${t}s`,
+    submit: '제출 (한 번 더 쏘기)', pickedHint: '제출 버튼을 쏘면 확정돼요',
     swap: (i, n) => `🔄 ${i} ${n}(으)로 교체`,
     quizTagWave: 'QUIZ TIME · 정답을 쏘세요!', quizTagItem: 'ITEM CHANCE · 정답을 쏘면 보상!',
     quizSubWave: '정답을 맞히면 간 가디언이 회복되고 췌장도 되살아나고 무기도 좋아져요',
@@ -181,8 +183,10 @@ const STR = {
     reloading: 'RELOAD', reloadHint: '⟳ Reloading… right-click to switch weapons',
     reloadDone: 'Ready',
     dropBoss: '💉 GCGR agonist dropped! Shoot it to collect',
-    glp1Msg: '💊 GLP-1 receptor agonist! Glucose down, pancreas restored, liver slightly better',
-    gcgrMsg: '💉 Glucagon receptor agonist! Liver fat dropped sharply',
+    glp1Msg: '💊 GLP-1 agonist! All food enemies move at half speed for 5s (glucose down, pancreas restored)',
+    gcgrMsg: '💉 Glucagon agonist! Liver largely restored and detox pulse doubles for 5s',
+    badgeSlow: (t) => `🐌 GLP-1 slow ${t}s`, badgeBoost: (t) => `⚡ Metabolic boost ${t}s`,
+    submit: 'Submit (shoot again)', pickedHint: 'Shoot Submit to confirm',
     swap: (i, n) => `🔄 Switched to ${i} ${n}`,
     quizTagWave: 'QUIZ TIME · Shoot the answer!', quizTagItem: 'ITEM CHANCE · Answer right for a reward!',
     quizSubWave: 'A correct answer restores the Liver Guardian, revives the pancreas and upgrades your weapon',
@@ -217,9 +221,9 @@ const G = {
   beta: 100,                 // 췌장 베타세포 기능
   pancDown: false,
   waveIdx: 0, waveT: 0, spawnTimers: [], firedEvents: new Set(),
-  quizDeck: [], currentQuiz: null, quizMode: 'wave', quizTotal: 0,
+  quizDeck: [], currentQuiz: null, quizMode: 'wave', quizTotal: 0, quizSel: null, quizSelBtn: null,
   quizT: 0, quizAnswered: false, quizCorrectCount: 0,
-  weapon: 0, pipeOpen: false, quizDiff: 'mid', liverPulseT: 4,
+  weapon: 0, pipeOpen: false, quizDiff: 'mid', liverPulseT: 4, firing: false, slowT: 0, liverBoostT: 0,
   pancStrain: 0, pancWarned: false, bossesUsed: [],
   lang: 'ko', ammo: {}, reloadT: 0, nextWeaponScore: 18000,
   shots: 0, hits: 0,
@@ -491,7 +495,7 @@ function liverFadeUpdate() {
 function liverPulseUpdate(dt) {
   G.liverPulseT -= dt;
   if (G.liverPulseT > 0) return;
-  G.liverPulseT = LIVER_PULSE_INTERVAL[liverStage()] * metaPulseMul();
+  G.liverPulseT = LIVER_PULSE_INTERVAL[liverStage()] * metaPulseMul() * (G.liverBoostT > 0 ? 0.5 : 1);
   spawnLiverRing();
   beep(520, 0.14, 'sine', 0.045);
   for (const e of [...enemies]) {
@@ -1427,19 +1431,23 @@ function dropItem(e) {
 function collectDrop(d) {
   const at = d.mesh.position.clone();
   if (d.kind === 'glp1') {
-    G.fibrosis = Math.max(0, G.fibrosis - 12);
-    if (!G.pancDown) { G.beta = Math.min(100, G.beta + 25); G.pancStrain = Math.max(0, G.pancStrain - 5); }
+    G.slowT = 5;                                   // 5초간 모든 음식 몬스터가 절반 속도
     G.sugar = Math.max(0, G.sugar - 30);
-    G.metabolic = Math.min(100, G.metabolic + 6);
-    burst(at, 0x5aa9ff, 26, 7);
-    shockRing(new THREE.Vector3(at.x, 0, at.z), 0x5aa9ff, 9, 0.5, 0.4);
+    if (!G.pancDown) { G.beta = Math.min(100, G.beta + 20); G.pancStrain = Math.max(0, G.pancStrain - 5); }
+    burst(at, 0x5aa9ff, 30, 8);
+    shockRing(new THREE.Vector3(at.x, 0, at.z), 0x5aa9ff, 24, 0.7, 0.45);
+    screenFlash('#bfe4ff', 0.2, 110);
+    beep(300, 0.3, 'sine', 0.06, -80);
     showMsg(T('glp1Msg'), 3000);
   } else {
     G.fibrosis = Math.max(0, G.fibrosis - 42);
     G.metabolic = Math.min(100, G.metabolic + 12);
-    burst(at, 0xffa347, 34, 9);
-    shockRing(new THREE.Vector3(at.x, 0, at.z), 0xffa347, 12, 0.6, 0.5);
-    screenFlash('#ffd9a0', 0.22, 110);
+    G.liverBoostT = 5;                             // 5초간 간 정화 파동 2배 속도
+    G.liverPulseT = Math.min(G.liverPulseT, 0.2);  // 즉시 한 방
+    burst(at, 0xffa347, 36, 10);
+    shockRing(new THREE.Vector3(at.x, 0, at.z), 0xffa347, 26, 0.75, 0.55);
+    screenFlash('#ffd9a0', 0.24, 120);
+    beep(180, 0.35, 'sawtooth', 0.07, 120);
     showMsg(T('gcgrMsg'), 3200);
   }
   G.score += 500; G.shootScore += 500;
@@ -1614,6 +1622,8 @@ function updateHUD() {
   const al = $('hud-alert');
   if (al) {
     const badges = [];
+    if (G.slowT > 0) badges.push(`<span style="color:#7dc8ff">${T('badgeSlow', G.slowT.toFixed(1))}</span>`);
+    if (G.liverBoostT > 0) badges.push(`<span style="color:#ffb347">${T('badgeBoost', G.liverBoostT.toFixed(1))}</span>`);
     if (hyperglycemic()) badges.push(`<span style="color:#ff8fa3">${T('badgeSugar')}</span>`);
     if (G.metabolic <= 30) badges.push(`<span style="color:#ff8fa3">${T('badgeMetaBad')}</span>`);
     else if (G.metabolic >= 70) badges.push(`<span style="color:#7dffb0">${T('badgeMetaGood')}</span>`);
@@ -1923,6 +1933,7 @@ function waveUpdate(dt) {
       if (G.waveT >= ev.t && !G.firedEvents.has(ev)) {
         G.firedEvents.add(ev);
         if (ev.type === 'trap') spawnTrap();
+        if (ev.type === 'quiz') startQuiz('item');
         if (ev.type === 'boss') {   // 보스 3종 로테이션 (한 판에 중복 없이)
           const pool = BOSS_POOL.filter((b) => !G.bossesUsed.includes(b));
           const src = pool.length ? pool : BOSS_POOL;
@@ -1988,7 +1999,7 @@ function enemiesUpdate(dt, t) {
       continue;
     }
     if (e.def.fly) {   // 비행 몬스터: '간의 성'에서 출발, 무작위 목표점을 갱신하며 지그재그 활강
-      m.position.z += e.def.speed * DT().spd * dt;
+      m.position.z += e.def.speed * DT().spd * (G.slowT > 0 ? 0.5 : 1) * dt;
       const p01 = Math.min(1, (m.position.z - e.z0) / (6 - e.z0));
       e.jinkT -= dt;
       if (e.jinkT <= 0) {
@@ -2014,7 +2025,7 @@ function enemiesUpdate(dt, t) {
       continue;
     }
     if (e.state === 'walk') {
-      e.progress += (e.def.speed * DT().spd * (e.speedMul || 1) * metaEnemyMul() * dt) / e.clen;
+      e.progress += (e.def.speed * DT().spd * (G.slowT > 0 ? 0.5 : 1) * (e.speedMul || 1) * metaEnemyMul() * dt) / e.clen;
       const tt = Math.min(e.progress, 1);
       const p = e.curve.getPointAt(tt);
       const tan = e.curve.getTangentAt(tt);
@@ -2123,6 +2134,10 @@ function particlesUpdate(dt) {
 }
 
 // ---------- 혈당/대사 ----------
+function buffUpdate(dt) {
+  if (G.slowT > 0) G.slowT = Math.max(0, G.slowT - dt);
+  if (G.liverBoostT > 0) G.liverBoostT = Math.max(0, G.liverBoostT - dt);
+}
 function metersUpdate(dt) {
   const sugarCount = enemies.filter((e) => e.def.sugar && e.state !== 'dying').length;
   G.sugar = Math.min(100, Math.max(0, G.sugar + (sugarCount * 2.6 - 3.0) * dt));
@@ -2165,6 +2180,7 @@ function weaponUp(steps = 1) {
 }
 
 function startQuiz(mode = 'wave') {
+  G.firing = false;
   G.state = 'QUIZ'; G.quizMode = mode; G.quizT = 15; G.quizAnswered = false;
   G.currentQuiz = drawQuiz(); G.quizTotal += 1;
   const quiz = G.currentQuiz;
@@ -2176,12 +2192,30 @@ function startQuiz(mode = 'wave') {
   $('quiz-q').textContent = quiz.q;
   $('quiz-feedback').textContent = '';
   const wrap = $('quiz-answers'); wrap.innerHTML = '';
+  G.quizSel = null; G.quizSelBtn = null;
+  const submit = $('quiz-submit');
+  submit.textContent = T('submit');
+  submit.disabled = true; submit.classList.remove('on');
   order.forEach((ai) => {
     const btn = document.createElement('button');
     btn.className = 'quiz-btn'; btn.textContent = quiz.a[ai];
-    btn.addEventListener('pointerdown', (ev) => { ev.stopPropagation(); answerQuiz(ai === quiz.correct, btn); });
+    btn.addEventListener('pointerdown', (ev) => {   // 1단계: 고르기만 한다 (오클릭 방지)
+      ev.stopPropagation();
+      if (G.quizAnswered) return;
+      [...document.querySelectorAll('#quiz-answers .quiz-btn')].forEach((b) => b.classList.remove('sel'));
+      btn.classList.add('sel');
+      G.quizSel = ai; G.quizSelBtn = btn;
+      submit.disabled = false; submit.classList.add('on');
+      $('quiz-feedback').textContent = T('pickedHint');
+      beep(620, 0.05, 'triangle', 0.05);
+    });
     wrap.appendChild(btn);
   });
+  submit.onpointerdown = (ev) => {   // 2단계: 제출을 한 번 더 쏴야 확정
+    ev.stopPropagation();
+    if (G.quizAnswered || G.quizSel === null) return;
+    answerQuiz(G.quizSel === quiz.correct, G.quizSelBtn);
+  };
   $('quiz').classList.remove('hidden');
 }
 
@@ -2189,8 +2223,9 @@ function answerQuiz(correct, btn) {
   if (G.quizAnswered) return;
   G.quizAnswered = true;
   sfx.shoot();
-  const buttons = [...document.querySelectorAll('.quiz-btn')];
-  buttons.forEach((b) => { b.style.pointerEvents = 'none'; });
+  const buttons = [...document.querySelectorAll('#quiz-answers .quiz-btn')];
+  buttons.forEach((b) => { b.style.pointerEvents = 'none'; b.classList.remove('sel'); });
+  const sb = $('quiz-submit'); sb.disabled = true; sb.classList.remove('on');
   const quiz = G.currentQuiz;
   if (correct) {
     btn.classList.add('correct');
@@ -2232,7 +2267,10 @@ function quizUpdate(dt) {
   if (G.quizAnswered) return;
   G.quizT -= dt;
   $('quiz-timer').style.width = `${Math.max(0, (G.quizT / 15) * 100)}%`;
-  if (G.quizT <= 0) answerQuiz(false, null);
+  if (G.quizT <= 0) {   // 시간 초과 — 고른 게 있으면 그대로 제출
+    if (G.quizSel !== null) answerQuiz(G.quizSel === G.currentQuiz.correct, G.quizSelBtn);
+    else answerQuiz(false, null);
+  }
 }
 
 // ---------- 시작 / 종료 ----------
@@ -2372,7 +2410,12 @@ function finishRouteEdit(save) {
 }
 
 // ---------- 입력 ----------
+let aimX = 0, aimY = 0;
+window.addEventListener('pointerup', () => { G.firing = false; });
+window.addEventListener('pointercancel', () => { G.firing = false; });
+window.addEventListener('blur', () => { G.firing = false; });
 window.addEventListener('pointermove', (e) => {
+  aimX = e.clientX; aimY = e.clientY;
   crosshair.style.left = e.clientX + 'px';
   crosshair.style.top = e.clientY + 'px';
   if (debugOn) $('debug-info').textContent = debugCoords(e.clientX, e.clientY);
@@ -2434,7 +2477,7 @@ window.addEventListener('pointerdown', (e) => {
     return;
   }
   if (G.state === 'GUIDE') { $('screen-guide').classList.add('hidden'); startGame(); return; }
-  if (G.state === 'WAVE') shootAt(e.clientX, e.clientY);
+  if (G.state === 'WAVE') { aimX = e.clientX; aimY = e.clientY; G.firing = true; shootAt(e.clientX, e.clientY); }
   if (G.state === 'RESULT' && canRestart) location.reload();
 });
 // 시작 화면 인트로 이중 언어
@@ -2612,7 +2655,9 @@ function step(dt) {
     dropsUpdate(dt, t);
     pancreasUpdate(dt);
     liverFadeUpdate();
+    buffUpdate(dt);
     reloadUpdate(dt);
+    if (G.firing) shootAt(aimX, aimY);   // 트리거를 누르고 있으면 무기 연사 속도로 계속 발사
     liverPulseUpdate(dt);
     projectilesUpdate(dt);
     metersUpdate(dt);
