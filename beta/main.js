@@ -31,10 +31,10 @@ const BOSS_POOL = ['boss', 'cancer', 'plaque'];
 const BOSS_INTRO = {
   ko: { boss: '👑 킹 버거 등장! 영양성분표가 약점이에요',
         cancer: '🧬 암세포 등장! 쓰러뜨리면 조각으로 흩어져요',
-        plaque: '🩸 죽상경화 플라크 등장! 간 성벽을 뚫고 코어로 돌진해요' },
+        plaque: '🩸 죽상경화 플라크 등장! 간 가디언을 뚫고 코어로 돌진해요' },
   en: { boss: '👑 King Burger! The nutrition label is its weak point',
         cancer: '🧬 Cancer Cell! It splits into fragments when destroyed',
-        plaque: '🩸 Atherosclerotic Plaque! It rams through the liver wall to the core' },
+        plaque: '🩸 Atherosclerotic Plaque! It rams through the Liver Guardian to the core' },
 };
 
 const WAVES = [
@@ -104,7 +104,7 @@ const STR = {
     metaState: { good: '좋음 · 간·췌장 지원 강화', mid: '보통', bad: '나쁨 · 적이 빨라져요' },
     sugarOk: '안정', sugarHigh: '⚠️ 고혈당 · 간에 지방이 쌓여요',
     hyperWarn: '⚠️ 고혈당이 이어져요! 당류 적을 먼저 정리하세요',
-    lblLiver: '🟤 간 성벽 (L)', lblPanc: '인슐린 망루 (췌장) 🔵',
+    lblLiver: '🟤 간 가디언 (L)', lblPanc: '인슐린 망루 (췌장) 🔵',
     liverStage: ['건강해요 · 정화 파동 · 보급 정상', '지방간(MASLD) · 파동↓ 재장전↑ 인슐린↓', 'MASH · 파동↓↓ 재장전↑↑ 인슐린↓↓', '섬유화 · 파동 정지 직전 · 보급 최악'],
     liverShort: ['건강', '지방간(MASLD)', 'MASH', '섬유화'],
     pancDown: '⛔ 췌장부전 · 회복 불가',
@@ -117,13 +117,13 @@ const STR = {
     dragged: '🫠 내장지방이 간으로 흘러갔어요… 간이 더 굳습니다',
     wallHint: '🟡 지방 둔덕이 길을 막고 있어요! 뚫으려면 꽤 맞혀야 해요',
     wallDown: '🧨 지방 둔덕 제거! +1,000 · 보너스 퀴즈 찬스',
-    leak: '💔 성벽이 뚫렸어요! 코어가 공격받았습니다',
+    leak: '💔 간 가디언이 뚫렸어요! 코어가 공격받았습니다',
     flyHit: '🪽 날아드는 간식이 코어를 스쳤어요!',
     pancResistWarn: '💉 인슐린 저항성! 쏘고는 있지만 거의 듣지 않아요',
     pancFail: '⛔ 췌장부전… 이번 판엔 인슐린이 다시 나오지 않아요',
     sojuHit: '🍶 알코올이 간을 직접 때렸어요!',
     cancerSplit: '🧬 암세포가 조각으로 분열했어요!',
-    plaqueRam: '🩸 플라크가 성벽을 뚫고 돌진해요!',
+    plaqueRam: '🩸 플라크가 간 가디언을 뚫고 돌진해요!',
     bossKill: (l, g) => `${l} 격파! +${g}`,
     weaponUp: (i, n) => `⬆️ 무기 업그레이드! ${i} ${n} 획득`,
     reloading: '재장전', reloadHint: '⟳ 재장전 중… 우클릭으로 무기를 바꿀 수 있어요',
@@ -133,14 +133,14 @@ const STR = {
     gcgrMsg: '💉 글루카곤 수용체 작용제! 간 지방이 크게 줄었어요',
     swap: (i, n) => `🔄 ${i} ${n}(으)로 교체`,
     quizTagWave: 'QUIZ TIME · 정답을 쏘세요!', quizTagItem: 'ITEM CHANCE · 정답을 쏘면 보상!',
-    quizSubWave: '정답을 맞히면 간 성벽이 수리되고 췌장이 회복되고 무기도 좋아져요',
+    quizSubWave: '정답을 맞히면 간 가디언이 회복되고 췌장도 되살아나고 무기도 좋아져요',
     quizSubItem: '정답이면 무기 업그레이드, 무기가 최고면 간 회복 포션을 얻어요',
-    okWave: (g) => `정답! +${g} · 간 성벽이 수리되고 췌장이 회복됐어요`,
+    okWave: (g) => `정답! +${g} · 간 가디언이 회복되고 췌장도 되살아났어요`,
     okItemGun: (g) => `정답! +${g} · 새 무기를 손에 넣었어요`,
     okItemPot: (g) => `정답! +${g} · 🧪 간 회복 포션! 간이 부드러워졌어요`,
     ngItem: (a) => `아쉬워요! 정답은 "${a}" — 보상 없이 전투로 복귀해요`,
     ngWave: (a) => `아쉬워요! 정답은 "${a}" — 수리 없이 다음 웨이브로 가요`,
-    grades: [[60000, 'S · 대사 마스터'], [42000, 'A · 간 지킴이'], [28000, 'B · 성실한 수호자'], [0, 'C · 다음엔 더 잘할 수 있어요']],
+    grades: [[60000, 'S · 대사 마스터'], [42000, 'A · 허브 지킴이'], [28000, 'B · 성실한 수호자'], [0, 'C · 다음엔 더 잘할 수 있어요']],
     defeat: '💔 코어 함락 · 다시 도전해요',
     repCK: '심장·콩팥·뇌혈관', repL: '간 상태', repM: '대사 건강', repQ: '지식 점수',
     breakdown: (a, b, c, n, w) => `사격 ${a} · 퀴즈 ${b} · 지방이 구출 ${c} (${n}명) · 최종 무기 ${w}`,
@@ -156,7 +156,7 @@ const STR = {
     metaState: { good: 'Good · organ support boosted', mid: 'Fair', bad: 'Poor · enemies move faster' },
     sugarOk: 'Stable', sugarHigh: '⚠️ Hyperglycemia · fat building up in the liver',
     hyperWarn: '⚠️ Sustained hyperglycemia! Clear the sugar enemies first',
-    lblLiver: '🟤 Liver Wall (L)', lblPanc: 'Insulin Turret (Pancreas) 🔵',
+    lblLiver: '🟤 Liver Guardian (L)', lblPanc: 'Insulin Turret (Pancreas) 🔵',
     liverStage: ['Healthy · pulse & supply normal', 'MASLD · pulse↓ reload↑ insulin↓', 'MASH · pulse↓↓ reload↑↑ insulin↓↓', 'Fibrosis · pulse stalling · supply worst'],
     liverShort: ['Healthy', 'MASLD', 'MASH', 'Fibrosis'],
     pancDown: '⛔ Pancreatic failure · unrecoverable',
@@ -169,13 +169,13 @@ const STR = {
     dragged: '🫠 Visceral fat drifted into the liver… it hardens further',
     wallHint: '🟡 A fat mound blocks the path! It takes many hits to clear',
     wallDown: '🧨 Fat mound cleared! +1,000 · bonus quiz',
-    leak: '💔 The wall was breached! The core is under attack',
+    leak: '💔 The Liver Guardian was breached! The core is under attack',
     flyHit: '🪽 A flying snack grazed the core!',
     pancResistWarn: '💉 Insulin resistance! Still firing, but barely working',
     pancFail: '⛔ Pancreatic failure… no more insulin this run',
     sojuHit: '🍶 Alcohol hit the liver directly!',
     cancerSplit: '🧬 The cancer split into fragments!',
-    plaqueRam: '🩸 The plaque smashed through the wall!',
+    plaqueRam: '🩸 The plaque smashed through the Liver Guardian!',
     bossKill: (l, g) => `${l} down! +${g}`,
     weaponUp: (i, n) => `⬆️ Weapon upgrade! Got ${i} ${n}`,
     reloading: 'RELOAD', reloadHint: '⟳ Reloading… right-click to switch weapons',
@@ -185,14 +185,14 @@ const STR = {
     gcgrMsg: '💉 Glucagon receptor agonist! Liver fat dropped sharply',
     swap: (i, n) => `🔄 Switched to ${i} ${n}`,
     quizTagWave: 'QUIZ TIME · Shoot the answer!', quizTagItem: 'ITEM CHANCE · Answer right for a reward!',
-    quizSubWave: 'A correct answer repairs the liver wall, revives the pancreas and upgrades your weapon',
+    quizSubWave: 'A correct answer restores the Liver Guardian, revives the pancreas and upgrades your weapon',
     quizSubItem: 'Correct = weapon upgrade; if maxed, you get a liver recovery potion',
-    okWave: (g) => `Correct! +${g} · liver wall repaired, pancreas recovered`,
+    okWave: (g) => `Correct! +${g} · Liver Guardian restored, pancreas recovered`,
     okItemGun: (g) => `Correct! +${g} · new weapon acquired`,
     okItemPot: (g) => `Correct! +${g} · 🧪 Liver potion! The liver softened`,
     ngItem: (a) => `Close! The answer was "${a}" — back to battle with no reward`,
     ngWave: (a) => `Close! The answer was "${a}" — on to the next wave without repairs`,
-    grades: [[60000, 'S · Metabolic Master'], [42000, 'A · Liver Guardian'], [28000, 'B · Steady Defender'], [0, 'C · Better luck next run']],
+    grades: [[60000, 'S · Metabolic Master'], [42000, 'A · Hub Keeper'], [28000, 'B · Steady Defender'], [0, 'C · Better luck next run']],
     defeat: '💔 Core lost · try again',
     repCK: 'Heart · Kidney · Brain', repL: 'Liver stage', repM: 'Metabolic health', repQ: 'Knowledge',
     breakdown: (a, b, c, n, w) => `Shooting ${a} · Quiz ${b} · Fatty rescues ${c} (${n}) · Final weapon ${w}`,
@@ -2299,7 +2299,7 @@ function toggleOrganEdit(which) {
   if (organEdit && !debugOn) { toggleDebug(); organAutoDebug = true; }
   if (!organEdit && organAutoDebug) { if (debugOn) toggleDebug(); organAutoDebug = false; }
   showMsg(organEdit
-    ? `${organEdit === 'liver' ? '🫀 간 수호탑' : '💉 췌장 포탑'} 이동 모드 — 클릭한 자리로 옮겨요 (같은 키로 종료)`
+    ? `${organEdit === 'liver' ? '🫀 간 가디언' : '💉 췌장 포탑'} 이동 모드 — 클릭한 자리로 옮겨요 (같은 키로 종료)`
     : '포탑 이동 종료', 3000);
 }
 function saveOrganPos() {
@@ -2367,7 +2367,7 @@ window.addEventListener('pointerdown', (e) => {
     if (g.p) {
       placeOrgan(organEdit, +g.p.x.toFixed(1), +g.p.z.toFixed(1));
       saveOrganPos();
-      showMsg(`${organEdit === 'liver' ? '🫀 간 수호탑' : '💉 췌장 포탑'} 이동 완료 (자동 저장)`, 1500);
+      showMsg(`${organEdit === 'liver' ? '🫀 간 가디언' : '💉 췌장 포탑'} 이동 완료 (자동 저장)`, 1500);
     }
     return;
   }
@@ -2413,7 +2413,7 @@ const GUIDE = {
       ['🎯', '#ff8fa3', '조준하고 쏘기', '걸어오는 정크푸드를 맞혀요. 명중률이 높을수록 재장전이 빨라져요'],
       ['❤️', '#ff5d73', '생명이 0이면 끝', '적이 코어(심장·콩팥·뇌)에 닿으면 생명이 줄어요'],
       ['🧠', '#ffd166', '퀴즈 정답', 'MASLD·MASH 문제를 맞히면 생명이 회복되고 무기가 좋아져요'],
-      ['🟤', '#e8a05c', '간 성벽', '놓친 적을 묵묵히 막아줘요. 굳으면 재장전과 인슐린이 느려져요'],
+      ['🟤', '#e8a05c', '간 가디언', '대사 건강의 <b>허브</b>. 놓친 적을 묵묵히 막아주고, 굳으면 재장전과 인슐린까지 느려져요'],
       ['💉', '#7dc8ff', '췌장 포탑', '당류 적을 자동 요격해요. 혹사되면 인슐린이 무력해져요'],
       ['🔒', '#ffdf9e', '지방이 구출', '덫의 자물쇠만 정확히 쏘세요. 지방이를 쏘면 보너스가 날아가요'],
     ],
@@ -2425,7 +2425,7 @@ const GUIDE = {
       ['🎯', '#ff8fa3', 'Aim and shoot', 'Hit the marching junk food. Higher accuracy means faster reloads'],
       ['❤️', '#ff5d73', 'Life hits 0, run ends', 'Enemies reaching the core (heart, kidney, brain) drain your life'],
       ['🧠', '#ffd166', 'Answer quizzes', 'Correct MASLD/MASH answers restore life and upgrade your weapon'],
-      ['🟤', '#e8a05c', 'Liver wall', 'It quietly absorbs what you miss — hardening slows reload and insulin'],
+      ['🟤', '#e8a05c', 'Liver Guardian', 'The <b>hub</b> of metabolic health. It absorbs what you miss; hardening slows reload and insulin'],
       ['💉', '#7dc8ff', 'Pancreas turret', 'Auto-fires at sugar enemies; overwork makes insulin useless'],
       ['🔒', '#ffdf9e', 'Free Fatty', 'Shoot only the lock. Hitting Fatty loses the bonus'],
     ],
@@ -2448,7 +2448,7 @@ const INTRO_STRINGS = {
     pressAgain: '화면을 쏘면 다시 시작합니다',
     diffLabel: '문제 난이도',
     howto: '걸어오는 <b>정크푸드</b>를 쏘고, <b>퀴즈</b>를 맞혀 점수를 올리세요<br>' +
-      '<b>간 성벽</b>은 놓친 적을 묵묵히 막아주지만, 혹사되면 서서히 굳어가요<br>' +
+      '<b>간 가디언</b>(대사 건강의 허브)은 놓친 적을 묵묵히 막아주지만, 혹사되면 서서히 굳어가요<br>' +
       '<b>췌장 망루</b>는 당류 적을 자동 요격하지만, 과로하면 인슐린이 약해져요<br>' +
       '덫에 갇힌 <b>지방이</b>는 자물쇠만 정확히 쏴서 구해주세요 (지방이를 쏘면 안 돼요!)<br>' +
       '우측 상단 지표 셋 — ❤️<b>생명</b>이 0이면 끝, 🎯<b>명중률</b>이 높을수록 몸이 덜 상하고 <b>재장전도 빨라져요</b>, 🧠<b>퀴즈</b> 정답은 생명을 되살려요<br>' +
@@ -2461,7 +2461,7 @@ const INTRO_STRINGS = {
     pressAgain: 'Shoot the screen to play again',
     diffLabel: 'Quiz difficulty',
     howto: 'Shoot the marching <b>junk food</b> and answer <b>quizzes</b> to score<br>' +
-      'The <b>liver wall</b> quietly absorbs what you miss — overwork slowly hardens it<br>' +
+      'The <b>Liver Guardian</b> (hub of metabolic health) absorbs what you miss — overwork slowly hardens it<br>' +
       'The <b>pancreas turret</b> auto-fires insulin at sugar enemies, but overwork weakens it<br>' +
       'Free trapped <b>Fatty</b> by shooting only the lock (never shoot Fatty!)<br>' +
       'Three meters, top right — ❤️<b>Life</b> at 0 ends the run, high 🎯<b>Accuracy</b> keeps you healthy and <b>reloads faster</b>, 🧠<b>Quiz</b> answers restore Life<br>' +
