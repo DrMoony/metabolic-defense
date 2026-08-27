@@ -127,6 +127,7 @@ const STR = {
     bossKill: (l, g) => `${l} 격파! +${g}`,
     weaponUp: (i, n) => `⬆️ 무기 업그레이드! ${i} ${n} 획득`,
     reloading: '재장전', reloadHint: '⟳ 재장전 중… 우클릭으로 무기를 바꿀 수 있어요',
+    reloadMsg: (t, a) => a === null ? `⟳ 자동 재장전 ${t}초` : `⟳ 자동 재장전 ${t}초 · 명중률 ${a}%일수록 빨라져요`,
     swap: (i, n) => `🔄 ${i} ${n}(으)로 교체`,
     quizTagWave: 'QUIZ TIME · 정답을 쏘세요!', quizTagItem: 'ITEM CHANCE · 정답을 쏘면 보상!',
     quizSubWave: '정답을 맞히면 간 성벽이 수리되고 췌장이 회복되고 무기도 좋아져요',
@@ -175,6 +176,7 @@ const STR = {
     bossKill: (l, g) => `${l} down! +${g}`,
     weaponUp: (i, n) => `⬆️ Weapon upgrade! Got ${i} ${n}`,
     reloading: 'RELOAD', reloadHint: '⟳ Reloading… right-click to switch weapons',
+    reloadMsg: (t, a) => a === null ? `⟳ Auto-reload ${t}s` : `⟳ Auto-reload ${t}s · higher accuracy (${a}%) reloads faster`,
     swap: (i, n) => `🔄 Switched to ${i} ${n}`,
     quizTagWave: 'QUIZ TIME · Shoot the answer!', quizTagItem: 'ITEM CHANCE · Answer right for a reward!',
     quizSubWave: 'A correct answer repairs the liver wall, revives the pancreas and upgrades your weapon',
@@ -701,18 +703,28 @@ function applyWeaponVisual() {
 function ammoOn() { return G.quizDiff !== 'easy'; }
 function magOf(i) { return WEAPONS[i].mag || 99; }
 function ammoOf(i) { if (G.ammo[i] === undefined) G.ammo[i] = magOf(i); return G.ammo[i]; }
+// 자동 재장전 — 기본 1초, 명중률이 높을수록 빨라진다 (무기 무게로 ±10% 정도)
+function reloadSec(i = G.weapon) {
+  const w = WEAPONS[i];
+  const weight = 0.9 + ((w.rl || 1.6) - 1.2) * 0.25;      // 권총 0.9 ~ 기관총 1.18
+  const skill = 1.3 - accuracy() * 0.6;                    // 명중 0% → 1.3 / 100% → 0.7
+  return Math.max(0.55, Math.min(1.6, skill * weight));
+}
 function startReload() {
   if (G.reloadT > 0) return;
-  G.reloadT = WEAPONS[G.weapon].rl || 1.5;
+  G.reloadT = G.reloadMax = reloadSec();
   beep(240, 0.1, 'square', 0.04, -60);
-  showMsg(T('reloadHint'), 1800);
+  const accPct = G.shots >= 6 ? Math.round(accuracy() * 100) : null;
+  showMsg(T('reloadMsg', G.reloadT.toFixed(1), accPct), 1600);
 }
 function reloadUpdate(dt) {
-  if (G.reloadT <= 0) return;
+  if (G.reloadT <= 0) { crosshair.style.opacity = ''; return; }
   G.reloadT -= dt;
+  crosshair.style.opacity = '0.35';
   if (G.reloadT <= 0) {
     G.reloadT = 0;
     G.ammo[G.weapon] = magOf(G.weapon);
+    crosshair.style.opacity = '';
     beep(760, 0.09, 'sine', 0.05);
   }
 }
@@ -735,7 +747,7 @@ function updateWeaponChip() {
   const W = WEAPONS[G.weapon];
   let txt = `${W.icon} ${wName(G.weapon)}`;
   if (ammoOn()) {
-    txt += G.reloadT > 0 ? ` · ⟳ ${T('reloading')}` : ` · ${ammoOf(G.weapon)}/${magOf(G.weapon)}`;
+    txt += G.reloadT > 0 ? ` · ⟳ ${G.reloadT.toFixed(1)}s` : ` · ${ammoOf(G.weapon)}/${magOf(G.weapon)}`;
   }
   chip.textContent = txt;
 }
@@ -2232,7 +2244,8 @@ const INTRO_STRINGS = {
       '<b>간 성벽</b>은 놓친 적을 묵묵히 막아주지만, 혹사되면 서서히 굳어가요<br>' +
       '<b>췌장 망루</b>는 당류 적을 자동 요격하지만, 과로하면 인슐린이 약해져요<br>' +
       '덫에 갇힌 <b>지방이</b>는 자물쇠만 정확히 쏴서 구해주세요 (지방이를 쏘면 안 돼요!)<br>' +
-      '우측 상단 지표 셋 — ❤️<b>생명</b>이 0이면 끝, 🎯<b>명중률</b>이 높을수록 몸이 덜 상하고, 🧠<b>퀴즈</b> 정답은 생명을 되살려요',
+      '우측 상단 지표 셋 — ❤️<b>생명</b>이 0이면 끝, 🎯<b>명중률</b>이 높을수록 몸이 덜 상하고 <b>재장전도 빨라져요</b>, 🧠<b>퀴즈</b> 정답은 생명을 되살려요<br>' +
+      '탄창이 비면 <b>1초쯤 자동 재장전</b>되고, 그동안 <b>우클릭</b>으로 다른 무기를 꺼낼 수 있어요',
   },
   en: {
     sub: 'CKLM ARCADE — LAST DEFENSE INSIDE THE BODY',
@@ -2243,7 +2256,8 @@ const INTRO_STRINGS = {
       'The <b>liver wall</b> quietly absorbs what you miss — overwork slowly hardens it<br>' +
       'The <b>pancreas turret</b> auto-fires insulin at sugar enemies, but overwork weakens it<br>' +
       'Free trapped <b>Fatty</b> by shooting only the lock (never shoot Fatty!)<br>' +
-      'Three meters, top right — ❤️<b>Life</b> at 0 ends the run, high 🎯<b>Accuracy</b> keeps your body healthy, and 🧠<b>Quiz</b> answers restore Life',
+      'Three meters, top right — ❤️<b>Life</b> at 0 ends the run, high 🎯<b>Accuracy</b> keeps you healthy and <b>reloads faster</b>, 🧠<b>Quiz</b> answers restore Life<br>' +
+      'An empty magazine <b>auto-reloads in about a second</b>; <b>right-click</b> to switch weapons meanwhile',
   },
 };
 function applyLang(lang) {
