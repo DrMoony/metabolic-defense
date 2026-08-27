@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XGunner 입력 테스트</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Pretendard","Apple SD Gothic Neo",sans-serif; background:#14060f; color:#fff;
+    height:100vh; overflow:hidden; cursor:crosshair; }
+  #panel { position:fixed; top:16px; left:16px; background:rgba(10,4,8,.82); border:1px solid rgba(255,255,255,.16);
+    border-radius:12px; padding:14px 18px; font-size:14px; line-height:1.9; z-index:10; min-width:340px; }
+  #panel h1 { font-size:16px; margin-bottom:8px; color:#7dffb0; }
+  .k { color:rgba(255,255,255,.6); display:inline-block; width:130px; }
+  .v { font-weight:800; font-variant-numeric:tabular-nums; }
+  #verdict { margin-top:10px; padding:8px 10px; border-radius:8px; background:rgba(125,255,176,.12);
+    border:1px solid rgba(125,255,176,.35); color:#7dffb0; font-weight:800; }
+  #verdict.warn { background:rgba(255,209,102,.12); border-color:rgba(255,209,102,.4); color:#ffd166; }
+  #dot { position:fixed; width:26px; height:26px; border:3px solid #7dffb0; border-radius:50%;
+    transform:translate(-50%,-50%); pointer-events:none; box-shadow:0 0 12px #7dffb0; }
+  .hit { position:fixed; width:14px; height:14px; margin:-7px 0 0 -7px; border-radius:50%;
+    background:#ffd166; pointer-events:none; animation:fade 1.4s forwards; }
+  @keyframes fade { to { opacity:0; transform:scale(2.4); } }
+  #hint { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,.55); font-size:13px; }
+</style>
+</head>
+<body>
+<div id="panel">
+  <h1>XGunner 입력 테스트</h1>
+  <div><span class="k">좌표 (px)</span><span class="v" id="pos">—</span></div>
+  <div><span class="k">화면 비율</span><span class="v" id="norm">—</span></div>
+  <div><span class="k">이동 방식</span><span class="v" id="mode">—</span></div>
+  <div><span class="k">한 번에 점프</span><span class="v" id="jump">—</span></div>
+  <div><span class="k">클릭(버튼)</span><span class="v" id="btn">—</span></div>
+  <div><span class="k">클릭 횟수</span><span class="v" id="cnt">0</span></div>
+  <div><span class="k">포인터 종류</span><span class="v" id="ptype">—</span></div>
+  <div id="verdict">총을 움직이고 방아쇠를 당겨보세요</div>
+</div>
+<div id="dot" style="left:-100px"></div>
+<div id="hint">화면 여기저기를 조준해 쏴보세요 · 절대좌표면 커서가 조준한 지점으로 바로 튑니다</div>
+<script>
+  const $ = (id) => document.getElementById(id);
+  let last = null, maxJump = 0, bigJumps = 0, samples = 0, clicks = 0;
+  addEventListener('pointermove', (e) => {
+    $('dot').style.left = e.clientX + 'px';
+    $('dot').style.top = e.clientY + 'px';
+    $('pos').textContent = `${Math.round(e.clientX)}, ${Math.round(e.clientY)}`;
+    $('norm').textContent = `${(e.clientX / innerWidth).toFixed(3)}, ${(e.clientY / innerHeight).toFixed(3)}`;
+    $('ptype').textContent = e.pointerType + (e.isTrusted ? '' : ' (합성)');
+    if (last) {
+      const d = Math.hypot(e.clientX - last.x, e.clientY - last.y);
+      samples++;
+      if (d > maxJump) { maxJump = d; $('jump').textContent = Math.round(maxJump) + ' px'; }
+      if (d > innerWidth * 0.25) bigJumps++;
+      if (samples > 20) {
+        const abs = bigJumps > 0;
+        $('mode').textContent = abs ? '절대좌표 (라이트건)' : '상대이동 (일반 마우스)';
+        const v = $('verdict');
+        v.textContent = abs ? '✅ 절대좌표로 인식 — 게임에 바로 쓸 수 있어요'
+                            : '⚠️ 아직 상대이동으로 보여요 (일반 마우스일 수 있음)';
+        v.className = abs ? '' : 'warn';
+      }
+    }
+    last = { x: e.clientX, y: e.clientY };
+  });
+  addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    clicks++;
+    $('btn').textContent = `button ${e.button} / buttons ${e.buttons}`;
+    $('cnt').textContent = clicks;
+    const h = document.createElement('div');
+    h.className = 'hit'; h.style.left = e.clientX + 'px'; h.style.top = e.clientY + 'px';
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 1400);
+  });
+  addEventListener('contextmenu', (e) => e.preventDefault());
+  addEventListener('keydown', (e) => { $('btn').textContent = `key: ${e.code}`; });
+</script>
+</body>
+</html>
