@@ -81,16 +81,16 @@ loadQuizLang(QUIZ_LANG_INIT);
 
 // 무기 성장: 트랩 아이템 퀴즈·웨이브 퀴즈 정답으로 승급
 const WEAPONS = [
-  { name: '새총',     en: 'Slingshot',   icon: '🪀', dmg: 1, cd: 0.46, flash: 0xd9c9a8, beam: false, mag: 6,  rl: 1.3 },
-  { name: '석궁',     en: 'Crossbow',    icon: '🏹', dmg: 1, cd: 0.28, flash: 0xd9c9a8, beam: false, mag: 5,  rl: 1.5 },
-  { name: '화승총',   en: 'Matchlock',   icon: '🧨', dmg: 2, cd: 0.42, flash: 0xffb060, beam: false, mag: 1,  rl: 1.7 },
-  { name: '권총',     en: 'Pistol',      icon: '🔫', dmg: 2, cd: 0.18, flash: 0xffe9a8, beam: false, mag: 12, rl: 1.2 },
-  { name: '샷건',     en: 'Shotgun',     icon: '💥', dmg: 1, cd: 0.55, flash: 0xffc070, beam: false, pellets: 5, mag: 6, rl: 1.9 },
-  { name: '기관단총', en: 'SMG',         icon: '⚙️', dmg: 1, cd: 0.08, flash: 0xffe9a8, beam: false, mag: 30, rl: 1.6 },
-  { name: '소총',     en: 'Rifle',       icon: '🎯', dmg: 3, cd: 0.14, flash: 0xfff2c8, beam: false, mag: 20, rl: 1.6 },
-  { name: '기관총',   en: 'Machine Gun', icon: '🔩', dmg: 2, cd: 0.36, flash: 0xfff2c8, beam: false, burst: 3, mag: 45, rl: 2.3 },
-  { name: '바주카',   en: 'Bazooka',     icon: '🚀', dmg: 5, cd: 0.75, flash: 0xffa060, beam: false, rocket: true, splash: 3.2, splashDmg: 2, mag: 1, rl: 2.1 },
-  { name: '레이저',   en: 'Laser',       icon: '⚡', dmg: 4, cd: 0.10, flash: 0x8ff2ff, beam: true, mag: 40, rl: 1.4 },
+  { name: '새총',     en: 'Slingshot',   icon: '🪀', dmg: 1, cd: 0.46, flash: 0xd9c9a8, beam: false, mag: 9,  rl: 1.3 },
+  { name: '석궁',     en: 'Crossbow',    icon: '🏹', dmg: 1, cd: 0.28, flash: 0xd9c9a8, beam: false, mag: 8,  rl: 1.5 },
+  { name: '화승총',   en: 'Matchlock',   icon: '🧨', dmg: 2, cd: 0.42, flash: 0xffb060, beam: false, mag: 6,  rl: 1.7 },
+  { name: '권총',     en: 'Pistol',      icon: '🔫', dmg: 2, cd: 0.18, flash: 0xffe9a8, beam: false, mag: 18, rl: 1.2 },
+  { name: '샷건',     en: 'Shotgun',     icon: '💥', dmg: 1, cd: 0.55, flash: 0xffc070, beam: false, pellets: 5, mag: 9, rl: 1.9 },
+  { name: '기관단총', en: 'SMG',         icon: '⚙️', dmg: 1, cd: 0.08, flash: 0xffe9a8, beam: false, mag: 45, rl: 1.6 },
+  { name: '소총',     en: 'Rifle',       icon: '🎯', dmg: 3, cd: 0.14, flash: 0xfff2c8, beam: false, mag: 30, rl: 1.6 },
+  { name: '기관총',   en: 'Machine Gun', icon: '🔩', dmg: 2, cd: 0.36, flash: 0xfff2c8, beam: false, burst: 3, mag: 68, rl: 2.3 },
+  { name: '바주카',   en: 'Bazooka',     icon: '🚀', dmg: 5, cd: 0.75, flash: 0xffa060, beam: false, rocket: true, splash: 3.2, splashDmg: 2, mag: 2, rl: 2.1 },
+  { name: '레이저',   en: 'Laser',       icon: '⚡', dmg: 4, cd: 0.10, flash: 0x8ff2ff, beam: true, mag: 60, rl: 1.4 },
 ];
 function wName(i) { const w = WEAPONS[i]; return G.lang === 'en' ? w.en : w.name; }
 
@@ -436,7 +436,7 @@ try {
 // ---------- 간 정화 파동: 주기적 광역 해독 — 지상 적 전체 체력을 조금씩 깎는다 ----------
 // 간이 굳을수록(섬유화) 파동 주기가 느려진다. 묵묵하지만 확실한 지원.
 const LIVER_PULSE_INTERVAL = [6, 7.5, 9, 12];   // 단계별 주기(초)
-const LIVER_PULSE_RANGE = 16;
+const LIVER_PULSE_RANGE = 34;   // 스폰 지점까지 덮는 전 구간 사거리
 const liverRings = [];
 function spawnLiverRing() {
   const m = new THREE.Mesh(new THREE.RingGeometry(0.6, 1.0, 40),
@@ -450,7 +450,7 @@ function spawnLiverRing() {
 function liverRingsUpdate(dt) {
   for (const r of [...liverRings]) {
     r.life -= dt * 1.1;
-    r.mesh.scale.setScalar(1 + (1 - r.life) * 16);
+    r.mesh.scale.setScalar(1 + (1 - r.life) * LIVER_PULSE_RANGE);
     r.mesh.material.opacity = Math.max(0, r.life) * 0.7;
     if (r.life <= 0) { scene.remove(r.mesh); liverRings.splice(liverRings.indexOf(r), 1); }
   }
@@ -464,8 +464,29 @@ function metaPulseMul() { return { good: 0.75, mid: 1, bad: 1.4 }[metaTier()]; }
 function metaRegenMul() { return { good: 1.5, mid: 1, bad: 0.6 }[metaTier()]; }    // 췌장 회복 배수
 function metaEnemyMul() { return { good: 1, mid: 1, bad: 1.1 }[metaTier()]; }     // 적 이동속도 배수
 function hyperglycemic() { return G.sugar > 70; }
+// 난이도별 완화 계수 — EASY/NORMAL은 적이 느리고 덜 아프고 덜 몰려온다
+const DIFF_TUNE = {
+  easy: { spd: 0.75, dmg: 0.5,  gap: 1.5,  hp: 0.7 },
+  mid:  { spd: 0.88, dmg: 0.72, gap: 1.25, hp: 0.85 },
+  hard: { spd: 1,    dmg: 1,    gap: 1,    hp: 1 },
+};
+function DT() { return DIFF_TUNE[G.quizDiff] || DIFF_TUNE.mid; }
 function accuracy() { return G.shots >= 6 ? G.hits / G.shots : 1; }   // 초반 6발까지는 만점 취급
 function quizRate() { return G.quizTotal ? G.quizCorrectCount / G.quizTotal : 1; }
+
+// 경로가 간 앞뒤로 지나가므로, 몬스터가 간에 겹치면 간을 반투명하게 만들어 시야를 확보한다
+function liverFadeUpdate() {
+  let near = false;
+  for (const e of enemies) {
+    if (e.state === 'dying') continue;
+    const dx = e.mesh.position.x - liverSprite.position.x;
+    const dz = e.mesh.position.z - liverSprite.position.z;
+    if (dx * dx + dz * dz < 64) { near = true; break; }   // 반경 8 안에 들면
+  }
+  const target = near ? 0.3 : 1;
+  const cur = liverSprite.material.opacity;
+  liverSprite.material.opacity = cur + (target - cur) * 0.15;
+}
 
 function liverPulseUpdate(dt) {
   G.liverPulseT -= dt;
@@ -1313,8 +1334,9 @@ function spawnEnemy(type) {
     hpBar.position.y = def.hp >= 8 ? 2.4 : 2.15;
     mesh.add(hpBar);
   }
+  const hp0 = Math.max(1, Math.round(def.hp * DT().hp));
   const enemy = {
-    type, def, mesh, hp: def.hp, maxhp: def.hp, mats, hpBar, flashT: 0,
+    type, def, mesh, hp: hp0, maxhp: hp0, mats, hpBar, flashT: 0,
     curve: route.curve, clen: route.len, speedMul: routeSpeedMul(route),
     x0: mesh.position.x, z0: mesh.position.z, xT: mesh.position.x, yT: mesh.position.y, jinkT: 0,
     wings: mesh.userData.wings || null, limbs: mesh.userData.limbs || null, shadow: mesh.userData.shadow || null,
@@ -1895,7 +1917,7 @@ function waveUpdate(dt) {
   G.waveT += dt;
   if (G.waveT < w.duration) {
     for (const s of G.spawnTimers) {
-      if (G.waveT >= s.next) { s.next += s.interval; spawnEnemy(s.type); }
+      if (G.waveT >= s.next) { s.next += s.interval * DT().gap; spawnEnemy(s.type); }
     }
     for (const ev of w.events) {
       if (G.waveT >= ev.t && !G.firedEvents.has(ev)) {
@@ -1966,7 +1988,7 @@ function enemiesUpdate(dt, t) {
       continue;
     }
     if (e.def.fly) {   // 비행 몬스터: '간의 성'에서 출발, 무작위 목표점을 갱신하며 지그재그 활강
-      m.position.z += e.def.speed * dt;
+      m.position.z += e.def.speed * DT().spd * dt;
       const p01 = Math.min(1, (m.position.z - e.z0) / (6 - e.z0));
       e.jinkT -= dt;
       if (e.jinkT <= 0) {
@@ -1982,7 +2004,7 @@ function enemiesUpdate(dt, t) {
       m.rotation.z = Math.max(-0.5, Math.min(0.5, (m.position.x - e.xT) * 0.1));
       if (e.wings) e.wings.forEach((w, i) => { w.rotation.z = (i ? 1 : -1) * (0.45 + Math.sin(t * 16 + e.phase) * 0.5); });
       if (m.position.z >= 6) {
-        G.core = Math.max(0, G.core - 6);
+        G.core = Math.max(0, G.core - 6 * DT().dmg);
         G.metabolic = Math.max(0, G.metabolic - 3);
         flashDamage(); sfx.dmg();
         showMsg(T('flyHit'));
@@ -1992,7 +2014,7 @@ function enemiesUpdate(dt, t) {
       continue;
     }
     if (e.state === 'walk') {
-      e.progress += (e.def.speed * (e.speedMul || 1) * metaEnemyMul() * dt) / e.clen;
+      e.progress += (e.def.speed * DT().spd * (e.speedMul || 1) * metaEnemyMul() * dt) / e.clen;
       const tt = Math.min(e.progress, 1);
       const p = e.curve.getPointAt(tt);
       const tan = e.curve.getTangentAt(tt);
@@ -2009,7 +2031,7 @@ function enemiesUpdate(dt, t) {
           if (e.def.ram) showMsg(T('plaqueRam'), 2400);
         } else {
           e.state = 'attack'; e.attackT = LIVER_DISSOLVE[stage];
-          G.fibrosis = Math.min(100, G.fibrosis + e.def.wallDmg * 0.55 * (e.def.liverX || 1));
+          G.fibrosis = Math.min(100, G.fibrosis + e.def.wallDmg * 0.55 * DT().dmg * (e.def.liverX || 1));
           if (e.def.liverX) showMsg(T('sojuHit'), 1800);
           G.metabolic = Math.max(0, G.metabolic - 3);
         }
@@ -2027,7 +2049,7 @@ function enemiesUpdate(dt, t) {
       m.position.z += e.def.speed * 1.6 * dt;
       m.position.y = Math.abs(Math.sin(t * 7 + e.phase)) * 0.3;
       if (m.position.z >= LEAK_Z) {
-        G.core = Math.max(0, G.core - e.def.wallDmg);
+        G.core = Math.max(0, G.core - e.def.wallDmg * DT().dmg);
         G.metabolic = Math.max(0, G.metabolic - 4);
         flashDamage(); sfx.dmg();
         showMsg(T('leak'));
@@ -2589,6 +2611,7 @@ function step(dt) {
     trapsUpdate(dt);
     dropsUpdate(dt, t);
     pancreasUpdate(dt);
+    liverFadeUpdate();
     reloadUpdate(dt);
     liverPulseUpdate(dt);
     projectilesUpdate(dt);
