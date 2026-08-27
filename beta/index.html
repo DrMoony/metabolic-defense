@@ -28,6 +28,17 @@
   #crosshair::after { top:50%; left:0; height:2px; width:100%; transform:translateY(-50%); }
   #crosshair .ring { position:absolute; inset:4px; border:2px solid rgba(125,255,176,.8); border-radius:50%; }
   #crosshair.kick { transform: translate(-50%,-50%) scale(1.35); }
+  #crosshair.reloading::before, #crosshair.reloading::after { opacity: .28; }
+  #crosshair.reloading .ring { opacity: .28; }
+  #ch-fx { position: absolute; left: 50%; top: 50%; width: 54px; height: 54px; transform: translate(-50%,-50%);
+    display: none; pointer-events: none; }
+  #ch-fx.on { display: block; }
+  #ch-fx .prog { position: absolute; inset: 0; border-radius: 50%;
+    background: conic-gradient(#7dffb0 calc(var(--p,0) * 1%), rgba(255,255,255,.14) 0);
+    -webkit-mask: radial-gradient(farthest-side, transparent 63%, #000 65%);
+    mask: radial-gradient(farthest-side, transparent 63%, #000 65%); }
+  #ch-fx .txt { position: absolute; top: 58px; left: 50%; transform: translateX(-50%); white-space: nowrap;
+    font-size: 11.5px; font-weight: 800; color: #7dffb0; text-shadow: 0 1px 4px rgba(0,0,0,.85); }
 
   /* ---------- HUD ---------- */
   #hud { position: absolute; inset: 0; pointer-events: none; z-index: 30; color: #fff; }
@@ -200,9 +211,9 @@
 </div>
 </div><!-- /stage -->
 
-<div id="crosshair"><div class="ring"></div></div>
+<div id="crosshair"><div class="ring"></div><div id="ch-fx"><div class="prog"></div><span class="txt"></span></div></div>
 
 <script type="importmap">{ "imports": { "three": "../vendor/three.module.js" } }</script>
-<script type="module" src="./main.js?v=b11"></script>
+<script type="module" src="./main.js?v=b13"></script>
 </body>
 </html>

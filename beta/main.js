@@ -105,7 +105,7 @@ const STR = {
     sugarOk: '안정', sugarHigh: '⚠️ 고혈당 · 간에 지방이 쌓여요',
     hyperWarn: '⚠️ 고혈당이 이어져요! 당류 적을 먼저 정리하세요',
     lblLiver: '🟤 간 성벽 (L)', lblPanc: '인슐린 망루 (췌장) 🔵',
-    liverStage: ['건강해요 · 정화 파동 가동 중', '지방간(MASLD) · 파동이 느려져요', 'MASH · 파동이 많이 느려져요', '섬유화 · 파동이 거의 멎어가요'],
+    liverStage: ['건강해요 · 정화 파동 · 보급 정상', '지방간(MASLD) · 파동↓ 재장전↑ 인슐린↓', 'MASH · 파동↓↓ 재장전↑↑ 인슐린↓↓', '섬유화 · 파동 정지 직전 · 보급 최악'],
     liverShort: ['건강', '지방간(MASLD)', 'MASH', '섬유화'],
     pancDown: '⛔ 췌장부전 · 회복 불가',
     pancOk: (n) => `기능 ${n}% · 지원 사격 중`, pancWeak: (n) => `기능 ${n}% · 인슐린이 약해졌어요`,
@@ -127,7 +127,7 @@ const STR = {
     bossKill: (l, g) => `${l} 격파! +${g}`,
     weaponUp: (i, n) => `⬆️ 무기 업그레이드! ${i} ${n} 획득`,
     reloading: '재장전', reloadHint: '⟳ 재장전 중… 우클릭으로 무기를 바꿀 수 있어요',
-    reloadMsg: (t, a) => a === null ? `⟳ 자동 재장전 ${t}초` : `⟳ 자동 재장전 ${t}초 · 명중률 ${a}%일수록 빨라져요`,
+    reloadDone: '장전 완료',
     swap: (i, n) => `🔄 ${i} ${n}(으)로 교체`,
     quizTagWave: 'QUIZ TIME · 정답을 쏘세요!', quizTagItem: 'ITEM CHANCE · 정답을 쏘면 보상!',
     quizSubWave: '정답을 맞히면 간 성벽이 수리되고 췌장이 회복되고 무기도 좋아져요',
@@ -154,7 +154,7 @@ const STR = {
     sugarOk: 'Stable', sugarHigh: '⚠️ Hyperglycemia · fat building up in the liver',
     hyperWarn: '⚠️ Sustained hyperglycemia! Clear the sugar enemies first',
     lblLiver: '🟤 Liver Wall (L)', lblPanc: 'Insulin Turret (Pancreas) 🔵',
-    liverStage: ['Healthy · detox pulse active', 'Steatosis (MASLD) · pulse slowing', 'MASH · pulse much slower', 'Fibrosis · pulse nearly stopped'],
+    liverStage: ['Healthy · pulse & supply normal', 'MASLD · pulse↓ reload↑ insulin↓', 'MASH · pulse↓↓ reload↑↑ insulin↓↓', 'Fibrosis · pulse stalling · supply worst'],
     liverShort: ['Healthy', 'MASLD', 'MASH', 'Fibrosis'],
     pancDown: '⛔ Pancreatic failure · unrecoverable',
     pancOk: (n) => `Function ${n}% · supporting fire`, pancWeak: (n) => `Function ${n}% · insulin weakening`,
@@ -176,7 +176,7 @@ const STR = {
     bossKill: (l, g) => `${l} down! +${g}`,
     weaponUp: (i, n) => `⬆️ Weapon upgrade! Got ${i} ${n}`,
     reloading: 'RELOAD', reloadHint: '⟳ Reloading… right-click to switch weapons',
-    reloadMsg: (t, a) => a === null ? `⟳ Auto-reload ${t}s` : `⟳ Auto-reload ${t}s · higher accuracy (${a}%) reloads faster`,
+    reloadDone: 'Ready',
     swap: (i, n) => `🔄 Switched to ${i} ${n}`,
     quizTagWave: 'QUIZ TIME · Shoot the answer!', quizTagItem: 'ITEM CHANCE · Answer right for a reward!',
     quizSubWave: 'A correct answer repairs the liver wall, revives the pancreas and upgrades your weapon',
@@ -704,29 +704,54 @@ function ammoOn() { return G.quizDiff !== 'easy'; }
 function magOf(i) { return WEAPONS[i].mag || 99; }
 function ammoOf(i) { if (G.ammo[i] === undefined) G.ammo[i] = magOf(i); return G.ammo[i]; }
 // 자동 재장전 — 기본 1초, 명중률이 높을수록 빨라진다 (무기 무게로 ±10% 정도)
+const LIVER_RELOAD_MUL = [1, 1.12, 1.28, 1.5];     // 간이 굳을수록 보급이 느려진다
+const LIVER_INSULIN_MUL = [1, 1.15, 1.35, 1.6];    // 간이 굳을수록 인슐린 발사 간격도 늘어난다
 function reloadSec(i = G.weapon) {
   const w = WEAPONS[i];
   const weight = 0.9 + ((w.rl || 1.6) - 1.2) * 0.25;      // 권총 0.9 ~ 기관총 1.18
   const skill = 1.3 - accuracy() * 0.6;                    // 명중 0% → 1.3 / 100% → 0.7
-  return Math.max(0.55, Math.min(1.6, skill * weight));
+  return Math.max(0.55, Math.min(2.2, skill * weight * LIVER_RELOAD_MUL[liverStage()]));
 }
 function startReload() {
   if (G.reloadT > 0) return;
   G.reloadT = G.reloadMax = reloadSec();
   beep(240, 0.1, 'square', 0.04, -60);
-  const accPct = G.shots >= 6 ? Math.round(accuracy() * 100) : null;
-  showMsg(T('reloadMsg', G.reloadT.toFixed(1), accPct), 1600);
+  chFx(true);
 }
+// 조준선에 붙는 원형 재장전 게이지 + 문구
+const chFxEl = () => document.getElementById('ch-fx');
+function chFx(on, pct, label, color) {
+  const el = chFxEl();
+  if (!el) return;
+  el.classList.toggle('on', !!on);
+  if (!on) return;
+  const prog = el.querySelector('.prog'), txt = el.querySelector('.txt');
+  prog.style.setProperty('--p', String(Math.round(pct ?? 0)));
+  prog.style.background = `conic-gradient(${color || '#7dffb0'} calc(var(--p,0) * 1%), rgba(255,255,255,.14) 0)`;
+  txt.textContent = label || '';
+  txt.style.color = color || '#7dffb0';
+}
+let chFlashT = 0;
+function chFlash(label, color, dur = 0.9) { chFlashT = dur; chFx(true, 100, label, color); }
 function reloadUpdate(dt) {
-  if (G.reloadT <= 0) { crosshair.style.opacity = ''; return; }
-  G.reloadT -= dt;
-  crosshair.style.opacity = '0.35';
-  if (G.reloadT <= 0) {
-    G.reloadT = 0;
-    G.ammo[G.weapon] = magOf(G.weapon);
-    crosshair.style.opacity = '';
-    beep(760, 0.09, 'sine', 0.05);
+  if (G.reloadT > 0) {
+    G.reloadT -= dt;
+    crosshair.classList.add('reloading');
+    const done = 1 - G.reloadT / (G.reloadMax || 1);
+    chFx(true, Math.max(0, Math.min(100, done * 100)),
+      `${T('reloading')} ${Math.max(0, G.reloadT).toFixed(1)}s`, '#7dffb0');
+    if (G.reloadT <= 0) {
+      G.reloadT = 0;
+      G.ammo[G.weapon] = magOf(G.weapon);
+      crosshair.classList.remove('reloading');
+      beep(760, 0.09, 'sine', 0.05);
+      chFlash(T('reloadDone'), '#7dffb0', 0.5);
+    }
+    return;
   }
+  crosshair.classList.remove('reloading');
+  if (chFlashT > 0) { chFlashT -= dt; if (chFlashT <= 0) chFx(false); }
+  else chFx(false);
 }
 function swapWeapon() {
   if (G.weapon <= 0 && !ammoOn()) return;
@@ -738,7 +763,7 @@ function swapWeapon() {
   G.fireCooldown = 0.12;
   applyWeaponVisual();
   beep(520, 0.06, 'triangle', 0.05);
-  showMsg(T('swap', WEAPONS[G.weapon].icon, wName(G.weapon)), 1500);
+  chFlash(`${WEAPONS[G.weapon].icon} ${wName(G.weapon)}`, '#ffd166', 0.9);
   if (ammoOn() && ammoOf(G.weapon) <= 0) startReload();
 }
 function updateWeaponChip() {
@@ -1677,7 +1702,7 @@ function pancreasUpdate(dt) {
   }
   pancTimer -= dt;
   if (pancTimer <= 0 && sugarEnemies.length > 0) {
-    pancTimer = 1.0;
+    pancTimer = 1.0 * LIVER_INSULIN_MUL[liverStage()];
     let nearest = sugarEnemies[0];
     for (const e of sugarEnemies) if (e.mesh.position.z > nearest.mesh.position.z) nearest = e;
     const cost = G.sugar > 70 ? 5.0 : 2.2;   // 고혈당 = 과로
@@ -2245,7 +2270,8 @@ const INTRO_STRINGS = {
       '<b>췌장 망루</b>는 당류 적을 자동 요격하지만, 과로하면 인슐린이 약해져요<br>' +
       '덫에 갇힌 <b>지방이</b>는 자물쇠만 정확히 쏴서 구해주세요 (지방이를 쏘면 안 돼요!)<br>' +
       '우측 상단 지표 셋 — ❤️<b>생명</b>이 0이면 끝, 🎯<b>명중률</b>이 높을수록 몸이 덜 상하고 <b>재장전도 빨라져요</b>, 🧠<b>퀴즈</b> 정답은 생명을 되살려요<br>' +
-      '탄창이 비면 <b>1초쯤 자동 재장전</b>되고, 그동안 <b>우클릭</b>으로 다른 무기를 꺼낼 수 있어요',
+      '탄창이 비면 조준선에 <b>1초쯤 자동 재장전</b> 게이지가 돌고, 그동안 <b>우클릭</b>으로 다른 무기를 꺼낼 수 있어요<br>' +
+      '<b>간이 굳을수록 재장전이 느려지고 인슐린 지원도 늦어져요</b>',
   },
   en: {
     sub: 'CKLM ARCADE — LAST DEFENSE INSIDE THE BODY',
@@ -2257,7 +2283,8 @@ const INTRO_STRINGS = {
       'The <b>pancreas turret</b> auto-fires insulin at sugar enemies, but overwork weakens it<br>' +
       'Free trapped <b>Fatty</b> by shooting only the lock (never shoot Fatty!)<br>' +
       'Three meters, top right — ❤️<b>Life</b> at 0 ends the run, high 🎯<b>Accuracy</b> keeps you healthy and <b>reloads faster</b>, 🧠<b>Quiz</b> answers restore Life<br>' +
-      'An empty magazine <b>auto-reloads in about a second</b>; <b>right-click</b> to switch weapons meanwhile',
+      'An empty magazine <b>auto-reloads in about a second</b> (ring on the crosshair); <b>right-click</b> to switch weapons meanwhile<br>' +
+      '<b>A hardening liver slows both your reload and the insulin support</b>',
   },
 };
 function applyLang(lang) {
