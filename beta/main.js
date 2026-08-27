@@ -301,46 +301,58 @@ const corridor = new THREE.PointLight(0xffe2cc, 40, 80, 1.0); corridor.position.
 // 배경은 2D 이미지가 담당하고 3D는 게임 오브젝트만 그린다. PATH는 이미지 속
 // 구불길을 y=0 평면으로 역투영해 얻은 좌표라, 적이 그림의 길을 그대로 걸어온다.
 // 두 갈래 진입 루트가 합류점에서 만나 메인 길로 내려온다 (전부 이미지 역투영 좌표)
-const MAIN_PTS = [               // 합류점 → 화면 하단 방어선
-  new THREE.Vector3(-1.5, 0, -18.9),
-  new THREE.Vector3(-3.7, 0, -13.9),
-  new THREE.Vector3(-4.3, 0, -8.1),
-  new THREE.Vector3(-0.7, 0, -4.6),
-  new THREE.Vector3(1.9, 0, -1.4),
-  new THREE.Vector3(0.4, 0, 1.0),
-  new THREE.Vector3(-1.2, 0, 3.0),
+// ---------- 환경: 배경 이미지(assets/bg.jpg) 정합 월드 ----------
+// 배경은 2D 이미지가 담당하고 3D는 게임 오브젝트만 그린다.
+// 아래 루트 3종은 인게임 편집기(D → 1/2/3)로 배경 그림 위에 직접 그린 좌표다.
+// 수정하려면 게임에서 다시 그린 뒤 9키로 배치 주소를 뽑아 이 값을 교체하면 된다.
+const DEFAULT_ROUTES = [
+  [   // 1번 · 터널 → 로터리 → 메인길
+    [13.1, -46.3], [11.4, -33.7], [10.9, -25.4], [7.2, -20.6],
+    [3.5, -19.3], [0.5, -19.8], [-1.5, -18.9], [-3.7, -13.9],
+    [-4.3, -8.1], [-0.7, -4.6], [1.9, -1.4], [0.4, 1],
+    [-1.2, 3],
+  ],
+  [   // 2번 · 심장 원경 길 → 아치 아래 → 메인길
+    [-62.4, -88.6], [-44.5, -63.5], [-37, -53.3], [-30.5, -44.1],
+    [-27.3, -40.5], [-26.1, -40.3], [-25.7, -41.2], [-22.6, -40.5],
+    [-21.4, -40.3], [-19.6, -39.1], [-17.2, -38], [-15.1, -36.5],
+    [-13.7, -34.9], [-12.9, -34.1], [-12.6, -31.3], [-13.7, -30.1],
+    [-13.9, -28.6], [-13.7, -26.9], [-13.7, -26.5], [-12.1, -25.1],
+    [-10, -23.2], [-8.2, -21.4], [-6.2, -20], [-4.2, -18.7],
+    [-2.4, -17.8], [-0.7, -17.1], [-1.2, -15.7], [-2.6, -15],
+    [-4.1, -13.2], [-5.2, -12.2], [-6.3, -10.4], [-6, -9.1],
+    [-4.6, -8.3], [-3, -6.9], [-1.6, -5.3], [-1.2, -2.9],
+    [-1.8, -1.5], [-2.5, -0.7], [-3.4, 0.5], [-3.9, 1.4],
+    [-4.7, 2], [-5.2, 2.3],
+  ],
+  [   // 3번 · 좌측 혈관 파이프 → 메인길 (최종 웨이브 개방)
+    [6.2, -71], [2.8, -61.6], [-1.5, -58], [-4.9, -53],
+    [-7.3, -47.3], [-9.5, -46.1], [-11.7, -42.2], [-11.9, -36.7],
+    [-13.1, -33.7], [-14.6, -31.6], [-14.6, -30.8], [-15, -28],
+    [-12.9, -24.9], [-12.1, -24.4], [-9.6, -22.2], [-8.2, -21.4],
+    [-6.7, -20.4], [-4.7, -18.9], [-4, -18.3], [-2.4, -17.3],
+    [-1.8, -16.9], [-1.3, -16.4], [-1.2, -15.6], [-2.5, -15.2],
+    [-3.4, -14.4], [-4.2, -13.3], [-4.9, -11.9], [-5.5, -10.2],
+    [-5.4, -8.9], [-4.2, -7.7], [-2.8, -6.8], [-1.6, -6.5],
+    [-0.1, -5.9], [0.9, -5.4], [2, -4.9], [2.7, -4.5],
+    [3.4, -3.9], [3.5, -3.7], [2.5, -2.8], [1, -2],
+    [-0.2, -1.2], [-0.9, -0.3], [-1.3, 0.4], [-1.8, 1.1],
+    [-2.3, 1.4], [-2.7, 2], [-2.8, 2.4],
+  ],
 ];
-const ROUTE_TUNNEL = [           // 터널 → 로터리를 시계방향으로 → 합류점
-  new THREE.Vector3(13.1, 0, -46.3),
-  new THREE.Vector3(11.4, 0, -33.7),
-  new THREE.Vector3(10.9, 0, -25.4),
-  new THREE.Vector3(7.2, 0, -20.6),
-  new THREE.Vector3(3.5, 0, -19.3),
-  new THREE.Vector3(0.5, 0, -19.8),
-];
-const ROUTE_HEART = [            // 심장 옆 원경 길 → 아치 아래 → 메인길 왼쪽 굽이로 합류
-  new THREE.Vector3(-41.7, 0, -58.3),
-  new THREE.Vector3(-27.5, 0, -46.3),
-  new THREE.Vector3(-18.6, 0, -39.3),
-  new THREE.Vector3(-14.9, 0, -41.5),
-  new THREE.Vector3(-9.5, 0, -31),
-  new THREE.Vector3(-6.2, 0, -21),
-];
-function makeRoute(feeder, mainFrom = 0) {
-  const curve = new THREE.CatmullRomCurve3([...feeder, ...MAIN_PTS.slice(mainFrom)]);
-  return { curve, len: curve.getLength() };
+function curveOf(pts) {
+  const c = new THREE.CatmullRomCurve3(pts.map(([x, z]) => new THREE.Vector3(x, 0, z)));
+  return { curve: c, len: c.getLength() };
 }
-const ROUTE_PIPE = [             // 좌측 혈관 파이프 → 왼쪽 굽이 합류 (최종 웨이브에 열리는 지름길)
-  new THREE.Vector3(-16, 0, -10.5),
-  new THREE.Vector3(-11.9, 0, -9.5),
-  new THREE.Vector3(-8.1, 0, -8.6),
-];
-const ROUTES = [makeRoute(ROUTE_TUNNEL), makeRoute(ROUTE_HEART, 1), makeRoute(ROUTE_PIPE, 2)];  // 심장=왼쪽 굽이 합류, 파이프=지름길
-const DEFAULT_ROUTES = ROUTES.map((r) => r.curve.points.map((p) => [+p.x.toFixed(1), +p.z.toFixed(1)]));
+const ROUTES = DEFAULT_ROUTES.map(curveOf);
+// 루트마다 실제 길이가 달라(62~127) 그대로 두면 먼 길로 오는 적이 두 배 느리게 도착한다.
+// 1번 루트를 기준으로 주파 시간을 맞춰, 어느 길로 와도 비슷한 박자로 도달하게 한다.
+const REF_ROUTE_LEN = ROUTES[0].len;
+function routeSpeedMul(r) { return r.len / REF_ROUTE_LEN; }
 
 function applyRoutePoints(idx, pts) {
-  const curve = new THREE.CatmullRomCurve3(pts.map(([x, z]) => new THREE.Vector3(x, 0, z)));
-  ROUTES[idx].curve = curve; ROUTES[idx].len = curve.getLength();
+  const r = curveOf(pts);
+  ROUTES[idx].curve = r.curve; ROUTES[idx].len = r.len;
 }
 // 디버그 편집기로 그린 루트가 있으면 복원
 try {
@@ -408,11 +420,13 @@ pancTip.position.set(5.7, 3.2, -1.6);   // 반전된 대포의 총구 지점
 scene.add(pancTip);
 
 // 포탑 위치: 디버그 편집(4·5키)으로 이동 가능, localStorage 저장
-const ORGAN_DEFAULTS = { liver: [-3.2, 1.9], panc: [7.6, -1.6] };
+const ORGAN_DEFAULTS = { liver: [-0.8, -17.3], panc: [7.6, -1.6] };   // 인게임 편집기(4·5)로 확정
 function placeOrgan(which, x, z) {
   if (which === 'liver') { liverSprite.position.x = x; liverSprite.position.z = z; }
   else { pancSprite.position.x = x; pancSprite.position.z = z; pancTip.position.set(x - 1.9, 3.2, z); }
 }
+placeOrgan('liver', ORGAN_DEFAULTS.liver[0], ORGAN_DEFAULTS.liver[1]);   // 기본 배치 먼저 적용
+placeOrgan('panc', ORGAN_DEFAULTS.panc[0], ORGAN_DEFAULTS.panc[1]);
 try {
   const o = JSON.parse(localStorage.getItem('xgb_organs') || '{}');
   if (o.liver) placeOrgan('liver', o.liver[0], o.liver[1]);
@@ -850,11 +864,8 @@ function makeFatWall(x, z) {
 }
 
 {
-  // 기본 4개: 메인길 상·중·하 + 심장 루트 합류 전
-  [[0, 0.62], [0, 0.74], [0, 0.86], [1, 0.58]].forEach(([ri, tp]) => {
-    const p = ROUTES[ri].curve.getPointAt(tp);
-    DEFAULT_WALL_POS.push([+(p.x).toFixed(1), +(p.z + 1.7).toFixed(1)]);
-  });
+  // 유저가 인게임 편집기(F)로 잡은 기본 배치
+  [[-2.7, -15.2], [-4.5, -7.9], [-0.1, -2.3], [-15.2, -34.9]].forEach((p) => DEFAULT_WALL_POS.push(p));
   let storedWallPos = null;
   try { storedWallPos = JSON.parse(localStorage.getItem('xgb_fatwalls2') || 'null'); } catch (err) { /* 무시 */ }
   const positions = (Array.isArray(storedWallPos) && storedWallPos.length) ? storedWallPos : DEFAULT_WALL_POS;
@@ -1304,7 +1315,7 @@ function spawnEnemy(type) {
   }
   const enemy = {
     type, def, mesh, hp: def.hp, maxhp: def.hp, mats, hpBar, flashT: 0,
-    curve: route.curve, clen: route.len,
+    curve: route.curve, clen: route.len, speedMul: routeSpeedMul(route),
     x0: mesh.position.x, z0: mesh.position.z, xT: mesh.position.x, yT: mesh.position.y, jinkT: 0,
     wings: mesh.userData.wings || null, limbs: mesh.userData.limbs || null, shadow: mesh.userData.shadow || null,
     progress: Math.random() * 0.01, lane: (Math.random() - 0.5) * 2.4,
@@ -1790,7 +1801,7 @@ function killEnemy(e, byPlayer) {
     for (let i = 0; i < e.def.splits; i++) {
       const child = spawnEnemy('cancerlet');
       if (!child) continue;
-      child.curve = e.curve; child.clen = e.clen;
+      child.curve = e.curve; child.clen = e.clen; child.speedMul = e.speedMul;
       child.progress = Math.max(0, Math.min(0.99, e.progress - 0.015));
       child.lane = (i - (e.def.splits - 1) / 2) * 1.4;
       child.mesh.position.copy(e.mesh.position);
@@ -1981,7 +1992,7 @@ function enemiesUpdate(dt, t) {
       continue;
     }
     if (e.state === 'walk') {
-      e.progress += (e.def.speed * metaEnemyMul() * dt) / e.clen;
+      e.progress += (e.def.speed * (e.speedMul || 1) * metaEnemyMul() * dt) / e.clen;
       const tt = Math.min(e.progress, 1);
       const p = e.curve.getPointAt(tt);
       const tan = e.curve.getTangentAt(tt);
