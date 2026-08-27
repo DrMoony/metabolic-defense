@@ -102,6 +102,15 @@
   #quiz-feedback { min-height: 34px; margin-top: 22px; font-size: 19px; font-weight: 800; color: #ffe9a8; }
 
   /* ---------- 시작/결과 ---------- */
+  #screen-guide { background: radial-gradient(ellipse at center, rgba(60,10,22,.9), rgba(10,3,8,.97)); }
+  #guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6cqh 1.4cqw; width: min(760px, 84%); }
+  .gcard { display: flex; gap: 0.9cqw; align-items: flex-start; background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 1.5cqh 1.1cqw; }
+  .gicon { width: 5.4cqh; height: 5.4cqh; min-width: 5.4cqh; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: clamp(13px, 2.9cqh, 26px); background: rgba(255,255,255,.1); }
+  .gtxt b { display: block; color: #fff; font-size: clamp(11px, 2.1cqh, 16px); font-weight: 800; margin-bottom: .5cqh; }
+  .gtxt span { display: block; color: rgba(255,255,255,.72); font-size: clamp(9px, 1.7cqh, 13px); line-height: 1.5; word-break: keep-all; }
+  #guide-foot { margin-top: 2cqh; color: #ffd166; font-size: clamp(10px, 1.9cqh, 14.5px); font-weight: 700; text-align: center; }
   #screen-start, #screen-result { background: radial-gradient(ellipse at center, rgba(60,10,22,.88), rgba(10,3,8,.96)); }
   .title-big { font-size: clamp(24px, 7cqh, 72px); font-weight: 900; color: #fff; letter-spacing: 2px;
     text-shadow: 0 0 30px rgba(255,80,100,.55); margin-bottom: 8px; text-align:center; }
@@ -200,6 +209,14 @@
   </div>
 </div>
 
+<!-- 게임 가이드 -->
+<div id="screen-guide" class="overlay hidden">
+  <div class="title-sub" id="guide-title" style="margin-bottom:2.2cqh">게임 방법</div>
+  <div id="guide-grid"></div>
+  <div id="guide-foot"></div>
+  <div class="press-start" id="guide-go" style="margin-top:2.4cqh">화면을 쏘면 시작합니다</div>
+</div>
+
 <!-- 결과 화면 -->
 <div id="screen-result" class="overlay hidden">
   <div class="title-sub" style="margin-bottom:6px">FINAL SCORE</div>
@@ -214,6 +231,6 @@
 <div id="crosshair"><div class="ring"></div><div id="ch-fx"><div class="prog"></div><span class="txt"></span></div></div>
 
 <script type="importmap">{ "imports": { "three": "../vendor/three.module.js" } }</script>
-<script type="module" src="./main.js?v=b13"></script>
+<script type="module" src="./main.js?v=b14"></script>
 </body>
 </html>

@@ -879,7 +879,7 @@ function makeSwirlTexture() {
   const c = document.createElement('canvas'); c.width = c.height = 128;
   const ctx = c.getContext('2d');
   ctx.fillStyle = '#fff6f8'; ctx.fillRect(0, 0, 128, 128);
-  ctx.strokeStyle = '#ff4d8a'; ctx.lineWidth = 13; ctx.lineCap = 'round';
+  ctx.strokeStyle = '#ff8a2b'; ctx.lineWidth = 13; ctx.lineCap = 'round';
   ctx.beginPath();
   for (let a = 0; a < Math.PI * 8; a += 0.05) {
     const r = 2 + a * 2.35;
@@ -929,7 +929,7 @@ function buildEnemyMesh(type) {
   const g = new THREE.Group();
   if (type === 'soda') {   // 소용돌이 막대사탕
     const capMat = new THREE.MeshStandardMaterial({ map: swirlTex, roughness: 0.3 });
-    const sideMat = new THREE.MeshStandardMaterial({ color: 0xff8fb3, roughness: 0.4 });
+    const sideMat = new THREE.MeshStandardMaterial({ color: 0xffb15c, roughness: 0.4 });
     const disc = new THREE.Mesh(new THREE.CylinderGeometry(0.72, 0.72, 0.2, 24), [sideMat, capMat, capMat]);
     disc.rotation.x = Math.PI / 2; disc.position.y = 1.25; g.add(disc);
     const gloss = new THREE.Mesh(new THREE.SphereGeometry(0.12, 8, 6),
@@ -940,7 +940,7 @@ function buildEnemyMesh(type) {
     stick.position.y = 0.35; g.add(stick);
     for (const s of [-1, 1]) {   // 리본 매듭
       const rb = new THREE.Mesh(new THREE.ConeGeometry(0.09, 0.22, 4),
-        new THREE.MeshStandardMaterial({ color: 0xff4d8a, roughness: 0.5 }));
+        new THREE.MeshStandardMaterial({ color: 0xff8a2b, roughness: 0.5 }));
       rb.position.set(s * 0.12, 0.62, 0); rb.rotation.z = s * 1.9; g.add(rb);
     }
     addFace(g, 1.32, 0.14, 1, 0.24);
@@ -1147,10 +1147,10 @@ function buildEnemyMesh(type) {
     g.scale.setScalar(1.1);
   } else if (type === 'donut') { // 비행: 슈가 도넛
     const ring = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.26, 10, 18),
-      new THREE.MeshStandardMaterial({ color: 0xff8fb3, roughness: 0.45, emissive: 0x77203c, emissiveIntensity: 0.5 }));
+      new THREE.MeshStandardMaterial({ color: 0xe0aa63, roughness: 0.55, emissive: 0x5a3d14, emissiveIntensity: 0.35 }));
     ring.rotation.x = Math.PI / 2 - 0.5; g.add(ring);
     const icing = new THREE.Mesh(new THREE.TorusGeometry(0.55, 0.2, 10, 18),
-      new THREE.MeshStandardMaterial({ color: 0xffc2d6, roughness: 0.35 }));
+      new THREE.MeshStandardMaterial({ color: 0x6b4230, roughness: 0.3, emissive: 0x2c1810, emissiveIntensity: 0.4 }));
     icing.rotation.x = Math.PI / 2 - 0.5; icing.position.y = 0.06; g.add(icing);
     const sprColors = [0xffd166, 0x7dffb0, 0x66aaff, 0xffffff, 0xd94f3d];
     for (let i = 0; i < 10; i++) {   // 스프링클
@@ -1164,7 +1164,7 @@ function buildEnemyMesh(type) {
     const wings = [];
     for (const s of [-1, 1]) {
       const w = new THREE.Mesh(new THREE.CircleGeometry(0.45, 10),
-        new THREE.MeshStandardMaterial({ color: 0xfff2f6, roughness: 0.4, transparent: true, opacity: 0.85, side: THREE.DoubleSide }));
+        new THREE.MeshStandardMaterial({ color: 0xfff6e6, roughness: 0.4, transparent: true, opacity: 0.85, side: THREE.DoubleSide }));
       w.scale.set(1, 0.55, 1);
       w.position.set(s * 0.72, 0.25, 0); w.rotation.z = s * 0.5;
       g.add(w); wings.push(w);
@@ -2067,6 +2067,7 @@ function quizUpdate(dt) {
 // ---------- 시작 / 종료 ----------
 function startGame() {
   $('screen-start').classList.add('hidden');
+  $('screen-guide').classList.add('hidden');
   hud.classList.remove('hidden');
   G.quizDeck = [...QUIZ_POOL].sort(() => Math.random() - 0.5);
   applyWeaponVisual();
@@ -2254,11 +2255,54 @@ window.addEventListener('pointerdown', (e) => {
     return;
   }
   if (debugOn) console.log('[debug]', debugCoords(e.clientX, e.clientY));
-  if (G.state === 'START') { startGame(); return; }
+  if (G.state === 'START') {   // 시작화면 → 가이드
+    G.state = 'GUIDE';
+    renderGuide();
+    $('screen-start').classList.add('hidden');
+    $('screen-guide').classList.remove('hidden');
+    return;
+  }
+  if (G.state === 'GUIDE') { $('screen-guide').classList.add('hidden'); startGame(); return; }
   if (G.state === 'WAVE') shootAt(e.clientX, e.clientY);
   if (G.state === 'RESULT' && canRestart) location.reload();
 });
 // 시작 화면 인트로 이중 언어
+const GUIDE = {
+  ko: {
+    title: '게임 방법', go: '화면을 쏘면 시작합니다',
+    foot: '🖱 좌클릭 사격 · 우클릭 무기 교체 · 탄창이 비면 조준선에서 자동 재장전',
+    cards: [
+      ['🎯', '#ff8fa3', '조준하고 쏘기', '걸어오는 정크푸드를 맞혀요. 명중률이 높을수록 재장전이 빨라져요'],
+      ['❤️', '#ff5d73', '생명이 0이면 끝', '적이 코어(심장·콩팥·뇌)에 닿으면 생명이 줄어요'],
+      ['🧠', '#ffd166', '퀴즈 정답', 'MASLD·MASH 문제를 맞히면 생명이 회복되고 무기가 좋아져요'],
+      ['🟤', '#e8a05c', '간 성벽', '놓친 적을 묵묵히 막아줘요. 굳으면 재장전과 인슐린이 느려져요'],
+      ['💉', '#7dc8ff', '췌장 포탑', '당류 적을 자동 요격해요. 혹사되면 인슐린이 무력해져요'],
+      ['🔒', '#ffdf9e', '지방이 구출', '덫의 자물쇠만 정확히 쏘세요. 지방이를 쏘면 보너스가 날아가요'],
+    ],
+  },
+  en: {
+    title: 'How to play', go: 'Shoot the screen to start',
+    foot: '🖱 Left-click to fire · Right-click to swap weapons · Empty magazine auto-reloads at the crosshair',
+    cards: [
+      ['🎯', '#ff8fa3', 'Aim and shoot', 'Hit the marching junk food. Higher accuracy means faster reloads'],
+      ['❤️', '#ff5d73', 'Life hits 0, run ends', 'Enemies reaching the core (heart, kidney, brain) drain your life'],
+      ['🧠', '#ffd166', 'Answer quizzes', 'Correct MASLD/MASH answers restore life and upgrade your weapon'],
+      ['🟤', '#e8a05c', 'Liver wall', 'It quietly absorbs what you miss — hardening slows reload and insulin'],
+      ['💉', '#7dc8ff', 'Pancreas turret', 'Auto-fires at sugar enemies; overwork makes insulin useless'],
+      ['🔒', '#ffdf9e', 'Free Fatty', 'Shoot only the lock. Hitting Fatty loses the bonus'],
+    ],
+  },
+};
+function renderGuide() {
+  const g = GUIDE[G.lang] || GUIDE.ko;
+  $('guide-title').textContent = g.title;
+  $('guide-foot').textContent = g.foot;
+  $('guide-go').textContent = g.go;
+  $('guide-grid').innerHTML = g.cards.map(([ic, col, t, d]) =>
+    `<div class="gcard"><div class="gicon" style="background:${col}22;border:1px solid ${col}55">${ic}</div>` +
+    `<div class="gtxt"><b>${t}</b><span>${d}</span></div></div>`).join('');
+}
+
 const INTRO_STRINGS = {
   ko: {
     sub: 'CKLM ARCADE — 몸속 최후의 방어선',
@@ -2300,6 +2344,7 @@ function applyLang(lang) {
   if (labels[1]) labels[1].textContent = S.diffLabel;
   const howto = document.querySelector('.howto');
   if (howto) howto.innerHTML = S.howto;
+  if (typeof renderGuide === 'function' && $('guide-grid')) renderGuide();
   // 인게임 HUD 고정 라벨도 함께 전환
   const setTxt = (id, v) => { const el = $(id); if (el) el.textContent = v; };
   setTxt('sl-core', T('sCore')); setTxt('sl-acc', T('sAcc')); setTxt('sl-quiz', T('sQuiz'));
