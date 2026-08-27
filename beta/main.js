@@ -128,6 +128,9 @@ const STR = {
     weaponUp: (i, n) => `⬆️ 무기 업그레이드! ${i} ${n} 획득`,
     reloading: '재장전', reloadHint: '⟳ 재장전 중… 우클릭으로 무기를 바꿀 수 있어요',
     reloadDone: '장전 완료',
+    dropBoss: '💉 GCGR 작용제 투하! 쏴서 획득하세요',
+    glp1Msg: '💊 GLP-1 수용체 작용제! 혈당↓ 췌장 회복 · 간도 조금 좋아졌어요',
+    gcgrMsg: '💉 글루카곤 수용체 작용제! 간 지방이 크게 줄었어요',
     swap: (i, n) => `🔄 ${i} ${n}(으)로 교체`,
     quizTagWave: 'QUIZ TIME · 정답을 쏘세요!', quizTagItem: 'ITEM CHANCE · 정답을 쏘면 보상!',
     quizSubWave: '정답을 맞히면 간 성벽이 수리되고 췌장이 회복되고 무기도 좋아져요',
@@ -177,6 +180,9 @@ const STR = {
     weaponUp: (i, n) => `⬆️ Weapon upgrade! Got ${i} ${n}`,
     reloading: 'RELOAD', reloadHint: '⟳ Reloading… right-click to switch weapons',
     reloadDone: 'Ready',
+    dropBoss: '💉 GCGR agonist dropped! Shoot it to collect',
+    glp1Msg: '💊 GLP-1 receptor agonist! Glucose down, pancreas restored, liver slightly better',
+    gcgrMsg: '💉 Glucagon receptor agonist! Liver fat dropped sharply',
     swap: (i, n) => `🔄 Switched to ${i} ${n}`,
     quizTagWave: 'QUIZ TIME · Shoot the answer!', quizTagItem: 'ITEM CHANCE · Answer right for a reward!',
     quizSubWave: 'A correct answer repairs the liver wall, revives the pancreas and upgrades your weapon',
@@ -1350,6 +1356,78 @@ function spawnTrap() {
   showMsg(T('trapWarn'));
 }
 
+// ---------- 약물 아이템 (쏘면 획득) ----------
+// GLP-1 RA: 혈당·췌장 중심 + 간 약간 회복 / GCGR agonist: 간 지방을 크게 되돌림
+const ITEMS = {
+  glp1: { color: 0x5aa9ff, glow: 0x2266cc, label: 'GLP-1 RA', labelEn: 'GLP-1 RA' },
+  gcgr: { color: 0xffa347, glow: 0xb35c00, label: 'GCGR agonist', labelEn: 'GCGR agonist' },
+};
+const drops = [];
+function makeDrop(kind, pos) {
+  const def = ITEMS[kind];
+  const g = new THREE.Group();
+  const pen = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.9, 10),
+    new THREE.MeshStandardMaterial({ color: def.color, roughness: 0.3, metalness: 0.3, emissive: def.glow, emissiveIntensity: 0.7 }));
+  pen.rotation.z = 0.5; g.add(pen);
+  const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.19, 0.26, 10),
+    new THREE.MeshStandardMaterial({ color: 0xf2f4f8, roughness: 0.35 }));
+  cap.rotation.z = 0.5; cap.position.set(-0.29, 0.55, 0); g.add(cap);
+  const needle = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.24, 6),
+    new THREE.MeshStandardMaterial({ color: 0xd9dde4, roughness: 0.2, metalness: 0.8 }));
+  needle.rotation.z = 0.5; needle.position.set(0.28, -0.53, 0); g.add(needle);
+  const halo = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.05, 8, 20),
+    new THREE.MeshBasicMaterial({ color: def.color, transparent: true, opacity: 0.8 }));
+  halo.rotation.x = Math.PI / 2; g.add(halo);
+  g.position.set(pos.x, 1.5, pos.z);
+  const drop = { kind, mesh: g, t: 0, life: 9, halo };
+  g.traverse((o) => { o.userData.entity = { kind: 'drop', ref: drop }; });
+  shootRoot.add(g);
+  drops.push(drop);
+  return drop;
+}
+function dropItem(e) {
+  if (e.def.boss) { makeDrop('gcgr', e.mesh.position); showMsg(T('dropBoss'), 2600); return; }
+  const r = Math.random();
+  if (r < 0.07) makeDrop('glp1', e.mesh.position);
+  else if (r < 0.09) makeDrop('gcgr', e.mesh.position);
+}
+function collectDrop(d) {
+  const at = d.mesh.position.clone();
+  if (d.kind === 'glp1') {
+    G.fibrosis = Math.max(0, G.fibrosis - 12);
+    if (!G.pancDown) { G.beta = Math.min(100, G.beta + 25); G.pancStrain = Math.max(0, G.pancStrain - 5); }
+    G.sugar = Math.max(0, G.sugar - 30);
+    G.metabolic = Math.min(100, G.metabolic + 6);
+    burst(at, 0x5aa9ff, 26, 7);
+    shockRing(new THREE.Vector3(at.x, 0, at.z), 0x5aa9ff, 9, 0.5, 0.4);
+    showMsg(T('glp1Msg'), 3000);
+  } else {
+    G.fibrosis = Math.max(0, G.fibrosis - 42);
+    G.metabolic = Math.min(100, G.metabolic + 12);
+    burst(at, 0xffa347, 34, 9);
+    shockRing(new THREE.Vector3(at.x, 0, at.z), 0xffa347, 12, 0.6, 0.5);
+    screenFlash('#ffd9a0', 0.22, 110);
+    showMsg(T('gcgrMsg'), 3200);
+  }
+  G.score += 500; G.shootScore += 500;
+  damagePopup(at, '+' + (d.kind === 'glp1' ? 'GLP-1' : 'GCGR'), d.kind === 'glp1' ? '#7dc8ff' : '#ffb347', 1.2);
+  sfx.rescue();
+  shootRoot.remove(d.mesh);
+  drops.splice(drops.indexOf(d), 1);
+}
+function dropsUpdate(dt, t) {
+  for (const d of [...drops]) {
+    d.t += dt;
+    d.mesh.position.y = 1.5 + Math.sin(t * 2.4) * 0.18;
+    d.mesh.rotation.y += dt * 1.6;
+    d.halo.scale.setScalar(1 + Math.sin(t * 4) * 0.12);
+    if (d.t > d.life) {
+      d.mesh.scale.multiplyScalar(1 - dt * 3);
+      if (d.t > d.life + 0.4) { shootRoot.remove(d.mesh); drops.splice(drops.indexOf(d), 1); }
+    }
+  }
+}
+
 // ---------- 파티클 ----------
 const partGeo = new THREE.SphereGeometry(0.13, 6, 5);
 function burst(pos, color, n = 9, speed = 5) {
@@ -1360,6 +1438,46 @@ function burst(pos, color, n = 9, speed = 5) {
     particles.push({ mesh: m, v, life: 0.45 });
     scene.add(m);
   }
+}
+
+// ---------- 타격/폭발 연출: 충격파 링 · 화면 플래시 · 카메라 흔들림 ----------
+const shockRings = [];
+function shockRing(pos, color, grow = 10, life = 0.5, thick = 0.5) {
+  const m = new THREE.Mesh(new THREE.RingGeometry(0.5, 0.5 + thick, 28),
+    new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false }));
+  m.rotation.x = -Math.PI / 2;
+  m.position.set(pos.x, 0.16, pos.z);
+  m.renderOrder = 4;
+  scene.add(m);
+  shockRings.push({ mesh: m, life, max: life, grow });
+}
+function shockRingsUpdate(dt) {
+  for (const r of [...shockRings]) {
+    r.life -= dt;
+    const k = 1 - r.life / r.max;
+    r.mesh.scale.setScalar(1 + k * r.grow);
+    r.mesh.material.opacity = Math.max(0, r.life / r.max) * 0.85;
+    if (r.life <= 0) { scene.remove(r.mesh); shockRings.splice(shockRings.indexOf(r), 1); }
+  }
+}
+let shakeT = 0, shakeAmp = 0;
+function shakeCam(amp, dur) { shakeAmp = Math.max(shakeAmp, amp); shakeT = Math.max(shakeT, dur); }
+const CAM_HOME = new THREE.Vector3();
+function shakeUpdate(dt) {
+  if (shakeT <= 0) { camera.position.x = CAM_HOME.x; camera.position.y = CAM_HOME.y; return; }
+  shakeT -= dt;
+  const k = Math.max(0, shakeT) * shakeAmp;
+  camera.position.x = CAM_HOME.x + (Math.random() - 0.5) * k;
+  camera.position.y = CAM_HOME.y + (Math.random() - 0.5) * k;
+  if (shakeT <= 0) { shakeAmp = 0; camera.position.x = CAM_HOME.x; camera.position.y = CAM_HOME.y; }
+}
+function screenFlash(color, alpha, ms) {
+  const el = $('fx-flash');
+  if (!el) return;
+  el.style.background = color;
+  el.style.opacity = String(alpha);
+  clearTimeout(el._t);
+  el._t = setTimeout(() => { el.style.opacity = '0'; }, ms);
 }
 
 // ---------- 등장 이펙트: 터널/성문에서 나올 때 번쩍 ----------
@@ -1536,6 +1654,7 @@ function processRay(ndcX, ndcY, W) {
     if (wl.hp <= 0) destroyFatWall(wl, hit.point);
     return 'fatwall';
   }
+  if (ent.kind === 'drop') { collectDrop(ent.ref); return 'enemy'; }
   if (ent.kind === 'lock' && ent.trap.state === 'live') { freeTrap(ent.trap); return 'trap'; }
   if (ent.kind === 'blob' && ent.trap.state === 'live') { loseTrap(ent.trap, true); return 'trap'; }
   return 'miss';
@@ -1639,13 +1758,32 @@ function rocketsUpdate(dt) {
 }
 
 function killEnemy(e, byPlayer) {
-  e.state = 'dying'; e.dyingT = 0.28;
+  e.state = 'dying'; e.dyingT = e.def.boss ? 0.7 : 0.3;
+  const at = e.mesh.position.clone().add(new THREE.Vector3(0, 1, 0));
   if (byPlayer) {
     const gain = Math.round(e.def.score * comboMult());
     G.score += gain; G.shootScore += gain;
-    burst(e.mesh.position.clone().add(new THREE.Vector3(0, 1, 0)), 0xffd166, 24, 8);
-    sfx.kill();
-    if (e.def.boss) showMsg(T('bossKill', eLabel(e.def), gain.toLocaleString()), 3000);
+    if (e.def.boss) {
+      // 보스 격파 — 화면이 흔들리는 대폭발
+      burst(at, 0xfff2c8, 60, 13);
+      burst(at, 0xffb347, 46, 9);
+      burst(at, 0xff5d73, 34, 6);
+      shockRing(e.mesh.position, 0xfff2c8, 16, 0.65, 0.7);
+      setTimeout(() => shockRing(e.mesh.position, 0xffb347, 22, 0.75, 0.5), 90);
+      setTimeout(() => shockRing(e.mesh.position, 0xff5d73, 30, 0.9, 0.35), 190);
+      screenFlash('#fff6e0', 0.55, 130);
+      shakeCam(1.6, 0.55);
+      beep(70, 0.5, 'sawtooth', 0.1, -30);
+      setTimeout(() => beep(140, 0.35, 'square', 0.07, -60), 110);
+      showMsg(T('bossKill', eLabel(e.def), gain.toLocaleString()), 3000);
+    } else {
+      burst(at, 0xffd166, 34, 10);
+      burst(at, 0xfff2c8, 16, 5);
+      shockRing(e.mesh.position, 0xffd166, e.def.hp >= 5 ? 9 : 6, 0.42, 0.35);
+      if (e.def.hp >= 5) { shakeCam(0.35, 0.16); screenFlash('#ffe9a8', 0.16, 70); }
+      sfx.kill();
+    }
+    dropItem(e);
   }
   // 암세포는 쓰러져도 조각으로 흩어진다
   if (e.def.splits) {
@@ -2438,6 +2576,7 @@ function step(dt) {
     waveUpdate(dt);
     enemiesUpdate(dt, t);
     trapsUpdate(dt);
+    dropsUpdate(dt, t);
     pancreasUpdate(dt);
     reloadUpdate(dt);
     liverPulseUpdate(dt);
@@ -2452,6 +2591,8 @@ function step(dt) {
   liverRingsUpdate(dt);
   rocketsUpdate(dt);
   spawnFxUpdate(dt);
+  shockRingsUpdate(dt);
+  shakeUpdate(dt);
   popupsUpdate(dt);
 
   renderer.render(scene, camera);
@@ -2460,5 +2601,6 @@ function tick() {
   requestAnimationFrame(tick);
   step(Math.min(clock.getDelta(), 0.05));
 }
-window.DBG = { G, enemies, traps, fatWalls, projectiles, rockets, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
+CAM_HOME.copy(camera.position);
+window.DBG = { G, enemies, traps, fatWalls, projectiles, drops, ITEMS, rockets, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
 tick();
