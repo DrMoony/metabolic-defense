@@ -1597,6 +1597,61 @@ function spawnFxUpdate(dt) {
   }
 }
 
+// ---------- 격파 파편: 회전하며 튀는 조각 (터지는 맛) ----------
+const shards = [];
+const shardGeos = [new THREE.TetrahedronGeometry(0.16), new THREE.BoxGeometry(0.2, 0.2, 0.2), new THREE.OctahedronGeometry(0.15)];
+function shardBurst(pos, colors, n = 12, power = 7) {
+  if (shards.length > 200) n = Math.min(n, 4);   // 동시 격파 폭증 방지
+  for (let i = 0; i < n; i++) {
+    const c = colors[i % colors.length];
+    const m = new THREE.Mesh(shardGeos[i % shardGeos.length],
+      new THREE.MeshStandardMaterial({ color: c, roughness: 0.4, emissive: c, emissiveIntensity: 0.45, transparent: true }));
+    m.position.copy(pos);
+    m.scale.setScalar(0.7 + Math.random() * 0.9);
+    const v = new THREE.Vector3((Math.random() - 0.5) * 1.6, 0.6 + Math.random() * 1.2, (Math.random() - 0.5) * 1.6)
+      .normalize().multiplyScalar(power * (0.55 + Math.random() * 0.7));
+    shards.push({ mesh: m, v, life: 0.85,
+      spin: new THREE.Vector3((Math.random() - 0.5) * 16, (Math.random() - 0.5) * 16, (Math.random() - 0.5) * 16) });
+    scene.add(m);
+  }
+}
+function shardsUpdate(dt) {
+  for (const sh of [...shards]) {
+    sh.life -= dt;
+    if (sh.life <= 0) { scene.remove(sh.mesh); shards.splice(shards.indexOf(sh), 1); continue; }
+    sh.v.y -= 15 * dt;
+    sh.mesh.position.addScaledVector(sh.v, dt);
+    if (sh.mesh.position.y < 0.12) { sh.mesh.position.y = 0.12; sh.v.y *= -0.45; sh.v.multiplyScalar(0.72); }
+    sh.mesh.rotation.x += sh.spin.x * dt; sh.mesh.rotation.y += sh.spin.y * dt; sh.mesh.rotation.z += sh.spin.z * dt;
+    sh.mesh.material.opacity = Math.min(1, sh.life / 0.35);
+  }
+}
+// 사방으로 뻗는 섬광 줄기
+const sparks = [];
+function sparkBurst(pos, color, n = 8, len = 2.2) {
+  if (sparks.length > 110) return;
+  for (let i = 0; i < n; i++) {
+    const a = (i / n) * Math.PI * 2 + Math.random() * 0.4;
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(0.09, len),
+      new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0.95, side: THREE.DoubleSide, depthWrite: false }));
+    m.position.copy(pos);
+    m.rotation.x = -Math.PI / 2; m.rotation.z = -a;
+    m.position.x += Math.cos(a) * len * 0.5; m.position.z += Math.sin(a) * len * 0.5;
+    m.renderOrder = 5;
+    scene.add(m);
+    sparks.push({ mesh: m, life: 0.3, dir: new THREE.Vector3(Math.cos(a), 0, Math.sin(a)) });
+  }
+}
+function sparksUpdate(dt) {
+  for (const sp of [...sparks]) {
+    sp.life -= dt;
+    sp.mesh.position.addScaledVector(sp.dir, dt * 16);
+    sp.mesh.material.opacity = Math.max(0, sp.life / 0.3);
+    sp.mesh.scale.y = 1 + (1 - sp.life / 0.3) * 0.8;
+    if (sp.life <= 0) { scene.remove(sp.mesh); sparks.splice(sparks.indexOf(sp), 1); }
+  }
+}
+
 // ---------- 데미지 숫자 팝업 ----------
 const popups = [];
 function damagePopup(pos, text, color, scale = 1) {
@@ -1862,6 +1917,9 @@ function killEnemy(e, byPlayer) {
       burst(at, 0xfff2c8, 60, 13);
       burst(at, 0xffb347, 46, 9);
       burst(at, 0xff5d73, 34, 6);
+      shardBurst(at, [0xfff2c8, 0xffb347, 0xff5d73, 0xffd166], 34, 12);
+      sparkBurst(e.mesh.position.clone().setY(0.2), 0xfff2c8, 16, 4.5);
+      setTimeout(() => sparkBurst(e.mesh.position.clone().setY(0.2), 0xffb347, 14, 5.5), 140);
       shockRing(e.mesh.position, 0xfff2c8, 16, 0.65, 0.7);
       setTimeout(() => shockRing(e.mesh.position, 0xffb347, 22, 0.75, 0.5), 90);
       setTimeout(() => shockRing(e.mesh.position, 0xff5d73, 30, 0.9, 0.35), 190);
@@ -1871,10 +1929,17 @@ function killEnemy(e, byPlayer) {
       setTimeout(() => beep(140, 0.35, 'square', 0.07, -60), 110);
       showMsg(T('bossKill', eLabel(e.def), gain.toLocaleString()), 3000);
     } else {
-      burst(at, 0xffd166, 34, 10);
-      burst(at, 0xfff2c8, 16, 5);
-      shockRing(e.mesh.position, 0xffd166, e.def.hp >= 5 ? 9 : 6, 0.42, 0.35);
-      if (e.def.hp >= 5) { shakeCam(0.35, 0.16); screenFlash('#ffe9a8', 0.16, 70); }
+      const big = e.def.hp >= 5;
+      const tint = e.mats.length ? e.mats.slice(0, 3).map((r) => r.color.getHex()) : [0xffd166];
+      burst(at, 0xffd166, big ? 46 : 34, big ? 12 : 10);
+      burst(at, 0xfff2c8, 20, 6);
+      shardBurst(at, tint.concat([0xfff2c8]), big ? 16 : 11, big ? 8.5 : 7);   // 몬스터 색 파편
+      sparkBurst(e.mesh.position.clone().setY(0.2), 0xfff2c8, big ? 10 : 7, big ? 2.8 : 2.1);
+      shockRing(e.mesh.position, 0xffd166, big ? 11 : 7, 0.45, 0.4);
+      setTimeout(() => shockRing(e.mesh.position, 0xfff2c8, big ? 16 : 10, 0.4, 0.22), 70);
+      damagePopup(at, big ? 'BOOM!' : 'KO!', big ? '#ffb347' : '#ffe9a8', big ? 1.35 : 1.05);
+      shakeCam(big ? 0.5 : 0.22, big ? 0.2 : 0.12);
+      screenFlash('#ffe9a8', big ? 0.2 : 0.1, 70);
       sfx.kill();
     }
     dropItem(e);
@@ -2045,7 +2110,9 @@ function enemiesUpdate(dt, t) {
     }
     if (e.state === 'dying') {
       e.dyingT -= dt;
-      m.scale.multiplyScalar(1 - dt * 6);
+      m.scale.multiplyScalar(1 - dt * (e.def.boss ? 2.4 : 5));
+      m.position.y += dt * 2.2;                       // 살짝 떠오르며
+      m.rotation.z += dt * (e.def.boss ? 3 : 7);      // 빙글 돌면서 사라진다
       if (e.dyingT <= 0) removeEnemy(e);
       continue;
     }
@@ -2722,6 +2789,8 @@ function step(dt) {
   rocketsUpdate(dt);
   spawnFxUpdate(dt);
   shockRingsUpdate(dt);
+  shardsUpdate(dt);
+  sparksUpdate(dt);
   shakeUpdate(dt);
   popupsUpdate(dt);
 
