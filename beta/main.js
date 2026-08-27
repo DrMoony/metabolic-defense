@@ -352,6 +352,7 @@ const ROUTES = DEFAULT_ROUTES.map(curveOf);
 // 루트마다 실제 길이가 달라(62~127) 그대로 두면 먼 길로 오는 적이 두 배 느리게 도착한다.
 // 1번 루트를 기준으로 주파 시간을 맞춰, 어느 길로 와도 비슷한 박자로 도달하게 한다.
 const REF_ROUTE_LEN = ROUTES[0].len;
+const WALK_MUL = 1.2;   // 지상 몬스터 보행 속도 전역 배수 (유저 요청: 기존 대비 +20%)
 function routeSpeedMul(r) { return r.len / REF_ROUTE_LEN; }
 
 function applyRoutePoints(idx, pts) {
@@ -2025,7 +2026,7 @@ function enemiesUpdate(dt, t) {
       continue;
     }
     if (e.state === 'walk') {
-      e.progress += (e.def.speed * DT().spd * (G.slowT > 0 ? 0.5 : 1) * (e.speedMul || 1) * metaEnemyMul() * dt) / e.clen;
+      e.progress += (e.def.speed * WALK_MUL * DT().spd * (G.slowT > 0 ? 0.5 : 1) * (e.speedMul || 1) * metaEnemyMul() * dt) / e.clen;
       const tt = Math.min(e.progress, 1);
       const p = e.curve.getPointAt(tt);
       const tan = e.curve.getTangentAt(tt);
