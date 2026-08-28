@@ -11,6 +11,7 @@
 | 안정판 (플레이) | https://drmoony.github.io/metabolic-defense/ |
 | 베타 (최신 기능 전부) | https://drmoony.github.io/metabolic-defense/beta/ |
 | 입력 테스트 | https://drmoony.github.io/metabolic-defense/input-test.html |
+| 문제은행 관리 | https://drmoony.github.io/metabolic-defense/quiz-admin.html |
 
 인터넷만 되면 설치 없이 바로 플레이됩니다. **작업은 베타(`beta/`)에서 하세요.** 안정판(루트)은 롤백용으로 손대지 않습니다.
 
@@ -112,7 +113,9 @@ macOS에서는 동글이 USB 열거조차 되지 않았습니다(HID 목록에 U
   퀴즈 정답 +1, 점수 18,000마다 +1 → 한 판에 완주 가능
 - **약물 아이템**: 잡몹 드롭(7~9%), 보스는 확정 드롭.
   💊 GLP-1 RA = 혈당↓ 췌장↑ 간 조금↑ / 💉 GCGR 작용제 = **간 크게 회복** (Survodutide 이중작용 서사)
-- **퀴즈**: AASLD 'Unmasking MASH and MASLD' 덱에서 뽑은 46문항, 한/영, 난이도 3단(easy/mid/hard)
+- **퀴즈 세트 2종**: `MASLD/MASH`(AASLD 덱 46문) + `Clinical obesity`(Lancet Commission 2025·SELECT·STEP·SURMOUNT·대한비만학회 기반 32문), 각 한/영·난이도 3단
+  - 학회 성격에 맞춰 비율 조절: 게임 시작화면에서 **A키 → 어드민**(MASLD 100 / 70:30 / 50:50 / 30:70 / 비만 100)
+  - 문항 수정은 **quiz-admin.html** 에서 → JSON 내려받아 `assets/`에 덮어쓰고 커밋
 - **난이도**: EASY는 탄약 무제한, NORMAL부터 재장전 + 우클릭 무기 교체
 
 ## 7. 다음 할 일

@@ -113,6 +113,11 @@
   #quiz-feedback { min-height: 34px; margin-top: 22px; font-size: 19px; font-weight: 800; color: #ffe9a8; }
 
   /* ---------- 시작/결과 ---------- */
+  #screen-admin { background: radial-gradient(ellipse at center, rgba(10,30,40,.94), rgba(4,8,12,.98)); }
+  #admin-body { width: min(760px, 86%); display: flex; flex-direction: column; gap: 1.8cqh; align-items: center; }
+  .arow { display: flex; gap: 0.7cqw; align-items: center; flex-wrap: wrap; justify-content: center; }
+  .alabel { font-size: clamp(10px, 1.8cqh, 14px); color: rgba(255,255,255,.6); font-weight: 800; letter-spacing: 1px; margin-right: 0.8cqw; }
+  #admin-info { color: rgba(255,255,255,.7); font-size: clamp(10px, 1.8cqh, 13.5px); line-height: 1.8; text-align: center; }
   #screen-guide { background: radial-gradient(ellipse at center, rgba(60,10,22,.9), rgba(10,3,8,.97)); }
   #guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6cqh 1.4cqw; width: min(760px, 84%); }
   .gcard { display: flex; gap: 0.9cqw; align-items: flex-start; background: rgba(255,255,255,.06);
@@ -222,6 +227,22 @@
   </div>
 </div>
 
+<!-- 어드민 (A키) -->
+<div id="screen-admin" class="overlay hidden">
+  <div class="title-sub" style="margin-bottom:2cqh">ADMIN · 문제 세트</div>
+  <div id="admin-body">
+    <div class="arow"><span class="alabel">문제 세트</span>
+      <button class="opt-btn" data-mix="100">MASLD/MASH 100%</button>
+      <button class="opt-btn sel" data-mix="70">MASLD 70 : 비만 30</button>
+      <button class="opt-btn" data-mix="50">50 : 50</button>
+      <button class="opt-btn" data-mix="30">MASLD 30 : 비만 70</button>
+      <button class="opt-btn" data-mix="0">비만 100%</button>
+    </div>
+    <div id="admin-info"></div>
+  </div>
+  <div class="press-start" style="margin-top:2.4cqh">A 키 또는 화면을 쏘면 닫힙니다</div>
+</div>
+
 <!-- 게임 가이드 -->
 <div id="screen-guide" class="overlay hidden">
   <div class="title-sub" id="guide-title" style="margin-bottom:2.2cqh">게임 방법</div>
@@ -244,6 +265,6 @@
 <div id="crosshair"><div class="ring"></div><div id="ch-fx"><div class="prog"></div><span class="txt"></span></div></div>
 
 <script type="importmap">{ "imports": { "three": "../vendor/three.module.js" } }</script>
-<script type="module" src="./main.js?v=b28"></script>
+<script type="module" src="./main.js?v=b29"></script>
 </body>
 </html>

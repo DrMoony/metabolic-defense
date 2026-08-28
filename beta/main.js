@@ -65,17 +65,40 @@ try {
   }
 } catch (err) { /* 무시 */ }
 const QUIZ_POOL = [];
+// 문제 세트 2종 — 학회 성격에 맞춰 비율을 섞는다 (어드민 A키)
+const QUIZ_SETS = { masld: [], obesity: [] };
+const SET_FILES = { masld: 'quiz_aasld', obesity: 'quiz_obesity' };
+function readMix() {
+  const v = parseInt(localStorage.getItem('xgb_quizmix') ?? '70', 10);
+  return Number.isFinite(v) ? Math.max(0, Math.min(100, v)) : 70;   // MASLD 비중(%)
+}
+function rebuildPool() {
+  const mix = readMix();
+  const m = QUIZ_SETS.masld, o = QUIZ_SETS.obesity;
+  QUIZ_POOL.length = 0;
+  if (!m.length && !o.length) return;
+  if (!o.length || mix >= 100) { QUIZ_POOL.push(...m); }
+  else if (!m.length || mix <= 0) { QUIZ_POOL.push(...o); }
+  else {
+    // 큰 쪽을 기준으로 다른 쪽 개수를 비율에 맞춰 표본 추출
+    const wantM = Math.round((m.length + o.length) * (mix / 100));
+    const wantO = Math.round((m.length + o.length) * (1 - mix / 100));
+    QUIZ_POOL.push(...shuffled(m).slice(0, Math.min(m.length, Math.max(1, wantM))));
+    QUIZ_POOL.push(...shuffled(o).slice(0, Math.min(o.length, Math.max(1, wantO))));
+  }
+  G.quizDeck = shuffled(QUIZ_POOL);
+}
 function loadQuizLang(lang) {
-  fetch(`../assets/quiz_aasld_${lang}.json`)
-    .then((r) => r.json())
-    .then((qs) => {
-      QUIZ_POOL.length = 0;
-      for (const q of qs) {
-        if (q.q && Array.isArray(q.a) && q.a.length === 4) QUIZ_POOL.push({ q: q.q, a: q.a, correct: q.correct || 0, diff: q.diff || 'mid' });
-      }
-      G.quizDeck = shuffled(QUIZ_POOL);
-    })
-    .catch(() => {});
+  const jobs = Object.entries(SET_FILES).map(([key, file]) =>
+    fetch(`../assets/${file}_${lang}.json`)
+      .then((r) => r.json())
+      .then((qs) => {
+        QUIZ_SETS[key] = qs
+          .filter((q) => q.q && Array.isArray(q.a) && q.a.length === 4)
+          .map((q) => ({ q: q.q, a: q.a, correct: q.correct || 0, diff: q.diff || 'mid', set: key }));
+      })
+      .catch(() => { QUIZ_SETS[key] = []; }));
+  Promise.all(jobs).then(rebuildPool);
 }
 
 loadQuizLang(QUIZ_LANG_INIT);
@@ -2622,6 +2645,7 @@ window.addEventListener('pointerdown', (e) => {
     return;
   }
   if (debugOn) console.log('[debug]', debugCoords(e.clientX, e.clientY));
+  if (!$('screen-admin').classList.contains('hidden')) { toggleAdmin(false); return; }
   if (G.state === 'START') {   // 시작화면 → 가이드
     G.state = 'GUIDE';
     renderGuide();
@@ -2712,12 +2736,43 @@ function applyLang(lang) {
   const howto = document.querySelector('.howto');
   if (howto) howto.innerHTML = S.howto;
   if (typeof renderGuide === 'function' && $('guide-grid')) renderGuide();
+  setTimeout(() => { if (typeof renderAdmin === 'function' && $('admin-info')) renderAdmin(); }, 400);
   // 인게임 HUD 고정 라벨도 함께 전환
   const setTxt = (id, v) => { const el = $(id); if (el) el.textContent = v; };
   setTxt('sl-core', T('sCore')); setTxt('sl-acc', T('sAcc')); setTxt('sl-quiz', T('sQuiz'));
   setTxt('lbl-liver', T('lblLiver')); setTxt('lbl-panc', T('lblPanc'));
   applyWeaponVisual();
 }
+
+// ---------- 어드민(A키): 학회 성격에 맞춰 문제 세트 비율 조절 ----------
+function renderAdmin() {
+  const mix = readMix();
+  document.querySelectorAll('#screen-admin .opt-btn').forEach((b) =>
+    b.classList.toggle('sel', +b.dataset.mix === mix));
+  const m = QUIZ_SETS.masld.length, o = QUIZ_SETS.obesity.length;
+  $('admin-info').innerHTML =
+    `보유 문항 — MASLD/MASH <b>${m}</b>문 · Clinical obesity <b>${o}</b>문<br>` +
+    `현재 출제 풀 <b>${QUIZ_POOL.length}</b>문 (MASLD ${mix}% : 비만 ${100 - mix}%)<br>` +
+    `<span style="opacity:.7">설정은 이 기기에 저장됩니다 · 난이도·언어는 시작 화면에서</span>`;
+}
+function toggleAdmin(force) {
+  const el = $('screen-admin');
+  const show = force !== undefined ? force : el.classList.contains('hidden');
+  if (show && G.state !== 'START') return;      // 대기 화면에서만 열림
+  el.classList.toggle('hidden', !show);
+  if (show) renderAdmin();
+}
+document.querySelectorAll('#screen-admin .opt-btn').forEach((b) => {
+  b.addEventListener('pointerdown', (ev) => {
+    ev.stopPropagation();
+    audio();
+    localStorage.setItem('xgb_quizmix', b.dataset.mix);
+    localStorage.removeItem('xgb_recentq');     // 세트가 바뀌면 최근 이력도 초기화
+    rebuildPool();
+    renderAdmin();
+    beep(660, 0.06, 'triangle', 0.05);
+  });
+});
 
 // 시작 화면 옵션 (언어·문제 난이도) — 클릭이 게임 시작으로 번지지 않게 전파 차단
 document.querySelectorAll('.opt-btn').forEach((b) => {
@@ -2742,6 +2797,7 @@ window.addEventListener('keydown', (e) => {
   if (k === 'Digit2' || k === 'Numpad2') startRouteEdit(1);
   if (k === 'Digit3' || k === 'Numpad3') startRouteEdit(2);
   if (k === 'Enter' || k === 'NumpadEnter') finishRouteEdit(true);
+  if (k === 'KeyA') toggleAdmin();
   if (k === 'KeyF') toggleWallEdit();
   if (k === 'Digit9' || k === 'Numpad9') {   // 현재 배치 전체를 공유 주소로 복사
     const layout = {
@@ -2836,5 +2892,5 @@ function tick() {
   step(Math.min(clock.getDelta(), 0.05));
 }
 CAM_HOME.copy(camera.position);
-window.DBG = { G, enemies, traps, fatWalls, projectiles, drops, ITEMS, rockets, drawQuiz, shuffled, QUIZ_POOL, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
+window.DBG = { G, enemies, traps, fatWalls, projectiles, drops, ITEMS, rockets, drawQuiz, shuffled, QUIZ_POOL, QUIZ_SETS, rebuildPool, readMix, toggleAdmin, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
 tick();

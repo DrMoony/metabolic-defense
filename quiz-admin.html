@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>문제은행 관리 — Metabolic Defense</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Pretendard","Apple SD Gothic Neo",system-ui,sans-serif; background:#140a12; color:#f2eef2;
+    padding:22px 26px 90px; line-height:1.5; }
+  h1 { font-size:20px; font-weight:800; margin-bottom:4px; }
+  .sub { color:rgba(255,255,255,.55); font-size:13px; margin-bottom:18px; }
+  .bar { position:sticky; top:0; z-index:5; background:rgba(20,10,18,.96); backdrop-filter:blur(6px);
+    padding:12px 0 14px; margin-bottom:14px; border-bottom:1px solid rgba(255,255,255,.12);
+    display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+  button, select, input { font-family:inherit; font-size:13px; }
+  button { padding:8px 14px; border-radius:9px; border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.07); color:#fff; font-weight:700; cursor:pointer; transition:.15s; }
+  button:hover { background:rgba(255,255,255,.14); }
+  button.primary { background:rgba(125,255,176,.18); border-color:#7dffb0; color:#7dffb0; }
+  button.danger { background:rgba(255,93,115,.14); border-color:rgba(255,93,115,.5); color:#ff8fa3; }
+  select { padding:8px 10px; border-radius:9px; background:#241521; color:#fff; border:1px solid rgba(255,255,255,.2); }
+  .count { margin-left:auto; color:rgba(255,255,255,.6); font-size:12.5px; }
+  .card { background:rgba(255,255,255,.045); border:1px solid rgba(255,255,255,.11); border-radius:12px;
+    padding:14px 16px; margin-bottom:11px; }
+  .card.dirty { border-color:rgba(255,209,102,.55); background:rgba(255,209,102,.06); }
+  .qhead { display:flex; gap:8px; align-items:center; margin-bottom:9px; flex-wrap:wrap; }
+  .idx { font-size:11.5px; color:rgba(255,255,255,.4); font-weight:800; min-width:34px; }
+  .tag { font-size:11px; font-weight:800; padding:3px 8px; border-radius:7px; letter-spacing:.4px; }
+  .easy { background:rgba(125,255,176,.16); color:#7dffb0; }
+  .mid { background:rgba(255,209,102,.16); color:#ffd166; }
+  .hard { background:rgba(255,93,115,.16); color:#ff8fa3; }
+  textarea, .ans input { width:100%; background:rgba(0,0,0,.28); color:#fff; border:1px solid rgba(255,255,255,.14);
+    border-radius:8px; padding:8px 10px; font-size:13.5px; resize:vertical; }
+  textarea { min-height:46px; margin-bottom:9px; }
+  .ans { display:grid; grid-template-columns:26px 1fr; gap:6px 8px; align-items:center; }
+  .ans label { display:flex; justify-content:center; }
+  .ans input[type=radio] { accent-color:#7dffb0; width:16px; height:16px; }
+  .meta { display:flex; gap:8px; align-items:center; margin-top:9px; flex-wrap:wrap; }
+  .meta input[type=text] { flex:1; min-width:180px; background:rgba(0,0,0,.24); color:rgba(255,255,255,.75);
+    border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:6px 9px; font-size:12px; }
+  .hint { color:rgba(255,255,255,.45); font-size:12px; }
+  #save-bar { position:fixed; left:0; right:0; bottom:0; padding:12px 26px; background:rgba(16,8,14,.97);
+    border-top:1px solid rgba(255,255,255,.14); display:flex; gap:10px; align-items:center; }
+  #status { color:#7dffb0; font-size:13px; font-weight:700; }
+</style>
+</head>
+<body>
+<h1>문제은행 관리</h1>
+<div class="sub">세트별로 문항을 수정하고, 저장하면 JSON 파일로 내려받아요. 내려받은 파일을 <code>assets/</code>에 덮어쓰고 커밋하면 게임에 반영됩니다.</div>
+
+<div class="bar">
+  <select id="set">
+    <option value="quiz_aasld">MASLD / MASH (AASLD)</option>
+    <option value="quiz_obesity">Clinical obesity</option>
+  </select>
+  <select id="lang">
+    <option value="ko">한국어</option>
+    <option value="en">English</option>
+  </select>
+  <button id="reload">불러오기</button>
+  <button id="add">+ 문항 추가</button>
+  <button class="primary" id="download">JSON 저장(다운로드)</button>
+  <span class="count" id="count"></span>
+</div>
+
+<div id="list"></div>
+
+<div id="save-bar">
+  <button class="primary" id="download2">JSON 저장(다운로드)</button>
+  <button id="copy">클립보드로 복사</button>
+  <span id="status"></span>
+  <span class="hint" style="margin-left:auto">정답은 라디오 버튼으로 지정 · 난이도 easy/mid/hard</span>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let data = [];
+
+function fileName() { return `${$('set').value}_${$('lang').value}.json`; }
+
+async function load() {
+  try {
+    const r = await fetch('./assets/' + fileName() + '?t=' + Date.now());
+    data = await r.json();
+  } catch (e) { data = []; $('status').textContent = '불러오기 실패: ' + e.message; }
+  render();
+}
+
+function render() {
+  const wrap = $('list');
+  wrap.innerHTML = '';
+  data.forEach((q, i) => {
+    const d = q.diff || 'mid';
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <div class="qhead">
+        <span class="idx">#${i + 1}</span>
+        <span class="tag ${d}" data-role="difftag">${d.toUpperCase()}</span>
+        <select data-role="diff">
+          <option value="easy">easy</option><option value="mid">mid</option><option value="hard">hard</option>
+        </select>
+        <button class="danger" data-role="del" style="margin-left:auto">삭제</button>
+      </div>
+      <textarea data-role="q" placeholder="문제">${q.q || ''}</textarea>
+      <div class="ans">
+        ${[0,1,2,3].map((k) => `
+          <label><input type="radio" name="c${i}" data-role="correct" value="${k}" ${(q.correct||0)===k?'checked':''}></label>
+          <input type="text" data-role="a${k}" value="${(q.a && q.a[k] || '').replace(/"/g,'&quot;')}" placeholder="보기 ${k+1}">
+        `).join('')}
+      </div>
+      <div class="meta"><span class="hint">출처</span><input type="text" data-role="src" value="${(q.src||'').replace(/"/g,'&quot;')}" placeholder="예: slide 27 / SELECT trial"></div>`;
+    card.querySelector('[data-role=diff]').value = d;
+    card.addEventListener('input', () => {
+      const g = (r) => card.querySelector(`[data-role=${r}]`);
+      q.q = g('q').value;
+      q.a = [0,1,2,3].map((k) => g('a'+k).value);
+      const sel = card.querySelector('[data-role=correct]:checked');
+      q.correct = sel ? +sel.value : 0;
+      q.diff = g('diff').value;
+      q.src = g('src').value;
+      const tag = g('difftag');
+      tag.textContent = q.diff.toUpperCase(); tag.className = 'tag ' + q.diff;
+      card.classList.add('dirty');
+      $('status').textContent = '수정됨 — 저장하려면 JSON 저장을 누르세요';
+    });
+    card.querySelector('[data-role=del]').addEventListener('click', () => {
+      if (!confirm(`#${i + 1} 문항을 삭제할까요?`)) return;
+      data.splice(i, 1); render();
+      $('status').textContent = '삭제됨 — 저장하려면 JSON 저장을 누르세요';
+    });
+    wrap.appendChild(card);
+  });
+  const by = { easy: 0, mid: 0, hard: 0 };
+  data.forEach((q) => { by[q.diff || 'mid'] = (by[q.diff || 'mid'] || 0) + 1; });
+  $('count').textContent = `총 ${data.length}문 · easy ${by.easy} / mid ${by.mid} / hard ${by.hard}`;
+}
+
+function toJSON() {
+  const clean = data
+    .filter((q) => (q.q || '').trim() && (q.a || []).filter((x) => (x || '').trim()).length === 4)
+    .map((q) => ({ q: q.q.trim(), a: q.a.map((x) => x.trim()), correct: q.correct || 0,
+                   diff: q.diff || 'mid', ...(q.src ? { src: q.src.trim() } : {}) }));
+  return JSON.stringify(clean, null, 1) + '\n';
+}
+
+$('reload').addEventListener('click', load);
+$('set').addEventListener('change', load);
+$('lang').addEventListener('change', load);
+$('add').addEventListener('click', () => {
+  data.push({ q: '', a: ['', '', '', ''], correct: 0, diff: 'mid', src: '' });
+  render();
+  window.scrollTo(0, document.body.scrollHeight);
+});
+function download() {
+  const blob = new Blob([toJSON()], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob); a.download = fileName();
+  a.click(); URL.revokeObjectURL(a.href);
+  $('status').textContent = `${fileName()} 저장됨 — assets/ 에 덮어쓰고 커밋하세요`;
+}
+$('download').addEventListener('click', download);
+$('download2').addEventListener('click', download);
+$('copy').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(toJSON()); $('status').textContent = '클립보드에 복사됨'; }
+  catch (e) { $('status').textContent = '복사 실패: ' + e.message; }
+});
+
+load();
+</script>
+</body>
+</html>
