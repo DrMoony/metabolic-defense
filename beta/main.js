@@ -73,7 +73,7 @@ function loadQuizLang(lang) {
       for (const q of qs) {
         if (q.q && Array.isArray(q.a) && q.a.length === 4) QUIZ_POOL.push({ q: q.q, a: q.a, correct: q.correct || 0, diff: q.diff || 'mid' });
       }
-      G.quizDeck = [...QUIZ_POOL].sort(() => Math.random() - 0.5);
+      G.quizDeck = shuffled(QUIZ_POOL);
     })
     .catch(() => {});
 }
@@ -2277,13 +2277,46 @@ function metersUpdate(dt) {
 }
 
 // ---------- 퀴즈 ----------
+// sort(() => Math.random()-0.5)는 편향이 심해 앞쪽 문항만 반복 출제된다 → Fisher-Yates
+function shuffled(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+// 최근 출제 문항은 다음 판에서도 잠시 피한다 (부스에서 연속 플레이해도 새 문제가 나오게)
+function loadRecentQ() { try { return JSON.parse(localStorage.getItem('xgb_recentq') || '[]'); } catch (e) { return []; } }
+function pushRecentQ(q) {
+  const r = loadRecentQ();
+  r.push(q);
+  while (r.length > 24) r.shift();
+  try { localStorage.setItem('xgb_recentq', JSON.stringify(r)); } catch (e) { /* 무시 */ }
+}
+
 function drawQuiz() {
-  if (!G.quizDeck.length) G.quizDeck = [...QUIZ_POOL].sort(() => Math.random() - 0.5);
-  // 선택한 난이도 우선, 소진되면 인접 난이도로
-  const pref = G.quizDiff === 'hard' ? ['hard', 'mid', 'easy'] : G.quizDiff === 'easy' ? ['easy', 'mid', 'hard'] : ['mid', 'hard', 'easy'];
-  for (const d of pref) {
-    const i = G.quizDeck.findIndex((q) => (q.diff || 'mid') === d);
-    if (i >= 0) return G.quizDeck.splice(i, 1)[0];
+  if (!G.quizDeck.length) G.quizDeck = shuffled(QUIZ_POOL);
+  // 선택 난이도를 강하게 선호하되 인접 난이도도 섞는다 (난이도당 13~17문뿐이라 순수 선별은 금방 바닥남)
+  const W = {
+    easy: { easy: 5, mid: 2, hard: 0.4 },
+    mid:  { easy: 1.6, mid: 5, hard: 1.6 },
+    hard: { easy: 0.4, mid: 2, hard: 5 },
+  }[G.quizDiff] || { easy: 1.6, mid: 5, hard: 1.6 };
+  const recent = loadRecentQ();
+  const pickFrom = (list) => {
+    const total = list.reduce((a, c) => a + c.w, 0);
+    let r = Math.random() * total;
+    for (const c of list) { r -= c.w; if (r <= 0) return c.i; }
+    return list[list.length - 1].i;
+  };
+  const all = G.quizDeck.map((q, i) => ({ i, w: W[q.diff || 'mid'] || 1, fresh: !recent.includes(q.q) }));
+  const fresh = all.filter((c) => c.fresh);
+  const pool = fresh.length ? fresh : all;
+  if (pool.length) {
+    const q = G.quizDeck.splice(pickFrom(pool), 1)[0];
+    pushRecentQ(q.q);
+    return q;
   }
   // 파일 로드가 아직이거나 실패한 극단적 경우의 비상 문항 (AASLD 내용)
   return G.quizDeck.pop() || { q: 'MASLD의 예후를 가장 크게 좌우하는 요소는 무엇일까요?', a: ['간 섬유화의 정도', '간 지방의 양', '키', '혈액형'], correct: 0 };
@@ -2306,7 +2339,7 @@ function startQuiz(mode = 'wave') {
   $('quiz-tag').textContent = (mode === 'item' ? T('quizTagItem') : T('quizTagWave')) + ` · ${diffLabel}`;
   $('quiz-sub').textContent = mode === 'item' ? T('quizSubItem') : T('quizSubWave');
   // 보기 셔플
-  const order = quiz.a.map((_, i) => i).sort(() => Math.random() - 0.5);
+  const order = shuffled(quiz.a.map((_, i) => i));
   $('quiz-q').textContent = quiz.q;
   $('quiz-feedback').textContent = '';
   const wrap = $('quiz-answers'); wrap.innerHTML = '';
@@ -2396,7 +2429,7 @@ function startGame() {
   $('screen-start').classList.add('hidden');
   $('screen-guide').classList.add('hidden');
   hud.classList.remove('hidden');
-  G.quizDeck = [...QUIZ_POOL].sort(() => Math.random() - 0.5);
+  G.quizDeck = shuffled(QUIZ_POOL);
   applyWeaponVisual();
   startWave(0);
 }
@@ -2539,6 +2572,8 @@ window.addEventListener('pointermove', (e) => {
   if (debugOn) $('debug-info').textContent = debugCoords(e.clientX, e.clientY);
 });
 window.addEventListener('contextmenu', (e) => { e.preventDefault(); });
+window.addEventListener('selectstart', (e) => { e.preventDefault(); });   // 조준하며 끌 때 텍스트 선택 방지
+window.addEventListener('dragstart', (e) => { e.preventDefault(); });
 window.addEventListener('pointerdown', (e) => {
   audio();
   if (e.button === 2) {   // 우클릭: 보유 무기 순환 (재장전 중에도 가능)
@@ -2801,5 +2836,5 @@ function tick() {
   step(Math.min(clock.getDelta(), 0.05));
 }
 CAM_HOME.copy(camera.position);
-window.DBG = { G, enemies, traps, fatWalls, projectiles, drops, ITEMS, rockets, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
+window.DBG = { G, enemies, traps, fatWalls, projectiles, drops, ITEMS, rockets, drawQuiz, shuffled, QUIZ_POOL, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
 tick();

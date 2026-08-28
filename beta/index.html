@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>메타볼릭 디펜스 BETA — CKLM Arcade</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box;
+    -webkit-user-select: none; -moz-user-select: none; user-select: none;
+    -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
   html, body { width: 100%; height: 100%; overflow: hidden; background: #2e1226; }
   body { font-family: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; cursor: none; }
   #game-canvas { display: block; width: 100%; height: 100%; }
@@ -147,7 +149,7 @@
   #result-breakdown { color: rgba(255,255,255,.85); font-size: clamp(10px, 1.9cqh, 14.5px); line-height: 1.9; margin-bottom: 2.4cqh; text-align: center; }
 </style>
 </head>
-<body>
+<body ondragstart="return false" onselectstart="return false">
 <div id="stage">
 <canvas id="game-canvas"></canvas>
 <div id="liver-tint"></div>
@@ -242,6 +244,6 @@
 <div id="crosshair"><div class="ring"></div><div id="ch-fx"><div class="prog"></div><span class="txt"></span></div></div>
 
 <script type="importmap">{ "imports": { "three": "../vendor/three.module.js" } }</script>
-<script type="module" src="./main.js?v=b24"></script>
+<script type="module" src="./main.js?v=b28"></script>
 </body>
 </html>
