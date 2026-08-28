@@ -72,9 +72,12 @@ function readMix() {
   const v = parseInt(localStorage.getItem('xgb_quizmix') ?? '70', 10);
   return Number.isFinite(v) ? Math.max(0, Math.min(100, v)) : 70;   // MASLD 비중(%)
 }
+// 특정 약물(분자명·브랜드·약물시험) 문항은 기본 숨김 — 어드민에서만 켠다
+function drugOn() { return localStorage.getItem('xgb_quizdrug') === '1'; }
+function visible(list) { return drugOn() ? list : list.filter((q) => !q.drug); }
 function rebuildPool() {
   const mix = readMix();
-  const m = QUIZ_SETS.masld, o = QUIZ_SETS.obesity;
+  const m = visible(QUIZ_SETS.masld), o = visible(QUIZ_SETS.obesity);
   QUIZ_POOL.length = 0;
   if (!m.length && !o.length) return;
   if (!o.length || mix >= 100) { QUIZ_POOL.push(...m); }
@@ -95,7 +98,7 @@ function loadQuizLang(lang) {
       .then((qs) => {
         QUIZ_SETS[key] = qs
           .filter((q) => q.q && Array.isArray(q.a) && q.a.length === 4)
-          .map((q) => ({ q: q.q, a: q.a, correct: q.correct || 0, diff: q.diff || 'mid', set: key }));
+          .map((q) => ({ q: q.q, a: q.a, correct: q.correct || 0, diff: q.diff || 'mid', set: key, drug: !!q.drug }));
       })
       .catch(() => { QUIZ_SETS[key] = []; }));
   Promise.all(jobs).then(rebuildPool);
@@ -2749,11 +2752,15 @@ function renderAdmin() {
   const mix = readMix();
   document.querySelectorAll('#screen-admin .opt-btn').forEach((b) =>
     b.classList.toggle('sel', +b.dataset.mix === mix));
+  document.querySelectorAll('#screen-admin .opt-btn[data-drug]').forEach((b) =>
+    b.classList.toggle('sel', (b.dataset.drug === '1') === drugOn()));
   const m = QUIZ_SETS.masld.length, o = QUIZ_SETS.obesity.length;
+  const dm = QUIZ_SETS.masld.filter((q) => q.drug).length, doo = QUIZ_SETS.obesity.filter((q) => q.drug).length;
   $('admin-info').innerHTML =
-    `보유 문항 — MASLD/MASH <b>${m}</b>문 · Clinical obesity <b>${o}</b>문<br>` +
-    `현재 출제 풀 <b>${QUIZ_POOL.length}</b>문 (MASLD ${mix}% : 비만 ${100 - mix}%)<br>` +
-    `<span style="opacity:.7">설정은 이 기기에 저장됩니다 · 난이도·언어는 시작 화면에서</span>`;
+    `보유 문항 — MASLD/MASH <b>${m}</b>문 · Clinical Obesity <b>${o}</b>문<br>` +
+    `그중 특정 약물 문항 <b>${dm + doo}</b>문 (현재 ${drugOn() ? '포함' : '숨김'})<br>` +
+    `현재 출제 풀 <b>${QUIZ_POOL.length}</b>문 (MASLD ${mix}% : Clinical Obesity ${100 - mix}%)<br>` +
+    `<span style="opacity:.7">약물 문항은 공정경쟁규약을 고려해 기본 숨김입니다 · 설정은 이 기기에 저장돼요</span>`;
 }
 function toggleAdmin(force) {
   const el = $('screen-admin');
@@ -2766,7 +2773,8 @@ document.querySelectorAll('#screen-admin .opt-btn').forEach((b) => {
   b.addEventListener('pointerdown', (ev) => {
     ev.stopPropagation();
     audio();
-    localStorage.setItem('xgb_quizmix', b.dataset.mix);
+    if (b.dataset.drug !== undefined) localStorage.setItem('xgb_quizdrug', b.dataset.drug);
+    else localStorage.setItem('xgb_quizmix', b.dataset.mix);
     localStorage.removeItem('xgb_recentq');     // 세트가 바뀌면 최근 이력도 초기화
     rebuildPool();
     renderAdmin();

@@ -237,7 +237,8 @@
   ],
   "correct": 0,
   "src": "slide 47, 49",
-  "diff": "mid"
+  "diff": "mid",
+  "drug": true
  },
  {
   "q": "Statin use in MASLD patients is:",
@@ -261,7 +262,8 @@
   ],
   "correct": 0,
   "src": "slide 45",
-  "diff": "mid"
+  "diff": "mid",
+  "drug": true
  },
  {
   "q": "Which blood biomarker helps overcome underreported alcohol intake?",
@@ -501,7 +503,8 @@
   ],
   "correct": 0,
   "src": "slide 49",
-  "diff": "mid"
+  "diff": "mid",
+  "drug": true
  },
  {
   "q": "Which drug pair warrants caution for hepatic fat accumulation?",
@@ -513,7 +516,8 @@
   ],
   "correct": 0,
   "src": "slide 45",
-  "diff": "hard"
+  "diff": "hard",
+  "drug": true
  },
  {
   "q": "Which hydrophilic statins are relatively safer in cirrhosis?",
@@ -525,7 +529,8 @@
   ],
   "correct": 0,
   "src": "slide 51",
-  "diff": "hard"
+  "diff": "hard",
+  "drug": true
  },
  {
   "q": "Which brief alcohol screening tool is used in primary care?",

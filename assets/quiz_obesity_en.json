@@ -1,34 +1,464 @@
 [
- { "q": "The 2025 Lancet Commission split obesity into which two categories?", "a": ["Clinical obesity and preclinical obesity", "Childhood and adult obesity", "Type 1 and type 2 obesity", "Acute and chronic obesity"], "correct": 0, "diff": "easy", "src": "Lancet Diab Endo Commission 2025" },
- { "q": "Under the Lancet Commission, what defines clinical obesity?", "a": ["Organ dysfunction or functional limitation caused by excess adiposity", "A BMI above 30", "Body weight above 100 kg", "A positive family history"], "correct": 0, "diff": "mid", "src": "Lancet Commission 2025" },
- { "q": "What is preclinical obesity?", "a": ["Excess adiposity with preserved organ function", "Diabetes already present", "Requiring surgery", "Normal body weight"], "correct": 0, "diff": "mid", "src": "Lancet Commission 2025" },
- { "q": "Why did the Commission say BMI alone should not diagnose obesity?", "a": ["BMI does not directly capture the amount or distribution of body fat", "It is hard to calculate", "Height is hard to measure", "It adjusts for age"], "correct": 0, "diff": "mid", "src": "Lancet Commission 2025" },
- { "q": "Besides BMI, what does the Commission require to confirm excess adiposity?", "a": ["A fat measure such as waist circumference, waist-hip or waist-height ratio", "Blood type", "Visual acuity", "Lung capacity"], "correct": 0, "diff": "mid", "src": "Lancet Commission 2025" },
- { "q": "Which waist-to-height ratio threshold suggests central adiposity?", "a": ["Above 0.5", "Above 0.1", "Above 1.5", "Above 3.0"], "correct": 0, "diff": "hard", "src": "EASO framework 2024" },
- { "q": "In Korea, obesity is defined from which BMI?", "a": ["25 kg/m² or higher", "30 kg/m² or higher", "35 kg/m² or higher", "40 kg/m² or higher"], "correct": 0, "diff": "easy", "src": "Korean Society for the Study of Obesity" },
- { "q": "In the Korean criteria, pre-obesity (overweight) starts at which BMI?", "a": ["23 kg/m² or higher", "27 kg/m² or higher", "30 kg/m² or higher", "18 kg/m² or higher"], "correct": 0, "diff": "mid", "src": "KSSO guideline" },
- { "q": "Korean class 3 (severe) obesity starts at which BMI?", "a": ["35 kg/m² or higher", "25 kg/m² or higher", "28 kg/m² or higher", "50 kg/m² or higher"], "correct": 0, "diff": "hard", "src": "KSSO guideline" },
- { "q": "Why is metabolic risk higher in Asians at the same BMI?", "a": ["A higher proportion of visceral fat at the same body weight", "Shorter height", "Lower body temperature", "Lower blood pressure"], "correct": 0, "diff": "mid", "src": "WHO Asia-Pacific / KSSO" },
- { "q": "How should obesity be regarded?", "a": ["A chronic, relapsing disease", "A matter of willpower", "A temporary state", "A contagious disease"], "correct": 0, "diff": "easy", "src": "Lancet Commission 2025 / WHO" },
- { "q": "What is the first benefit expected from 5-10% weight loss?", "a": ["Improvement in glucose, blood pressure and triglycerides", "Increased height", "Higher body temperature", "Better eyesight"], "correct": 0, "diff": "easy", "src": "AHA/ACC/TOS Guideline" },
- { "q": "Why is visceral (central) adiposity especially harmful?", "a": ["Free fatty acids drain via the portal vein to the liver and drive metabolic dysfunction", "The skin stretches", "Clothes stop fitting", "Body temperature rises"], "correct": 0, "diff": "mid", "src": "Portal theory / KSSO" },
- { "q": "What should be protected during weight loss?", "a": ["Muscle (lean body mass)", "Fat mass", "Body water", "Bone density only"], "correct": 0, "diff": "mid", "src": "Obesity management guidelines" },
- { "q": "What was the headline result of the SELECT trial with semaglutide 2.4 mg?", "a": ["About a 20% reduction in major adverse cardiovascular events", "A 40% drop in blood pressure", "Elimination of cancer risk", "No effect"], "correct": 0, "diff": "hard", "src": "SELECT trial (NEJM 2023)" },
- { "q": "Who were the participants in the SELECT trial?", "a": ["Adults with overweight/obesity and established CVD, without diabetes", "Children with type 1 diabetes", "Healthy normal-weight adults", "Pregnant women"], "correct": 0, "diff": "hard", "src": "SELECT trial" },
- { "q": "In STEP 1, what was the mean weight loss with semaglutide 2.4 mg at 68 weeks?", "a": ["About 15-17%", "About 2%", "About 40%", "No change"], "correct": 0, "diff": "hard", "src": "STEP 1 (NEJM 2021)" },
- { "q": "In SURMOUNT-1, what weight loss did tirzepatide 15 mg achieve at 72 weeks?", "a": ["About 21%", "About 3%", "About 50%", "About 5%"], "correct": 0, "diff": "hard", "src": "SURMOUNT-1 (NEJM 2022)" },
- { "q": "What happens to weight after stopping a GLP-1 receptor agonist?", "a": ["Much of it returns (STEP 1 extension: about two-thirds regained within a year)", "It stays off", "It keeps falling", "It is unpredictable"], "correct": 0, "diff": "mid", "src": "STEP 1 extension (DOM 2022)" },
- { "q": "What must accompany pharmacotherapy for obesity?", "a": ["Lifestyle intervention: diet, activity and behaviour", "Strict bed rest", "Fasting", "Medication alone"], "correct": 0, "diff": "easy", "src": "Obesity guidelines" },
- { "q": "What is the most common side effect of GLP-1 receptor agonists?", "a": ["Gastrointestinal symptoms such as nausea and vomiting", "Hair loss", "Hearing loss", "Joint pain"], "correct": 0, "diff": "mid", "src": "STEP/SURMOUNT trials" },
- { "q": "What BMI generally triggers consideration of metabolic/bariatric surgery?", "a": ["BMI 35 or above, or 30 or above with metabolic disease", "BMI 20 or above", "BMI 23 or above", "Only BMI 60 or above"], "correct": 0, "diff": "hard", "src": "ASMBS/IFSO 2022" },
- { "q": "Which cancer is NOT among those linked to obesity?", "a": ["Cutaneous melanoma", "Colorectal cancer", "Postmenopausal breast cancer", "Endometrial cancer"], "correct": 0, "diff": "hard", "src": "IARC / WHO" },
- { "q": "Which sleep disorder commonly accompanies obesity?", "a": ["Obstructive sleep apnoea", "Sleepwalking", "Night terrors", "Sleep paralysis only"], "correct": 0, "diff": "easy", "src": "Obesity comorbidity" },
- { "q": "How does weight loss affect steatotic liver disease (MASLD)?", "a": ["5-7% improves inflammation; 7-10% can improve fibrosis", "No effect", "It worsens the liver", "It only enlarges the liver"], "correct": 0, "diff": "mid", "src": "Vilar-Gomez 2015 / AASLD" },
- { "q": "What should clinicians avoid when caring for patients with obesity?", "a": ["Stigmatising language that blames willpower", "Assessing comorbidities", "Lifestyle counselling", "Long-term follow-up planning"], "correct": 0, "diff": "easy", "src": "Weight stigma consensus 2020" },
- { "q": "What metabolic adaptation follows weight loss?", "a": ["Energy expenditure falls and appetite hormones rise, pushing weight back up", "Metabolism keeps speeding up", "Appetite disappears", "Nothing changes"], "correct": 0, "diff": "hard", "src": "Metabolic adaptation research" },
- { "q": "Which joint problem commonly accompanies obesity?", "a": ["Knee osteoarthritis", "Rheumatoid arthritis", "Gout only", "Fractures"], "correct": 0, "diff": "easy", "src": "Obesity comorbidity" },
- { "q": "What is a safe, sustainable rate of weight loss?", "a": ["0.5-1 kg per week", "2 kg per day", "5 kg per week", "The faster the better"], "correct": 0, "diff": "easy", "src": "Obesity guidelines" },
- { "q": "How should cardiovascular risk in obesity be reduced?", "a": ["Manage weight together with blood pressure, lipids and glucose", "Weight only", "Blood pressure only", "No management needed"], "correct": 0, "diff": "mid", "src": "CKM syndrome (AHA 2023)" },
- { "q": "In the AHA cardiovascular-kidney-metabolic (CKM) framework, where does obesity sit?", "a": ["At the start, as excess/dysfunctional adipose tissue", "At the terminal stage", "Unrelated", "As a consequence of complications"], "correct": 0, "diff": "hard", "src": "AHA CKM advisory 2023" },
- { "q": "What is the main role of exercise in weight management?", "a": ["Maintaining lost weight and preserving muscle", "Rapid short-term weight loss", "Suppressing appetite", "It has no role"], "correct": 0, "diff": "mid", "src": "Obesity guidelines" }
+ {
+  "q": "The 2025 Lancet Commission split obesity into which two categories?",
+  "a": [
+   "Clinical obesity and preclinical obesity",
+   "Childhood and adult obesity",
+   "Type 1 and type 2 obesity",
+   "Acute and chronic obesity"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lancet Diab Endo Commission 2025"
+ },
+ {
+  "q": "Under the Lancet Commission, what defines clinical obesity?",
+  "a": [
+   "Organ dysfunction or functional limitation caused by excess adiposity",
+   "A BMI above 30",
+   "Body weight above 100 kg",
+   "A positive family history"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lancet Commission 2025"
+ },
+ {
+  "q": "What is preclinical obesity?",
+  "a": [
+   "Excess adiposity with preserved organ function",
+   "Diabetes already present",
+   "Requiring surgery",
+   "Normal body weight"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lancet Commission 2025"
+ },
+ {
+  "q": "Why did the Commission say BMI alone should not diagnose obesity?",
+  "a": [
+   "BMI does not directly capture the amount or distribution of body fat",
+   "It is hard to calculate",
+   "Height is hard to measure",
+   "It adjusts for age"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lancet Commission 2025"
+ },
+ {
+  "q": "Besides BMI, what does the Commission require to confirm excess adiposity?",
+  "a": [
+   "A fat measure such as waist circumference, waist-hip or waist-height ratio",
+   "Blood type",
+   "Visual acuity",
+   "Lung capacity"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lancet Commission 2025"
+ },
+ {
+  "q": "Which waist-to-height ratio threshold suggests central adiposity?",
+  "a": [
+   "Above 0.5",
+   "Above 0.1",
+   "Above 1.5",
+   "Above 3.0"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "EASO framework 2024"
+ },
+ {
+  "q": "In Korea, obesity is defined from which BMI?",
+  "a": [
+   "25 kg/m² or higher",
+   "30 kg/m² or higher",
+   "35 kg/m² or higher",
+   "40 kg/m² or higher"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Society for the Study of Obesity"
+ },
+ {
+  "q": "In the Korean criteria, pre-obesity (overweight) starts at which BMI?",
+  "a": [
+   "23 kg/m² or higher",
+   "27 kg/m² or higher",
+   "30 kg/m² or higher",
+   "18 kg/m² or higher"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO guideline"
+ },
+ {
+  "q": "Korean class 3 (severe) obesity starts at which BMI?",
+  "a": [
+   "35 kg/m² or higher",
+   "25 kg/m² or higher",
+   "28 kg/m² or higher",
+   "50 kg/m² or higher"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KSSO guideline"
+ },
+ {
+  "q": "Why is metabolic risk higher in Asians at the same BMI?",
+  "a": [
+   "A higher proportion of visceral fat at the same body weight",
+   "Shorter height",
+   "Lower body temperature",
+   "Lower blood pressure"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "WHO Asia-Pacific / KSSO"
+ },
+ {
+  "q": "How should obesity be regarded?",
+  "a": [
+   "A chronic, relapsing disease",
+   "A matter of willpower",
+   "A temporary state",
+   "A contagious disease"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lancet Commission 2025 / WHO"
+ },
+ {
+  "q": "What is the first benefit expected from 5-10% weight loss?",
+  "a": [
+   "Improvement in glucose, blood pressure and triglycerides",
+   "Increased height",
+   "Higher body temperature",
+   "Better eyesight"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "AHA/ACC/TOS Guideline"
+ },
+ {
+  "q": "Why is visceral (central) adiposity especially harmful?",
+  "a": [
+   "Free fatty acids drain via the portal vein to the liver and drive metabolic dysfunction",
+   "The skin stretches",
+   "Clothes stop fitting",
+   "Body temperature rises"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Portal theory / KSSO"
+ },
+ {
+  "q": "What should be protected during weight loss?",
+  "a": [
+   "Muscle (lean body mass)",
+   "Fat mass",
+   "Body water",
+   "Bone density only"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Obesity management guidelines"
+ },
+ {
+  "q": "What was the headline result of the SELECT trial with semaglutide 2.4 mg?",
+  "a": [
+   "About a 20% reduction in major adverse cardiovascular events",
+   "A 40% drop in blood pressure",
+   "Elimination of cancer risk",
+   "No effect"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "SELECT trial (NEJM 2023)",
+  "drug": true
+ },
+ {
+  "q": "Who were the participants in the SELECT trial?",
+  "a": [
+   "Adults with overweight/obesity and established CVD, without diabetes",
+   "Children with type 1 diabetes",
+   "Healthy normal-weight adults",
+   "Pregnant women"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "SELECT trial",
+  "drug": true
+ },
+ {
+  "q": "In STEP 1, what was the mean weight loss with semaglutide 2.4 mg at 68 weeks?",
+  "a": [
+   "About 15-17%",
+   "About 2%",
+   "About 40%",
+   "No change"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "STEP 1 (NEJM 2021)",
+  "drug": true
+ },
+ {
+  "q": "In SURMOUNT-1, what weight loss did tirzepatide 15 mg achieve at 72 weeks?",
+  "a": [
+   "About 21%",
+   "About 3%",
+   "About 50%",
+   "About 5%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "SURMOUNT-1 (NEJM 2022)",
+  "drug": true
+ },
+ {
+  "q": "What happens to weight after stopping a GLP-1 receptor agonist?",
+  "a": [
+   "Much of it returns (STEP 1 extension: about two-thirds regained within a year)",
+   "It stays off",
+   "It keeps falling",
+   "It is unpredictable"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "STEP 1 extension (DOM 2022)",
+  "drug": true
+ },
+ {
+  "q": "What must accompany pharmacotherapy for obesity?",
+  "a": [
+   "Lifestyle intervention: diet, activity and behaviour",
+   "Strict bed rest",
+   "Fasting",
+   "Medication alone"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Obesity guidelines"
+ },
+ {
+  "q": "What is the most common side effect of GLP-1 receptor agonists?",
+  "a": [
+   "Gastrointestinal symptoms such as nausea and vomiting",
+   "Hair loss",
+   "Hearing loss",
+   "Joint pain"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "STEP/SURMOUNT trials",
+  "drug": true
+ },
+ {
+  "q": "What BMI generally triggers consideration of metabolic/bariatric surgery?",
+  "a": [
+   "BMI 35 or above, or 30 or above with metabolic disease",
+   "BMI 20 or above",
+   "BMI 23 or above",
+   "Only BMI 60 or above"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "ASMBS/IFSO 2022"
+ },
+ {
+  "q": "Which cancer is NOT among those linked to obesity?",
+  "a": [
+   "Cutaneous melanoma",
+   "Colorectal cancer",
+   "Postmenopausal breast cancer",
+   "Endometrial cancer"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "IARC / WHO"
+ },
+ {
+  "q": "Which sleep disorder commonly accompanies obesity?",
+  "a": [
+   "Obstructive sleep apnoea",
+   "Sleepwalking",
+   "Night terrors",
+   "Sleep paralysis only"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Obesity comorbidity"
+ },
+ {
+  "q": "How does weight loss affect steatotic liver disease (MASLD)?",
+  "a": [
+   "5-7% improves inflammation; 7-10% can improve fibrosis",
+   "No effect",
+   "It worsens the liver",
+   "It only enlarges the liver"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Vilar-Gomez 2015 / AASLD"
+ },
+ {
+  "q": "What should clinicians avoid when caring for patients with obesity?",
+  "a": [
+   "Stigmatising language that blames willpower",
+   "Assessing comorbidities",
+   "Lifestyle counselling",
+   "Long-term follow-up planning"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Weight stigma consensus 2020"
+ },
+ {
+  "q": "What metabolic adaptation follows weight loss?",
+  "a": [
+   "Energy expenditure falls and appetite hormones rise, pushing weight back up",
+   "Metabolism keeps speeding up",
+   "Appetite disappears",
+   "Nothing changes"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "Metabolic adaptation research"
+ },
+ {
+  "q": "Which joint problem commonly accompanies obesity?",
+  "a": [
+   "Knee osteoarthritis",
+   "Rheumatoid arthritis",
+   "Gout only",
+   "Fractures"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Obesity comorbidity"
+ },
+ {
+  "q": "What is a safe, sustainable rate of weight loss?",
+  "a": [
+   "0.5-1 kg per week",
+   "2 kg per day",
+   "5 kg per week",
+   "The faster the better"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Obesity guidelines"
+ },
+ {
+  "q": "How should cardiovascular risk in obesity be reduced?",
+  "a": [
+   "Manage weight together with blood pressure, lipids and glucose",
+   "Weight only",
+   "Blood pressure only",
+   "No management needed"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "CKM syndrome (AHA 2023)"
+ },
+ {
+  "q": "In the AHA cardiovascular-kidney-metabolic (CKM) framework, where does obesity sit?",
+  "a": [
+   "At the start, as excess/dysfunctional adipose tissue",
+   "At the terminal stage",
+   "Unrelated",
+   "As a consequence of complications"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "AHA CKM advisory 2023"
+ },
+ {
+  "q": "What is the main role of exercise in weight management?",
+  "a": [
+   "Maintaining lost weight and preserving muscle",
+   "Rapid short-term weight loss",
+   "Suppressing appetite",
+   "It has no role"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Obesity guidelines"
+ },
+ {
+  "q": "Per the KSSO Obesity Fact Sheet 2024, what was obesity prevalence in Korean men in 2022?",
+  "a": [
+   "About 49%",
+   "About 10%",
+   "About 20%",
+   "About 80%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO Obesity Fact Sheet 2024"
+ },
+ {
+  "q": "Per the Fact Sheet, what was obesity prevalence in Korean women in 2022?",
+  "a": [
+   "About 29%",
+   "About 5%",
+   "About 50%",
+   "About 70%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KSSO Obesity Fact Sheet 2024"
+ },
+ {
+  "q": "Comparing 2013 with 2022, how did Korean class 3 (severe) obesity prevalence change?",
+  "a": [
+   "It rose about 2.6-fold",
+   "It halved",
+   "It did not change",
+   "It fell tenfold"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KSSO Obesity Fact Sheet 2024"
+ },
+ {
+  "q": "Per the Fact Sheet, what was abdominal obesity prevalence among Korean adults in 2022?",
+  "a": [
+   "About 24.5%",
+   "About 2%",
+   "About 60%",
+   "About 90%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO Obesity Fact Sheet 2024"
+ },
+ {
+  "q": "Per the Fact Sheet, how much higher is type 2 diabetes risk in class 3 obesity versus normal weight?",
+  "a": [
+   "About 9-fold or more",
+   "No difference",
+   "About 1.1-fold",
+   "It is lower"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KSSO Obesity Fact Sheet 2024"
+ },
+ {
+  "q": "What is the 10-year trend in abdominal obesity among Korean adults?",
+  "a": [
+   "A steady increase",
+   "A steady decrease",
+   "No change at all",
+   "Halving each year"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO Obesity Fact Sheet 2024"
+ }
 ]

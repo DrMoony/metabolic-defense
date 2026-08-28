@@ -40,6 +40,9 @@
   .meta input[type=text] { flex:1; min-width:180px; background:rgba(0,0,0,.24); color:rgba(255,255,255,.75);
     border:1px solid rgba(255,255,255,.12); border-radius:8px; padding:6px 9px; font-size:12px; }
   .hint { color:rgba(255,255,255,.45); font-size:12px; }
+  .drugbox { display:flex; gap:6px; align-items:center; font-size:12px; color:#ff8fa3; font-weight:700; white-space:nowrap; }
+  .drugbox input { accent-color:#ff5d73; width:15px; height:15px; }
+  .card.isdrug { border-color:rgba(255,93,115,.4); }
   #save-bar { position:fixed; left:0; right:0; bottom:0; padding:12px 26px; background:rgba(16,8,14,.97);
     border-top:1px solid rgba(255,255,255,.14); display:flex; gap:10px; align-items:center; }
   #status { color:#7dffb0; font-size:13px; font-weight:700; }
@@ -47,12 +50,12 @@
 </head>
 <body>
 <h1>문제은행 관리</h1>
-<div class="sub">세트별로 문항을 수정하고, 저장하면 JSON 파일로 내려받아요. 내려받은 파일을 <code>assets/</code>에 덮어쓰고 커밋하면 게임에 반영됩니다.</div>
+<div class="sub">특정 약물(분자명·브랜드·약물시험) 문항은 <b style="color:#ff8fa3">빨간 테두리</b>로 표시되며 게임에서 <b>기본 숨김</b>이에요(어드민 A키로 포함 가능).<br>세트별로 문항을 수정하고, 저장하면 JSON 파일로 내려받아요. 내려받은 파일을 <code>assets/</code>에 덮어쓰고 커밋하면 게임에 반영됩니다.</div>
 
 <div class="bar">
   <select id="set">
     <option value="quiz_aasld">MASLD / MASH (AASLD)</option>
-    <option value="quiz_obesity">Clinical obesity</option>
+    <option value="quiz_obesity">Clinical Obesity</option>
   </select>
   <select id="lang">
     <option value="ko">한국어</option>
@@ -93,7 +96,7 @@ function render() {
   data.forEach((q, i) => {
     const d = q.diff || 'mid';
     const card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'card' + (q.drug ? ' isdrug' : '');
     card.innerHTML = `
       <div class="qhead">
         <span class="idx">#${i + 1}</span>
@@ -110,7 +113,10 @@ function render() {
           <input type="text" data-role="a${k}" value="${(q.a && q.a[k] || '').replace(/"/g,'&quot;')}" placeholder="보기 ${k+1}">
         `).join('')}
       </div>
-      <div class="meta"><span class="hint">출처</span><input type="text" data-role="src" value="${(q.src||'').replace(/"/g,'&quot;')}" placeholder="예: slide 27 / SELECT trial"></div>`;
+      <div class="meta">
+        <span class="hint">출처</span><input type="text" data-role="src" value="${(q.src||'').replace(/"/g,'&quot;')}" placeholder="예: slide 27 / KSSO Fact Sheet 2024">
+        <label class="drugbox"><input type="checkbox" data-role="drug" ${q.drug?'checked':''}> 특정 약물 문항(기본 숨김)</label>
+      </div>`;
     card.querySelector('[data-role=diff]').value = d;
     card.addEventListener('input', () => {
       const g = (r) => card.querySelector(`[data-role=${r}]`);
@@ -120,6 +126,7 @@ function render() {
       q.correct = sel ? +sel.value : 0;
       q.diff = g('diff').value;
       q.src = g('src').value;
+      q.drug = g('drug').checked;
       const tag = g('difftag');
       tag.textContent = q.diff.toUpperCase(); tag.className = 'tag ' + q.diff;
       card.classList.add('dirty');
@@ -134,14 +141,15 @@ function render() {
   });
   const by = { easy: 0, mid: 0, hard: 0 };
   data.forEach((q) => { by[q.diff || 'mid'] = (by[q.diff || 'mid'] || 0) + 1; });
-  $('count').textContent = `총 ${data.length}문 · easy ${by.easy} / mid ${by.mid} / hard ${by.hard}`;
+  const dr = data.filter((q) => q.drug).length;
+  $('count').textContent = `총 ${data.length}문 · easy ${by.easy} / mid ${by.mid} / hard ${by.hard} · 약물 ${dr}문(기본 숨김)`;
 }
 
 function toJSON() {
   const clean = data
     .filter((q) => (q.q || '').trim() && (q.a || []).filter((x) => (x || '').trim()).length === 4)
     .map((q) => ({ q: q.q.trim(), a: q.a.map((x) => x.trim()), correct: q.correct || 0,
-                   diff: q.diff || 'mid', ...(q.src ? { src: q.src.trim() } : {}) }));
+                   diff: q.diff || 'mid', ...(q.src ? { src: q.src.trim() } : {}), ...(q.drug ? { drug: true } : {}) }));
   return JSON.stringify(clean, null, 1) + '\n';
 }
 

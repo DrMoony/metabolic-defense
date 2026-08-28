@@ -237,7 +237,8 @@
   ],
   "correct": 0,
   "src": "slide 47, 49",
-  "diff": "mid"
+  "diff": "mid",
+  "drug": true
  },
  {
   "q": "MASLD 환자에서 스타틴(고지혈증약) 사용은 어떨까요?",
@@ -261,7 +262,8 @@
   ],
   "correct": 0,
   "src": "slide 45",
-  "diff": "mid"
+  "diff": "mid",
+  "drug": true
  },
  {
   "q": "음주량 자가보고의 한계를 보완하는 혈액 지표는?",
@@ -501,7 +503,8 @@
   ],
   "correct": 0,
   "src": "slide 49",
-  "diff": "mid"
+  "diff": "mid",
+  "drug": true
  },
  {
   "q": "간에 지방을 쌓을 수 있어 주의가 필요한 약물 짝은 무엇일까요?",
@@ -513,7 +516,8 @@
   ],
   "correct": 0,
   "src": "slide 45",
-  "diff": "hard"
+  "diff": "hard",
+  "drug": true
  },
  {
   "q": "간경변 환자에게 상대적으로 안전한 친수성 스타틴은 무엇일까요?",
@@ -525,7 +529,8 @@
   ],
   "correct": 0,
   "src": "slide 51",
-  "diff": "hard"
+  "diff": "hard",
+  "drug": true
  },
  {
   "q": "1차 진료에서 쓰는 간단한 음주 선별 도구는 무엇일까요?",
