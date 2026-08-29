@@ -446,13 +446,14 @@ function makeOrganSprite(url, size, x, y, z) {
 }
 const pancSprite = makeOrganSprite('../assets/pancreas.png', 5.4, 7.6, 2.5, -1.6);   // 우하단, 좌우반전으로 총구가 길 쪽(왼쪽)
 pancSprite.scale.x = -1;
-const liverSprite = makeOrganSprite('../assets/liver.png', 4.8, -3.2, 2.3, 1.9);     // 방어선 전면의 간 수호탑
+const LIVER_SIZE = 11.5;   // 멀리 있어 작게 보이던 문제 → 크게 (유저 요청)
+const liverSprite = makeOrganSprite('../assets/liver.png', LIVER_SIZE, -3.2, LIVER_SIZE * 0.46, 1.9);     // 방어선 전면의 간 수호탑
 const pancTip = new THREE.Object3D();
 pancTip.position.set(5.7, 3.2, -1.6);   // 반전된 대포의 총구 지점
 scene.add(pancTip);
 
 // 포탑 위치: 디버그 편집(4·5키)으로 이동 가능, localStorage 저장
-const ORGAN_DEFAULTS = { liver: [-0.8, -17.3], panc: [7.6, -1.6] };   // 인게임 편집기(4·5)로 확정
+const ORGAN_DEFAULTS = { liver: [-11.5, -13.5], panc: [7.6, -1.6] };   // 간은 길 왼편에 크게 세움(길이 간 앞으로 지나가도록)
 function placeOrgan(which, x, z) {
   if (which === 'liver') { liverSprite.position.x = x; liverSprite.position.z = z; }
   else { pancSprite.position.x = x; pancSprite.position.z = z; pancTip.position.set(x - 1.9, 3.2, z); }
@@ -512,14 +513,20 @@ function quizRate() { return G.quizTotal ? G.quizCorrectCount / G.quizTotal : 1;
 
 // 경로가 간 앞뒤로 지나가므로, 몬스터가 간에 겹치면 간을 반투명하게 만들어 시야를 확보한다
 function liverFadeUpdate() {
-  let near = false;
+  // 길이 간 '앞으로' 나 있어서, 간보다 앞(카메라 쪽)에 있는 몬스터는 깊이 순서상 그대로 겹쳐 그려진다.
+  // 진짜 문제는 간보다 '뒤'에 있으면서 화면에서 간과 겹치는 몬스터 → 그때만 간을 투명하게 비춰준다.
+  const lp = liverSprite.position;
+  const halfW = LIVER_SIZE * 0.42;
+  let hiddenBehind = false;
   for (const e of enemies) {
     if (e.state === 'dying') continue;
-    const dx = e.mesh.position.x - liverSprite.position.x;
-    const dz = e.mesh.position.z - liverSprite.position.z;
-    if (dx * dx + dz * dz < 64) { near = true; break; }   // 반경 8 안에 들면
+    const p = e.mesh.position;
+    if (p.z >= lp.z - 0.4) continue;                 // 간보다 앞이면 가려질 일이 없음
+    if (lp.z - p.z > 22) continue;                   // 아주 멀리 뒤면 원근상 겹치지 않음
+    if (Math.abs(p.x - lp.x) > halfW) continue;      // 좌우로 벗어나면 안 겹침
+    hiddenBehind = true; break;
   }
-  const target = near ? 0.3 : 1;
+  const target = hiddenBehind ? 0.45 : 1;
   const cur = liverSprite.material.opacity;
   liverSprite.material.opacity = cur + (target - cur) * 0.15;
 }
