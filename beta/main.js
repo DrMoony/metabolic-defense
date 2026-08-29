@@ -453,7 +453,7 @@ pancTip.position.set(5.7, 3.2, -1.6);   // 반전된 대포의 총구 지점
 scene.add(pancTip);
 
 // 포탑 위치: 디버그 편집(4·5키)으로 이동 가능, localStorage 저장
-const ORGAN_DEFAULTS = { liver: [-11.5, -13.5], panc: [7.6, -1.6] };   // 간은 길 왼편에 크게 세움(길이 간 앞으로 지나가도록)
+const ORGAN_DEFAULTS = { liver: [-0.8, -17.3], panc: [7.6, -1.6] };   // 간은 길 사이 중앙 — 파동이 뒤에서 오는 적까지 덮어야 함
 function placeOrgan(which, x, z) {
   if (which === 'liver') { liverSprite.position.x = x; liverSprite.position.z = z; }
   else { pancSprite.position.x = x; pancSprite.position.z = z; pancTip.position.set(x - 1.9, 3.2, z); }
@@ -526,7 +526,7 @@ function liverFadeUpdate() {
     if (Math.abs(p.x - lp.x) > halfW) continue;      // 좌우로 벗어나면 안 겹침
     hiddenBehind = true; break;
   }
-  const target = hiddenBehind ? 0.45 : 1;
+  const target = hiddenBehind ? 0.32 : 1;
   const cur = liverSprite.material.opacity;
   liverSprite.material.opacity = cur + (target - cur) * 0.15;
 }
