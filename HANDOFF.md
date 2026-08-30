@@ -136,3 +136,11 @@ macOS에서는 동글이 USB 열거조차 되지 않았습니다(HID 목록에 U
 - Google Drive: `내 드라이브/1_BI/Metabolic Defense/` (백업 zip + 이 문서)
 - 원본 배경/포탑 이미지: `1_BI/Survodutide/1_Presentation Slides/Designer (3~5).png`
 - AASLD 원본 덱: `1_BI/Survodutide/1_Presentation Slides/AASLD_Unmasking MASH and MASLD .pptx`
+
+
+## 부스 전체화면 운영 (2026-08-30)
+- 게임 시작 클릭 시 자동으로 **전체화면 진입**(`requestFullscreen({navigationUI:'hide'})`) — 가장자리 사격이 브라우저 탭·메뉴를 건드리지 않음. Esc를 누르면 풀리지만 다음 판 시작 때 재진입.
+- **부스 PC(Windows)에서 더 단단하게**: 바로가기 대상에 아래처럼 넣으면 주소창·탭 자체가 없는 키오스크로 뜸.
+  `"C:\Program Files\Google\Chrome\Application\chrome.exe" --kiosk --app=https://drmoony.github.io/metabolic-defense/beta/`
+  (종료는 Alt+F4. Windows 설정 > 태블릿 가장자리 스와이프 제스처는 라이트건(마우스 HID)에선 발동 안 함)
+- 격파 연출: 히트스톱(일반 45ms/대형 75ms/보스 130ms), 보스 슬로모 0.3배속 0.55초, 색수차 펄스(#stage.chroma), 스케일 팝 1.25배.

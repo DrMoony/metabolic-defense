@@ -1623,6 +1623,19 @@ function shockRingsUpdate(dt) {
 }
 let shakeT = 0, shakeAmp = 0;
 function shakeCam(amp, dur) { shakeAmp = Math.max(shakeAmp, amp); shakeT = Math.max(shakeT, dur); }
+
+// 히트스톱: 격파 순간 수십 ms 시간 정지 — 짧은 멈춤이 타격의 '무게'로 읽힌다
+let hitstopT = 0, slowmoT = 0;
+function hitstop(sec) { hitstopT = Math.max(hitstopT, sec); }
+function slowmo(sec) { slowmoT = Math.max(slowmoT, sec); }
+// 색수차 펄스: 큰 폭발 때 화면 가장자리가 잠깐 붉고 푸르게 갈라진다
+let chromaTimer = null;
+function chromaPulse(ms = 130) {
+  const st = $('stage'); if (!st) return;
+  st.classList.add('chroma');
+  clearTimeout(chromaTimer);
+  chromaTimer = setTimeout(() => st.classList.remove('chroma'), ms);
+}
 const CAM_HOME = new THREE.Vector3();
 function shakeUpdate(dt) {
   if (shakeT <= 0) { camera.position.x = CAM_HOME.x; camera.position.y = CAM_HOME.y; return; }
@@ -1994,6 +2007,10 @@ function killEnemy(e, byPlayer) {
       setTimeout(() => shockRing(e.mesh.position, 0xff5d73, 30, 0.9, 0.35), 190);
       screenFlash('#fff6e0', 0.55, 130);
       shakeCam(1.6, 0.55);
+      hitstop(0.13);
+      slowmo(0.55);
+      chromaPulse(260);
+      e.mesh.scale.multiplyScalar(1.35);
       beep(70, 0.5, 'sawtooth', 0.1, -30);
       setTimeout(() => beep(140, 0.35, 'square', 0.07, -60), 110);
       showMsg(T('bossKill', eLabel(e.def), gain.toLocaleString()), 3000);
@@ -2009,6 +2026,9 @@ function killEnemy(e, byPlayer) {
       damagePopup(at, big ? 'BOOM!' : 'KO!', big ? '#ffb347' : '#ffe9a8', big ? 1.35 : 1.05);
       shakeCam(big ? 0.5 : 0.22, big ? 0.2 : 0.12);
       screenFlash('#ffe9a8', big ? 0.2 : 0.1, 70);
+      hitstop(big ? 0.075 : 0.045);
+      e.mesh.scale.multiplyScalar(1.25);   // 터지기 직전 부풀어 오르는 스케일 팝
+      if (big) chromaPulse(120);
       sfx.kill();
     }
     dropItem(e);
@@ -2694,6 +2714,10 @@ window.addEventListener('pointerdown', (e) => {
   if (debugOn) console.log('[debug]', debugCoords(e.clientX, e.clientY));
   if (!$('screen-admin').classList.contains('hidden')) { toggleAdmin(false); return; }
   if (G.state === 'START') {   // 시작화면 → 가이드
+    // 부스 운영: 시작 클릭(사용자 제스처)에서 전체화면 진입 — 가장자리 사격이 브라우저 UI를 건드리지 않게
+    if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+      document.documentElement.requestFullscreen({ navigationUI: 'hide' }).catch(() => {});
+    }
     G.state = 'GUIDE';
     renderGuide();
     $('screen-start').classList.add('hidden');
@@ -2941,7 +2965,10 @@ function step(dt) {
 }
 function tick() {
   requestAnimationFrame(tick);
-  step(Math.min(clock.getDelta(), 0.05));
+  let dt = Math.min(clock.getDelta(), 0.05);
+  if (hitstopT > 0) { hitstopT -= dt; dt = 0.0005; }      // 순간 정지 (연출은 setTimeout이라 계속 흐름)
+  else if (slowmoT > 0) { slowmoT -= dt; dt *= 0.3; }     // 보스 격파 슬로모
+  step(dt);
 }
 CAM_HOME.copy(camera.position);
 window.DBG = { G, enemies, traps, fatWalls, projectiles, drops, ITEMS, rockets, drawQuiz, shuffled, QUIZ_POOL, QUIZ_SETS, rebuildPool, readMix, toggleAdmin, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출

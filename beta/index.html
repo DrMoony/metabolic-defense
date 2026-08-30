@@ -16,6 +16,7 @@
   #stage { position: fixed; overflow: hidden; background: #2e1226 url('../assets/bg.jpg') center / 100% 100% no-repeat; container-type: size; }
   #liver-tint { position: absolute; inset: 0; pointer-events: none; z-index: 5; transition: background .6s; }
   #stage canvas { width: 100%; height: 100%; display: block; }
+  #stage.chroma { filter: drop-shadow(3px 0 rgba(255, 30, 80, .55)) drop-shadow(-3px 0 rgba(0, 210, 255, .55)); }
 
   /* ---------- 공통 ---------- */
   .overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 40; }
@@ -269,6 +270,6 @@
 <div id="crosshair"><div class="ring"></div><div id="ch-fx"><div class="prog"></div><span class="txt"></span></div></div>
 
 <script type="importmap">{ "imports": { "three": "../vendor/three.module.js" } }</script>
-<script type="module" src="./main.js?v=b35"></script>
+<script type="module" src="./main.js?v=b36"></script>
 </body>
 </html>
