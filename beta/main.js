@@ -116,7 +116,7 @@ const WEAPONS = [
   { name: '기관단총', en: 'SMG',         icon: '⚙️', dmg: 1, cd: 0.08, flash: 0xffe9a8, beam: false, mag: 45, rl: 1.6 },
   { name: '소총',     en: 'Rifle',       icon: '🎯', dmg: 3, cd: 0.14, flash: 0xfff2c8, beam: false, mag: 30, rl: 1.6 },
   { name: '기관총',   en: 'Machine Gun', icon: '🔩', dmg: 2, cd: 0.36, flash: 0xfff2c8, beam: false, burst: 3, mag: 68, rl: 2.3 },
-  { name: '바주카',   en: 'Bazooka',     icon: '🚀', dmg: 5, cd: 0.75, flash: 0xffa060, beam: false, rocket: true, splash: 3.2, splashDmg: 2, mag: 2, rl: 2.1 },
+  { name: '바주카',   en: 'Bazooka',     icon: '🚀', dmg: 5, cd: 0.55, flash: 0xffa060, beam: false, rocket: true, splash: 4.5, splashDmg: 2, mag: 4, rl: 2.1 },
   { name: '레이저',   en: 'Laser',       icon: '⚡', dmg: 4, cd: 0.10, flash: 0x8ff2ff, beam: true, mag: 60, rl: 1.4 },
 ];
 function wName(i) { const w = WEAPONS[i]; return G.lang === 'en' ? w.en : w.name; }
@@ -283,9 +283,52 @@ function beep(freq, dur = 0.08, type = 'square', gain = 0.05, slide = 0) {
     o.connect(g).connect(ctx.destination); o.start(); o.stop(ctx.currentTime + dur + 0.02);
   } catch (e) { /* 오디오 실패는 무시 */ }
 }
+let noiseBuf = null;
+function noiseBuffer() {
+  const ctx = audio();
+  if (!noiseBuf) {
+    noiseBuf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * 0.4), ctx.sampleRate);
+    const d = noiseBuf.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+  }
+  return noiseBuf;
+}
+// 오실레이터 삑 소리 대신 노이즈 크랙 + 저역 펀치 두 겹 — 무기 티어가 높을수록 굵고 묵직하게
+function shotSound(tier) {
+  try {
+    const ctx = audio(); const t = ctx.currentTime;
+    const w = Math.min(1, (tier !== undefined ? tier : G.weapon) / 9);
+    const src = ctx.createBufferSource(); src.buffer = noiseBuffer();
+    const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 0.8;
+    bp.frequency.setValueAtTime(2600 - w * 1500, t);
+    bp.frequency.exponentialRampToValueAtTime(230, t + 0.08 + w * 0.06);
+    const ng = ctx.createGain();
+    ng.gain.setValueAtTime(0.2 + w * 0.15, t);
+    ng.gain.exponentialRampToValueAtTime(0.001, t + 0.1 + w * 0.1);
+    src.connect(bp).connect(ng).connect(ctx.destination);
+    src.start(t); src.stop(t + 0.26);
+    const o = ctx.createOscillator(); o.type = 'sine';
+    o.frequency.setValueAtTime(150 - w * 45, t);
+    o.frequency.exponentialRampToValueAtTime(44, t + 0.09 + w * 0.05);
+    const og = ctx.createGain();
+    og.gain.setValueAtTime(0.26 + w * 0.2, t);
+    og.gain.exponentialRampToValueAtTime(0.001, t + 0.12 + w * 0.08);
+    o.connect(og).connect(ctx.destination); o.start(t); o.stop(t + 0.24);
+  } catch (e) { /* 오디오 실패는 무시 */ }
+}
 const sfx = {
-  shoot: () => beep(140, 0.07, 'square', 0.06, -80),
-  hit: () => beep(620, 0.05, 'triangle', 0.05),
+  shoot: () => shotSound(),
+  hit: () => {
+    try {
+      const ctx = audio(); const t = ctx.currentTime;
+      const src = ctx.createBufferSource(); src.buffer = noiseBuffer();
+      const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 2100;
+      const g = ctx.createGain();
+      g.gain.setValueAtTime(0.13, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.05);
+      src.connect(hp).connect(g).connect(ctx.destination); src.start(t); src.stop(t + 0.07);
+    } catch (e) { /* 무시 */ }
+    beep(700, 0.04, 'triangle', 0.045);
+  },
   kill: () => { beep(520, 0.07, 'triangle', 0.05); setTimeout(() => beep(780, 0.09, 'triangle', 0.05), 60); },
   dmg: () => beep(85, 0.22, 'sawtooth', 0.09),
   ok: () => { beep(660, 0.1, 'sine', 0.07); setTimeout(() => beep(880, 0.16, 'sine', 0.07), 90); },
@@ -511,24 +554,9 @@ function DT() { return DIFF_TUNE[G.quizDiff] || DIFF_TUNE.mid; }
 function accuracy() { return G.shots >= 6 ? G.hits / G.shots : 1; }   // 초반 6발까지는 만점 취급
 function quizRate() { return G.quizTotal ? G.quizCorrectCount / G.quizTotal : 1; }
 
-// 경로가 간 앞뒤로 지나가므로, 몬스터가 간에 겹치면 간을 반투명하게 만들어 시야를 확보한다
+// 간 뒤로 들어간 몬스터는 '간에 가려 못 쏘는' 게 규칙 — 투명화 연출은 어색해서 제거 (유저 확정)
 function liverFadeUpdate() {
-  // 길이 간 '앞으로' 나 있어서, 간보다 앞(카메라 쪽)에 있는 몬스터는 깊이 순서상 그대로 겹쳐 그려진다.
-  // 진짜 문제는 간보다 '뒤'에 있으면서 화면에서 간과 겹치는 몬스터 → 그때만 간을 투명하게 비춰준다.
-  const lp = liverSprite.position;
-  const halfW = LIVER_SIZE * 0.42;
-  let hiddenBehind = false;
-  for (const e of enemies) {
-    if (e.state === 'dying') continue;
-    const p = e.mesh.position;
-    if (p.z >= lp.z - 0.4) continue;                 // 간보다 앞이면 가려질 일이 없음
-    if (lp.z - p.z > 22) continue;                   // 아주 멀리 뒤면 원근상 겹치지 않음
-    if (Math.abs(p.x - lp.x) > halfW) continue;      // 좌우로 벗어나면 안 겹침
-    hiddenBehind = true; break;
-  }
-  const target = hiddenBehind ? 0.32 : 1;
-  const cur = liverSprite.material.opacity;
-  liverSprite.material.opacity = cur + (target - cur) * 0.15;
+  if (liverSprite.material.opacity < 1) liverSprite.material.opacity = Math.min(1, liverSprite.material.opacity + 0.05);
 }
 
 function liverPulseUpdate(dt) {
@@ -1455,13 +1483,21 @@ function spawnTrap() {
   const blob = new THREE.Mesh(new THREE.SphereGeometry(0.72, 14, 12),
     new THREE.MeshStandardMaterial({ color: 0xffd166, roughness: 0.45, emissive: 0x775510, emissiveIntensity: 0.6 }));
   blob.position.y = 0.85; g.add(blob);
-  const lockMat = new THREE.MeshStandardMaterial({ color: 0xffb020, roughness: 0.3, metalness: 0.7, emissive: 0x664400, emissiveIntensity: 0.8 });
+  // 노란 지방이와 확실히 구분되는 빨간 자물쇠 — 크고, 히트박스는 더 넉넉하게
+  const lockMat = new THREE.MeshStandardMaterial({ color: 0xff2d4a, roughness: 0.28, metalness: 0.45, emissive: 0xa00018, emissiveIntensity: 1.1 });
   const lock = new THREE.Group();
   const lockBody = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.95, 0.5), lockMat);
-  const shackle = new THREE.Mesh(new THREE.TorusGeometry(0.34, 0.1, 8, 14, Math.PI), lockMat);
+  const shackle = new THREE.Mesh(new THREE.TorusGeometry(0.34, 0.1, 8, 14, Math.PI),
+    new THREE.MeshStandardMaterial({ color: 0xffe9ec, roughness: 0.3, metalness: 0.8, emissive: 0x553033, emissiveIntensity: 0.5 }));
   shackle.position.y = 0.55;
-  lock.add(lockBody); lock.add(shackle);
-  lock.position.set(0, 1.15, 1.4); g.add(lock);
+  const keyhole = new THREE.Mesh(new THREE.CircleGeometry(0.13, 10),
+    new THREE.MeshBasicMaterial({ color: 0xfff4f6 }));
+  keyhole.position.set(0, 0.02, 0.26);
+  const hitZone = new THREE.Mesh(new THREE.SphereGeometry(1.05, 8, 8),
+    new THREE.MeshBasicMaterial({ visible: false }));   // 겨냥 보정용 투명 히트박스
+  lock.add(lockBody); lock.add(shackle); lock.add(keyhole); lock.add(hitZone);
+  lock.scale.setScalar(1.6);
+  lock.position.set(0, 1.5, 1.6); g.add(lock);
 
   trapSide *= -1;
   const tp0 = 0.6 + Math.random() * 0.16;
@@ -2228,6 +2264,7 @@ function trapsUpdate(dt) {
     if (tr.state === 'live') {
       tr.blob.position.y = 0.85 + Math.abs(Math.sin(tr.t * 4)) * 0.25;
       tr.lock.rotation.y = Math.sin(tr.t * 3) * 0.3;
+      tr.lock.scale.setScalar(1.6 + Math.sin(tr.t * 5) * 0.13);   // 쿵쿵 펄스로 시선 유도
       if (tr.t >= tr.life) { tr.state = 'dragging'; tr.t = 0; }
     } else if (tr.state === 'dragging') {
       // 못 구하면 내장지방이 간으로 흘러간다
