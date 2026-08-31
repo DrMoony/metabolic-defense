@@ -480,10 +480,10 @@ function makeOrganSprite(url, size, x, y, z) {
   const tex = texLoader.load(url);
   tex.colorSpace = THREE.SRGBColorSpace;
   const m = new THREE.Mesh(new THREE.PlaneGeometry(size, size),
-    new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
+    new THREE.MeshBasicMaterial({ map: tex, transparent: false, alphaTest: 0.4, depthWrite: true }));
   m.position.set(x, y, z);
   m.quaternion.copy(camera.quaternion);   // 고정 카메라 빌보드
-  m.renderOrder = 2;
+  m.renderOrder = 0;
   scene.add(m);
   return m;
 }
@@ -553,11 +553,6 @@ const DIFF_TUNE = {
 function DT() { return DIFF_TUNE[G.quizDiff] || DIFF_TUNE.mid; }
 function accuracy() { return G.shots >= 6 ? G.hits / G.shots : 1; }   // 초반 6발까지는 만점 취급
 function quizRate() { return G.quizTotal ? G.quizCorrectCount / G.quizTotal : 1; }
-
-// 간 뒤로 들어간 몬스터는 '간에 가려 못 쏘는' 게 규칙 — 투명화 연출은 어색해서 제거 (유저 확정)
-function liverFadeUpdate() {
-  if (liverSprite.material.opacity < 1) liverSprite.material.opacity = Math.min(1, liverSprite.material.opacity + 0.05);
-}
 
 function liverPulseUpdate(dt) {
   G.liverPulseT -= dt;
@@ -2939,7 +2934,6 @@ function step(dt) {
     trapsUpdate(dt);
     dropsUpdate(dt, t);
     pancreasUpdate(dt);
-    liverFadeUpdate();
     buffUpdate(dt);
     reloadUpdate(dt);
     if (G.firing) shootAt(aimX, aimY);   // 트리거를 누르고 있으면 무기 연사 속도로 계속 발사
