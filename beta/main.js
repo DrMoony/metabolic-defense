@@ -119,6 +119,7 @@ const WEAPONS = [
   { name: '소총',     en: 'Rifle',       icon: '🎯', dmg: 3, cd: 0.14, flash: 0xfff2c8, beam: false, mag: 30, rl: 1.6 },
   { name: '기관총',   en: 'Machine Gun', icon: '🔩', dmg: 2, cd: 0.36, flash: 0xfff2c8, beam: false, burst: 3, mag: 68, rl: 2.3 },
   { name: '바주카',   en: 'Bazooka',     icon: '🚀', dmg: 5, cd: 0.55, flash: 0xffa060, beam: false, rocket: true, splash: 4.5, splashDmg: 2, mag: 4, rl: 2.1 },
+  { name: '유도미사일', en: 'Homing Missile', icon: '🛰️', dmg: 4, cd: 0.32, flash: 0x9fd6ff, beam: false, rocket: true, homing: true, splash: 2.6, splashDmg: 1, mag: 8, rl: 2.0 },
   { name: '레이저',   en: 'Laser',       icon: '⚡', dmg: 4, cd: 0.10, flash: 0x8ff2ff, beam: true, mag: 60, rl: 1.4 },
 ];
 function wName(i) { const w = WEAPONS[i]; return G.lang === 'en' ? w.en : w.name; }
@@ -803,6 +804,29 @@ function buildGunModel(tier) {
     const fgrip2 = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.26, 0.16), steel(0x3a4a2c));
     fgrip2.position.set(0, -0.1, -0.75); fgrip2.rotation.x = -0.1; g.add(fgrip2);
     mz.position.set(0, 0.12, -1.75); mz.scale.setScalar(1.9);
+  } else if (tier === 10) {  // 유도미사일: 4연장 발사관 + 레이더 접시 + 락온 램프
+    const case_ = steel(0x2f3a44);
+    const box = new THREE.Mesh(new THREE.BoxGeometry(0.46, 0.4, 0.9), case_);
+    box.position.set(0, 0.16, -0.4); g.add(box);
+    const cyan = new THREE.MeshStandardMaterial({ color: 0x6fc3ff, emissive: 0x2a86c8, emissiveIntensity: 1.2, roughness: 0.3 });
+    for (const [tx, ty] of [[-0.11, 0.28], [0.11, 0.28], [-0.11, 0.05], [0.11, 0.05]]) {
+      const tube = new THREE.Mesh(new THREE.CylinderGeometry(0.085, 0.085, 0.92, 10), steel(0x3d4a56));
+      tube.rotation.x = Math.PI / 2; tube.position.set(tx, ty, -0.44); g.add(tube);
+      const tip = new THREE.Mesh(new THREE.ConeGeometry(0.075, 0.16, 10), cyan);
+      tip.rotation.x = -Math.PI / 2; tip.position.set(tx, ty, -0.94); g.add(tip);   // 미사일 탄두
+    }
+    const dish = new THREE.Mesh(new THREE.SphereGeometry(0.17, 12, 8, 0, Math.PI * 2, 0, Math.PI / 2), cyan);
+    dish.rotation.x = -0.9; dish.position.set(0, 0.42, 0.06); g.add(dish);          // 레이더 접시
+    const mast = new THREE.Mesh(new THREE.CylinderGeometry(0.022, 0.022, 0.2, 6), case_);
+    mast.position.set(0, 0.33, 0.06); g.add(mast);
+    const lamp = new THREE.Mesh(new THREE.SphereGeometry(0.05, 8, 6),
+      new THREE.MeshBasicMaterial({ color: 0xff5d73 }));
+    lamp.position.set(-0.2, 0.3, 0.0); g.add(lamp);                                 // 락온 램프
+    const grip = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.34, 0.2), case_);
+    grip.position.set(0, -0.14, 0.1); grip.rotation.x = 0.26; g.add(grip);
+    const fgrip3 = new THREE.Mesh(new THREE.BoxGeometry(0.12, 0.24, 0.16), case_);
+    fgrip3.position.set(0, -0.08, -0.62); fgrip3.rotation.x = -0.1; g.add(fgrip3);
+    mz.position.set(0, 0.16, -1.0); mz.scale.setScalar(1.5);
   } else {                   // 레이저: 발광 코어 + 방열핀 + 에너지 셀
     const shell = steel(0x143c4a);
     const glow = new THREE.MeshStandardMaterial({ color: 0x2ee6ff, emissive: 0x2ee6ff, emissiveIntensity: 1.3, roughness: 0.3 });
@@ -2013,8 +2037,20 @@ function shootAt(clientX, clientY) {
     r.position.copy(muzzle.getWorldPosition(new THREE.Vector3()));
     r.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), target.clone().sub(r.position).normalize());
     scene.add(r);
-    rockets.push({ mesh: r, target, speed: 34, W });
-    beep(180, 0.16, 'sawtooth', 0.06, -60);
+    let lock = null;
+    if (W.homing) {   // 조준 지점 근처의 적을 자동 락온 — 없으면 화면 안에서 가장 가까운 적
+      const cand = enemies.filter((e) => e.state !== 'dying');
+      lock = cand.filter((e) => e.mesh.position.distanceTo(target) < 14)
+        .sort((a, b) => a.mesh.position.distanceTo(target) - b.mesh.position.distanceTo(target))[0]
+        || cand.sort((a, b) => a.mesh.position.distanceTo(camera.position) - b.mesh.position.distanceTo(camera.position))[0]
+        || null;
+      if (lock) {
+        r.material.color.setHex(0x6fc3ff); r.material.emissive.setHex(0x1a4a7a);
+        shockRing(lock.mesh.position, 0x9fd6ff, 2.2, 0.3, 0.5);   // 락온 표시
+      }
+    }
+    rockets.push({ mesh: r, target, speed: W.homing ? 26 : 34, W, lock, turn: W.homing ? 5.5 : 0 });
+    beep(W.homing ? 620 : 180, W.homing ? 0.1 : 0.16, W.homing ? 'square' : 'sawtooth', 0.05, W.homing ? 220 : -60);
     G.shots += 1;
     if (ammoOn() && ammoOf(G.weapon) <= 0) startReload();
     return;
@@ -2043,6 +2079,13 @@ function shootAt(clientX, clientY) {
 const rockets = [];
 function rocketsUpdate(dt) {
   for (const r of [...rockets]) {
+    if (r.lock) {   // 유도: 살아 있는 표적을 계속 따라간다
+      if (r.lock.state === 'dying' || !enemies.includes(r.lock)) r.lock = null;
+      else {
+        const want = r.lock.mesh.position.clone().add(new THREE.Vector3(0, 0.9, 0));
+        r.target.lerp(want, Math.min(1, r.turn * dt));   // 목표점을 부드럽게 끌어당겨 곡선 비행
+      }
+    }
     const dir = r.target.clone().sub(r.mesh.position);
     const step = r.speed * dt;
     if (dir.length() <= step) {
@@ -2077,8 +2120,10 @@ function rocketsUpdate(dt) {
       scene.remove(r.mesh); rockets.splice(rockets.indexOf(r), 1);
       continue;
     }
-    r.mesh.position.addScaledVector(dir.normalize(), step);
-    if (Math.random() < 0.6) burst(r.mesh.position, 0xffd9a0, 2, 1.5);   // 연기 꼬리
+    const nd = dir.normalize();
+    r.mesh.position.addScaledVector(nd, step);
+    r.mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), nd);
+    if (Math.random() < 0.7) burst(r.mesh.position, r.lock ? 0x9fd6ff : 0xffd9a0, 2, 1.5);   // 연기 꼬리
   }
 }
 
