@@ -22,6 +22,7 @@ const ENEMY_TYPES = {
   donut:  { hp: 1,  speed: 3.4, score: 250, wallDmg: 0,  sugar: true,  fly: true, label: '슈가 도넛', labelEn: 'Sugar Donut' },
   moth:   { hp: 1,  speed: 4.2, score: 250, wallDmg: 0,  sugar: false, fly: true, label: '날아온 과자봉지', labelEn: 'Flying Chip Bag' },
   bat:    { hp: 2,  speed: 3.6, score: 300, wallDmg: 0,  sugar: true,  fly: true, side: 'left', label: '초콜릿 박쥐', labelEn: 'Chocolate Bat' },
+  wing:   { hp: 2,  speed: 5.0, score: 340, wallDmg: 0,  sugar: false, fly: true, liverX: 1.6, label: '프라이드 치킨윙', labelEn: 'Fried Chicken Wing' },
   // 보스 3종 (판마다 로테이션)
   boss:   { hp: 45, speed: 0.85, score: 2000, wallDmg: 30, sugar: false, boss: true, label: '킹 버거', labelEn: 'King Burger' },
   cancer: { hp: 40, speed: 0.95, score: 2200, wallDmg: 26, sugar: false, boss: true, splits: 4, label: '암세포', labelEn: 'Cancer Cell' },
@@ -43,10 +44,10 @@ const WAVES = [
     spawns: [ { type: 'soda', interval: 2.3, firstAt: 1.0 }, { type: 'fries', interval: 4.6, firstAt: 3.0 }, { type: 'icecream', interval: 7, firstAt: 8.0 } ],
     events: [ { t: 20, type: 'quiz' } ] },
   { name: 'WAVE 2', duration: 55,
-    spawns: [ { type: 'soda', interval: 1.9, firstAt: 1.0 }, { type: 'fries', interval: 3.4, firstAt: 2.0 }, { type: 'burger', interval: 10, firstAt: 6.0 }, { type: 'pizza', interval: 9, firstAt: 8.0 }, { type: 'icecream', interval: 6.5, firstAt: 4.0 }, { type: 'ciga', interval: 12, firstAt: 14.0 }, { type: 'soju', interval: 14, firstAt: 24.0 }, { type: 'donut', interval: 10, firstAt: 9.0 }, { type: 'bat', interval: 13, firstAt: 19.0 } ],
+    spawns: [ { type: 'soda', interval: 1.9, firstAt: 1.0 }, { type: 'fries', interval: 3.4, firstAt: 2.0 }, { type: 'burger', interval: 10, firstAt: 6.0 }, { type: 'pizza', interval: 9, firstAt: 8.0 }, { type: 'icecream', interval: 6.5, firstAt: 4.0 }, { type: 'ciga', interval: 12, firstAt: 14.0 }, { type: 'soju', interval: 14, firstAt: 24.0 }, { type: 'donut', interval: 10, firstAt: 9.0 }, { type: 'bat', interval: 13, firstAt: 19.0 }, { type: 'wing', interval: 15, firstAt: 26.0 } ],
     events: [ { t: 13, type: 'trap' }, { t: 24, type: 'quiz' }, { t: 38, type: 'trap' }, { t: 47, type: 'quiz' } ] },
   { name: 'FINAL WAVE', duration: 65,
-    spawns: [ { type: 'soda', interval: 1.6, firstAt: 1.0 }, { type: 'fries', interval: 3.0, firstAt: 2.0 }, { type: 'burger', interval: 8.5, firstAt: 5.0 }, { type: 'pizza', interval: 7.5, firstAt: 3.0 }, { type: 'ramen', interval: 9.5, firstAt: 7.0 }, { type: 'icecream', interval: 6, firstAt: 4.5 }, { type: 'ciga', interval: 10, firstAt: 9.0 }, { type: 'soju', interval: 12, firstAt: 17.0 }, { type: 'donut', interval: 8, firstAt: 6.0 }, { type: 'moth', interval: 9, firstAt: 11.0 }, { type: 'bat', interval: 9.5, firstAt: 8.0 } ],
+    spawns: [ { type: 'soda', interval: 1.6, firstAt: 1.0 }, { type: 'fries', interval: 3.0, firstAt: 2.0 }, { type: 'burger', interval: 8.5, firstAt: 5.0 }, { type: 'pizza', interval: 7.5, firstAt: 3.0 }, { type: 'ramen', interval: 9.5, firstAt: 7.0 }, { type: 'icecream', interval: 6, firstAt: 4.5 }, { type: 'ciga', interval: 10, firstAt: 9.0 }, { type: 'soju', interval: 12, firstAt: 17.0 }, { type: 'donut', interval: 8, firstAt: 6.0 }, { type: 'moth', interval: 9, firstAt: 11.0 }, { type: 'bat', interval: 9.5, firstAt: 8.0 }, { type: 'wing', interval: 11, firstAt: 13.0 } ],
     events: [ { t: 9, type: 'boss' }, { t: 20, type: 'quiz' }, { t: 30, type: 'trap' }, { t: 34, type: 'boss' }, { t: 44, type: 'quiz' }, { t: 56, type: 'quiz' } ] },
 ];
 
@@ -113,6 +114,7 @@ const WEAPONS = [
   { name: '화승총',   en: 'Matchlock',   icon: '🧨', dmg: 2, cd: 0.42, flash: 0xffb060, beam: false, mag: 6,  rl: 1.7 },
   { name: '권총',     en: 'Pistol',      icon: '🔫', dmg: 2, cd: 0.18, flash: 0xffe9a8, beam: false, mag: 18, rl: 1.2 },
   { name: '샷건',     en: 'Shotgun',     icon: '💥', dmg: 1, cd: 0.55, flash: 0xffc070, beam: false, pellets: 5, mag: 9, rl: 1.9 },
+  { name: '매그넘',   en: 'Magnum',      icon: '🎱', dmg: 3, cd: 0.5,  flash: 0xffd9a0, beam: false, pierce: 3, mag: 6,  rl: 1.8 },
   { name: '기관단총', en: 'SMG',         icon: '⚙️', dmg: 1, cd: 0.08, flash: 0xffe9a8, beam: false, mag: 45, rl: 1.6 },
   { name: '소총',     en: 'Rifle',       icon: '🎯', dmg: 3, cd: 0.14, flash: 0xfff2c8, beam: false, mag: 30, rl: 1.6 },
   { name: '기관총',   en: 'Machine Gun', icon: '🔩', dmg: 2, cd: 0.36, flash: 0xfff2c8, beam: false, burst: 3, mag: 68, rl: 2.3 },
@@ -689,7 +691,34 @@ function buildGunModel(tier) {
     const grip = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.34, 0.2), wood());
     grip.position.set(0, -0.23, 0.15); grip.rotation.x = 0.3; g.add(grip);
     mz.position.set(0, 0.1, -1.05); mz.scale.setScalar(1.6);
-  } else if (tier === 5) {   // 기관단총: 긴 탄창 + 앞손잡이 + 접이식 개머리
+  } else if (tier === 5) {   // 매그넘: 대구경 리볼버 — 실린더 + 벤트리브 총열
+    const blue = steel(0x2b2f38);
+    const barrel = new THREE.Mesh(new THREE.BoxGeometry(0.13, 0.15, 0.95), blue);
+    barrel.position.set(0, 0.1, -0.5); g.add(barrel);
+    const rib = new THREE.Mesh(new THREE.BoxGeometry(0.09, 0.03, 0.9), steel(0x1c2028));
+    rib.position.set(0, 0.19, -0.5); g.add(rib);            // 벤트리브
+    const cyl = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.3, 6), steel(0x3a4049));
+    cyl.rotation.x = Math.PI / 2; cyl.position.set(0, 0.08, 0.02); g.add(cyl);   // 6연발 실린더
+    for (let i = 0; i < 6; i++) {                            // 약실 구멍
+      const a = (i / 6) * Math.PI * 2;
+      const hole = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.32, 6),
+        new THREE.MeshStandardMaterial({ color: 0xc9a227, roughness: 0.4, metalness: 0.7 }));
+      hole.rotation.x = Math.PI / 2;
+      hole.position.set(Math.cos(a) * 0.095, 0.08 + Math.sin(a) * 0.095, 0.02); g.add(hole);
+    }
+    const hammer = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.14, 0.08), blue);
+    hammer.position.set(0, 0.22, 0.2); hammer.rotation.x = -0.3; g.add(hammer);
+    const front = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.09, 0.04), steel(0xff5d73));
+    front.position.set(0, 0.24, -0.94); g.add(front);        // 빨간 가늠쇠
+    const rear = new THREE.Mesh(new THREE.BoxGeometry(0.11, 0.07, 0.05), blue);
+    rear.position.set(0, 0.23, 0.24); g.add(rear);
+    const grip = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.36, 0.21),
+      new THREE.MeshStandardMaterial({ color: 0x5a3a24, roughness: 0.75 }));
+    grip.position.set(0, -0.16, 0.22); grip.rotation.x = 0.3; g.add(grip);   // 우드 그립
+    const guard = new THREE.Mesh(new THREE.TorusGeometry(0.1, 0.022, 6, 12, Math.PI), blue);
+    guard.rotation.x = Math.PI / 2; guard.position.set(0, -0.04, 0.12); g.add(guard);
+    mz.position.set(0, 0.1, -1.0); mz.scale.setScalar(1.4);
+  } else if (tier === 6) {   // 기관단총: 긴 탄창 + 앞손잡이 + 접이식 개머리
     const body = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.22, 0.7), steel(0x24272e));
     body.position.set(0, 0.05, -0.2); g.add(body);
     const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 0.4, 8), steel(0x24272e));
@@ -705,7 +734,7 @@ function buildGunModel(tier) {
     const grip = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.3, 0.18), steel(0x24272e));
     grip.position.set(0, -0.18, 0.12); grip.rotation.x = 0.28; g.add(grip);
     mz.position.set(0, 0.08, -0.95); mz.scale.setScalar(0.85);
-  } else if (tier === 6) {   // 소총: 스코프 + 총열덮개 + 소염기
+  } else if (tier === 7) {   // 소총: 스코프 + 총열덮개 + 소염기
     const body = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.18, 1.0), steel(0x22343a));
     body.position.set(0, 0.05, -0.3); g.add(body);
     const hand2 = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.42, 8), steel(0x1a2a30));
@@ -728,7 +757,7 @@ function buildGunModel(tier) {
     const grip = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.36, 0.2), steel(0x22343a));
     grip.position.set(0, -0.2, 0.1); grip.rotation.x = 0.25; g.add(grip);
     mz.position.set(0, 0.08, -1.35);
-  } else if (tier === 7) {   // 기관총(3점사): 두꺼운 총열 + 방열핀 + 탄띠 + 양각대
+  } else if (tier === 8) {   // 기관총(3점사): 두꺼운 총열 + 방열핀 + 탄띠 + 양각대
     const body = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.24, 0.85), steel(0x2c3238));
     body.position.set(0, 0.05, -0.25); g.add(body);
     const barrel = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.075, 0.95, 10), steel(0x20262b));
@@ -750,7 +779,7 @@ function buildGunModel(tier) {
     const grip = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.34, 0.2), steel(0x2c3238));
     grip.position.set(0, -0.2, 0.16); grip.rotation.x = 0.28; g.add(grip);
     mz.position.set(0, 0.09, -1.42); mz.scale.setScalar(1.25);
-  } else if (tier === 8) {   // 바주카: 대구경 발사관 + 조준경 + 로켓탄두
+  } else if (tier === 9) {   // 바주카: 대구경 발사관 + 조준경 + 로켓탄두
     const tube = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.19, 1.75, 14), steel(0x4a5a3a));
     tube.rotation.x = Math.PI / 2; tube.position.set(0, 0.12, -0.55); g.add(tube);
     const flare = new THREE.Mesh(new THREE.CylinderGeometry(0.27, 0.19, 0.3, 14, 1, true), steel(0x3a4a2c));
@@ -1317,6 +1346,47 @@ function buildEnemyMesh(type) {
     addFace(g, 0.44, 0.3, 0.85, 0.13);
     addShadow(g, 0.45);
     g.userData.wings = wings;
+  } else if (type === 'wing') { // 비행: 프라이드 치킨윙 — 날개 달린 정크푸드
+    const crust = new THREE.MeshStandardMaterial({ color: 0xc26a1e, roughness: 0.88, emissive: 0x4a2205, emissiveIntensity: 0.45 });
+    const crispy = new THREE.MeshStandardMaterial({ color: 0xf7c063, roughness: 0.92, emissive: 0x4a2c08, emissiveIntensity: 0.3 });
+    const drum = new THREE.Mesh(new THREE.SphereGeometry(0.4, 12, 10), crust);   // 튀김옷 입은 살덩이
+    drum.scale.set(0.92, 1.12, 0.88); drum.position.y = 0.1; g.add(drum);
+    const taper = new THREE.Mesh(new THREE.ConeGeometry(0.3, 0.42, 10), crust);
+    taper.position.y = -0.26; taper.rotation.x = Math.PI; g.add(taper);   // 아래로 좁아지는 살
+    for (let k = 0; k < 14; k++) {                    // 울퉁불퉁한 튀김 부스러기
+      const a = Math.random() * Math.PI * 2, b = Math.random() * Math.PI;
+      const nub = new THREE.Mesh(new THREE.SphereGeometry(0.055 + Math.random() * 0.045, 5, 4), crispy);
+      nub.position.set(Math.sin(b) * Math.cos(a) * 0.37, 0.06 + Math.cos(b) * 0.4, Math.sin(b) * Math.sin(a) * 0.34);
+      g.add(nub);
+    }
+    const boneMat = new THREE.MeshStandardMaterial({ color: 0xf6ecd8, roughness: 0.55 });
+    const bone = new THREE.Mesh(new THREE.CylinderGeometry(0.075, 0.075, 0.42, 8), boneMat);
+    bone.position.set(0, -0.42, 0); g.add(bone);      // 손잡이 뼈
+    const knob = new THREE.Mesh(new THREE.SphereGeometry(0.11, 8, 7), boneMat);
+    knob.position.set(0, -0.62, 0); g.add(knob);
+    const foil = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.14, 8),
+      new THREE.MeshStandardMaterial({ color: 0xd8d8dc, roughness: 0.35, metalness: 0.65 }));
+    foil.position.set(0, -0.3, 0); g.add(foil);       // 은박 손잡이
+    const wings = [];
+    for (const sgn of [-1, 1]) {                      // 퍼덕이는 깃털 날개
+      const w = new THREE.Group();
+      for (let k = 0; k < 5; k++) {   // 겹쳐서 하나의 두툼한 날개로 보이게
+        const feather = new THREE.Mesh(new THREE.CircleGeometry(0.36 - k * 0.035, 10),
+          new THREE.MeshStandardMaterial({ color: k % 2 ? 0xfff0cf : 0xf7d79a, roughness: 0.6,
+            side: THREE.DoubleSide, emissive: 0x4a3a18, emissiveIntensity: 0.22 }));
+        feather.position.set(sgn * (0.34 + k * 0.19), 0.2 - k * 0.055, k * 0.012);
+        feather.scale.set(1.05, 0.9, 1);
+        feather.rotation.z = sgn * (0.2 + k * 0.06);
+        w.add(feather);
+      }
+      const quill = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 1.25, 6), boneMat);
+      quill.position.set(sgn * 0.62, 0.22, -0.02); quill.rotation.z = Math.PI / 2 + sgn * 0.12; w.add(quill);
+      g.add(w); wings.push(w);
+    }
+    addFace(g, 0.42, 0.16, 0.95, 0.15);
+    addShadow(g, 0.46);
+    g.scale.setScalar(1.3);          // 멀리서도 '닭날개'로 읽히게 크게
+    g.userData.wings = wings;
   } else if (type === 'moth') { // 비행: 날아다니는 과자봉지
     const foil = new THREE.MeshStandardMaterial({ color: 0x6aa0e0, roughness: 0.35, metalness: 0.55, emissive: 0x1a3050, emissiveIntensity: 0.35 });
     const bag = new THREE.Mesh(new THREE.BoxGeometry(0.62, 0.85, 0.22), foil);
@@ -1841,6 +1911,35 @@ const ndc = new THREE.Vector2();
 function processRay(ndcX, ndcY, W) {
   raycaster.setFromCamera(ndc.set(ndcX, ndcY), camera);
   const hits = raycaster.intersectObjects(shootRoot.children, true);
+  // 매그넘: 맞힌 몬스터를 뚫고 바로 뒤에 붙어 오는 놈들까지 관통한다.
+  // 카메라가 내려다보는 각이라 탄선 거리로는 뒤쪽을 못 잡아서, '맞은 대상 기준 뒤쪽 근거리'로 판정한다.
+  if (W.pierce) {
+    const primary = hits[0] && hits[0].object.userData.entity;
+    const lead = primary && primary.kind === 'enemy' && primary.ref.state !== 'dying' ? primary.ref : null;
+    if (lead) {
+      const camPos = camera.position;
+      const leadD = lead.mesh.position.distanceTo(camPos);
+      const behind = enemies
+        .filter((e2) => e2 !== lead && e2.state !== 'dying'
+          && e2.mesh.position.distanceTo(camPos) > leadD                 // 맞은 놈보다 뒤
+          && e2.mesh.position.distanceTo(lead.mesh.position) < 6.2)      // 바짝 붙어 있을 때만
+        .sort((a, b) => a.mesh.position.distanceTo(lead.mesh.position) - b.mesh.position.distanceTo(lead.mesh.position))
+        .slice(0, W.pierce - 1);
+      for (const e2 of behind) {
+        const at = e2.mesh.position.clone().add(new THREE.Vector3(0, 0.9, 0));
+        e2.hp -= W.dmg;
+        damageFx(e2, at, 0xffd9a0, 12);
+        damagePopup(at, `-${W.dmg}`, '#ffd9a0', 1.0);
+        G.score += Math.round(60 * comboMult()); G.shootScore += 60;
+        if (e2.hp <= 0) killEnemy(e2, true);
+      }
+      if (behind.length) {
+        sparkBurst(lead.mesh.position.clone().setY(0.3), 0xffd9a0, 7, 2.4);
+        damagePopup(lead.mesh.position.clone().add(new THREE.Vector3(0, 2.2, 0)),
+          `PIERCE ×${behind.length + 1}`, '#ffd9a0', 1.2);
+      }
+    }
+  }
   const hit = hits[0];
   if (W.beam) spawnBeam(muzzle.getWorldPosition(new THREE.Vector3()), hit ? hit.point.clone() : raycaster.ray.at(60, new THREE.Vector3()));
   if (!hit) return 'miss';
