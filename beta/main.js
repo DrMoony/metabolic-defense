@@ -123,6 +123,18 @@ const WEAPONS = [
   { name: '레이저',   en: 'Laser',       icon: '⚡', dmg: 4, cd: 0.10, flash: 0x8ff2ff, beam: true, mag: 60, rl: 1.4 },
 ];
 function wName(i) { const w = WEAPONS[i]; return G.lang === 'en' ? w.en : w.name; }
+// 획득 배너에 띄울 무기별 한 줄 특성
+const W_TRAIT = {
+  ko: ['조용하고 가벼워요 · 한 발씩 정확히', '연사가 빨라진 활 · 가볍게 툭툭', '한 발이 묵직해요 · 장전은 느긋하게',
+       '빠르고 다루기 쉬워요 · 18발', '한 번에 산탄 5발 · 뭉친 무리에', '관통 3 · 줄지어 오는 놈들을 꿰뚫어요',
+       '45발 초고속 연사 · 화력으로 밀어붙이기', '데미지 3 · 정확하고 빠른 주력총', '3점사 68발 · 길목을 틀어막기',
+       '광역 폭발 4.5 · 뭉친 무리를 한 방에', '자동 조준 유도 · 흩어진 적을 하나씩', '끊김 없는 광선 · 최종 병기'],
+  en: ['Quiet and light · one shot at a time', 'Faster bow · quick and easy', 'Heavy single shot · slow reload',
+       'Fast and handy · 18 rounds', '5 pellets per shot · for tight groups', 'Pierce 3 · punches through a line',
+       '45-round rapid fire · overwhelm them', 'Damage 3 · accurate workhorse', '3-round burst, 68 rounds · hold the lane',
+       'Blast radius 4.5 · clears a crowd', 'Auto-lock homing · picks off stragglers', 'Continuous beam · the final weapon'],
+};
+function wTrait(i) { return (W_TRAIT[G.lang === 'en' ? 'en' : 'ko'] || W_TRAIT.ko)[i] || ''; }
 
 // ---------- 문자열 테이블 (전체 이중 언어) ----------
 const STR = {
@@ -156,6 +168,7 @@ const STR = {
     plaqueRam: '🩸 플라크가 간 가디언을 뚫고 돌진해요!',
     bossKill: (l, g) => `${l} 격파! +${g}`,
     weaponUp: (i, n) => `⬆️ 무기 업그레이드! ${i} ${n} 획득`,
+    weaponGot: '새로운 무기 획득!',
     reloading: '재장전', reloadHint: '⟳ 재장전 중… 우클릭으로 무기를 바꿀 수 있어요',
     reloadDone: '장전 완료',
     dropBoss: '💉 GCGR 작용제 투하! 쏴서 획득하세요',
@@ -210,6 +223,7 @@ const STR = {
     plaqueRam: '🩸 The plaque smashed through the Liver Guardian!',
     bossKill: (l, g) => `${l} down! +${g}`,
     weaponUp: (i, n) => `⬆️ Weapon upgrade! Got ${i} ${n}`,
+    weaponGot: 'NEW WEAPON!',
     reloading: 'RELOAD', reloadHint: '⟳ Reloading… right-click to switch weapons',
     reloadDone: 'Ready',
     dropBoss: '💉 GCGR agonist dropped! Shoot it to collect',
@@ -2551,11 +2565,29 @@ function drawQuiz() {
   return G.quizDeck.pop() || { q: 'MASLD의 예후를 가장 크게 좌우하는 요소는 무엇일까요?', a: ['간 섬유화의 정도', '간 지방의 양', '키', '혈액형'], correct: 0 };
 }
 
+function weaponGetBanner(i) {
+  const el = $('weapon-get');
+  if (!el) return;
+  $('wg-title').textContent = T('weaponGot');
+  $('wg-icon').textContent = WEAPONS[i].icon;
+  $('wg-name').textContent = wName(i);
+  $('wg-trait').textContent = wTrait(i);
+  el.classList.remove('show');
+  void el.offsetWidth;              // 연속 획득 시 애니메이션 재시작
+  el.classList.add('show');
+  clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove('show'), 2600);
+  screenFlash('#ffe9a8', 0.22, 110);
+  chromaPulse(140);
+  // 상승하는 3음 팡파르
+  beep(660, 0.09, 'triangle', 0.06);
+  setTimeout(() => beep(880, 0.09, 'triangle', 0.06), 90);
+  setTimeout(() => beep(1180, 0.18, 'triangle', 0.07), 180);
+}
 function weaponUp(steps = 1) {
   if (G.weapon >= WEAPONS.length - 1) return false;
   G.weapon = Math.min(WEAPONS.length - 1, G.weapon + steps);
   applyWeaponVisual();
-  showMsg(T('weaponUp', WEAPONS[G.weapon].icon, wName(G.weapon)), 3000);
+  weaponGetBanner(G.weapon);
   return true;
 }
 
@@ -3109,5 +3141,5 @@ function tick() {
   step(dt);
 }
 CAM_HOME.copy(camera.position);
-window.DBG = { G, enemies, traps, fatWalls, projectiles, drops, ITEMS, rockets, drawQuiz, shuffled, QUIZ_POOL, QUIZ_SETS, rebuildPool, readMix, toggleAdmin, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
+window.DBG = { G, enemies, weaponGetBanner, wTrait, traps, fatWalls, projectiles, drops, ITEMS, rockets, drawQuiz, shuffled, QUIZ_POOL, QUIZ_SETS, rebuildPool, readMix, toggleAdmin, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
 tick();

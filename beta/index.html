@@ -114,6 +114,19 @@
   #quiz-feedback { min-height: 34px; margin-top: 22px; font-size: 19px; font-weight: 800; color: #ffe9a8; }
 
   /* ---------- 시작/결과 ---------- */
+  #weapon-get { position: absolute; left: 50%; top: 34%; transform: translate(-50%, -50%) scale(.82);
+    padding: 2.4cqh 4cqw; border-radius: 18px; text-align: center; pointer-events: none; z-index: 40;
+    background: linear-gradient(160deg, rgba(24,12,6,.93), rgba(48,22,6,.9));
+    border: 2px solid rgba(255,209,102,.75); box-shadow: 0 0 46px rgba(255,180,71,.4), inset 0 0 26px rgba(255,180,71,.14);
+    opacity: 0; transition: opacity .18s ease, transform .28s cubic-bezier(.2,1.5,.4,1); }
+  #weapon-get.show { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  #wg-title { font-size: clamp(12px, 2.3cqh, 19px); font-weight: 900; letter-spacing: 3px; color: #ffd166;
+    text-shadow: 0 0 14px rgba(255,180,71,.7); margin-bottom: .8cqh; }
+  #wg-row { display: flex; align-items: center; justify-content: center; gap: 1.4cqw; }
+  #wg-icon { font-size: clamp(22px, 5cqh, 44px); filter: drop-shadow(0 0 10px rgba(255,209,102,.6)); }
+  #wg-name { font-size: clamp(18px, 4.2cqh, 38px); font-weight: 900; color: #fff6e0;
+    text-shadow: 0 3px 0 rgba(0,0,0,.45), 0 0 20px rgba(255,209,102,.5); }
+  #wg-trait { margin-top: .9cqh; font-size: clamp(10px, 1.9cqh, 15px); color: rgba(255,255,255,.78); font-weight: 700; }
   #screen-admin { background: radial-gradient(ellipse at center, rgba(10,30,40,.94), rgba(4,8,12,.98)); }
   #admin-body { width: min(760px, 86%); display: flex; flex-direction: column; gap: 1.8cqh; align-items: center; }
   .arow { display: flex; gap: 0.7cqw; align-items: center; flex-wrap: wrap; justify-content: center; }
@@ -228,6 +241,13 @@
   </div>
 </div>
 
+<!-- 무기 획득 배너 -->
+<div id="weapon-get">
+  <div id="wg-title"></div>
+  <div id="wg-row"><span id="wg-icon"></span><span id="wg-name"></span></div>
+  <div id="wg-trait"></div>
+</div>
+
 <!-- 어드민 (A키) -->
 <div id="screen-admin" class="overlay hidden">
   <div class="title-sub" style="margin-bottom:2cqh">ADMIN · 문제 세트</div>
@@ -270,6 +290,6 @@
 <div id="crosshair"><div class="ring"></div><div id="ch-fx"><div class="prog"></div><span class="txt"></span></div></div>
 
 <script type="importmap">{ "imports": { "three": "../vendor/three.module.js" } }</script>
-<script type="module" src="./main.js?v=b44"></script>
+<script type="module" src="./main.js?v=b45"></script>
 </body>
 </html>
