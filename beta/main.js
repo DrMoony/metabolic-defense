@@ -23,18 +23,18 @@ const ENEMY_TYPES = {
   moth:   { hp: 1,  speed: 4.2, score: 250, wallDmg: 0,  sugar: false, fly: true, label: '날아온 과자봉지', labelEn: 'Flying Chip Bag' },
   bat:    { hp: 2,  speed: 3.6, score: 300, wallDmg: 0,  sugar: true,  fly: true, side: 'left', label: '초콜릿 박쥐', labelEn: 'Chocolate Bat' },
   wing:   { hp: 2,  speed: 5.0, score: 340, wallDmg: 0,  sugar: false, fly: true, liverX: 1.6, label: '프라이드 치킨윙', labelEn: 'Fried Chicken Wing' },
-  // 보스 3종 (판마다 로테이션)
-  boss:   { hp: 45, speed: 0.85, score: 2000, wallDmg: 30, sugar: false, boss: true, label: '킹 버거', labelEn: 'King Burger' },
-  cancer: { hp: 40, speed: 0.95, score: 2200, wallDmg: 26, sugar: false, boss: true, splits: 4, label: '암세포', labelEn: 'Cancer Cell' },
-  plaque: { hp: 34, speed: 1.25, score: 2400, wallDmg: 34, sugar: false, boss: true, ram: true, label: '죽상경화 플라크', labelEn: 'Atherosclerotic Plaque' },
+  // 웨이브별 보스 — 그 시점에 들고 있는 무기로 잡히도록 체력을 맞췄다 (난이도보다 긴장감)
+  syrup:  { hp: 16, speed: 0.8,  score: 1500, wallDmg: 18, sugar: true,  boss: true, label: '과당 시럽통', labelEn: 'Fructose Syrup Drum' },
+  cancer: { hp: 26, speed: 0.95, score: 2000, wallDmg: 24, sugar: false, boss: true, splits: 3, label: '암세포', labelEn: 'Cancer Cell' },
+  plaque: { hp: 34, speed: 1.25, score: 2600, wallDmg: 32, sugar: false, boss: true, ram: true, label: '죽상경화 플라크', labelEn: 'Atherosclerotic Plaque' },
   cancerlet: { hp: 2, speed: 3.4, score: 150, wallDmg: 5, sugar: false, label: '암세포 조각', labelEn: 'Cancer Fragment' },
 };
-const BOSS_POOL = ['boss', 'cancer', 'plaque'];
+const WAVE_BOSS = ['syrup', 'cancer', 'plaque'];   // 웨이브 끝마다 하나씩
 const BOSS_INTRO = {
-  ko: { boss: '👑 킹 버거 등장! 영양성분표가 약점이에요',
+  ko: { syrup: '🛢️ 과당 시럽통 등장! 위쪽 꼭지가 약점이에요',
         cancer: '🧬 암세포 등장! 쓰러뜨리면 조각으로 흩어져요',
         plaque: '🩸 죽상경화 플라크 등장! 간 가디언을 뚫고 코어로 돌진해요' },
-  en: { boss: '👑 King Burger! The nutrition label is its weak point',
+  en: { syrup: '🛢️ Fructose Syrup Drum! The top valve is its weak point',
         cancer: '🧬 Cancer Cell! It splits into fragments when destroyed',
         plaque: '🩸 Atherosclerotic Plaque! It rams through the Liver Guardian to the core' },
 };
@@ -42,13 +42,13 @@ const BOSS_INTRO = {
 const WAVES = [
   { name: 'WAVE 1', duration: 35,
     spawns: [ { type: 'soda', interval: 2.3, firstAt: 1.0 }, { type: 'fries', interval: 4.6, firstAt: 3.0 }, { type: 'icecream', interval: 7, firstAt: 8.0 } ],
-    events: [ { t: 20, type: 'quiz' } ] },
+    events: [ { t: 16, type: 'quiz' }, { t: 26, type: 'boss' } ] },
   { name: 'WAVE 2', duration: 55,
     spawns: [ { type: 'soda', interval: 1.9, firstAt: 1.0 }, { type: 'fries', interval: 3.4, firstAt: 2.0 }, { type: 'burger', interval: 10, firstAt: 6.0 }, { type: 'pizza', interval: 9, firstAt: 8.0 }, { type: 'icecream', interval: 6.5, firstAt: 4.0 }, { type: 'ciga', interval: 12, firstAt: 14.0 }, { type: 'soju', interval: 14, firstAt: 24.0 }, { type: 'donut', interval: 10, firstAt: 9.0 }, { type: 'bat', interval: 13, firstAt: 19.0 }, { type: 'wing', interval: 15, firstAt: 26.0 } ],
-    events: [ { t: 13, type: 'trap' }, { t: 24, type: 'quiz' }, { t: 38, type: 'trap' }, { t: 47, type: 'quiz' } ] },
+    events: [ { t: 13, type: 'trap' }, { t: 24, type: 'quiz' }, { t: 34, type: 'trap' }, { t: 42, type: 'boss' }, { t: 49, type: 'quiz' } ] },
   { name: 'FINAL WAVE', duration: 65,
     spawns: [ { type: 'soda', interval: 1.6, firstAt: 1.0 }, { type: 'fries', interval: 3.0, firstAt: 2.0 }, { type: 'burger', interval: 8.5, firstAt: 5.0 }, { type: 'pizza', interval: 7.5, firstAt: 3.0 }, { type: 'ramen', interval: 9.5, firstAt: 7.0 }, { type: 'icecream', interval: 6, firstAt: 4.5 }, { type: 'ciga', interval: 10, firstAt: 9.0 }, { type: 'soju', interval: 12, firstAt: 17.0 }, { type: 'donut', interval: 8, firstAt: 6.0 }, { type: 'moth', interval: 9, firstAt: 11.0 }, { type: 'bat', interval: 9.5, firstAt: 8.0 }, { type: 'wing', interval: 11, firstAt: 13.0 } ],
-    events: [ { t: 9, type: 'boss' }, { t: 20, type: 'quiz' }, { t: 30, type: 'trap' }, { t: 34, type: 'boss' }, { t: 44, type: 'quiz' }, { t: 56, type: 'quiz' } ] },
+    events: [ { t: 14, type: 'quiz' }, { t: 26, type: 'trap' }, { t: 36, type: 'quiz' }, { t: 48, type: 'boss' } ] },
 ];
 
 // 문제은행은 AASLD 'Unmasking MASH and MASLD' 덱 추출본만 사용 (ko/en 분리 파일)
@@ -1384,6 +1384,42 @@ function buildEnemyMesh(type) {
     addFace(g, 0.44, 0.3, 0.85, 0.13);
     addShadow(g, 0.45);
     g.userData.wings = wings;
+  } else if (type === 'syrup') { // 보스1: 과당 시럽통 — 느리고 크고 약점이 뚜렷하다
+    const drumMat = new THREE.MeshStandardMaterial({ color: 0x9a3208, roughness: 0.95, metalness: 0.02 });
+    const bandMat = new THREE.MeshStandardMaterial({ color: 0x4a1a08, roughness: 0.92, metalness: 0.05 });
+    const drum = new THREE.Mesh(new THREE.CylinderGeometry(1.05, 1.05, 2.2, 16), drumMat);
+    drum.position.y = 1.15; g.add(drum);
+    for (const dy of [0.5, 1.15, 1.8]) {                 // 통 테두리 밴드
+      const band = new THREE.Mesh(new THREE.TorusGeometry(1.07, 0.09, 8, 20), bandMat);
+      band.rotation.x = Math.PI / 2; band.position.y = dy; g.add(band);
+    }
+    const lid = new THREE.Mesh(new THREE.CylinderGeometry(1.1, 1.1, 0.16, 16), bandMat);
+    lid.position.y = 2.28; g.add(lid);
+    const syrupMat = new THREE.MeshStandardMaterial({ color: 0xffb347, roughness: 0.25,
+      emissive: 0x8a4a08, emissiveIntensity: 0.7, transparent: true, opacity: 0.92 });
+    const window_ = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1.3, 0.06), syrupMat);
+    window_.position.set(0, 1.1, 1.03); g.add(window_);   // 시럽이 찰랑이는 투명창
+    for (let k = 0; k < 5; k++) {                         // 흘러내리는 시럽 방울
+      const drip = new THREE.Mesh(new THREE.SphereGeometry(0.12 + Math.random() * 0.06, 8, 6), syrupMat);
+      drip.position.set((Math.random() - 0.5) * 1.7, 0.12 + Math.random() * 0.3, 0.7 + Math.random() * 0.5);
+      g.add(drip);
+    }
+    // 약점: 위쪽 압력 밸브 — 여기를 맞히면 2배
+    const valveMat = new THREE.MeshStandardMaterial({ color: 0xffd166, roughness: 0.6, metalness: 0.1,
+      emissive: 0xb07a10, emissiveIntensity: 1.1 });
+    const valve = new THREE.Mesh(new THREE.CylinderGeometry(0.26, 0.32, 0.42, 10), valveMat);
+    valve.position.y = 2.56; g.add(valve);
+    valve.userData.weakpoint = true;
+    const wheel = new THREE.Mesh(new THREE.TorusGeometry(0.3, 0.07, 8, 14), valveMat);
+    wheel.rotation.x = Math.PI / 2; wheel.position.y = 2.82; g.add(wheel);
+    wheel.userData.weakpoint = true;
+    const warn = new THREE.Mesh(new THREE.CircleGeometry(0.36, 3),
+      new THREE.MeshBasicMaterial({ color: 0xffe9a8 }));
+    warn.position.set(0, 1.72, 1.04); g.add(warn);        // 경고 삼각 마크
+    addFace(g, 1.5, 0.95, 1.06, 0.24);
+    addLimbs(g, 0x7c2d12, 1.0, 1.0, 0.4);
+    addShadow(g, 1.15);
+    g.scale.setScalar(1.35);
   } else if (type === 'wing') { // 비행: 프라이드 치킨윙 — 날개 달린 정크푸드
     const crust = new THREE.MeshStandardMaterial({ color: 0xc26a1e, roughness: 0.88, emissive: 0x4a2205, emissiveIntensity: 0.45 });
     const crispy = new THREE.MeshStandardMaterial({ color: 0xf7c063, roughness: 0.92, emissive: 0x4a2c08, emissiveIntensity: 0.3 });
@@ -1498,20 +1534,6 @@ function buildEnemyMesh(type) {
     addFace(g, 1.42, 0.82, 1.1, 0.26);
     addLimbs(g, 0xe8a95c, 0.8, 1.02, 0.34);
     addShadow(g, 0.85);
-    if (type === 'boss') {   // 왕관
-      const gold = new THREE.MeshStandardMaterial({ color: 0xf2c14e, roughness: 0.3, metalness: 0.7 });
-      const base = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 0.46, 0.2, 10), gold);
-      base.position.y = 1.66; g.add(base);
-      for (let i = 0; i < 4; i++) {
-        const a = (i / 4) * Math.PI * 2;
-        const spike = new THREE.Mesh(new THREE.ConeGeometry(0.1, 0.26, 6), gold);
-        spike.position.set(Math.cos(a) * 0.3, 1.86, Math.sin(a) * 0.3); g.add(spike);
-        const jewel = new THREE.Mesh(new THREE.SphereGeometry(0.05, 6, 5),
-          new THREE.MeshStandardMaterial({ color: 0xd9302e, roughness: 0.3, emissive: 0x661010, emissiveIntensity: 0.8 }));
-        jewel.position.set(Math.cos(a + 0.8) * 0.42, 1.66, Math.sin(a + 0.8) * 0.42); g.add(jewel);
-      }
-      g.scale.setScalar(1.6);
-    }
   }
   return g;
 }
@@ -1522,7 +1544,7 @@ function spawnEnemy(type) {
   mesh.scale.multiplyScalar(1.5);   // 아케이드 가독성
   // 진입 루트: 보스는 심장 길. 최종 웨이브엔 혈관 파이프 지름길이 추가로 열린다
   let route;
-  if (type === 'boss') route = ROUTES[1];
+  if (def.boss) route = ROUTES[1];
   else {
     const r = Math.random();
     if (G.pipeOpen) route = r < 0.45 ? ROUTES[0] : (r < 0.75 ? ROUTES[1] : ROUTES[2]);
@@ -1866,6 +1888,28 @@ function popupsUpdate(dt) {
 }
 
 // ---------- HUD 헬퍼 ----------
+// 보스는 일반 몹과 확실히 다른 '에너지 바'를 화면 상단에 띄운다
+let bossRef = null;
+function bossBarShow(e) {
+  bossRef = e;
+  const el = $('boss-bar'); if (!el) return;
+  $('bb-name').textContent = `${e.def.boss ? '☠️ ' : ''}${eLabel(e.def)}`;
+  $('bb-fill').style.width = '100%';
+  $('bb-fill').style.background = 'linear-gradient(90deg,#ff5d73,#ffb347)';
+  el.classList.add('show');
+}
+function bossBarHide() { bossRef = null; const el = $('boss-bar'); if (el) el.classList.remove('show'); }
+function bossBarUpdate() {
+  const el = $('boss-bar'); if (!el || !bossRef) return;
+  if (!enemies.includes(bossRef) || bossRef.state === 'dying') { bossBarHide(); return; }
+  const r = Math.max(0, bossRef.hp) / bossRef.maxhp;
+  const fill = $('bb-fill');
+  fill.style.width = (r * 100).toFixed(1) + '%';
+  fill.style.background = r > 0.5 ? 'linear-gradient(90deg,#ff5d73,#ffb347)'
+    : r > 0.25 ? 'linear-gradient(90deg,#ff5d73,#ff8f4d)' : 'linear-gradient(90deg,#ff2d4a,#ff5d73)';
+  el.classList.toggle('critical', r <= 0.25);
+}
+
 function showMsg(text, dur = 2400) {
   const el = $('hud-msg'); el.textContent = text; el.classList.add('show');
   clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove('show'), dur);
@@ -2303,13 +2347,16 @@ function waveUpdate(dt) {
         G.firedEvents.add(ev);
         if (ev.type === 'trap') spawnTrap();
         if (ev.type === 'quiz') startQuiz('item');
-        if (ev.type === 'boss') {   // 보스 3종 로테이션 (한 판에 중복 없이)
-          const pool = BOSS_POOL.filter((b) => !G.bossesUsed.includes(b));
-          const src = pool.length ? pool : BOSS_POOL;
-          const pick = src[Math.floor(Math.random() * src.length)];
+        if (ev.type === 'boss') {   // 웨이브마다 정해진 보스가 마무리로 등장
+          const pick = WAVE_BOSS[Math.min(WAVE_BOSS.length - 1, G.wave)];
           G.bossesUsed.push(pick);
-          spawnEnemy(pick);
+          const b = spawnEnemy(pick);
           showMsg((BOSS_INTRO[G.lang] || BOSS_INTRO.ko)[pick], 3600);
+          if (b) bossBarShow(b);
+          screenFlash('#ff9db0', 0.3, 160);
+          shakeCam(0.7, 0.5);
+          beep(120, 0.5, 'sawtooth', 0.09, -40);
+          setTimeout(() => beep(90, 0.6, 'sawtooth', 0.08, -30), 260);
         }
       }
     }
@@ -3135,6 +3182,7 @@ function step(dt) {
   beamsUpdate(dt);
   liverRingsUpdate(dt);
   rocketsUpdate(dt);
+  bossBarUpdate();
   spawnFxUpdate(dt);
   shockRingsUpdate(dt);
   shardsUpdate(dt);
@@ -3152,5 +3200,5 @@ function tick() {
   step(dt);
 }
 CAM_HOME.copy(camera.position);
-window.DBG = { G, enemies, weaponGetBanner, wTrait, traps, fatWalls, projectiles, drops, ITEMS, rockets, drawQuiz, shuffled, QUIZ_POOL, QUIZ_SETS, rebuildPool, readMix, toggleAdmin, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
+window.DBG = { G, enemies, WAVE_BOSS, bossBarShow, weaponGetBanner, wTrait, traps, fatWalls, projectiles, drops, ITEMS, rockets, drawQuiz, shuffled, QUIZ_POOL, QUIZ_SETS, rebuildPool, readMix, toggleAdmin, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
 tick();
