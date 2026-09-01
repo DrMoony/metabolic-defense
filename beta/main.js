@@ -118,8 +118,8 @@ const WEAPONS = [
   { name: '기관단총', en: 'SMG',         icon: '⚙️', dmg: 1, cd: 0.08, flash: 0xffe9a8, beam: false, mag: 45, rl: 1.6 },
   { name: '소총',     en: 'Rifle',       icon: '🎯', dmg: 3, cd: 0.14, flash: 0xfff2c8, beam: false, mag: 30, rl: 1.6 },
   { name: '기관총',   en: 'Machine Gun', icon: '🔩', dmg: 2, cd: 0.36, flash: 0xfff2c8, beam: false, burst: 3, mag: 68, rl: 2.3 },
-  { name: '바주카',   en: 'Bazooka',     icon: '🚀', dmg: 5, cd: 0.55, flash: 0xffa060, beam: false, rocket: true, splash: 4.5, splashDmg: 2, mag: 4, rl: 2.1 },
-  { name: '유도미사일', en: 'Homing Missile', icon: '🛰️', dmg: 4, cd: 0.32, flash: 0x9fd6ff, beam: false, rocket: true, homing: true, splash: 2.6, splashDmg: 1, mag: 8, rl: 2.0 },
+  { name: '바주카',   en: 'Bazooka',     icon: '🚀', dmg: 5, cd: 0.55, flash: 0xffa060, beam: false, rocket: true, splash: 4.5, splashDmg: 3, mag: 7, rl: 1.85 },
+  { name: '유도미사일', en: 'Homing Missile', icon: '🛰️', dmg: 4, cd: 0.32, flash: 0x9fd6ff, beam: false, rocket: true, homing: true, splash: 3.2, splashDmg: 2, mag: 8, rl: 2.0 },
   { name: '레이저',   en: 'Laser',       icon: '⚡', dmg: 4, cd: 0.10, flash: 0x8ff2ff, beam: true, mag: 60, rl: 1.4 },
 ];
 function wName(i) { const w = WEAPONS[i]; return G.lang === 'en' ? w.en : w.name; }
@@ -128,11 +128,11 @@ const W_TRAIT = {
   ko: ['조용하고 가벼워요 · 한 발씩 정확히', '연사가 빨라진 활 · 가볍게 툭툭', '한 발이 묵직해요 · 장전은 느긋하게',
        '빠르고 다루기 쉬워요 · 18발', '한 번에 산탄 5발 · 뭉친 무리에', '관통 3 · 줄지어 오는 놈들을 꿰뚫어요',
        '45발 초고속 연사 · 화력으로 밀어붙이기', '데미지 3 · 정확하고 빠른 주력총', '3점사 68발 · 길목을 틀어막기',
-       '광역 폭발 4.5 · 뭉친 무리를 한 방에', '자동 조준 유도 · 흩어진 적을 하나씩', '끊김 없는 광선 · 최종 병기'],
+       '광역 폭발 4.5 · 7발 · 뭉친 무리를 한 방에', '자동 조준 유도 · 소규모 폭발 3.2', '끊김 없는 광선 · 최종 병기'],
   en: ['Quiet and light · one shot at a time', 'Faster bow · quick and easy', 'Heavy single shot · slow reload',
        'Fast and handy · 18 rounds', '5 pellets per shot · for tight groups', 'Pierce 3 · punches through a line',
        '45-round rapid fire · overwhelm them', 'Damage 3 · accurate workhorse', '3-round burst, 68 rounds · hold the lane',
-       'Blast radius 4.5 · clears a crowd', 'Auto-lock homing · picks off stragglers', 'Continuous beam · the final weapon'],
+       'Blast radius 4.5, 7 rounds · clears a crowd', 'Auto-lock homing · small blast 3.2', 'Continuous beam · the final weapon'],
 };
 function wTrait(i) { return (W_TRAIT[G.lang === 'en' ? 'en' : 'ko'] || W_TRAIT.ko)[i] || ''; }
 
@@ -2104,16 +2104,27 @@ function rocketsUpdate(dt) {
     const step = r.speed * dt;
     if (dir.length() <= step) {
       const at = r.target.clone();
-      burst(at, 0xffb347, 34, 11);
-      burst(at, 0xff5d73, 20, 7);
-      damagePopup(at, '💥', '#ffb347', 1.6);
-      beep(90, 0.3, 'sawtooth', 0.09, -40);
+      const R = r.W.splash || 3;
+      const homing = !!r.W.homing;
+      const hot = homing ? 0x9fd6ff : 0xffb347;      // 유도탄은 청색 폭발로 구분
+      const core = homing ? 0xe8f7ff : 0xff5d73;
+      burst(at, hot, Math.round(R * 7), R * 2.4);
+      burst(at, core, Math.round(R * 4), R * 1.5);
+      shockRing(at, hot, R * 1.9, 0.42, 0.55);        // 실제 피해 반경이 링으로 보인다
+      setTimeout(() => shockRing(at, core, R * 2.6, 0.36, 0.3), 70);
+      sparkBurst(at.clone().setY(0.25), hot, Math.round(R * 2.4), R * 0.8);
+      screenFlash(homing ? '#dff0ff' : '#ffe0b0', homing ? 0.14 : 0.22, 80);
+      shakeCam(homing ? 0.3 : 0.55, homing ? 0.14 : 0.22);
+      hitstop(homing ? 0.03 : 0.055);
+      damagePopup(at, '💥', homing ? '#9fd6ff' : '#ffb347', homing ? 1.35 : 1.7);
+      beep(homing ? 150 : 90, 0.3, 'sawtooth', 0.09, -40);
       let hitAny = false;
       for (const e of [...enemies]) {
         if (e.state === 'dying') continue;
-        const d = e.mesh.position.distanceTo(at);
+        const mid = e.mesh.position.clone().add(new THREE.Vector3(0, 0.9, 0));   // 몸통 중심
+        const d = mid.distanceTo(at);
         if (d > (r.W.splash || 3)) continue;
-        const dmg = d < 1.9 ? r.W.dmg : (r.W.splashDmg || 2);
+        const dmg = d < 2.4 ? r.W.dmg : (r.W.splashDmg || 2);
         e.hp -= dmg;
         hitAny = true;
         damageFx(e, e.mesh.position.clone().add(new THREE.Vector3(0, 1, 0)), 0xffb347, 12);
