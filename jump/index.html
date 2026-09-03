@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>메타볼릭 점프 — CKLM Adventure</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-user-select:none; user-select:none; -webkit-tap-highlight-color:transparent; }
+  html, body { width:100%; height:100%; overflow:hidden; background:#140a12; }
+  body { font-family:"Pretendard","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif; color:#fff; }
+
+  #stage { position:fixed; overflow:hidden; background:#0d1b2a; container-type:size; }
+  #game { width:100%; height:100%; display:block; image-rendering:auto; }
+
+  .overlay { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; z-index:30; padding:4cqh 6cqw; }
+  .hidden { display:none !important; }
+
+  #screen-title { background:radial-gradient(ellipse at 50% 40%, rgba(60,24,44,.9), rgba(10,6,12,.97)); }
+  .title-main { font-size:clamp(26px,8cqh,68px); font-weight:900; letter-spacing:2px; line-height:1.1;
+    background:linear-gradient(180deg,#ffe9a8,#ffb347 60%,#ff7a4d);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    filter:drop-shadow(0 4px 0 rgba(0,0,0,.35)) drop-shadow(0 0 26px rgba(255,160,80,.45)); }
+  .title-sub { margin-top:1.4cqh; font-size:clamp(11px,2.4cqh,19px); color:rgba(255,255,255,.72); font-weight:700; letter-spacing:1px; }
+  .row { display:flex; gap:.8cqw; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:2.2cqh; }
+  .rlabel { font-size:clamp(10px,1.9cqh,14px); color:rgba(255,255,255,.55); font-weight:800; letter-spacing:1.5px; margin-right:.6cqw; }
+  .opt-btn { padding:1cqh 1.8cqw; border-radius:11px; border:2px solid rgba(255,255,255,.22); background:rgba(255,255,255,.07);
+    color:#fff; font:inherit; font-size:clamp(11px,2cqh,16px); font-weight:800; cursor:pointer; transition:.15s; }
+  .opt-btn:hover { background:rgba(255,255,255,.14); }
+  .opt-btn.sel { background:rgba(255,209,102,.2); border-color:#ffd166; color:#ffd166; }
+  .press-start { margin-top:3cqh; font-size:clamp(12px,2.6cqh,20px); font-weight:900; color:#ffd166;
+    animation:blink 1.1s steps(2,start) infinite; letter-spacing:2px; }
+  @keyframes blink { 50% { opacity:.25; } }
+
+  #guide-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1.2cqh 1cqw;
+    width:min(94%,1000px); margin-top:2cqh; }
+  .gcard { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); border-radius:13px; padding:1.3cqh 1.1cqw; text-align:left; }
+  .gicon { font-size:clamp(17px,3.4cqh,30px); }
+  .gtitle { font-size:clamp(11px,2cqh,15px); font-weight:900; margin:.5cqh 0 .3cqh; color:#ffd166; }
+  .gdesc { font-size:clamp(9.5px,1.75cqh,13px); color:rgba(255,255,255,.72); line-height:1.55; }
+
+  /* HUD */
+  #hud { position:absolute; left:0; right:0; top:0; padding:1.4cqh 2cqw; display:flex; gap:1.6cqw; align-items:flex-start;
+    pointer-events:none; z-index:20; font-weight:900; letter-spacing:.5px; }
+  .hstat { background:rgba(10,6,12,.62); backdrop-filter:blur(4px); border:1px solid rgba(255,255,255,.14);
+    border-radius:11px; padding:.7cqh 1.1cqw; min-width:6.5cqw; }
+  .hlabel { font-size:clamp(8px,1.5cqh,11px); color:rgba(255,255,255,.6); letter-spacing:1.2px; }
+  .hval { font-size:clamp(13px,2.7cqh,22px); color:#fff; margin-top:.15cqh; }
+  #hud-right { margin-left:auto; text-align:right; }
+  #hud-msg { position:absolute; left:50%; top:16cqh; transform:translateX(-50%) translateY(-10px); z-index:22;
+    font-size:clamp(13px,2.8cqh,24px); font-weight:900; color:#ffd166; text-shadow:0 3px 0 rgba(0,0,0,.5), 0 0 20px rgba(255,180,71,.6);
+    opacity:0; transition:opacity .2s, transform .3s; pointer-events:none; white-space:nowrap; }
+  #hud-msg.show { opacity:1; transform:translateX(-50%) translateY(0); }
+
+  /* 퀴즈 */
+  #quiz { position:absolute; inset:0; z-index:40; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    background:rgba(8,4,10,.82); backdrop-filter:blur(4px); padding:3cqh 5cqw; }
+  #quiz-head { font-size:clamp(11px,2.1cqh,16px); font-weight:900; color:#ffd166; letter-spacing:2px; margin-bottom:1.2cqh; }
+  #quiz-q { font-size:clamp(14px,3cqh,26px); font-weight:800; line-height:1.5; max-width:min(94%,940px); margin-bottom:2.4cqh; }
+  #quiz-answers { display:grid; grid-template-columns:1fr 1fr; gap:1.1cqh 1.2cqw; width:min(94%,940px); }
+  .quiz-btn { padding:1.4cqh 1.4cqw; border-radius:13px; border:2px solid rgba(255,255,255,.22);
+    background:rgba(255,255,255,.08); color:#fff; font:inherit; font-size:clamp(11px,2.1cqh,17px); font-weight:700;
+    cursor:pointer; text-align:left; line-height:1.45; transition:.13s; }
+  .quiz-btn:hover { background:rgba(255,255,255,.15); }
+  .quiz-btn.sel { border-color:#ffd166; background:rgba(255,209,102,.18); }
+  .quiz-btn.correct { border-color:#7dffb0; background:rgba(125,255,176,.22); color:#d6ffe8; }
+  .quiz-btn.wrong { border-color:#ff5d73; background:rgba(255,93,115,.2); color:#ffd7de; }
+  #quiz-submit { margin-top:2cqh; padding:1.2cqh 3cqw; border-radius:12px; border:2px solid #ffd166;
+    background:rgba(255,209,102,.18); color:#ffd166; font:inherit; font-size:clamp(12px,2.2cqh,18px); font-weight:900;
+    letter-spacing:1.5px; cursor:pointer; }
+  #quiz-feedback { margin-top:1.6cqh; font-size:clamp(11px,2.1cqh,16px); font-weight:800; color:#ffd166; min-height:2.4cqh; }
+  #quiz-timer { margin-top:1.2cqh; width:min(94%,940px); height:.9cqh; min-height:6px; border-radius:5px; background:rgba(255,255,255,.12); overflow:hidden; }
+  #quiz-timer-fg { height:100%; width:100%; background:linear-gradient(90deg,#ffd166,#ff8f4d); transition:width .1s linear; }
+
+  /* 결과 */
+  #screen-result { background:radial-gradient(ellipse at center, rgba(30,16,40,.94), rgba(6,4,10,.98)); }
+  #res-lines { margin-top:2cqh; font-size:clamp(11px,2.2cqh,17px); line-height:2; color:rgba(255,255,255,.85); }
+  #res-lines b { color:#ffd166; }
+
+  /* 터치 컨트롤 */
+  #touch { position:absolute; inset:0; z-index:25; pointer-events:none; display:none; }
+  #touch.on { display:block; }
+  .tbtn { position:absolute; bottom:4cqh; width:11cqh; height:11cqh; min-width:64px; min-height:64px; border-radius:50%;
+    background:rgba(255,255,255,.14); border:2px solid rgba(255,255,255,.3); pointer-events:auto;
+    display:flex; align-items:center; justify-content:center; font-size:clamp(18px,4cqh,32px); font-weight:900; color:#fff; }
+  #t-left { left:3cqw; } #t-right { left:16cqw; } #t-jump { right:3cqw; background:rgba(255,209,102,.22); border-color:#ffd166; color:#ffd166; }
+  .tbtn:active { background:rgba(255,255,255,.3); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="game" width="960" height="540"></canvas>
+
+  <div id="hud" class="hidden">
+    <div class="hstat"><div class="hlabel" id="lb-life">생명</div><div class="hval" id="v-life">♥♥♥</div></div>
+    <div class="hstat"><div class="hlabel" id="lb-coin">브로콜리</div><div class="hval" id="v-coin">0</div></div>
+    <div class="hstat"><div class="hlabel" id="lb-quiz">퀴즈</div><div class="hval" id="v-quiz">0/0</div></div>
+    <div id="hud-right">
+      <div class="hstat"><div class="hlabel" id="lb-stage">스테이지</div><div class="hval" id="v-stage">1-1</div></div>
+    </div>
+  </div>
+  <div id="hud-msg"></div>
+
+  <div id="touch">
+    <div class="tbtn" id="t-left">◀</div>
+    <div class="tbtn" id="t-right">▶</div>
+    <div class="tbtn" id="t-jump">▲</div>
+  </div>
+
+  <div id="screen-title" class="overlay">
+    <div class="title-main">메타볼릭 점프</div>
+    <div class="title-sub" id="tsub">간을 구하러 가는 대사건강 어드벤처</div>
+    <div class="row"><span class="rlabel" id="lb-lang">LANGUAGE</span>
+      <button class="opt-btn sel" data-lang="ko">한국어</button>
+      <button class="opt-btn" data-lang="en">English</button>
+    </div>
+    <div class="row"><span class="rlabel" id="lb-diff">DIFFICULTY</span>
+      <button class="opt-btn" data-diff="easy">EASY</button>
+      <button class="opt-btn sel" data-diff="mid">NORMAL</button>
+      <button class="opt-btn" data-diff="hard">HARD</button>
+    </div>
+    <div class="press-start" id="press1">아무 키나 누르거나 화면을 터치하세요</div>
+  </div>
+
+  <div id="screen-guide" class="overlay hidden">
+    <div class="title-sub" id="gtitle" style="font-size:clamp(15px,3.2cqh,26px);color:#ffd166;font-weight:900">플레이 방법</div>
+    <div id="guide-grid"></div>
+    <div class="press-start" id="press2">시작하려면 누르세요</div>
+  </div>
+
+  <div id="quiz" class="hidden">
+    <div id="quiz-head">❓ QUIZ BLOCK</div>
+    <div id="quiz-q"></div>
+    <div id="quiz-answers"></div>
+    <button id="quiz-submit">제출</button>
+    <div id="quiz-feedback"></div>
+    <div id="quiz-timer"><div id="quiz-timer-fg"></div></div>
+  </div>
+
+  <div id="screen-result" class="overlay hidden">
+    <div class="title-main" id="res-title">CLEAR!</div>
+    <div id="res-lines"></div>
+    <div class="press-start" id="press3">다시 하려면 누르세요</div>
+  </div>
+</div>
+
+<script type="module" src="./main.js?v=j3"></script>
+</body>
+</html>

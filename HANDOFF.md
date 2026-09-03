@@ -12,6 +12,7 @@
 | 베타 (최신 기능 전부) | https://drmoony.github.io/metabolic-defense/beta/ |
 | 입력 테스트 | https://drmoony.github.io/metabolic-defense/input-test.html |
 | 문제은행 관리 | https://drmoony.github.io/metabolic-defense/quiz-admin.html |
+| 메타볼릭 점프(플랫포머) | https://drmoony.github.io/metabolic-defense/jump/ |
 
 인터넷만 되면 설치 없이 바로 플레이됩니다. **작업은 베타(`beta/`)에서 하세요.** 안정판(루트)은 롤백용으로 손대지 않습니다.
 
@@ -164,3 +165,11 @@ macOS에서는 동글이 USB 열거조차 되지 않았습니다(HID 목록에 U
   `"C:\Program Files\Google\Chrome\Application\chrome.exe" --kiosk --app=https://drmoony.github.io/metabolic-defense/beta/`
   (종료는 Alt+F4. Windows 설정 > 태블릿 가장자리 스와이프 제스처는 라이트건(마우스 HID)에선 발동 안 함)
 - 격파 연출: 히트스톱(일반 45ms/대형 75ms/보스 130ms), 보스 슬로모 0.3배속 0.55초, 색수차 펄스(#stage.chroma), 스케일 팝 1.25배.
+
+
+## 자매 게임: 메타볼릭 점프 (2026-09-03)
+슈퍼마리오 컨셉의 **사이드스크롤 플랫포머**를 `jump/`에 신설. 같은 레포·같은 문제은행(`assets/quiz_*.json`)을 공유하고
+`quiz-admin.html`로 문항을 고치면 두 게임에 동시 반영된다. 자세한 내용은 `jump/README.md`.
+- 조작이 **키보드·터치**라 XGunner 라이트건과는 별개 트랙(부스에서 두 번째 스테이션용)
+- 스테이지 3종(위장 들판 / 간 동굴 / 혈관 성채) + 보스 플라크 왕, 퀴즈 블록으로 문항 노출
+- 점프 최대 수평거리 5칸이라 **구덩이는 4칸 이하** 규칙 — 레벨 편집 시 반드시 지킬 것
