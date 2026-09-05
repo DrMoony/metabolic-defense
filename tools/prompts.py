@@ -45,7 +45,13 @@ STYLE_CUTE = (
     "no cast shadow, no ground plane, no floor, no text, no logo, no watermark, no border"
 )
 
-# 캐릭터 공통 얼굴: 크고 반짝이는 눈 + 장난스러운 표정
+# 보스 전용: 귀엽지 않게, 위협적으로
+BOSS_FACE = (
+    "a menacing cartoon face with narrowed glowing eyes, heavy furrowed brows, "
+    "a wide jagged grin, and thick powerful arms"
+)
+
+# 몬스터 공통 얼굴: 크고 반짝이는 눈 + 장난스러운 표정
 FACE = (
     "a cute chibi mascot face with big glossy round eyes with bright catchlights, "
     "small mischievous eyebrows, a tiny open mouth, rosy cheeks, "
@@ -81,12 +87,12 @@ ASSETS = [
     # ---- 보스 3종 + 조각 ----
     ("syrup", "보스", f"A huge industrial barrel drum of high-fructose corn syrup, burnt-orange metal with dark reinforcing bands, "
      "a transparent window on the front showing sloshing amber syrup, syrup droplets dripping down the sides, "
-     f"and a prominent glowing golden pressure valve with a round handwheel on top, {FACE}. "
+     f"and a prominent glowing golden pressure valve with a round handwheel on top, {BOSS_FACE}. "
      "Imposing boss scale, menacing, clearly a boss enemy."),
     ("cancer", "보스", f"A menacing magenta-and-crimson cancer cell blob with an irregular lumpy membrane, "
-     "visible darker nucleus, and small budding lobes ready to split off, {FACE}. Imposing boss scale."),
+     f"visible darker nucleus, and small budding lobes ready to split off, {BOSS_FACE}. Imposing boss scale, clearly a boss enemy."),
     ("plaque", "보스", f"A hulking atherosclerotic plaque monster, dark crimson fibrous mass studded with sharp white "
-     f"cholesterol crystal shards, {FACE} with a furious expression. Imposing boss scale, built like a battering ram."),
+     f"cholesterol crystal shards, {BOSS_FACE}. Imposing boss scale, built like a battering ram."),
     ("cancerlet", "몬스터", f"A small magenta cancer-cell fragment blob, a miniature version of a cancer cell with a lumpy membrane, {FACE}."),
 
     # ---- 장기(가디언/포탑) 2종 ----
