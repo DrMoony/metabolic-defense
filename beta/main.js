@@ -1097,7 +1097,42 @@ function addShadow(g, r) {
   g.userData.shadow = sh;
 }
 
+// ---------- 고품질 스프라이트 (생성 이미지) ----------
+// 카메라가 고정이라 빌보드 평면으로 충분하다. 절차 메시를 이걸로 순차 교체 중.
+const ENEMY_SPRITES = {
+  burger: { file: '../assets/sprites/burger.png', w: 2.6 },
+};
+const _spriteTex = {};
+function makeEnemySprite(type) {
+  const d = ENEMY_SPRITES[type];
+  if (!_spriteTex[type]) {
+    const t = texLoader.load(d.file);
+    t.colorSpace = THREE.SRGBColorSpace;
+    _spriteTex[type] = t;
+  }
+  const g = new THREE.Group();
+  const h = d.w * (d.ratio || 1);
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(d.w, h),
+    new THREE.MeshBasicMaterial({ map: _spriteTex[type], transparent: false, alphaTest: 0.35, depthWrite: true }));
+  m.position.y = h / 2;
+  g.add(m);
+  addShadow(g, d.w * 0.3);
+  g.userData.spriteMesh = m;
+  return g;
+}
+
+// 스프라이트는 팔다리가 없으니 스쿼시·스트레치와 기울임으로 생기를 만든다
+function spriteAnim(e, m, t, rate) {
+  const sp = m.userData.spriteMesh;
+  if (!sp) return;
+  sp.rotation.y = -m.rotation.y;                       // 항상 카메라를 향하게 역회전
+  const k = Math.sin(t * 9 * rate + e.phase);
+  sp.scale.set(1 - k * 0.055, 1 + k * 0.075, 1);       // 통통 튀는 걸음
+  sp.rotation.z = Math.sin(t * 4.5 * rate + e.phase) * 0.05;
+}
+
 function buildEnemyMesh(type) {
+  if (ENEMY_SPRITES[type]) return makeEnemySprite(type);
   const g = new THREE.Group();
   if (type === 'soda') {   // 소용돌이 막대사탕
     const capMat = new THREE.MeshStandardMaterial({ map: swirlTex, roughness: 0.3 });
@@ -2452,6 +2487,7 @@ function enemiesUpdate(dt, t) {
         p.z + tan.x * e.lane);
       m.rotation.y = Math.atan2(tan.x, tan.z);
       m.rotation.z = Math.sin(t * 6 + e.phase) * 0.07;
+      spriteAnim(e, m, t, 1);
       if (e.progress >= 1) {
         m.position.x = e.lane * 1.8;
         // 섬유화 단계면 일부가 성벽을 샌다
@@ -2470,6 +2506,7 @@ function enemiesUpdate(dt, t) {
       e.attackT -= dt;
       m.position.y = Math.abs(Math.sin(t * 9 + e.phase)) * 0.2;
       m.rotation.z = Math.sin(t * 12 + e.phase) * 0.12;
+      spriteAnim(e, m, t, 1.7);
       if (e.attackT <= 0) {
         burst(m.position.clone().add(new THREE.Vector3(0, 0.8, 0)), 0x8a5a58, 7, 3);
         killEnemy(e, false);   // 간이 처리 — 점수 없음
