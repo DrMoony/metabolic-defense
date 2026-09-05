@@ -1103,6 +1103,7 @@ function addShadow(g, r) {
 const ENEMY_SPRITES = {
   burger: { files: ['../assets/sprites/burger.png'], w: 2.6 },
   fries:  { files: ['../assets/sprites/fries_0.png', '../assets/sprites/fries_1.png'], w: 2.2, ratio: 1.4, fps: 6 },
+  soda:   { files: ['../assets/sprites/soda_0.png', '../assets/sprites/soda_1.png'], w: 2.0, ratio: 1.45, fps: 7 },
 };
 const _spriteTex = {};
 function spriteTex(file) {
