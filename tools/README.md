@@ -49,7 +49,17 @@ python3 tools/key_alpha.py tools/raw/ --out assets/sprites/ --max 512
 ```
 
 ## ChatGPT 웹 자동화 레시피 (실측 검증됨)
-1. chatgpt.com 새 대화 → 프롬프트 앞에 `Generate one image.` 를 붙여 붙여넣고 Enter
+1. chatgpt.com 새 대화. **입력창은 textarea가 아니라 contenteditable div** 다.
+   value 세터로 넣으면 React가 인식 못 해 전송 버튼이 안 생긴다. 반드시 이렇게:
+   ```js
+   // 좌표 계산: 스크린샷 배율 = 1400 / innerWidth
+   const ce = document.querySelector('div[contenteditable="true"]');
+   const r = ce.getBoundingClientRect();   // 이 중심을 실제 클릭으로 포커스
+   ce.focus(); document.execCommand('insertText', false, PROMPT);
+   [...document.querySelectorAll('button')]
+     .find(b => /프롬프트 보내기/.test(b.getAttribute('aria-label')||'')).click();
+   ```
+   프롬프트 앞에 `Generate one image.` 를 붙인다.
 2. 생성까지 30~45초. `document.querySelectorAll('img')` 중 naturalWidth>600 인 것이 결과물
 3. **다운로드 버튼은 안 먹는다.** 대신 페이지에서 blob으로 직접 받아야 한다:
    ```js

@@ -31,10 +31,25 @@ STYLE_GUN = (
     "no hands, no arms, no cast shadow, no text, no logo, no watermark, no border"
 )
 
-# 캐릭터 공통: 살아 움직이는 정크푸드 (얼굴이 있어야 한다)
+# 몬스터 전용: 귀엽게 (유저 지시 2026-09-06). 무섭기보다 장난꾸러기 마스코트.
+STYLE_CUTE = (
+    "3D cartoon render in the style of a cute collectible vinyl toy or a Pixar-style mascot, "
+    "chibi proportions with an oversized head and tiny stubby limbs, "
+    "soft squishy rounded forms with glossy highlights, "
+    "bright candy-like saturated colors, soft studio key light from upper left with a warm rim light, "
+    "appealing and huggable, mischievous rather than scary, "
+    "crisp readable silhouette, high detail, three-quarter front view at eye level, "
+    "centered square composition, "
+    "isolated on a pure flat white background (#FFFFFF), "
+    "the subject fully enclosed by a subtle dark outline so it separates cleanly from the white, "
+    "no cast shadow, no ground plane, no floor, no text, no logo, no watermark, no border"
+)
+
+# 캐릭터 공통 얼굴: 크고 반짝이는 눈 + 장난스러운 표정
 FACE = (
-    "an anthropomorphic cartoon character with big round white eyes, dark pupils, "
-    "angry slanted eyebrows, a small mouth, and short stubby arms and legs"
+    "a cute chibi mascot face with big glossy round eyes with bright catchlights, "
+    "small mischievous eyebrows, a tiny open mouth, rosy cheeks, "
+    "and short stubby arms and legs"
 )
 
 ASSETS = [
@@ -67,7 +82,7 @@ ASSETS = [
     ("syrup", "보스", f"A huge industrial barrel drum of high-fructose corn syrup, burnt-orange metal with dark reinforcing bands, "
      "a transparent window on the front showing sloshing amber syrup, syrup droplets dripping down the sides, "
      f"and a prominent glowing golden pressure valve with a round handwheel on top, {FACE}. "
-     "Imposing boss scale, menacing."),
+     "Imposing boss scale, menacing, clearly a boss enemy."),
     ("cancer", "보스", f"A menacing magenta-and-crimson cancer cell blob with an irregular lumpy membrane, "
      "visible darker nucleus, and small budding lobes ready to split off, {FACE}. Imposing boss scale."),
     ("plaque", "보스", f"A hulking atherosclerotic plaque monster, dark crimson fibrous mass studded with sharp white "
@@ -114,9 +129,15 @@ ASSETS = [
 ]
 
 def prompt_for(key):
+    """분류별 스타일 규약: 몬스터=귀엽게, 보스·장기=묵직하고 화려하게, 무기=1인칭 뷰모델."""
     for k, cat, body in ASSETS:
         if k == key:
-            style = STYLE_GUN if cat == "무기" else STYLE
+            if cat == "무기":
+                style = STYLE_GUN
+            elif cat in ("몬스터", "아이템", "소품"):
+                style = STYLE_CUTE
+            else:                      # 보스, 장기
+                style = STYLE
             return f"{body} {style}"
     raise KeyError(key)
 
