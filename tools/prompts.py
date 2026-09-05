@@ -155,3 +155,26 @@ if __name__ == "__main__":
         for k, cat, _ in ASSETS:
             print(f"{k:16s} {cat}")
         print(f"\n총 {len(ASSETS)}종")
+
+
+# ---------- 2프레임 걷기 사이클 ----------
+# 생성 1회로 두 자세를 얻어 반으로 자른다. 두 자세가 동일 캐릭터로 나오는 게 관건이라
+# "같은 캐릭터, 같은 크기, 같은 조명"을 반복해서 못 박는다.
+WALK_RULE = (
+    "IMPORTANT: this is a two-frame walk-cycle reference sheet. "
+    "Draw the SAME single character TWICE, side by side, on one pure white background. "
+    "LEFT frame: the character mid-stride with its left leg forward and right arm forward. "
+    "RIGHT frame: the exact same character mid-stride with its right leg forward and left arm forward. "
+    "Both frames must be the identical character with identical design, identical proportions, "
+    "identical colors, identical lighting and identical size. "
+    "Leave a clear empty white vertical gap between the two frames. "
+    "Both frames face the viewer. No numbering, no labels, no captions, no frame borders."
+)
+
+def walk_prompt(key):
+    """2프레임 걷기 시트용 프롬프트."""
+    for k, cat, body in ASSETS:
+        if k == key:
+            style = STYLE_CUTE if cat in ("몬스터", "아이템", "소품") else STYLE
+            return f"{body} {WALK_RULE} {style}"
+    raise KeyError(key)

@@ -1099,25 +1099,33 @@ function addShadow(g, r) {
 
 // ---------- 고품질 스프라이트 (생성 이미지) ----------
 // 카메라가 고정이라 빌보드 평면으로 충분하다. 절차 메시를 이걸로 순차 교체 중.
+// frames가 있으면 2프레임 걷기 사이클, 없으면 단일 이미지 + 스쿼시만
 const ENEMY_SPRITES = {
-  burger: { file: '../assets/sprites/burger.png', w: 2.6 },
+  burger: { files: ['../assets/sprites/burger.png'], w: 2.6 },
+  fries:  { files: ['../assets/sprites/fries_0.png', '../assets/sprites/fries_1.png'], w: 2.2, ratio: 1.4, fps: 6 },
 };
 const _spriteTex = {};
+function spriteTex(file) {
+  if (!_spriteTex[file]) {
+    const t = texLoader.load(file);
+    t.colorSpace = THREE.SRGBColorSpace;
+    _spriteTex[file] = t;
+  }
+  return _spriteTex[file];
+}
 function makeEnemySprite(type) {
   const d = ENEMY_SPRITES[type];
-  if (!_spriteTex[type]) {
-    const t = texLoader.load(d.file);
-    t.colorSpace = THREE.SRGBColorSpace;
-    _spriteTex[type] = t;
-  }
+  const texs = d.files.map(spriteTex);
   const g = new THREE.Group();
   const h = d.w * (d.ratio || 1);
   const m = new THREE.Mesh(new THREE.PlaneGeometry(d.w, h),
-    new THREE.MeshBasicMaterial({ map: _spriteTex[type], transparent: false, alphaTest: 0.35, depthWrite: true }));
+    new THREE.MeshBasicMaterial({ map: texs[0], transparent: false, alphaTest: 0.35, depthWrite: true }));
   m.position.y = h / 2;
   g.add(m);
   addShadow(g, d.w * 0.3);
   g.userData.spriteMesh = m;
+  g.userData.frames = texs;
+  g.userData.fps = d.fps || 6;
   return g;
 }
 
@@ -1126,9 +1134,19 @@ function spriteAnim(e, m, t, rate) {
   const sp = m.userData.spriteMesh;
   if (!sp) return;
   sp.rotation.y = -m.rotation.y;                       // 항상 카메라를 향하게 역회전
-  const k = Math.sin(t * 9 * rate + e.phase);
-  sp.scale.set(1 - k * 0.055, 1 + k * 0.075, 1);       // 통통 튀는 걸음
-  sp.rotation.z = Math.sin(t * 4.5 * rate + e.phase) * 0.05;
+  const frames = m.userData.frames;
+  if (frames && frames.length > 1) {
+    // 실제 걷기 사이클: 프레임 교체가 주고 스쿼시는 거들기만
+    const f = Math.floor(t * m.userData.fps * rate + e.phase) % frames.length;
+    if (sp.material.map !== frames[f]) { sp.material.map = frames[f]; sp.material.needsUpdate = true; }
+    const k = Math.sin(t * 9 * rate + e.phase);
+    sp.scale.set(1 - k * 0.025, 1 + k * 0.035, 1);
+    sp.rotation.z = Math.sin(t * 4.5 * rate + e.phase) * 0.03;
+  } else {
+    const k = Math.sin(t * 9 * rate + e.phase);
+    sp.scale.set(1 - k * 0.055, 1 + k * 0.075, 1);     // 단일 프레임이면 스쿼시를 크게
+    sp.rotation.z = Math.sin(t * 4.5 * rate + e.phase) * 0.05;
+  }
 }
 
 function buildEnemyMesh(type) {
