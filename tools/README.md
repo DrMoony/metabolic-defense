@@ -8,6 +8,8 @@
 | `prompts.py` | 35종 프롬프트 + 공통 스타일 블록. `python3 prompts.py` 목록, `python3 prompts.py burger` 단건 출력 |
 | `key_alpha.py` | 흰 배경 이미지 → 투명 PNG (테두리 연결 플러드필 + 자동 트림 + 리사이즈) |
 | `gen_assets.py` | Gemini(Nano Banana Pro) 생성기. **기본 드라이런**, 실제 호출은 `--go` |
+| `chatgpt_prompts.txt` | 35종 프롬프트를 붙여넣기 좋게 풀어놓은 파일 (ChatGPT 등 웹 UI용) |
+| `import_downloads.py` | 다운로드한 이미지를 에셋키 이름으로 `raw/` 에 정리 |
 
 ## 왜 흰 배경 + 외곽선인가
 Gemini도 ChatGPT도 진짜 알파 채널을 안 뱉는다. 그래서 순백 배경 위에 그리게 한 뒤
@@ -37,3 +39,11 @@ python3 tools/key_alpha.py tools/raw/ --out assets/sprites/ --max 512
 몬스터 13(soda fries burger pizza ramen icecream ciga soju donut moth bat wing cancerlet) ·
 보스 3(syrup cancer plaque) · 장기 2(liver pancreas) · 무기 12(w00~w11) · 아이템 2(item_glp1 item_gcgr) ·
 소품 3(fatwall trapcage traplock)
+
+## ChatGPT 웹으로 뽑을 때
+```bash
+open tools/chatgpt_prompts.txt          # 블록 본문을 하나씩 붙여넣기
+# 이미지를 내려받은 뒤 (여러 장을 순서대로 받았다면)
+python3 tools/import_downloads.py --map burger,liver,pancreas
+python3 tools/key_alpha.py tools/raw/ --out assets/sprites/ --max 512
+```
