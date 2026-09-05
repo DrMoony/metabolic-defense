@@ -47,3 +47,16 @@ open tools/chatgpt_prompts.txt          # 블록 본문을 하나씩 붙여넣�
 python3 tools/import_downloads.py --map burger,liver,pancreas
 python3 tools/key_alpha.py tools/raw/ --out assets/sprites/ --max 512
 ```
+
+## ChatGPT 웹 자동화 레시피 (실측 검증됨)
+1. chatgpt.com 새 대화 → 프롬프트 앞에 `Generate one image.` 를 붙여 붙여넣고 Enter
+2. 생성까지 30~45초. `document.querySelectorAll('img')` 중 naturalWidth>600 인 것이 결과물
+3. **다운로드 버튼은 안 먹는다.** 대신 페이지에서 blob으로 직접 받아야 한다:
+   ```js
+   const img = [...document.querySelectorAll('img')].filter(i=>i.naturalWidth>600)[0];
+   const b = await (await fetch(img.currentSrc, {credentials:'include'})).blob();
+   const u = URL.createObjectURL(b); const a = document.createElement('a');
+   a.href = u; a.download = '<에셋키>.png'; document.body.appendChild(a); a.click(); a.remove();
+   ```
+4. 에디터의 '배경 제거'는 반응이 없었다 → 흰 배경 그대로 받아 `key_alpha.py` 로 키잉하면 깔끔하다
+5. 이미지 src를 JS 반환값으로 내보내면 확장이 차단하므로, URL은 페이지 안에서만 쓸 것
