@@ -14,18 +14,18 @@
       }
     },
     "liverBox": {
-      "left": -0.018419417805119687,
-      "right": 0.17751032689602764,
-      "top": 0.14430605738576552,
-      "bottom": 0.4899043570669558
+      "left": 0.6101690989412935,
+      "right": 0.8060988436424407,
+      "top": 0.592765143464398,
+      "bottom": 0.9383634431455883
     },
     "liverPixels": [
-      133,
-      461
+      1184,
+      883
     ],
-    "roadGap": 297,
-    "pulseRadius": 979.9701393304234,
-    "coverageMax": 971.9701393304234,
+    "roadGap": 351,
+    "pulseRadius": 981.1275574156573,
+    "coverageMax": 973.1275574156573,
     "coveragePoints": 25
   },
   {
@@ -37,28 +37,57 @@
         "ratio": 1
       },
       "pancreas": {
-        "visible": 160,
-        "opaque": 160,
+        "visible": 161,
+        "opaque": 161,
         "ratio": 1
       }
     },
     "liverBox": {
-      "left": 0.0009887172832034885,
-      "right": 0.1581021918077083,
-      "top": -0.02739638682252432,
-      "bottom": 0.24973432518597732
+      "left": 0.0027829756564091146,
+      "right": 0.15989645018091408,
+      "top": -0.027396386822524432,
+      "bottom": 0.24973432518597727
     },
     "liverPixels": [
-      133,
+      136,
       235
     ],
-    "roadGap": 682,
-    "pulseRadius": 230.56468225524284,
-    "coverageMax": 222.56468225524284,
+    "roadGap": 680,
+    "pulseRadius": 230.35493667482504,
+    "coverageMax": 222.35493667482504,
     "coveragePoints": 22
   },
   {
     "map": "sinusoid",
+    "organVisibility": {
+      "liver": {
+        "visible": 244,
+        "opaque": 244,
+        "ratio": 1
+      },
+      "pancreas": {
+        "visible": 161,
+        "opaque": 161,
+        "ratio": 1
+      }
+    },
+    "liverBox": {
+      "left": 0.0020224831978152835,
+      "right": 0.17022632062993226,
+      "top": 0.40362592986184764,
+      "bottom": 0.7003188097768317
+    },
+    "liverPixels": [
+      144,
+      659
+    ],
+    "roadGap": 317,
+    "pulseRadius": 216.80934245533481,
+    "coverageMax": 208.80934245533481,
+    "coveragePoints": 20
+  },
+  {
+    "map": "carotid",
     "organVisibility": {
       "liver": {
         "visible": 245,
@@ -72,47 +101,18 @@
       }
     },
     "liverBox": {
-      "left": 0.2586014305662386,
-      "right": 0.4268052679983556,
-      "top": -0.01932837407014265,
-      "bottom": 0.2773645058448415
+      "left": 0.820830104284497,
+      "right": 0.9973517138973229,
+      "top": 0.24017640807652063,
+      "bottom": 0.5515409139213664
     },
     "liverPixels": [
-      573,
-      261
+      1520,
+      519
     ],
-    "roadGap": 266,
-    "pulseRadius": 173.75390716751238,
-    "coverageMax": 165.75390716751238,
-    "coveragePoints": 20
-  },
-  {
-    "map": "carotid",
-    "organVisibility": {
-      "liver": {
-        "visible": 243,
-        "opaque": 243,
-        "ratio": 1
-      },
-      "pancreas": {
-        "visible": 161,
-        "opaque": 161,
-        "ratio": 1
-      }
-    },
-    "liverBox": {
-      "left": 0.840566946389759,
-      "right": 1.017088556002585,
-      "top": 0.24442720510095323,
-      "bottom": 0.555791710945799
-    },
-    "liverPixels": [
-      1553,
-      523
-    ],
-    "roadGap": 487,
-    "pulseRadius": 1546.9264300286743,
-    "coverageMax": 1538.9264300286743,
+    "roadGap": 465,
+    "pulseRadius": 1547.003135281079,
+    "coverageMax": 1539.003135281079,
     "coveragePoints": 21
   },
   {
@@ -124,32 +124,32 @@
         "ratio": 1
       },
       "pancreas": {
-        "visible": 160,
-        "opaque": 160,
+        "visible": 161,
+        "opaque": 161,
         "ratio": 1
       }
     },
     "liverBox": {
-      "left": 0.7140182446921186,
-      "right": 0.9044028079394599,
+      "left": 0.6464345126347023,
+      "right": 0.8368190758820435,
       "top": -0.03507332624866788,
       "bottom": 0.3007438894792813
     },
     "liverPixels": [
-      1353,
+      1240,
       283
     ],
-    "roadGap": 602,
-    "pulseRadius": 109.61696578915816,
-    "coverageMax": 101.61696578915816,
+    "roadGap": 518,
+    "pulseRadius": 103.2867183619572,
+    "coverageMax": 95.2867183619572,
     "coveragePoints": 15
   },
   {
     "map": "glomerulus",
     "organVisibility": {
       "liver": {
-        "visible": 245,
-        "opaque": 245,
+        "visible": 244,
+        "opaque": 244,
         "ratio": 1
       },
       "pancreas": {
@@ -159,22 +159,51 @@
       }
     },
     "liverBox": {
-      "left": -0.006404857988537294,
-      "right": 0.16549576707945035,
-      "top": -0.009908607863971852,
-      "bottom": 0.29330499468650617
+      "left": 0.1293606922506952,
+      "right": 0.3012613173186828,
+      "top": 0.6330244420828944,
+      "bottom": 0.9362380446333727
     },
     "liverPixels": [
-      133,
-      276
+      360,
+      881
     ],
-    "roadGap": 233,
-    "pulseRadius": 88.42279816899031,
-    "coverageMax": 80.42279816899031,
+    "roadGap": 364,
+    "pulseRadius": 99.00517122379493,
+    "coverageMax": 91.00517122379493,
     "coveragePoints": 28
   },
   {
     "map": "islet",
+    "organVisibility": {
+      "liver": {
+        "visible": 245,
+        "opaque": 245,
+        "ratio": 1
+      },
+      "pancreas": {
+        "visible": 160,
+        "opaque": 160,
+        "ratio": 1
+      }
+    },
+    "liverBox": {
+      "left": 0.2128762078880455,
+      "right": 0.39956398349951594,
+      "top": 0.2211817215727977,
+      "bottom": 0.5504782146652525
+    },
+    "liverPixels": [
+      512,
+      518
+    ],
+    "roadGap": 218,
+    "pulseRadius": 142.15880968883187,
+    "coverageMax": 134.15880968883187,
+    "coveragePoints": 44
+  },
+  {
+    "map": "villi",
     "organVisibility": {
       "liver": {
         "visible": 244,
@@ -188,47 +217,18 @@
       }
     },
     "liverBox": {
-      "left": 0.21945515525646503,
-      "right": 0.4061429308679355,
-      "top": 0.19886503719447285,
-      "bottom": 0.5281615302869277
+      "left": 0.005122482825474617,
+      "right": 0.1862650769831391,
+      "top": 0.22246121147715486,
+      "bottom": 0.5419766206163684
     },
     "liverPixels": [
-      523,
-      497
+      160,
+      510
     ],
-    "roadGap": 230,
-    "pulseRadius": 140.5035834551918,
-    "coverageMax": 132.5035834551918,
-    "coveragePoints": 44
-  },
-  {
-    "map": "villi",
-    "organVisibility": {
-      "liver": {
-        "visible": 245,
-        "opaque": 245,
-        "ratio": 1
-      },
-      "pancreas": {
-        "visible": 161,
-        "opaque": 161,
-        "ratio": 1
-      }
-    },
-    "liverBox": {
-      "left": 0.006916741198678522,
-      "right": 0.1880593353563429,
-      "top": 0.221398512221038,
-      "bottom": 0.5409139213602516
-    },
-    "liverPixels": [
-      163,
-      509
-    ],
-    "roadGap": 345,
-    "pulseRadius": 128.037587989688,
-    "coverageMax": 120.03758798968799,
+    "roadGap": 346,
+    "pulseRadius": 128.086959497603,
+    "coverageMax": 120.08695949760299,
     "coveragePoints": 24
   }
 ]
