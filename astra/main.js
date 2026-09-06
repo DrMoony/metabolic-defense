@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a15';
-import { RouteEditor } from './route-editor.js?v=a15';
-import { World, THREE } from './world.js?v=a15';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a15';
+import { healthColor, weaponColor } from './feedback.js?v=a16';
+import { RouteEditor } from './route-editor.js?v=a16';
+import { World, THREE } from './world.js?v=a16';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a16';
 
-import { MAPS, getMap } from './maps/index.js?v=a15';
+import { MAPS, getMap } from './maps/index.js?v=a16';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -55,7 +55,7 @@ const WAVES = [
   {duration:68,bossAt:53,boss:'pizzaking',quiz:[16,35,57],spawns:[['soda',1.7,1],['fries',3.1,2],['burger',8.5,5],['pizza',8,4],['icecream',5.8,3],['donut',5.5,3],['wing',5.5,6],['ramen',12,10]]},
   {duration:76,bossAt:58,boss:'plaque',quiz:[14,32,52,70],spawns:[['soda',1.5,1],['fries',2.8,2],['burger',7.5,5],['pizza',7,3],['icecream',5.4,4],['donut',5,2],['wing',4.8,5],['ramen',10,8]]},
 ];
-const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,glucagon:0,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
+const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,glucagon:0,slowField:0,supply:8,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
 state.lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ko';
 const bank=new QuizBank();
@@ -190,6 +190,7 @@ function spawn(type='soda',options={}){
   const hp=definition.hp*(definition.boss?1:DIFFICULTY[state.difficulty].hp);
   const enemy={type,...definition,waveBoss:definition.boss===true&&options.waveBoss===true,showHealth:definition.hp>=2,model,hp,maxHp:hp,lane,routeId,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:['fragment','cancerlet'].includes(type)?.7:1,flash:0,dead:false,guarded:false};
   if(definition.fly)planFlight(enemy,options.from);
+  enemy.side=(Math.random()-.5)*(definition.boss?1.1:3.4);
   enemies.push(enemy);positionEnemy(enemy);world.updateHealth(enemy);
   if(definition.boss){if(enemy.waveBoss)state.bosses.push(type);world.shake=1.5;world.ring(model.position,0xffa56e,10);notice(...definition.names,4);sound(95,.45,'sawtooth',.05);}
   updateBossHUD();return enemy;
@@ -220,7 +221,15 @@ function positionEnemy(enemy){
     const dir=enemy.flyTo.clone().sub(enemy.flyFrom).setY(0).normalize();
     const sway=Math.sin(p*Math.PI*(enemy.swayFreq||2.4)+enemy.seed)*world.actorScale*(enemy.swayAmp||2.4);
     position.x+=-dir.z*sway;position.z+=dir.x*sway;
-  }else position=world.routePoint(enemy.routeId,p);
+  }else{
+    position=world.routePoint(enemy.routeId,p);
+    // 길 폭 안에서 좌우로 벌려 세운다. 한 줄로 행진하면 한 발에 쓸려버린다.
+    if(enemy.side){
+      const tangent=world.terrain.routes.tangent(enemy.routeId,p);
+      const off=enemy.side*world.actorScale*(.55+p*.55);
+      position.x+=-tangent.z*off;position.z+=tangent.x*off;
+    }
+  }
   enemy.model.position.copy(position);
   enemy.model.position.y+=enemy.fly?world.actorScale*((enemy.flyHeight||3.5)+Math.sin(p*(enemy.bobFreq||18)+enemy.seed)*.28):.10;
   // Recoil moves the actor away along the same route, preserving its ground contact.
@@ -261,6 +270,25 @@ function damage(enemy,amount,byPlayer=true,point){
     else world.reward(position);
   }
 }
+// 보급 아이템 4종. 특정 약물이 아니라 대사 기전을 그대로 옮겼다.
+function collectItem(prop){
+  const key=prop.item,position=prop.model.position.clone();
+  world.removeProp(prop);world.reward(position,key);sample('rescue',.8);
+  if(key==='item_glp1'){
+    state.liver=clamp(state.liver-18);state.core=clamp(state.core+6);
+    notice('GLP-1 · 간 회복 · 생명 +6','GLP-1 · liver restored · life +6',2.4);
+  }else if(key==='item_gcgr'){
+    state.glucagon=Math.max(state.glucagon,10);
+    notice('글루카곤 · 정화 파동 증폭','GLUCAGON · purification amplified',2.4);
+  }else if(key==='item_fiber'){
+    state.slowField=Math.max(state.slowField,9);world.ring(position,0x9ce8a4,26);
+    notice('식이섬유 · 지상 적 감속 9초','FIBER · ground enemies slowed for 9s',2.4);
+  }else if(key==='item_bile'){
+    world.ring(world.liver.position,0x7fe6c8,world.pulseRingRadius||60);world.shake=1.2;
+    for(const enemy of [...enemies])if(!enemy.fly){enemy.progress=Math.max(.02,enemy.progress-.14);damage(enemy,1.5,false);}
+    notice('담즙 방출 · 지상 적을 밀어냈어요','BILE FLUSH · ground enemies pushed back',2.4);
+  }
+}
 function reload(){
   if(state.phase!=='combat'||state.paused||state.difficulty==='easy'||state.reload>0||state.ammo[state.weapon]===WEAPONS[state.weapon].mag)return;
   state.reload=WEAPONS[state.weapon].reload*(1+stageOfLiver()*.16)*(state.shots>5&&state.hits/state.shots>.7?.88:1);
@@ -287,12 +315,19 @@ function shot(clientX,clientY,extra=false){
   }
   world.shot(enemy?picked.enemy?picked.point:enemy.model.position.clone().add(new THREE.Vector3(0,1,0)):picked.point,state.weapon);
   if(!sample('shot_'+String(state.weapon).padStart(2,'0'),state.weapon>=9?.9:.75))sound(weapon.homing?140:600-state.weapon*37,.06+state.weapon*.008,state.weapon>8?'sawtooth':'triangle',.035);
-  if(picked.prop){state.hits++;state.score+=250;state.core=clamp(state.core+2);world.freeTrap(picked.prop);if(state.ammo[state.weapon]<=0)reload();updateHUD();return true;}
+  if(picked.prop){
+    state.hits++;state.score+=250;
+    if(picked.prop.kind==='pickup')collectItem(picked.prop);
+    else{state.core=clamp(state.core+2);world.freeTrap(picked.prop);}
+    if(state.ammo[state.weapon]<=0)reload();updateHUD();return true;
+  }
   if(picked.landmark){
     state.hits++;state.combo++;$('reticle').classList.add('hit');
     if(world.damageLandmark(picked.landmark,weapon.damage*(weapon.pellets||1))){
       state.score+=250;state.core=clamp(state.core+2);
-      notice('길을 열었어요 · +250 · 코어 +2','Passage cleared · +250 · core +2');
+      // 장애물을 부수면 무기 승급 기회를 준다 (퀴즈 외의 두 번째 승급 경로)
+      if(state.unlocked<WEAPONS.length-1){upgrade();notice('장애물 파괴 · 무기 승급!','Obstacle cleared · WEAPON UPGRADE!',2.6);}
+      else notice('길을 열었어요 · +250 · 코어 +2','Passage cleared · +250 · core +2');
     }
   }else if(enemy){
     state.hits++;state.combo++;$('reticle').classList.add('hit');
@@ -365,7 +400,7 @@ function finish(victory){
   updateHUD();sound(victory?680:100,.5,'sine');
 }
 function combat(dt){
-  state.waveTime+=dt;state.cooldown=Math.max(0,state.cooldown-dt);state.boost=Math.max(0,state.boost-dt);state.glucagon=Math.max(0,state.glucagon-dt);
+  state.waveTime+=dt;state.cooldown=Math.max(0,state.cooldown-dt);state.boost=Math.max(0,state.boost-dt);state.glucagon=Math.max(0,state.glucagon-dt);state.slowField=Math.max(0,state.slowField-dt);
   if(state.reload>0){state.reload=Math.max(0,state.reload-dt);if(!state.reload){state.ammo[state.weapon]=WEAPONS[state.weapon].mag;state.reloadFlash=.18;if(!sample('reload_done',.7))sound(500,.055);}}
   for(let i=pendingShots.length-1;i>=0;i--){pendingShots[i].in-=dt;if(pendingShots[i].in<=0){const p=pendingShots.splice(i,1)[0];shot(p.x,p.y,true);}}
   if(state.shooting)shot(aim.x,aim.y);
@@ -380,7 +415,7 @@ function combat(dt){
   for(const enemy of [...enemies]){
     // Bosses advance in 28s; regular soda lane travel is approximately 28s on NORMAL.
     const travel=enemy.boss?28:25*(3.2/enemy.speed);
-    enemy.progress+=dt/travel*tuning.speed*(enemy.type==='plaque'&&enemy.progress>.7?1.9:1);
+    enemy.progress+=dt/travel*tuning.speed*(enemy.type==='plaque'&&enemy.progress>.7?1.9:1)*(state.slowField>0&&!enemy.fly?.55:1);
     positionEnemy(enemy);
     if(enemy.progress>.86&&!enemy.guarded&&!enemy.fly){
       enemy.guarded=true;state.liver=clamp(state.liver+enemy.impact*.35*tuning.impact);
@@ -390,6 +425,16 @@ function combat(dt){
       state.core=clamp(state.core-enemy.impact*tuning.impact);state.combo=0;flashTime=.35;world.shake=1;
       notice(`${getMap(state.map).core[0]} 방어선이 공격받고 있어요`,`${getMap(state.map).core[1]} under attack!`);if(!sample('damage',1))sound(80,.2,'sawtooth');removeEnemy(enemy);
     }
+  }
+  // 보급 캡슐이 길을 따라 밀려 내려온다. 쏘면 줍고, 전경까지 흘려보내면 놓친다.
+  state.supply-=dt;
+  if(state.supply<=0&&state.waveTime<wave.bossAt){
+    state.supply=9.5+Math.random()*5.5;
+    const routes=world.terrain.routes.items,route=routes[Math.floor(Math.random()*routes.length)];
+    const pool=['item_glp1','item_gcgr','item_fiber'];
+    const key=pool[Math.floor(Math.random()*pool.length)];
+    world.spawnPickup(route.id,key);
+    notice('보급 캡슐 · 쏘면 획득','SUPPLY CAPSULE · shoot to collect',2);
   }
   state.pulse-=dt;
   if(state.pulse<=0){

@@ -217,7 +217,12 @@ for(const map of A.MAPS){
     for(const progress of [.05,.35,.65,.9]){
       const ground=A.spawn('fries',{routeId:route.id,progress}),air=A.spawn('wing',{routeId:route.id,progress});
       const p=routes.sample(route.id,progress);
-      assert(Math.hypot(ground.model.position.x-p.x,ground.model.position.z-p.z)<1e-7);
+      // 길 폭 안에서 좌우로 벌어져 걷는다: 접선의 수직 방향으로만, 폭 안쪽에서
+      const off=Math.hypot(ground.model.position.x-p.x,ground.model.position.z-p.z);
+      assert(off<=A.world.actorScale*2,`lateral spread stays inside the road (${off})`);
+      const tangent=routes.tangent(route.id,progress);
+      const along=(ground.model.position.x-p.x)*tangent.x+(ground.model.position.z-p.z)*tangent.z;
+      assert(Math.abs(along)<1e-6,'spread is perpendicular to the route');
       assert(air.model.position.y-ground.model.position.y>2);
       A.world.remove(ground.model);A.world.remove(air.model);
     }
@@ -258,7 +263,8 @@ for(const map of A.MAPS){
     assert(aim,`${map.key}: plaque/mound has an exposed hittable surface`);
     const initial=landmark.hp;A.state.cooldown=0;A.shot(aim.x,aim.y);assert(landmark.hp<initial);
     const score=A.state.score;let shots=0;
-    while(!landmark.dead&&shots++<50){A.state.cooldown=0;A.state.ammo[0]=9;A.state.reload=0;A.shot(aim.x,aim.y);}
+    // 장애물을 부수면 무기가 승급하므로 현재 무기의 탄약을 채운다
+    while(!landmark.dead&&shots++<80){A.state.cooldown=0;A.state.ammo[A.state.weapon]=99;A.state.reload=0;A.shot(aim.x,aim.y);}
     assert(landmark.dead);assert.equal(A.state.score,score+250);
   }
   A.start();A.state.difficulty='mid';let ticks=0;

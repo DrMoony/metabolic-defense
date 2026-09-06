@@ -1,5 +1,5 @@
 import * as T from '../vendor/three.module.js';
-import { SPRITE_SIZES } from './sprite-sizes.js?v=a15';
+import { SPRITE_SIZES } from './sprite-sizes.js?v=a16';
 
 const loader=new T.TextureLoader(),textures=new Map();
 // 렌더러가 준비되면 world.js가 최대 이방성 값을 알려준다. 밉맵 없이는 멀리 있는 스프라이트가 심하게 깨진다.
@@ -39,7 +39,7 @@ export function texture(key){
 }
 export function preloadSprites(){
   for(const art of Object.values(ENEMY_ART))art.frames.forEach(texture);
-  [...WEAPON_ART,'organ_liver','organ_pancreas','fatwall','trapcage','traplock','item_glp1','item_gcgr'].forEach(texture);
+  [...WEAPON_ART,'organ_liver','organ_pancreas','fatwall','trapcage','traplock','item_glp1','item_gcgr','item_fiber'].forEach(texture);
   return Promise.all(spriteLoads);
 }
 

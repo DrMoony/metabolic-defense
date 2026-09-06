@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a15';
+import { healthColor } from './feedback.js?v=a16';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a15';
-import { buildTerrain } from './terrain.js?v=a15';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a15';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality } from './sprites.js?v=a15';
-import { getMap } from './maps/index.js?v=a15';
+import { contact, glow, reflections } from './art.js?v=a16';
+import { buildTerrain } from './terrain.js?v=a16';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a16';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality } from './sprites.js?v=a16';
+import { getMap } from './maps/index.js?v=a16';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -234,6 +234,15 @@ export class World {
     const cage=cutout('trapcage',3.4),lock=cutout('traplock',1.05);lock.position.set(.15,.35,.04);model.add(cage,lock);this.scene.add(model);
     const prop={model,lock,life:12};this.props.push(prop);return prop;
   }
+  // 보급 캡슐: 길을 따라 밀려 내려온다. 쏘면 줍고, 놓치면 사라진다.
+  spawnPickup(routeId,key,progress=.06){
+    const model=new THREE.Group();model.position.copy(this.routePoint(routeId,progress));
+    model.quaternion.copy(this.camera.quaternion);model.scale.setScalar(this.actorScale);
+    const body=cutout(key,2.4);model.add(body);this.scene.add(model);
+    const prop={model,lock:body,life:99,kind:'pickup',item:key,routeId,progress};
+    this.props.push(prop);return prop;
+  }
+  removeProp(prop){disposeBillboard(prop.model);const i=this.props.indexOf(prop);if(i>=0)this.props.splice(i,1);}
   freeTrap(prop){disposeBillboard(prop.model);this.props.splice(this.props.indexOf(prop),1);this.reward(prop.model.position,'item_gcgr');}
   pick(x,y,enemies){
     const rect=this.renderer.domElement.getBoundingClientRect();
@@ -332,7 +341,17 @@ export class World {
     }
     for(let i=this.deaths.length-1;i>=0;i--){const d=this.deaths[i];d.life-=dt;d.model.rotateZ(dt*4);d.model.scale.copy(d.scale).multiplyScalar(Math.max(0,d.life/.38));if(d.life<=0){disposeBillboard(d.model);this.deaths.splice(i,1);}}
     for(let i=this.rewards.length-1;i>=0;i--){const r=this.rewards[i];r.life-=dt;r.model.position.y+=dt*this.actorScale*2;r.model.quaternion.copy(this.camera.quaternion);if(r.life<=0){disposeBillboard(r.model);this.rewards.splice(i,1);}}
-    for(let i=this.props.length-1;i>=0;i--){const p=this.props[i];p.life-=dt;p.model.quaternion.copy(this.camera.quaternion);if(p.life<=0){disposeBillboard(p.model);this.props.splice(i,1);}}
+    for(let i=this.props.length-1;i>=0;i--){
+      const p=this.props[i];p.life-=dt;p.model.quaternion.copy(this.camera.quaternion);
+      if(p.kind==='pickup'){
+        p.progress+=dt*.055;
+        p.model.position.copy(this.routePoint(p.routeId,Math.min(1,p.progress)));
+        p.model.position.y+=this.actorScale*(.5+Math.sin(t*3.2)*.12);
+        p.model.scale.setScalar(this.actorScale*(.9+p.progress*.5));
+        if(p.progress>=1)p.life=0;
+      }
+      if(p.life<=0){disposeBillboard(p.model);this.props.splice(i,1);}
+    }
     for(let i=this.particles.length-1;i>=0;i--){const p=this.particles[i];p.life-=dt;if(p.life<=0){this.particles.splice(i,1);continue;}p.velocity.y-=dt*12;p.position.addScaledVector(p.velocity,dt);}
     this.sparks.count=this.particles.length;
     for(let i=0;i<this.particles.length;i++){const p=this.particles[i];this.dummy.position.copy(p.position);this.dummy.rotation.set(t*3+i,t*2,0);this.dummy.scale.setScalar(p.size*Math.min(1,p.life/p.max*2));this.dummy.updateMatrix();this.sparks.setMatrixAt(i,this.dummy.matrix);this.sparks.setColorAt(i,p.color);}
