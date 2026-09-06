@@ -994,11 +994,13 @@ const wallMatB = new THREE.MeshStandardMaterial({ color: 0xf2c96e, roughness: 0.
 
 function makeFatWall(x, z) {
   const g2 = new THREE.Group();
-  [[0, 0.75, 0, 1.15], [-0.95, 0.5, 0.25, 0.8], [0.95, 0.55, 0.2, 0.85], [-0.4, 1.15, -0.15, 0.6], [0.45, 1.2, -0.1, 0.55]].forEach(([bx, by, bz, br], k) => {
-    const b = new THREE.Mesh(new THREE.SphereGeometry(br, 12, 9), k % 2 ? wallMatB : wallMatA);
-    b.scale.y = 0.78; b.position.set(bx, by * 0.6, bz);
-    g2.add(b);
-  });
+  // 생성 이미지 지방 둔덕 빌보드 — 피격 시 group.scale이 줄어드는 기존 연출은 그대로 먹는다
+  const wtex = spriteTex('../assets/sprites/fatwall.png');
+  const blob = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 2.6 * 0.86),
+    new THREE.MeshBasicMaterial({ map: wtex, transparent: false, alphaTest: 0.35, depthWrite: true }));
+  blob.position.y = 2.6 * 0.86 / 2 - 0.05;
+  blob.quaternion.copy(camera.quaternion);
+  g2.add(blob);
   // HP 바 (첫 피격부터 표시)
   const bar = new THREE.Group();
   const barBg = new THREE.Mesh(new THREE.PlaneGeometry(1.35, 0.16), new THREE.MeshBasicMaterial({ color: 0x1a1016, transparent: true, opacity: 0.75 }));
