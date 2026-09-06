@@ -8,7 +8,7 @@ const landmark=(kind,at,size,hp=0)=>({kind,at:point(at),size:size.map((n,i)=>n/(
 const mask=(id,at,points)=>({id,at:point(at),points:points.map(point)});
 // A standing regular enemy occupies 15% of the plate at these foreground anchors.
 // Keep physical height fixed along a route so depth, not route progress, sets perspective.
-const ACTORS={coronary:[835,825],omentum:[873,821],sinusoid:[837,735],carotid:[826,823],stomach:[988,844],glomerulus:[780,818],islet:[820,829]};
+const ACTORS={villi:[700,859],coronary:[835,825],omentum:[873,821],sinusoid:[837,735],carotid:[826,823],stomach:[988,844],glomerulus:[780,818],islet:[820,829]};
 export const PLATES={
   coronary:{
     topology:'Y',camera:{height:18,fov:46,targetZ:-25},
@@ -60,6 +60,15 @@ export const PLATES={
     organs:{liver:organ([515,345],186),pancreas:organ([1472,749],213)},
     landmarks:[landmark('crystal',[1155,227],[96,84],10),landmark('crystal',[719,392],[92,78],8)],
     occluders:[mask('left-bank',[150,780],[[0,640],[120,610],[250,662],[300,760],[248,880],[120,941],[0,941]]),mask('right-dais',[1450,638],[[1290,620],[1400,570],[1560,575],[1672,620],[1672,941],[1240,941]])],
+  },
+  villi:{
+    topology:'blender-s',camera:{height:20,fov:45,targetZ:-27},
+    title:['융모 계곡','The villi valley'],subtitle:['흡수의 최전선을 지나는 한 줄기 길','One road through the absorptive frontier'],
+    briefing:['소장 융모 사이로 난 길을 따라 적이 내려와요. Blender에서 지형과 길을 함께 지어, 그림 위의 길과 몬스터가 걷는 길이 정확히 같아요.','Invaders descend the single road carved between the villi. Terrain and route were built together in Blender, so the painted road and the walked path are identical.'],
+    routes:[route('villi-road',['융모 계곡 길','Villi valley road'],[[134,160],[261,172],[388,183],[515,193],[643,202],[771,210],[897,221],[1024,234],[1147,256],[1264,284],[1367,327],[1371,399],[1277,444],[1164,478],[1045,506],[923,528],[801,551],[684,580],[582,623],[518,680],[529,750],[615,805],[700,859],[786,913]])],trunk:[],
+    organs:{liver:organ([1003,376],196),pancreas:organ([1505,734],208)},
+    landmarks:[landmark('fat',[1040,300],[104,86],9),landmark('fat',[660,592],[96,80],8)],
+    occluders:[mask('left-villi',[120,700],[[0,520],[150,505],[236,560],[250,700],[196,860],[92,941],[0,941]]),mask('right-villi',[1440,620],[[1200,600],[1330,560],[1500,566],[1672,600],[1672,941],[1180,941]])],
   },
   islet:{
     beta:true,topology:'parallel-3',camera:{height:24,fov:44,targetZ:-28},
