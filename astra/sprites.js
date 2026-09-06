@@ -1,5 +1,5 @@
 import * as T from '../vendor/three.module.js';
-import { SPRITE_SIZES } from './sprite-sizes.js?v=a13';
+import { SPRITE_SIZES } from './sprite-sizes.js?v=a14';
 
 const loader=new T.TextureLoader(),textures=new Map();
 export const spriteLoads=[];
@@ -9,6 +9,7 @@ export const ENEMY_ART=Object.fromEntries([
   ...['syrup','cancer','plaque'].map(key=>[key,{frames:[key],anchor:'bottom'}]),
 ]);
 ENEMY_ART.fragment=ENEMY_ART.cancerlet;
+ENEMY_ART.wingking=ENEMY_ART.wing;ENEMY_ART.pizzaking=ENEMY_ART.pizza;
 export const WEAPON_ART=['slingshot','crossbow','matchlock','pistol','shotgun','magnum','smg','rifle','mg','bazooka','homing','laser'].map((name,i)=>`w${String(i).padStart(2,'0')}_${name}`);
 
 export function texture(key){
