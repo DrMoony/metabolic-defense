@@ -62,7 +62,17 @@ def reset_scene():
     scene.render.resolution_x, scene.render.resolution_y = W, H
     scene.render.resolution_percentage = 100
     scene.render.film_transparent = False
-    scene.view_settings.view_transform = 'Filmic' if 'Filmic' in [v.name for v in bpy.types.ColorManagedViewSettings.bl_rna.properties['view_transform'].enum_items] else 'Standard'
+    names = [v.identifier for v in bpy.types.ColorManagedViewSettings.bl_rna.properties['view_transform'].enum_items]
+    for want in ('AgX', 'Filmic', 'Standard'):
+        if want in names:
+            scene.view_settings.view_transform = want
+            break
+    looks = [v.identifier for v in bpy.types.ColorManagedViewSettings.bl_rna.properties['look'].enum_items]
+    for want in ('AgX - Medium High Contrast', 'Medium High Contrast', 'High Contrast'):
+        if want in looks:
+            scene.view_settings.look = want
+            break
+    scene.view_settings.exposure = -0.2
     try:
         scene.eevee.taa_render_samples = 64
         scene.eevee.use_raytracing = True
@@ -101,6 +111,92 @@ def material(name, base, rough=0.35, subsurface=0.0, emission=None, emission_str
     if emission and 'Emission Color' in bsdf.inputs:
         bsdf.inputs['Emission Color'].default_value = (*emission, 1.0)
         bsdf.inputs['Emission Strength'].default_value = emission_strength
+    return mat
+
+
+def organic_material(name, base, tip, rough=0.30, subsurface=0.45, variation=0.12, seed=0.0):
+    """밑동은 짙고 끝은 밝은 유기체 재질. 노이즈로 개체마다 색을 살짝 흔든다."""
+    mat = bpy.data.materials.new(name)
+    mat.use_nodes = True
+    nt = mat.node_tree
+    bsdf = nt.nodes['Principled BSDF']
+    coord = nt.nodes.new('ShaderNodeTexCoord')
+    sep = nt.nodes.new('ShaderNodeSeparateXYZ')
+    rng = nt.nodes.new('ShaderNodeMapRange')
+    rng.inputs['From Min'].default_value = -1.0
+    rng.inputs['From Max'].default_value = 1.0
+    ramp = nt.nodes.new('ShaderNodeValToRGB')
+    ramp.color_ramp.elements[0].position = 0.05
+    ramp.color_ramp.elements[0].color = (*base, 1.0)
+    ramp.color_ramp.elements[1].position = 0.92
+    ramp.color_ramp.elements[1].color = (*tip, 1.0)
+    noise = nt.nodes.new('ShaderNodeTexNoise')
+    noise.inputs['Scale'].default_value = 2.4
+    noise.inputs['Detail'].default_value = 4.0
+    try:
+        noise.noise_dimensions = '4D'
+        noise.inputs['W'].default_value = seed
+    except Exception:
+        noise.inputs['Scale'].default_value = 2.4 + seed * 0.3
+    mix = nt.nodes.new('ShaderNodeMixRGB')
+    mix.blend_type = 'OVERLAY'
+    mix.inputs['Fac'].default_value = variation
+    nt.links.new(coord.outputs['Object'], sep.inputs['Vector'])
+    nt.links.new(sep.outputs['Z'], rng.inputs['Value'])
+    nt.links.new(rng.outputs['Result'], ramp.inputs['Fac'])
+    nt.links.new(coord.outputs['Object'], noise.inputs['Vector'])
+    nt.links.new(ramp.outputs['Color'], mix.inputs[1])
+    nt.links.new(noise.outputs['Color'], mix.inputs[2])
+    nt.links.new(mix.outputs['Color'], bsdf.inputs['Base Color'])
+    # 잔주름: 노이즈 두 겹을 범프로 물려 표면에 결을 준다
+    fine = nt.nodes.new('ShaderNodeTexNoise')
+    fine.inputs['Scale'].default_value = 26.0
+    fine.inputs['Detail'].default_value = 8.0
+    bump = nt.nodes.new('ShaderNodeBump')
+    bump.inputs['Strength'].default_value = 0.28
+    bump.inputs['Distance'].default_value = 0.06
+    nt.links.new(coord.outputs['Object'], fine.inputs['Vector'])
+    nt.links.new(fine.outputs['Fac'], bump.inputs['Height'])
+    nt.links.new(bump.outputs['Normal'], bsdf.inputs['Normal'])
+    rough_ramp = nt.nodes.new('ShaderNodeMapRange')
+    rough_ramp.inputs['To Min'].default_value = rough * 0.75
+    rough_ramp.inputs['To Max'].default_value = rough * 1.45
+    nt.links.new(fine.outputs['Fac'], rough_ramp.inputs['Value'])
+    nt.links.new(rough_ramp.outputs['Result'], bsdf.inputs['Roughness'])
+    for key, value in (('Subsurface Weight', subsurface), ('Coat Weight', 0.45), ('Coat Roughness', 0.18)):
+        if key in bsdf.inputs:
+            bsdf.inputs[key].default_value = value
+    if 'Subsurface Radius' in bsdf.inputs:
+        bsdf.inputs['Subsurface Radius'].default_value = (1.6, 0.5, 0.38)
+    if 'Subsurface Scale' in bsdf.inputs:
+        bsdf.inputs['Subsurface Scale'].default_value = 0.6
+    return mat
+
+
+def road_material(name, base, glow, rough=0.24):
+    """젖은 길: 미세 반사 + 가운데로 갈수록 은은한 발광."""
+    mat = bpy.data.materials.new(name)
+    mat.use_nodes = True
+    nt = mat.node_tree
+    bsdf = nt.nodes['Principled BSDF']
+    coord = nt.nodes.new('ShaderNodeTexCoord')
+    noise = nt.nodes.new('ShaderNodeTexNoise')
+    noise.inputs['Scale'].default_value = 14.0
+    noise.inputs['Detail'].default_value = 6.0
+    mix = nt.nodes.new('ShaderNodeMixRGB')
+    mix.blend_type = 'OVERLAY'
+    mix.inputs['Fac'].default_value = 0.10
+    mix.inputs[1].default_value = (*base, 1.0)
+    nt.links.new(coord.outputs['Object'], noise.inputs['Vector'])
+    nt.links.new(noise.outputs['Color'], mix.inputs[2])
+    nt.links.new(mix.outputs['Color'], bsdf.inputs['Base Color'])
+    bsdf.inputs['Roughness'].default_value = rough
+    for key, value in (('Coat Weight', 0.6), ('Coat Roughness', 0.08), ('Specular IOR Level', 0.6)):
+        if key in bsdf.inputs:
+            bsdf.inputs[key].default_value = value
+    if glow and 'Emission Color' in bsdf.inputs:
+        bsdf.inputs['Emission Color'].default_value = (*glow, 1.0)
+        bsdf.inputs['Emission Strength'].default_value = 0.25
     return mat
 
 
@@ -205,11 +301,15 @@ def build_walls(spec, world_pts, mats, scene=None, cam=None):
                 gap = half + cfg['margin'] + radius + lane * cfg['spread'] + rng.uniform(-.6, .6)
                 cx, cz = x + px * side * gap, z + pz * side * gap
                 height = radius * rng.uniform(*cfg.get('height', [1.6, 2.8]))
+                if rng.random() < cfg.get('tall_chance', .22):
+                    height *= rng.uniform(1.35, 1.8)
                 mat = mats['wall'] if lane == 0 else (mats['wall_mid'] if lane == 1 else mats['wall_far'])
-                made.append(organic_blob(f'w{i}-{side}-{lane}',
-                                         ground(cx, cz, height * 0.5),
-                                         (radius, radius * rng.uniform(.85, 1.15), height),
-                                         mat, seed=i * 31 + side * 7 + lane))
+                blob = organic_blob(f'w{i}-{side}-{lane}',
+                                    ground(cx, cz, height * 0.5),
+                                    (radius, radius * rng.uniform(.85, 1.15), height),
+                                    mat, seed=i * 31 + side * 7 + lane)
+                blob.rotation_euler = (rng.uniform(-.12, .12), rng.uniform(-.12, .12), rng.uniform(0, 6.28))
+                made.append(blob)
     return made
 
 
@@ -339,14 +439,15 @@ def main():
     scene = reset_scene()
     cam = make_camera(scene, spec)
 
+    pal = spec['palette']
     mats = {
-        'floor': material('floor', spec['palette']['floor'], rough=0.5, subsurface=0.15),
-        'road': material('road', spec['palette']['road'], rough=0.28, subsurface=0.2),
-        'curb': material('curb', spec['palette']['curb'], rough=0.22, subsurface=0.3),
-        'wall': material('wall', spec['palette']['wall'], rough=0.38, subsurface=0.35),
-        'wall_mid': material('wall_mid', spec['palette'].get('wall_mid', spec['palette']['wall']), rough=0.42, subsurface=0.3),
-        'wall_far': material('wall_far', spec['palette']['wall_far'], rough=0.45, subsurface=0.25),
-        'detail': material('detail', spec['palette'].get('detail', spec['palette']['curb']), rough=0.2, subsurface=0.4),
+        'floor': organic_material('floor', pal['floor'], pal.get('floor_tip', pal['floor']), rough=0.55, subsurface=0.2, variation=0.20, seed=3.0),
+        'road': road_material('road', pal['road'], pal.get('road_glow')),
+        'curb': organic_material('curb', pal['curb'], pal.get('curb_tip', pal['curb']), rough=0.24, subsurface=0.5, variation=0.08, seed=5.0),
+        'wall': organic_material('wall', pal['wall'], pal.get('wall_tip', pal['curb']), seed=1.0),
+        'wall_mid': organic_material('wall_mid', pal.get('wall_mid', pal['wall']), pal.get('wall_tip', pal['curb']), rough=0.34, seed=2.0),
+        'wall_far': organic_material('wall_far', pal['wall_far'], pal.get('wall_far_tip', pal['wall']), rough=0.40, subsurface=0.3, seed=4.0),
+        'detail': organic_material('detail', pal.get('detail', pal['curb']), pal.get('detail_tip', [1.0, 0.92, 0.82]), rough=0.14, subsurface=0.6, seed=6.0),
     }
 
     build_floor(spec, mats)
