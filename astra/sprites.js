@@ -1,5 +1,5 @@
 import * as T from '../vendor/three.module.js';
-import { SPRITE_SIZES } from './sprite-sizes.js?v=a9';
+import { SPRITE_SIZES } from './sprite-sizes.js?v=a10';
 
 const loader=new T.TextureLoader(),textures=new Map();
 export const spriteLoads=[];

@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a9';
-import { RouteEditor } from './route-editor.js?v=a9';
-import { World, THREE } from './world.js?v=a9';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a9';
+import { healthColor, weaponColor } from './feedback.js?v=a10';
+import { RouteEditor } from './route-editor.js?v=a10';
+import { World, THREE } from './world.js?v=a10';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a10';
 
-import { MAPS, getMap } from './maps/index.js?v=a9';
+import { MAPS, getMap } from './maps/index.js?v=a10';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -70,7 +70,26 @@ function sound(frequency=240,duration=.09,type='triangle',volume=.035){
   oscillator.connect(gain).connect(audioContext.destination);oscillator.start();oscillator.stop(now+duration+.01);
   oscillator.onended=()=>{oscillator.disconnect();gain.disconnect();};
 }
-function unlockAudio(){try{audioContext??=new(window.AudioContext||window.webkitAudioContext)();audioContext.resume().catch(()=>{});}catch{}}
+// 실녹음 효과음(CC0 · ../assets/sfx, 출처는 CREDITS.md). 로드 전이나 실패 시엔 sound() 합성음으로 폴백
+const SFX_DIR='../assets/sfx/';
+const SFX_NAMES=[...Array(12).keys()].map(i=>'shot_'+String(i).padStart(2,'0')).concat(['explode_big','explode_small','boss_die','hit','hit_squish','kill_pop','kill_splat','reload_click','reload_done','weapon_get','quiz_ok','quiz_no','pulse','insulin','rescue','damage']);
+const sfxBuffers={};let sfxMaster=null;
+function loadSfx(){
+  if(!audioContext)return;
+  for(const name of SFX_NAMES){
+    if(sfxBuffers[name]!==undefined)continue;sfxBuffers[name]=null;
+    fetch(`${SFX_DIR}${name}.mp3?v=1`).then(r=>r.arrayBuffer()).then(b=>audioContext.decodeAudioData(b)).then(d=>{sfxBuffers[name]=d;}).catch(()=>{sfxBuffers[name]=false;});
+  }
+}
+function sample(name,gain=1,rate=1){
+  try{
+    const buffer=sfxBuffers[name];if(!buffer||!audioContext||muted)return false;
+    if(!sfxMaster){sfxMaster=audioContext.createGain();sfxMaster.gain.value=.9;sfxMaster.connect(audioContext.destination);}
+    const src=audioContext.createBufferSource();src.buffer=buffer;src.playbackRate.value=rate*(.96+Math.random()*.08);
+    const g=audioContext.createGain();g.gain.value=gain;src.connect(g).connect(sfxMaster);src.start();return true;
+  }catch{return false;}
+}
+function unlockAudio(){try{audioContext??=new(window.AudioContext||window.webkitAudioContext)();audioContext.resume().catch(()=>{});loadSfx();}catch{}}
 function notice(ko,en,seconds=2.7){$('notice').textContent=text(ko,en);noticeTime=seconds;$('notice').classList.add('show');}
 function stageOfLiver(){return Math.min(3,Math.floor(state.liver/25));}
 function pancreaticPower(){return state.failed?0:state.pancreas>60?1:state.pancreas>30?.7:state.pancreas>10?.45:.2;}
@@ -185,18 +204,18 @@ function upgrade(){
   if(state.unlocked>=WEAPONS.length-1){state.liver=clamp(state.liver-15);return;}
   state.unlocked++;state.weapon=state.unlocked;state.reload=0;state.reloadTotal=0;state.reloadFlash=0;state.ammo[state.weapon]=WEAPONS[state.weapon].mag;world.buildGun(state.weapon);
   upgradeTime=3;$('weapon-banner').textContent=text(`무기 획득 · ${weaponName()} · 탄창 ${WEAPONS[state.weapon].mag}`,`WEAPON ACQUIRED · ${weaponName()} · ${WEAPONS[state.weapon].mag} rounds`);$('weapon-banner').style.borderColor=weaponColor(state.weapon);show('weapon-banner',true);
-  notice(`무기 승급 · ${weaponName()}`,`WEAPON UPGRADE · ${weaponName()}`);sound(850,.22);
+  notice(`무기 승급 · ${weaponName()}`,`WEAPON UPGRADE · ${weaponName()}`);if(!sample('weapon_get',.8))sound(850,.22);
 }
 function damage(enemy,amount,byPlayer=true,point){
   if(enemy.dead)return;
-  enemy.hp-=amount;enemy.flash=1;world.burst(point||enemy.model.position.clone().add(new THREE.Vector3(0,1.2,0)),byPlayer?0xffd395:0x9dedb7,byPlayer?5:3);
+  enemy.hp-=amount;enemy.flash=1;if(byPlayer)sample(Math.random()<.5?'hit':'hit_squish',.5);world.burst(point||enemy.model.position.clone().add(new THREE.Vector3(0,1.2,0)),byPlayer?0xffd395:0x9dedb7,byPlayer?5:3);
   world.updateHealth(enemy);updateBossHUD();
   if(enemy.hp>0)return;
   const position=enemy.model.position.clone();removeEnemy(enemy,true);
   if(byPlayer){state.score+=Math.round(enemy.score*Math.min(4,1+state.combo*.12));world.shake=Math.max(world.shake,enemy.boss?2:.25);hitTime=enemy.boss?.13:enemy.maxHp>=5?.075:.045;}
-  world.burst(position,enemy.boss?0xffad7f:0xffdc9b,enemy.boss?45:13);
+  world.burst(position,enemy.boss?0xffad7f:0xffdc9b,enemy.boss?45:13);if(!enemy.boss)sample(Math.random()<.5?'kill_pop':'kill_splat',.8);
   if(enemy.boss){
-    if(enemy.waveBoss)state.killedBosses.push(enemy.type);state.slow=.55;world.ring(position,0xffd39b,22);sound(65,.5,'sawtooth',.06);
+    if(enemy.waveBoss)state.killedBosses.push(enemy.type);state.slow=.55;world.ring(position,0xffd39b,22);if(!sample('boss_die',1))sound(65,.5,'sawtooth',.06);
     // Sprites visualize the existing immediate recovery reward.
     state.liver=clamp(state.liver-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;world.reward(position,enemy.type==='cancer'?'item_gcgr':'item_glp1');
     notice('보스 격파! 정화 지원 · 간과 췌장 회복','BOSS DEFEATED · Purification support & organ recovery',3.5);
@@ -206,7 +225,7 @@ function damage(enemy,amount,byPlayer=true,point){
 function reload(){
   if(state.phase!=='combat'||state.paused||state.difficulty==='easy'||state.reload>0||state.ammo[state.weapon]===WEAPONS[state.weapon].mag)return;
   state.reload=WEAPONS[state.weapon].reload*(1+stageOfLiver()*.16)*(state.shots>5&&state.hits/state.shots>.7?.88:1);
-  state.reloadTotal=state.reload;state.reloadFlash=0;updateReticle();sound(330,.12,'sine');
+  state.reloadTotal=state.reload;state.reloadFlash=0;updateReticle();if(!sample('reload_click',.7))sound(330,.12,'sine');
 }
 function swap(){
   if(state.phase!=='combat'||state.paused||state.unlocked<1)return;
@@ -228,7 +247,7 @@ function shot(clientX,clientY,extra=false){
     },null)?.enemy;
   }
   world.shot(enemy?picked.enemy?picked.point:enemy.model.position.clone().add(new THREE.Vector3(0,1,0)):picked.point,state.weapon);
-  sound(weapon.homing?140:600-state.weapon*37,.06+state.weapon*.008,state.weapon>8?'sawtooth':'triangle',.035);
+  if(!sample('shot_'+String(state.weapon).padStart(2,'0'),state.weapon>=9?.9:.75))sound(weapon.homing?140:600-state.weapon*37,.06+state.weapon*.008,state.weapon>8?'sawtooth':'triangle',.035);
   if(picked.prop){state.hits++;state.score+=250;state.core=clamp(state.core+2);world.freeTrap(picked.prop);if(state.ammo[state.weapon]<=0)reload();updateHUD();return true;}
   if(picked.landmark){
     state.hits++;state.combo++;$('reticle').classList.add('hit');
@@ -255,7 +274,7 @@ function shot(clientX,clientY,extra=false){
         const behind=enemies.filter(other=>other!==enemy&&other.model.position.z<hitPosition.z&&Math.abs(other.model.position.x-hitPosition.x)<2.3).sort((a,b)=>b.model.position.z-a.model.position.z);
         behind.slice(0,weapon.pierce-1).forEach(other=>damage(other,weapon.damage));
       }
-      if(weapon.splash){for(const other of [...enemies])if(other!==enemy&&other.model.position.distanceTo(hitPosition)<weapon.splash)damage(other,3);world.ring(hitPosition,0xffba79,weapon.splash);}
+      if(weapon.splash){for(const other of [...enemies])if(other!==enemy&&other.model.position.distanceTo(hitPosition)<weapon.splash)damage(other,3);world.ring(hitPosition,0xffba79,weapon.splash);sample(weapon.homing?'explode_small':'explode_big',weapon.homing?.8:1);}
     }
   }else state.combo=0;
   if(weapon.burst&&!extra)for(let i=1;i<weapon.burst;i++)pendingShots.push({in:i*.075,x:clientX,y:clientY});
@@ -282,9 +301,9 @@ function answerQuiz(){
   if(correct){
     state.correct++;state.score+=1500+Math.round(state.quizTime/18*500);state.core=clamp(state.core+8);state.liver=clamp(state.liver-25);state.sugar=clamp(state.sugar-20);
     if(!state.failed){state.pancreas=clamp(state.pancreas+30);state.strain=Math.max(0,state.strain-6);}upgrade();
-    $('feedback').textContent=text('정답! 무기 승급 · 생명 +8 · 간 회복', 'Correct! Weapon upgrade · life +8 · liver restored');sound(950,.2);
+    $('feedback').textContent=text('정답! 무기 승급 · 생명 +8 · 간 회복', 'Correct! Weapon upgrade · life +8 · liver restored');if(!sample('quiz_ok',.8))sound(950,.2);
   }else{
-    $('feedback').textContent=text(`정답: ${state.quiz.a[state.quiz.correct]}`,`Correct answer: ${state.quiz.a[state.quiz.correct]}`);sound(150,.2,'sine');
+    $('feedback').textContent=text(`정답: ${state.quiz.a[state.quiz.correct]}`,`Correct answer: ${state.quiz.a[state.quiz.correct]}`);if(!sample('quiz_no',.7))sound(150,.2,'sine');
   }
   $('source').textContent=state.quiz.src?`${text('출처','Source')}: ${state.quiz.src}`:'';
   show('submit',false);show('quiz-next',true);updateHUD();
@@ -308,7 +327,7 @@ function finish(victory){
 }
 function combat(dt){
   state.waveTime+=dt;state.cooldown=Math.max(0,state.cooldown-dt);state.boost=Math.max(0,state.boost-dt);
-  if(state.reload>0){state.reload=Math.max(0,state.reload-dt);if(!state.reload){state.ammo[state.weapon]=WEAPONS[state.weapon].mag;state.reloadFlash=.18;sound(500,.055);}}
+  if(state.reload>0){state.reload=Math.max(0,state.reload-dt);if(!state.reload){state.ammo[state.weapon]=WEAPONS[state.weapon].mag;state.reloadFlash=.18;if(!sample('reload_done',.7))sound(500,.055);}}
   for(let i=pendingShots.length-1;i>=0;i--){pendingShots[i].in-=dt;if(pendingShots[i].in<=0){const p=pendingShots.splice(i,1)[0];shot(p.x,p.y,true);}}
   if(state.shooting)shot(aim.x,aim.y);
   const wave=WAVES[state.wave],tuning=DIFFICULTY[state.difficulty];
@@ -330,13 +349,13 @@ function combat(dt){
     }
     if(!enemy.dead&&enemy.progress>=1){
       state.core=clamp(state.core-enemy.impact*tuning.impact);state.combo=0;flashTime=.35;world.shake=1;
-      notice(`${getMap(state.map).core[0]} 방어선이 공격받고 있어요`,`${getMap(state.map).core[1]} under attack!`);sound(80,.2,'sawtooth');removeEnemy(enemy);
+      notice(`${getMap(state.map).core[0]} 방어선이 공격받고 있어요`,`${getMap(state.map).core[1]} under attack!`);if(!sample('damage',1))sound(80,.2,'sawtooth');removeEnemy(enemy);
     }
   }
   state.pulse-=dt;
   if(state.pulse<=0){
     state.pulse=[9.5,11.5,13.5,17][stageOfLiver()]*(state.boost>0?.5:1);
-    const origin=world.liver.position,radius=world.pulseRadius||25;world.pulse();sound(390,.14,'sine',.018);
+    const origin=world.liver.position,radius=world.pulseRadius||25;world.pulse();if(!sample('pulse',.6))sound(390,.14,'sine',.018);
     for(const enemy of [...enemies])if(!enemy.fly&&enemy.model.position.distanceTo(origin)<radius)damage(enemy,1,false);
   }
   if(!state.failed){
@@ -350,7 +369,7 @@ function combat(dt){
     if(targets.length&&state.insulin<=0&&!state.failed){
       state.insulin=1+stageOfLiver()*.25;state.pancreas=clamp(state.pancreas-(state.sugar>70?5:2.2));
       const target=targets[0];world.fireTurret();
-      world.bolt(world.tip.getWorldPosition(new THREE.Vector3()),target,1.2*pancreaticPower(),(e,d)=>damage(e,d,false));
+      sample('insulin',.35);world.bolt(world.tip.getWorldPosition(new THREE.Vector3()),target,1.2*pancreaticPower(),(e,d)=>damage(e,d,false));
     }
   }else world.aimTurret(null,0);
   world.advanceProjectiles(dt);
