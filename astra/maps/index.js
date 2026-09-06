@@ -1,10 +1,10 @@
-import coronary from './coronary.js?v=a16';
-import omentum from './omentum.js?v=a16';
-import sinusoid from './sinusoid.js?v=a16';
-import carotid from './carotid.js?v=a16';
-import stomach from './stomach.js?v=a16';
-import glomerulus from './glomerulus.js?v=a16';
-import islet from './islet.js?v=a16';
-import { withPlate } from './plates.js?v=a16';
+import coronary from './coronary.js?v=a17';
+import omentum from './omentum.js?v=a17';
+import sinusoid from './sinusoid.js?v=a17';
+import carotid from './carotid.js?v=a17';
+import stomach from './stomach.js?v=a17';
+import glomerulus from './glomerulus.js?v=a17';
+import islet from './islet.js?v=a17';
+import { withPlate } from './plates.js?v=a17';
 export const MAPS=[coronary,omentum,sinusoid,carotid,stomach,glomerulus,islet].map(withPlate);
 export const getMap=key=>MAPS.find(map=>map.key===key&&map.ready)||MAPS[0];

@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a16';
-import { RouteEditor } from './route-editor.js?v=a16';
-import { World, THREE } from './world.js?v=a16';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a16';
+import { healthColor, weaponColor } from './feedback.js?v=a17';
+import { RouteEditor } from './route-editor.js?v=a17';
+import { World, THREE } from './world.js?v=a17';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a17';
 
-import { MAPS, getMap } from './maps/index.js?v=a16';
+import { MAPS, getMap } from './maps/index.js?v=a17';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -261,6 +261,8 @@ function damage(enemy,amount,byPlayer=true,point){
     // Sprites visualize the existing immediate recovery reward.
     state.liver=clamp(state.liver-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;
     const gcgr=enemy.type==='cancer';if(gcgr)state.glucagon=10;world.reward(position,gcgr?'item_gcgr':'item_glp1');
+    // 보스를 잡으면 무기도 한 단계 올라간다 (퀴즈·장애물과 함께 세 번째 승급 경로)
+    if(enemy.waveBoss&&state.unlocked<WEAPONS.length-1)upgrade();
     notice('보스 격파! 정화 지원 · 간과 췌장 회복','BOSS DEFEATED · Purification support & organ recovery',3.5);
     if(enemy.type==='cancer')for(let i=0;i<5;i++)spawn('fragment',{progress:Math.max(.12,enemy.progress-.30-Math.random()*.12),routeId:enemy.routeId,lane:enemy.lane,from:position});
   }else if(byPlayer&&Math.random()<.08){
