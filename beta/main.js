@@ -310,11 +310,44 @@ function noiseBuffer() {
   }
   return noiseBuf;
 }
+// ---------- 실녹음 효과음 (CC0 · assets/sfx, 출처는 assets/sfx/CREDITS.md) ----------
+const SFX_DIR = '../assets/sfx/';
+const SFX_NAMES = [...Array(12).keys()].map((i) => 'shot_' + String(i).padStart(2, '0')).concat([
+  'explode_big', 'explode_small', 'boss_die', 'hit', 'hit_squish', 'kill_pop', 'kill_splat',
+  'reload_click', 'reload_done', 'weapon_get', 'quiz_ok', 'quiz_no', 'pulse', 'insulin', 'rescue', 'damage', 'fatwall_hit']);
+const sfxBuf = {}; let sfxMaster = null;
+function sfxOut() {
+  const ctx = audio();
+  if (!sfxMaster) { sfxMaster = ctx.createGain(); sfxMaster.gain.value = 0.9; sfxMaster.connect(ctx.destination); }
+  return sfxMaster;
+}
+function loadSfx() {
+  let ctx; try { ctx = audio(); } catch (e) { return; }
+  for (const n of SFX_NAMES) {
+    if (sfxBuf[n] !== undefined) continue;
+    sfxBuf[n] = null;
+    fetch(SFX_DIR + n + '.mp3?v=1').then((r) => r.arrayBuffer()).then((b) => ctx.decodeAudioData(b))
+      .then((d) => { sfxBuf[n] = d; }).catch(() => { sfxBuf[n] = false; });
+  }
+}
+// 샘플 재생 — 아직 로드 전이면 false를 돌려 합성음으로 폴백. 피치를 ±4% 흔들어 연사 때 기계적 반복을 줄인다
+function sample(name, gain = 1, rate = 1) {
+  try {
+    const b = sfxBuf[name]; if (!b) return false;
+    const ctx = audio(); const src = ctx.createBufferSource(); src.buffer = b;
+    src.playbackRate.value = rate * (0.96 + Math.random() * 0.08);
+    const g = ctx.createGain(); g.gain.value = gain;
+    src.connect(g).connect(sfxOut()); src.start();
+    return true;
+  } catch (e) { return false; }
+}
 // 오실레이터 삑 소리 대신 노이즈 크랙 + 저역 펀치 두 겹 — 무기 티어가 높을수록 굵고 묵직하게
 function shotSound(tier) {
+  const ti = tier !== undefined ? tier : G.weapon;
+  if (sample('shot_' + String(ti).padStart(2, '0'), ti >= 9 ? 0.9 : 0.75)) return;
   try {
     const ctx = audio(); const t = ctx.currentTime;
-    const w = Math.min(1, (tier !== undefined ? tier : G.weapon) / 9);
+    const w = Math.min(1, ti / 9);
     const src = ctx.createBufferSource(); src.buffer = noiseBuffer();
     const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.Q.value = 0.8;
     bp.frequency.setValueAtTime(2600 - w * 1500, t);
@@ -336,6 +369,7 @@ function shotSound(tier) {
 const sfx = {
   shoot: () => shotSound(),
   hit: () => {
+    if (sample(Math.random() < 0.5 ? 'hit' : 'hit_squish', 0.55)) return;
     try {
       const ctx = audio(); const t = ctx.currentTime;
       const src = ctx.createBufferSource(); src.buffer = noiseBuffer();
@@ -346,11 +380,11 @@ const sfx = {
     } catch (e) { /* 무시 */ }
     beep(700, 0.04, 'triangle', 0.045);
   },
-  kill: () => { beep(520, 0.07, 'triangle', 0.05); setTimeout(() => beep(780, 0.09, 'triangle', 0.05), 60); },
-  dmg: () => beep(85, 0.22, 'sawtooth', 0.09),
-  ok: () => { beep(660, 0.1, 'sine', 0.07); setTimeout(() => beep(880, 0.16, 'sine', 0.07), 90); },
-  no: () => beep(160, 0.25, 'sawtooth', 0.06, -60),
-  rescue: () => { beep(700, 0.08, 'sine', 0.06); setTimeout(() => beep(940, 0.08, 'sine', 0.06), 70); setTimeout(() => beep(1180, 0.14, 'sine', 0.06), 140); },
+  kill: () => { if (sample(Math.random() < 0.5 ? 'kill_pop' : 'kill_splat', 0.8)) return; beep(520, 0.07, 'triangle', 0.05); setTimeout(() => beep(780, 0.09, 'triangle', 0.05), 60); },
+  dmg: () => { if (sample('damage', 0.9)) return; beep(85, 0.22, 'sawtooth', 0.09); },
+  ok: () => { if (sample('quiz_ok', 0.8)) return; beep(660, 0.1, 'sine', 0.07); setTimeout(() => beep(880, 0.16, 'sine', 0.07), 90); },
+  no: () => { if (sample('quiz_no', 0.7)) return; beep(160, 0.25, 'sawtooth', 0.06, -60); },
+  rescue: () => { if (sample('rescue', 0.8)) return; beep(700, 0.08, 'sine', 0.06); setTimeout(() => beep(940, 0.08, 'sine', 0.06), 70); setTimeout(() => beep(1180, 0.14, 'sine', 0.06), 140); },
 };
 
 // ---------- 렌더러 / 씬 ----------
@@ -586,7 +620,7 @@ function liverPulseUpdate(dt) {
   if (G.liverPulseT > 0) return;
   G.liverPulseT = LIVER_PULSE_INTERVAL[liverStage()] * metaPulseMul() * (G.liverBoostT > 0 ? 0.35 : 1);   // 부스트 땐 3배 가까이 잦게
   spawnLiverRing();
-  beep(520, 0.14, 'sine', 0.045);
+  if (!sample('pulse', 0.6)) beep(520, 0.14, 'sine', 0.045);
   for (const e of [...enemies]) {
     if (e.def.fly || e.state === 'dying') continue;
     const dx = e.mesh.position.x - liverSprite.position.x;
@@ -939,7 +973,7 @@ function reloadSec(i = G.weapon) {
 function startReload() {
   if (G.reloadT > 0) return;
   G.reloadT = G.reloadMax = reloadSec();
-  beep(240, 0.1, 'square', 0.04, -60);
+  if (!sample('reload_click', 0.7)) beep(240, 0.1, 'square', 0.04, -60);
   chFx(true);
 }
 // 조준선에 붙는 원형 재장전 게이지 + 문구
@@ -968,7 +1002,7 @@ function reloadUpdate(dt) {
       G.reloadT = 0;
       G.ammo[G.weapon] = magOf(G.weapon);
       crosshair.classList.remove('reloading');
-      beep(760, 0.09, 'sine', 0.05);
+      if (!sample('reload_done', 0.7)) beep(760, 0.09, 'sine', 0.05);
       chFlash(T('reloadDone'), '#7dffb0', 0.5);
     }
     return;
@@ -1889,7 +1923,7 @@ function spawnFx(e) {
   scene.add(ring);
   spawnFxRings.push({ mesh: ring, life: 0.55, grow: boss ? 9 : 5 });
   burst(p.clone().add(new THREE.Vector3(0, 0.6, 0)), color, boss ? 20 : 7, boss ? 7 : 3.5);
-  if (boss) beep(140, 0.35, 'sawtooth', 0.07, -50);
+  if (boss && !sample('boss_die', 1)) beep(140, 0.35, 'sawtooth', 0.07, -50);
 }
 function spawnFxUpdate(dt) {
   for (const r of [...spawnFxRings]) {
@@ -2147,7 +2181,7 @@ function processRay(ndcX, ndcY, W) {
     wl.hp -= W.dmg;
     G.score += 5; G.shootScore += 5;   // 콤보는 유지, 소량 점수
     burst(hit.point, 0xffdf9e, 6, 3);
-    beep(280, 0.04, 'triangle', 0.03);
+    if (!sample('hit', 0.3)) beep(280, 0.04, 'triangle', 0.03);
     wl.mesh.scale.setScalar(0.8 + 0.2 * Math.max(0, wl.hp) / wl.max);
     const ratio = Math.max(0, wl.hp) / wl.max;
     wl.bar.visible = true;
@@ -2204,7 +2238,7 @@ function shootAt(clientX, clientY) {
       }
     }
     rockets.push({ mesh: r, target, speed: W.homing ? 26 : 34, W, lock, turn: W.homing ? 5.5 : 0 });
-    beep(W.homing ? 620 : 180, W.homing ? 0.1 : 0.16, W.homing ? 'square' : 'sawtooth', 0.05, W.homing ? 220 : -60);
+    if (!sfxBuf['shot_09']) beep(W.homing ? 620 : 180, W.homing ? 0.1 : 0.16, W.homing ? 'square' : 'sawtooth', 0.05, W.homing ? 220 : -60);   // 발사음은 shotSound의 실녹음이 담당
     G.shots += 1;
     if (ammoOn() && ammoOf(G.weapon) <= 0) startReload();
     return;
@@ -2257,7 +2291,7 @@ function rocketsUpdate(dt) {
       shakeCam(homing ? 0.3 : 0.55, homing ? 0.14 : 0.22);
       hitstop(homing ? 0.03 : 0.055);
       damagePopup(at, '💥', homing ? '#9fd6ff' : '#ffb347', homing ? 1.35 : 1.7);
-      beep(homing ? 150 : 90, 0.3, 'sawtooth', 0.09, -40);
+      if (!sample(homing ? 'explode_small' : 'explode_big', homing ? 0.8 : 1)) beep(homing ? 150 : 90, 0.3, 'sawtooth', 0.09, -40);
       let hitAny = false;
       for (const e of [...enemies]) {
         if (e.state === 'dying') continue;
@@ -2315,8 +2349,7 @@ function killEnemy(e, byPlayer) {
       slowmo(0.55);
       chromaPulse(260);
       e.mesh.scale.multiplyScalar(1.35);
-      beep(70, 0.5, 'sawtooth', 0.1, -30);
-      setTimeout(() => beep(140, 0.35, 'square', 0.07, -60), 110);
+      if (!sample('explode_big', 0.9)) { beep(70, 0.5, 'sawtooth', 0.1, -30); setTimeout(() => beep(140, 0.35, 'square', 0.07, -60), 110); }
       showMsg(T('bossKill', eLabel(e.def), gain.toLocaleString()), 3000);
     } else {
       const big = e.def.hp >= 5;
@@ -2410,7 +2443,7 @@ function pancreasUpdate(dt) {
     p.position.copy(pancTip.getWorldPosition(new THREE.Vector3()));
     projectiles.push({ mesh: p, target: nearest, dmg: 1.2 * mult, speed: 26, tier });
     scene.add(p);
-    beep(980, 0.05, 'sine', 0.03);
+    if (!sample('insulin', 0.35)) beep(980, 0.05, 'sine', 0.03);
   }
   pancSprite.material.color.setHex(pancMult() >= 1 ? 0xffffff : pancMult() >= 0.7 ? 0xf2d9c0 : 0xd9b09a);
   const ps = 1 + Math.sin(performance.now() * 0.004) * 0.025;
@@ -2451,8 +2484,7 @@ function waveUpdate(dt) {
           if (b) bossBarShow(b);
           screenFlash('#ff9db0', 0.3, 160);
           shakeCam(0.7, 0.5);
-          beep(120, 0.5, 'sawtooth', 0.09, -40);
-          setTimeout(() => beep(90, 0.6, 'sawtooth', 0.08, -30), 260);
+          if (!sample('damage', 1)) { beep(120, 0.5, 'sawtooth', 0.09, -40); setTimeout(() => beep(90, 0.6, 'sawtooth', 0.08, -30), 260); }
         }
       }
     }
@@ -2734,10 +2766,12 @@ function weaponGetBanner(i) {
   clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove('show'), 2600);
   screenFlash('#ffe9a8', 0.22, 110);
   chromaPulse(140);
-  // 상승하는 3음 팡파르
-  beep(660, 0.09, 'triangle', 0.06);
-  setTimeout(() => beep(880, 0.09, 'triangle', 0.06), 90);
-  setTimeout(() => beep(1180, 0.18, 'triangle', 0.07), 180);
+  // 획득 효과음 (실녹음 없으면 상승하는 3음 팡파르)
+  if (!sample('weapon_get', 0.8)) {
+    beep(660, 0.09, 'triangle', 0.06);
+    setTimeout(() => beep(880, 0.09, 'triangle', 0.06), 90);
+    setTimeout(() => beep(1180, 0.18, 'triangle', 0.07), 180);
+  }
 }
 function weaponUp(steps = 1) {
   if (G.weapon >= WEAPONS.length - 1) return false;
@@ -2992,7 +3026,7 @@ window.addEventListener('contextmenu', (e) => { e.preventDefault(); });
 window.addEventListener('selectstart', (e) => { e.preventDefault(); });   // 조준하며 끌 때 텍스트 선택 방지
 window.addEventListener('dragstart', (e) => { e.preventDefault(); });
 window.addEventListener('pointerdown', (e) => {
-  audio();
+  audio(); loadSfx();
   if (e.button === 2) {   // 우클릭: 보유 무기 순환 (재장전 중에도 가능)
     if (G.state === 'WAVE') swapWeapon();
     return;
@@ -3167,7 +3201,7 @@ function toggleAdmin(force) {
 document.querySelectorAll('#screen-admin .opt-btn').forEach((b) => {
   b.addEventListener('pointerdown', (ev) => {
     ev.stopPropagation();
-    audio();
+    audio(); loadSfx();
     if (b.dataset.drug !== undefined) localStorage.setItem('xgb_quizdrug', b.dataset.drug);
     else localStorage.setItem('xgb_quizmix', b.dataset.mix);
     localStorage.removeItem('xgb_recentq');     // 세트가 바뀌면 최근 이력도 초기화
@@ -3181,7 +3215,7 @@ document.querySelectorAll('#screen-admin .opt-btn').forEach((b) => {
 document.querySelectorAll('.opt-btn').forEach((b) => {
   b.addEventListener('pointerdown', (ev) => {
     ev.stopPropagation();
-    audio();
+    audio(); loadSfx();
     const { opt, val } = b.dataset;
     document.querySelectorAll(`.opt-btn[data-opt="${opt}"]`).forEach((x) => x.classList.toggle('sel', x === b));
     if (opt === 'lang') applyLang(val);

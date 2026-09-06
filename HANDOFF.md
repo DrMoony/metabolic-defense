@@ -183,3 +183,8 @@ ChatGPT(구독)에서 35종을 생성해 절차 메시를 전부 갈아끼웠다
 - 무기 12: `WEAPON_SPRITES`에 등록된 티어는 `buildGunSprite`(카메라 자식 평면)로, 없으면 기존 `buildGunModel`
 - 검증은 `DBG.spawnEnemy/spawnTrap` + `DBG.step` 동기 구동. 확장 탭은 rAF가 멈추므로 실시간 관찰은 불가
 - 남은 다듬기: 무기별 총구(mz) 위치·크기(w) 미세조정, 버거 2프레임화
+
+## 효과음 (실녹음 CC0)
+- `assets/sfx/*.mp3` 29종 — 무기 12종 발사음(shot_00~11), 폭발·처치·피격·재장전·퀴즈·정화·인슐린. 출처는 `assets/sfx/CREDITS.md`.
+- beta는 `sample(name, gain)`(main.js 상단), astra는 `sample()`(astra/main.js)이 재생하고, 로드 전·실패 시엔 예전 합성음(beep/sound)으로 자동 폴백해요.
+- 바꾸고 싶은 소리는 같은 이름의 mp3만 갈아끼우고 `?v=1` 캐시 번호를 올리면 돼요.
