@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a19';
-import { RouteEditor } from './route-editor.js?v=a19';
-import { World, THREE } from './world.js?v=a19';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a19';
+import { healthColor, weaponColor } from './feedback.js?v=a20';
+import { RouteEditor } from './route-editor.js?v=a20';
+import { World, THREE } from './world.js?v=a20';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a20';
 
-import { MAPS, getMap } from './maps/index.js?v=a19';
+import { MAPS, getMap } from './maps/index.js?v=a20';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -344,7 +344,7 @@ function shot(clientX,clientY,extra=false){
         const center=target.model.position.clone();damage(target,dmg,true,center);
         for(const other of [...enemies])if(other!==target&&other.model.position.distanceTo(center)<blastRadius)damage(other,weapon.homing?2:3);
         if(!sample(weapon.homing?'explode_small':'explode_big',weapon.homing?.8:1))sound(weapon.homing?150:90,.3,'sawtooth',.09);
-      },weapon.homing,weapon.homing?.6:1);
+      },weapon.homing,weapon.homing?1.6:3.2);
       if(rocket)rocket.blast=blastRadius;
     }else{
       damage(enemy,weapon.damage*(picked.weak?2:1),true,picked.point);
