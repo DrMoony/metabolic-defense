@@ -1106,6 +1106,9 @@ const ENEMY_SPRITES = {
   soda:   { files: ['../assets/sprites/soda_0.png', '../assets/sprites/soda_1.png'], w: 2.0, ratio: 1.45, fps: 7 },
   pizza:  { files: ['../assets/sprites/pizza_0.png', '../assets/sprites/pizza_1.png'], w: 2.4, ratio: 1.32, fps: 5 },
   syrup:  { files: ['../assets/sprites/syrup.png'], w: 4.6, ratio: 1.0 },   // 보스: 단일 프레임 + 스쿼시
+  icecream: { files: ['../assets/sprites/icecream_0.png', '../assets/sprites/icecream_1.png'], w: 1.9, ratio: 1.5, fps: 6 },
+  ramen:    { files: ['../assets/sprites/ramen_0.png', '../assets/sprites/ramen_1.png'], w: 2.0, ratio: 1.6, fps: 5 },
+  cancer:   { files: ['../assets/sprites/cancer.png'], w: 4.4, ratio: 0.92 },   // 보스
 };
 const _spriteTex = {};
 function spriteTex(file) {
