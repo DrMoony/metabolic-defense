@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a28';
-import { RouteEditor } from './route-editor.js?v=a28';
-import { World, THREE } from './world.js?v=a28';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a28';
+import { healthColor, weaponColor } from './feedback.js?v=a29';
+import { RouteEditor } from './route-editor.js?v=a29';
+import { World, THREE } from './world.js?v=a29';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a29';
 
-import { MAPS, getMap } from './maps/index.js?v=a28';
+import { MAPS, getMap } from './maps/index.js?v=a29';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -146,7 +146,13 @@ function updateMapUI(){
   $('map-hud').textContent=`${map.chapter} / ${text(...map.names)}`;
   $('route-summary').textContent=map.routes.map(r=>text(...r.names)).join(' · ');
   $('landmark-labels').replaceChildren();
-  world.terrain.landmarks.forEach(l=>{const el=document.createElement('div');el.classList.add('landmark-label');if(l.maxHp)el.classList.add('destructible');$('landmark-labels').append(el);l.label=el;});
+  // 라벨은 쏠 수 있는 장애물에만 붙인다. 징검다리·연결 다리 같은 장식물까지 이름표를 달면 화면이 지저분해진다.
+  world.terrain.landmarks.forEach(l=>{
+    l.label=null;
+    if(!l.maxHp)return;
+    const el=document.createElement('div');el.classList.add('landmark-label','destructible');
+    $('landmark-labels').append(el);l.label=el;
+  });
 }
 function updateLandmarkLabels(){
   const combat=state.phase==='combat';
