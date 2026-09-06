@@ -1,7 +1,8 @@
-import { World, THREE } from './world.js?v=a5';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a5';
+import { RouteEditor } from './route-editor.js?v=a6';
+import { World, THREE } from './world.js?v=a6';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a6';
 
-import { MAPS, getMap } from './maps/index.js?v=a5';
+import { MAPS, getMap } from './maps/index.js?v=a6';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -48,7 +49,7 @@ const state = freshState();
 state.lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ko';
 const bank=new QuizBank();
 const enemies=[];
-let world;
+let world,editor;
 let manual=false,events=new Set(),spawnTimers=[],lastTime=performance.now(),noticeTime=0,hitTime=0,flashTime=0;
 let pendingShots=[],quizTransition=false,loading=false,loadFailed=false,loadGeneration=0;
 let audioContext=null,muted=storage.get('muted',false)===true;
@@ -87,6 +88,7 @@ function updateLanguage(){
 }
 function selectMap(key){
   const map=MAPS.find(m=>m.key===key&&m.ready);
+  if(editor?.active)editor.toggle(false);
   if(!map||!['home','guide','admin','result'].includes(state.phase))return false;
   state.map=map.key;enemies.length=0;world.selectMap(map.key);updateMapUI();updateHUD();return true;
 }
@@ -141,7 +143,7 @@ function setPhase(phase){
 async function fullscreen(){try{if(!document.fullscreenElement)await $('stage').requestFullscreen({navigationUI:'hide'});else await document.exitFullscreen();}catch{notice('전체화면을 사용할 수 없어 창 모드로 진행합니다.','Fullscreen unavailable. Continuing in windowed mode.');}}
 function resetGame(){
   const {lang,difficulty,map}=state;Object.assign(state,freshState(),{lang,difficulty,map});
-  const arrival=world.camera.position.clone();world.selectMap(map);world.flight=0;world.camera.position.copy(arrival);
+  const arrival=world.camera.position.clone();world.selectMap(map);world.flight=0;if(!world.map.plate)world.camera.position.copy(arrival);
   enemies.length=0;world.clear();pendingShots=[];bank.reset();quizTransition=false;hitTime=flashTime=0;world.buildGun(0);world.shake=0;
   updateMapUI();startWave(0);
 }
@@ -199,7 +201,7 @@ function swap(){
   state.weapon=state.weapon===0?state.unlocked:state.weapon-1;state.reload=0;pendingShots=[];world.buildGun(state.weapon);updateHUD();
 }
 function shot(clientX,clientY,extra=false){
-  if(state.phase!=='combat'||state.paused||state.reload>0||(!extra&&state.cooldown>0))return false;
+  if(editor?.active||state.phase!=='combat'||state.paused||state.reload>0||(!extra&&state.cooldown>0))return false;
   const rect=$('world').getBoundingClientRect();if(clientX<rect.left||clientX>rect.right||clientY<rect.top||clientY>rect.bottom)return false;
   const weapon=WEAPONS[state.weapon];
   if(state.difficulty!=='easy'&&state.ammo[state.weapon]<=0){reload();return false;}
@@ -323,7 +325,7 @@ function combat(dt){
     for(const enemy of [...enemies])if(!enemy.fly&&enemy.model.position.distanceTo(origin)<25)damage(enemy,1,false);
   }
   if(!state.failed){
-    const targets=enemies.filter(e=>e.sugar&&e.model.position.z>-28).sort((a,b)=>b.model.position.z-a.model.position.z);
+    const targets=enemies.filter(e=>e.sugar&&(world.map.plate?e.progress>.3:e.model.position.z>-28)).sort((a,b)=>b.model.position.z-a.model.position.z);
     state.pancreas=clamp(state.pancreas+dt*(targets.length?.4:2.2));
     if(state.sugar>70&&targets.length)state.pancreas=clamp(state.pancreas-dt*1.4);
     if(state.pancreas<=5&&targets.length)state.strain+=dt;else if(state.pancreas>30)state.strain=Math.max(0,state.strain-dt*.5);
@@ -368,7 +370,7 @@ function step(seconds=1/60){
   if(!Number.isFinite(seconds)||seconds<0||seconds>600)throw new Error('step requires 0–600 seconds');
   let remaining=seconds;
   while(remaining>1e-7){const dt=Math.min(remaining,1/60);remaining-=dt;
-    if(state.paused)continue;
+    if(state.paused||editor?.active)continue;
     noticeTime=Math.max(0,noticeTime-dt);if(!noticeTime)$('notice').classList.remove('show');
     flashTime=Math.max(0,flashTime-dt);$('flash').style.opacity=flashTime*.8;
     if(hitTime<=0)$('reticle').classList.remove('hit');
@@ -395,7 +397,7 @@ function bindUI(){
   $('start').onclick=()=>{unlockAudio();if(loadFailed){loadBanks();return;}if(bank.ready)setPhase('guide');};
   $('guide-back').onclick=()=>setPhase('home');
   $('routes-toggle').onclick=()=>{const on=world.toggleRoutes();$('routes-toggle').textContent=text(on?'경로선 끄기':'경로선 보기',on?'Hide routes':'Show routes');};
-  window.addEventListener('keydown',event=>{if(event.code==='KeyR'&&!event.repeat&&!['INPUT','SELECT','TEXTAREA'].includes(event.target?.tagName))$('routes-toggle').click();});
+  window.addEventListener('keydown',event=>{if(!editor?.active&&event.code==='KeyR'&&!event.repeat&&!['INPUT','SELECT','TEXTAREA'].includes(event.target?.tagName))$('routes-toggle').click();});
   $('deploy').onclick=()=>{unlockAudio();if(!document.fullscreenElement)$('stage').requestFullscreen?.({navigationUI:'hide'}).catch(()=>{});resetGame();};
   $('fullscreen').onclick=fullscreen;
   $('sound').textContent=muted?'♪ OFF':'♪ ON';$('sound').onclick=()=>{unlockAudio();muted=!muted;storage.set('muted',muted);$('sound').textContent=muted?'♪ OFF':'♪ ON';};
@@ -414,7 +416,7 @@ function bindUI(){
     aim={x:event.clientX,y:event.clientY};const rect=$('stage').getBoundingClientRect();$('reticle').style.left=`${event.clientX-rect.left}px`;$('reticle').style.top=`${event.clientY-rect.top}px`;
   });
   $('world').addEventListener('pointerdown',event=>{
-    if(event.button!==0||state.phase!=='combat'||state.paused)return;
+    if(editor?.active||event.button!==0||state.phase!=='combat'||state.paused)return;
     event.preventDefault();unlockAudio();aim={x:event.clientX,y:event.clientY};state.shooting=true;shot(aim.x,aim.y);
   });
   window.addEventListener('pointerup',()=>state.shooting=false);window.addEventListener('pointercancel',()=>state.shooting=false);
@@ -425,12 +427,12 @@ function bindUI(){
   $('world').addEventListener('webglcontextlost',event=>{event.preventDefault();pause(true);$('fatal-text').textContent=text('그래픽 연결이 중단됐습니다. 다시 불러와 주세요.','Graphics context lost. Please reload.');show('fatal',true);});
 }
 try{
-  world=new World($('world'));bindUI();updateLanguage();loadBanks();
+  world=new World($('world'));editor=new RouteEditor(world,()=>{state.shooting=false;pendingShots=[];});bindUI();updateLanguage();loadBanks();
   // Measure real rAF intervals, independent of capped simulation dt and ASTRA.step().
   const performanceStats={fps:60,frameMs:16.67,p95Ms:16.67,drawCalls:0,triangles:0,quality:0,samples:0};
   let frameSamples=[],sampleStart=performance.now(),slowWindows=0,goodWindows=0,lastQualityChange=0;
   function measureFrame(now,ms){
-    if(manual||document.hidden||state.paused||ms>250||ms<=0){frameSamples=[];sampleStart=now;slowWindows=0;goodWindows=0;return;}
+    if(manual||editor?.active||document.hidden||state.paused||ms>250||ms<=0){frameSamples=[];sampleStart=now;slowWindows=0;goodWindows=0;return;}
     frameSamples.push(ms);
     if(now-sampleStart<1000)return;
     const sum=frameSamples.reduce((a,b)=>a+b,0),sorted=[...frameSamples].sort((a,b)=>a-b);
@@ -449,7 +451,7 @@ try{
     $('fps').dataset.quality=String(world.quality);
     frameSamples=[];sampleStart=now;
   }
-  window.ASTRA={MAPS,selectMap,state,enemies,world,bank,WEAPONS,TYPES,WAVES,performance:performanceStats,spawn,shot,reload,swap,start:resetGame,openQuiz,answerQuiz,continueQuiz,pause,step,project:enemy=>world.project(enemy.model),setManual(value=true){manual=value;lastTime=performance.now();frameSamples=[];sampleStart=lastTime;slowWindows=goodWindows=0;},damage,finish};
+  window.ASTRA={editor,MAPS,selectMap,state,enemies,world,bank,WEAPONS,TYPES,WAVES,performance:performanceStats,spawn,shot,reload,swap,start:resetGame,openQuiz,answerQuiz,continueQuiz,pause,step,project:enemy=>world.project(enemy.model),setManual(value=true){manual=value;lastTime=performance.now();frameSamples=[];sampleStart=lastTime;slowWindows=goodWindows=0;},damage,finish};
   function frame(now){const elapsed=now-lastTime;lastTime=now;measureFrame(now,elapsed);if(!manual)step(Math.min(.05,elapsed/1000));requestAnimationFrame(frame);}requestAnimationFrame(frame);
 
 }catch(error){console.error(error);$('fatal-text').textContent=text('3D 화면을 시작하지 못했습니다. WebGL2를 지원하는 브라우저에서 서버 주소로 열어 주세요.','Could not start 3D graphics. Open the HTTP server URL in a browser supporting WebGL2.');show('fatal',true);}

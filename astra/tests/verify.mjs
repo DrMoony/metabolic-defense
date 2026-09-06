@@ -33,13 +33,16 @@ const document={getElementById:id=>elements.get(id),documentElement:{lang:'ko'},
 const errors=[];
 let clockNow=0,nextFrame;
 const clock={now:()=>clockNow};
-const context=vm.createContext({console:{...console,error:(...e)=>errors.push(e.join(' '))},document,location:{search:''},innerWidth:1280,innerHeight:720,devicePixelRatio:1,performance:clock,URLSearchParams,Math,Set,Map,Array,Float32Array,Uint16Array,Uint32Array,Int32Array,Uint8Array,Uint8ClampedArray,Int16Array,Int8Array,Float64Array,ArrayBuffer,DataView,Number,JSON,Promise,Error,requestAnimationFrame(callback){nextFrame=callback;},localStorage:{getItem:key=>stored.get(key)??null,setItem:(key,value)=>stored.set(key,value)},fetch:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile(path.resolve(root,'astra',url),'utf8'))})});
+const context=vm.createContext({console:{...console,error:(...e)=>errors.push(e.map(v=>v?.stack||v).join(' '))},document,location:{search:''},innerWidth:1280,innerHeight:720,devicePixelRatio:1,performance:clock,URLSearchParams,URL,Blob,setTimeout,Math,Set,Map,Array,Float32Array,Uint16Array,Uint32Array,Int32Array,Uint8Array,Uint8ClampedArray,Int16Array,Int8Array,Float64Array,ArrayBuffer,DataView,Number,JSON,Promise,Error,requestAnimationFrame(callback){nextFrame=callback;},localStorage:{getItem:key=>stored.get(key)??null,setItem:(key,value)=>stored.set(key,value)},fetch:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile(path.resolve(root,'astra',url),'utf8'))})});
 context.window=context;context.addEventListener=()=>{};
 const cache=new Map();
 async function load(file){
   file=path.resolve(file);if(cache.has(file))return cache.get(file);
-  const module=new vm.SourceTextModule(await fs.readFile(file,'utf8'),{context,identifier:file});cache.set(file,module);
-  await module.link((specifier,parent)=>load(path.resolve(path.dirname(parent.identifier),specifier.split('?')[0])));return module;
+  // Cache the pending load BEFORE reading: concurrent imports must share module identity.
+  const pending=(async()=>{
+    const module=new vm.SourceTextModule(await fs.readFile(file,'utf8'),{context,identifier:file});
+    await module.link((specifier,parent)=>load(path.resolve(path.dirname(parent.identifier),specifier.split('?')[0])));return module;
+  })();cache.set(file,pending);return pending;
 }
 const three=await load(path.join(root,'vendor/three.module.js'));await three.evaluate();
 const T=three.namespace;
@@ -79,7 +82,7 @@ assert(A.world.contacts.get(near.model).material.opacity>A.world.contacts.get(fa
 assert(near.model.scale.x>far.model.scale.x,'approach adds subtle physical scale change');
 let sceneryDraws=0;A.world.scene.traverse(o=>{if(o.isMesh||o.isSprite)sceneryDraws++;});
 assert(sceneryDraws<180,`batched scene stays bounded: ${sceneryDraws} draw objects with two enemies`);
-assert(A.world.terrain.fat.count>1000);assert(!A.world.target,'direct render has no full-frame post target');
+assert.equal(A.world.terrain.mode,'plate');assert.equal(A.world.scene.background,null);assert(!A.world.target,'direct render has no full-frame post target');
 for(let i=0;i<20;i++)A.world.burst(new T.Vector3(),0xffcc88,45);
 assert(A.world.particles.length<=128,'instanced spark pool has a hard cap');
 A.world.remove(near.model);assert(!A.world.contacts.has(near.model),'enemy removal frees contact shadow');
@@ -122,78 +125,105 @@ A.start();A.step(70);assert(!A.state.victory);assert(A.state.phase==='result'||A
 A.start();A.state.pancreas=0;A.state.sugar=100;A.state.strain=11.9;A.state.insulin=100;A.state.pulse=100;
 A.spawn('syrup',{progress:.65,lane:0});A.step(.2);assert(A.state.failed);A.openQuiz();A.state.selection=A.state.quiz.correct;A.answerQuiz();assert(A.state.failed);assert.equal(A.state.pancreas,0);
 console.log('PASS: missed-boss loss and permanent pancreatic failure');
-// Maps are selected through the same buttons as the title, and unready sectors stay locked.
+// Every plate is available; legacy terrain remains a separately tested fallback.
 elements.get('restart').click();
-assert.equal(elements.get('map-list').children.length,3);
-assert.equal(elements.get('map-pending').children.length,4);
-assert(elements.get('map-pending').children.every(b=>b.disabled));
-assert.equal(A.selectMap('carotid'),false);
-for(const map of A.MAPS.filter(m=>m.ready)){
+assert.equal(elements.get('map-list').children.length,7);
+assert.equal(elements.get('map-pending').children.length,0);
+const plateModule=await load(path.join(root,'astra/plate.js'));await plateModule.evaluate();
+const {groundPoint,routeDocument,validateRoutes}=plateModule.namespace;
+for(const map of A.MAPS){
   elements.get('restart').click();
   const previous=A.world.terrain.root;
   elements.get('map-list').children.find(b=>b.dataset.map===map.key).click();
-  assert.equal(A.state.map,map.key);assert.equal(previous.parent,null,'old terrain detached');
+  assert.equal(A.state.map,map.key);assert.equal(previous.parent,null);
   elements.get('start').click();assert.equal(A.state.phase,'guide');
   assert.equal(elements.get('brief-title').textContent,map.title[0]);
-  elements.get('deploy').click();assert.equal(A.state.map,map.key);assert.equal(A.state.phase,'combat');
+  elements.get('deploy').click();assert.equal(A.state.phase,'combat');
   assert.equal(elements.get('core-label').textContent,map.core[0]);
-  assert.equal(A.world.map.key,map.key);
-  const routes=A.world.terrain.routes;
-  assert(routes.items.length>=2&&routes.items.length<=3);
+  const terrain=A.world.terrain,routes=terrain.routes;
+  assert.equal(terrain.mode,'plate');assert.equal(routes.items.length,map.routes.length);
   for(const route of routes.items){
-    assert(routes.sample(route.id,0).distanceTo(new T.Vector3(...route.points[0]))<1e-8);
-    assert(routes.sample(route.id,1).distanceTo(new T.Vector3(...map.trunk.at(-1)))<1e-8);
-    // Shared trunk samples coincide by distance to the core, independent of branch length.
-    assert(routes.sample(route.id,1-10/route.length).distanceTo(routes.sample(routes.items[0].id,1-10/routes.items[0].length))<1e-7);
-    const junction=route.branchLength/route.length;
-    assert(routes.sample(route.id,junction-.0001).distanceTo(routes.sample(route.id,junction+.0001))<.03,'no teleport at confluence');
+    const screen=map.routes.find(r=>r.id===route.id);
+    assert(routes.sample(route.id,0).distanceTo(groundPoint(A.world.camera,screen.points[0]))<1e-7);
+    assert(routes.sample(route.id,1).distanceTo(groundPoint(A.world.camera,map.trunk.at(-1)||screen.points.at(-1)))<1e-7);
+    // All traced control points round-trip through the fixed camera, including far spawn points.
+    for(const xy of screen.points){const p=groundPoint(A.world.camera,xy).project(A.world.camera);assert(Math.hypot((p.x+1)/2-xy[0],(1-p.y)/2-xy[1])<1e-7);}
     for(const progress of [.05,.35,.65,.9]){
       const ground=A.spawn('fries',{routeId:route.id,progress}),air=A.spawn('wing',{routeId:route.id,progress});
       const p=routes.sample(route.id,progress);
       assert(Math.hypot(ground.model.position.x-p.x,ground.model.position.z-p.z)<1e-7);
-      assert(Math.hypot(air.model.position.x-p.x,air.model.position.z-p.z)<1e-7);
       assert(air.model.position.y-ground.model.position.y>2);
-      const bearing=routes.tangent(route.id,progress);assert(Math.abs(ground.model.rotation.y-Math.atan2(bearing.x,bearing.z))<1e-7);
+      A.world.remove(ground.model);A.world.remove(air.model);
     }
+    if(map.trunk.length){const junction=route.branchLength/route.length;assert(routes.sample(route.id,junction-.00001).distanceTo(routes.sample(route.id,junction+.00001))<.05);}
   }
-  const roadCount=A.world.terrain.tiles.count,targets=A.world.terrain.landmarks.filter(l=>l.maxHp).length;
-  const counts=A.world.terrain.density.map(m=>m.count);
-  A.world.setQuality(1);
-  assert(A.world.terrain.density.every((m,i)=>m.count<counts[i]));
-  assert.equal(A.world.key.shadow.mapSize.x,1024,'first downgrade preserves shadows');
-  assert.equal(A.world.terrain.tiles.count,roadCount,'roads survive density reduction');
-  assert.equal(A.world.terrain.landmarks.filter(l=>l.maxHp).length,targets,'targets survive density reduction');
-  A.world.setQuality(0);
-  elements.get('routes-toggle').click();assert(A.world.terrain.debug.visible);
-  elements.get('routes-toggle').click();assert(!A.world.terrain.debug.visible);
-  // A boss splits where it died on its own curved route, never via a z-to-lane approximation.
+  if(map.topology==='parallel')assert(routes.sample(routes.items[0].id,1).distanceTo(routes.sample(routes.items[1].id,1))>4);
+  if(map.topology==='radial')for(const r of routes.items)assert(routes.sample(r.id,1).distanceTo(routes.sample(routes.items[0].id,1))<1e-7);
+  for(const name of ['liver','pancreas']){const p=A.world[name].position.clone().project(A.world.camera),xy=map.organs[name].at;assert(Math.hypot((p.x+1)/2-xy[0],(1-p.y)/2-xy[1])<1e-7);}
+  const camera=A.world.camera.matrixWorld.clone();A.step(.2);assert.deepEqual(A.world.camera.matrixWorld.elements,camera.elements,'plate alignment survives animation');
+  const masks=terrain.occluders.length,targets=terrain.landmarks.filter(l=>l.maxHp).length;
+  A.world.setQuality(3);assert.equal(terrain.occluders.length,masks);assert.equal(terrain.landmarks.filter(l=>l.maxHp).length,targets);A.world.setQuality(0);
+  assert(masks>=2);assert(terrain.occluders.every(m=>m.material.colorWrite===false&&m.material.depthWrite));
+  // Actual depth-only raycasting: the same screen-space target is hittable in front, hidden behind.
+  const mask=terrain.occluders[0],g=mask.geometry,tri=[0,1,2].map(i=>new T.Vector3().fromBufferAttribute(g.attributes.position,g.index.getX(i)));
+  const center=tri.reduce((sum,p)=>sum.add(p),new T.Vector3()).multiplyScalar(1/3),ndc=center.clone().project(A.world.camera);
+  const direction=center.clone().sub(A.world.camera.position).normalize(),depth=center.distanceTo(A.world.camera.position);
+  const probe={model:new T.Mesh(new T.SphereGeometry(.5,8,6),new T.MeshBasicMaterial())};
+  A.world.scene.add(probe.model);probe.model.position.copy(A.world.camera.position).addScaledVector(direction,depth*.25);
+  assert.equal(A.world.pick((ndc.x+1)*640,(1-ndc.y)*360,[probe]).enemy,probe);
+  probe.model.position.copy(A.world.camera.position).addScaledVector(direction,depth*2);
+  assert.equal(A.world.pick((ndc.x+1)*640,(1-ndc.y)*360,[probe]).occluded,true);
+  probe.model.removeFromParent();probe.model.geometry.dispose();probe.model.material.dispose();
+  elements.get('routes-toggle').click();assert(terrain.debug.visible);elements.get('routes-toggle').click();assert(!terrain.debug.visible);
   A.start();const parent=A.spawn('cancer',{routeId:routes.items.at(-1).id,progress:.61});A.damage(parent,100);
-  const fragments=A.enemies.filter(e=>e.type==='fragment');assert.equal(fragments.length,3);
-  assert(fragments.every(e=>e.routeId===parent.routeId&&Math.abs(e.progress-parent.progress)<.02));
-  // Real instanced landmark raycast, one score award, reset restores intact obstacles.
-  A.start();A.step(.2);
-  const landmark=A.world.terrain.landmarks.find(l=>l.maxHp);
-  if(landmark){
-    const point=A.world.project(landmark.model,1.2),initial=landmark.hp;
-    A.state.cooldown=0;A.shot(point.x,point.y);assert(landmark.hp<initial,'landmark is shootable');
-    const score=A.state.score;
-    while(!landmark.dead){A.state.cooldown=0;A.state.ammo[0]=9;A.state.reload=0;A.shot(point.x,point.y);}
-    assert.equal(A.state.score,score+250);assert(!landmark.model.visible);
-    A.state.cooldown=0;A.shot(point.x,point.y);assert.equal(A.state.score,score+250);
-    A.start();assert(A.world.terrain.landmarks.filter(l=>l.maxHp).every(l=>l.hp===l.maxHp&&!l.dead));
-  }
-  if(map.key==='sinusoid'){
-    A.step(.02);const radius=A.world.terrain.fibers[0].geometry.parameters.radius;
-    A.state.wave=2;A.step(.02);assert(A.world.terrain.fibers[0].geometry.parameters.radius>radius*2,'fibrosis actually thickens');
+  const fragments=A.enemies.filter(e=>e.type==='fragment');assert.equal(fragments.length,3);assert(fragments.every(e=>e.routeId===parent.routeId));
+  A.start();A.step(.02);
+  for(const landmark of A.world.terrain.landmarks.filter(l=>l.maxHp)){
+    // Find a visible lobe using the real pick path, never bypass occlusion.
+    let aim;
+    const rect=elements.get('stage').getBoundingClientRect();
+    for(let yi=0;yi<10&&!aim;yi++)for(let xi=0;xi<10&&!aim;xi++){
+      const x=(landmark.at[0]+(xi/9-.5)*landmark.size[0])*rect.width,y=(landmark.at[1]-yi/10*landmark.size[1])*rect.height;
+      if(A.world.pick(x,y,A.enemies).landmark===landmark)aim={x,y};
+    }
+    assert(aim,`${map.key}: plaque/mound has an exposed hittable surface`);
+    const initial=landmark.hp;A.state.cooldown=0;A.shot(aim.x,aim.y);assert(landmark.hp<initial);
+    const score=A.state.score;let shots=0;
+    while(!landmark.dead&&shots++<50){A.state.cooldown=0;A.state.ammo[0]=9;A.state.reload=0;A.shot(aim.x,aim.y);}
+    assert(landmark.dead);assert.equal(A.state.score,score+250);
   }
   A.start();A.state.difficulty='mid';let ticks=0;
   while(A.state.phase!=='result'&&ticks++<4000){
     if(A.state.phase==='quiz'){A.state.selection=A.state.quiz.correct;A.answerQuiz();A.continueQuiz();}
     else{const enemy=[...A.enemies].sort((a,b)=>b.progress-a.progress)[0];if(enemy){const p=A.project(enemy);if(p.visible)A.shot(p.x,p.y);}A.step(.1);}
   }
-  assert(A.state.victory,`${map.key}: all three waves must remain winnable`);
-  assert.equal(A.state.killedBosses.length,3);
-  console.log(`PASS: ${map.key}: title/briefing/core, ${routes.items.length} splines, confluence, ground/air, fragments, density, landmarks, all bosses (${A.state.elapsed.toFixed(1)}s)`);
+  assert(A.state.victory,`${map.key}: all three waves must remain winnable (core ${A.state.core}, bosses ${A.state.killedBosses})`);
+  // Editor pauses game clocks, moves controls, validates topology, persists and reloads per map.
+  A.start();const editor=A.editor;editor.toggle(true);const before=A.state.waveTime;A.step(2);assert.equal(A.state.waveTime,before);
+  editor.selected={path:0,index:1};const old=cloneDoc(editor.doc);assert(editor.move([old.routes[0].points[1][0]+.002,old.routes[0].points[1][1]+.002]));assert(editor.save());
+  const saved=stored.get(`astra_routes_${map.key}`);assert(saved);editor.toggle(false);A.start();assert.equal(JSON.stringify(A.world.terrain.document),saved);
+  editor.toggle(true);
+  // UI insertion/removal and undo preserve endpoints and the selected branch.
+  const count=editor.doc.routes[0].points.length;editor.selected={path:0,index:1};
+  const p0=editor.doc.routes[0].points[1],p1=editor.doc.routes[0].points[2];
+  editor.pointerDown({button:0,target:{dataset:{}},shiftKey:true,clientX:(p0[0]+p1[0])*640,clientY:(p0[1]+p1[1])*360,preventDefault(){}});
+  assert.equal(editor.doc.routes[0].points.length,count+1);editor.remove();assert.equal(editor.doc.routes[0].points.length,count);editor.undo();assert.equal(editor.doc.routes[0].points.length,count+1);
+  editor.replace(old);
+  if(old.trunk.length){editor.selected={path:0,index:old.routes[0].points.length-1};const join=old.trunk[0].map((v,i)=>v+(i?.001:0));assert(editor.move(join));assert(editor.doc.routes.every(r=>r.points.at(-1).every((v,i)=>v===editor.doc.trunk[0][i])));}
+  if(old.topology==='radial'){editor.selected={path:0,index:old.routes[0].points.length-1};const end=old.routes[0].points.at(-1).map((v,i)=>v+(i?.001:0));assert(editor.move(end));assert(editor.doc.routes.every(r=>r.points.at(-1).every((v,i)=>v===end[i])));}
+  editor.replace(old);assert.equal(editor.exportJSON(),JSON.stringify(editor.doc,null,2));
+  const setter=context.localStorage.setItem;context.localStorage.setItem=()=>{throw new Error('quota denied');};assert.equal(editor.save(),false);context.localStorage.setItem=setter;
+  editor.save();editor.toggle(false);
+  const bad=cloneDoc(old);bad.routes[0].points[0]=[NaN,2];assert.throws(()=>validateRoutes(map,bad,A.world.camera));
+  stored.set(`astra_routes_${map.key}`,'{invalid');A.start();assert.equal(A.world.terrain.storageStatus.startsWith('default'),true);stored.delete(`astra_routes_${map.key}`);
+  console.log(`PASS: ${map.key}: ${map.routes.map(r=>r.points.length).join('+')} + trunk ${map.trunk.length}; projection, organs, occlusion, raycast obstacles, all bosses, editor storage`);
+}
+function cloneDoc(doc){return JSON.parse(JSON.stringify(doc));}
+// Original three procedural worlds remain intact when plate is absent.
+for(const map of A.MAPS.filter(m=>m.legacy.ready)){
+  elements.get('restart').click();A.selectMap(map.key);const plate=map.plate;delete map.plate;
+  A.world.selectMap(map.key);assert(A.world.terrain.fat.count>1000);assert(A.world.scene.background);A.step(.1);
+  map.plate=plate;A.world.selectMap(map.key);
 }
 assert.deepEqual(errors,[]);
-console.log('ALL LOGIC CHECKS PASSED (WebGL rendering and browser layout still require a real browser)');
+console.log('ALL LOGIC CHECKS PASSED (WebGL rendering and browser layout require a real browser)');

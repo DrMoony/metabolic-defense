@@ -1,8 +1,9 @@
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { roundedBox, bakeStatic, contact, glow, reflections, guardian, pancreas } from './art.js?v=a5';
-import { buildTerrain } from './terrain.js?v=a5';
-import { getMap } from './maps/index.js?v=a5';
+import { roundedBox, bakeStatic, contact, glow, reflections, guardian, pancreas } from './art.js?v=a6';
+import { buildTerrain } from './terrain.js?v=a6';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a6';
+import { getMap } from './maps/index.js?v=a6';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -122,7 +123,7 @@ export function foodModel(type, boss = false) {
 }
 export class World {
   constructor(canvas) {
-    this.renderer=new THREE.WebGLRenderer({canvas,antialias:true,powerPreference:'high-performance'});
+    this.renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});
     this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
     this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFSoftShadowMap;
     this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.15;
@@ -144,12 +145,11 @@ export class World {
     this.root=new THREE.Group();this.scene.add(this.root);this.fx=[];this.projectiles=[];
     this.ray=new THREE.Raycaster();this.aim=new THREE.Vector2();this.time=0;this.shake=0;this.kick=0;
     this.quality=0;this.contacts=new Map();this.particles=[];
-    this.sparks=new THREE.InstancedMesh(shapes.ico,new THREE.MeshBasicMaterial({color:0xffffff,toneMapped:false}),128);this.sparks.count=0;this.sparks.frustumCulled=false;this.scene.add(this.sparks);this.buildEnvironment();this.buildOrgans();this.buildGun(0);
+    this.sparks=new THREE.InstancedMesh(shapes.ico,new THREE.MeshBasicMaterial({color:0xffffff,toneMapped:false}),128);this.sparks.count=0;this.sparks.frustumCulled=false;this.scene.add(this.sparks);this.buildEnvironment();this.buildOrgans();this.placeOrgans();this.buildGun(0);
     this.resize();window.addEventListener('resize',()=>this.resize());
   }
   buildEnvironment(){
-    this.map=getMap('coronary');this.terrain=buildTerrain(this.scene,this.map);this.flight=0;
-    this.scene.background.setHex(this.map.palette.background);this.scene.fog.color.setHex(this.map.palette.fog);this.scene.fog.density=this.map.fog;
+    this.map=getMap('coronary');this.configureMap();this.flight=0;
     this.dust=new THREE.InstancedMesh(shapes.sphere,material(0xffdb87,.9),72);
     this.dustData=Array.from({length:72},()=>({x:(Math.random()-.5)*42,y:1+Math.random()*21,z:Math.random()*95-80,s:.025+Math.random()*.07}));
     this.scene.add(this.dust);this.dummy=new THREE.Object3D();
@@ -158,14 +158,41 @@ export class World {
     const liver=guardian(this.scene);this.liver=liver.root;this.liverBody=liver.body;
     const insulin=pancreas(this.scene);this.pancreas=insulin.root;this.turret=insulin.turret;this.tip=insulin.tip;
   }
+  configureMap(){
+    if(this.map.plate){
+      configurePlateCamera(this.camera,this.map);
+      this.scene.background=null;this.scene.fog=null;
+      this.renderer.domElement.style.backgroundImage=`url("${this.map.plate}")`;
+      this.terrain=buildPlateTerrain(this.scene,this.map,this.camera);
+    }else{
+      this.renderer.domElement.style.backgroundImage='none';
+      const map=this.map.legacy?.ready?this.map.legacy:this.map;
+      this.camera.fov=49;this.camera.far=160;this.camera.updateProjectionMatrix();
+      this.scene.background=new THREE.Color(map.palette.background);this.scene.fog=new THREE.FogExp2(map.palette.fog||map.palette.background,map.fog||.012);
+      this.terrain=buildTerrain(this.scene,map);
+    }
+  }
+  placeOrgans(){
+    for(const [name,modelHeight] of [['liver',7.5],['pancreas',5]]){
+      const model=this[name];model.scale.setScalar(1);
+      if(this.map.plate){
+        const data=this.map.organs[name];model.position.copy(groundPoint(this.camera,data.at));
+        const base=model.position.clone().project(this.camera),top=model.position.clone().add(V(0,modelHeight,0)).project(this.camera);
+        let scale=data.height/Math.abs((top.y-base.y)/2);
+        for(let i=0;i<6;i++){
+          const tip=model.position.clone().add(V(0,modelHeight*scale,0)).project(this.camera);
+          scale*=data.height/Math.abs((tip.y-base.y)/2);
+        }
+        model.userData.baseScale=scale;
+      }else{model.position.set(name==='liver'?-8.3:9.2,0,name==='liver'?-9:-6);model.userData.baseScale=1;}
+      model.scale.setScalar(model.userData.baseScale);
+    }
+  }
   selectMap(key){
-    this.clear();this.terrain.dispose();this.map=getMap(key);
-    this.terrain=buildTerrain(this.scene,this.map);this.terrain.setQuality(this.quality);
-    this.scene.background.setHex(this.map.palette.background);
-    this.scene.fog.color.setHex(this.map.palette.fog);this.scene.fog.density=this.map.fog;
-    this.key.color.setHex(this.map.palette.accent);
-    this.flight=1;this.camera.position.set(14,17,34);
-    this.liver.position.set(-8.3,0,-9);this.pancreas.position.set(9.2,0,-6);
+    this.clear();this.terrain.dispose();this.map=getMap(key);this.configureMap();
+    this.terrain.setQuality(this.quality);this.key.color.setHex(this.map.palette.accent);
+    this.flight=this.map.plate?0:1;if(!this.map.plate)this.camera.position.set(14,17,34);
+    this.placeOrgans();
   }
   routePoint(id,p){return this.terrain.routes.sample(id,p);}
   toggleRoutes(){this.terrain.debug.visible=!this.terrain.debug.visible;return this.terrain.debug.visible;}
@@ -221,7 +248,7 @@ export class World {
   resize(){
     const rect=this.renderer.domElement.getBoundingClientRect();
     this.renderer.setSize(rect.width,rect.height,false);
-    this.camera.aspect=rect.width/Math.max(1,rect.height);this.camera.updateProjectionMatrix();
+    this.camera.aspect=this.map.plate?16/9:rect.width/Math.max(1,rect.height);this.camera.updateProjectionMatrix();
   }
   addEnemy(type,boss){const model=foodModel(type,boss);this.root.add(model);this.contacts.set(model,contact(this.scene,boss?6:3,.65));return model;}
   remove(model){this.root.remove(model);const shadow=this.contacts.get(model);if(shadow){shadow.removeFromParent();shadow.material.dispose();shadow.geometry.dispose();this.contacts.delete(model);}model.traverse(m=>{if(m.isMesh&&!Object.values(shapes).includes(m.geometry))m.geometry.dispose();});}
@@ -234,8 +261,9 @@ export class World {
     this.aim.set((x-rect.left)/rect.width*2-1,1-(y-rect.top)/rect.height*2);
     this.scene.updateMatrixWorld(true);this.ray.setFromCamera(this.aim,this.camera);
     const obstacles=this.terrain.landmarks.filter(l=>l.maxHp&&!l.dead);
-    const meshes=[...enemies.map(e=>e.model),...obstacles.map(l=>l.model)];
+    const meshes=[...(this.terrain.occluders||[]),...enemies.map(e=>e.model),...obstacles.map(l=>l.model)];
     const hit=this.ray.intersectObjects(meshes,true).find(h=>!h.object.userData.decorative);
+    if(hit&&this.terrain.occluders?.includes(hit.object))return {point:hit.point,enemy:null,occluded:true};
     if(!hit)return {point:this.ray.ray.at(70,new THREE.Vector3()),enemy:null};
     let parent=hit.object;while(parent){const landmark=obstacles.find(l=>l.model===parent);if(landmark)return {point:hit.point,enemy:null,landmark};parent=parent.parent;}
     let object=hit.object;let enemy;
@@ -278,21 +306,24 @@ export class World {
     this.terrain.animate(t,state.phase==='home'?0:state.wave,this.camera);
     const desired=active?V(Math.sin(t*.29)*.10,9.4+Math.sin(t*.37)*.075,19):state.phase==='guide'?V(4+Math.sin(t*.15)*.4,13,26):V(8+Math.sin(t*.13)*1.2,14+Math.sin(t*.21)*.25,29);
     if(this.flight>0){desired.x+=this.flight*8;desired.y+=this.flight*5;desired.z+=this.flight*12;}
+    if(!this.map.plate){
     this.camera.position.lerp(desired,Math.min(1,dt*2));
     this.shake=Math.max(0,this.shake-dt*2.5);
     this.camera.position.x+=Math.sin(t*83)*this.shake*.14;this.camera.position.y+=Math.cos(t*71)*this.shake*.10;
     this.camera.lookAt(active?V(0,1,-26):V(0,1,-30));
+    }else{this.shake=0;}
+    this.camera.updateMatrixWorld(true);
     this.kick=Math.max(0,this.kick-dt*7);this.gun.visible=active&&state.phase!=='result';this.gun.position.z=(state.weapon===0?-1.6:-1.5)+this.kick*.12;this.gun.rotation.x=this.kick*.12;
     this.hitLight.intensity*=Math.exp(-dt*20);
-    this.liver.rotation.y=Math.sin(t*.7)*.025;this.liver.scale.setScalar(1+Math.sin(t*1.8)*.015);
+    this.liver.rotation.y=Math.sin(t*.7)*.025;this.liver.scale.setScalar(this.liver.userData.baseScale*(1+Math.sin(t*1.8)*.015));
     this.liverBody.material.color.setHex(0xcd4316).lerp(new THREE.Color(0x66503b),state.liver/100);
-    this.pancreas.scale.setScalar(1+Math.sin(t*2.4)*.015);
+    this.pancreas.scale.setScalar(this.pancreas.userData.baseScale*(1+Math.sin(t*2.4)*.015));
     for(let i=0;i<this.dust.count;i++){
       const d=this.dustData[i];d.z+=dt*.65;if(d.z>14)d.z=-80;
       this.dummy.position.set(d.x+Math.sin(t*.3+i)*.3,d.y,d.z);this.dummy.scale.setScalar(d.s);this.dummy.updateMatrix();this.dust.setMatrixAt(i,this.dummy.matrix);
     }this.dust.instanceMatrix.needsUpdate=true;
     for(const e of enemies){
-      const g=e.model;g.rotation.z=Math.sin(t*5+e.seed)*.045;g.userData.limbs.forEach((limb,i)=>limb.rotation.x=Math.sin(t*8+e.seed+i*Math.PI)*.45);
+      const g=e.model;if(this.map.plate){const toward=this.camera.position.clone().sub(g.position);g.rotation.y=Math.atan2(toward.x,toward.z);}g.rotation.z=Math.sin(t*5+e.seed)*.045;g.userData.limbs.forEach((limb,i)=>limb.rotation.x=Math.sin(t*8+e.seed+i*Math.PI)*.45);
       g.userData.bar.visible=e.hp<e.maxHp&&!e.boss;g.userData.bar.quaternion.copy(g.quaternion).invert().multiply(this.camera.quaternion);
       g.userData.fill.scale.x=1.42*Math.max(.01,e.hp/e.maxHp);
       e.flash=Math.max(0,(e.flash||0)-dt*6);g.scale.setScalar(e.scale*(.86+e.progress*.22)*(1+e.flash*.14));
