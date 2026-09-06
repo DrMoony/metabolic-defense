@@ -1,7 +1,7 @@
 import * as T from '../vendor/three.module.js';
-import {finish,roundedBox,bakeStatic,glow} from './art.js?v=a17';
-import {cutout} from './sprites.js?v=a17';
-import {Routes} from './routes.js?v=a17';
+import {finish,roundedBox,bakeStatic,glow} from './art.js?v=a18';
+import {cutout} from './sprites.js?v=a18';
+import {Routes} from './routes.js?v=a18';
 const v=(x,y,z)=>new T.Vector3(x,y,z);
 const orb=new T.SphereGeometry(1,12,8),box=roundedBox();
 orb.userData.shared=box.userData.shared=true;
