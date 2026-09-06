@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a13';
-import { RouteEditor } from './route-editor.js?v=a13';
-import { World, THREE } from './world.js?v=a13';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a13';
+import { healthColor, weaponColor } from './feedback.js?v=a14';
+import { RouteEditor } from './route-editor.js?v=a14';
+import { World, THREE } from './world.js?v=a14';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a14';
 
-import { MAPS, getMap } from './maps/index.js?v=a13';
+import { MAPS, getMap } from './maps/index.js?v=a14';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -43,13 +43,17 @@ const TYPES = {
   syrup:{hp:16,speed:.8,score:1500,impact:18,sugar:true,boss:true,names:['과당 시럽통 · 위쪽 밸브가 약점','Syrup Drum · shoot the top valve']},
   cancer:{hp:26,speed:.95,score:2000,impact:24,boss:true,names:['암세포 · 격파 후 3조각으로 분열','Cancer Cell · splits into 3 fragments']},
   plaque:{hp:34,speed:1.25,score:2600,impact:32,boss:true,names:['죽상경화 플라크 · 방어선 돌진','Atherosclerotic Plaque · charging the core']},
+  wingking:{hp:22,speed:2.4,score:1800,impact:20,fly:true,boss:true,names:['치킨윙 대장 · 상공에서 급습','Wing Commander · strikes from the air']},
+  pizzaking:{hp:30,speed:1.05,score:2200,impact:28,boss:true,names:['대왕 피자 · 기름 장벽','Pizza Colossus · a wall of grease']},
   fragment:{hp:2,speed:3.4,score:150,impact:5,names:['암세포 조각','Cancer Fragment']},
 };
-const DIFFICULTY = {easy:{speed:.75,impact:.5,gap:1.5,hp:.7,pulse:.85},mid:{speed:.9,impact:.75,gap:1.2,hp:.9,pulse:1},hard:{speed:1.18,impact:1.3,gap:.78,hp:1.3,pulse:1.25}};
+const DIFFICULTY = {easy:{speed:.78,impact:.55,gap:1.35,hp:.75,pulse:.85},mid:{speed:1.02,impact:.98,gap:.94,hp:1.12,pulse:1.1},hard:{speed:1.26,impact:1.45,gap:.7,hp:1.45,pulse:1.35}};
 const WAVES = [
-  {duration:40,bossAt:31,boss:'syrup',quiz:[16],spawns:[['soda',2.3,1],['fries',4.6,3],['icecream',7,8]]},
-  {duration:60,bossAt:47,boss:'cancer',quiz:[24,49],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',10,6],['pizza',9,8],['icecream',6.5,4],['donut',10,9],['wing',15,26]]},
-  {duration:70,bossAt:53,boss:'plaque',quiz:[14,36],spawns:[['soda',1.6,1],['fries',3,2],['burger',8.5,5],['pizza',7.5,3],['icecream',6,4.5],['donut',8,6],['wing',11,13]]},
+  {duration:42,bossAt:32,boss:'syrup',quiz:[17],spawns:[['soda',2.1,1],['fries',4.2,3],['icecream',6.5,7],['donut',9,11]]},
+  {duration:55,bossAt:43,boss:'wingking',quiz:[21,44],spawns:[['soda',2,1],['fries',3.8,2],['icecream',6,5],['donut',6.5,4],['wing',7.5,8],['burger',11,9]]},
+  {duration:62,bossAt:48,boss:'cancer',quiz:[18,40],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',9.5,6],['pizza',9,8],['icecream',6.2,4],['donut',6,3],['wing',6.5,7]]},
+  {duration:68,bossAt:53,boss:'pizzaking',quiz:[16,35,57],spawns:[['soda',1.7,1],['fries',3.1,2],['burger',8.5,5],['pizza',8,4],['icecream',5.8,3],['donut',5.5,3],['wing',5.5,6],['ramen',12,10]]},
+  {duration:76,bossAt:58,boss:'plaque',quiz:[14,32,52,70],spawns:[['soda',1.5,1],['fries',2.8,2],['burger',7.5,5],['pizza',7,3],['icecream',5.4,4],['donut',5,2],['wing',4.8,5],['ramen',10,8]]},
 ];
 const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,glucagon:0,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
@@ -176,7 +180,7 @@ function resetGame(){
 }
 function startWave(index){
   state.wave=index;state.waveTime=0;events=new Set();spawnTimers=WAVES[index].spawns.map(([type,interval,next])=>({type,interval,next}));
-  setPhase('combat');notice(`${index===2?'최종 ':''}웨이브 ${index+1} · 방어선을 지켜주세요`,`${index===2?'FINAL ':''}WAVE ${index+1} · Hold the line`,3);
+  setPhase('combat');notice(`${index===WAVES.length-1?'최종 ':''}웨이브 ${index+1} · 방어선을 지켜주세요`,`${index===WAVES.length-1?'FINAL ':''}WAVE ${index+1} · Hold the line`,3);
 }
 function spawn(type='soda',options={}){
   const definition=TYPES[type];if(!definition)throw new Error(`Unknown enemy: ${type}`);
@@ -194,23 +198,31 @@ function spawn(type='soda',options={}){
 function planFlight(enemy){
   const exit=world.routePoint(enemy.routeId,1).clone();
   let from=null;
-  for(let tries=0;tries<8&&!from;tries++){
-    from=world.platePoint(.06+Math.random()*.88,.07+Math.random()*.16);
-  }
-  if(!from){from=world.routePoint(enemy.routeId,0).clone();}
-  enemy.flyFrom=from;enemy.flyTo=exit.add(new THREE.Vector3((Math.random()-.5)*6,0,(Math.random()-.5)*3));
+  for(let tries=0;tries<8&&!from;tries++)from=world.platePoint(.04+Math.random()*.92,.05+Math.random()*.22);
+  if(!from)from=world.routePoint(enemy.routeId,0).clone();
+  enemy.flyFrom=from;
+  enemy.flyTo=exit.add(new THREE.Vector3((Math.random()-.5)*14,0,(Math.random()-.5)*6));
+  // 중간 제어점을 크게 흔들어 개체마다 다른 곡선을 그린다
+  const mid=enemy.flyFrom.clone().lerp(enemy.flyTo,.5);
+  const dir=enemy.flyTo.clone().sub(enemy.flyFrom).setY(0).normalize();
+  const side=(Math.random()-.5)*enemy.flyFrom.distanceTo(enemy.flyTo)*.55;
+  enemy.flyCtrl=mid.add(new THREE.Vector3(-dir.z*side,0,dir.x*side));
+  enemy.swayAmp=1.1+Math.random()*2.6;enemy.swayFreq=1.5+Math.random()*2.2;
+  enemy.flyHeight=2.9+Math.random()*1.9;enemy.bobFreq=12+Math.random()*10;
 }
 function positionEnemy(enemy){
   const p=enemy.progress;
   let position;
   if(enemy.fly&&enemy.flyFrom&&enemy.flyTo){
-    position=enemy.flyFrom.clone().lerp(enemy.flyTo,p);
+    // 2차 베지어로 휘어 날고, 개체마다 다른 진폭·주기로 좌우로 흔들린다
+    const q=1-p,c=enemy.flyCtrl||enemy.flyFrom;
+    position=enemy.flyFrom.clone().multiplyScalar(q*q).addScaledVector(c,2*q*p).addScaledVector(enemy.flyTo,p*p);
     const dir=enemy.flyTo.clone().sub(enemy.flyFrom).setY(0).normalize();
-    const sway=Math.sin(p*Math.PI*2.4+enemy.seed)*world.actorScale*2.4;
+    const sway=Math.sin(p*Math.PI*(enemy.swayFreq||2.4)+enemy.seed)*world.actorScale*(enemy.swayAmp||2.4);
     position.x+=-dir.z*sway;position.z+=dir.x*sway;
   }else position=world.routePoint(enemy.routeId,p);
   enemy.model.position.copy(position);
-  enemy.model.position.y+=enemy.fly?world.actorScale*(3.5+Math.sin(p*18+enemy.seed)*.18):.10;
+  enemy.model.position.y+=enemy.fly?world.actorScale*((enemy.flyHeight||3.5)+Math.sin(p*(enemy.bobFreq||18)+enemy.seed)*.28):.10;
   // Recoil moves the actor away along the same route, preserving its ground contact.
   if(enemy.flash>0){
     const tangent=enemy.fly&&enemy.flyFrom&&enemy.flyTo?enemy.flyTo.clone().sub(enemy.flyFrom).setY(0).normalize():world.terrain.routes.tangent(enemy.routeId,p);
@@ -349,7 +361,7 @@ function finish(victory){
   for(const [label,value] of [[text('코어 생명','CORE LIFE'),`${Math.round(state.core)}%`],[text('명중률','ACCURACY'),`${state.shots?Math.round(state.hits/state.shots*100):0}%`],[text('퀴즈 정답','QUIZ CORRECT'),`${state.correct} / ${state.quizTotal}`]]){
     const div=document.createElement('div'),b=document.createElement('b'),p=document.createElement('p');b.textContent=value;p.textContent=label;div.append(b,p);$('result-stats').append(div);
   }
-  $('result-note').textContent=text(`보스 ${state.killedBosses.length}/3 · 생존 보너스 ${bonus.toLocaleString()} · 최종 무기 ${weaponName()} · ${Math.floor(state.elapsed/60)}분 ${Math.floor(state.elapsed%60)}초`, `Bosses ${state.killedBosses.length}/3 · survival bonus ${bonus.toLocaleString()} · ${weaponName()} · ${Math.floor(state.elapsed/60)}m ${Math.floor(state.elapsed%60)}s`)+(state.failed?text(' / 췌장부전: 무력화 단계에서 당류 적을 먼저 정리하세요.',' / Pancreatic failure: prioritize sugar enemies during resistance.'):'');
+  $('result-note').textContent=text(`보스 ${state.killedBosses.length}/${WAVES.length} · 생존 보너스 ${bonus.toLocaleString()} · 최종 무기 ${weaponName()} · ${Math.floor(state.elapsed/60)}분 ${Math.floor(state.elapsed%60)}초`, `Bosses ${state.killedBosses.length}/${WAVES.length} · survival bonus ${bonus.toLocaleString()} · ${weaponName()} · ${Math.floor(state.elapsed/60)}m ${Math.floor(state.elapsed%60)}s`)+(state.failed?text(' / 췌장부전: 무력화 단계에서 당류 적을 먼저 정리하세요.',' / Pancreatic failure: prioritize sugar enemies during resistance.'):'');
   updateHUD();sound(victory?680:100,.5,'sine');
 }
 function combat(dt){
@@ -409,7 +421,7 @@ function combat(dt){
   // Never discard a living boss on a timeout; success requires all three kills.
   if(state.waveTime>=wave.duration&&enemies.length===0){
     if(!state.killedBosses.includes(wave.boss)){finish(false);return;}
-    if(state.wave===2)finish(true);else openQuiz(true);
+    if(state.wave===WAVES.length-1)finish(true);else openQuiz(true);
   }
 }
 function updateReticle(){
@@ -435,7 +447,7 @@ function updateHUD(){
   $('score').textContent=String(state.score).padStart(6,'0');$('combo').textContent=state.combo>1?`${state.combo} COMBO / ×${Math.min(4,1+state.combo*.12).toFixed(1)}`:'';
   $('core-label').textContent=text(...getMap(state.map).core);
   $('core').textContent=`${Math.round(state.core)}%`;$('core-fill').style.width=`${state.core}%`;$('accuracy').textContent=state.shots?`${Math.round(state.hits/state.shots*100)}%`:'—';$('quiz-count').textContent=`${state.correct}/${state.quizTotal}`;
-  $('wave-name').textContent=`${state.wave===2?'FINAL ':''}WAVE ${String(state.wave+1).padStart(2,'0')} / 03`;
+  $('wave-name').textContent=`${state.wave===WAVES.length-1?'FINAL ':''}WAVE ${String(state.wave+1).padStart(2,'0')} / ${String(WAVES.length).padStart(2,'0')}`;
   $('wave-progress').style.width=`${clamp(state.waveTime/WAVES[state.wave].duration*100)}%`;
   $('wave-clock').textContent=`${Math.floor(state.waveTime)}s / ${WAVES[state.wave].duration}s`;
   $('liver-state').textContent=text(['건강 · 정화 파동 정상','MASLD · 파동 둔화','MASH · 보급 저하','섬유화 · 방어 약화'][stageOfLiver()],['Healthy · purification online','MASLD · slower pulses','MASH · reduced support','Fibrosis · weakened defense'][stageOfLiver()]);

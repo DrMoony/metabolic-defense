@@ -168,8 +168,8 @@ while(A.state.phase!=='result'&&iterations++<4000){
     A.step(.1);
   }
 }
-assert.equal(A.state.phase,'result');assert(A.state.victory,'normal mode is winnable with aimed shots');assert.equal(A.state.killedBosses.join(','),'syrup,cancer,plaque');
-console.log(`PASS: all three waves and bosses via raycast shots (${A.state.elapsed.toFixed(1)}s, core ${A.state.core.toFixed(1)}, score ${A.state.score})`);
+assert.equal(A.state.phase,'result');assert(A.state.victory,'normal mode is winnable with aimed shots');assert.equal(A.state.killedBosses.join(','),A.WAVES.map(w=>w.boss).join(','));
+console.log(`PASS: all ${A.WAVES.length} waves and bosses via raycast shots (${A.state.elapsed.toFixed(1)}s, core ${A.state.core.toFixed(1)}, score ${A.state.score})`);
 // A missed boss cannot produce a victory at the old wave timeout.
 A.start();A.step(70);assert(!A.state.victory);assert(A.state.phase==='result'||A.state.wave===0);
 // Failure remains permanent after a correct quiz, while overload threshold is 12 seconds.

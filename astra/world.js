@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a13';
+import { healthColor } from './feedback.js?v=a14';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a13';
-import { buildTerrain } from './terrain.js?v=a13';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a13';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a13';
-import { getMap } from './maps/index.js?v=a13';
+import { contact, glow, reflections } from './art.js?v=a14';
+import { buildTerrain } from './terrain.js?v=a14';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a14';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a14';
+import { getMap } from './maps/index.js?v=a14';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
