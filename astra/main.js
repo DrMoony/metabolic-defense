@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a22';
-import { RouteEditor } from './route-editor.js?v=a22';
-import { World, THREE } from './world.js?v=a22';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a22';
+import { healthColor, weaponColor } from './feedback.js?v=a23';
+import { RouteEditor } from './route-editor.js?v=a23';
+import { World, THREE } from './world.js?v=a23';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a23';
 
-import { MAPS, getMap } from './maps/index.js?v=a22';
+import { MAPS, getMap } from './maps/index.js?v=a23';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -14,17 +14,17 @@ const strings = {
 // Beta reference values are balance data; simulation, meshes and input are rebuilt.
 export const WEAPONS = [
   {names:['새총','Slingshot'],damage:1,delay:.46,mag:9,reload:1.3},
-  {names:['석궁','Crossbow'],damage:1,delay:.28,mag:8,reload:1.5},
-  {names:['화승총','Matchlock'],damage:2,delay:.42,mag:6,reload:1.7},
-  {names:['권총','Pistol'],damage:2,delay:.18,mag:18,reload:1.2},
-  {names:['샷건','Shotgun'],damage:1,delay:.55,mag:9,reload:1.9,pellets:5},
-  {names:['매그넘','Magnum'],damage:3,delay:.5,mag:6,reload:1.8,pierce:3},
-  {names:['기관단총','SMG'],damage:1,delay:.08,mag:45,reload:1.6},
-  {names:['소총','Rifle'],damage:3,delay:.14,mag:30,reload:1.6},
-  {names:['기관총','Machine Gun'],damage:2,delay:.36,mag:68,reload:2.3,burst:3},
-  {names:['바주카','Bazooka'],damage:5,delay:.55,mag:7,reload:1.85,splash:4.5},
-  {names:['유도미사일','Homing Missile'],damage:4,delay:.32,mag:8,reload:2,homing:true,splash:3.2},
-  {names:['레이저','Laser'],damage:4,delay:.10,mag:60,reload:1.4,pierce:5},
+  {names:['석궁','Crossbow'],damage:1,delay:.30,mag:8,reload:1.2},
+  {names:['화승총','Matchlock'],damage:2,delay:.44,mag:8,reload:1.4},
+  {names:['권총','Pistol'],damage:2,delay:.32,mag:12,reload:1.4},
+  {names:['샷건','Shotgun'],damage:1,delay:.60,mag:8,reload:1.9,pellets:5},
+  {names:['매그넘','Magnum'],damage:4,delay:.34,mag:8,reload:1.5,pierce:2},
+  {names:['기관단총','SMG'],damage:1,delay:.07,mag:40,reload:1.5},
+  {names:['소총','Rifle'],damage:3,delay:.20,mag:24,reload:1.6},
+  {names:['기관총','Machine Gun'],damage:2,delay:.36,mag:60,reload:2.2,burst:3},
+  {names:['바주카','Bazooka'],damage:10,delay:.45,mag:6,reload:1.4,splash:4.5},
+  {names:['유도미사일','Homing Missile'],damage:8,delay:.28,mag:8,reload:1.5,splash:3.2,homing:true},
+  {names:['레이저','Laser'],damage:3,delay:.12,mag:40,reload:1.4,pierce:4},
 ];
 const TYPES = {
   soda:{hp:2,speed:3.2,score:150,impact:5,sugar:true,names:['소용돌이 캔디','Swirl Candy']},
@@ -84,7 +84,7 @@ function loadSfx(){
   if(!audioContext)return;
   for(const name of SFX_NAMES){
     if(sfxBuffers[name]!==undefined)continue;sfxBuffers[name]=null;
-    fetch(`${SFX_DIR}${name}.mp3?v=2`).then(r=>r.arrayBuffer()).then(b=>audioContext.decodeAudioData(b)).then(d=>{sfxBuffers[name]=d;}).catch(()=>{sfxBuffers[name]=false;});
+    fetch(`${SFX_DIR}${name}.mp3?v=3`).then(r=>r.arrayBuffer()).then(b=>audioContext.decodeAudioData(b)).then(d=>{sfxBuffers[name]=d;}).catch(()=>{sfxBuffers[name]=false;});
   }
 }
 function sample(name,gain=1,rate=1){
