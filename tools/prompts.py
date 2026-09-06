@@ -221,9 +221,10 @@ MAPS = [
      "The guardian plaza is an island in the middle of the acid lake; the turret ledge at the right foreground."),
     ("map_glomerulus", "신장 사구체·요관",
      "Inside the kidney: a tangle of glossy capillary loops of a glomerulus, coiled tubules, rosy-pink and cream palette with amber fluid. "
-     "ROUTE LAYOUT: the road SPIRALS inward like a coiled tubule — entering from the far upper-right, circling the scene clockwise "
-     "(behind the left, along the back, down the right) and ending at the bottom-center foreground. "
-     "The guardian plaza is at the center of the spiral; the turret ledge at the right foreground."),
+     "ROUTE LAYOUT: a SWITCHBACK descent like a nephron tubule — ONE road leaves the round Bowman capsule at the far upper-left, "
+     "runs right across a high terrace, hairpins back to the left on a lower terrace, hairpins right again on a third terrace, "
+     "and ends at the bottom-center foreground. Three clearly separated stepped terraces, no spiral, no coil, no concentric rings. "
+     "The guardian plaza is a raised rock shelf tucked in the crook of the middle hairpin; the turret ledge at the right foreground."),
     ("map_islet", "췌장 랑게르한스섬",
      "Inside a pancreatic islet: clustered pale-peach beta-cell islands, tiny blue insulin granules glowing, soft peach-and-cyan palette. "
      "ROUTE LAYOUT: an ARCHIPELAGO — several beta-cell islands in a cyan fluid channel, connected by narrow bridges. "
