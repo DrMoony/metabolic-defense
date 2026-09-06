@@ -1104,6 +1104,7 @@ const ENEMY_SPRITES = {
   burger: { files: ['../assets/sprites/burger.png'], w: 2.6 },
   fries:  { files: ['../assets/sprites/fries_0.png', '../assets/sprites/fries_1.png'], w: 2.2, ratio: 1.4, fps: 6 },
   soda:   { files: ['../assets/sprites/soda_0.png', '../assets/sprites/soda_1.png'], w: 2.0, ratio: 1.45, fps: 7 },
+  pizza:  { files: ['../assets/sprites/pizza_0.png', '../assets/sprites/pizza_1.png'], w: 2.4, ratio: 1.32, fps: 5 },
 };
 const _spriteTex = {};
 function spriteTex(file) {
