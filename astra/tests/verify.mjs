@@ -36,7 +36,7 @@ const errors=[];
 let clockNow=0,nextFrame;
 const clock={now:()=>clockNow};
 const context=vm.createContext({console:{...console,error:(...e)=>errors.push(e.map(v=>v?.stack||v).join(' '))},document,location:{search:''},innerWidth:1280,innerHeight:720,devicePixelRatio:1,performance:clock,URLSearchParams,URL,Blob,setTimeout,Math,Set,Map,Array,Float32Array,Uint16Array,Uint32Array,Int32Array,Uint8Array,Uint8ClampedArray,Int16Array,Int8Array,Float64Array,ArrayBuffer,DataView,Number,JSON,Promise,Error,requestAnimationFrame(callback){nextFrame=callback;},localStorage:{getItem:key=>stored.get(key)??null,setItem:(key,value)=>stored.set(key,value)},fetch:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile(path.resolve(root,'astra',url),'utf8'))})});
-context.window=context;context.addEventListener=()=>{};
+context.window=context;context.listeners={};context.addEventListener=(name,handler)=>{context.listeners[name]=handler;};
 const cache=new Map();
 async function load(file){
   file=path.resolve(file);if(cache.has(file))return cache.get(file);
@@ -317,7 +317,8 @@ for(const map of A.MAPS){
   A.step(.42);assert(el('reticle').classList.contains('ready'));assert.equal(A.state.ammo[0],9);
   A.step(.2);assert(!el('reticle').classList.contains('ready'));assert(!el('reticle').classList.contains('reloading'));
   A.state.ammo[0]=0;A.reload();A.state.unlocked=2;
-  el('world').listeners.contextmenu({preventDefault(){}});
+  // 라이트건 우클릭(버튼 2)은 창 전체에서 무기 교체로 받는다
+  context.listeners.pointerdown({button:2,target:null,preventDefault(){}});
   assert.equal(A.state.weapon,2);assert.equal(A.state.reload,0);assert(!el('reticle').classList.contains('reloading'));
   A.state.cooldown=0;A.shot(20,300);assert(A.state.reticleKick>0);A.step(.08);assert.equal(A.state.reticleKick,0);
   A.start();
@@ -346,8 +347,15 @@ for(const map of A.MAPS){
   let junctionPixels=null;
   if(map.trunk.length){
     junctionPixels=Math.hypot((foot[0]-map.trunk[0][0])*1672,(foot[1]-map.trunk[0][1])*941);
-    assert(junctionPixels>=941*.03&&junctionPixels<=941*.06,`${map.key}: guardian beside junction ${junctionPixels}`);
-    assert(Math.abs(foot[0]-map.trunk[0][0])*1672>20,'guardian does not stand on road center');
+    // 사용자 기준: 간은 분기 위쪽 V 안쪽에, 길에서 완전히 벗어나 서 있어야 한다
+    assert(junctionPixels>=941*.03&&junctionPixels<=941*.30,`${map.key}: guardian beside junction ${junctionPixels}`);
+    const roadGap=Math.min(...[...map.routes.map(r=>r.points),map.trunk].flatMap(points=>points.slice(0,-1).map((a,i)=>{
+      const b=points[i+1],ax=a[0]*1672,ay=a[1]*941,bx=b[0]*1672,by=b[1]*941,px=foot[0]*1672,py=foot[1]*941;
+      const dx=bx-ax,dy=by-ay,len=dx*dx+dy*dy;
+      const t=len?Math.max(0,Math.min(1,((px-ax)*dx+(py-ay)*dy)/len)):0;
+      return Math.hypot(px-(ax+t*dx),py-(ay+t*dy));
+    })));
+    assert(roadGap>=75*foot[1]*941/455,`${map.key}: guardian stands off the road (gap ${roadGap})`);
     for(const point of [...map.routes.flatMap(r=>r.points.slice(-6)),...map.trunk.slice(0,3)])assert(groundPoint(w.camera,point).distanceTo(w.liver.position)<=w.pulseRadius,`${map.key}: full branch-tail coverage`);
   }
   const coverage=w.pulseCoverage.map(point=>groundPoint(w.camera,point).distanceTo(w.liver.position));
