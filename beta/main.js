@@ -1113,6 +1113,9 @@ const ENEMY_SPRITES = {
   soju:     { files: ['../assets/sprites/soju_0.png', '../assets/sprites/soju_1.png'], w: 1.5, ratio: 1.85, fps: 5 },
   donut:    { files: ['../assets/sprites/donut_0.png', '../assets/sprites/donut_1.png'], w: 2.6, ratio: 0.8, fps: 8 },
   moth:     { files: ['../assets/sprites/moth_0.png', '../assets/sprites/moth_1.png'], w: 2.6, ratio: 0.74, fps: 9 },
+  bat:      { files: ['../assets/sprites/bat_0.png', '../assets/sprites/bat_1.png'], w: 2.7, ratio: 0.63, fps: 9 },
+  wing:     { files: ['../assets/sprites/wing_0.png', '../assets/sprites/wing_1.png'], w: 2.5, ratio: 0.97, fps: 9 },
+  cancerlet: { files: ['../assets/sprites/cancerlet_0.png', '../assets/sprites/cancerlet_1.png'], w: 1.5, ratio: 1.12, fps: 7 },
 };
 const _spriteTex = {};
 function spriteTex(file) {
