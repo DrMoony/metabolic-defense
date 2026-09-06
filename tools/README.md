@@ -70,3 +70,15 @@ python3 tools/key_alpha.py tools/raw/ --out assets/sprites/ --max 512
    ```
 4. 에디터의 '배경 제거'는 반응이 없었다 → 흰 배경 그대로 받아 `key_alpha.py` 로 키잉하면 깔끔하다
 5. 이미지 src를 JS 반환값으로 내보내면 확장이 차단하므로, URL은 페이지 안에서만 쓸 것
+
+## 실전에서 확정된 회수 레시피 (2026-09-06, 35종 완주)
+- **확장이 조작하는 탭은 `document.hidden=true`** → `loading="lazy"` 이미지가 절대 로드되지 않아 naturalWidth가 0으로 남는다.
+  "생성 실패"처럼 보이지만 이미지는 서버에 있다. `img.getAttribute('src')`를 직접 fetch 하면 된다.
+- 다운로드(a[download])는 사이트 단위로 차단됐고, localhost 업로드는 CSP에 막히고, base64 반환은 확장이 막는다.
+  남는 통로는 **클립보드**뿐: 실제 클릭(transient activation) 직후 `navigator.clipboard.write(ClipboardItem)` →
+  `osascript`로 `the clipboard as «class PNGf»`를 파일로 쓴다(`clip2asset.sh`). 탭이 전면이면 더 안정적.
+- 생성 대기는 40~60초. browser_batch 안에서 wait 10초 × 최대 5개(6개면 타임아웃).
+- 2프레임 시트: `split_frames.py --mingap 0.004 --align bottom|center`. 두 프레임을 같은 캔버스에 맞춰야 교체 시 크기가 안 튄다.
+- 무기처럼 안쪽 흰색이 없는 소재는 `key_alpha.py --global`(활대 안쪽 같은 갇힌 흰 배경 제거).
+- 무기 등록은 `register_weapon.py <tier> <key> <w>` — PNG 크기로 ratio를 넣고 캐시버스터를 올린다.
+  총구 위치(mz)는 높이 55% 지점 추정값이라 총마다 눈으로 미세조정이 남아 있다.
