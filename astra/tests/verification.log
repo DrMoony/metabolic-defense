@@ -1,0 +1,17 @@
+(node:94973) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS: shared KO/EN banks, drug exclusion/admin opt-in, exact mix, recent history, storage isolation
+PASS: real rAF adaptive quality, recovery, approach shadows, instancing (103 draw objects including two enemies)
+PASS: 3D raycast hit detection and syrup weak point
+PASS: reload, quiz reward, weapon switching, unlimited EASY ammunition
+PASS: pause, quiz timeout and explicit answer submission
+PASS: all three waves and bosses via raycast shots (185.9s, core 100.0, score 106071)
+PASS: missed-boss loss and permanent pancreatic failure
+PASS: coronary: 10+10 + trunk 5; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
+PASS: omentum: 22 + trunk 0; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
+PASS: sinusoid: 7+6+7 + trunk 0; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
+PASS: carotid: 7+7 + trunk 7; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
+PASS: stomach: 15 + trunk 0; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
+PASS: glomerulus: 33 + trunk 0; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
+PASS: islet: 18+18 + trunk 0; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
+ALL LOGIC CHECKS PASSED (WebGL rendering and browser layout require a real browser)
