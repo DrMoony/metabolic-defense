@@ -377,6 +377,112 @@ def build_detail(spec, world_pts, mats):
     return made
 
 
+def build_arches(spec, world_pts, mats, scene, cam):
+    """길 위를 가로지르는 모세혈관 아치. 얇아서 길을 가리지 않으면서 깊이를 만든다."""
+    cfg = spec.get('arches')
+    if not cfg:
+        return []
+    rng = random.Random(spec.get('seed', 7) + 41)
+    made = []
+    for i in range(cfg.get('start', 8), len(world_pts) - 4, cfg.get('step', 18)):
+        x, z = world_pts[i]
+        nx, nz = world_pts[min(i + 1, len(world_pts) - 1)]
+        tx, tz = nx - x, nz - z
+        length = math.hypot(tx, tz) or 1e-6
+        span = spec['road']['width'] * rng.uniform(1.5, 2.1)
+        radius = span / 2
+        bpy.ops.mesh.primitive_torus_add(major_radius=radius, minor_radius=cfg.get('thickness', .38),
+                                         major_segments=44, minor_segments=10,
+                                         location=ground(x, z, 0))
+        arch = bpy.context.active_object
+        arch.name = f'arch{i}'
+        arch.rotation_euler = (math.pi / 2, 0, math.atan2(tz, tx))
+        arch.scale = (1.0, rng.uniform(.85, 1.15), 1.0)
+        arch.data.materials.append(mats['arch'])
+        for poly in arch.data.polygons:
+            poly.use_smooth = True
+        made.append(arch)
+    return made
+
+
+def build_droplets(spec, world_pts, mats):
+    """영양 방울: 길가에 흩어진 작은 발광 구슬."""
+    cfg = spec.get('droplets')
+    if not cfg:
+        return []
+    rng = random.Random(spec.get('seed', 7) + 77)
+    half = spec['road']['width'] / 2
+    made = []
+    for i in range(0, len(world_pts), cfg.get('step', 7)):
+        x, z = world_pts[i]
+        nx, nz = world_pts[min(i + 1, len(world_pts) - 1)]
+        tx, tz = nx - x, nz - z
+        length = math.hypot(tx, tz) or 1e-6
+        px, pz = -tz / length, tx / length
+        for _ in range(cfg.get('count', 3)):
+            side = rng.choice((-1, 1))
+            gap = rng.uniform(half * .35, half + cfg.get('spread', 2.4))
+            r = cfg.get('size', .42) * rng.uniform(.6, 1.5)
+            bpy.ops.mesh.primitive_uv_sphere_add(radius=r, segments=16, ring_count=10,
+                                                 location=ground(x + px * side * gap, z + pz * side * gap, r * .85))
+            drop = bpy.context.active_object
+            drop.name = f'drop{i}-{side}'
+            drop.data.materials.append(mats['droplet'])
+            for poly in drop.data.polygons:
+                poly.use_smooth = True
+            made.append(drop)
+    return made
+
+
+def build_pools(spec, mats):
+    """바닥에 고인 점액 웅덩이. 평평한 바닥에 얼룩을 준다."""
+    cfg = spec.get('pools')
+    if not cfg:
+        return []
+    rng = random.Random(spec.get('seed', 7) + 13)
+    made = []
+    for n in range(cfg.get('count', 14)):
+        sx = rng.uniform(.05, .95)
+        sy = rng.uniform(.30, .99)
+        try:
+            wx, wz = screen_to_ground(spec, sx, sy)
+        except ValueError:
+            continue
+        r = cfg.get('size', 5.0) * rng.uniform(.5, 1.7)
+        bpy.ops.mesh.primitive_circle_add(vertices=26, radius=r, fill_type='NGON',
+                                          location=ground(wx, wz, 0.03))
+        pool = bpy.context.active_object
+        pool.name = f'pool{n}'
+        pool.scale = (1.0, rng.uniform(.55, 1.0), 1.0)
+        pool.rotation_euler = (0, 0, rng.uniform(0, 6.28))
+        pool.data.materials.append(mats['pool'])
+        made.append(pool)
+    return made
+
+
+def build_backdrop(spec, mats):
+    """원경에 큰 융모 실루엣을 세워 안개 속 깊이를 만든다."""
+    cfg = spec.get('backdrop')
+    if not cfg:
+        return []
+    rng = random.Random(spec.get('seed', 7) + 5)
+    made = []
+    for n in range(cfg.get('count', 26)):
+        sx = rng.uniform(-.05, 1.05)
+        sy = rng.uniform(cfg.get('band', [.14, .22])[0], cfg.get('band', [.14, .22])[1])
+        try:
+            wx, wz = screen_to_ground(spec, sx, sy)
+        except ValueError:
+            continue
+        r = cfg.get('size', 9.0) * rng.uniform(.6, 1.6)
+        h = r * rng.uniform(2.0, 3.6)
+        blob = organic_blob(f'back{n}', ground(wx, wz, h * .5), (r, r * rng.uniform(.8, 1.2), h),
+                            mats['wall_far'], seed=900 + n, rough=0.08)
+        blob.rotation_euler = (rng.uniform(-.08, .08), rng.uniform(-.08, .08), rng.uniform(0, 6.28))
+        made.append(blob)
+    return made
+
+
 def build_floor(spec, mats):
     bpy.ops.mesh.primitive_plane_add(size=900)
     floor = bpy.context.active_object
@@ -486,9 +592,14 @@ def main():
         'wall_mid': organic_material('wall_mid', pal.get('wall_mid', pal['wall']), pal.get('wall_tip', pal['curb']), rough=0.34, seed=2.0),
         'wall_far': organic_material('wall_far', pal['wall_far'], pal.get('wall_far_tip', pal['wall']), rough=0.40, subsurface=0.3, seed=4.0),
         'detail': organic_material('detail', pal.get('detail', pal['curb']), pal.get('detail_tip', [1.0, 0.92, 0.82]), rough=0.14, subsurface=0.6, seed=6.0),
+        'arch': organic_material('arch', pal.get('arch', [0.62, 0.16, 0.22]), pal.get('arch_tip', [0.95, 0.42, 0.40]), rough=0.22, subsurface=0.55, seed=7.0),
+        'droplet': material('droplet', pal.get('droplet', [1.0, 0.86, 0.55]), rough=0.06, emission=pal.get('droplet_glow', [1.0, 0.72, 0.34]), emission_strength=1.4),
+        'pool': material('pool', pal.get('pool', [0.30, 0.07, 0.10]), rough=0.05, emission=pal.get('pool_glow', [0.9, 0.35, 0.14]), emission_strength=0.12),
     }
 
     build_floor(spec, mats)
+    build_backdrop(spec, mats)
+    build_pools(spec, mats)
     build_lights(spec)
     build_mist(scene, spec)
 
@@ -504,6 +615,8 @@ def main():
         screen = road_screen_points(scene, cam, pts)
         build_walls(spec, pts, mats, scene, cam, screen)
         build_detail(spec, pts, mats)
+        build_arches(spec, pts, mats, scene, cam)
+        build_droplets(spec, pts, mats)
 
     out_image = os.path.join(ROOT, 'assets', 'maps', f"map_{spec['key']}.jpg")
     scene.render.image_settings.file_format = 'JPEG'
