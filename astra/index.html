@@ -6,37 +6,40 @@
 <meta name="theme-color" content="#07191c">
 <link rel="icon" href="data:,">
 <title>ASTRA · Metabolic Defense</title>
-<link rel="stylesheet" href="./style.css?v=a4">
+<link rel="stylesheet" href="./style.css?v=a5">
 </head>
 <body>
 <main id="stage">
   <canvas id="world" aria-label="3D metabolic defense arena"></canvas>
   <div class="vignette"></div><div id="flash"></div>
-  <header class="masthead"><b>ASTRA<span> / METABOLIC DEFENSE</span></b><div><button id="sound" aria-label="Sound">♪ ON</button><button id="fullscreen" aria-label="Fullscreen">⛶</button><button id="pause" class="hidden" data-i18n="pause">일시정지</button></div></header>
+  <header class="masthead"><b>ASTRA<span> / METABOLIC DEFENSE</span></b><div><button id="sound" aria-label="Sound">♪ ON</button><button id="fullscreen" aria-label="Fullscreen">⛶</button><button id="routes-toggle">경로선 보기</button><button id="pause" class="hidden" data-i18n="pause">일시정지</button></div></header>
   <section id="hud" class="hidden">
     <div class="score"><small data-i18n="score">방어 점수</small><strong id="score">000000</strong><span id="combo"></span></div>
     <div class="mission"><small id="wave-name"></small><div class="track"><i id="wave-progress"></i></div><span id="wave-clock"></span></div>
-    <div class="vitals"><div><small data-i18n="core">심장 · 콩팥 · 뇌혈관</small><strong id="core">100%</strong><div class="track"><i id="core-fill"></i></div></div><div><small data-i18n="accuracy">명중률</small><strong id="accuracy">—</strong></div><div><small data-i18n="quiz">퀴즈</small><strong id="quiz-count">0/0</strong></div></div>
-    <div id="warning"></div>
+    <div class="vitals"><div><small id="core-label">심장</small><strong id="core">100%</strong><div class="track"><i id="core-fill"></i></div></div><div><small data-i18n="accuracy">명중률</small><strong id="accuracy">—</strong></div><div><small data-i18n="quiz">퀴즈</small><strong id="quiz-count">0/0</strong></div></div>
+    <div id="warning"></div><div id="map-hud"></div>
     <div id="boss" class="hidden"><small id="boss-name"></small><div class="track"><i id="boss-fill"></i></div></div>
     <footer><div class="organ"><small>01 / LIVER GUARDIAN</small><b data-i18n="liver">간 가디언</b><span id="liver-state"></span><div class="track"><i id="liver-fill"></i></div><em id="pulse-time"></em></div><div class="weapon"><small id="weapon-tier"></small><b id="weapon-name"></b><span id="ammo"></span><div class="controls"><button id="reload" data-i18n="reload">재장전</button><button id="swap" data-i18n="swap">무기 교체</button></div></div><div class="organ right"><small>02 / INSULIN TURRET</small><b data-i18n="pancreas">췌장 포탑</b><span id="pancreas-state"></span><div class="track"><i id="pancreas-fill"></i></div><em id="strain"></em></div></footer>
   </section>
+  <div id="landmark-labels" aria-hidden="true"></div>
   <div id="fps" aria-label="Rendering frame rate">60 FPS</div>
   <div id="notice" role="status"></div><div id="reticle"><i></i><span></span></div>
   <section id="home" class="screen">
-    <div class="intro"><div class="eyebrow">THE INNER FRONTIER / 01</div><h1>작은 한 발.<br>커다란 <em>방어.</em></h1><p id="intro-text">몸속 최후의 방어선, 당신이 지켜주세요.<br>정크푸드를 막고, 지식으로 장기를 회복하세요.</p><div class="tags"><span>3 WAVES</span><span>3 BOSSES</span><span>3–5 MIN</span></div>
+    <div class="intro"><div id="map-chapter" class="eyebrow">THE INNER FRONTIER / 01</div><h1>ASTRA</h1><p id="intro-text"></p>
+    <div class="tags"><span>METABOLIC DEFENSE</span><span>3 WAVES / 3 BOSSES</span><span>3–5 MIN</span></div>
     <div class="options"><div><small>LANGUAGE</small><button data-lang="ko" class="selected">한국어</button><button data-lang="en">English</button></div><div><small data-i18n="difficulty">난이도</small><button data-diff="easy">EASY</button><button data-diff="mid" class="selected">NORMAL</button><button data-diff="hard">HARD</button></div></div>
     <p id="difficulty-hint" class="hint"></p><button id="start" class="primary" disabled data-i18n="loading">문제은행 불러오는 중…</button><p id="load-status" role="status"></p><button id="admin-open" class="text-button" data-i18n="admin">운영자 설정 ↗</button></div>
-    <div class="world-caption"><span class="live-dot"></span> LIVER GUARDIAN ONLINE<small>CKLM / INNER DEFENSE NETWORK</small></div>
+    <aside class="atlas"><small class="eyebrow">CHOOSE YOUR FRONTIER</small><div id="map-list" aria-label="Map selection"></div><div id="map-pending" aria-label="Future maps"></div></aside>
+    <div class="world-caption"><small id="map-core"></small><h2 id="map-title"></h2><span id="map-subtitle"></span></div>
     <div class="home-bottom"><span>POINT. SHOOT. PROTECT.</span><span data-i18n="mouse">마우스 · 라이트건 전용 / 키보드 없이 플레이</span></div>
   </section>
-  <section id="guide" class="screen veil hidden"><article class="panel"><small class="eyebrow">MISSION BRIEFING</small><h2 data-i18n="guideTitle">몸속 방어에 오신 것을 환영합니다</h2><div id="guide-cards" class="guide-grid"></div><button id="deploy" class="primary" data-i18n="deploy">방어선 진입 →</button></article></section>
+  <section id="guide" class="screen veil hidden"><article class="panel cinematic-brief"><small class="eyebrow">MISSION BRIEFING / <span id="brief-location"></span></small><h2 id="brief-title"></h2><p id="brief-text"></p><div class="route-dossier"><small>APPROACH ROUTES</small><span id="route-summary"></span></div><p id="brief-fact"></p><div id="guide-cards" class="guide-grid"></div><div class="brief-actions"><button id="deploy" class="primary" data-i18n="deploy">방어선 진입 →</button><button id="guide-back">← 맵 선택 / Maps</button></div></article></section>
   <section id="admin" class="screen veil hidden"><article class="panel"><small class="eyebrow">BOOTH CONTROL</small><h2 data-i18n="adminTitle">문제은행 운영 설정</h2><label for="mix" data-i18n="mix">MASLD : Clinical Obesity 비율</label><select id="mix"><option value="100">100 : 0</option><option value="70">70 : 30</option><option value="50">50 : 50</option><option value="30">30 : 70</option><option value="0">0 : 100</option></select><label class="check"><input type="checkbox" id="drug"><span data-i18n="drug">특정 약물 문항 포함 (기본: 숨김)</span></label><p data-i18n="drugNote">공정경쟁규약을 고려해 기본 출제에서 제외합니다. 이 설정은 이 기기에 저장됩니다.</p><p id="bank-info"></p><button id="admin-close" class="primary" data-i18n="save">저장하고 돌아가기</button></article></section>
   <section id="quiz-screen" class="screen veil hidden"><article class="panel quiz-panel"><div class="quiz-top"><small id="quiz-tag"></small><b id="quiz-seconds"></b></div><div class="track"><i id="quiz-time"></i></div><h2 id="question"></h2><p data-i18n="quizHint">정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!</p><div id="answers"></div><div class="quiz-bottom"><p id="feedback" role="status"></p><button id="submit" class="primary" disabled data-i18n="submit">정답 제출 →</button><button id="quiz-next" class="primary hidden" data-i18n="continue">계속하기 →</button></div><small id="source"></small></article></section>
   <section id="paused" class="screen veil hidden"><article class="panel narrow"><small class="eyebrow">SYSTEM ON HOLD</small><h2 data-i18n="paused">방어선 대기 중</h2><p data-i18n="pauseNote">전투와 퀴즈 시간이 멈췄습니다.</p><button id="resume" class="primary" data-i18n="resume">계속 방어하기 →</button></article></section>
-  <section id="result" class="screen veil hidden"><article class="panel"><small class="eyebrow">MISSION DEBRIEF</small><h2 id="result-title"></h2><strong id="result-score"></strong><div id="result-stats" class="guide-grid"></div><p id="result-note"></p><button id="restart" class="primary" data-i18n="restart">다시 도전하기 →</button></article></section>
+  <section id="result" class="screen veil hidden"><article class="panel"><small class="eyebrow">MISSION DEBRIEF</small><p id="result-map"></p><h2 id="result-title"></h2><strong id="result-score"></strong><div id="result-stats" class="guide-grid"></div><p id="result-note"></p><button id="restart" class="primary" data-i18n="restart">다시 도전하기 →</button></article></section>
   <div id="fatal" class="screen veil hidden"><article class="panel"><h2>ASTRA</h2><p id="fatal-text"></p><button onclick="location.reload()">다시 불러오기 / Reload</button></article></div>
 </main>
-<script type="module" src="./main.js?v=a4"></script>
+<script type="module" src="./main.js?v=a5"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
-import { World, THREE } from './world.js?v=a4';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a4';
+import { World, THREE } from './world.js?v=a5';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a5';
 
+import { MAPS, getMap } from './maps/index.js?v=a5';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -42,7 +43,7 @@ const WAVES = [
   {duration:60,bossAt:47,boss:'cancer',quiz:[24,49],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',10,6],['pizza',9,8],['icecream',6.5,4],['donut',10,9],['wing',15,26]]},
   {duration:70,bossAt:53,boss:'plaque',quiz:[14,36],spawns:[['soda',1.6,1],['fries',3,2],['burger',8.5,5],['pizza',7.5,3],['icecream',6,4.5],['donut',8,6],['wing',11,13]]},
 ];
-const freshState = () => ({phase:'home',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
+const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
 state.lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ko';
 const bank=new QuizBank();
@@ -70,19 +71,56 @@ function updateLanguage(){
   document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=text(...strings[el.dataset.i18n]));
   document.querySelectorAll('[data-lang]').forEach(el=>el.classList.toggle('selected',el.dataset.lang===state.lang));
   document.querySelectorAll('[data-diff]').forEach(el=>el.classList.toggle('selected',el.dataset.diff===state.difficulty));
-  document.querySelector('h1').innerHTML=text('작은 한 발.<br>커다란 <em>방어.</em>','One small shot.<br>A greater <em>defense.</em>');
-  if(state.lang==='en')document.querySelector('h1').style.fontSize='6.6cqh';else document.querySelector('h1').style.fontSize='';
-  $('intro-text').innerHTML=text('몸속 최후의 방어선, 당신이 지켜주세요.<br>정크푸드를 막고, 지식으로 장기를 회복하세요.','Protect the last line of defense within.<br>Stop junk-food invaders. Let knowledge heal.');
+  document.querySelector('h1').textContent='ASTRA';
+
+  $('intro-text').textContent=text('몸속으로 이어지는 여정, 지식으로 지키는 방어선','A journey within. A defense powered by knowledge.');
   $('difficulty-hint').textContent=state.difficulty==='easy'?text('무제한 탄약 · 느린 적 · 첫 플레이에 추천','Unlimited ammo · slower enemies · a gentle first mission'):text('누르고 있으면 연사 · 탄약 소진 시 자동 재장전','Hold to fire · automatic reload when empty');
   $('guide-cards').replaceChildren();
   for(const pair of [
     [['01 / 조준하고 쏘기','다가오는 정크푸드를 쏘세요. 방아쇠를 누르면 연사합니다. 재장전·무기 교체는 화면 버튼으로!'],['01 / Point and shoot','Shoot approaching junk food. Hold the trigger to fire. Use the on-screen reload and weapon buttons.']],
     [['02 / 장기와 함께 방어','간은 정화 파동, 췌장은 당류 자동 요격. 고혈당이 지속되면 췌장이 지쳐 부전에 빠집니다. 당류 적부터 제거하세요.'],['02 / Protect your allies','The liver pulses; the pancreas targets sugar enemies. Sustained overload can cause permanent failure. Clear sugar enemies first.']],
-    [['03 / 지식으로 회복','퀴즈 정답은 무기 승급과 장기 회복! 웨이브 끝의 보스를 처치하고 심장·콩팥·뇌혈관을 지키세요.'],['03 / Knowledge restores','Correct answers upgrade weapons and heal organs. Defeat each wave boss to protect the heart, kidneys and brain.']],
+    [['03 / 지식으로 회복','퀴즈 정답은 무기 승급과 장기 회복! 웨이브 끝의 보스를 처치하고 선택한 맵의 코어를 지켜가요.'],['03 / Knowledge restores','Correct answers upgrade weapons and heal organs. Defeat each wave boss to protect the selected core.']],
   ]){
     const [title,body]=pair[state.lang==='ko'?0:1],card=document.createElement('div');const b=document.createElement('b'),p=document.createElement('p');b.textContent=title;p.textContent=body;card.append(b,p);$('guide-cards').append(card);
   }
-  updateLoadUI();updateHUD();
+  updateMapUI();updateLoadUI();updateHUD();
+}
+function selectMap(key){
+  const map=MAPS.find(m=>m.key===key&&m.ready);
+  if(!map||!['home','guide','admin','result'].includes(state.phase))return false;
+  state.map=map.key;enemies.length=0;world.selectMap(map.key);updateMapUI();updateHUD();return true;
+}
+function updateMapUI(){
+  $('routes-toggle').textContent=text(world.terrain.debug.visible?'경로선 끄기':'경로선 보기',world.terrain.debug.visible?'Hide routes':'Show routes');
+  const map=getMap(state.map);$('map-list').replaceChildren();$('map-pending').replaceChildren();
+  for(const entry of MAPS){
+    const button=document.createElement('button');button.dataset.map=entry.key;button.disabled=!entry.ready;
+    button.classList.toggle('selected',entry.key===map.key);button.ariaPressed=String(entry.key===map.key);
+    const small=document.createElement('small'),title=document.createElement('b'),description=document.createElement('span');
+    small.textContent=entry.ready?`SECTOR ${entry.chapter} / ${entry.routes.length} ROUTES`:text('준비 중','IN DEVELOPMENT');
+    title.textContent=text(...entry.names);description.textContent=entry.ready?text(...entry.core):'';
+    button.append(small,title,description);button.onclick=()=>selectMap(entry.key);
+    $(entry.ready?'map-list':'map-pending').append(button);
+  }
+  $('map-chapter').textContent=`THE INNER FRONTIER / ${map.chapter}`;
+  $('map-title').textContent=text(...map.title);$('map-subtitle').textContent=text(...map.subtitle);
+  $('map-core').textContent=`${text('방어 대상','DEFEND')} / ${text(...map.core)}`;
+  $('brief-title').textContent=text(...map.title);$('brief-location').textContent=`${map.chapter} / ${text(...map.names)}`;
+  $('brief-text').textContent=text(...map.briefing);$('brief-fact').textContent=text(...map.fact);
+  $('map-hud').textContent=`${map.chapter} / ${text(...map.names)}`;
+  $('route-summary').textContent=map.routes.map(r=>text(...r.names)).join(' · ');
+  $('landmark-labels').replaceChildren();
+  world.terrain.landmarks.forEach(l=>{const el=document.createElement('div');el.classList.add('landmark-label');if(l.maxHp)el.classList.add('destructible');$('landmark-labels').append(el);l.label=el;});
+}
+function updateLandmarkLabels(){
+  const combat=state.phase==='combat';
+  for(const l of world.terrain.landmarks){
+    if(!l.label)continue;
+    const point=world.project(l.anchor,0),rect=$('stage').getBoundingClientRect();
+    const visible=combat&&!l.dead&&point.visible&&point.y>rect.top+rect.height*.2&&point.y<rect.top+rect.height*.8;
+    l.label.classList.toggle('hidden',!visible);
+    if(visible){l.label.style.left=`${point.x-rect.left}px`;l.label.style.top=`${point.y-rect.top}px`;l.label.textContent=text(...l.names)+(l.maxHp?` · ${Math.ceil(l.hp)}/${l.maxHp}`:'');}
+  }
 }
 function updateLoadUI(){
   $('start').disabled=loading||(!bank.ready&&!loadFailed);
@@ -97,14 +135,15 @@ async function loadBanks(){
 function setPhase(phase){
   state.phase=phase;state.shooting=false;pendingShots=[];
   for(const name of ['home','guide','admin','result'])show(name,phase===name);
-  show('quiz-screen',phase==='quiz');show('hud',['combat','quiz','result'].includes(phase));show('pause',['combat','quiz'].includes(phase));
+  show('quiz-screen',phase==='quiz');show('hud',['combat','quiz'].includes(phase));show('pause',['combat','quiz'].includes(phase));
   $('world').style.cursor=phase==='combat'?'none':'default';$('reticle').style.display=phase==='combat'?'block':'none';
 }
 async function fullscreen(){try{if(!document.fullscreenElement)await $('stage').requestFullscreen({navigationUI:'hide'});else await document.exitFullscreen();}catch{notice('전체화면을 사용할 수 없어 창 모드로 진행합니다.','Fullscreen unavailable. Continuing in windowed mode.');}}
 function resetGame(){
-  const {lang,difficulty}=state;Object.assign(state,freshState(),{lang,difficulty});
-  enemies.length=0;world.clear();pendingShots=[];bank.reset();quizTransition=false;world.buildGun(0);world.shake=0;
-  startWave(0);
+  const {lang,difficulty,map}=state;Object.assign(state,freshState(),{lang,difficulty,map});
+  const arrival=world.camera.position.clone();world.selectMap(map);world.flight=0;world.camera.position.copy(arrival);
+  enemies.length=0;world.clear();pendingShots=[];bank.reset();quizTransition=false;hitTime=flashTime=0;world.buildGun(0);world.shake=0;
+  updateMapUI();startWave(0);
 }
 function startWave(index){
   state.wave=index;state.waveTime=0;events=new Set();spawnTimers=WAVES[index].spawns.map(([type,interval,next])=>({type,interval,next}));
@@ -112,19 +151,22 @@ function startWave(index){
 }
 function spawn(type='soda',options={}){
   const definition=TYPES[type];if(!definition)throw new Error(`Unknown enemy: ${type}`);
-  const model=world.addEnemy(type,definition.boss);const lane=options.lane??Math.floor(Math.random()*(state.wave===0?2:3))-(state.wave===0?0:1);
+  const model=world.addEnemy(type,definition.boss);
+  const routes=world.terrain.routes.items,lane=options.lane??Math.floor(Math.random()*routes.length);
+  const routeId=world.terrain.routes.get(options.routeId??routes[((lane%routes.length)+routes.length)%routes.length].id).id;
   const hp=definition.hp*(definition.boss?1:DIFFICULTY[state.difficulty].hp);
-  const enemy={type,...definition,model,hp,maxHp:hp,lane,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:type==='fragment'?.7:1,flash:0,dead:false,guarded:false};
+  const enemy={type,...definition,model,hp,maxHp:hp,lane,routeId,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:type==='fragment'?.7:1,flash:0,dead:false,guarded:false};
   enemies.push(enemy);positionEnemy(enemy);
   if(definition.boss){state.bosses.push(type);world.shake=1.5;world.ring(model.position,0xffa56e,10);notice(...definition.names,4);sound(95,.45,'sawtooth',.05);}
   return enemy;
 }
 function positionEnemy(enemy){
-  // Equal travel time on all lanes; projection naturally enlarges approaching meshes.
-  const p=enemy.progress,z=enemy.boss?-53+p*57:-75+p*79;
-  const x=enemy.lane*(12-8*p)+Math.sin(p*Math.PI*2+enemy.seed)*(.45+(enemy.fly?1.5:0));
-  enemy.model.position.set(x,enemy.fly?3.5+Math.sin(p*18+enemy.seed)*.8:Math.abs(Math.sin(world.time*5+enemy.seed))*.12,z);
-  enemy.model.rotation.y=Math.sin(p*3+enemy.seed)*.11;
+  const p=enemy.progress,position=world.routePoint(enemy.routeId,p);
+  const direction=world.terrain.routes.tangent(enemy.routeId,p);
+  enemy.model.position.copy(position);
+  enemy.model.position.y+=enemy.fly?3.5+Math.sin(p*18+enemy.seed)*.45:.10;
+  enemy.model.rotation.y=Math.atan2(direction.x,direction.z);
+
 }
 function removeEnemy(enemy){enemy.dead=true;const index=enemies.indexOf(enemy);if(index>=0)enemies.splice(index,1);world.remove(enemy.model);}
 function upgrade(){
@@ -144,7 +186,7 @@ function damage(enemy,amount,byPlayer=true,point){
     // Non-drug recovery keeps the default booth experience neutral.
     state.liver=clamp(state.liver-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;
     notice('보스 격파! 정화 지원 · 간과 췌장 회복','BOSS DEFEATED · Purification support & organ recovery',3.5);
-    if(enemy.type==='cancer')for(let i=0;i<3;i++)spawn('fragment',{progress:clamp((position.z+75)/79,0,.9),lane:i-1});
+    if(enemy.type==='cancer')for(let i=0;i<3;i++)spawn('fragment',{progress:Math.min(enemy.progress+i*.008,.94),routeId:enemy.routeId,lane:enemy.lane});
   }else if(byPlayer&&Math.random()<.08){state.core=clamp(state.core+2);state.liver=clamp(state.liver-2);world.ring(position,0xb8e88a,3);}
 }
 function reload(){
@@ -165,7 +207,7 @@ function shot(clientX,clientY,extra=false){
   if(state.difficulty!=='easy')state.ammo[state.weapon]--;
   state.shots++;
   const picked=world.pick(clientX,clientY,enemies);let enemy=picked.enemy;
-  if(weapon.homing&&!enemy){
+  if(weapon.homing&&!enemy&&!picked.landmark){
     enemy=enemies.reduce((best,candidate)=>{
       const p=world.project(candidate.model);if(!p.visible)return best;
       const distance=Math.hypot(p.x-clientX,p.y-clientY);return !best||distance<best.distance?{enemy:candidate,distance}:best;
@@ -173,7 +215,13 @@ function shot(clientX,clientY,extra=false){
   }
   world.shot(enemy?picked.enemy?picked.point:enemy.model.position.clone().add(new THREE.Vector3(0,1,0)):picked.point,state.weapon);
   sound(weapon.homing?140:600-state.weapon*37,.06+state.weapon*.008,state.weapon>8?'sawtooth':'triangle',.035);
-  if(enemy){
+  if(picked.landmark){
+    state.hits++;state.combo++;$('reticle').classList.add('hit');
+    if(world.damageLandmark(picked.landmark,weapon.damage*(weapon.pellets||1))){
+      state.score+=250;state.core=clamp(state.core+2);
+      notice('길을 열었어요 · +250 · 코어 +2','Passage cleared · +250 · core +2');
+    }
+  }else if(enemy){
     state.hits++;state.combo++;$('reticle').classList.add('hit');
     const hitPosition=enemy.model.position.clone();
     if(weapon.homing){
@@ -234,7 +282,8 @@ function finish(victory){
   state.core=clamp(state.core);setPhase('result');state.victory=victory;
   const bonus=victory?Math.round(state.core*25+(100-state.liver)*15+state.pancreas*15):0;state.score+=bonus;
   const previous=storage.get('best',0);storage.set('best',Math.max(Number.isFinite(previous)?previous:0,state.score));
-  $('result-title').textContent=victory?text('방어 성공. 지식이 몸을 지켰습니다.','Defense complete. Knowledge protected the body.'):text('방어선이 무너졌습니다. 다시 도전하세요.','The line has fallen. Try again.');
+  $('result-title').textContent=victory?text('다시 흐르는 생명','Life flows again'):text('끝나지 않은 여정','The journey continues');
+  $('result-map').textContent=`${text(...getMap(state.map).names)} / ${text(...getMap(state.map).core)}`;
   $('result-score').textContent=state.score.toLocaleString();$('result-stats').replaceChildren();
   for(const [label,value] of [[text('코어 생명','CORE LIFE'),`${Math.round(state.core)}%`],[text('명중률','ACCURACY'),`${state.shots?Math.round(state.hits/state.shots*100):0}%`],[text('퀴즈 정답','QUIZ CORRECT'),`${state.correct} / ${state.quizTotal}`]]){
     const div=document.createElement('div'),b=document.createElement('b'),p=document.createElement('p');b.textContent=value;p.textContent=label;div.append(b,p);$('result-stats').append(div);
@@ -264,7 +313,7 @@ function combat(dt){
     }
     if(!enemy.dead&&enemy.progress>=1){
       state.core=clamp(state.core-enemy.impact*tuning.impact);state.combo=0;flashTime=.35;world.shake=1;
-      notice('방어선 돌파! 심장·콩팥·뇌혈관이 공격받습니다.','BREACH! Heart, kidneys and brain under attack.');sound(80,.2,'sawtooth');removeEnemy(enemy);
+      notice(`${getMap(state.map).core[0]} 방어선이 공격받고 있어요`,`${getMap(state.map).core[1]} under attack!`);sound(80,.2,'sawtooth');removeEnemy(enemy);
     }
   }
   state.pulse-=dt;
@@ -298,6 +347,7 @@ function combat(dt){
 }
 function updateHUD(){
   $('score').textContent=String(state.score).padStart(6,'0');$('combo').textContent=state.combo>1?`${state.combo} COMBO / ×${Math.min(4,1+state.combo*.12).toFixed(1)}`:'';
+  $('core-label').textContent=text(...getMap(state.map).core);
   $('core').textContent=`${Math.round(state.core)}%`;$('core-fill').style.width=`${state.core}%`;$('accuracy').textContent=state.shots?`${Math.round(state.hits/state.shots*100)}%`:'—';$('quiz-count').textContent=`${state.correct}/${state.quizTotal}`;
   $('wave-name').textContent=`${state.wave===2?'FINAL ':''}WAVE ${String(state.wave+1).padStart(2,'0')} / 03`;
   $('wave-progress').style.width=`${clamp(state.waveTime/WAVES[state.wave].duration*100)}%`;
@@ -333,7 +383,7 @@ function step(seconds=1/60){
     }
     world.animate(dt,state,enemies);
   }
-  updateHUD();world.render();
+  updateHUD();world.render();updateLandmarkLabels();
 }
 function pause(force){
   if(!['combat','quiz'].includes(state.phase))return;
@@ -343,12 +393,15 @@ function bindUI(){
   document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',()=>{state.lang=button.dataset.lang;updateLanguage();loadBanks();}));
   document.querySelectorAll('[data-diff]').forEach(button=>button.addEventListener('click',()=>{state.difficulty=button.dataset.diff;updateLanguage();}));
   $('start').onclick=()=>{unlockAudio();if(loadFailed){loadBanks();return;}if(bank.ready)setPhase('guide');};
+  $('guide-back').onclick=()=>setPhase('home');
+  $('routes-toggle').onclick=()=>{const on=world.toggleRoutes();$('routes-toggle').textContent=text(on?'경로선 끄기':'경로선 보기',on?'Hide routes':'Show routes');};
+  window.addEventListener('keydown',event=>{if(event.code==='KeyR'&&!event.repeat&&!['INPUT','SELECT','TEXTAREA'].includes(event.target?.tagName))$('routes-toggle').click();});
   $('deploy').onclick=()=>{unlockAudio();if(!document.fullscreenElement)$('stage').requestFullscreen?.({navigationUI:'hide'}).catch(()=>{});resetGame();};
   $('fullscreen').onclick=fullscreen;
   $('sound').textContent=muted?'♪ OFF':'♪ ON';$('sound').onclick=()=>{unlockAudio();muted=!muted;storage.set('muted',muted);$('sound').textContent=muted?'♪ OFF':'♪ ON';};
   $('reload').onclick=reload;$('swap').onclick=swap;$('pause').onclick=()=>pause();$('resume').onclick=()=>pause(false);
   $('submit').onclick=()=>{if(state.selection!==null)answerQuiz();};$('quiz-next').onclick=continueQuiz;
-  $('restart').onclick=()=>{world.clear();enemies.length=0;state.paused=false;setPhase('home');updateLanguage();};
+  $('restart').onclick=()=>{world.clear();enemies.length=0;state.paused=false;world.selectMap(state.map);setPhase('home');updateLanguage();};
   $('admin-open').onclick=()=>{
     $('mix').value=bank.mix;$('drug').checked=bank.drug;
     $('bank-info').textContent=text(`공유 문제은행: MASLD ${bank.sets.masld.length}문 · Obesity ${bank.sets.obesity.length}문 / 최근 24문항 중복 회피`,`Shared banks: MASLD ${bank.sets.masld.length} · Obesity ${bank.sets.obesity.length} / avoids the last 24 questions`);setPhase('admin');
@@ -396,7 +449,7 @@ try{
     $('fps').dataset.quality=String(world.quality);
     frameSamples=[];sampleStart=now;
   }
-  window.ASTRA={state,enemies,world,bank,WEAPONS,TYPES,WAVES,performance:performanceStats,spawn,shot,reload,swap,start:resetGame,openQuiz,answerQuiz,continueQuiz,pause,step,project:enemy=>world.project(enemy.model),setManual(value=true){manual=value;lastTime=performance.now();frameSamples=[];sampleStart=lastTime;slowWindows=goodWindows=0;},damage,finish};
+  window.ASTRA={MAPS,selectMap,state,enemies,world,bank,WEAPONS,TYPES,WAVES,performance:performanceStats,spawn,shot,reload,swap,start:resetGame,openQuiz,answerQuiz,continueQuiz,pause,step,project:enemy=>world.project(enemy.model),setManual(value=true){manual=value;lastTime=performance.now();frameSamples=[];sampleStart=lastTime;slowWindows=goodWindows=0;},damage,finish};
   function frame(now){const elapsed=now-lastTime;lastTime=now;measureFrame(now,elapsed);if(!manual)step(Math.min(.05,elapsed/1000));requestAnimationFrame(frame);}requestAnimationFrame(frame);
 
 }catch(error){console.error(error);$('fatal-text').textContent=text('3D 화면을 시작하지 못했습니다. WebGL2를 지원하는 브라우저에서 서버 주소로 열어 주세요.','Could not start 3D graphics. Open the HTTP server URL in a browser supporting WebGL2.');show('fatal',true);}

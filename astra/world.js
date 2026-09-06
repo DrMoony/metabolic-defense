@@ -1,6 +1,8 @@
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { roundedBox, bakeStatic, contact, glow, reflections, environment, guardian, pancreas } from './art.js?v=a4';
+import { roundedBox, bakeStatic, contact, glow, reflections, guardian, pancreas } from './art.js?v=a5';
+import { buildTerrain } from './terrain.js?v=a5';
+import { getMap } from './maps/index.js?v=a5';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -146,7 +148,8 @@ export class World {
     this.resize();window.addEventListener('resize',()=>this.resize());
   }
   buildEnvironment(){
-    this.terrain=environment(this.scene);
+    this.map=getMap('coronary');this.terrain=buildTerrain(this.scene,this.map);this.flight=0;
+    this.scene.background.setHex(this.map.palette.background);this.scene.fog.color.setHex(this.map.palette.fog);this.scene.fog.density=this.map.fog;
     this.dust=new THREE.InstancedMesh(shapes.sphere,material(0xffdb87,.9),72);
     this.dustData=Array.from({length:72},()=>({x:(Math.random()-.5)*42,y:1+Math.random()*21,z:Math.random()*95-80,s:.025+Math.random()*.07}));
     this.scene.add(this.dust);this.dummy=new THREE.Object3D();
@@ -154,15 +157,25 @@ export class World {
   buildOrgans(){
     const liver=guardian(this.scene);this.liver=liver.root;this.liverBody=liver.body;
     const insulin=pancreas(this.scene);this.pancreas=insulin.root;this.turret=insulin.turret;this.tip=insulin.tip;
-    this.cores=[];
-    for(let i=0;i<3;i++){
-      const core=new THREE.Group();core.position.set((i-1)*2.1,1,6);this.scene.add(core);
-      part(core,'cylinder',0x29484b,[0,-.6,0],[.8,.3,.8],0,.7);
-      part(core,'ico',[0xff8293,0x9acfff,0xd5b1f4][i],[0,.3,0],[.57,.8,.57],.7,.5);
-      part(core,'torus',0x9dcdc8,[0,.3,0],[.9,.9,.6],.6).rotation.x=.6;
-      this.cores.push(core);
-    }
   }
+  selectMap(key){
+    this.clear();this.terrain.dispose();this.map=getMap(key);
+    this.terrain=buildTerrain(this.scene,this.map);this.terrain.setQuality(this.quality);
+    this.scene.background.setHex(this.map.palette.background);
+    this.scene.fog.color.setHex(this.map.palette.fog);this.scene.fog.density=this.map.fog;
+    this.key.color.setHex(this.map.palette.accent);
+    this.flight=1;this.camera.position.set(14,17,34);
+    this.liver.position.set(-8.3,0,-9);this.pancreas.position.set(9.2,0,-6);
+  }
+  routePoint(id,p){return this.terrain.routes.sample(id,p);}
+  toggleRoutes(){this.terrain.debug.visible=!this.terrain.debug.visible;return this.terrain.debug.visible;}
+  damageLandmark(landmark,amount){
+    if(landmark.dead||!landmark.maxHp)return false;
+    landmark.hp=Math.max(0,landmark.hp-amount);this.burst(landmark.model.position.clone().setY(1.5),0xffce74,6);
+    if(landmark.hp===0){landmark.dead=true;landmark.model.visible=false;this.ring(landmark.model.position,0xffde91,4);return true;}
+    return false;
+  }
+
   buildGun(tier){
     if(this.gun){this.camera.remove(this.gun);this.gun.traverse(m=>{if(m.isMesh&& !Object.values(shapes).includes(m.geometry))m.geometry.dispose();if(m.isSprite)m.material.dispose();});}
     const group=new THREE.Group();this.gun=group;this.camera.add(group);
@@ -197,11 +210,13 @@ export class World {
   setQuality(level){
     const next=Math.max(0,Math.min(3,level));if(next===this.quality)return;
     this.quality=next;
-    const resolution=[1024,512,256,0][next];
+    this.terrain.setQuality(next);
+    // First degradation spends only decorative density; preserve road edges and HP targets.
+    const resolution=[1024,1024,512,0][next];
     this.renderer.shadowMap.enabled=resolution>0;
     if(resolution){this.key.shadow.mapSize.set(resolution,resolution);if(this.key.shadow.map){this.key.shadow.map.dispose();this.key.shadow.map=null;}if(this.key.shadow.mapPass){this.key.shadow.mapPass.dispose();this.key.shadow.mapPass=null;}this.renderer.shadowMap.needsUpdate=true;}
-    this.dust.count=[72,40,18,8][next];
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio,[1.5,1.25,1,.8][next]));this.resize();
+    this.dust.count=[72,72,40,8][next];
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio,[1.5,1.5,1,.8][next]));this.resize();
   }
   resize(){
     const rect=this.renderer.domElement.getBoundingClientRect();
@@ -218,9 +233,11 @@ export class World {
     const rect=this.renderer.domElement.getBoundingClientRect();
     this.aim.set((x-rect.left)/rect.width*2-1,1-(y-rect.top)/rect.height*2);
     this.scene.updateMatrixWorld(true);this.ray.setFromCamera(this.aim,this.camera);
-    const meshes=enemies.map(e=>e.model);
+    const obstacles=this.terrain.landmarks.filter(l=>l.maxHp&&!l.dead);
+    const meshes=[...enemies.map(e=>e.model),...obstacles.map(l=>l.model)];
     const hit=this.ray.intersectObjects(meshes,true).find(h=>!h.object.userData.decorative);
     if(!hit)return {point:this.ray.ray.at(70,new THREE.Vector3()),enemy:null};
+    let parent=hit.object;while(parent){const landmark=obstacles.find(l=>l.model===parent);if(landmark)return {point:hit.point,enemy:null,landmark};parent=parent.parent;}
     let object=hit.object;let enemy;
     while(object&&!enemy){enemy=enemies.find(e=>e.model===object);object=object.parent;}
     return {point:hit.point,enemy,weak:hit.object.userData.weak===true};
@@ -232,7 +249,7 @@ export class World {
   }
   shot(point,tier){this.kick=1;this.hitLight.position.copy(point);this.hitLight.intensity=110;this.beam(this.gunMuzzle.getWorldPosition(new THREE.Vector3()),point,tier>9?0x8deaff:0xffd39b,tier>8?.095:.035);}
   burst(position,color=0xffcf8c,count=14){
-    const limit=[128,64,32,16][this.quality];count=Math.ceil(count*[1,.6,.3,.15][this.quality]);
+    const limit=[128,128,64,16][this.quality];count=Math.ceil(count*[1,1,.6,.15][this.quality]);
     for(let i=0;i<count&&this.particles.length<limit;i++){
       const life=.35+Math.random()*.65;
       this.particles.push({position:position.clone(),velocity:V((Math.random()-.5)*10,2+Math.random()*7,(Math.random()-.5)*10),life,max:life,size:.06+Math.random()*.17,color:new THREE.Color(color)});
@@ -256,18 +273,20 @@ export class World {
   disposeFx(fx){this.scene.remove(fx.mesh);fx.mesh.material.dispose();fx.mesh.geometry.dispose();}
   animate(dt,state,enemies){
     this.time+=dt;const t=this.time;
-    const active=!['home','guide','admin'].includes(state.phase);
-    const desired=active?V(Math.sin(t*.29)*.13,6.6+Math.sin(t*.37)*.075,16):V(-3+Math.sin(t*.13)*.3,7,13);
+    const active=['combat','quiz'].includes(state.phase);
+    this.flight=Math.max(0,this.flight-dt*.48);
+    this.terrain.animate(t,state.phase==='home'?0:state.wave,this.camera);
+    const desired=active?V(Math.sin(t*.29)*.10,9.4+Math.sin(t*.37)*.075,19):state.phase==='guide'?V(4+Math.sin(t*.15)*.4,13,26):V(8+Math.sin(t*.13)*1.2,14+Math.sin(t*.21)*.25,29);
+    if(this.flight>0){desired.x+=this.flight*8;desired.y+=this.flight*5;desired.z+=this.flight*12;}
     this.camera.position.lerp(desired,Math.min(1,dt*2));
     this.shake=Math.max(0,this.shake-dt*2.5);
     this.camera.position.x+=Math.sin(t*83)*this.shake*.14;this.camera.position.y+=Math.cos(t*71)*this.shake*.10;
-    this.camera.lookAt(active?V(0,3,-29):V(-10,3.5,-21));
+    this.camera.lookAt(active?V(0,1,-26):V(0,1,-30));
     this.kick=Math.max(0,this.kick-dt*7);this.gun.visible=active&&state.phase!=='result';this.gun.position.z=(state.weapon===0?-1.6:-1.5)+this.kick*.12;this.gun.rotation.x=this.kick*.12;
     this.hitLight.intensity*=Math.exp(-dt*20);
     this.liver.rotation.y=Math.sin(t*.7)*.025;this.liver.scale.setScalar(1+Math.sin(t*1.8)*.015);
     this.liverBody.material.color.setHex(0xcd4316).lerp(new THREE.Color(0x66503b),state.liver/100);
     this.pancreas.scale.setScalar(1+Math.sin(t*2.4)*.015);
-    this.cores.forEach((core,i)=>{core.children[1].position.y=.3+Math.sin(t*2+i)*.13;core.children[2].rotation.y=t*.3+i;core.scale.setScalar(.7+state.core/333);});
     for(let i=0;i<this.dust.count;i++){
       const d=this.dustData[i];d.z+=dt*.65;if(d.z>14)d.z=-80;
       this.dummy.position.set(d.x+Math.sin(t*.3+i)*.3,d.y,d.z);this.dummy.scale.setScalar(d.s);this.dummy.updateMatrix();this.dust.setMatrixAt(i,this.dummy.matrix);
@@ -279,7 +298,7 @@ export class World {
       e.flash=Math.max(0,(e.flash||0)-dt*6);g.scale.setScalar(e.scale*(.86+e.progress*.22)*(1+e.flash*.14));
       const shadow=this.contacts.get(g);if(shadow){shadow.position.set(g.position.x,.065,g.position.z);const size=e.scale*(2.4+e.progress*.7)*(e.fly?1.5:1);shadow.scale.set(size,size*.67,1);shadow.material.opacity=(e.fly?.24:.48)+e.progress*.19;}
       // Only nearby actors cast the more expensive shadow; every actor retains contact.
-      const casts=this.quality<3&&e.progress>(this.quality===0?.36:.65);
+      const casts=this.quality<3&&e.progress>(this.quality<=1?.36:.65);
       if(g.userData.casts!==casts){g.traverse(m=>{if(m.isMesh&&!m.userData.decorative)m.castShadow=casts;});g.userData.casts=casts;}
     }
     for(let i=this.particles.length-1;i>=0;i--){const p=this.particles[i];p.life-=dt;if(p.life<=0){this.particles.splice(i,1);continue;}p.velocity.y-=dt*12;p.position.addScaledVector(p.velocity,dt);}

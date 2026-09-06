@@ -44,62 +44,6 @@ export function reflections(scene){
   }
   const map=new T.DataTexture(data,w,h);map.mapping=T.EquirectangularReflectionMapping;map.colorSpace=T.SRGBColorSpace;map.needsUpdate=true;scene.environment=map;scene.environmentIntensity=.9;
 }
-function tissueRelief(){
-  const size=128,data=new Uint8Array(size*size*4);
-  for(let y=0;y<size;y++)for(let x=0;x<size;x++){
-    const u=x/size*Math.PI*2,w=y/size*Math.PI*2;
-    const n=128+32*Math.sin(u*7+Math.sin(w*3))*Math.sin(w*9)+13*Math.cos(u*17-w*13)+7*Math.sin(u*39+w*33),i=(y*size+x)*4;
-    data[i]=data[i+1]=data[i+2]=Math.round(n);data[i+3]=255;
-  }
-  const texture=new T.DataTexture(data,size,size);texture.wrapS=texture.wrapT=T.RepeatWrapping;texture.magFilter=T.LinearFilter;texture.minFilter=T.LinearFilter;texture.needsUpdate=true;return texture;
-}
-export function environment(scene){
-  let seed=4291;const random=()=>{seed=(1664525*seed+1013904223)>>>0;return seed/4294967296;};
-  const staticRoot=new T.Group();scene.add(staticRoot);
-  const floor=mesh(staticRoot,box,0x6d2638,[0,-1.65,-39],[95,2.5,130]);floor.castShadow=false;
-  // The traversable artery widens toward the player. All three gameplay lanes stay clear.
-  const matrix=new T.Object3D(),tiles=new T.InstancedMesh(box,finish(0xffffff,.25),34*9);let k=0;
-  for(let row=0;row<34;row++){const z=12-row*3.15,width=12+(12-z)*.095,curve=Math.sin(z*.072)*1.5;
-    for(let col=0;col<9;col++){matrix.position.set(curve+(col-4)*width*2/9,-.25+random()*.025,z);matrix.rotation.set(0,Math.sin(z*.072)*.02,(random()-.5)*.013);matrix.scale.set(width*2/9-.08,.36,3.02);matrix.updateMatrix();tiles.setMatrixAt(k,matrix.matrix);tiles.setColorAt(k++,new T.Color().setHSL(.975+random()*.025,.43+random()*.1,.29+random()*.08));}}
-  tiles.receiveShadow=true;scene.add(tiles);
-  for(const sign of [-1,1]){
-    const points=Array.from({length:20},(_,i)=>{const z=15-i*5.4;return [Math.sin(z*.072)*1.5+sign*(12+(12-z)*.095),.45,z];});
-    line(staticRoot,points,.64,0x9c354c);line(staticRoot,points.map(([x,y,z])=>[x-sign*.2,y+.51,z]),.065,0xf3a47f,.12);
-  }
-  // Several thousand lobules in one instanced draw: rich silhouettes at bounded cost.
-  const relief=tissueRelief();
-  tiles.material.bumpMap=relief;tiles.material.bumpScale=.085;
-  const fatMaterial=finish(0xffffff,.22);fatMaterial.bumpMap=relief;fatMaterial.bumpScale=.095;
-  const fat=new T.InstancedMesh(new T.SphereGeometry(1,16,10),fatMaterial,2100);k=0;
-  for(const sign of [-1,1])for(let row=0;row<35;row++){
-    const z=15-row*3.3,edge=14+(12-z)*.095,crest=3+Math.sin(row*.63)*2;
-    for(let j=0;j<30;j++){
-      const spread=random()*16,x=sign*(edge+spread),height=crest+spread*.28;
-      const radius=.5+random()*1.55;
-      matrix.position.set(x,random()*height-.6,z+(random()-.5)*4);matrix.rotation.set(random()*3,random()*3,0);matrix.scale.set(radius,radius*(.7+random()*.6),radius);matrix.updateMatrix();fat.setMatrixAt(k,matrix.matrix);fat.setColorAt(k++,new T.Color().setHSL(.095+random()*.035,.78,.32+random()*.18));
-    }
-  }
-  fat.receiveShadow=true;fat.castShadow=false;scene.add(fat);
-  for(let i=0;i<9;i++){
-    const z=-7-i*11,lean=Math.sin(i*2.3)*4;
-    line(staticRoot,[[-29,0,z],[-28,13,z],[-19+lean,25,z-2],[-3+lean,30,z-3],[17,26,z-1],[29,13,z],[30,0,z]],1.4+i*.045,i%2?0x5f243e:0x7e304b);
-    line(staticRoot,[[-27,4,z],[-25,16,z],[-17+lean,24,z-2],[lean,29,z-3],[18,24,z]],.17,0xbb6873,.08);
-    for(const sign of [-1,1]){
-      const at=[sign*(19+random()*9),1,z+3],height=2+random()*4;
-      const stem=mesh(staticRoot,cylinder,0x922b55,[at[0],height/2,at[2]],[.6,height,.6]);stem.rotation.z=sign*.22;
-      const lip=mesh(staticRoot,ring,0xc65270,[at[0]-sign*.2,height,at[2]],[.68,.68,1.6]);lip.rotation.x=Math.PI/2;
-      mesh(staticRoot,sphere,0x390e2a,[at[0]-sign*.2,height-.13,at[2]],[.52,.13,.52]);
-    }
-  }
-  // A hanging, veined organ anchors the upper-left distance instead of a flat backdrop.
-  mesh(staticRoot,sphere,0x8d2644,[-17,16,-47],[5.4,7,4.2]);
-  mesh(staticRoot,sphere,0x9c2a46,[-19,19,-45],[3.7,3.7,3]);
-  line(staticRoot,[[-17,11,-43],[-19,16,-42],[-18,19,-42],[-23,24,-47]],.25,0xb54c67);
-  line(staticRoot,[[-18,17,-42],[-15,19,-42],[-12,24,-47]],.17,0xd37986);
-  bakeStatic(staticRoot);
-  for(const [x,y,z,s] of [[-18,15,-42,15],[12,22,-63,20],[-6,24,-78,17]])glow(scene,0xe78e83,[x,y,z],s,.12);
-  return {fat,tiles};
-}
 export function guardian(scene){
   const root=new T.Group();root.position.set(-8.3,0,-12);root.rotation.y=.12;scene.add(root);
   contact(root,9,.65);
