@@ -876,9 +876,30 @@ function buildGunModel(tier) {
   return { group: g, mz };
 }
 
+// 1인칭 총 이미지 (생성 뷰모델). gun 그룹이 카메라 자식이라 평면은 자동으로 정면을 본다.
+// w: 평면 폭(월드), mz: 총구 위치 [x, y, z] — 총구 화염이 붙는 지점
+const WEAPON_SPRITES = {
+  0: { file: '../assets/sprites/w00_slingshot.png', w: 1.05, ratio: 640 / 491, mz: [0.02, 0.62, -0.05] },
+  1: { file: '../assets/sprites/w01_crossbow.png',  w: 1.45, ratio: 403 / 640, mz: [0.0, 0.34, -0.08] },
+  2: { file: '../assets/sprites/w02_matchlock.png', w: 1.55, ratio: 1.0,       mz: [0.0, 0.5, -0.08] },
+};
+function buildGunSprite(tier) {
+  const d = WEAPON_SPRITES[tier];
+  const g = new THREE.Group();
+  const h = d.w * d.ratio;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(d.w, h),
+    new THREE.MeshBasicMaterial({ map: spriteTex(d.file), transparent: false, alphaTest: 0.35, depthWrite: true }));
+  m.position.set(0, h * 0.15, 0);
+  g.add(m);
+  const mz = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6),
+    new THREE.MeshBasicMaterial({ color: 0xffe9a8, transparent: true, opacity: 0 }));
+  mz.position.set(d.mz[0], d.mz[1], d.mz[2]);
+  g.add(mz);
+  return { group: g, mz };
+}
 function applyWeaponVisual() {
   while (gun.children.length) gun.remove(gun.children[0]);
-  const built = buildGunModel(G.weapon);
+  const built = WEAPON_SPRITES[G.weapon] ? buildGunSprite(G.weapon) : buildGunModel(G.weapon);
   gun.add(built.group);
   muzzle = built.mz;
   updateWeaponChip();
