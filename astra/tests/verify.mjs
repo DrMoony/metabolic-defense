@@ -178,8 +178,8 @@ A.spawn('syrup',{progress:.65,lane:0});A.step(.2);assert(A.state.failed);A.openQ
 console.log('PASS: missed-boss loss and permanent pancreatic failure');
 // Every plate is available; legacy terrain remains a separately tested fallback.
 elements.get('restart').click();
-assert.equal(elements.get('map-list').children.length,7);
-assert.equal(elements.get('map-pending').children.length,0);
+assert.equal(elements.get('map-list').children.length,A.MAPS.filter(m=>m.ready).length);
+assert.equal(elements.get('map-pending').children.length,A.MAPS.filter(m=>!m.ready).length);
 const plateModule=await load(path.join(root,'astra/plate.js'));await plateModule.evaluate();
 const {groundPoint,routeDocument,validateRoutes}=plateModule.namespace;
 const scaleReport=[];

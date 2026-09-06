@@ -201,5 +201,34 @@
     "pulseRadius": 132.46851091412,
     "coverageMax": 124.46851091412,
     "coveragePoints": 44
+  },
+  {
+    "map": "villi",
+    "organVisibility": {
+      "liver": {
+        "visible": 244,
+        "opaque": 244,
+        "ratio": 1
+      },
+      "pancreas": {
+        "visible": 160,
+        "opaque": 160,
+        "ratio": 1
+      }
+    },
+    "liverBox": {
+      "left": 0.5093090856962869,
+      "right": 0.6904516798539513,
+      "top": 0.08005951115834453,
+      "bottom": 0.39957492029755826
+    },
+    "liverPixels": [
+      1003,
+      376
+    ],
+    "junctionPixels": null,
+    "pulseRadius": 138.27469321879926,
+    "coverageMax": 130.27469321879926,
+    "coveragePoints": 24
   }
 ]
