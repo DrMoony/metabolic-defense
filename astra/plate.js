@@ -77,10 +77,11 @@ export function buildPlateTerrain(scene,map,camera){
   for(const [index,data] of map.landmarks.entries()){
     const group=new T.Group();group.position.copy(groundPoint(camera,data.at));root.add(group);
     const item={...data,model:group,hp:data.hp,maxHp:data.hp,dead:false,anchor:new T.Object3D()};group.add(item.anchor);terrain.landmarks.push(item);
-    if(['plaque','fat','macrophage'].includes(data.kind)){
+    if(['plaque','fat','macrophage','crystal'].includes(data.kind)){
       const body=cutout('fatwall',screenHeight(camera,group.position,data.size[1]));
       group.quaternion.copy(camera.quaternion);group.add(body);
       if(data.kind==='macrophage')body.material.color.setHex(0xcc95bd);
+      if(data.kind==='crystal')body.material.color.setHex(0xf3dca8);
       item.anchor.position.y=body.scale.y*1.1;
       if(data.hp){
         const bar=new T.Group();bar.position.y=body.scale.y*1.04;group.add(bar);

@@ -196,9 +196,14 @@ for(const map of A.MAPS){
   scaleProbe.model.position.copy(groundPoint(A.world.camera,map.actors.at));scaleProbe.model.scale.setScalar(A.world.actorScale);
   assert(Math.abs(projectedHeight(scaleProbe.model)-.15)<1e-6,`${map.key}: calibrated regular enemy is 15% tall`);
   A.damage(scaleProbe,100);A.start();
-  const heights=[.1,.55,.99].map(progress=>{const e=A.spawn('fries',{progress});const h=projectedHeight(e.model);A.damage(e,100);return h;});
+  // 길마다 따로 잰다. 길이 여러 개인 맵에서 무작위 차선을 섞으면 깊이 비교가 뒤집힌다.
+  let heights=null;
+  for(let lane=0;lane<map.routes.length;lane++){
+    const sample=[.1,.55,.99].map(progress=>{const e=A.spawn('fries',{progress,lane});const h=projectedHeight(e.model);A.damage(e,100);return h;});
+    assert(sample[2]>sample[1]&&sample[1]>sample[0],`${map.key}: depth produces increasing screen size on ${map.routes[lane].id}`);
+    if(lane===0)heights=sample;
+  }
   assert(heights[2]>=.12&&heights[2]<=.18,`${map.key}: foreground height ${heights[2]}`);
-  assert(heights[2]>heights[1]&&heights[1]>heights[0],`${map.key}: depth produces increasing screen size`);
   scaleReport.push({map:map.key,far:heights[0],middle:heights[1],foreground:heights[2]});
   A.start();
   const terrain=A.world.terrain,routes=terrain.routes;

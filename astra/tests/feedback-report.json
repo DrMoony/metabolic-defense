@@ -148,29 +148,29 @@
     "map": "glomerulus",
     "organVisibility": {
       "liver": {
-        "visible": 243,
-        "opaque": 243,
+        "visible": 244,
+        "opaque": 244,
         "ratio": 1
       },
       "pancreas": {
-        "visible": 160,
-        "opaque": 160,
+        "visible": 161,
+        "opaque": 161,
         "ratio": 1
       }
     },
     "liverBox": {
-      "left": 0.4116573429683985,
-      "right": 0.5835579680363862,
-      "top": 0.187753453772587,
-      "bottom": 0.4909670563230653
+      "left": 0.23462385014543174,
+      "right": 0.4065244752134194,
+      "top": 0.09423591923485508,
+      "bottom": 0.3974495217853333
     },
     "liverPixels": [
-      832,
-      462
+      536,
+      374
     ],
     "junctionPixels": null,
-    "pulseRadius": 15.629054585440981,
-    "coverageMax": 13.800994891925454,
+    "pulseRadius": 23.141420949682203,
+    "coverageMax": 20.888132971398303,
     "coveragePoints": 5
   },
   {
