@@ -1,6 +1,6 @@
 import * as T from '../vendor/three.module.js';
-import { cutout, screenHeight } from './sprites.js?v=a25';
-import { Routes } from './routes.js?v=a25';
+import { cutout, screenHeight } from './sprites.js?v=a26';
+import { Routes } from './routes.js?v=a26';
 
 export function configurePlateCamera(camera,map){
   camera.fov=map.camera.fov;camera.near=.1;camera.far=1500;
