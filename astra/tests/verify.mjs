@@ -149,7 +149,7 @@ A.state.cooldown=0;A.shot((p.x+1)*640,(1-p.y)*360);assert.equal(syrup.hp,14,'syr
 console.log('PASS: 3D raycast hit detection and syrup weak point');
 // Reload and mouse-only upgrade/swap controls.
 A.start();A.state.ammo[0]=0;A.reload();assert(A.state.reload>0);A.step(2);assert.equal(A.state.ammo[0],9);
-A.openQuiz();A.state.selection=A.state.quiz.correct;A.answerQuiz();assert.equal(A.state.unlocked,1);A.continueQuiz();A.swap();assert.equal(A.state.weapon,0);
+A.openQuiz();A.state.selection=A.state.quiz.correct;A.answerQuiz();assert.equal(A.state.unlocked,1);assert(!elements.get('weapon-banner').classList.contains('hidden'));A.continueQuiz();A.swap();assert.equal(A.state.weapon,0);
 A.state.difficulty='easy';A.state.ammo[0]=9;A.state.cooldown=0;A.shot(20,300);assert.equal(A.state.ammo[0],9);
 console.log('PASS: reload, quiz reward, weapon switching, unlimited EASY ammunition');
 // World and quiz clock freeze on pause; projectiles cannot hit behind the quiz UI.
@@ -279,6 +279,109 @@ for(const map of A.MAPS){
   stored.set(`astra_routes_${map.key}`,'{invalid');A.start();assert.equal(A.world.terrain.storageStatus.startsWith('default'),true);stored.delete(`astra_routes_${map.key}`);
   console.log(`PASS: ${map.key}: ${map.routes.map(r=>r.points.length).join('+')} + trunk ${map.trunk.length}; projection, organs, occlusion, raycast obstacles, all bosses, editor storage`);
 }
+// BRIEF-6: deterministic combat-feedback checks on every plate.
+const feedbackReport=[];
+for(const map of A.MAPS){
+  A.finish(false);A.selectMap(map.key);A.start();A.setManual(true);
+  const w=A.world,el=id=>elements.get(id);
+  A.state.pulse=100;A.state.insulin=100;
+  const probe=A.spawn('fries',{progress:.15});
+  assert(!probe.model.userData.bar.visible,'unhit regular HP starts hidden');
+  let left;
+  for(const ratio of [.75,.5,.25]){
+    A.damage(probe,probe.hp-probe.maxHp*ratio,false);A.step(.001);
+    const {bar,bg,fill,baseWidth}=probe.model.userData;
+    assert(bar.visible);assert.equal(fill.material.color.getHex(),ratio>.5?0x80efad:ratio>.25?0xffd166:0xff596b);
+    const edge=fill.position.x-fill.scale.x/2;
+    if(left===undefined)left=edge;else assert(Math.abs(edge-left)<1e-9,'HP drains from the right');
+    assert(Math.abs(fill.scale.x/ratio-baseWidth*.9)<1e-9,'regular bar follows sprite width');
+    const top=fill.localToWorld(new T.Vector3(0,.5,0)).project(w.camera),bottom=fill.localToWorld(new T.Vector3(0,-.5,0)).project(w.camera);
+    assert(Math.abs(top.y-bottom.y)*360>=1.999,'HP remains at least 2 CSS pixels');
+    const rotation=bar.getWorldQuaternion(new T.Quaternion());assert(rotation.angleTo(w.camera.quaternion)<1e-7);
+  }
+  A.start();A.state.insulin=100;A.state.pulse=100;
+  const elite=A.spawn('syrup',{progress:.55});A.step(.001);
+  assert(elite.model.userData.bar.visible);assert(!el('boss').classList.contains('hidden'));
+  assert(el('boss-name').textContent.startsWith('ELITE'));
+  assert(Math.abs(elite.model.userData.fill.scale.x-elite.model.userData.baseWidth*1.8)<1e-9);
+  A.damage(elite,elite.maxHp*.6,false);A.step(.001);assert.equal(el('boss-fill').style.background,'#ffd166');
+  const waveBoss=A.spawn('plaque',{progress:.2,waveBoss:true});A.step(.001);
+  assert(el('boss-name').textContent.includes('BOSS /'));assert(el('boss-name').textContent.includes('플라크'));
+  A.damage(waveBoss,waveBoss.maxHp*.8,false);A.step(.001);assert.equal(el('boss-fill').style.background,'#ff596b');
+  A.damage(waveBoss,100,false);A.step(.001);assert(el('boss-name').textContent.startsWith('ELITE'));
+  A.damage(elite,100,false);A.step(.001);assert(el('boss').classList.contains('hidden'));
+  A.start();A.state.ammo[0]=0;A.reload();assert.equal(Number(el('reticle').dataset.progress),0);
+  A.step(.45);const first=Number(el('reticle').dataset.progress);assert(first>0&&first<1);
+  A.pause(true);A.step(.2);assert.equal(Number(el('reticle').dataset.progress),first);A.pause(false);
+  A.step(.45);assert(Number(el('reticle').dataset.progress)>first);
+  A.step(.42);assert(el('reticle').classList.contains('ready'));assert.equal(A.state.ammo[0],9);
+  A.step(.2);assert(!el('reticle').classList.contains('ready'));assert(!el('reticle').classList.contains('reloading'));
+  A.state.ammo[0]=0;A.reload();A.state.unlocked=2;
+  el('world').listeners.contextmenu({preventDefault(){}});
+  assert.equal(A.state.weapon,2);assert.equal(A.state.reload,0);assert(!el('reticle').classList.contains('reloading'));
+  A.state.cooldown=0;A.shot(20,300);assert(A.state.reticleKick>0);A.step(.08);assert.equal(A.state.reticleKick,0);
+  A.start();
+  // Geometry-only visibility check, including opaque alpha samples and depth masks.
+  const organVisibility={};
+  for(const name of ['liver','pancreas']){
+    const body=w[name].userData.body;w.scene.updateMatrixWorld(true);
+    let visible=0,opaque=0;
+    for(let y=1;y<20;y++)for(let x=1;x<20;x++){
+      const point=body.localToWorld(new T.Vector3(x/20-.5,y/20,0)).project(w.camera);
+      const ray=new T.Raycaster();ray.setFromCamera(new T.Vector2(point.x,point.y),w.camera);
+      if(!ray.intersectObject(body).length)continue;
+      opaque++;
+      if(ray.intersectObjects([body,...w.terrain.occluders],false)[0]?.object===body)visible++;
+    }
+    organVisibility[name]={visible,opaque,ratio:visible/opaque};
+    assert(opaque>0&&visible/opaque>.95,`${map.key}: ${name} is not behind a plate occluder (${visible}/${opaque})`);
+  }
+  w.liver.scale.setScalar(w.liver.userData.baseScale*1.18);w.scene.updateMatrixWorld(true);
+  const corners=[[-.5,0],[.5,0],[-.5,1],[.5,1]].map(([x,y])=>w.liverBody.localToWorld(new T.Vector3(x,y,0)).project(w.camera));
+  const liverBox={left:Math.min(...corners.map(p=>(p.x+1)/2)),right:Math.max(...corners.map(p=>(p.x+1)/2)),top:Math.min(...corners.map(p=>(1-p.y)/2)),bottom:Math.max(...corners.map(p=>(1-p.y)/2))};
+  const hudLeft=Number.parseFloat(el('mission').style.left)/100;
+  assert(liverBox.right<hudLeft||liverBox.left>hudLeft+.22||liverBox.top>.18,`${map.key}: pulse-expanded guardian clears wave/boss HUD envelope ${JSON.stringify(liverBox)}`);
+  A.start();
+  const foot=map.organs.liver.at;
+  let junctionPixels=null;
+  if(map.trunk.length){
+    junctionPixels=Math.hypot((foot[0]-map.trunk[0][0])*1672,(foot[1]-map.trunk[0][1])*941);
+    assert(junctionPixels>=941*.03&&junctionPixels<=941*.06,`${map.key}: guardian beside junction ${junctionPixels}`);
+    assert(Math.abs(foot[0]-map.trunk[0][0])*1672>20,'guardian does not stand on road center');
+    for(const point of [...map.routes.flatMap(r=>r.points.slice(-6)),...map.trunk.slice(0,3)])assert(groundPoint(w.camera,point).distanceTo(w.liver.position)<=w.pulseRadius,`${map.key}: full branch-tail coverage`);
+  }
+  const coverage=w.pulseCoverage.map(point=>groundPoint(w.camera,point).distanceTo(w.liver.position));
+  assert(coverage.length>0&&coverage.every(distance=>distance<=w.pulseRadius));
+  A.state.pulse=0;A.step(.001);
+  assert(w.liver.scale.x>w.liver.userData.baseScale*1.17);
+  const ring=w.fx.find(f=>f.kind==='ring');assert(ring);assert.equal(ring.mesh.position.y,.035);assert(Math.abs(ring.mesh.rotation.x+Math.PI/2)<1e-7);
+  A.step(.35);assert.equal(w.liverPulse,0);assert.equal(w.liver.scale.x,w.liver.userData.baseScale);
+  A.start();A.state.pulse=100;A.state.insulin=100;
+  const turretAngles=[];
+  for(const progress of [.01,.95]){
+    const target=A.spawn('soda',{progress});w.aimTurret(target,1);w.scene.updateMatrixWorld(true);
+    turretAngles.push(w.pancreas.userData.body.rotation.z);
+    const muzzle=w.tip.getWorldPosition(new T.Vector3()).project(w.camera);
+    assert(Math.abs(muzzle.x)<1&&Math.abs(muzzle.y)<1,`${map.key}: aimed muzzle stays visible`);
+    A.damage(target,100,false);
+  }
+  assert(Math.abs(turretAngles[0]-turretAngles[1])>.001,'raster turret changes its aim angle');
+  A.start();A.state.pulse=100;A.state.insulin=.2;
+  const distant=A.spawn('syrup',{progress:.01});A.step(.1);assert(w.charge.material.opacity>0);
+  const oldHp=distant.hp;A.step(.11);assert(w.projectiles.some(p=>p.target===distant),'turret shoots before progress .3');assert(w.turretRecoil>0);
+  const bolt=w.projectiles.find(p=>p.target===distant);assert.equal(bolt.tail.length,4);assert.equal(bolt.core.material.depthTest,false);
+  const diameter=bolt.mesh.scale.x*2/spriteModule.namespace.screenHeight(w.camera,bolt.mesh.position,1)*720;assert(diameter>=7.999);
+  A.step(1.2);assert(distant.hp<oldHp,'ranged insulin arrives before its lifetime ends');
+  A.start();A.state.insulin=100;A.state.pulse=100;
+  const nearby=A.spawn('icecream',{progress:.95}),impactHp=nearby.hp;
+  w.bolt(w.center(nearby.model),nearby,1,(e,d)=>A.damage(e,d,false));w.advanceProjectiles(.001);
+  assert(nearby.hp<impactHp);assert(w.fx.some(f=>f.kind==='insulin-hit'));assert(w.particles.some(p=>p.color.getHex()===0x56f5ff));
+  for(const [power,label] of [[100,'지원 사격'],[50,'인슐린 약화'],[20,'과로'],[8,'인슐린 저항성']]){A.state.pancreas=power;A.step(.001);assert(el('pancreas-state').textContent.includes(label));}
+  A.state.failed=true;A.step(.001);assert(el('pancreas-state').textContent.includes('지원 중단'));
+  feedbackReport.push({map:map.key,organVisibility,liverBox,liverPixels:foot.map((n,i)=>Math.round(n*(i?941:1672))),junctionPixels,pulseRadius:w.pulseRadius,coverageMax:Math.max(...coverage),coveragePoints:coverage.length});
+  console.log(`PASS: ${map.key}: elite/wave-boss priority, three-color left HP, reload ring + right click, pulse coverage, ranged insulin`);
+}
+await fs.writeFile(path.join(root,'astra/tests/feedback-report.json'),JSON.stringify(feedbackReport,null,2)+'\n');
 function cloneDoc(doc){return JSON.parse(JSON.stringify(doc));}
 // Original three procedural worlds remain intact when plate is absent.
 for(const map of A.MAPS.filter(m=>m.legacy.ready)){

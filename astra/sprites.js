@@ -1,5 +1,5 @@
 import * as T from '../vendor/three.module.js';
-import { SPRITE_SIZES } from './sprite-sizes.js?v=a8';
+import { SPRITE_SIZES } from './sprite-sizes.js?v=a9';
 
 const loader=new T.TextureLoader(),textures=new Map();
 export const spriteLoads=[];
@@ -60,8 +60,8 @@ export function enemyBillboard(type,boss=false){
   const root=new T.Group(),body=cutout(art.frames[0],3,art.anchor);
   root.name=`sprite-${type}`;root.add(body);
   const maps=art.frames.map(texture),bar=new T.Group();bar.position.y=art.anchor==='center'?1.75:3.25;
-  const bg=new T.Mesh(new T.PlaneGeometry(1.5,.1),new T.MeshBasicMaterial({color:0x30232b}));
-  const fill=new T.Mesh(new T.PlaneGeometry(1,.06),new T.MeshBasicMaterial({color:0x80efad}));fill.position.z=.01;fill.scale.x=1.42;
+  const bg=new T.Mesh(new T.PlaneGeometry(1,1),new T.MeshBasicMaterial({color:0x30232b}));
+  const fill=new T.Mesh(new T.PlaneGeometry(1,1),new T.MeshBasicMaterial({color:0x80efad}));fill.position.z=.01;fill.scale.x=1.42;
   for(const mesh of [bg,fill]){mesh.userData.decorative=true;bar.add(mesh);}root.add(bar);bar.visible=false;
   // The valve region is a hit proxy only; the generated image supplies its appearance.
   if(type==='syrup'){
@@ -69,7 +69,7 @@ export function enemyBillboard(type,boss=false){
     weak.raycast=function(ray,hits){const silhouette=[];body.raycast(ray,silhouette);if(silhouette.length)T.Mesh.prototype.raycast.call(this,ray,hits);};
     weak.position.set(0,2.72,.025);weak.userData.weak=true;root.add(weak);
   }
-  root.userData={body,maps,bar,fill,anchor:art.anchor,height:3,baseWidth:body.scale.x,billboard:true,boss};
+  root.userData={body,maps,bar,bg,fill,anchor:art.anchor,height:3,baseWidth:body.scale.x,billboard:true,boss};
   return root;
 }
 export function animateEnemy(root,camera,time,seed,flash=0){

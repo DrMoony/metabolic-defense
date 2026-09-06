@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#07191c">
 <link rel="icon" href="data:,">
 <title>ASTRA · Metabolic Defense</title>
-<link rel="stylesheet" href="./style.css?v=a8">
+<link rel="stylesheet" href="./style.css?v=a9">
 </head>
 <body>
 <main id="stage">
@@ -15,15 +15,15 @@
   <header class="masthead"><b>ASTRA<span> / METABOLIC DEFENSE</span></b><div><button id="sound" aria-label="Sound">♪ ON</button><button id="fullscreen" aria-label="Fullscreen">⛶</button><button id="routes-toggle">경로선 보기</button><button id="pause" class="hidden" data-i18n="pause">일시정지</button></div></header>
   <section id="hud" class="hidden">
     <div class="score"><small data-i18n="score">방어 점수</small><strong id="score">000000</strong><span id="combo"></span></div>
-    <div class="mission"><small id="wave-name"></small><div class="track"><i id="wave-progress"></i></div><span id="wave-clock"></span></div>
+    <div id="mission" class="mission"><small id="wave-name"></small><div class="track"><i id="wave-progress"></i></div><span id="wave-clock"></span></div>
     <div class="vitals"><div><small id="core-label">심장</small><strong id="core">100%</strong><div class="track"><i id="core-fill"></i></div></div><div><small data-i18n="accuracy">명중률</small><strong id="accuracy">—</strong></div><div><small data-i18n="quiz">퀴즈</small><strong id="quiz-count">0/0</strong></div></div>
-    <div id="warning"></div><div id="map-hud"></div>
+    <div id="weapon-banner" class="hidden" role="status"></div><div id="warning"></div><div id="map-hud"></div>
     <div id="boss" class="hidden"><small id="boss-name"></small><div class="track"><i id="boss-fill"></i></div></div>
     <footer><div class="organ"><small>01 / LIVER GUARDIAN</small><b data-i18n="liver">간 가디언</b><span id="liver-state"></span><div class="track"><i id="liver-fill"></i></div><em id="pulse-time"></em></div><div class="weapon"><small id="weapon-tier"></small><b id="weapon-name"></b><span id="ammo"></span><div class="controls"><button id="reload" data-i18n="reload">재장전</button><button id="swap" data-i18n="swap">무기 교체</button></div></div><div class="organ right"><small>02 / INSULIN TURRET</small><b data-i18n="pancreas">췌장 포탑</b><span id="pancreas-state"></span><div class="track"><i id="pancreas-fill"></i></div><em id="strain"></em></div></footer>
   </section>
   <div id="landmark-labels" aria-hidden="true"></div>
   <div id="fps" aria-label="Rendering frame rate">60 FPS</div>
-  <div id="notice" role="status"></div><div id="reticle"><i></i><span></span></div>
+  <div id="notice" role="status"></div><div id="reticle"><i id="reload-ring"></i><span></span></div>
   <section id="home" class="screen">
     <div class="intro"><div id="map-chapter" class="eyebrow">THE INNER FRONTIER / 01</div><h1>ASTRA</h1><p id="intro-text"></p>
     <div class="tags"><span>METABOLIC DEFENSE</span><span>3 WAVES / 3 BOSSES</span><span>3–5 MIN</span></div>
@@ -52,6 +52,6 @@
     </aside>
   </section>
 </main>
-<script type="module" src="./main.js?v=a8"></script>
+<script type="module" src="./main.js?v=a9"></script>
 </body>
 </html>

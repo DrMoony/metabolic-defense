@@ -1,10 +1,11 @@
+import { healthColor } from './feedback.js?v=a9';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a8';
-import { buildTerrain } from './terrain.js?v=a8';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a8';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a8';
-import { getMap } from './maps/index.js?v=a8';
+import { contact, glow, reflections } from './art.js?v=a9';
+import { buildTerrain } from './terrain.js?v=a9';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a9';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a9';
+import { getMap } from './maps/index.js?v=a9';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -58,6 +59,8 @@ export class World {
     this.liverBody=this.liver.userData.body;
     this.turret=new THREE.Object3D();this.pancreas.add(this.turret);
     this.tip=new THREE.Object3D();this.tip.position.set(-.32,.57,.03);this.pancreas.add(this.tip);
+    this.charge=glow(this.tip,0x65ffff,[0,0,0],.3,0);
+    this.turretDirection=V(-1,0,0);this.turretRecoil=0;this.liverPulse=0;
   }
   configureMap(){
     if(this.map.plate){
@@ -87,20 +90,60 @@ export class World {
         model.userData.body.scale.x=Math.abs(model.userData.body.scale.x)*facing;this.tip.position.x=.32*facing;
       }
     }
-    // 정화 파동 반경: 합류 지점(트렁크 시작점, 없으면 간에서 가장 가까운 길 지점)을 여유 있게 덮는다
-    this.pulseRadius=25;
+    // Cover branch tails + trunk entry, or each route's local bottleneck window.
+    this.pulseRadius=25;this.pulseCoverage=[];
     if(this.map.plate){
-      const liver=this.liver.position;let focus=null;
-      if(this.map.trunk&&this.map.trunk.length)focus=groundPoint(this.camera,this.map.trunk[0]);
-      else{
-        let best=Infinity;
-        for(const route of this.map.routes)for(const p of route.points){const w=groundPoint(this.camera,p);const d=w.distanceTo(liver);if(d<best){best=d;focus=w;}}
+      const doc=this.terrain.document,liver=this.liver.position;
+      if(doc.trunk.length){
+        this.pulseCoverage=[...doc.routes.flatMap(r=>r.points.slice(-6)),...doc.trunk.slice(0,3)];
+      }else{
+        for(const route of doc.routes){
+          let nearest=0,best=Infinity;
+          route.points.forEach((p,i)=>{const distance=groundPoint(this.camera,p).distanceTo(liver);if(distance<best){best=distance;nearest=i;}});
+          this.pulseCoverage.push(...route.points.slice(Math.max(0,nearest-2),nearest+3));
+        }
       }
-      if(focus)this.pulseRadius=Math.max(25,liver.distanceTo(focus)*1.35+4);
+      const focus=doc.trunk[0]||this.pulseCoverage.reduce((best,p)=>!best||groundPoint(this.camera,p).distanceTo(liver)<groundPoint(this.camera,best).distanceTo(liver)?p:best,null);
+      const distance=focus?liver.distanceTo(groundPoint(this.camera,focus)):0;
+      const coverage=Math.max(0,...this.pulseCoverage.map(p=>liver.distanceTo(groundPoint(this.camera,p))));
+      this.pulseRadius=Math.max(distance*1.35+4,coverage*1.06+1);
     }
     const calibration=this.map.actors;
     this.actorScale=this.map.plate?screenHeight(this.camera,groundPoint(this.camera,calibration.at),calibration.height)/3:1;
   }
+  updateHealth(enemy){
+    const g=enemy.model,{bar,bg,fill,baseWidth}=g.userData,ratio=Math.max(0,Math.min(1,enemy.hp/enemy.maxHp));
+    const factor=enemy.boss?2:1,width=baseWidth*.9*factor;
+    // Cancel actor sway so the bar remains horizontal and camera-facing.
+    bar.quaternion.copy(g.quaternion).invert().multiply(this.camera.quaternion);
+    g.updateWorldMatrix(true,false);
+    const center=bar.getWorldPosition(new THREE.Vector3());
+    const pixel=screenHeight(this.camera,center,1/Math.max(1,this.renderer.domElement.getBoundingClientRect().height))/g.scale.y;
+    const thickness=Math.max(.065*factor,2*factor*pixel);
+    bg.scale.set(width+pixel*2,thickness+pixel*2,1);fill.scale.set(width*ratio,thickness,1);
+    fill.position.x=-width*(1-ratio)/2;fill.material.color.setHex(healthColor(ratio));
+    fill.material.toneMapped=false;bg.material.toneMapped=false;
+    bar.visible=!!enemy.boss||(enemy.showHealth&&enemy.hp<enemy.maxHp);
+  }
+  pulse(){
+    this.liverPulse=.35;this.liver.scale.setScalar(this.liver.userData.baseScale*1.18);
+    this.liverBody.material.color.setHex(0xd5ef9c);
+    this.ring(this.liver.position,0xd5ef9c,this.pulseRadius);
+  }
+  aimTurret(target,charge=0){
+    this.charge.material.opacity=target?charge*.95:0;
+    if(!target)return;
+    const dest=this.center(target.model);this.turret.lookAt(dest);
+    const local=this.pancreas.worldToLocal(dest.clone()),body=this.pancreas.userData.body;
+    const facing=local.x>=0?1:-1;
+    body.scale.x=Math.abs(body.scale.x)*facing;
+    // Keep the raster body facing the camera, using the lookAt direction's screen angle.
+    const angle=Math.atan2(local.y-.57,Math.abs(local.x));
+    body.rotation.z=THREE.MathUtils.clamp(angle,-.55,.55)*facing;
+    this.tip.position.set(.32*facing*Math.cos(body.rotation.z)-.57*Math.sin(body.rotation.z),.32*facing*Math.sin(body.rotation.z)+.57*Math.cos(body.rotation.z),.03).add(body.position);
+    this.turretDirection.copy(dest).sub(this.pancreas.position).normalize();
+  }
+  fireTurret(){this.turretRecoil=.15;this.charge.material.opacity=1;}
   selectMap(key){
     this.clear();this.terrain.dispose();this.map=getMap(key);this.configureMap();
     this.terrain.setQuality(this.quality);this.key.color.setHex(this.map.palette.accent);
@@ -207,19 +250,35 @@ export class World {
     }
   }
   ring(position,color=0xc9ef93,radius=25){
-    const mesh=new THREE.Mesh(new THREE.TorusGeometry(1,.055,6,64),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.8}));
-    mesh.rotation.x=-Math.PI/2;mesh.position.copy(position);mesh.position.y=.3;this.scene.add(mesh);
+    const mesh=new THREE.Mesh(new THREE.RingGeometry(.978,1,96),new THREE.MeshBasicMaterial({color,transparent:true,opacity:.7,side:THREE.DoubleSide,depthWrite:false,toneMapped:false}));
+    mesh.rotation.x=-Math.PI/2;mesh.position.copy(position);mesh.position.y=.035;this.scene.add(mesh);
     this.fx.push({mesh,life:1.1,max:1.1,kind:'ring',radius});
   }
   bolt(from,target,damage,onHit,homing=false){
-    const mesh=new THREE.Mesh(shapes.sphere,material(homing?0xffb95f:0x76eaff,1.8));mesh.scale.setScalar(homing?.22:.13);mesh.position.copy(from);this.scene.add(mesh);
-    this.projectiles.push({mesh,target,damage,onHit,life:3,homing});
+    const mesh=new THREE.Group(),color=homing?0xffb95f:0x56f5ff;
+    const mat=new THREE.MeshBasicMaterial({color,toneMapped:false,depthTest:homing,depthWrite:false});
+    const core=new THREE.Mesh(shapes.sphere,mat);mesh.add(core);
+    const tail=[];
+    for(let i=0;i<4;i++){
+      const bead=new THREE.Mesh(shapes.sphere,new THREE.MeshBasicMaterial({color,transparent:true,opacity:.65-i*.12,toneMapped:false,depthTest:homing,depthWrite:false}));
+      bead.scale.setScalar(.85-i*.14);bead.position.z=-(i+1)*1.25;mesh.add(bead);tail.push(bead);
+    }
+    mesh.position.copy(from);mesh.renderOrder=30;mesh.traverse(o=>o.renderOrder=30);this.scene.add(mesh);
+    const distance=this.center(target.model).distanceTo(from),speed=Math.max(homing?43:30,distance/1.1);
+    const projectile={mesh,core,tail,target,damage,onHit,life:3,homing,speed};
+    this.sizeBolt(projectile);this.projectiles.push(projectile);
   }
+  sizeBolt(p){
+    const pixels=screenHeight(this.camera,p.mesh.position,8/Math.max(1,this.renderer.domElement.getBoundingClientRect().height));
+    p.mesh.scale.setScalar(Math.max(p.homing?.22:.13,pixels/2));
+  }
+  disposeBolt(p){p.mesh.traverse(o=>{if(o.material)o.material.dispose();});p.mesh.removeFromParent();}
   clear(){
     for(const model of [...this.root.children])this.remove(model);
     for(const entry of [...this.rewards,...this.props])disposeBillboard(entry.model);this.deaths=[];this.rewards=[];this.props=[];
     this.particles=[];this.sparks.count=0;
-    for(const p of this.projectiles)this.scene.remove(p.mesh);this.projectiles=[];
+    this.liverPulse=0;this.turretRecoil=0;this.charge.material.opacity=0;this.pancreas.userData.body.position.set(0,0,0);this.pancreas.userData.body.rotation.z=0;
+    for(const p of this.projectiles)this.disposeBolt(p);this.projectiles=[];
     for(const p of this.fx)this.disposeFx(p);this.fx=[];
   }
   disposeFx(fx){this.scene.remove(fx.mesh);fx.mesh.material.dispose();fx.mesh.geometry.dispose();}
@@ -239,9 +298,13 @@ export class World {
     this.camera.updateMatrixWorld(true);
     this.kick=Math.max(0,this.kick-dt*7);this.gun.visible=active&&state.phase!=='result';this.gun.position.copy(this.gun.userData.rest);this.gun.position.z+=this.kick*.08;this.gun.position.y-=this.kick*.025;this.gun.rotation.z=-this.kick*.045;this.muzzleFlash.material.opacity=this.kick*.95;
     this.hitLight.intensity*=Math.exp(-dt*20);
-    this.liver.quaternion.copy(this.camera.quaternion);this.pancreas.quaternion.copy(this.camera.quaternion);this.liver.scale.setScalar(this.liver.userData.baseScale*(1+Math.sin(t*1.8)*.015));
-    this.liverBody.material.color.setHex(0xffffff).lerp(new THREE.Color(0x66503b),state.liver/100);
+    this.liver.quaternion.copy(this.camera.quaternion);this.pancreas.quaternion.copy(this.camera.quaternion);this.liverPulse=Math.max(0,this.liverPulse-dt);const pulse=this.liverPulse/.35;
+    this.liver.scale.setScalar(this.liver.userData.baseScale*(1+.18*pulse));
+    this.liverBody.material.color.setHex(0xffffff).lerp(new THREE.Color(0x66503b),state.liver/100).lerp(new THREE.Color(0xd5ef9c),pulse*.85);
     this.pancreas.scale.setScalar(this.pancreas.userData.baseScale*(1+Math.sin(t*2.4)*.015));
+    this.turretRecoil=Math.max(0,this.turretRecoil-dt*.8);
+    const back=this.turretDirection.clone().applyQuaternion(this.pancreas.quaternion.clone().invert()).multiplyScalar(-this.turretRecoil/this.pancreas.scale.x);
+    this.tip.position.sub(this.pancreas.userData.body.position).add(back);this.pancreas.userData.body.position.copy(back);
     for(let i=0;i<this.dust.count;i++){
       const d=this.dustData[i];d.z+=dt*.65;if(d.z>14)d.z=-80;
       this.dummy.position.set(d.x+Math.sin(t*.3+i)*.3,d.y,d.z);this.dummy.scale.setScalar(d.s);this.dummy.updateMatrix();this.dust.setMatrixAt(i,this.dummy.matrix);
@@ -249,9 +312,8 @@ export class World {
     for(const e of enemies){
       const g=e.model;e.flash=Math.max(0,(e.flash||0)-dt*6);
       animateEnemy(g,this.camera,t,e.seed,e.flash);
-      g.userData.bar.visible=e.hp<e.maxHp&&!e.boss;
-      g.userData.fill.scale.x=1.42*Math.max(.01,e.hp/e.maxHp);
       g.scale.setScalar(this.actorScale*e.scale*(.96+e.progress*.08));
+      this.updateHealth(e);
       const shadow=this.contacts.get(g);if(shadow){shadow.position.set(g.position.x,.065,g.position.z);const size=this.actorScale*e.scale*(2+e.progress*.5)*(e.fly?1.2:1);shadow.scale.set(size,size*.67,1);shadow.material.opacity=(e.fly?.24:.48)+e.progress*.19;}
     }
     for(let i=this.deaths.length-1;i>=0;i--){const d=this.deaths[i];d.life-=dt;d.model.rotateZ(dt*4);d.model.scale.copy(d.scale).multiplyScalar(Math.max(0,d.life/.38));if(d.life<=0){disposeBillboard(d.model);this.deaths.splice(i,1);}}
@@ -263,18 +325,28 @@ export class World {
     this.sparks.instanceMatrix.needsUpdate=true;if(this.sparks.instanceColor)this.sparks.instanceColor.needsUpdate=true;
     for(let i=this.fx.length-1;i>=0;i--){
       const fx=this.fx[i];fx.life-=dt;fx.mesh.material.opacity=Math.max(0,fx.life/fx.max);
-      if(fx.kind==='ring')fx.mesh.scale.setScalar(1+(1-fx.life/fx.max)*fx.radius);
+      if(fx.kind==='ring'){fx.mesh.scale.setScalar(fx.radius*Math.pow(Math.min(1,(1-fx.life/fx.max)/.68),2));fx.mesh.material.opacity=Math.min(.7,fx.life/fx.max*2);}
       if(fx.life<=0){this.disposeFx(fx);this.fx.splice(i,1);}
     }
   }
   advanceProjectiles(dt){
     for(let i=this.projectiles.length-1;i>=0;i--){
       const p=this.projectiles[i];p.life-=dt;
-      if(!p.target.dead){const dest=this.center(p.target.model);const delta=dest.sub(p.mesh.position);const travel=dt*(p.homing?43:30);
-        if(delta.length()<travel){p.onHit(p.target,p.damage);p.life=0;}else p.mesh.position.addScaledVector(delta.normalize(),travel);}
+      if(!p.target.dead){const dest=this.center(p.target.model);const delta=dest.sub(p.mesh.position);const travel=dt*p.speed;
+        p.mesh.quaternion.setFromUnitVectors(V(0,0,1),delta.clone().normalize());
+        if(delta.length()<=travel){
+          const impact=this.center(p.target.model);
+          if(!p.homing){this.burst(impact,0x56f5ff,12);this.impactRing(impact);}
+          p.onHit(p.target,p.damage);p.life=0;
+        }else p.mesh.position.addScaledVector(delta.normalize(),travel);this.sizeBolt(p);}
       else p.life=0;
-      if(p.life<=0){this.scene.remove(p.mesh);this.projectiles.splice(i,1);}
+      if(p.life<=0){this.disposeBolt(p);this.projectiles.splice(i,1);}
     }
+  }
+  impactRing(position){
+    const mesh=new THREE.Mesh(new THREE.RingGeometry(.78,1,32),new THREE.MeshBasicMaterial({color:0x56f5ff,transparent:true,opacity:1,toneMapped:false,depthTest:false,depthWrite:false}));
+    mesh.position.copy(position);mesh.quaternion.copy(this.camera.quaternion);mesh.scale.setScalar(screenHeight(this.camera,position,.023));mesh.renderOrder=31;this.scene.add(mesh);
+    this.fx.push({mesh,life:.25,max:.25,kind:'insulin-hit'});
   }
   render(){this.renderer.render(this.scene,this.camera);}
 }
