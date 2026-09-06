@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a21';
+import { healthColor } from './feedback.js?v=a22';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a21';
-import { buildTerrain } from './terrain.js?v=a21';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a21';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality } from './sprites.js?v=a21';
-import { getMap } from './maps/index.js?v=a21';
+import { contact, glow, reflections } from './art.js?v=a22';
+import { buildTerrain } from './terrain.js?v=a22';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a22';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality } from './sprites.js?v=a22';
+import { getMap } from './maps/index.js?v=a22';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -235,11 +235,15 @@ export class World {
     const prop={model,lock,life:12};this.props.push(prop);return prop;
   }
   // 보급 캡슐: 길을 따라 밀려 내려온다. 쏘면 줍고, 놓치면 사라진다.
-  spawnPickup(routeId,key,progress=.06){
+  spawnPickup(routeId,key,progress=.62){
     const model=new THREE.Group();model.position.copy(this.routePoint(routeId,progress));
-    model.quaternion.copy(this.camera.quaternion);model.scale.setScalar(this.actorScale);
-    const body=cutout(key,2.4);model.add(body);this.scene.add(model);
-    const prop={model,lock:body,life:99,kind:'pickup',item:key,routeId,progress};
+    model.quaternion.copy(this.camera.quaternion);model.scale.setScalar(this.actorScale*1.35);
+    const body=cutout(key,3);model.add(body);
+    // 스프라이트가 가늘어서 실루엣만으로는 맞히기 어렵다. 넉넉한 투명 구를 조준 대상으로 둔다.
+    const target=new THREE.Mesh(new THREE.SphereGeometry(1.5,10,8),new THREE.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false,depthTest:false}));
+    target.position.y=1.5;model.add(target);
+    this.scene.add(model);
+    const prop={model,lock:target,item:key,routeId,progress,life:15,kind:'pickup',baseY:model.position.y};
     this.props.push(prop);return prop;
   }
   removeProp(prop){disposeBillboard(prop.model);const i=this.props.indexOf(prop);if(i>=0)this.props.splice(i,1);}
@@ -345,11 +349,8 @@ export class World {
     for(let i=this.props.length-1;i>=0;i--){
       const p=this.props[i];p.life-=dt;p.model.quaternion.copy(this.camera.quaternion);
       if(p.kind==='pickup'){
-        p.progress+=dt*.055;
-        p.model.position.copy(this.routePoint(p.routeId,Math.min(1,p.progress)));
-        p.model.position.y+=this.actorScale*(.5+Math.sin(t*3.2)*.12);
-        p.model.scale.setScalar(this.actorScale*(.9+p.progress*.5));
-        if(p.progress>=1)p.life=0;
+        // 제자리에 떠 있는다. 위아래로 살짝 흔들려 눈에 띄기만 한다.
+        p.model.position.y=p.baseY+this.actorScale*(.55+Math.sin(t*2.6)*.16);
       }
       if(p.life<=0){disposeBillboard(p.model);this.props.splice(i,1);}
     }
