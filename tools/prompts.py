@@ -182,41 +182,54 @@ def walk_prompt(key):
 
 # ---------- 멀티맵 배경 (16:9 월드 플레이트) ----------
 # beta의 bg.jpg 방식: 그림 배경 위에 경로를 추적하고 간·췌장을 얹는다. 경로가 그림에 "길"로 그려져 있어야
-# Codex가 이미지를 보고 스플라인을 딸 수 있다. 캐릭터·텍스트 금지, 배치 여백(간=중앙 안쪽, 췌장=우측 전경) 확보.
+# Codex가 이미지를 보고 스플라인을 딸 수 있다. 캐릭터·텍스트 금지.
+# 경로 구조(topology)는 맵마다 다르게 — 전부 '중앙 분기 후 합류'면 식상하다(유저 지적).
 MAP_STYLE = (
     "Wide 16:9 landscape game background plate, no characters, no creatures, no text, no UI. "
     "3D cartoon render in the style of a whimsical intra-abdominal fantasy world (matching a Pixar-like MS Designer look), "
     "chunky rounded organic forms, glossy subsurface sheen, soft studio key light with warm rim light, atmospheric depth haze, "
-    "fixed slightly elevated camera looking down a winding road that starts small in the far distance and widens as it reaches "
-    "the bottom-center foreground. The road must be clearly readable as a path with distinct edges. The road forks once in the "
-    "middle distance and the two branches rejoin near the foreground. Leave an open flat plaza at center-mid-distance for a large "
-    "guardian monument, and an open ledge at the right foreground for a turret. Cinematic, high detail, no watermark, no border."
+    "fixed slightly elevated camera. Roads must be clearly readable as paths with distinct edges. "
+    "Cinematic, high detail, no watermark, no border."
 )
 MAPS = [
     ("map_coronary", "관상동맥",
-     "Inside a coronary artery: a red pulsing vessel tunnel world, glossy crimson walls with branching side vessels, "
-     "yellowish atherosclerotic plaque mounds narrowing the road at two points, a visible bifurcation where the road forks, "
-     "red blood cell discs drifting in the haze, warm crimson-and-gold palette."),
+     "Inside a coronary artery: glossy crimson vessel walls, red blood cell discs drifting in the haze, crimson-and-gold palette. "
+     "ROUTE LAYOUT: TWO separate vessel roads enter from the far upper-left and far upper-right corners and MERGE into one wide "
+     "artery road at the bottom-center foreground (a Y shape). A yellow atherosclerotic plaque mound narrows each road once before the merge. "
+     "An open flat plaza sits left of center at mid-distance for a guardian monument; an open ledge at the right foreground for a turret."),
     ("map_omentum", "내장지방·장간막",
-     "Inside visceral fat and the omentum: rolling hills of glossy pale-yellow fat globules, the road is a narrow pink alley "
-     "winding between fat hills, small red capillaries threading over the fat, a few clusters of purple inflammatory cells, "
-     "warm golden-yellow palette with peach highlights."),
+     "Inside visceral fat and the omentum: rolling hills of glossy pale-yellow fat globules, red capillaries threading over the fat, "
+     "clusters of purple inflammatory cells, golden-yellow palette with peach highlights. "
+     "ROUTE LAYOUT: ONE long serpentine pink road with three switchback curves, snaking from the far upper-right down over the hills "
+     "to the bottom-center foreground, no forks. The guardian plaza is on a hilltop at the left mid-distance overlooking the road; "
+     "the turret ledge is at the right foreground."),
     ("map_sinusoid", "간 소엽·시누소이드",
-     "Inside a liver lobule: the road runs from a portal vein entrance in the far distance toward a central vein plaza, "
-     "flanked by rows of glossy reddish-brown hepatocyte blocks, thin blue-and-red sinusoid channels beside the road, "
-     "pale fibrous bands crossing the ground here and there, warm mahogany-and-amber palette."),
+     "Inside a liver lobule: rows of glossy reddish-brown hepatocyte blocks, blue-and-red sinusoid channels, pale fibrous bands, "
+     "warm mahogany-and-amber palette. "
+     "ROUTE LAYOUT: THREE straight radial channel roads converge like spokes from the far-left, far-center and far-right "
+     "(three portal vein entrances) toward a round central-vein pool at the bottom-center foreground. No forks, no merging before the pool. "
+     "The guardian plaza is directly behind the pool at center mid-distance; the turret ledge at the right foreground."),
     ("map_carotid", "경동맥",
-     "Inside the carotid artery climbing toward the brain: a wide red vessel that forks at a bulbous carotid bulb, "
-     "a large plaque mound at the fork, the far distance glows soft violet-blue like brain tissue, crimson-and-violet palette."),
+     "Inside the carotid artery: a wide red vessel, the far distance glows soft violet-blue like brain tissue, crimson-and-violet palette. "
+     "ROUTE LAYOUT: ONE wide road in the foreground that SPLITS only at the far end into two branches at a bulbous carotid bulb "
+     "(an upside-down Y): both far branches rise toward the violet glow at the top corners, and a large plaque mound sits in the crotch of the fork. "
+     "The guardian plaza is on the near side of the fork, center mid-distance; the turret ledge at the LEFT foreground."),
     ("map_stomach", "위",
-     "Inside the stomach: the road winds over pink mucosal ridges (rugae), shallow acid pools glowing pale green at the roadside, "
-     "a ring-shaped pyloric gate in the far distance, pink-and-coral palette."),
+     "Inside the stomach: pink mucosal ridges (rugae), shallow acid pools glowing pale green, a ring-shaped pyloric gate, pink-and-coral palette. "
+     "ROUTE LAYOUT: a wide open basin. The road hugs the LEFT wall along the rugae ridges from the pyloric gate in the far upper-left, "
+     "then crosses the basin diagonally over a shallow acid lake on flat stepping-stone slabs to reach the bottom-center foreground. "
+     "The guardian plaza is an island in the middle of the acid lake; the turret ledge at the right foreground."),
     ("map_glomerulus", "신장 사구체·요관",
-     "Inside the kidney: the road winds through a tangle of glossy capillary loops of a glomerulus, then along a coiled tubule "
-     "toward a ureter tunnel in the far distance, rosy-pink and cream palette with amber fluid."),
+     "Inside the kidney: a tangle of glossy capillary loops of a glomerulus, coiled tubules, rosy-pink and cream palette with amber fluid. "
+     "ROUTE LAYOUT: the road SPIRALS inward like a coiled tubule — entering from the far upper-right, circling the scene clockwise "
+     "(behind the left, along the back, down the right) and ending at the bottom-center foreground. "
+     "The guardian plaza is at the center of the spiral; the turret ledge at the right foreground."),
     ("map_islet", "췌장 랑게르한스섬",
-     "Inside a pancreatic islet: the road is a narrow channel between clustered pale-peach beta-cell islands, "
-     "tiny blue insulin granules glowing along the banks, soft peach-and-cyan palette."),
+     "Inside a pancreatic islet: clustered pale-peach beta-cell islands, tiny blue insulin granules glowing, soft peach-and-cyan palette. "
+     "ROUTE LAYOUT: an ARCHIPELAGO — several beta-cell islands in a cyan fluid channel, connected by narrow bridges. "
+     "TWO parallel roads run from the far end, one along the left islands and one along the right islands, never merging, "
+     "each ending at the bottom foreground (left-bottom and right-bottom). The guardian plaza is the largest island at center; "
+     "the turret ledge at the bottom-center between the two road endings."),
 ]
 def map_prompt(key):
     for k, name, body in MAPS:
