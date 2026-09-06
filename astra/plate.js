@@ -1,5 +1,6 @@
 import * as T from '../vendor/three.module.js';
-import { Routes } from './routes.js?v=a6';
+import { cutout, screenHeight } from './sprites.js?v=a7';
+import { Routes } from './routes.js?v=a7';
 
 export function configurePlateCamera(camera,map){
   camera.fov=map.camera.fov;camera.near=.1;camera.far=1500;
@@ -31,7 +32,19 @@ export function loadRoutes(map,camera){
   catch(error){return {doc:routeDocument(map),status:`default (${error.message})`};}
   return {doc:routeDocument(map),status:'default'};
 }
-function projectedMap(map,doc,camera){return {...map,routes:doc.routes.map((r,i)=>({...map.routes[i],points:r.points.map(p=>groundPoint(camera,p).toArray())})),trunk:doc.trunk.map(p=>groundPoint(camera,p).toArray())};}
+class PlateRoutes extends Routes {
+  constructor(map,doc,camera){
+    const point=([x,y])=>[x*camera.aspect,0,y];
+    super({...map,routes:doc.routes.map((r,i)=>({...map.routes[i],points:r.points.map(point)})),trunk:doc.trunk.map(point)});
+    this.camera=camera;
+  }
+  sample(id,progress,target=new T.Vector3()){
+    // Measure travel on the painting first. World arc length near the horizon would
+    // otherwise spend most of a wave on tiny distant pixels, then rush the foreground.
+    const p=super.sample(id,progress);
+    return target.copy(groundPoint(this.camera,[p.x/this.camera.aspect,p.z]));
+  }
+}
 function disposeObject(root){
   const geometries=new Set(),materials=new Set();root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)materials.add(o.material);if(o.isInstancedMesh)o.dispose();});geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());root.clear();
 }
@@ -42,7 +55,7 @@ export function buildPlateTerrain(scene,map,camera){
   root.add(terrain.debug);terrain.debug.visible=false;
   terrain.applyRoutes=doc=>{
     terrain.document=validateRoutes(map,doc,camera);
-    terrain.routes=new Routes(projectedMap(map,terrain.document,camera));
+    terrain.routes=new PlateRoutes(map,terrain.document,camera);
     disposeObject(terrain.debug);
     for(const [i,r] of terrain.routes.items.entries()){
       const positions=Array.from({length:301},(_,n)=>terrain.routes.sample(r.id,n/300));
@@ -63,24 +76,16 @@ export function buildPlateTerrain(scene,map,camera){
   const material=color=>new T.MeshStandardMaterial({color,roughness:.39,metalness:.12});
   for(const [index,data] of map.landmarks.entries()){
     const group=new T.Group();group.position.copy(groundPoint(camera,data.at));root.add(group);
-    const width=groundPoint(camera,[data.at[0]+data.size[0]/2,data.at[1]]).distanceTo(groundPoint(camera,[data.at[0]-data.size[0]/2,data.at[1]]));
-    const heightPoint=group.position.clone().add(new T.Vector3(0,1,0)).project(camera),base=group.position.clone().project(camera);
-    const height=data.size[1]/Math.abs((heightPoint.y-base.y)/2);
     const item={...data,model:group,hp:data.hp,maxHp:data.hp,dead:false,anchor:new T.Object3D()};group.add(item.anchor);terrain.landmarks.push(item);
     if(['plaque','fat','macrophage'].includes(data.kind)){
-      const count=data.kind==='macrophage'?16:28,mesh=new T.InstancedMesh(new T.SphereGeometry(1,12,8),material(data.kind==='macrophage'?0xa35d9e:0xf7b331),count),dummy=new T.Object3D();
-      for(let i=0;i<count;i++){
-        const a=i*2.399,r=Math.sqrt((i+.5)/count),s=.095+(i%4)*.011;
-        dummy.position.set(Math.cos(a)*r*width*.39,height*(.12+(1-r)*.7),Math.sin(a)*r*width*.16);
-        dummy.scale.set(width*s,height*(.16+(i%3)*.025),width*s*.7);dummy.updateMatrix();mesh.setMatrixAt(i,dummy.matrix);
-      }
-      group.add(mesh);mesh.castShadow=true;mesh.receiveShadow=true;
-      if(!data.hp){mesh.userData.fullCount=count;terrain.density.push(mesh);}
-      item.anchor.position.y=height*1.1;
+      const body=cutout('fatwall',screenHeight(camera,group.position,data.size[1]));
+      group.quaternion.copy(camera.quaternion);group.add(body);
+      if(data.kind==='macrophage')body.material.color.setHex(0xcc95bd);
+      item.anchor.position.y=body.scale.y*1.1;
       if(data.hp){
-        const bar=new T.Group();bar.position.y=height*1.04;group.add(bar);
-        const bg=new T.Mesh(new T.BoxGeometry(1,1,1),new T.MeshBasicMaterial({color:0x301a24}));bg.scale.set(width,.12,.04);bg.userData.decorative=true;bar.add(bg);
-        const fill=new T.Mesh(new T.BoxGeometry(1,1,1),new T.MeshBasicMaterial({color:0xffd875}));fill.position.z=.035;fill.scale.set(width,.08,.035);fill.userData.decorative=true;bar.add(fill);item.bar=bar;item.fill=fill;item.barWidth=width;
+        const bar=new T.Group();bar.position.y=body.scale.y*1.04;group.add(bar);
+        const bg=new T.Mesh(new T.PlaneGeometry(1,1),new T.MeshBasicMaterial({color:0x301a24}));bg.scale.set(body.scale.x,.12,1);bg.userData.decorative=true;bar.add(bg);
+        const fill=new T.Mesh(new T.PlaneGeometry(1,1),new T.MeshBasicMaterial({color:0xffd875}));fill.position.z=.035;fill.scale.set(body.scale.x,.08,1);fill.userData.decorative=true;bar.add(fill);item.bar=bar;item.fill=fill;item.barWidth=body.scale.x;
       }
     }else{
       // Deck footprints are unprojected independently so their outline sits on the painted stones/bridges.
@@ -102,7 +107,7 @@ export function buildPlateTerrain(scene,map,camera){
   }
   terrain.core=terrain.cores[0];
   terrain.setQuality=level=>{for(const mesh of terrain.density)mesh.count=Math.ceil(mesh.userData.fullCount*[1,.75,.5,.25][level]);};
-  terrain.animate=(t,wave,view)=>{for(const l of terrain.landmarks)if(l.bar){l.bar.quaternion.copy(view.quaternion);l.fill.scale.x=l.barWidth*Math.max(0,l.hp/l.maxHp);}for(const fiber of terrain.fibers)fiber.scale.y=1+wave*.4;};
+  terrain.animate=(t,wave,view)=>{for(const l of terrain.landmarks)if(l.bar){l.model.quaternion.copy(view.quaternion);l.fill.scale.x=l.barWidth*Math.max(0,l.hp/l.maxHp);}for(const fiber of terrain.fibers)fiber.scale.y=1+wave*.4;};
   terrain.dispose=()=>{root.removeFromParent();disposeObject(root);};
   return terrain;
 }

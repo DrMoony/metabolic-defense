@@ -4,6 +4,9 @@ const route=(id,names,points)=>({id,names,points:points.map(point)});
 const organ=(at,height)=>({at:point(at),height:height/941});
 const landmark=(kind,at,size,hp=0)=>({kind,at:point(at),size:size.map((n,i)=>n/(i?941:1672)),hp,names:({plaque:['플라크 협착','Plaque stenosis'],fat:['지방 둔덕','Fat mound'],stone:['징검다리','Stepping stone'],bridge:['섬 연결 다리','Island bridge'],fibrosis:['섬유화 띠','Fibrosis band'],macrophage:['대식세포 군집','Macrophage cluster']})[kind]});
 const mask=(id,at,points)=>({id,at:point(at),points:points.map(point)});
+// A standing regular enemy occupies 15% of the plate at these foreground anchors.
+// Keep physical height fixed along a route so depth, not route progress, sets perspective.
+const ACTORS={coronary:[835,825],omentum:[873,821],sinusoid:[837,735],carotid:[826,823],stomach:[988,844],glomerulus:[1007,832],islet:[820,829]};
 export const PLATES={
   coronary:{
     topology:'Y',camera:{height:18,fov:46,targetZ:-25},
@@ -68,5 +71,5 @@ export const PLATES={
 };
 export function withPlate(base){
   const layout=PLATES[base.key];
-  return {...base,title:base.title||base.names,subtitle:base.subtitle||['그림 속 길을 따라 방어해요','Defend the roads through the plate'],briefing:base.briefing||['다가오는 적을 막고 장기와 함께 방어해요.','Stop the invaders with your organ allies.'],fact:base.fact||['몸속 구조를 바탕으로 만든 게임 공간이에요.','A game environment inspired by structures inside the body.'],...layout,ready:true,plate:`../assets/maps/map_${base.key}.jpg`,legacy:base};
+  return {...base,title:base.title||base.names,subtitle:base.subtitle||['그림 속 길을 따라 방어해요','Defend the roads through the plate'],briefing:base.briefing||['다가오는 적을 막고 장기와 함께 방어해요.','Stop the invaders with your organ allies.'],fact:base.fact||['몸속 구조를 바탕으로 만든 게임 공간이에요.','A game environment inspired by structures inside the body.'],...layout,actors:{at:point(ACTORS[base.key]),height:.15},ready:true,plate:`../assets/maps/map_${base.key}.jpg`,legacy:base};
 }
