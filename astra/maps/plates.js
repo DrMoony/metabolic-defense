@@ -62,13 +62,13 @@ export const PLATES={
     occluders:[mask('left-bank',[150,780],[[0,640],[120,610],[250,662],[300,760],[248,880],[120,941],[0,941]]),mask('right-dais',[1450,638],[[1290,620],[1400,570],[1560,575],[1672,620],[1672,941],[1240,941]])],
   },
   islet:{
-    topology:'parallel-3',camera:{height:24,fov:44,targetZ:-28},
+    beta:true,topology:'parallel-3',camera:{height:24,fov:44,targetZ:-28},
     title:['세 갈래의 섬','Three roads through the islets'],subtitle:['합류하지 않는 세 방어선','Three independent defenses'],
     briefing:['좌우 길과 함께 중앙 섬에서도 적이 내려와요. 보스는 중앙 섬 길로 옵니다. 간 가디언과 췌장 포탑이 세 방어선을 함께 지켜요.','Enemies descend the left and right roads and also from the core island; the boss always takes the island road. The guardian and turret cover all three.'],
     bossRoute:'islet-core',
     routes:[route('islet-left',['왼쪽 섬길','Left island road'],[[456,89],[403,111],[408,144],[420,170],[374,206],[294,236],[246,272],[252,311],[310,350],[281,383],[208,433],[197,484],[243,538],[310,600],[340,673],[331,752],[350,829],[429,922]]),route('islet-right',['오른쪽 섬길','Right island road'],[[1243,92],[1315,124],[1328,157],[1290,184],[1310,222],[1393,260],[1441,310],[1437,360],[1391,398],[1443,440],[1497,481],[1483,530],[1411,576],[1368,638],[1357,708],[1319,783],[1260,848],[1200,922]]),route('islet-core',['중앙 섬 길','Core island road'],[[868,578],[840,622],[812,668],[780,716],[744,766],[706,818],[668,872],[634,922]])],trunk:[],
     organs:{liver:organ([454,374],202),pancreas:organ([842,847],196)},
-    landmarks:[landmark('bridge',[1207,403],[139,21]),landmark('bridge',[450,356],[126,25]),landmark('bridge',[478,613],[131,38]),landmark('bridge',[826,645],[116,30]),landmark('bridge',[762,738],[128,34])],
+    landmarks:[landmark('bridge',[1207,403],[139,21]),landmark('bridge',[450,356],[126,25]),landmark('bridge',[478,613],[131,38])],
     occluders:[mask('central-island',[850,355],[[540,373],[613,294],[778,247],[962,270],[1112,348],[1186,442],[1107,517],[942,571],[709,553],[576,481]]),mask('left-island',[219,575],[[51,501],[111,470],[178,491],[202,552],[246,585],[207,628],[92,632]]),mask('right-island',[1505,705],[[1475,542],[1553,519],[1645,549],[1672,595],[1672,733],[1470,721],[1411,661]])],
   },
 };

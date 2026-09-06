@@ -1,6 +1,6 @@
 import * as T from '../vendor/three.module.js';
-import { cutout, screenHeight } from './sprites.js?v=a18';
-import { Routes } from './routes.js?v=a18';
+import { cutout, screenHeight } from './sprites.js?v=a19';
+import { Routes } from './routes.js?v=a19';
 
 export function configurePlateCamera(camera,map){
   camera.fov=map.camera.fov;camera.near=.1;camera.far=1500;
@@ -12,7 +12,7 @@ export function groundPoint(camera,[x,y]){
   if(ray.ray.direction.y>=-.001)throw new Error('Route point is above the ground horizon');
   return ray.ray.intersectPlane(new T.Plane(new T.Vector3(0,1,0),0),new T.Vector3());
 }
-export const routeDocument=map=>({version:1,map:map.key,space:'normalized-screen',topology:map.topology,routes:map.routes.map(r=>({id:r.id,points:r.points.map(p=>[...p])})),trunk:(map.trunk||[]).map(p=>[...p])});
+export const routeDocument=map=>({version:1,map:map.key,signature:routeSignature(map),space:'normalized-screen',topology:map.topology,routes:map.routes.map(r=>({id:r.id,points:r.points.map(p=>[...p])})),trunk:(map.trunk||[]).map(p=>[...p])});
 export function validateRoutes(map,doc,camera){
   if(!doc||doc.version!==1||doc.map!==map.key||doc.space!=='normalized-screen'||doc.topology!==map.topology||!Array.isArray(doc.routes)||doc.routes.length!==map.routes.length)throw new Error('Route document does not match this map');
   const points=(list,min)=>{
@@ -27,8 +27,19 @@ export function validateRoutes(map,doc,camera){
   if(map.topology==='parallel'&&Math.abs(doc.routes[0].points.at(-1)[0]-doc.routes[1].points.at(-1)[0])<.1)throw new Error('Parallel exits must stay separate');
   return JSON.parse(JSON.stringify(doc));
 }
+// 맵 데이터가 바뀌면 예전에 저장해 둔 경로는 버린다. 남아 있으면 적이 길 밖(바다 위)을 걷는다.
+export function routeSignature(map){
+  return `${map.routes.map(r=>`${r.id}:${r.points.length}:${r.points[0].map(v=>v.toFixed(3)).join()}:${r.points.at(-1).map(v=>v.toFixed(3)).join()}`).join('|')}#${(map.trunk||[]).length}`;
+}
 export function loadRoutes(map,camera){
-  try{const value=localStorage.getItem(`astra_routes_${map.key}`);if(value)return {doc:validateRoutes(map,JSON.parse(value),camera),status:'saved'};}
+  try{
+    const value=localStorage.getItem(`astra_routes_${map.key}`);
+    if(value){
+      const parsed=JSON.parse(value);
+      if(parsed.signature!==routeSignature(map))return {doc:routeDocument(map),status:'default (map changed)'};
+      return {doc:validateRoutes(map,parsed,camera),status:'saved'};
+    }
+  }
   catch(error){return {doc:routeDocument(map),status:`default (${error.message})`};}
   return {doc:routeDocument(map),status:'default'};
 }

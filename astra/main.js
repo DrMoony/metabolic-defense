@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a18';
-import { RouteEditor } from './route-editor.js?v=a18';
-import { World, THREE } from './world.js?v=a18';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a18';
+import { healthColor, weaponColor } from './feedback.js?v=a19';
+import { RouteEditor } from './route-editor.js?v=a19';
+import { World, THREE } from './world.js?v=a19';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a19';
 
-import { MAPS, getMap } from './maps/index.js?v=a18';
+import { MAPS, getMap } from './maps/index.js?v=a19';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -41,19 +41,21 @@ const TYPES = {
   bat:{hp:2,speed:3.6,score:300,impact:7,sugar:true,fly:true,names:['초콜릿 박쥐','Chocolate Bat']},
   cancerlet:{hp:2,speed:3.4,score:150,impact:5,names:['암세포 조각','Cancer Fragment']},
   syrup:{hp:16,speed:.8,score:1500,impact:18,sugar:true,boss:true,names:['과당 시럽통 · 위쪽 밸브가 약점','Syrup Drum · shoot the top valve']},
-  cancer:{hp:26,speed:.95,score:2000,impact:24,boss:true,names:['암세포 · 격파 후 3조각으로 분열','Cancer Cell · splits into 3 fragments']},
+  cancer:{hp:26,speed:.95,score:2000,impact:24,boss:true,fly:true,names:['암세포 · 상공을 떠돌다 5조각으로 분열','Cancer Cell · drifts overhead, splits into 5']},
   plaque:{hp:34,speed:1.25,score:2600,impact:32,boss:true,names:['죽상경화 플라크 · 방어선 돌진','Atherosclerotic Plaque · charging the core']},
+  burgerlord:{hp:9,speed:1.5,score:700,impact:12,boss:true,names:['왕 햄버거 · 중간 보스','Burger Lord · elite']},
+  sodatitan:{hp:8,speed:1.8,score:650,impact:11,sugar:true,boss:true,names:['거대 콜라 · 중간 보스','Soda Titan · elite']},
   wingking:{hp:22,speed:2.4,score:1800,impact:20,fly:true,boss:true,names:['치킨윙 대장 · 상공에서 급습','Wing Commander · strikes from the air']},
   pizzaking:{hp:30,speed:1.05,score:2200,impact:28,boss:true,names:['대왕 피자 · 기름 장벽','Pizza Colossus · a wall of grease']},
   fragment:{hp:2,speed:4.1,score:150,impact:5,fly:true,names:['암세포 조각 · 흩어져 날아온다','Cancer Fragment · scatters through the air']},
 };
 const DIFFICULTY = {easy:{speed:.78,impact:.55,gap:1.35,hp:.75,pulse:.85},mid:{speed:1.02,impact:.98,gap:.94,hp:1.12,pulse:1.1},hard:{speed:1.26,impact:1.45,gap:.7,hp:1.45,pulse:1.35}};
 const WAVES = [
-  {duration:42,bossAt:32,boss:'syrup',quiz:[17],spawns:[['soda',2.1,1],['fries',4.2,3],['icecream',6.5,7],['donut',9,11]]},
-  {duration:55,bossAt:43,boss:'wingking',quiz:[21,44],spawns:[['soda',2,1],['fries',3.8,2],['icecream',6,5],['donut',6.5,4],['wing',7.5,8],['burger',11,9]]},
-  {duration:62,bossAt:48,boss:'cancer',quiz:[18,40],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',9.5,6],['pizza',9,8],['icecream',6.2,4],['donut',6,3],['wing',6.5,7]]},
-  {duration:68,bossAt:53,boss:'pizzaking',quiz:[16,35,57],spawns:[['soda',1.7,1],['fries',3.1,2],['burger',8.5,5],['pizza',8,4],['icecream',5.8,3],['donut',5.5,3],['wing',5.5,6],['ramen',12,10]]},
-  {duration:76,bossAt:58,boss:'plaque',quiz:[14,32,52,70],spawns:[['soda',1.5,1],['fries',2.8,2],['burger',7.5,5],['pizza',7,3],['icecream',5.4,4],['donut',5,2],['wing',4.8,5],['ramen',10,8]]},
+  {duration:30,bossAt:22,boss:'syrup',quiz:[15],spawns:[['soda',2.1,1],['fries',4.2,3],['icecream',6.5,7],['donut',9,11],['sodatitan',30,18]]},
+  {duration:31,bossAt:23,boss:'wingking',quiz:[10,20],spawns:[['soda',2,1],['fries',3.8,2],['icecream',6,5],['donut',6.5,4],['wing',7.5,8],['burger',11,9],['burgerlord',34,14]]},
+  {duration:32,bossAt:24,boss:'cancer',quiz:[9,19],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',9.5,6],['pizza',9,8],['icecream',6.2,4],['donut',6,3],['wing',6.5,7],['sodatitan',26,12],['burgerlord',30,20]]},
+  {duration:33,bossAt:25,boss:'pizzaking',quiz:[8,16,24],spawns:[['soda',1.7,1],['fries',3.1,2],['burger',8.5,5],['pizza',8,4],['icecream',5.8,3],['donut',5.5,3],['wing',5.5,6],['ramen',12,10],['burgerlord',24,11],['sodatitan',28,19]]},
+  {duration:34,bossAt:26,boss:'plaque',quiz:[7,14,21,28],spawns:[['soda',1.5,1],['fries',2.8,2],['burger',7.5,5],['pizza',7,3],['icecream',5.4,4],['donut',5,2],['wing',4.8,5],['ramen',10,8],['burgerlord',22,10],['sodatitan',24,16]]},
 ];
 const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,glucagon:0,slowField:0,supply:8,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
@@ -82,7 +84,7 @@ function loadSfx(){
   if(!audioContext)return;
   for(const name of SFX_NAMES){
     if(sfxBuffers[name]!==undefined)continue;sfxBuffers[name]=null;
-    fetch(`${SFX_DIR}${name}.mp3?v=1`).then(r=>r.arrayBuffer()).then(b=>audioContext.decodeAudioData(b)).then(d=>{sfxBuffers[name]=d;}).catch(()=>{sfxBuffers[name]=false;});
+    fetch(`${SFX_DIR}${name}.mp3?v=2`).then(r=>r.arrayBuffer()).then(b=>audioContext.decodeAudioData(b)).then(d=>{sfxBuffers[name]=d;}).catch(()=>{sfxBuffers[name]=false;});
   }
 }
 function sample(name,gain=1,rate=1){
@@ -130,8 +132,9 @@ function updateMapUI(){
     const button=document.createElement('button');button.dataset.map=entry.key;button.disabled=!entry.ready;
     button.classList.toggle('selected',entry.key===map.key);button.ariaPressed=String(entry.key===map.key);
     const small=document.createElement('small'),title=document.createElement('b'),description=document.createElement('span');
-    small.textContent=entry.ready?`SECTOR ${entry.chapter} / ${entry.routes.length} ROUTES`:text('준비 중','IN DEVELOPMENT');
-    title.textContent=text(...entry.names);description.textContent=entry.ready?text(...entry.core):'';
+    small.textContent=entry.ready?`SECTOR ${entry.chapter} / ${entry.routes.length} ROUTES${entry.beta?' / BETA':''}`:text('준비 중','IN DEVELOPMENT');
+    button.classList.toggle('beta',!!entry.beta);
+    title.textContent=text(...entry.names)+(entry.beta?' (베타)':'');description.textContent=entry.ready?text(...entry.core):'';
     button.append(small,title,description);tap(button,()=>selectMap(entry.key));
     $(entry.ready?'map-list':'map-pending').append(button);
   }
@@ -334,12 +337,15 @@ function shot(clientX,clientY,extra=false){
   }else if(enemy){
     state.hits++;state.combo++;$('reticle').classList.add('hit');
     const hitPosition=enemy.model.position.clone();
-    if(weapon.homing){
+    if(weapon.homing||weapon.splash){
+      // 바주카·유도미사일은 포물선을 그리며 날아가 착탄 지점에서 터진다
       const blastRadius=weapon.splash;
-      world.bolt(world.gunMuzzle.getWorldPosition(new THREE.Vector3()),enemy,weapon.damage,(target,dmg)=>{
-        const center=target.model.position.clone();damage(target,dmg);for(const other of [...enemies])if(other!==target&&other.model.position.distanceTo(center)<blastRadius)damage(other,2);
-        world.ring(center,0xffc78b,blastRadius);
-      },true);
+      const rocket=world.bolt(world.gunMuzzle.getWorldPosition(new THREE.Vector3()),enemy,weapon.damage*(picked.weak?2:1),(target,dmg)=>{
+        const center=target.model.position.clone();damage(target,dmg,true,center);
+        for(const other of [...enemies])if(other!==target&&other.model.position.distanceTo(center)<blastRadius)damage(other,weapon.homing?2:3);
+        if(!sample(weapon.homing?'explode_small':'explode_big',weapon.homing?.8:1))sound(weapon.homing?150:90,.3,'sawtooth',.09);
+      },weapon.homing,weapon.homing?.6:1);
+      if(rocket)rocket.blast=blastRadius;
     }else{
       damage(enemy,weapon.damage*(picked.weak?2:1),true,picked.point);
       if(weapon.pellets)for(let i=1;i<weapon.pellets;i++){
@@ -372,7 +378,7 @@ function openQuiz(transition=false){
 }
 function answerQuiz(){
   if(state.phase!=='quiz'||state.answered||state.paused)return;
-  const correct=state.selection===state.quiz.correct;state.answered=true;state.feedbackTime=4;
+  const correct=state.selection===state.quiz.correct;state.answered=true;state.feedbackTime=1.4;
   [...$('answers').children].forEach(button=>{button.disabled=true;button.classList.remove('selected');button.classList.toggle('correct',Number(button.dataset.answer)===state.quiz.correct);button.classList.toggle('wrong',Number(button.dataset.answer)===state.selection&&!correct);});
   if(correct){
     state.correct++;state.score+=1500+Math.round(state.quizTime/18*500);state.core=clamp(state.core+8);state.liver=clamp(state.liver-25);state.sugar=clamp(state.sugar-20);
@@ -382,7 +388,7 @@ function answerQuiz(){
     $('feedback').textContent=text(`정답: ${state.quiz.a[state.quiz.correct]}`,`Correct answer: ${state.quiz.a[state.quiz.correct]}`);if(!sample('quiz_no',.7))sound(150,.2,'sine');
   }
   $('source').textContent=state.quiz.src?`${text('출처','Source')}: ${state.quiz.src}`:'';
-  show('submit',false);show('quiz-next',true);updateHUD();
+  show('submit',false);show('quiz-next',false);updateHUD();
 }
 function continueQuiz(){
   if(state.phase!=='quiz'||!state.answered||state.paused)return;
