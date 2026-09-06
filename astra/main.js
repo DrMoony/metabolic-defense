@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a23';
-import { RouteEditor } from './route-editor.js?v=a23';
-import { World, THREE } from './world.js?v=a23';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a23';
+import { healthColor, weaponColor } from './feedback.js?v=a24';
+import { RouteEditor } from './route-editor.js?v=a24';
+import { World, THREE } from './world.js?v=a24';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a24';
 
-import { MAPS, getMap } from './maps/index.js?v=a23';
+import { MAPS, getMap } from './maps/index.js?v=a24';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -276,6 +276,9 @@ function damage(enemy,amount,byPlayer=true,point){
   }
 }
 // 보급 아이템 4종. 특정 약물이 아니라 대사 기전을 그대로 옮겼다.
+// 광역 피해는 중심에서 멀수록 급격히 줄고, 관통은 뚫을수록 힘을 잃는다.
+const splashFalloff=(base,distance,radius)=>base*Math.pow(Math.max(0,1-distance/radius),1.6);
+const pierceFalloff=(base,index)=>base*Math.pow(.55,index);
 function collectItem(prop){
   const key=prop.item,position=prop.model.position.clone();
   world.removeProp(prop);world.reward(position,key);sample('rescue',.8);
@@ -342,7 +345,14 @@ function shot(clientX,clientY,extra=false){
       const blastRadius=weapon.splash;
       const rocket=world.bolt(world.gunMuzzle.getWorldPosition(new THREE.Vector3()),enemy,weapon.damage*(picked.weak?2:1),(target,dmg)=>{
         const center=target.model.position.clone();damage(target,dmg,true,center);
-        for(const other of [...enemies])if(other!==target&&other.model.position.distanceTo(center)<blastRadius)damage(other,weapon.homing?2:3);
+        const blastBase=weapon.damage*(weapon.homing?.4:.55);
+        for(const other of [...enemies]){
+          if(other===target)continue;
+          const distance=other.model.position.distanceTo(center);
+          if(distance>=blastRadius)continue;
+          const hurt=splashFalloff(blastBase,distance,blastRadius);
+          if(hurt>.05)damage(other,hurt);
+        }
         if(!sample(weapon.homing?'explode_small':'explode_big',weapon.homing?.8:1))sound(weapon.homing?150:90,.3,'sawtooth',.09);
       },weapon.homing,weapon.homing?1.6:3.2);
       if(rocket)rocket.blast=blastRadius;
@@ -354,9 +364,9 @@ function shot(clientX,clientY,extra=false){
       }
       if(weapon.pierce){
         const behind=enemies.filter(other=>other!==enemy&&other.model.position.z<hitPosition.z&&Math.abs(other.model.position.x-hitPosition.x)<2.3).sort((a,b)=>b.model.position.z-a.model.position.z);
-        behind.slice(0,weapon.pierce-1).forEach(other=>damage(other,weapon.damage));
+        behind.slice(0,weapon.pierce-1).forEach((other,index)=>damage(other,pierceFalloff(weapon.damage,index+1)));
       }
-      if(weapon.splash){for(const other of [...enemies])if(other!==enemy&&other.model.position.distanceTo(hitPosition)<weapon.splash)damage(other,3);world.ring(hitPosition,0xffba79,weapon.splash);sample(weapon.homing?'explode_small':'explode_big',weapon.homing?.8:1);}
+      if(weapon.splash){for(const other of [...enemies]){if(other===enemy)continue;const distance=other.model.position.distanceTo(hitPosition);if(distance<weapon.splash){const hurt=splashFalloff(weapon.damage*.55,distance,weapon.splash);if(hurt>.05)damage(other,hurt);}}world.ring(hitPosition,0xffba79,weapon.splash);sample(weapon.homing?'explode_small':'explode_big',weapon.homing?.8:1);}
     }
   }else state.combo=0;
   if(weapon.burst&&!extra)for(let i=1;i<weapon.burst;i++)pendingShots.push({in:i*.075,x:clientX,y:clientY});
