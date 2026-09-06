@@ -1,8 +1,8 @@
-import { RouteEditor } from './route-editor.js?v=a7';
-import { World, THREE } from './world.js?v=a7';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a7';
+import { RouteEditor } from './route-editor.js?v=a8';
+import { World, THREE } from './world.js?v=a8';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a8';
 
-import { MAPS, getMap } from './maps/index.js?v=a7';
+import { MAPS, getMap } from './maps/index.js?v=a8';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -332,8 +332,8 @@ function combat(dt){
   state.pulse-=dt;
   if(state.pulse<=0){
     state.pulse=[9.5,11.5,13.5,17][stageOfLiver()]*(state.boost>0?.5:1);
-    const origin=world.liver.position;world.ring(origin,0xd5ef9c,25);sound(390,.14,'sine',.018);
-    for(const enemy of [...enemies])if(!enemy.fly&&enemy.model.position.distanceTo(origin)<25)damage(enemy,1,false);
+    const origin=world.liver.position,radius=world.pulseRadius||25;world.ring(origin,0xd5ef9c,radius);sound(390,.14,'sine',.018);
+    for(const enemy of [...enemies])if(!enemy.fly&&enemy.model.position.distanceTo(origin)<radius)damage(enemy,1,false);
   }
   if(!state.failed){
     const targets=enemies.filter(e=>e.sugar&&(world.map.plate?e.progress>.3:e.model.position.z>-28)).sort((a,b)=>b.model.position.z-a.model.position.z);

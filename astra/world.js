@@ -1,10 +1,10 @@
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a7';
-import { buildTerrain } from './terrain.js?v=a7';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a7';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a7';
-import { getMap } from './maps/index.js?v=a7';
+import { contact, glow, reflections } from './art.js?v=a8';
+import { buildTerrain } from './terrain.js?v=a8';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a8';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a8';
+import { getMap } from './maps/index.js?v=a8';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -86,6 +86,17 @@ export class World {
         const facing=this.map.plate&&this.map.organs.pancreas.at[0]<.5?1:-1;
         model.userData.body.scale.x=Math.abs(model.userData.body.scale.x)*facing;this.tip.position.x=.32*facing;
       }
+    }
+    // 정화 파동 반경: 합류 지점(트렁크 시작점, 없으면 간에서 가장 가까운 길 지점)을 여유 있게 덮는다
+    this.pulseRadius=25;
+    if(this.map.plate){
+      const liver=this.liver.position;let focus=null;
+      if(this.map.trunk&&this.map.trunk.length)focus=groundPoint(this.camera,this.map.trunk[0]);
+      else{
+        let best=Infinity;
+        for(const route of this.map.routes)for(const p of route.points){const w=groundPoint(this.camera,p);const d=w.distanceTo(liver);if(d<best){best=d;focus=w;}}
+      }
+      if(focus)this.pulseRadius=Math.max(25,liver.distanceTo(focus)*1.35+4);
     }
     const calibration=this.map.actors;
     this.actorScale=this.map.plate?screenHeight(this.camera,groundPoint(this.camera,calibration.at),calibration.height)/3:1;
