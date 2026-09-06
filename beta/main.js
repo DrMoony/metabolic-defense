@@ -1715,18 +1715,14 @@ const drops = [];
 function makeDrop(kind, pos) {
   const def = ITEMS[kind];
   const g = new THREE.Group();
-  const pen = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.16, 0.9, 10),
-    new THREE.MeshStandardMaterial({ color: def.color, roughness: 0.3, metalness: 0.3, emissive: def.glow, emissiveIntensity: 0.7 }));
-  pen.rotation.z = 0.5; g.add(pen);
-  const cap = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.19, 0.26, 10),
-    new THREE.MeshStandardMaterial({ color: 0xf2f4f8, roughness: 0.35 }));
-  cap.rotation.z = 0.5; cap.position.set(-0.29, 0.55, 0); g.add(cap);
-  const needle = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.24, 6),
-    new THREE.MeshStandardMaterial({ color: 0xd9dde4, roughness: 0.2, metalness: 0.8 }));
-  needle.rotation.z = 0.5; needle.position.set(0.28, -0.53, 0); g.add(needle);
+  // 생성 이미지 주사펜 빌보드 (89x384 비율) — 피격 판정은 평면 전체
+  const tex = spriteTex(`../assets/sprites/item_${kind}.png`);
+  const pen = new THREE.Mesh(new THREE.PlaneGeometry(0.42, 1.8),
+    new THREE.MeshBasicMaterial({ map: tex, transparent: false, alphaTest: 0.35, depthWrite: true }));
+  pen.rotation.z = 0.35; g.add(pen);
   const halo = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.05, 8, 20),
     new THREE.MeshBasicMaterial({ color: def.color, transparent: true, opacity: 0.8 }));
-  halo.rotation.x = Math.PI / 2; g.add(halo);
+  halo.rotation.x = Math.PI / 2; halo.position.y = -0.7; g.add(halo);
   g.position.set(pos.x, 1.5, pos.z);
   const drop = { kind, mesh: g, t: 0, life: 9, halo };
   g.traverse((o) => { o.userData.entity = { kind: 'drop', ref: drop }; });
