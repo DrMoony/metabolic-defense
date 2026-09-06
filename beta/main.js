@@ -1109,6 +1109,10 @@ const ENEMY_SPRITES = {
   icecream: { files: ['../assets/sprites/icecream_0.png', '../assets/sprites/icecream_1.png'], w: 1.9, ratio: 1.5, fps: 6 },
   ramen:    { files: ['../assets/sprites/ramen_0.png', '../assets/sprites/ramen_1.png'], w: 2.0, ratio: 1.6, fps: 5 },
   cancer:   { files: ['../assets/sprites/cancer.png'], w: 4.4, ratio: 0.92 },   // 보스
+  ciga:     { files: ['../assets/sprites/ciga_0.png', '../assets/sprites/ciga_1.png'], w: 1.4, ratio: 2.0, fps: 6 },
+  soju:     { files: ['../assets/sprites/soju_0.png', '../assets/sprites/soju_1.png'], w: 1.5, ratio: 1.85, fps: 5 },
+  donut:    { files: ['../assets/sprites/donut_0.png', '../assets/sprites/donut_1.png'], w: 2.6, ratio: 0.8, fps: 8 },
+  moth:     { files: ['../assets/sprites/moth_0.png', '../assets/sprites/moth_1.png'], w: 2.6, ratio: 0.74, fps: 9 },
 };
 const _spriteTex = {};
 function spriteTex(file) {

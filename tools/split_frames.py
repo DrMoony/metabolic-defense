@@ -38,21 +38,31 @@ if __name__ == "__main__":
     ap.add_argument("--out", default=None)
     ap.add_argument("--max", type=int, default=512)
     ap.add_argument("--tol", type=int, default=34)
+    ap.add_argument("--mingap", type=float, default=0.02, help="프레임 사이 최소 빈 띠 폭(가로 대비 비율)")
+    ap.add_argument("--align", choices=["bottom", "center"], default="bottom",
+                    help="두 프레임을 같은 캔버스에 맞출 때 정렬 (걷기=bottom, 비행=center)")
     args = ap.parse_args()
 
     here = os.path.dirname(os.path.abspath(__file__))
     outdir = args.out or os.path.join(here, "..", "assets", "sprites")
     keyed = key_out(Image.open(args.src), tol=args.tol)
-    parts = split(keyed)
+    parts = split(keyed, min_gap_ratio=args.mingap)
     if not parts:
         print("프레임 간격을 못 찾았습니다. 한 장으로 저장합니다.")
         p = os.path.join(outdir, args.name + ".png")
         fit(trim(keyed), args.max).save(p, "PNG", optimize=True)
         print(p)
         sys.exit(0)
-    for i, part in enumerate(parts):
-        out = fit(trim(part), args.max)
+    # 두 프레임을 같은 크기 캔버스에 놓아야 게임에서 프레임 교체 시 크기가 튀지 않는다
+    trimmed = [trim(pt) for pt in parts]
+    W = max(t.width for t in trimmed); H = max(t.height for t in trimmed)
+    os.makedirs(outdir, exist_ok=True)
+    for i, t in enumerate(trimmed):
+        canvas = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        x = (W - t.width) // 2
+        y = (H - t.height) if args.align == "bottom" else (H - t.height) // 2
+        canvas.alpha_composite(t, (x, y))
+        out = fit(canvas, args.max)
         p = os.path.join(outdir, f"{args.name}_{i}.png")
-        os.makedirs(outdir, exist_ok=True)
         out.save(p, "PNG", optimize=True)
-        print(f"프레임 {i}: {out.width}x{out.height} → {os.path.basename(p)}")
+        print(f"프레임 {i}: {out.width}x{out.height} → {os.path.basename(p)}  (원본 {t.width}x{t.height}, {args.align})")
