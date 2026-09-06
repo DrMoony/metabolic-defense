@@ -1143,7 +1143,7 @@ function addShadow(g, r) {
 // 카메라가 고정이라 빌보드 평면으로 충분하다. 절차 메시를 이걸로 순차 교체 중.
 // frames가 있으면 2프레임 걷기 사이클, 없으면 단일 이미지 + 스쿼시만
 const ENEMY_SPRITES = {
-  burger: { files: ['../assets/sprites/burger.png'], w: 2.6 },
+  burger: { files: ['../assets/sprites/burger_0.png', '../assets/sprites/burger_1.png'], w: 2.4, ratio: 1.15, fps: 6 },
   fries:  { files: ['../assets/sprites/fries_0.png', '../assets/sprites/fries_1.png'], w: 2.2, ratio: 1.4, fps: 6 },
   soda:   { files: ['../assets/sprites/soda_0.png', '../assets/sprites/soda_1.png'], w: 2.0, ratio: 1.45, fps: 7 },
   pizza:  { files: ['../assets/sprites/pizza_0.png', '../assets/sprites/pizza_1.png'], w: 2.4, ratio: 1.32, fps: 5 },
