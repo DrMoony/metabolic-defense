@@ -11,7 +11,7 @@
   "curb": 2.4
  },
  "walls": {
-  "margin": 2.2,
+  "margin": 3.0,
   "spread": 5.0,
   "lanes": 4,
   "step": 4,

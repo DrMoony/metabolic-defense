@@ -261,6 +261,34 @@ def world_points(spec, route):
     return [screen_to_ground(spec, sx, sy) for sx, sy in route['points']]
 
 
+def road_screen_points(scene, cam, world_pts):
+    """길의 화면 좌표와 카메라 거리. 가림 판정에 쓴다."""
+    out = []
+    for x, z in world_pts:
+        p = ground(x, z)
+        sx, sy = project(scene, cam, p)
+        out.append((sx, sy, (p - cam.location).length))
+    return out
+
+
+def occludes_road(scene, cam, road_screen, cx, cz, radius, height):
+    """이 덩어리가 자기보다 먼 길 구간을 화면에서 덮는지."""
+    base = ground(cx, cz)
+    dist = (base - cam.location).length
+    bx, by = project(scene, cam, base)
+    tx, ty = project(scene, cam, ground(cx, cz, height))
+    lx, _ = project(scene, cam, ground(cx + radius, cz))
+    rx, _ = project(scene, cam, ground(cx - radius, cz))
+    half = max(abs(lx - bx), abs(rx - bx)) * 1.05
+    top, bottom = min(ty, by), max(ty, by)
+    for sx, sy, sd in road_screen:
+        if sd <= dist:
+            continue                      # 덩어리보다 가까운 길은 가려지지 않는다
+        if abs(sx - bx) < half and top - .01 < sy < bottom + .01:
+            return True
+    return False
+
+
 # ---------- 지형 ----------
 def organic_blob(name, location, scale, mat, seed=0, rough=0.11):
     bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=3, radius=1.0, location=location)
@@ -283,7 +311,7 @@ def organic_blob(name, location, scale, mat, seed=0, rough=0.11):
     return obj
 
 
-def build_walls(spec, world_pts, mats, scene=None, cam=None):
+def build_walls(spec, world_pts, mats, scene=None, cam=None, road_screen=None):
     """길 옆으로 월드 여유를 두고 세운다. 길 반폭 + 덩어리 반지름 + 여백을 확보한다."""
     rng = random.Random(spec.get('seed', 7))
     cfg = spec['walls']
@@ -304,6 +332,16 @@ def build_walls(spec, world_pts, mats, scene=None, cam=None):
                 if rng.random() < cfg.get('tall_chance', .22):
                     height *= rng.uniform(1.35, 1.8)
                 mat = mats['wall'] if lane == 0 else (mats['wall_mid'] if lane == 1 else mats['wall_far'])
+                # 길을 가리면 낮추고, 그래도 가리면 세우지 않는다 (플레이어가 쏠 수 있어야 한다)
+                if road_screen is not None:
+                    for _ in range(4):
+                        if not occludes_road(scene, cam, road_screen, cx, cz, radius, height):
+                            break
+                        height *= 0.62
+                    else:
+                        continue
+                    if height < radius * 0.7:
+                        continue
                 blob = organic_blob(f'w{i}-{side}-{lane}',
                                     ground(cx, cz, height * 0.5),
                                     (radius, radius * rng.uniform(.85, 1.15), height),
@@ -463,7 +501,8 @@ def main():
         obj.data.materials.append(mats['road'])
         edge = road_curve(route['id'] + '-curb', pts, spec['road']['width'] + spec['road']['curb'], lift=-0.05)
         edge.data.materials.append(mats['curb'])
-        build_walls(spec, pts, mats)
+        screen = road_screen_points(scene, cam, pts)
+        build_walls(spec, pts, mats, scene, cam, screen)
         build_detail(spec, pts, mats)
 
     out_image = os.path.join(ROOT, 'assets', 'maps', f"map_{spec['key']}.jpg")
