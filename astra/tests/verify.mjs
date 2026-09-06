@@ -31,7 +31,9 @@ for(const name of ['i18n','lang','diff']){
 const title=new Element('h1');
 const document={getElementById:id=>elements.get(id),documentElement:{lang:'ko'},addEventListener(){},querySelector:()=>title,querySelectorAll:selector=>attributes[selector.slice(6,-1)]||[],createElement:tag=>new Element(tag),hidden:false};
 const errors=[];
-const context=vm.createContext({console:{...console,error:(...e)=>errors.push(e.join(' '))},document,location:{search:''},innerWidth:1280,innerHeight:720,devicePixelRatio:1,performance,URLSearchParams,Math,Set,Map,Array,Float32Array,Uint16Array,Uint32Array,Int32Array,Uint8Array,Uint8ClampedArray,Int16Array,Int8Array,Float64Array,ArrayBuffer,DataView,Number,JSON,Promise,Error,requestAnimationFrame(){},localStorage:{getItem:key=>stored.get(key)??null,setItem:(key,value)=>stored.set(key,value)},fetch:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile(path.resolve(root,'astra',url),'utf8'))})});
+let clockNow=0,nextFrame;
+const clock={now:()=>clockNow};
+const context=vm.createContext({console:{...console,error:(...e)=>errors.push(e.join(' '))},document,location:{search:''},innerWidth:1280,innerHeight:720,devicePixelRatio:1,performance:clock,URLSearchParams,Math,Set,Map,Array,Float32Array,Uint16Array,Uint32Array,Int32Array,Uint8Array,Uint8ClampedArray,Int16Array,Int8Array,Float64Array,ArrayBuffer,DataView,Number,JSON,Promise,Error,requestAnimationFrame(callback){nextFrame=callback;},localStorage:{getItem:key=>stored.get(key)??null,setItem:(key,value)=>stored.set(key,value)},fetch:async url=>({ok:true,json:async()=>JSON.parse(await fs.readFile(path.resolve(root,'astra',url),'utf8'))})});
 context.window=context;context.addEventListener=()=>{};
 const cache=new Map();
 async function load(file){
@@ -62,6 +64,26 @@ A.bank.configure(100,true);assert(A.bank.visible('masld').some(q=>q.drug));A.ban
 await A.bank.load('en');assert(A.bank.sets.masld[0].q);await A.bank.load('ko');
 assert([...stored.keys()].every(k=>k.startsWith('astra_')));
 console.log('PASS: shared KO/EN banks, drug exclusion/admin opt-in, exact mix, recent history, storage isolation');
+// Exercise the real rAF governor with controlled wall-clock intervals, not step().
+A.start();A.setManual(false);
+for(let i=0;i<220;i++){clockNow+=1000/30;nextFrame(clockNow);}
+assert.equal(A.world.quality,3,'sustained 30fps reduces all three quality levels');
+assert.equal(A.world.renderer.shadowMap.enabled,false);
+assert.equal(A.world.dust.count,8);
+assert(A.performance.fps<=31);
+for(let i=0;i<2700;i++){clockNow+=1000/60;nextFrame(clockNow);}
+assert(A.world.quality<3,'sustained healthy frame pacing cautiously restores quality');
+A.setManual(true);A.world.setQuality(0);A.start();
+const near=A.spawn('fries',{lane:0,progress:.88}),far=A.spawn('fries',{lane:1,progress:.15});A.step(.1);
+assert(A.world.contacts.get(near.model).material.opacity>A.world.contacts.get(far.model).material.opacity,'contact darkens as an actor approaches');
+assert(near.model.scale.x>far.model.scale.x,'approach adds subtle physical scale change');
+let sceneryDraws=0;A.world.scene.traverse(o=>{if(o.isMesh||o.isSprite)sceneryDraws++;});
+assert(sceneryDraws<180,`batched scene stays bounded: ${sceneryDraws} draw objects with two enemies`);
+assert.equal(A.world.terrain.fat.count,2100);assert(!A.world.target,'direct render has no full-frame post target');
+for(let i=0;i<20;i++)A.world.burst(new T.Vector3(),0xffcc88,45);
+assert(A.world.particles.length<=128,'instanced spark pool has a hard cap');
+A.world.remove(near.model);assert(!A.world.contacts.has(near.model),'enemy removal frees contact shadow');
+console.log(`PASS: real rAF adaptive quality, recovery, approach shadows, instancing (${sceneryDraws} draw objects including two enemies)`);
 // Exercise actual ray intersections: a projected center must damage its 3D model.
 A.start();A.step(.1);
 const target=A.spawn('burger',{lane:0,progress:.7});A.step(.02);

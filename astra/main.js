@@ -1,5 +1,5 @@
-import { World, THREE } from './world.js?v=a3';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a3';
+import { World, THREE } from './world.js?v=a4';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a4';
 
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
@@ -373,7 +373,30 @@ function bindUI(){
 }
 try{
   world=new World($('world'));bindUI();updateLanguage();loadBanks();
-  // Manual mode makes headless stepping deterministic and independent of rAF.
-  window.ASTRA={state,enemies,world,bank,WEAPONS,TYPES,WAVES,spawn,shot,reload,swap,start:resetGame,openQuiz,answerQuiz,continueQuiz,pause,step,project:enemy=>world.project(enemy.model),setManual(value=true){manual=value;lastTime=performance.now();},damage,finish};
-  function frame(now){const dt=Math.min(.05,(now-lastTime)/1000);lastTime=now;if(!manual)step(dt);requestAnimationFrame(frame);}requestAnimationFrame(frame);
+  // Measure real rAF intervals, independent of capped simulation dt and ASTRA.step().
+  const performanceStats={fps:60,frameMs:16.67,p95Ms:16.67,drawCalls:0,triangles:0,quality:0,samples:0};
+  let frameSamples=[],sampleStart=performance.now(),slowWindows=0,goodWindows=0,lastQualityChange=0;
+  function measureFrame(now,ms){
+    if(manual||document.hidden||state.paused||ms>250||ms<=0){frameSamples=[];sampleStart=now;slowWindows=0;goodWindows=0;return;}
+    frameSamples.push(ms);
+    if(now-sampleStart<1000)return;
+    const sum=frameSamples.reduce((a,b)=>a+b,0),sorted=[...frameSamples].sort((a,b)=>a-b);
+    performanceStats.fps=Math.round(frameSamples.length*1000/sum);
+    performanceStats.frameMs=Number((sum/frameSamples.length).toFixed(2));
+    performanceStats.p95Ms=Number(sorted[Math.floor((sorted.length-1)*.95)].toFixed(2));
+    performanceStats.drawCalls=world.renderer.info.render.calls;
+    performanceStats.triangles=world.renderer.info.render.triangles;
+    performanceStats.samples++;
+    slowWindows=performanceStats.fps<60?slowWindows+1:0;
+    goodWindows=performanceStats.fps>=60&&performanceStats.p95Ms<18?goodWindows+1:0;
+    if(slowWindows>=2&&world.quality<3){world.setQuality(world.quality+1);lastQualityChange=now;slowWindows=goodWindows=0;}
+    else if(goodWindows>=20&&world.quality>0&&now-lastQualityChange>30000){world.setQuality(world.quality-1);lastQualityChange=now;goodWindows=0;}
+    performanceStats.quality=world.quality;
+    $('fps').textContent=`${performanceStats.fps} FPS`;
+    $('fps').dataset.quality=String(world.quality);
+    frameSamples=[];sampleStart=now;
+  }
+  window.ASTRA={state,enemies,world,bank,WEAPONS,TYPES,WAVES,performance:performanceStats,spawn,shot,reload,swap,start:resetGame,openQuiz,answerQuiz,continueQuiz,pause,step,project:enemy=>world.project(enemy.model),setManual(value=true){manual=value;lastTime=performance.now();frameSamples=[];sampleStart=lastTime;slowWindows=goodWindows=0;},damage,finish};
+  function frame(now){const elapsed=now-lastTime;lastTime=now;measureFrame(now,elapsed);if(!manual)step(Math.min(.05,elapsed/1000));requestAnimationFrame(frame);}requestAnimationFrame(frame);
+
 }catch(error){console.error(error);$('fatal-text').textContent=text('3D 화면을 시작하지 못했습니다. WebGL2를 지원하는 브라우저에서 서버 주소로 열어 주세요.','Could not start 3D graphics. Open the HTTP server URL in a browser supporting WebGL2.');show('fatal',true);}
