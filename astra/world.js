@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a14';
+import { healthColor } from './feedback.js?v=a15';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a14';
-import { buildTerrain } from './terrain.js?v=a14';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a14';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a14';
-import { getMap } from './maps/index.js?v=a14';
+import { contact, glow, reflections } from './art.js?v=a15';
+import { buildTerrain } from './terrain.js?v=a15';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a15';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality } from './sprites.js?v=a15';
+import { getMap } from './maps/index.js?v=a15';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -21,7 +21,8 @@ function material(color, glow = 0, metal = .15) {
 export class World {
   constructor(canvas) {
     this.renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'});
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+    setTextureQuality(this.renderer.capabilities?.getMaxAnisotropy?.()??8);
     this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=THREE.PCFSoftShadowMap;
     this.renderer.toneMapping=THREE.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.15;
     this.scene=new THREE.Scene();this.scene.background=new THREE.Color(0x381a31);this.scene.fog=new THREE.FogExp2(0x54283f,.017);
@@ -205,7 +206,7 @@ export class World {
     this.renderer.shadowMap.enabled=resolution>0;
     if(resolution){this.key.shadow.mapSize.set(resolution,resolution);if(this.key.shadow.map){this.key.shadow.map.dispose();this.key.shadow.map=null;}if(this.key.shadow.mapPass){this.key.shadow.mapPass.dispose();this.key.shadow.mapPass=null;}this.renderer.shadowMap.needsUpdate=true;}
     this.dust.count=[72,72,40,8][next];
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio,[1.5,1.5,1,.8][next]));this.resize();
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio,[2,1.7,1.3,1][next]));this.resize();
   }
   resize(){
     const rect=this.renderer.domElement.getBoundingClientRect();

@@ -159,19 +159,19 @@
       }
     },
     "liverBox": {
-      "left": 0.23462385014543174,
-      "right": 0.4065244752134194,
-      "top": 0.09423591923485508,
-      "bottom": 0.3974495217853333
+      "left": 0.22206404153299258,
+      "right": 0.39396466660098023,
+      "top": 0.0634176408076515,
+      "bottom": 0.36663124335812974
     },
     "liverPixels": [
-      536,
-      374
+      515,
+      345
     ],
     "junctionPixels": null,
-    "pulseRadius": 58.609193022220666,
-    "coverageMax": 50.609193022220666,
-    "coveragePoints": 27
+    "pulseRadius": 60.867184829003854,
+    "coverageMax": 52.867184829003854,
+    "coveragePoints": 29
   },
   {
     "map": "islet",
