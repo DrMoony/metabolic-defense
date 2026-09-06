@@ -895,14 +895,23 @@ const WEAPON_SPRITES = {
 function buildGunSprite(tier) {
   const d = WEAPON_SPRITES[tier];
   const g = new THREE.Group();
-  const h = d.w * d.ratio;
-  const m = new THREE.Mesh(new THREE.PlaneGeometry(d.w, h),
-    new THREE.MeshBasicMaterial({ map: spriteTex(d.file), transparent: false, alphaTest: 0.35, depthWrite: true }));
-  m.position.set(0, h * 0.15, 0);
+  // 원본 튜닝(플레인 w×h, 중심 y=h*0.15)에서 총구 위치를 정규화해 두고, 화면 기준 크기로 다시 배치한다
+  const h0 = d.w * d.ratio;
+  const u = d.mz[0] / d.w, v = (d.mz[1] - h0 * 0.15) / h0;
+  // 세로형(권총·리볼버·새총)은 높이 0.8, 가로형(장총·바주카)은 너비 1.4 (gun 그룹 0.72배 전) — 화면의 약 36%
+  const tall = d.ratio > 1;
+  const w = tall ? 0.8 / d.ratio : 1.4, h = w * d.ratio;
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h),
+    new THREE.MeshBasicMaterial({ map: spriteTex(d.file + '?v=2'), transparent: false, alphaTest: 0.35, depthWrite: true }));
+  // 세로형은 손잡이가 화면 아래로 빠지고(아랫변 월드 -0.86), 가로형은 나팔·개머리판이 보이게(아랫변 월드 -0.74)
+  // 오른쪽 변은 화면 오른쪽 가장자리(월드 ≈1.38) 안쪽 1.2에 걸린다
+  const bottom = tall ? -0.36 : -0.2;
+  const cx = (1.2 - w * 0.5 * 0.72 - 0.6) / 0.72;
+  m.position.set(cx, bottom + h * 0.5, 0);
   g.add(m);
   const mz = new THREE.Mesh(new THREE.SphereGeometry(0.06, 6, 6),
     new THREE.MeshBasicMaterial({ color: 0xffe9a8, transparent: true, opacity: 0 }));
-  mz.position.set(d.mz[0], d.mz[1], d.mz[2]);
+  mz.position.set(m.position.x + u * w, m.position.y + v * h, d.mz[2]);
   g.add(mz);
   return { group: g, mz };
 }
