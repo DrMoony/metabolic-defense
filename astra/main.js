@@ -185,16 +185,37 @@ function spawn(type='soda',options={}){
   const routeId=world.terrain.routes.get(options.routeId??routes[((lane%routes.length)+routes.length)%routes.length].id).id;
   const hp=definition.hp*(definition.boss?1:DIFFICULTY[state.difficulty].hp);
   const enemy={type,...definition,waveBoss:definition.boss===true&&options.waveBoss===true,showHealth:definition.hp>=2,model,hp,maxHp:hp,lane,routeId,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:['fragment','cancerlet'].includes(type)?.7:1,flash:0,dead:false,guarded:false};
+  if(definition.fly)planFlight(enemy);
   enemies.push(enemy);positionEnemy(enemy);world.updateHealth(enemy);
   if(definition.boss){if(enemy.waveBoss)state.bosses.push(type);world.shake=1.5;world.ring(model.position,0xffa56e,10);notice(...definition.names,4);sound(95,.45,'sawtooth',.05);}
   updateBossHUD();return enemy;
 }
+// 날아다니는 적은 길을 따라가지 않는다. 맵 위쪽 아무 데서나 들어와 방어선까지 곧장 가로지른다.
+function planFlight(enemy){
+  const exit=world.routePoint(enemy.routeId,1).clone();
+  let from=null;
+  for(let tries=0;tries<8&&!from;tries++){
+    from=world.platePoint(.06+Math.random()*.88,.07+Math.random()*.16);
+  }
+  if(!from){from=world.routePoint(enemy.routeId,0).clone();}
+  enemy.flyFrom=from;enemy.flyTo=exit.add(new THREE.Vector3((Math.random()-.5)*6,0,(Math.random()-.5)*3));
+}
 function positionEnemy(enemy){
-  const p=enemy.progress,position=world.routePoint(enemy.routeId,p);
+  const p=enemy.progress;
+  let position;
+  if(enemy.fly&&enemy.flyFrom&&enemy.flyTo){
+    position=enemy.flyFrom.clone().lerp(enemy.flyTo,p);
+    const dir=enemy.flyTo.clone().sub(enemy.flyFrom).setY(0).normalize();
+    const sway=Math.sin(p*Math.PI*2.4+enemy.seed)*world.actorScale*2.4;
+    position.x+=-dir.z*sway;position.z+=dir.x*sway;
+  }else position=world.routePoint(enemy.routeId,p);
   enemy.model.position.copy(position);
   enemy.model.position.y+=enemy.fly?world.actorScale*(3.5+Math.sin(p*18+enemy.seed)*.18):.10;
   // Recoil moves the actor away along the same route, preserving its ground contact.
-  if(enemy.flash>0){const tangent=world.terrain.routes.tangent(enemy.routeId,p);enemy.model.position.addScaledVector(tangent,-enemy.flash*world.actorScale*.4);}
+  if(enemy.flash>0){
+    const tangent=enemy.fly&&enemy.flyFrom&&enemy.flyTo?enemy.flyTo.clone().sub(enemy.flyFrom).setY(0).normalize():world.terrain.routes.tangent(enemy.routeId,p);
+    enemy.model.position.addScaledVector(tangent,-enemy.flash*world.actorScale*.4);
+  }
   enemy.model.quaternion.copy(world.camera.quaternion);
   enemy.model.scale.setScalar(world.actorScale*enemy.scale*(.96+p*.08));
 }
@@ -333,7 +354,7 @@ function combat(dt){
   const wave=WAVES[state.wave],tuning=DIFFICULTY[state.difficulty];
   if(state.waveTime<wave.bossAt){for(const timer of spawnTimers)if(state.waveTime>=timer.next){const variants={fries:['fries','ciga','soju'],burger:['burger','ramen'],donut:['donut','moth','bat']};
     const choices=state.wave>0?variants[timer.type]:null;spawn(choices?choices[(timer.count||0)%choices.length]:timer.type);timer.count=(timer.count||0)+1;timer.next+=timer.interval*tuning.gap;}}
-  if(state.waveTime>=wave.bossAt&&!events.has('boss')){events.add('boss');spawn(wave.boss,{waveBoss:true});}
+  if(state.waveTime>=wave.bossAt&&!events.has('boss')){events.add('boss');spawn(wave.boss,{waveBoss:true,routeId:world.map.bossRoute});}
   if(state.waveTime>=10&&!events.has('trap')){events.add('trap');world.spawnTrap();notice('지방 덫 · 자물쇠를 쏘면 코어가 회복돼요','FAT TRAP · Shoot the lock to restore the core');}
   const sugarCount=enemies.filter(e=>e.sugar).length;
   state.sugar=clamp(state.sugar+(sugarCount*2.2-3)*dt);
