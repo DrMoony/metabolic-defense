@@ -1,6 +1,7 @@
 // No dependencies. Actual Three.js geometry/raycasting + simulated DOM/renderer.
 // This checks game logic; it intentionally does not claim WebGL/browser coverage.
 import assert from 'node:assert/strict';
+import {readPNG} from './png.mjs';
 import fs from 'node:fs/promises';
 import vm from 'node:vm';
 import path from 'node:path';
@@ -16,6 +17,7 @@ class Classes {
 }
 class Element {
   constructor(tag='div'){this.tagName=tag;this.children=[];this.style={};this.dataset={};this.classList=new Classes();this.listeners={};this.disabled=false;this.textContent='';this.value='';}
+  getContext(){return {drawImage:image=>this.image=image,getImageData:()=>({data:this.image.pixels})};}
   append(...nodes){this.children.push(...nodes);}
   addEventListener(name,handler){this.listeners[name]=handler;}
   replaceChildren(...nodes){this.children=[...nodes];}
@@ -51,13 +53,62 @@ class Renderer {
   setPixelRatio(){}setSize(){}getDrawingBufferSize(v){return v.set(1280,720);}setRenderTarget(){}
   render(scene,camera){scene.updateMatrixWorld(true);camera.updateMatrixWorld(true);}
 }
+class TextureLoader {
+  load(url,onLoad,onProgress,onError){const map=new T.Texture();readPNG(path.resolve(root,'astra',url)).then(image=>{map.image=image;onLoad(map);}).catch(onError);return map;}
+}
 const exports=Object.keys(T);
-const replacement=new vm.SyntheticModule(exports,function(){exports.forEach(name=>this.setExport(name,name==='WebGLRenderer'?Renderer:T[name]));},{context});
+const replacement=new vm.SyntheticModule(exports,function(){exports.forEach(name=>this.setExport(name,name==='WebGLRenderer'?Renderer:name==='TextureLoader'?TextureLoader:T[name]));},{context});
 await replacement.link(()=>{});await replacement.evaluate();cache.set(path.join(root,'vendor/three.module.js'),replacement);
 const main=await load(path.join(root,'astra/main.js'));await main.evaluate();
 for(let i=0;i<100&&!context.ASTRA?.bank.ready;i++)await new Promise(resolve=>setTimeout(resolve,10));
 assert.deepEqual(errors,[],'initialization errors');assert(context.ASTRA,'debug handle initialized');
-const A=context.ASTRA;A.setManual(true);assert(A.bank.ready);
+const A=context.ASTRA;await Promise.all(A.world.spriteLoads);A.setManual(true);assert(A.bank.ready);
+const spriteModule=await load(path.join(root,'astra/sprites.js'));await spriteModule.evaluate();
+const {ENEMY_ART,WEAPON_ART,animateEnemy}=spriteModule.namespace;
+const projectedHeight=model=>{
+  model.updateWorldMatrix(true,true);
+  const body=model.userData.body,center=model.userData.anchor==='center';
+  const bottom=body.localToWorld(new T.Vector3(0,center?-.5:0,0)).project(A.world.camera);
+  const top=body.localToWorld(new T.Vector3(0,center?.5:1,0)).project(A.world.camera);
+  return Math.abs(top.y-bottom.y)/2;
+};
+// Every source frame is decoded, cached and alpha-tested before simulation begins.
+for(const [type,art] of Object.entries(ENEMY_ART)){
+  const enemy=A.spawn(type,{progress:.7}),data=enemy.model.userData;
+  assert.equal(data.maps.length,art.frames.length);assert.equal(data.anchor,art.anchor);
+  for(const map of data.maps){assert(map.image.width>0);assert(map.userData.pixels.some((v,i)=>i%4===3&&v===0));}
+  assert.equal(data.body.geometry.type,'PlaneGeometry');assert.equal(data.body.material.transparent,false);
+  assert(data.body.material.depthWrite&&data.body.material.depthTest&&data.body.material.alphaTest>0);
+  animateEnemy(enemy.model,A.world.camera,0,0);const first=data.body.material.map;
+  animateEnemy(enemy.model,A.world.camera,.21,0,.8);
+  assert.equal(data.body.material.map,data.maps[art.frames.length===2?1:0]);
+  assert(data.body.material.color.g<1,'damage tints the image');
+  if(art.frames.length===2)assert.notEqual(first,data.body.material.map);
+}
+A.start();
+const front=A.spawn('fries',{progress:.8});front.model.updateWorldMatrix(true,true);
+const body=front.model.userData.body;
+const corner=body.localToWorld(new T.Vector3(-.49,.99,0)).project(A.world.camera);
+const ray=new T.Raycaster();ray.setFromCamera(new T.Vector2(corner.x,corner.y),A.world.camera);
+const transparentHits=[];body.raycast(ray,transparentHits);assert.equal(transparentHits.length,0,'transparent PNG corner does not absorb shots');
+const shared=body.material.map;let disposed=false;body.material.addEventListener('dispose',()=>disposed=true);
+A.damage(front,100);assert(A.world.deaths.some(d=>d.model===front.model));const rotation=front.model.quaternion.clone();
+A.step(.1);assert(!front.model.quaternion.equals(rotation),'death rotates before removal');A.step(.5);assert(disposed);assert.equal(front.model.parent,null);
+const another=A.spawn('fries',{progress:.8});assert.equal(another.model.userData.maps[0],shared,'per-actor cleanup preserves cached textures');
+for(let tier=0;tier<12;tier++){
+  A.world.buildGun(tier);A.world.scene.updateMatrixWorld(true);
+  assert.equal(A.world.gun.parent,A.world.camera);assert.equal(A.world.gun.userData.body.material.map.userData.key,WEAPON_ART[tier]);
+  assert.equal(A.world.gun.userData.body.material.depthTest,false);
+  const tip=A.world.gunMuzzle.getWorldPosition(new T.Vector3()).project(A.world.camera);
+  assert(Math.abs(tip.x)<1&&Math.abs(tip.y)<1,'muzzle stays inside the view');
+}
+A.start();const trap=A.world.spawnTrap();await Promise.all(A.world.spriteLoads);A.world.scene.updateMatrixWorld(true);
+const lock=trap.lock.localToWorld(new T.Vector3(0,.5,0)).project(A.world.camera);
+assert.equal(A.world.pick((lock.x+1)*640,(1-lock.y)*360,[]).prop,trap,'lock sprite can be shot');
+const rewardScore=A.state.score;A.shot((lock.x+1)*640,(1-lock.y)*360);assert.equal(A.state.score,rewardScore+250);assert.equal(A.world.props.length,0);
+assert.equal(A.world.rewards.at(-1).model.children[0].material.map.userData.key,'item_gcgr');
+A.start();assert.equal(A.world.rewards.length,0);assert.equal(A.world.deaths.length,0);
+console.log('PASS: 13 two-frame enemies, 3 bosses, real PNG alpha picking, tint/death cleanup, 12 weapons, lock reward and shared textures');
 assert.equal(A.bank.mix,70);assert.equal(A.bank.drug,false);
 let rows=Array.from({length:10},()=>A.bank.draw('mid'));
 assert.equal(rows.filter(q=>q.set==='masld').length,7);assert(rows.every(q=>q.drug!==true));assert.equal(new Set(rows.map(q=>q.id)).size,10);
@@ -90,9 +141,9 @@ console.log(`PASS: real rAF adaptive quality, recovery, approach shadows, instan
 // Exercise actual ray intersections: a projected center must damage its 3D model.
 A.start();A.step(.1);
 const target=A.spawn('burger',{lane:0,progress:.7});A.step(.02);
-const position=A.project(target);const hp=target.hp;A.shot(position.x,position.y);assert(target.hp<hp,'real Three.js raycast hits a target');assert.equal(A.state.hits,1);
+await Promise.all(A.world.spriteLoads);const position=A.project(target);const hp=target.hp;A.shot(position.x,position.y);assert(target.hp<hp,'real Three.js raycast hits a target');assert.equal(A.state.hits,1);
 // Boss weak-point raycast doubles the initial 1-damage slingshot shot.
-A.start();const syrup=A.spawn('syrup',{lane:0,progress:.65});A.step(.02);
+A.start();const syrup=A.spawn('syrup',{lane:0,progress:.65});A.step(.02);await Promise.all(A.world.spriteLoads);
 const valve=syrup.model.children.find(c=>c.userData.weak);const p=valve.getWorldPosition(new T.Vector3()).project(A.world.camera);
 A.state.cooldown=0;A.shot((p.x+1)*640,(1-p.y)*360);assert.equal(syrup.hp,14,'syrup valve takes double damage');
 console.log('PASS: 3D raycast hit detection and syrup weak point');
@@ -131,6 +182,7 @@ assert.equal(elements.get('map-list').children.length,7);
 assert.equal(elements.get('map-pending').children.length,0);
 const plateModule=await load(path.join(root,'astra/plate.js'));await plateModule.evaluate();
 const {groundPoint,routeDocument,validateRoutes}=plateModule.namespace;
+const scaleReport=[];
 for(const map of A.MAPS){
   elements.get('restart').click();
   const previous=A.world.terrain.root;
@@ -140,6 +192,15 @@ for(const map of A.MAPS){
   assert.equal(elements.get('brief-title').textContent,map.title[0]);
   elements.get('deploy').click();assert.equal(A.state.phase,'combat');
   assert.equal(elements.get('core-label').textContent,map.core[0]);
+  const scaleProbe=A.spawn('fries',{progress:.5});
+  scaleProbe.model.position.copy(groundPoint(A.world.camera,map.actors.at));scaleProbe.model.scale.setScalar(A.world.actorScale);
+  assert(Math.abs(projectedHeight(scaleProbe.model)-.15)<1e-6,`${map.key}: calibrated regular enemy is 15% tall`);
+  A.damage(scaleProbe,100);A.start();
+  const heights=[.1,.55,.99].map(progress=>{const e=A.spawn('fries',{progress});const h=projectedHeight(e.model);A.damage(e,100);return h;});
+  assert(heights[2]>=.12&&heights[2]<=.18,`${map.key}: foreground height ${heights[2]}`);
+  assert(heights[2]>heights[1]&&heights[1]>heights[0],`${map.key}: depth produces increasing screen size`);
+  scaleReport.push({map:map.key,far:heights[0],middle:heights[1],foreground:heights[2]});
+  A.start();
   const terrain=A.world.terrain,routes=terrain.routes;
   assert.equal(terrain.mode,'plate');assert.equal(routes.items.length,map.routes.length);
   for(const route of routes.items){
@@ -226,4 +287,5 @@ for(const map of A.MAPS.filter(m=>m.legacy.ready)){
   map.plate=plate;A.world.selectMap(map.key);
 }
 assert.deepEqual(errors,[]);
+await fs.writeFile(path.join(root,'astra/tests/sprite-scale-report.json'),JSON.stringify(scaleReport,null,2)+'\n');
 console.log('ALL LOGIC CHECKS PASSED (WebGL rendering and browser layout require a real browser)');

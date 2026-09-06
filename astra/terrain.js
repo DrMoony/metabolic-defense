@@ -1,6 +1,7 @@
 import * as T from '../vendor/three.module.js';
-import {finish,roundedBox,bakeStatic,glow} from './art.js?v=a6';
-import {Routes} from './routes.js?v=a6';
+import {finish,roundedBox,bakeStatic,glow} from './art.js?v=a7';
+import {cutout} from './sprites.js?v=a7';
+import {Routes} from './routes.js?v=a7';
 const v=(x,y,z)=>new T.Vector3(x,y,z);
 const orb=new T.SphereGeometry(1,12,8),box=roundedBox();
 orb.userData.shared=box.userData.shared=true;
@@ -82,20 +83,12 @@ export function buildTerrain(scene,map){
     const landmark={...data,model:group,hp:data.hp||0,maxHp:data.hp||0,dead:false,anchor:new T.Object3D()};
     landmark.anchor.position.y=data.hp?3.3:4.5;group.add(landmark.anchor);landmarks.push(landmark);
     if(data.hp){
-      const lobes=[];for(let i=0;i<26;i++){const angle=i*2.399,r=Math.sqrt(random())*1.5;lobes.push({at:[Math.cos(angle)*r,.35+random()*(1.9-r*.5),Math.sin(angle)*r],scale:[.45+random()*.4,.45+random()*.45,.5+random()*.4]});}
-      instances(group,orb,0xffc347,lobes);
+      group.add(cutout('fatwall',2.6));landmark.billboard=true;
       const bar=new T.Group();bar.position.y=2.9;group.add(bar);
       const bg=mesh(bar,box,0x301a24,[0,0,0],[2.4,.14,.07]);bg.userData.decorative=true;
       const fill=mesh(bar,box,0xffd875,[0,0,.06],[2.32,.09,.05],.6);fill.userData.decorative=true;landmark.bar=bar;landmark.fill=fill;
     }else if(['macrophage','kupffer'].includes(data.kind)){
-      const cells=[];
-      for(let i=0;i<4;i++){
-        const x=(i%2)*1.8-1,z=Math.floor(i/2)*1.7-1;
-        cells.push({at:[x,1.2,z],scale:[1.1,1.3,1.1]});
-        for(let j=0;j<7;j++){const a=j*Math.PI*2/7;cells.push({at:[x+Math.cos(a)*1.2,1+Math.sin(a)*.6,z+Math.sin(a)*1.1],scale:[.48,.36,.5]});}
-        mesh(group,orb,0x542940,[x,.95,z+.95],[.45,.55,.26]);
-      }
-      instances(group,orb,data.kind==='kupffer'?0x7bbfaf:0xc46d86,cells);bakeStatic(group);
+      const body=cutout('fatwall',3);body.material.color.setHex(data.kind==='kupffer'?0x7bbfaf:0xc46d86);group.add(body);landmark.billboard=true;
     }else if(data.kind==='fibrosis'){
       for(let j=0;j<6;j++){
         const band=tube(group,[[-2.8,j*.25,-3],[-1,.8+j*.24,-1],[1,.5+j*.24,1],[2.8,j*.24,3]],.11,0xf0d7bc);
@@ -134,10 +127,11 @@ export function buildTerrain(scene,map){
   return {root,routes,tiles:road,fat,density,landmarks,core,debug,fibers,walls,
     setQuality(level){for(const m of density)m.count=Math.floor(m.userData.fullCount*[1,.68,.42,.24][level]);},
     animate(t,wave,camera){
+      for(const l of landmarks)if(l.billboard)l.model.quaternion.copy(camera.quaternion);
       walls.scale.set(1+Math.sin(t*2)*.006,1+Math.sin(t*2)*.013,1);
       core.scale.setScalar(1+Math.sin(t*2)*.025);
       if(wave!==fiberWave){for(const band of fibers){const path=band.geometry.parameters.path;band.geometry.dispose();band.geometry=new T.TubeGeometry(path,48,.11*(1+wave*.9),6,false);}fiberWave=wave;}
-      for(const l of landmarks)if(l.bar){l.bar.quaternion.copy(camera.quaternion);l.fill.scale.x=2.32*Math.max(0,l.hp/l.maxHp);}
+      for(const l of landmarks)if(l.bar){l.bar.quaternion.copy(l.model.quaternion).invert().multiply(camera.quaternion);l.fill.scale.x=2.32*Math.max(0,l.hp/l.maxHp);}
     },
     dispose(){root.removeFromParent();const geometries=new Set(),materials=new Set();root.traverse(o=>{if(o.geometry&&!o.geometry.userData.shared)geometries.add(o.geometry);if(o.isSprite||o.material?.isMeshBasicMaterial||o.material?.isLineBasicMaterial)materials.add(o.material);if(o.isInstancedMesh)o.dispose();});geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());},
   };

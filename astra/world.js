@@ -1,17 +1,14 @@
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { roundedBox, bakeStatic, contact, glow, reflections, guardian, pancreas } from './art.js?v=a6';
-import { buildTerrain } from './terrain.js?v=a6';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a6';
-import { getMap } from './maps/index.js?v=a6';
+import { contact, glow, reflections } from './art.js?v=a7';
+import { buildTerrain } from './terrain.js?v=a7';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a7';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a7';
+import { getMap } from './maps/index.js?v=a7';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
   sphere: new THREE.SphereGeometry(1, 20, 14),
-  box: roundedBox(),
-  cylinder: new THREE.CylinderGeometry(1, 1, 1, 24),
-  cone: new THREE.ConeGeometry(1, 1, 16),
-  torus: new THREE.TorusGeometry(1, .13, 8, 48),
   ico: new THREE.IcosahedronGeometry(1, 1),
 };
 Object.values(shapes).forEach(g=>g.userData.shared=true);
@@ -19,107 +16,6 @@ function material(color, glow = 0, metal = .15) {
   const key = `${color}:${glow}:${metal}`;
   if (!materials.has(key)) materials.set(key, new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: glow, roughness: .25, metalness: metal }));
   return materials.get(key);
-}
-function part(root, kind, color, at, scale, glow = 0, metal = .15) {
-  const mesh = new THREE.Mesh(shapes[kind], material(color, glow, metal));
-  mesh.position.set(...at); mesh.scale.set(...scale); mesh.castShadow = true; mesh.receiveShadow = true; root.add(mesh); return mesh;
-}
-function tube(root, points, radius, color, glow = 0) {
-  const path = new THREE.CatmullRomCurve3(points.map(p => V(...p)));
-  const mesh = new THREE.Mesh(new THREE.TubeGeometry(path, 64, radius, 8, false), material(color, glow));
-  mesh.castShadow = true; mesh.receiveShadow = true; root.add(mesh); return mesh;
-}
-function face(group, z = .86, y = 1.2, gap = .35, boss = false) {
-  for (const sign of [-1, 1]) {
-    part(group,'sphere',0x632619,[gap*sign,y,z],[.28,.34,.12]);
-    part(group,'sphere',0xfff6de,[gap*sign,y,z+.08],[.245,boss?.2:.30,.12]);
-    part(group,'sphere',0x36170b,[gap*sign+.015,y-.015,z+.19],[.15,.205,.085],0,.05);
-    part(group,'sphere',0xffffff,[gap*sign-.04,y+.085,z+.27],[.064,.074,.026],.25);
-    part(group,'sphere',0xffffff,[gap*sign+.066,y-.085,z+.27],[.024,.03,.018],.1);
-    const brow=part(group,'sphere',0x642817,[gap*sign,y+.37,z+.08],[.28,.057,.065]);brow.rotation.z=sign*(boss?-.35:.27);
-    part(group,'sphere',0xff7470,[gap*sign*1.3,y-.32,z+.06],[.17,.11,.05],.04);
-  }
-  part(group,'sphere',0x64161d,[0,y-.37,z+.04],[.21,.23,.085]);
-  part(group,'sphere',0xff797b,[0,y-.46,z+.11],[.13,.10,.036],.06);
-}
-export function foodModel(type, boss = false) {
-  const group = new THREE.Group();
-  const limbs = [];
-  const warm = 0xffba22, red = 0xef291a;
-  if (type === 'soda') {
-    part(group, 'cylinder', 0xefe2ba, [0,.7,0], [.1,1.2,.1]);
-    part(group, 'sphere', 0xffa751, [0,1.55,0], [.9,.9,.4]);
-    const swirl=[];for(let i=0;i<100;i++){const a=i*.18,r=.04+i*.0077;swirl.push([Math.cos(a)*r,1.55+Math.sin(a)*r,.39+Math.sqrt(Math.max(0,1-r*r))*.08]);}tube(group,swirl,.07,0xfff8dc,.1);
-    part(group,'torus',0xffe3a0,[0,1.55,.15],[.9,.9,1],.1);
-    face(group,.47,1.6,.33);
-  } else if (type === 'fries') {
-    const pack=new THREE.Shape();pack.moveTo(-.66,.36);pack.lineTo(.66,.36);pack.lineTo(.91,1.68);pack.quadraticCurveTo(0,1.22,-.91,1.68);pack.closePath();
-    const carton=new THREE.Mesh(new THREE.ExtrudeGeometry(pack,{depth:.75,bevelEnabled:true,bevelSegments:3,bevelSize:.08,bevelThickness:.09,curveSegments:12}),material(red,0,.15));carton.position.z=-.42;carton.castShadow=true;group.add(carton);
-    for(let i=0;i<13;i++){const fry=part(group,'box',i%3?warm:0xffd655,[(i%5-2)*.31,1.85+(i%3)*.19,i<5?-.25:.04],[.24,1.25+(i%4)*.13,.25]);fry.rotation.z=(i%5-2)*-.15;fry.rotation.y=i*.43;}
-    tube(group,[[-.89,1.69,.43],[-.5,1.48,.48],[0,1.39,.49],[.5,1.48,.48],[.89,1.69,.43]],.065,0xffd543);
-    face(group,.57,.97,.34);
-  } else if (type === 'burger') {
-    part(group,'sphere',warm,[0,1.78,0],[1.25,.65,.96]);
-    part(group,'cylinder',0x663d30,[0,1.04,0],[1.12,.46,.93]);
-    part(group,'sphere',0x91b855,[0,1.4,0],[1.3,.14,1]);
-    part(group,'box',0xffd55e,[0,1.3,0],[1.85,.16,1.5]).rotation.y=.3;
-    part(group,'sphere',warm,[0,.65,0],[1.21,.32,.96]);
-    for(let i=0;i<9;i++)part(group,'sphere',0xffe7b1,[Math.sin(i*2.4)*.8,2.18+Math.cos(i)*.08,Math.cos(i*2.4)*.5],[.05,.035,.1]);
-    face(group,1,1.15,.45);
-  } else if (type === 'pizza') {
-    const slice=part(group,'cone',0xffd078,[0,1.2,0],[1,2,.42]);slice.rotation.z=Math.PI;
-    part(group,'sphere',warm,[0,2.15,0],[1.12,.24,.48]);
-    for(const [x,y] of [[-.4,1.8],[.35,1.72],[0,.8]])part(group,'sphere',red,[x,y,.4],[.19,.19,.055]);
-    face(group,.47,1.4,.3);
-  } else if (type === 'icecream') {
-    part(group,'cone',warm,[0,.7,0],[.57,1.4,.57]).rotation.z=Math.PI;
-    part(group,'sphere',0xa2e1b8,[0,1.7,0],[.85,.8,.8]);
-    for(let i=0;i<7;i++)part(group,'sphere',0x604235,[Math.sin(i*2)*.65,1.9+Math.cos(i)*.3,.56],[.09,.1,.09]);
-    face(group,.78,1.65,.3);
-  } else if(type === 'donut') {
-    part(group,'torus',warm,[0,1.3,0],[.85,.85,2.3]);
-    part(group,'torus',0xf698b1,[0,1.3,.18],[.84,.84,1.4]);face(group,.55,1.45,.48);
-  } else if(type === 'wing') {
-    part(group,'sphere',0xc98842,[0,1.4,0],[.85,1,.7]);
-    part(group,'cylinder',0xffe5c6,[0,.45,0],[.17,.8,.17]);
-    for(let i=0;i<12;i++)part(group,'ico',warm,[Math.sin(i*2)*.7,1.4+Math.cos(i*2)*.7,Math.sin(i*4)*.5],[.2,.2,.2]);
-    face(group,.72,1.4,.32);
-  } else if(type === 'syrup') {
-    part(group,'cylinder',0xca743a,[0,1.2,0],[1.12,2.4,1.12],.05,.55);
-    for(const y of [.24,1.25,2.22])part(group,'torus',0x3e5655,[0,y,0],[1.13,1.13,1]).rotation.x=Math.PI/2;
-    part(group,'cylinder',0xe5c480,[0,2.65,0],[.15,.6,.15],.2,.7);
-    const weak=part(group,'torus',0xffe685,[0,2.95,0],[.48,.48,1],1.6);weak.userData.weak=true;
-    part(group,'sphere',0xffe685,[0,2.95,0],[.25,.25,.18],1.6).userData.weak=true;
-    face(group,1.12,1.3,.43,true);
-  } else if(type === 'cancer' || type === 'fragment') {
-    part(group,'ico',0xc85391,[0,1.25,0],[1.2,1.2,1],.12);
-    for(let i=0;i<10;i++)part(group,'sphere',0xea6fa3,[Math.sin(i*2.4)*1.03,1.25+Math.cos(i*2.4)*1.02,Math.sin(i*4)*.55],[.4,.43,.4],.08);
-    face(group,1.05,1.4,.42,boss);
-  } else if(type === 'plaque') {
-    part(group,'ico',0x9a4353,[0,1.15,0],[1.6,1.1,1.1],.08,.3);
-    for(let i=0;i<9;i++){const shard=part(group,'cone',0xffe2b0,[Math.sin(i*2.4)*1.35,1.7+Math.cos(i*2.4)*.55,Math.cos(i)*.6],[.28,1.2,.27]);shard.rotation.z=Math.sin(i)*.6;}
-    face(group,1.12,1.2,.5,true);
-  }
-  for(const sign of [-1,1]){
-    part(group,'sphere',0xffc041,[sign*.48,.31,.02],[.18,.3,.2]);
-    const shoe=new THREE.Group();shoe.position.set(sign*.48,.14,.19);group.add(shoe);
-    part(shoe,'sphere',0xfff1d3,[0,-.02,.02],[.3,.17,.46]);part(shoe,'sphere',0xea3021,[0,.09,-.03],[.29,.22,.39]);limbs.push(shoe);
-    const arm=part(group,'sphere',boss?0x975842:0xffbd35,[sign*1.03,1,.04],[.21,.45,.23]);arm.rotation.z=sign*.6;
-    part(group,'sphere',0xffc348,[sign*1.15,.8,.23],[.28,.3,.27]);
-    if(['donut','wing'].includes(type)){
-      const wing=part(group,'sphere',0xf4e6ca,[sign*1.1,1.5,0],[.8,.15,.4]);limbs.push(wing);
-    }
-  }
-  bakeStatic(group,m=>!limbs.some(l=>m===l||m.parent===l)&&!m.userData.weak);
-  const bar=new THREE.Group();bar.position.y=3.5;
-  part(bar,'box',0x19353b,[0,0,0],[1.45,.09,.035]);
-  const fill=part(bar,'box',0xd5ef9c,[0,0,.03],[1.42,.06,.035],.6);
-  bar.children.forEach(mesh=>mesh.userData.decorative=true);
-  group.add(bar);bar.visible=false;
-  group.userData={limbs,bar,fill};
-  if(boss)group.scale.setScalar(2);
-  if(type==='fragment')group.scale.setScalar(.7);
-  return group;
 }
 export class World {
   constructor(canvas) {
@@ -144,7 +40,7 @@ export class World {
     this.hitLight=new THREE.PointLight(0xffd98b,0,20);this.scene.add(this.hitLight);
     this.root=new THREE.Group();this.scene.add(this.root);this.fx=[];this.projectiles=[];
     this.ray=new THREE.Raycaster();this.aim=new THREE.Vector2();this.time=0;this.shake=0;this.kick=0;
-    this.quality=0;this.contacts=new Map();this.particles=[];
+    this.quality=0;this.contacts=new Map();this.particles=[];this.deaths=[];this.rewards=[];this.props=[];this.spriteLoads=spriteLoads;this.assetsReady=preloadSprites();this.assetsReady.catch(()=>{});
     this.sparks=new THREE.InstancedMesh(shapes.ico,new THREE.MeshBasicMaterial({color:0xffffff,toneMapped:false}),128);this.sparks.count=0;this.sparks.frustumCulled=false;this.scene.add(this.sparks);this.buildEnvironment();this.buildOrgans();this.placeOrgans();this.buildGun(0);
     this.resize();window.addEventListener('resize',()=>this.resize());
   }
@@ -155,8 +51,13 @@ export class World {
     this.scene.add(this.dust);this.dummy=new THREE.Object3D();
   }
   buildOrgans(){
-    const liver=guardian(this.scene);this.liver=liver.root;this.liverBody=liver.body;
-    const insulin=pancreas(this.scene);this.pancreas=insulin.root;this.turret=insulin.turret;this.tip=insulin.tip;
+    for(const name of ['liver','pancreas']){
+      const root=new THREE.Group(),body=cutout(`organ_${name}`,1);
+      root.add(body);root.userData.body=body;this.scene.add(root);this[name]=root;
+    }
+    this.liverBody=this.liver.userData.body;
+    this.turret=new THREE.Object3D();this.pancreas.add(this.turret);
+    this.tip=new THREE.Object3D();this.tip.position.set(-.32,.57,.03);this.pancreas.add(this.tip);
   }
   configureMap(){
     if(this.map.plate){
@@ -173,26 +74,27 @@ export class World {
     }
   }
   placeOrgans(){
-    for(const [name,modelHeight] of [['liver',7.5],['pancreas',5]]){
-      const model=this[name];model.scale.setScalar(1);
+    for(const name of ['liver','pancreas']){
+      const model=this[name];
       if(this.map.plate){
         const data=this.map.organs[name];model.position.copy(groundPoint(this.camera,data.at));
-        const base=model.position.clone().project(this.camera),top=model.position.clone().add(V(0,modelHeight,0)).project(this.camera);
-        let scale=data.height/Math.abs((top.y-base.y)/2);
-        for(let i=0;i<6;i++){
-          const tip=model.position.clone().add(V(0,modelHeight*scale,0)).project(this.camera);
-          scale*=data.height/Math.abs((tip.y-base.y)/2);
-        }
-        model.userData.baseScale=scale;
-      }else{model.position.set(name==='liver'?-8.3:9.2,0,name==='liver'?-9:-6);model.userData.baseScale=1;}
-      model.scale.setScalar(model.userData.baseScale);
+        model.userData.baseScale=screenHeight(this.camera,model.position,data.height);
+      }else{model.position.set(name==='liver'?-8.3:9.2,0,name==='liver'?-9:-6);model.userData.baseScale=name==='liver'?7.5:5;}
+      model.quaternion.copy(this.camera.quaternion);model.scale.setScalar(model.userData.baseScale);
+      // The source turret points right; turn it toward the playable road on right-hand islands.
+      if(name==='pancreas'){
+        const facing=this.map.plate&&this.map.organs.pancreas.at[0]<.5?1:-1;
+        model.userData.body.scale.x=Math.abs(model.userData.body.scale.x)*facing;this.tip.position.x=.32*facing;
+      }
     }
+    const calibration=this.map.actors;
+    this.actorScale=this.map.plate?screenHeight(this.camera,groundPoint(this.camera,calibration.at),calibration.height)/3:1;
   }
   selectMap(key){
     this.clear();this.terrain.dispose();this.map=getMap(key);this.configureMap();
     this.terrain.setQuality(this.quality);this.key.color.setHex(this.map.palette.accent);
     this.flight=this.map.plate?0:1;if(!this.map.plate)this.camera.position.set(14,17,34);
-    this.placeOrgans();
+    this.placeOrgans();this.layoutGun();
   }
   routePoint(id,p){return this.terrain.routes.sample(id,p);}
   toggleRoutes(){this.terrain.debug.visible=!this.terrain.debug.visible;return this.terrain.debug.visible;}
@@ -204,35 +106,28 @@ export class World {
   }
 
   buildGun(tier){
-    if(this.gun){this.camera.remove(this.gun);this.gun.traverse(m=>{if(m.isMesh&& !Object.values(shapes).includes(m.geometry))m.geometry.dispose();if(m.isSprite)m.material.dispose();});}
+    if(this.gun)disposeBillboard(this.gun);
     const group=new THREE.Group();this.gun=group;this.camera.add(group);
-    group.position.set(.65,-.69,-1.5);group.scale.setScalar(.4);
-    if(tier===0){
-      group.position.set(.83,-.81,-1.6);group.scale.setScalar(.48);
-      tube(group,[[0,-1,.1],[0,0,0],[-.15,.5,-.1],[-.57,1.25,-.2],[-.72,1.75,-.3]],.15,0x8b431c);
-      tube(group,[[0,.15,0],[.29,.8,-.1],[.7,1.75,-.3]],.15,0x8b431c);
-      for(const sign of [-1,1]){part(group,'torus',0xf1c05d,[sign*.7,1.6,-.27],[.17,.17,.7],0,.72).rotation.x=Math.PI/2;}
-      tube(group,[[-.7,1.65,-.28],[0,.7,.4],[.7,1.65,-.28]],.036,0xf6d892);
-      for(let i=0;i<6;i++)part(group,'torus',0x412632,[0,-.7+i*.11,.06],[.17,.17,.55]).rotation.x=Math.PI/2;
-      part(group,'ico',0x6bffac,[0,.3,.19],[.18,.26,.11],1.1,.4);glow(group,0x73ffa7,[0,.3,.24],.8,.35);
-      this.gunMuzzle=new THREE.Object3D();this.gunMuzzle.position.set(0,1,-.4);group.add(this.gunMuzzle);return;
-    }
-    const metal=tier<3?0x99764f:0x375659;
-    part(group,'box',0x263b3d,[0,0,.3],[.38,.62,.62],0,.5).rotation.x=-.2;
-    part(group,'box',metal,[0,.35,-.1],[.65,.42,1.5],0,.65);
-    const barrels=tier===4?2:tier===10?4:1;
-    for(let i=0;i<barrels;i++){
-      const x=(i%2-(barrels>1?.5:0))*.36, y=.37+(i>1?.35:0);
-      const b=part(group,'cylinder',metal,[x,y,-1],[tier>=9?.23:.13,1.7,tier>=9?.23:.13],0,.75);b.rotation.x=Math.PI/2;
-      part(group,'torus',0xc6f3b0,[x,y,-1.85],[tier>=9?.25:.16,tier>=9?.25:.16,.4],.7);
-    }
-    if(tier<2){
-      tube(group,[[-.7,.8,-.6],[-.4,.4,-.6],[0,.2,-.6],[.4,.4,-.6],[.7,.8,-.6]],.1,0xb18751);
-      tube(group,[[-.7,.8,-.6],[0,.4,.2],[.7,.8,-.6]],.025,0xdfc695);
-    }
-    if(tier>=6)part(group,'box',0x1a3236,[0,-.22,-.3],[.22,.8,.35],0,.5);
-    if(tier>=7)part(group,'cylinder',0x92dcca,[0,.74,-.5],[.12,.65,.12],.4).rotation.x=Math.PI/2;
-    this.gunMuzzle=new THREE.Object3D();this.gunMuzzle.position.set(0,.4,-1.95);group.add(this.gunMuzzle);
+    const body=cutout(WEAPON_ART[tier],1,'center');body.material.depthTest=false;body.material.depthWrite=false;body.renderOrder=100;
+    group.add(body);group.userData.body=body;group.userData.tier=tier;
+    this.gunMuzzle=new THREE.Object3D();group.add(this.gunMuzzle);
+    this.muzzleFlash=glow(group,tier>9?0x79efff:0xffcf72,[0,0,.01],.2,0);
+    this.muzzleFlash.material.depthTest=false;this.muzzleFlash.renderOrder=101;
+    this.layoutGun();
+  }
+  layoutGun(){
+    if(!this.gun)return;
+    const group=this.gun,body=group.userData.body,tier=group.userData.tier;
+    const viewHeight=2*1.5*Math.tan(THREE.MathUtils.degToRad(this.camera.fov/2)),viewWidth=viewHeight*this.camera.aspect;
+    const aspect=body.scale.x/body.scale.y;
+    const height=Math.min(viewHeight*(tier===0?.43:.49),viewWidth*.44/aspect),width=height*aspect;
+    body.scale.set(width,height,1);
+    group.position.set(viewWidth*.5-width*.47,-viewHeight*.5+height*.43,-1.5);
+    group.userData.rest=group.position.clone();
+    // Barrel-tip coordinates in each source image, normalized from top-left.
+    const tips=[[.5,.29],[.13,.12],[.09,.06],[.47,.05],[.10,.06],[.08,.07],[.11,.06],[.06,.06],[.06,.06],[.05,.10],[.08,.06],[.07,.08]];
+    const [x,y]=tips[tier];this.gunMuzzle.position.set((x-.5)*width,(.5-y)*height,.02);
+    this.muzzleFlash.position.copy(this.gunMuzzle.position);this.muzzleFlash.scale.setScalar(height*.24);
   }
   setQuality(level){
     const next=Math.max(0,Math.min(3,level));if(next===this.quality)return;
@@ -248,23 +143,40 @@ export class World {
   resize(){
     const rect=this.renderer.domElement.getBoundingClientRect();
     this.renderer.setSize(rect.width,rect.height,false);
-    this.camera.aspect=this.map.plate?16/9:rect.width/Math.max(1,rect.height);this.camera.updateProjectionMatrix();
+    this.camera.aspect=this.map.plate?16/9:rect.width/Math.max(1,rect.height);this.camera.updateProjectionMatrix();this.layoutGun();
   }
-  addEnemy(type,boss){const model=foodModel(type,boss);this.root.add(model);this.contacts.set(model,contact(this.scene,boss?6:3,.65));return model;}
-  remove(model){this.root.remove(model);const shadow=this.contacts.get(model);if(shadow){shadow.removeFromParent();shadow.material.dispose();shadow.geometry.dispose();this.contacts.delete(model);}model.traverse(m=>{if(m.isMesh&&!Object.values(shapes).includes(m.geometry))m.geometry.dispose();});}
-  project(model,offset=1.2){
-    const p=model.getWorldPosition(new THREE.Vector3());p.y+=offset;p.project(this.camera);
+  addEnemy(type,boss){const model=enemyBillboard(type,boss);this.root.add(model);this.contacts.set(model,contact(this.scene,boss?6:3,.65));return model;}
+  remove(model,dying=false){
+    const shadow=this.contacts.get(model);if(shadow){shadow.removeFromParent();shadow.material.dispose();shadow.geometry.dispose();this.contacts.delete(model);}
+    if(dying){model.userData.bar.visible=false;this.deaths.push({model,life:.38,scale:model.scale.clone()});}
+    else disposeBillboard(model);
+  }
+  center(model){return model.localToWorld(V(0,model.userData.anchor==='center'?0:(model.userData.height||2.4)*.5,0));}
+  project(model,offset){
+    model.updateWorldMatrix(true,true);
+    const p=offset===undefined?this.center(model):model.getWorldPosition(new THREE.Vector3()).add(V(0,offset,0));p.project(this.camera);
     const rect=this.renderer.domElement.getBoundingClientRect();return {x:rect.left+(p.x+1)*rect.width/2,y:rect.top+(1-p.y)*rect.height/2,visible:p.z<1&&Math.abs(p.x)<1&&Math.abs(p.y)<1};
   }
+  reward(position,key='item_glp1'){
+    const model=new THREE.Group();model.add(cutout(key,2.5));model.position.copy(position);model.scale.setScalar(this.actorScale);model.quaternion.copy(this.camera.quaternion);this.scene.add(model);
+    this.rewards.push({model,life:1.5});
+  }
+  spawnTrap(routeId=this.terrain.routes.items[0].id){
+    const model=new THREE.Group();model.position.copy(this.routePoint(routeId,.7));model.quaternion.copy(this.camera.quaternion);model.scale.setScalar(this.actorScale);
+    const cage=cutout('trapcage',3.4),lock=cutout('traplock',1.05);lock.position.set(.15,.35,.04);model.add(cage,lock);this.scene.add(model);
+    const prop={model,lock,life:12};this.props.push(prop);return prop;
+  }
+  freeTrap(prop){disposeBillboard(prop.model);this.props.splice(this.props.indexOf(prop),1);this.reward(prop.model.position,'item_gcgr');}
   pick(x,y,enemies){
     const rect=this.renderer.domElement.getBoundingClientRect();
     this.aim.set((x-rect.left)/rect.width*2-1,1-(y-rect.top)/rect.height*2);
     this.scene.updateMatrixWorld(true);this.ray.setFromCamera(this.aim,this.camera);
     const obstacles=this.terrain.landmarks.filter(l=>l.maxHp&&!l.dead);
-    const meshes=[...(this.terrain.occluders||[]),...enemies.map(e=>e.model),...obstacles.map(l=>l.model)];
+    const meshes=[...(this.terrain.occluders||[]),...enemies.map(e=>e.model),...obstacles.map(l=>l.model),...this.props.map(p=>p.model)];
     const hit=this.ray.intersectObjects(meshes,true).find(h=>!h.object.userData.decorative);
     if(hit&&this.terrain.occluders?.includes(hit.object))return {point:hit.point,enemy:null,occluded:true};
     if(!hit)return {point:this.ray.ray.at(70,new THREE.Vector3()),enemy:null};
+    const prop=this.props.find(p=>p.lock===hit.object);if(prop)return {point:hit.point,enemy:null,prop};
     let parent=hit.object;while(parent){const landmark=obstacles.find(l=>l.model===parent);if(landmark)return {point:hit.point,enemy:null,landmark};parent=parent.parent;}
     let object=hit.object;let enemy;
     while(object&&!enemy){enemy=enemies.find(e=>e.model===object);object=object.parent;}
@@ -294,6 +206,7 @@ export class World {
   }
   clear(){
     for(const model of [...this.root.children])this.remove(model);
+    for(const entry of [...this.rewards,...this.props])disposeBillboard(entry.model);this.deaths=[];this.rewards=[];this.props=[];
     this.particles=[];this.sparks.count=0;
     for(const p of this.projectiles)this.scene.remove(p.mesh);this.projectiles=[];
     for(const p of this.fx)this.disposeFx(p);this.fx=[];
@@ -313,25 +226,26 @@ export class World {
     this.camera.lookAt(active?V(0,1,-26):V(0,1,-30));
     }else{this.shake=0;}
     this.camera.updateMatrixWorld(true);
-    this.kick=Math.max(0,this.kick-dt*7);this.gun.visible=active&&state.phase!=='result';this.gun.position.z=(state.weapon===0?-1.6:-1.5)+this.kick*.12;this.gun.rotation.x=this.kick*.12;
+    this.kick=Math.max(0,this.kick-dt*7);this.gun.visible=active&&state.phase!=='result';this.gun.position.copy(this.gun.userData.rest);this.gun.position.z+=this.kick*.08;this.gun.position.y-=this.kick*.025;this.gun.rotation.z=-this.kick*.045;this.muzzleFlash.material.opacity=this.kick*.95;
     this.hitLight.intensity*=Math.exp(-dt*20);
-    this.liver.rotation.y=Math.sin(t*.7)*.025;this.liver.scale.setScalar(this.liver.userData.baseScale*(1+Math.sin(t*1.8)*.015));
-    this.liverBody.material.color.setHex(0xcd4316).lerp(new THREE.Color(0x66503b),state.liver/100);
+    this.liver.quaternion.copy(this.camera.quaternion);this.pancreas.quaternion.copy(this.camera.quaternion);this.liver.scale.setScalar(this.liver.userData.baseScale*(1+Math.sin(t*1.8)*.015));
+    this.liverBody.material.color.setHex(0xffffff).lerp(new THREE.Color(0x66503b),state.liver/100);
     this.pancreas.scale.setScalar(this.pancreas.userData.baseScale*(1+Math.sin(t*2.4)*.015));
     for(let i=0;i<this.dust.count;i++){
       const d=this.dustData[i];d.z+=dt*.65;if(d.z>14)d.z=-80;
       this.dummy.position.set(d.x+Math.sin(t*.3+i)*.3,d.y,d.z);this.dummy.scale.setScalar(d.s);this.dummy.updateMatrix();this.dust.setMatrixAt(i,this.dummy.matrix);
     }this.dust.instanceMatrix.needsUpdate=true;
     for(const e of enemies){
-      const g=e.model;if(this.map.plate){const toward=this.camera.position.clone().sub(g.position);g.rotation.y=Math.atan2(toward.x,toward.z);}g.rotation.z=Math.sin(t*5+e.seed)*.045;g.userData.limbs.forEach((limb,i)=>limb.rotation.x=Math.sin(t*8+e.seed+i*Math.PI)*.45);
-      g.userData.bar.visible=e.hp<e.maxHp&&!e.boss;g.userData.bar.quaternion.copy(g.quaternion).invert().multiply(this.camera.quaternion);
+      const g=e.model;e.flash=Math.max(0,(e.flash||0)-dt*6);
+      animateEnemy(g,this.camera,t,e.seed,e.flash);
+      g.userData.bar.visible=e.hp<e.maxHp&&!e.boss;
       g.userData.fill.scale.x=1.42*Math.max(.01,e.hp/e.maxHp);
-      e.flash=Math.max(0,(e.flash||0)-dt*6);g.scale.setScalar(e.scale*(.86+e.progress*.22)*(1+e.flash*.14));
-      const shadow=this.contacts.get(g);if(shadow){shadow.position.set(g.position.x,.065,g.position.z);const size=e.scale*(2.4+e.progress*.7)*(e.fly?1.5:1);shadow.scale.set(size,size*.67,1);shadow.material.opacity=(e.fly?.24:.48)+e.progress*.19;}
-      // Only nearby actors cast the more expensive shadow; every actor retains contact.
-      const casts=this.quality<3&&e.progress>(this.quality<=1?.36:.65);
-      if(g.userData.casts!==casts){g.traverse(m=>{if(m.isMesh&&!m.userData.decorative)m.castShadow=casts;});g.userData.casts=casts;}
+      g.scale.setScalar(this.actorScale*e.scale*(.96+e.progress*.08));
+      const shadow=this.contacts.get(g);if(shadow){shadow.position.set(g.position.x,.065,g.position.z);const size=this.actorScale*e.scale*(2+e.progress*.5)*(e.fly?1.2:1);shadow.scale.set(size,size*.67,1);shadow.material.opacity=(e.fly?.24:.48)+e.progress*.19;}
     }
+    for(let i=this.deaths.length-1;i>=0;i--){const d=this.deaths[i];d.life-=dt;d.model.rotateZ(dt*4);d.model.scale.copy(d.scale).multiplyScalar(Math.max(0,d.life/.38));if(d.life<=0){disposeBillboard(d.model);this.deaths.splice(i,1);}}
+    for(let i=this.rewards.length-1;i>=0;i--){const r=this.rewards[i];r.life-=dt;r.model.position.y+=dt*this.actorScale*2;r.model.quaternion.copy(this.camera.quaternion);if(r.life<=0){disposeBillboard(r.model);this.rewards.splice(i,1);}}
+    for(let i=this.props.length-1;i>=0;i--){const p=this.props[i];p.life-=dt;p.model.quaternion.copy(this.camera.quaternion);if(p.life<=0){disposeBillboard(p.model);this.props.splice(i,1);}}
     for(let i=this.particles.length-1;i>=0;i--){const p=this.particles[i];p.life-=dt;if(p.life<=0){this.particles.splice(i,1);continue;}p.velocity.y-=dt*12;p.position.addScaledVector(p.velocity,dt);}
     this.sparks.count=this.particles.length;
     for(let i=0;i<this.particles.length;i++){const p=this.particles[i];this.dummy.position.copy(p.position);this.dummy.rotation.set(t*3+i,t*2,0);this.dummy.scale.setScalar(p.size*Math.min(1,p.life/p.max*2));this.dummy.updateMatrix();this.sparks.setMatrixAt(i,this.dummy.matrix);this.sparks.setColorAt(i,p.color);}
@@ -345,7 +259,7 @@ export class World {
   advanceProjectiles(dt){
     for(let i=this.projectiles.length-1;i>=0;i--){
       const p=this.projectiles[i];p.life-=dt;
-      if(!p.target.dead){const dest=p.target.model.position.clone().add(V(0,1.3,0));const delta=dest.sub(p.mesh.position);const travel=dt*(p.homing?43:30);
+      if(!p.target.dead){const dest=this.center(p.target.model);const delta=dest.sub(p.mesh.position);const travel=dt*(p.homing?43:30);
         if(delta.length()<travel){p.onHit(p.target,p.damage);p.life=0;}else p.mesh.position.addScaledVector(delta.normalize(),travel);}
       else p.life=0;
       if(p.life<=0){this.scene.remove(p.mesh);this.projectiles.splice(i,1);}

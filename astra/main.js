@@ -1,8 +1,8 @@
-import { RouteEditor } from './route-editor.js?v=a6';
-import { World, THREE } from './world.js?v=a6';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a6';
+import { RouteEditor } from './route-editor.js?v=a7';
+import { World, THREE } from './world.js?v=a7';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a7';
 
-import { MAPS, getMap } from './maps/index.js?v=a6';
+import { MAPS, getMap } from './maps/index.js?v=a7';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -33,6 +33,12 @@ const TYPES = {
   icecream:{hp:2,speed:2.8,score:200,impact:6,sugar:true,names:['아이스크림 콘','Ice Cream Cone']},
   donut:{hp:1,speed:3.4,score:250,impact:6,sugar:true,fly:true,names:['슈가 도넛','Sugar Donut']},
   wing:{hp:2,speed:5,score:340,impact:8,fly:true,names:['프라이드 치킨윙','Fried Chicken Wing']},
+  ramen:{hp:6,speed:1.5,score:350,impact:11,names:['나트륨 컵라면','Sodium Cup Noodles']},
+  ciga:{hp:3,speed:2.5,score:250,impact:8,names:['꽁초 니코틴','Nicotine Butt']},
+  soju:{hp:4,speed:2,score:320,impact:6,names:['초록 소주병','Green Soju Bottle']},
+  moth:{hp:1,speed:4.2,score:250,impact:6,fly:true,names:['날아온 과자봉지','Flying Chip Bag']},
+  bat:{hp:2,speed:3.6,score:300,impact:7,sugar:true,fly:true,names:['초콜릿 박쥐','Chocolate Bat']},
+  cancerlet:{hp:2,speed:3.4,score:150,impact:5,names:['암세포 조각','Cancer Fragment']},
   syrup:{hp:16,speed:.8,score:1500,impact:18,sugar:true,boss:true,names:['과당 시럽통 · 위쪽 밸브가 약점','Syrup Drum · shoot the top valve']},
   cancer:{hp:26,speed:.95,score:2000,impact:24,boss:true,names:['암세포 · 격파 후 3조각으로 분열','Cancer Cell · splits into 3 fragments']},
   plaque:{hp:34,speed:1.25,score:2600,impact:32,boss:true,names:['죽상경화 플라크 · 방어선 돌진','Atherosclerotic Plaque · charging the core']},
@@ -131,7 +137,7 @@ function updateLoadUI(){
 }
 async function loadBanks(){
   const generation=++loadGeneration;loading=true;loadFailed=false;updateLoadUI();
-  try{await bank.load(state.lang);}catch{if(generation===loadGeneration)loadFailed=true;}
+  try{await Promise.all([bank.load(state.lang),world.assetsReady]);}catch{if(generation===loadGeneration)loadFailed=true;}
   if(generation===loadGeneration){loading=false;updateLoadUI();}
 }
 function setPhase(phase){
@@ -157,20 +163,22 @@ function spawn(type='soda',options={}){
   const routes=world.terrain.routes.items,lane=options.lane??Math.floor(Math.random()*routes.length);
   const routeId=world.terrain.routes.get(options.routeId??routes[((lane%routes.length)+routes.length)%routes.length].id).id;
   const hp=definition.hp*(definition.boss?1:DIFFICULTY[state.difficulty].hp);
-  const enemy={type,...definition,model,hp,maxHp:hp,lane,routeId,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:type==='fragment'?.7:1,flash:0,dead:false,guarded:false};
+  const enemy={type,...definition,model,hp,maxHp:hp,lane,routeId,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:['fragment','cancerlet'].includes(type)?.7:1,flash:0,dead:false,guarded:false};
   enemies.push(enemy);positionEnemy(enemy);
   if(definition.boss){state.bosses.push(type);world.shake=1.5;world.ring(model.position,0xffa56e,10);notice(...definition.names,4);sound(95,.45,'sawtooth',.05);}
   return enemy;
 }
 function positionEnemy(enemy){
   const p=enemy.progress,position=world.routePoint(enemy.routeId,p);
-  const direction=world.terrain.routes.tangent(enemy.routeId,p);
   enemy.model.position.copy(position);
-  enemy.model.position.y+=enemy.fly?3.5+Math.sin(p*18+enemy.seed)*.45:.10;
-  enemy.model.rotation.y=Math.atan2(direction.x,direction.z);
-
+  enemy.model.position.y+=enemy.fly?world.actorScale*(3.5+Math.sin(p*18+enemy.seed)*.18):.10;
+  // Recoil moves the actor away along the same route, preserving its ground contact.
+  if(enemy.flash>0){const tangent=world.terrain.routes.tangent(enemy.routeId,p);enemy.model.position.addScaledVector(tangent,-enemy.flash*world.actorScale*.4);}
+  enemy.model.quaternion.copy(world.camera.quaternion);
+  enemy.model.scale.setScalar(world.actorScale*enemy.scale*(.96+p*.08));
 }
-function removeEnemy(enemy){enemy.dead=true;const index=enemies.indexOf(enemy);if(index>=0)enemies.splice(index,1);world.remove(enemy.model);}
+function removeEnemy(enemy,dying=false){enemy.dead=true;const index=enemies.indexOf(enemy);if(index>=0)enemies.splice(index,1);world.remove(enemy.model,dying);}
+
 function upgrade(){
   if(state.unlocked>=WEAPONS.length-1){state.liver=clamp(state.liver-15);return;}
   state.unlocked++;state.weapon=state.unlocked;state.reload=0;state.ammo[state.weapon]=WEAPONS[state.weapon].mag;world.buildGun(state.weapon);
@@ -180,16 +188,16 @@ function damage(enemy,amount,byPlayer=true,point){
   if(enemy.dead)return;
   enemy.hp-=amount;enemy.flash=1;world.burst(point||enemy.model.position.clone().add(new THREE.Vector3(0,1.2,0)),byPlayer?0xffd395:0x9dedb7,byPlayer?5:3);
   if(enemy.hp>0)return;
-  const position=enemy.model.position.clone();removeEnemy(enemy);
+  const position=enemy.model.position.clone();removeEnemy(enemy,true);
   if(byPlayer){state.score+=Math.round(enemy.score*Math.min(4,1+state.combo*.12));world.shake=Math.max(world.shake,enemy.boss?2:.25);hitTime=enemy.boss?.13:enemy.maxHp>=5?.075:.045;}
   world.burst(position,enemy.boss?0xffad7f:0xffdc9b,enemy.boss?45:13);
   if(enemy.boss){
     state.killedBosses.push(enemy.type);state.slow=.55;world.ring(position,0xffd39b,22);sound(65,.5,'sawtooth',.06);
-    // Non-drug recovery keeps the default booth experience neutral.
-    state.liver=clamp(state.liver-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;
+    // Sprites visualize the existing immediate recovery reward.
+    state.liver=clamp(state.liver-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;world.reward(position,enemy.type==='cancer'?'item_gcgr':'item_glp1');
     notice('보스 격파! 정화 지원 · 간과 췌장 회복','BOSS DEFEATED · Purification support & organ recovery',3.5);
     if(enemy.type==='cancer')for(let i=0;i<3;i++)spawn('fragment',{progress:Math.min(enemy.progress+i*.008,.94),routeId:enemy.routeId,lane:enemy.lane});
-  }else if(byPlayer&&Math.random()<.08){state.core=clamp(state.core+2);state.liver=clamp(state.liver-2);world.ring(position,0xb8e88a,3);}
+  }else if(byPlayer&&Math.random()<.08){state.core=clamp(state.core+2);state.liver=clamp(state.liver-2);world.ring(position,0xb8e88a,3);world.reward(position);}
 }
 function reload(){
   if(state.phase!=='combat'||state.paused||state.difficulty==='easy'||state.reload>0||state.ammo[state.weapon]===WEAPONS[state.weapon].mag)return;
@@ -209,7 +217,7 @@ function shot(clientX,clientY,extra=false){
   if(state.difficulty!=='easy')state.ammo[state.weapon]--;
   state.shots++;
   const picked=world.pick(clientX,clientY,enemies);let enemy=picked.enemy;
-  if(weapon.homing&&!enemy&&!picked.landmark){
+  if(weapon.homing&&!enemy&&!picked.landmark&&!picked.prop&&!picked.occluded){
     enemy=enemies.reduce((best,candidate)=>{
       const p=world.project(candidate.model);if(!p.visible)return best;
       const distance=Math.hypot(p.x-clientX,p.y-clientY);return !best||distance<best.distance?{enemy:candidate,distance}:best;
@@ -217,6 +225,7 @@ function shot(clientX,clientY,extra=false){
   }
   world.shot(enemy?picked.enemy?picked.point:enemy.model.position.clone().add(new THREE.Vector3(0,1,0)):picked.point,state.weapon);
   sound(weapon.homing?140:600-state.weapon*37,.06+state.weapon*.008,state.weapon>8?'sawtooth':'triangle',.035);
+  if(picked.prop){state.hits++;state.score+=250;state.core=clamp(state.core+2);world.freeTrap(picked.prop);return true;}
   if(picked.landmark){
     state.hits++;state.combo++;$('reticle').classList.add('hit');
     if(world.damageLandmark(picked.landmark,weapon.damage*(weapon.pellets||1))){
@@ -299,8 +308,10 @@ function combat(dt){
   for(let i=pendingShots.length-1;i>=0;i--){pendingShots[i].in-=dt;if(pendingShots[i].in<=0){const p=pendingShots.splice(i,1)[0];shot(p.x,p.y,true);}}
   if(state.shooting)shot(aim.x,aim.y);
   const wave=WAVES[state.wave],tuning=DIFFICULTY[state.difficulty];
-  if(state.waveTime<wave.bossAt){for(const timer of spawnTimers)if(state.waveTime>=timer.next){spawn(timer.type);timer.next+=timer.interval*tuning.gap;}}
+  if(state.waveTime<wave.bossAt){for(const timer of spawnTimers)if(state.waveTime>=timer.next){const variants={fries:['fries','ciga','soju'],burger:['burger','ramen'],donut:['donut','moth','bat']};
+    const choices=state.wave>0?variants[timer.type]:null;spawn(choices?choices[(timer.count||0)%choices.length]:timer.type);timer.count=(timer.count||0)+1;timer.next+=timer.interval*tuning.gap;}}
   if(state.waveTime>=wave.bossAt&&!events.has('boss')){events.add('boss');spawn(wave.boss);}
+  if(state.waveTime>=10&&!events.has('trap')){events.add('trap');world.spawnTrap();}
   const sugarCount=enemies.filter(e=>e.sugar).length;
   state.sugar=clamp(state.sugar+(sugarCount*2.2-3)*dt);
   if(state.sugar>70)state.liver=clamp(state.liver+dt*1.1);
