@@ -493,6 +493,16 @@ liverGroup.position.z = WALL_Z; liverGroup.visible = false; scene.add(liverGroup
 
 // ---------- 췌장 포탑 + 간 수호탑 (업로드 스프라이트) ----------
 const texLoader = new THREE.TextureLoader();
+// 스프라이트 텍스처 캐시 — 둔덕처럼 초기화 중에 만들어지는 것도 있어 최상단에 둔다
+const _spriteTex = {};
+function spriteTex(file) {
+  if (!_spriteTex[file]) {
+    const t = texLoader.load(file);
+    t.colorSpace = THREE.SRGBColorSpace;
+    _spriteTex[file] = t;
+  }
+  return _spriteTex[file];
+}
 function makeOrganSprite(url, size, x, y, z) {
   const tex = texLoader.load(url);
   tex.colorSpace = THREE.SRGBColorSpace;
@@ -1120,15 +1130,6 @@ const ENEMY_SPRITES = {
   wing:     { files: ['../assets/sprites/wing_0.png', '../assets/sprites/wing_1.png'], w: 2.5, ratio: 0.97, fps: 9 },
   cancerlet: { files: ['../assets/sprites/cancerlet_0.png', '../assets/sprites/cancerlet_1.png'], w: 1.5, ratio: 1.12, fps: 7 },
 };
-const _spriteTex = {};
-function spriteTex(file) {
-  if (!_spriteTex[file]) {
-    const t = texLoader.load(file);
-    t.colorSpace = THREE.SRGBColorSpace;
-    _spriteTex[file] = t;
-  }
-  return _spriteTex[file];
-}
 function makeEnemySprite(type) {
   const d = ENEMY_SPRITES[type];
   const texs = d.files.map(spriteTex);
@@ -1666,30 +1667,21 @@ function spawnEnemy(type) {
 let trapSide = 1;
 function spawnTrap() {
   const g = new THREE.Group();
-  const barMat = new THREE.MeshStandardMaterial({ color: 0x8a94a8, roughness: 0.35, metalness: 0.6 });
-  for (let i = 0; i < 8; i++) {
-    const a = (i / 8) * Math.PI * 2;
-    const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 2.6, 6), barMat);
-    bar.position.set(Math.cos(a) * 1.25, 1.3, Math.sin(a) * 1.25); g.add(bar);
-  }
-  const top = new THREE.Mesh(new THREE.TorusGeometry(1.25, 0.09, 8, 20), barMat);
-  top.rotation.x = Math.PI / 2; top.position.y = 2.6; g.add(top);
+  // 새장: 생성 이미지 빌보드 (354x512)
+  const cage = new THREE.Mesh(new THREE.PlaneGeometry(2.6, 2.6 * 512 / 354),
+    new THREE.MeshBasicMaterial({ map: spriteTex('../assets/sprites/trapcage.png'), transparent: false, alphaTest: 0.35, depthWrite: true }));
+  cage.position.y = 2.6 * 512 / 354 / 2; cage.quaternion.copy(camera.quaternion); g.add(cage);
   const blob = new THREE.Mesh(new THREE.SphereGeometry(0.72, 14, 12),
     new THREE.MeshStandardMaterial({ color: 0xffd166, roughness: 0.45, emissive: 0x775510, emissiveIntensity: 0.6 }));
-  blob.position.y = 0.85; g.add(blob);
-  // 노란 지방이와 확실히 구분되는 빨간 자물쇠 — 크고, 히트박스는 더 넉넉하게
-  const lockMat = new THREE.MeshStandardMaterial({ color: 0xff2d4a, roughness: 0.28, metalness: 0.45, emissive: 0xa00018, emissiveIntensity: 1.1 });
+  blob.position.y = 0.85; blob.position.z = -0.2; g.add(blob);
+  // 자물쇠: 빨간 생성 이미지 + 넉넉한 투명 히트존 (기존 규약 유지)
   const lock = new THREE.Group();
-  const lockBody = new THREE.Mesh(new THREE.BoxGeometry(0.85, 0.95, 0.5), lockMat);
-  const shackle = new THREE.Mesh(new THREE.TorusGeometry(0.34, 0.1, 8, 14, Math.PI),
-    new THREE.MeshStandardMaterial({ color: 0xffe9ec, roughness: 0.3, metalness: 0.8, emissive: 0x553033, emissiveIntensity: 0.5 }));
-  shackle.position.y = 0.55;
-  const keyhole = new THREE.Mesh(new THREE.CircleGeometry(0.13, 10),
-    new THREE.MeshBasicMaterial({ color: 0xfff4f6 }));
-  keyhole.position.set(0, 0.02, 0.26);
+  const lockImg = new THREE.Mesh(new THREE.PlaneGeometry(0.95, 0.95 * 512 / 384),
+    new THREE.MeshBasicMaterial({ map: spriteTex('../assets/sprites/traplock.png'), transparent: false, alphaTest: 0.35, depthWrite: true }));
+  lockImg.quaternion.copy(camera.quaternion);
   const hitZone = new THREE.Mesh(new THREE.SphereGeometry(1.05, 8, 8),
     new THREE.MeshBasicMaterial({ visible: false }));   // 겨냥 보정용 투명 히트박스
-  lock.add(lockBody); lock.add(shackle); lock.add(keyhole); lock.add(hitZone);
+  lock.add(lockImg); lock.add(hitZone);
   lock.scale.setScalar(1.6);
   lock.position.set(0, 1.5, 1.6); g.add(lock);
 
