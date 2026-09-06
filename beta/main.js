@@ -548,12 +548,12 @@ function makeOrganSprite(url, size, x, y, z) {
   scene.add(m);
   return m;
 }
-const pancSprite = makeOrganSprite('../assets/pancreas.png', 5.4, 7.6, 2.5, -1.6);   // 우하단, 좌우반전으로 총구가 길 쪽(왼쪽)
+const pancSprite = makeOrganSprite('../assets/pancreas.png', 5.6, 10.6, 4.0, -9.2);   // 우측 중경으로 물림 — 1인칭 총과 화면에서 겹치지 않게
 pancSprite.scale.x = -1;
 const LIVER_SIZE = 11.5;   // 멀리 있어 작게 보이던 문제 → 크게 (유저 요청)
 const liverSprite = makeOrganSprite('../assets/liver.png', LIVER_SIZE, -3.2, LIVER_SIZE * 0.46, 1.9);     // 방어선 전면의 간 수호탑
 const pancTip = new THREE.Object3D();
-pancTip.position.set(5.7, 3.2, -1.6);   // 반전된 대포의 총구 지점
+pancTip.position.set(8.6, 4.6, -9.2);   // 반전된 대포의 총구 지점
 scene.add(pancTip);
 
 // 포탑 위치: 디버그 편집(4·5키)으로 이동 가능, localStorage 저장
