@@ -35,3 +35,15 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 .route-editing>.screen,.route-editing>#hud,.route-editing>.masthead,.route-editing>#notice,.route-editing>#reticle,.route-editing>#landmark-labels{visibility:hidden}.route-editing>#world{cursor:crosshair}
 
 #route-editor-panel-toggle{position:absolute;left:1%;bottom:1%;font-size:1.2cqh;background:#211827ed;cursor:pointer}
+
+/* Combat feedback follows the fixed plate viewport. */
+.mission{width:22%}
+#boss{top:11.3%;bottom:auto;width:22%;padding:.7cqh .8cqw;background:#20111be6;border:1px solid #d5ef9c66;border-radius:4px;font-size:1.3cqh;color:#f5f8df}
+#boss small{display:block;line-height:1.4}#boss .track{height:max(6px,.9cqh);margin:.65cqh 0 .2cqh;border-color:#edffe055;background:#080c10}
+#boss-fill{transform-origin:left center}
+#reticle{left:50%;top:50%}
+#reload-ring{display:none;position:absolute;inset:-8px;border-radius:50%;mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 0);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 0);filter:drop-shadow(0 0 3px #baffb2)}
+#reticle.reloading #reload-ring,#reticle.ready #reload-ring{display:block}
+#reticle.ready{box-shadow:0 0 16px 5px #e6ffd5}
+
+#weapon-banner{position:absolute;left:50%;bottom:16%;transform:translateX(-50%);padding:1.1cqh 1.6cqw;background:#172125ed;border:1px solid #d5ef9c;border-top-width:3px;border-radius:4px;color:#f1ffe6;font-size:1.7cqh;text-align:center}

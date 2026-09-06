@@ -1,12 +1,12 @@
-(node:96900) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
+(node:99503) ExperimentalWarning: VM Modules is an experimental feature and might change at any time
 (Use `node --trace-warnings ...` to show where the warning was created)
 PASS: 13 two-frame enemies, 3 bosses, real PNG alpha picking, tint/death cleanup, 12 weapons, lock reward and shared textures
 PASS: shared KO/EN banks, drug exclusion/admin opt-in, exact mix, recent history, storage isolation
-PASS: real rAF adaptive quality, recovery, approach shadows, instancing (24 draw objects including two enemies)
+PASS: real rAF adaptive quality, recovery, approach shadows, instancing (25 draw objects including two enemies)
 PASS: 3D raycast hit detection and syrup weak point
 PASS: reload, quiz reward, weapon switching, unlimited EASY ammunition
 PASS: pause, quiz timeout and explicit answer submission
-PASS: all three waves and bosses via raycast shots (186.0s, core 100.0, score 153227)
+PASS: all three waves and bosses via raycast shots (185.6s, core 100.0, score 148344)
 PASS: missed-boss loss and permanent pancreatic failure
 PASS: coronary: 10+10 + trunk 5; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
 PASS: omentum: 22 + trunk 0; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
@@ -15,4 +15,11 @@ PASS: carotid: 7+7 + trunk 7; projection, organs, occlusion, raycast obstacles, 
 PASS: stomach: 15 + trunk 0; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
 PASS: glomerulus: 33 + trunk 0; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
 PASS: islet: 18+18 + trunk 0; projection, organs, occlusion, raycast obstacles, all bosses, editor storage
+PASS: coronary: elite/wave-boss priority, three-color left HP, reload ring + right click, pulse coverage, ranged insulin
+PASS: omentum: elite/wave-boss priority, three-color left HP, reload ring + right click, pulse coverage, ranged insulin
+PASS: sinusoid: elite/wave-boss priority, three-color left HP, reload ring + right click, pulse coverage, ranged insulin
+PASS: carotid: elite/wave-boss priority, three-color left HP, reload ring + right click, pulse coverage, ranged insulin
+PASS: stomach: elite/wave-boss priority, three-color left HP, reload ring + right click, pulse coverage, ranged insulin
+PASS: glomerulus: elite/wave-boss priority, three-color left HP, reload ring + right click, pulse coverage, ranged insulin
+PASS: islet: elite/wave-boss priority, three-color left HP, reload ring + right click, pulse coverage, ranged insulin
 ALL LOGIC CHECKS PASSED (WebGL rendering and browser layout require a real browser)

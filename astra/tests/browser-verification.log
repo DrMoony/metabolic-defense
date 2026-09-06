@@ -1,0 +1,10 @@
+file:///Users/moonimoo/xgunner-game/astra/tests/browser.mjs:24
+chrome.on('error',rejectPending);chrome.on('exit',(code,signal)=>rejectPending(new Error(`Chrome exited (${code??signal}). ${stderr.slice(-1500)}`)));
+                                                                               ^
+
+Error: Chrome exited (SIGABRT). 
+    at ChildProcess.<anonymous> (file:///Users/moonimoo/xgunner-game/astra/tests/browser.mjs:24:80)
+    at ChildProcess.emit (node:events:519:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+
+Node.js v22.22.2

@@ -1,8 +1,9 @@
-import { RouteEditor } from './route-editor.js?v=a8';
-import { World, THREE } from './world.js?v=a8';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a8';
+import { healthColor, weaponColor } from './feedback.js?v=a9';
+import { RouteEditor } from './route-editor.js?v=a9';
+import { World, THREE } from './world.js?v=a9';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a9';
 
-import { MAPS, getMap } from './maps/index.js?v=a8';
+import { MAPS, getMap } from './maps/index.js?v=a9';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -50,7 +51,7 @@ const WAVES = [
   {duration:60,bossAt:47,boss:'cancer',quiz:[24,49],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',10,6],['pizza',9,8],['icecream',6.5,4],['donut',10,9],['wing',15,26]]},
   {duration:70,bossAt:53,boss:'plaque',quiz:[14,36],spawns:[['soda',1.6,1],['fries',3,2],['burger',8.5,5],['pizza',7.5,3],['icecream',6,4.5],['donut',8,6],['wing',11,13]]},
 ];
-const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
+const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
 state.lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ko';
 const bank=new QuizBank();
@@ -58,6 +59,7 @@ const enemies=[];
 let world,editor;
 let manual=false,events=new Set(),spawnTimers=[],lastTime=performance.now(),noticeTime=0,hitTime=0,flashTime=0;
 let pendingShots=[],quizTransition=false,loading=false,loadFailed=false,loadGeneration=0;
+let upgradeTime=0;
 let audioContext=null,muted=storage.get('muted',false)===true;
 let aim={x:innerWidth/2,y:innerHeight/2};
 function sound(frequency=240,duration=.09,type='triangle',volume=.035){
@@ -150,7 +152,7 @@ async function fullscreen(){try{if(!document.fullscreenElement)await $('stage').
 function resetGame(){
   const {lang,difficulty,map}=state;Object.assign(state,freshState(),{lang,difficulty,map});
   const arrival=world.camera.position.clone();world.selectMap(map);world.flight=0;if(!world.map.plate)world.camera.position.copy(arrival);
-  enemies.length=0;world.clear();pendingShots=[];bank.reset();quizTransition=false;hitTime=flashTime=0;world.buildGun(0);world.shake=0;
+  enemies.length=0;world.clear();upgradeTime=0;show('weapon-banner',false);pendingShots=[];bank.reset();quizTransition=false;hitTime=flashTime=0;world.buildGun(0);world.shake=0;
   updateMapUI();startWave(0);
 }
 function startWave(index){
@@ -163,10 +165,10 @@ function spawn(type='soda',options={}){
   const routes=world.terrain.routes.items,lane=options.lane??Math.floor(Math.random()*routes.length);
   const routeId=world.terrain.routes.get(options.routeId??routes[((lane%routes.length)+routes.length)%routes.length].id).id;
   const hp=definition.hp*(definition.boss?1:DIFFICULTY[state.difficulty].hp);
-  const enemy={type,...definition,model,hp,maxHp:hp,lane,routeId,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:['fragment','cancerlet'].includes(type)?.7:1,flash:0,dead:false,guarded:false};
-  enemies.push(enemy);positionEnemy(enemy);
-  if(definition.boss){state.bosses.push(type);world.shake=1.5;world.ring(model.position,0xffa56e,10);notice(...definition.names,4);sound(95,.45,'sawtooth',.05);}
-  return enemy;
+  const enemy={type,...definition,waveBoss:definition.boss===true&&options.waveBoss===true,showHealth:definition.hp>=2,model,hp,maxHp:hp,lane,routeId,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:['fragment','cancerlet'].includes(type)?.7:1,flash:0,dead:false,guarded:false};
+  enemies.push(enemy);positionEnemy(enemy);world.updateHealth(enemy);
+  if(definition.boss){if(enemy.waveBoss)state.bosses.push(type);world.shake=1.5;world.ring(model.position,0xffa56e,10);notice(...definition.names,4);sound(95,.45,'sawtooth',.05);}
+  updateBossHUD();return enemy;
 }
 function positionEnemy(enemy){
   const p=enemy.progress,position=world.routePoint(enemy.routeId,p);
@@ -177,22 +179,24 @@ function positionEnemy(enemy){
   enemy.model.quaternion.copy(world.camera.quaternion);
   enemy.model.scale.setScalar(world.actorScale*enemy.scale*(.96+p*.08));
 }
-function removeEnemy(enemy,dying=false){enemy.dead=true;const index=enemies.indexOf(enemy);if(index>=0)enemies.splice(index,1);world.remove(enemy.model,dying);}
+function removeEnemy(enemy,dying=false){enemy.dead=true;const index=enemies.indexOf(enemy);if(index>=0)enemies.splice(index,1);world.remove(enemy.model,dying);updateBossHUD();}
 
 function upgrade(){
   if(state.unlocked>=WEAPONS.length-1){state.liver=clamp(state.liver-15);return;}
-  state.unlocked++;state.weapon=state.unlocked;state.reload=0;state.ammo[state.weapon]=WEAPONS[state.weapon].mag;world.buildGun(state.weapon);
+  state.unlocked++;state.weapon=state.unlocked;state.reload=0;state.reloadTotal=0;state.reloadFlash=0;state.ammo[state.weapon]=WEAPONS[state.weapon].mag;world.buildGun(state.weapon);
+  upgradeTime=3;$('weapon-banner').textContent=text(`무기 획득 · ${weaponName()} · 탄창 ${WEAPONS[state.weapon].mag}`,`WEAPON ACQUIRED · ${weaponName()} · ${WEAPONS[state.weapon].mag} rounds`);$('weapon-banner').style.borderColor=weaponColor(state.weapon);show('weapon-banner',true);
   notice(`무기 승급 · ${weaponName()}`,`WEAPON UPGRADE · ${weaponName()}`);sound(850,.22);
 }
 function damage(enemy,amount,byPlayer=true,point){
   if(enemy.dead)return;
   enemy.hp-=amount;enemy.flash=1;world.burst(point||enemy.model.position.clone().add(new THREE.Vector3(0,1.2,0)),byPlayer?0xffd395:0x9dedb7,byPlayer?5:3);
+  world.updateHealth(enemy);updateBossHUD();
   if(enemy.hp>0)return;
   const position=enemy.model.position.clone();removeEnemy(enemy,true);
   if(byPlayer){state.score+=Math.round(enemy.score*Math.min(4,1+state.combo*.12));world.shake=Math.max(world.shake,enemy.boss?2:.25);hitTime=enemy.boss?.13:enemy.maxHp>=5?.075:.045;}
   world.burst(position,enemy.boss?0xffad7f:0xffdc9b,enemy.boss?45:13);
   if(enemy.boss){
-    state.killedBosses.push(enemy.type);state.slow=.55;world.ring(position,0xffd39b,22);sound(65,.5,'sawtooth',.06);
+    if(enemy.waveBoss)state.killedBosses.push(enemy.type);state.slow=.55;world.ring(position,0xffd39b,22);sound(65,.5,'sawtooth',.06);
     // Sprites visualize the existing immediate recovery reward.
     state.liver=clamp(state.liver-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;world.reward(position,enemy.type==='cancer'?'item_gcgr':'item_glp1');
     notice('보스 격파! 정화 지원 · 간과 췌장 회복','BOSS DEFEATED · Purification support & organ recovery',3.5);
@@ -202,11 +206,11 @@ function damage(enemy,amount,byPlayer=true,point){
 function reload(){
   if(state.phase!=='combat'||state.paused||state.difficulty==='easy'||state.reload>0||state.ammo[state.weapon]===WEAPONS[state.weapon].mag)return;
   state.reload=WEAPONS[state.weapon].reload*(1+stageOfLiver()*.16)*(state.shots>5&&state.hits/state.shots>.7?.88:1);
-  sound(330,.12,'sine');
+  state.reloadTotal=state.reload;state.reloadFlash=0;updateReticle();sound(330,.12,'sine');
 }
 function swap(){
   if(state.phase!=='combat'||state.paused||state.unlocked<1)return;
-  state.weapon=state.weapon===0?state.unlocked:state.weapon-1;state.reload=0;pendingShots=[];world.buildGun(state.weapon);updateHUD();
+  state.weapon=state.weapon===0?state.unlocked:state.weapon-1;state.reload=0;state.reloadTotal=0;state.reloadFlash=0;pendingShots=[];world.buildGun(state.weapon);if(state.ammo[state.weapon]<=0)reload();updateHUD();
 }
 function shot(clientX,clientY,extra=false){
   if(editor?.active||state.phase!=='combat'||state.paused||state.reload>0||(!extra&&state.cooldown>0))return false;
@@ -215,7 +219,7 @@ function shot(clientX,clientY,extra=false){
   if(state.difficulty!=='easy'&&state.ammo[state.weapon]<=0){reload();return false;}
   if(!extra)state.cooldown=weapon.delay;
   if(state.difficulty!=='easy')state.ammo[state.weapon]--;
-  state.shots++;
+  state.shots++;state.reticleKick=.07;updateReticle();
   const picked=world.pick(clientX,clientY,enemies);let enemy=picked.enemy;
   if(weapon.homing&&!enemy&&!picked.landmark&&!picked.prop&&!picked.occluded){
     enemy=enemies.reduce((best,candidate)=>{
@@ -225,7 +229,7 @@ function shot(clientX,clientY,extra=false){
   }
   world.shot(enemy?picked.enemy?picked.point:enemy.model.position.clone().add(new THREE.Vector3(0,1,0)):picked.point,state.weapon);
   sound(weapon.homing?140:600-state.weapon*37,.06+state.weapon*.008,state.weapon>8?'sawtooth':'triangle',.035);
-  if(picked.prop){state.hits++;state.score+=250;state.core=clamp(state.core+2);world.freeTrap(picked.prop);return true;}
+  if(picked.prop){state.hits++;state.score+=250;state.core=clamp(state.core+2);world.freeTrap(picked.prop);if(state.ammo[state.weapon]<=0)reload();updateHUD();return true;}
   if(picked.landmark){
     state.hits++;state.combo++;$('reticle').classList.add('hit');
     if(world.damageLandmark(picked.landmark,weapon.damage*(weapon.pellets||1))){
@@ -304,14 +308,14 @@ function finish(victory){
 }
 function combat(dt){
   state.waveTime+=dt;state.cooldown=Math.max(0,state.cooldown-dt);state.boost=Math.max(0,state.boost-dt);
-  if(state.reload>0){state.reload=Math.max(0,state.reload-dt);if(!state.reload){state.ammo[state.weapon]=WEAPONS[state.weapon].mag;sound(500,.055);}}
+  if(state.reload>0){state.reload=Math.max(0,state.reload-dt);if(!state.reload){state.ammo[state.weapon]=WEAPONS[state.weapon].mag;state.reloadFlash=.18;sound(500,.055);}}
   for(let i=pendingShots.length-1;i>=0;i--){pendingShots[i].in-=dt;if(pendingShots[i].in<=0){const p=pendingShots.splice(i,1)[0];shot(p.x,p.y,true);}}
   if(state.shooting)shot(aim.x,aim.y);
   const wave=WAVES[state.wave],tuning=DIFFICULTY[state.difficulty];
   if(state.waveTime<wave.bossAt){for(const timer of spawnTimers)if(state.waveTime>=timer.next){const variants={fries:['fries','ciga','soju'],burger:['burger','ramen'],donut:['donut','moth','bat']};
     const choices=state.wave>0?variants[timer.type]:null;spawn(choices?choices[(timer.count||0)%choices.length]:timer.type);timer.count=(timer.count||0)+1;timer.next+=timer.interval*tuning.gap;}}
-  if(state.waveTime>=wave.bossAt&&!events.has('boss')){events.add('boss');spawn(wave.boss);}
-  if(state.waveTime>=10&&!events.has('trap')){events.add('trap');world.spawnTrap();}
+  if(state.waveTime>=wave.bossAt&&!events.has('boss')){events.add('boss');spawn(wave.boss,{waveBoss:true});}
+  if(state.waveTime>=10&&!events.has('trap')){events.add('trap');world.spawnTrap();notice('지방 덫 · 자물쇠를 쏘면 코어가 회복돼요','FAT TRAP · Shoot the lock to restore the core');}
   const sugarCount=enemies.filter(e=>e.sugar).length;
   state.sugar=clamp(state.sugar+(sugarCount*2.2-3)*dt);
   if(state.sugar>70)state.liver=clamp(state.liver+dt*1.1);
@@ -332,11 +336,12 @@ function combat(dt){
   state.pulse-=dt;
   if(state.pulse<=0){
     state.pulse=[9.5,11.5,13.5,17][stageOfLiver()]*(state.boost>0?.5:1);
-    const origin=world.liver.position,radius=world.pulseRadius||25;world.ring(origin,0xd5ef9c,radius);sound(390,.14,'sine',.018);
+    const origin=world.liver.position,radius=world.pulseRadius||25;world.pulse();sound(390,.14,'sine',.018);
     for(const enemy of [...enemies])if(!enemy.fly&&enemy.model.position.distanceTo(origin)<radius)damage(enemy,1,false);
   }
   if(!state.failed){
-    const targets=enemies.filter(e=>e.sugar&&(world.map.plate?e.progress>.3:e.model.position.z>-28)).sort((a,b)=>b.model.position.z-a.model.position.z);
+    const targets=enemies.filter(e=>e.sugar&&!e.dead).sort((a,b)=>b.progress-a.progress);
+    world.aimTurret(targets[0],Math.max(0,1-state.insulin/.25));
     state.pancreas=clamp(state.pancreas+dt*(targets.length?.4:2.2));
     if(state.sugar>70&&targets.length)state.pancreas=clamp(state.pancreas-dt*1.4);
     if(state.pancreas<=5&&targets.length)state.strain+=dt;else if(state.pancreas>30)state.strain=Math.max(0,state.strain-dt*.5);
@@ -344,10 +349,10 @@ function combat(dt){
     state.insulin-=dt;
     if(targets.length&&state.insulin<=0&&!state.failed){
       state.insulin=1+stageOfLiver()*.25;state.pancreas=clamp(state.pancreas-(state.sugar>70?5:2.2));
-      const target=targets[0];world.turret.lookAt(target.model.position.clone().setY(2.8));
+      const target=targets[0];world.fireTurret();
       world.bolt(world.tip.getWorldPosition(new THREE.Vector3()),target,1.2*pancreaticPower(),(e,d)=>damage(e,d,false));
     }
-  }
+  }else world.aimTurret(null,0);
   world.advanceProjectiles(dt);
   while(state.score>=state.nextUpgrade){state.nextUpgrade+=18000;upgrade();}
   if(state.core<=0){finish(false);return;}
@@ -358,6 +363,25 @@ function combat(dt){
     if(state.wave===2)finish(true);else openQuiz(true);
   }
 }
+function updateReticle(){
+  const reticle=$('reticle'),progress=state.reload>0?clamp(1-state.reload/(state.reloadTotal||1),0,1):state.reloadFlash>0?1:0;
+  $('reload-ring').style.background=`conic-gradient(${weaponColor(state.weapon)} ${progress*360}deg, #ffffff18 0deg)`;
+  reticle.dataset.progress=String(progress);
+  reticle.classList.toggle('reloading',state.reload>0);reticle.classList.toggle('ready',state.reloadFlash>0);
+  reticle.style.transform=`translate(-50%,-50%) scale(${1+.18*state.reticleKick/.07})`;
+}
+function updateBossHUD(){
+  const boss=enemies.find(e=>e.waveBoss&&!e.dead)||enemies.find(e=>e.boss&&!e.dead);
+  show('boss',!!boss);
+  if(boss){
+    const ratio=clamp(boss.hp/boss.maxHp,0,1);
+    $('boss-name').textContent=`${boss.waveBoss?'BOSS':'ELITE'} / ${boss.names[state.lang==='ko'?0:1]} · ${Math.ceil(Math.max(0,boss.hp))}/${Math.ceil(boss.maxHp)}`;
+    $('boss-fill').style.width=`${ratio*100}%`;$('boss-fill').style.background=`#${healthColor(ratio).toString(16)}`;
+    $('boss').classList.toggle('critical',ratio<=.25);
+  }
+  const left=world?.map.organs.liver.at[0]<.45?'58%':'24%';
+  $('mission').style.left=left;$('boss').style.left=left;
+}
 function updateHUD(){
   $('score').textContent=String(state.score).padStart(6,'0');$('combo').textContent=state.combo>1?`${state.combo} COMBO / ×${Math.min(4,1+state.combo*.12).toFixed(1)}`:'';
   $('core-label').textContent=text(...getMap(state.map).core);
@@ -367,14 +391,13 @@ function updateHUD(){
   $('wave-clock').textContent=`${Math.floor(state.waveTime)}s / ${WAVES[state.wave].duration}s`;
   $('liver-state').textContent=text(['건강 · 정화 파동 정상','MASLD · 파동 둔화','MASH · 보급 저하','섬유화 · 방어 약화'][stageOfLiver()],['Healthy · purification online','MASLD · slower pulses','MASH · reduced support','Fibrosis · weakened defense'][stageOfLiver()]);
   $('liver-fill').style.width=`${100-state.liver}%`;$('pulse-time').textContent=text(`다음 정화 ${Math.ceil(state.pulse)}초`,`Next pulse ${Math.ceil(state.pulse)}s`);
-  $('pancreas-state').textContent=state.failed?text('췌장부전 · 지원 중단','Failure · support offline'):text(`기능 ${Math.round(state.pancreas)}% · 인슐린 ${Math.round(pancreaticPower()*100)}%`,`Function ${Math.round(state.pancreas)}% · insulin ${Math.round(pancreaticPower()*100)}%`);
+  $('pancreas-state').textContent=state.failed?text('췌장부전 · 지원 중단','Failure · support offline'):text(`기능 ${Math.round(state.pancreas)}% · ${state.pancreas>60?'지원 사격 중':state.pancreas>30?'인슐린 약화':state.pancreas>10?'과로 상태':'인슐린 저항성 · 무력화'}`,`Function ${Math.round(state.pancreas)}% · ${state.pancreas>60?'supporting fire':state.pancreas>30?'insulin weakening':state.pancreas>10?'overworked':'insulin resistance'}`);
   $('pancreas-fill').style.width=`${state.pancreas}%`;$('strain').textContent=state.strain>0?text(`부전 부담 ${state.strain.toFixed(1)} / 12초`,`Failure strain ${state.strain.toFixed(1)} / 12s`):text('당류 적 자동 요격','Auto-targeting sugar enemies');
   $('warning').textContent=state.failed?text('췌장부전 · 이번 판 회복 불가','PANCREATIC FAILURE · irreversible this run'):state.pancreas<=10?text('인슐린 무력화! 당류 적을 먼저 제거하세요','INSULIN RESISTANCE · clear sugar enemies'):state.sugar>70?text('고혈당 · 간과 췌장 부담 증가','HIGH GLUCOSE · liver & pancreas under strain'):'';
   $('weapon-tier').textContent=`ARSENAL ${String(state.weapon+1).padStart(2,'0')} / 12`;$('weapon-name').textContent=weaponName();
   $('ammo').textContent=state.difficulty==='easy'?text('∞ 무제한 탄약','∞ UNLIMITED AMMO'):state.reload>0?text(`재장전 ${state.reload.toFixed(1)}초`,`RELOAD ${state.reload.toFixed(1)}s`):`${state.ammo[state.weapon]} / ${WEAPONS[state.weapon].mag}`;
   $('reload').disabled=state.difficulty==='easy'||state.reload>0||state.ammo[state.weapon]===WEAPONS[state.weapon].mag;$('swap').disabled=state.unlocked<1;
-  const boss=enemies.find(e=>e.boss);show('boss',!!boss);
-  if(boss){$('boss-name').textContent=boss.names[state.lang==='ko'?0:1];$('boss-fill').style.width=`${clamp(boss.hp/boss.maxHp*100)}%`;$('boss').classList.toggle('critical',boss.hp/boss.maxHp<.25);}
+  updateBossHUD();updateReticle();
   $('quiz-time').style.width=`${clamp(state.quizTime/18*100)}%`;$('quiz-seconds').textContent=`${Math.ceil(state.quizTime)}s`;
 }
 function step(seconds=1/60){
@@ -382,6 +405,8 @@ function step(seconds=1/60){
   let remaining=seconds;
   while(remaining>1e-7){const dt=Math.min(remaining,1/60);remaining-=dt;
     if(state.paused||editor?.active)continue;
+    upgradeTime=Math.max(0,upgradeTime-dt);if(!upgradeTime)show('weapon-banner',false);
+    state.reticleKick=Math.max(0,state.reticleKick-dt);state.reloadFlash=Math.max(0,state.reloadFlash-dt);
     noticeTime=Math.max(0,noticeTime-dt);if(!noticeTime)$('notice').classList.remove('show');
     flashTime=Math.max(0,flashTime-dt);$('flash').style.opacity=flashTime*.8;
     if(hitTime<=0)$('reticle').classList.remove('hit');
