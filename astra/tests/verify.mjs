@@ -358,18 +358,20 @@ for(const map of A.MAPS){
   assert(liverBox.right<hudLeft||liverBox.left>hudLeft+.22||liverBox.top>.18,`${map.key}: pulse-expanded guardian clears wave/boss HUD envelope ${JSON.stringify(liverBox)}`);
   A.start();
   const foot=map.organs.liver.at;
-  let junctionPixels=null;
+  // 정화 파동이 맵 전체를 덮으므로 간은 길 옆에 붙을 이유가 없다.
+  // 대신 길을 가리지 않는 빈 자리에 서야 한다 (사용자 기준).
+  const roadPoints=[...map.routes.flatMap(r=>r.points),...map.trunk].map(([x,y])=>[x*1672,y*941]);
+  const segGap=(px,py)=>Math.min(...roadPoints.slice(0,-1).map((a,i)=>{
+    const b=roadPoints[i+1],dx=b[0]-a[0],dy=b[1]-a[1],len=dx*dx+dy*dy;
+    const t=len?Math.max(0,Math.min(1,((px-a[0])*dx+(py-a[1])*dy)/len)):0;
+    return Math.hypot(px-(a[0]+t*dx),py-(a[1]+t*dy));
+  }));
+  const footPx=[foot[0]*1672,foot[1]*941];
+  assert(segGap(...footPx)>=90,`${map.key}: guardian stands clear of the road (${segGap(...footPx).toFixed(0)}px)`);
+  const liverH=map.organs.liver.height*941,halfW=liverH*.31;
+  const covered=roadPoints.some(([px,py])=>Math.abs(px-footPx[0])<halfW+18&&py<footPx[1]+18&&py>footPx[1]-liverH-18);
+  assert(!covered,`${map.key}: guardian does not stand over the road`);
   if(map.trunk.length){
-    junctionPixels=Math.hypot((foot[0]-map.trunk[0][0])*1672,(foot[1]-map.trunk[0][1])*941);
-    // 사용자 기준: 간은 분기 위쪽 V 안쪽에, 길에서 완전히 벗어나 서 있어야 한다
-    assert(junctionPixels>=941*.03&&junctionPixels<=941*.30,`${map.key}: guardian beside junction ${junctionPixels}`);
-    const roadGap=Math.min(...[...map.routes.map(r=>r.points),map.trunk].flatMap(points=>points.slice(0,-1).map((a,i)=>{
-      const b=points[i+1],ax=a[0]*1672,ay=a[1]*941,bx=b[0]*1672,by=b[1]*941,px=foot[0]*1672,py=foot[1]*941;
-      const dx=bx-ax,dy=by-ay,len=dx*dx+dy*dy;
-      const t=len?Math.max(0,Math.min(1,((px-ax)*dx+(py-ay)*dy)/len)):0;
-      return Math.hypot(px-(ax+t*dx),py-(ay+t*dy));
-    })));
-    assert(roadGap>=75*foot[1]*941/455,`${map.key}: guardian stands off the road (gap ${roadGap})`);
     for(const point of [...map.routes.flatMap(r=>r.points.slice(-6)),...map.trunk.slice(0,3)])assert(groundPoint(w.camera,point).distanceTo(w.liver.position)<=w.pulseRadius,`${map.key}: full branch-tail coverage`);
   }
   const coverage=w.pulseCoverage.map(point=>groundPoint(w.camera,point).distanceTo(w.liver.position));
@@ -403,7 +405,7 @@ for(const map of A.MAPS){
   assert(nearby.hp<impactHp);assert(w.fx.some(f=>f.kind==='insulin-hit'));assert(w.particles.some(p=>p.color.getHex()===0x56f5ff));
   for(const [power,label] of [[100,'지원 사격'],[50,'인슐린 약화'],[20,'과로'],[8,'인슐린 저항성']]){A.state.pancreas=power;A.step(.001);assert(el('pancreas-state').textContent.includes(label));}
   A.state.failed=true;A.step(.001);assert(el('pancreas-state').textContent.includes('지원 중단'));
-  feedbackReport.push({map:map.key,organVisibility,liverBox,liverPixels:foot.map((n,i)=>Math.round(n*(i?941:1672))),junctionPixels,pulseRadius:w.pulseRadius,coverageMax:Math.max(...coverage),coveragePoints:coverage.length});
+  feedbackReport.push({map:map.key,organVisibility,liverBox,liverPixels:foot.map((n,i)=>Math.round(n*(i?941:1672))),roadGap:Math.round(segGap(foot[0]*1672,foot[1]*941)),pulseRadius:w.pulseRadius,coverageMax:Math.max(...coverage),coveragePoints:coverage.length});
   console.log(`PASS: ${map.key}: elite/wave-boss priority, three-color left HP, reload ring + right click, pulse coverage, ranged insulin`);
 }
 await fs.writeFile(path.join(root,'astra/tests/feedback-report.json'),JSON.stringify(feedbackReport,null,2)+'\n');
