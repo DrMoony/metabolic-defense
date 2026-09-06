@@ -326,7 +326,7 @@ function loadSfx() {
   for (const n of SFX_NAMES) {
     if (sfxBuf[n] !== undefined) continue;
     sfxBuf[n] = null;
-    fetch(SFX_DIR + n + '.mp3?v=2').then((r) => r.arrayBuffer()).then((b) => ctx.decodeAudioData(b))
+    fetch(SFX_DIR + n + '.mp3?v=3').then((r) => r.arrayBuffer()).then((b) => ctx.decodeAudioData(b))
       .then((d) => { sfxBuf[n] = d; }).catch(() => { sfxBuf[n] = false; });
   }
 }
