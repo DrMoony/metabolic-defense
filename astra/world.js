@@ -167,6 +167,11 @@ export class World {
     this.placeOrgans();this.layoutGun();
   }
   routePoint(id,p){return this.terrain.routes.sample(id,p);}
+  // 플레이트 화면 좌표(0~1)를 바닥 위 월드 좌표로. 지평선 위라 실패하면 null.
+  platePoint(nx,ny){
+    if(!this.map.plate)return null;
+    try{return groundPoint(this.camera,[nx,ny]);}catch{return null;}
+  }
   toggleRoutes(){this.terrain.debug.visible=!this.terrain.debug.visible;return this.terrain.debug.visible;}
   damageLandmark(landmark,amount){
     if(landmark.dead||!landmark.maxHp)return false;
