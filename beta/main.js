@@ -3332,5 +3332,5 @@ function tick() {
   step(dt);
 }
 CAM_HOME.copy(camera.position);
-window.DBG = { G, spawnTrap, enemies, WAVE_BOSS, bossBarShow, weaponGetBanner, wTrait, traps, fatWalls, projectiles, drops, ITEMS, rockets, drawQuiz, shuffled, QUIZ_POOL, QUIZ_SETS, rebuildPool, readMix, toggleAdmin, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
+window.DBG = { loadSfx, sample, sfxBuf, audio, G, spawnTrap, enemies, WAVE_BOSS, bossBarShow, weaponGetBanner, wTrait, traps, fatWalls, projectiles, drops, ITEMS, rockets, drawQuiz, shuffled, QUIZ_POOL, QUIZ_SETS, rebuildPool, readMix, toggleAdmin, applyWeaponVisual, buildGunModel, WEAPONS, ENEMY_TYPES, camera, scene, step, ROUTES, THREE, toggleDebug, startRouteEdit, finishRouteEdit, spawnEnemy };  // 디버그용 노출
 tick();
