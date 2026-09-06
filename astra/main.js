@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a10';
-import { RouteEditor } from './route-editor.js?v=a10';
-import { World, THREE } from './world.js?v=a10';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a10';
+import { healthColor, weaponColor } from './feedback.js?v=a11';
+import { RouteEditor } from './route-editor.js?v=a11';
+import { World, THREE } from './world.js?v=a11';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a11';
 
-import { MAPS, getMap } from './maps/index.js?v=a10';
+import { MAPS, getMap } from './maps/index.js?v=a11';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -128,7 +128,7 @@ function updateMapUI(){
     const small=document.createElement('small'),title=document.createElement('b'),description=document.createElement('span');
     small.textContent=entry.ready?`SECTOR ${entry.chapter} / ${entry.routes.length} ROUTES`:text('준비 중','IN DEVELOPMENT');
     title.textContent=text(...entry.names);description.textContent=entry.ready?text(...entry.core):'';
-    button.append(small,title,description);button.onclick=()=>selectMap(entry.key);
+    button.append(small,title,description);tap(button,()=>selectMap(entry.key));
     $(entry.ready?'map-list':'map-pending').append(button);
   }
   $('map-chapter').textContent=`THE INNER FRONTIER / ${map.chapter}`;
@@ -288,7 +288,7 @@ function openQuiz(transition=false){
   $('quiz-tag').textContent=`KNOWLEDGE / ${state.quiz.set==='masld'?'MASLD · MASH':'CLINICAL OBESITY'} / ${state.quiz.diff.toUpperCase()}`;
   shuffled([0,1,2,3]).forEach((answer,index)=>{
     const button=document.createElement('button');button.dataset.answer=answer;button.textContent=`${String(index+1).padStart(2,'0')}  ${state.quiz.a[answer]}`;
-    button.addEventListener('click',()=>{
+    tap(button,()=>{
       if(state.answered||state.paused)return;state.selection=answer;
       [...$('answers').children].forEach(b=>b.classList.toggle('selected',b===button));$('submit').disabled=false;sound(550,.04);
     });$('answers').append(button);
@@ -398,7 +398,7 @@ function updateBossHUD(){
     $('boss-fill').style.width=`${ratio*100}%`;$('boss-fill').style.background=`#${healthColor(ratio).toString(16)}`;
     $('boss').classList.toggle('critical',ratio<=.25);
   }
-  const left=world?.map.organs.liver.at[0]<.45?'58%':'24%';
+  const left=`${(world?.hudLeft??42).toFixed(1)}%`;
   $('mission').style.left=left;$('boss').style.left=left;
 }
 function updateHUD(){
@@ -446,37 +446,53 @@ function pause(force){
   if(!['combat','quiz'].includes(state.phase))return;
   state.paused=force??!state.paused;state.shooting=false;pendingShots=[];show('paused',state.paused);
 }
+// XGunner 라이트건은 절대좌표 마우스다. 방아쇠를 당길 때 눌림과 뗌이 다른 픽셀에 찍히면
+// click 이벤트가 아예 발생하지 않으므로, UI는 pointerdown 으로 받고 click 은 중복만 막아 함께 받는다.
+function tap(element,handler){
+  if(!element)return element;
+  let last=0;
+  element.addEventListener('pointerdown',event=>{if(event.button&&event.button!==0)return;last=performance.now();handler(event);});
+  element.addEventListener('click',event=>{if(performance.now()-last<700)return;handler(event);});
+  return element;
+}
 function bindUI(){
-  document.querySelectorAll('[data-lang]').forEach(button=>button.addEventListener('click',()=>{state.lang=button.dataset.lang;updateLanguage();loadBanks();}));
-  document.querySelectorAll('[data-diff]').forEach(button=>button.addEventListener('click',()=>{state.difficulty=button.dataset.diff;updateLanguage();}));
-  $('start').onclick=()=>{unlockAudio();if(loadFailed){loadBanks();return;}if(bank.ready)setPhase('guide');};
-  $('guide-back').onclick=()=>setPhase('home');
-  $('routes-toggle').onclick=()=>{const on=world.toggleRoutes();$('routes-toggle').textContent=text(on?'경로선 끄기':'경로선 보기',on?'Hide routes':'Show routes');};
+  document.querySelectorAll('[data-lang]').forEach(button=>tap(button,()=>{state.lang=button.dataset.lang;updateLanguage();loadBanks();}));
+  document.querySelectorAll('[data-diff]').forEach(button=>tap(button,()=>{state.difficulty=button.dataset.diff;updateLanguage();}));
+  tap($('start'),()=>{unlockAudio();if(loadFailed){loadBanks();return;}if(bank.ready)setPhase('guide');});
+  tap($('guide-back'),()=>setPhase('home'));
+  tap($('routes-toggle'),()=>{const on=world.toggleRoutes();$('routes-toggle').textContent=text(on?'경로선 끄기':'경로선 보기',on?'Hide routes':'Show routes');});
   window.addEventListener('keydown',event=>{if(!editor?.active&&event.code==='KeyR'&&!event.repeat&&!['INPUT','SELECT','TEXTAREA'].includes(event.target?.tagName))$('routes-toggle').click();});
-  $('deploy').onclick=()=>{unlockAudio();if(!document.fullscreenElement)$('stage').requestFullscreen?.({navigationUI:'hide'}).catch(()=>{});resetGame();};
-  $('fullscreen').onclick=fullscreen;
-  $('sound').textContent=muted?'♪ OFF':'♪ ON';$('sound').onclick=()=>{unlockAudio();muted=!muted;storage.set('muted',muted);$('sound').textContent=muted?'♪ OFF':'♪ ON';};
-  $('reload').onclick=reload;$('swap').onclick=swap;$('pause').onclick=()=>pause();$('resume').onclick=()=>pause(false);
-  $('submit').onclick=()=>{if(state.selection!==null)answerQuiz();};$('quiz-next').onclick=continueQuiz;
-  $('restart').onclick=()=>{world.clear();enemies.length=0;state.paused=false;world.selectMap(state.map);setPhase('home');updateLanguage();};
-  $('admin-open').onclick=()=>{
+  tap($('deploy'),()=>{unlockAudio();if(!document.fullscreenElement)$('stage').requestFullscreen?.({navigationUI:'hide'}).catch(()=>{});resetGame();});
+  tap($('fullscreen'),fullscreen);
+  $('sound').textContent=muted?'♪ OFF':'♪ ON';tap($('sound'),()=>{unlockAudio();muted=!muted;storage.set('muted',muted);$('sound').textContent=muted?'♪ OFF':'♪ ON';});
+  tap($('reload'),reload);tap($('swap'),swap);tap($('pause'),()=>pause());tap($('resume'),()=>pause(false));
+  tap($('submit'),()=>{if(state.selection!==null)answerQuiz();});tap($('quiz-next'),continueQuiz);
+  tap($('restart'),()=>{world.clear();enemies.length=0;state.paused=false;world.selectMap(state.map);setPhase('home');updateLanguage();});
+  tap($('admin-open'),()=>{
     $('mix').value=bank.mix;$('drug').checked=bank.drug;
     $('bank-info').textContent=text(`공유 문제은행: MASLD ${bank.sets.masld.length}문 · Obesity ${bank.sets.obesity.length}문 / 최근 24문항 중복 회피`,`Shared banks: MASLD ${bank.sets.masld.length} · Obesity ${bank.sets.obesity.length} / avoids the last 24 questions`);setPhase('admin');
-  };
-  $('admin-close').onclick=()=>{
+  });
+  tap($('admin-close'),()=>{
     const saved=bank.configure(Number($('mix').value),$('drug').checked);setPhase('home');
     if(!saved)notice('저장 공간이 차단되어 이 페이지에서만 설정이 유지됩니다.','Storage is blocked; settings apply only to this page.');
-  };
-  $('world').addEventListener('pointermove',event=>{
+  });
+  // 라이트건은 화면 어디를 겨눠도 방아쇠가 들어온다. 조준·사격은 창 전체에서 받고, 실제 UI 위만 비켜준다.
+  const overUI=target=>!!(target&&target.closest&&target.closest('button,select,input,textarea,a,#route-editor,.panel,#admin'));
+  window.addEventListener('pointermove',event=>{
     aim={x:event.clientX,y:event.clientY};const rect=$('stage').getBoundingClientRect();$('reticle').style.left=`${event.clientX-rect.left}px`;$('reticle').style.top=`${event.clientY-rect.top}px`;
   });
-  $('world').addEventListener('pointerdown',event=>{
-    if(editor?.active||event.button!==0||state.phase!=='combat'||state.paused)return;
+  window.addEventListener('pointerdown',event=>{
+    if(editor?.active||state.phase!=='combat'||state.paused)return;
+    if(event.button===2){swap();return;}
+    if(event.button!==0||overUI(event.target))return;
     event.preventDefault();unlockAudio();aim={x:event.clientX,y:event.clientY};state.shooting=true;shot(aim.x,aim.y);
   });
   window.addEventListener('pointerup',()=>state.shooting=false);window.addEventListener('pointercancel',()=>state.shooting=false);
   $('world').addEventListener('pointerleave',()=>state.shooting=false);
-  $('world').addEventListener('contextmenu',event=>{event.preventDefault();swap();});
+  // 부스 키오스크: 우클릭 메뉴·조준 중 텍스트 끌기·이미지 드래그를 전부 막는다
+  window.addEventListener('contextmenu',event=>{event.preventDefault();});
+  window.addEventListener('selectstart',event=>{if(state.phase==='combat')event.preventDefault();});
+  window.addEventListener('dragstart',event=>event.preventDefault());
   window.addEventListener('blur',()=>{state.shooting=false;if(!manual)pause(true);});
   document.addEventListener('visibilitychange',()=>{if(document.hidden&&!manual)pause(true);});
   $('world').addEventListener('webglcontextlost',event=>{event.preventDefault();pause(true);$('fatal-text').textContent=text('그래픽 연결이 중단됐습니다. 다시 불러와 주세요.','Graphics context lost. Please reload.');show('fatal',true);});

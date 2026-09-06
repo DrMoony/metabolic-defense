@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a10';
+import { healthColor } from './feedback.js?v=a11';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a10';
-import { buildTerrain } from './terrain.js?v=a10';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a10';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a10';
-import { getMap } from './maps/index.js?v=a10';
+import { contact, glow, reflections } from './art.js?v=a11';
+import { buildTerrain } from './terrain.js?v=a11';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a11';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a11';
+import { getMap } from './maps/index.js?v=a11';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -107,6 +107,22 @@ export class World {
       const distance=focus?liver.distanceTo(groundPoint(this.camera,focus)):0;
       const coverage=Math.max(0,...this.pulseCoverage.map(p=>liver.distanceTo(groundPoint(this.camera,p))));
       this.pulseRadius=Math.max(distance*1.35+4,coverage*1.06+1);
+    }
+    // 간이 화면에서 차지하는 폭을 재서 웨이브·보스 HUD를 그 바깥으로 밀어 둔다
+    this.hudLeft=42;
+    if(this.map.plate&&this.liverBody){
+      const base=this.liver.scale.x;this.liver.scale.setScalar(this.liver.userData.baseScale*1.18);this.scene.updateMatrixWorld(true);
+      const xs=[],ys=[];
+      for(const [lx,ly] of [[-.5,0],[.5,0],[-.5,1],[.5,1]]){
+        const p=this.liverBody.localToWorld(new THREE.Vector3(lx,ly,0)).project(this.camera);
+        xs.push((p.x+1)/2);ys.push((1-p.y)/2);
+      }
+      this.liver.scale.setScalar(base);this.scene.updateMatrixWorld(true);
+      const box={left:Math.min(...xs),right:Math.max(...xs),top:Math.min(...ys)};
+      const WIDTH=.23;
+      if(box.top>.2)this.hudLeft=42;
+      else if(box.left-WIDTH-.015>=.02)this.hudLeft=(box.left-WIDTH-.015)*100;
+      else this.hudLeft=Math.min(76,(box.right+.015)*100);
     }
     const calibration=this.map.actors;
     this.actorScale=this.map.plate?screenHeight(this.camera,groundPoint(this.camera,calibration.at),calibration.height)/3:1;
