@@ -4,11 +4,11 @@ const route=(id,names,points)=>({id,names,points:points.map(point)});
 // 간 가디언·췌장 포탑은 플레이트 기준 측정치보다 30% 크게 세운다 (사용자 피드백)
 const ORGAN_SCALE=1.3;
 const organ=(at,height)=>({at:point(at),height:height*ORGAN_SCALE/941});
-const landmark=(kind,at,size,hp=0)=>({kind,at:point(at),size:size.map((n,i)=>n/(i?941:1672)),hp,names:({plaque:['플라크 협착','Plaque stenosis'],fat:['지방 둔덕','Fat mound'],stone:['징검다리','Stepping stone'],bridge:['섬 연결 다리','Island bridge'],fibrosis:['섬유화 띠','Fibrosis band'],macrophage:['대식세포 군집','Macrophage cluster']})[kind]});
+const landmark=(kind,at,size,hp=0)=>({kind,at:point(at),size:size.map((n,i)=>n/(i?941:1672)),hp,names:({plaque:['플라크 협착','Plaque stenosis'],fat:['지방 둔덕','Fat mound'],stone:['징검다리','Stepping stone'],bridge:['섬 연결 다리','Island bridge'],fibrosis:['섬유화 띠','Fibrosis band'],macrophage:['대식세포 군집','Macrophage cluster'],crystal:['요산 결석','Urate stone']})[kind]});
 const mask=(id,at,points)=>({id,at:point(at),points:points.map(point)});
 // A standing regular enemy occupies 15% of the plate at these foreground anchors.
 // Keep physical height fixed along a route so depth, not route progress, sets perspective.
-const ACTORS={coronary:[835,825],omentum:[873,821],sinusoid:[837,735],carotid:[826,823],stomach:[988,844],glomerulus:[1007,832],islet:[820,829]};
+const ACTORS={coronary:[835,825],omentum:[873,821],sinusoid:[837,735],carotid:[826,823],stomach:[988,844],glomerulus:[880,878],islet:[820,829]};
 export const PLATES={
   coronary:{
     topology:'Y',camera:{height:18,fov:46,targetZ:-25},
@@ -53,13 +53,13 @@ export const PLATES={
     occluders:[mask('left-gastric-fold',[451,841],[[0,497],[89,534],[176,638],[196,727],[335,712],[491,760],[632,790],[673,941],[0,941]]),mask('right-island',[1480,672],[[1267,648],[1423,608],[1569,639],[1672,665],[1672,941],[1178,941],[1181,769]])],
   },
   glomerulus:{
-    topology:'spiral-clockwise',camera:{height:25,fov:43,targetZ:-28},
-    title:['사구체를 감싸는 길','Around the glomerulus'],subtitle:['세뇨관 입구에서 나선을 따라','Follow the spiral from the tubular inlet'],
-    briefing:['우측 위 세뇨관에서 적이 들어와 나선 길을 따라가요. 중심의 간 가디언과 우측 포탑으로 전경 출구를 지켜요.','Invaders enter at the upper-right tubule and follow the spiral. Guard the foreground exit with the central guardian and right turret.'],
-    routes:[route('spiral',['시계방향 나선','Clockwise spiral'],[[1434,80],[1350,125],[1199,151],[1009,143],[806,133],[625,144],[477,176],[359,229],[420,276],[610,323],[797,315],[976,322],[1125,354],[1195,398],[1200,445],[1135,494],[1028,528],[883,544],[743,530],[615,499],[535,456],[509,404],[540,352],[644,295],[807,278],[1020,288],[1207,333],[1296,405],[1295,504],[1190,637],[1092,741],[1007,832],[980,925]])],trunk:[],
-    organs:{liver:organ([832,462],186),pancreas:organ([1474,797],213)},
-    landmarks:[landmark('bridge',[645,154],[127,19]),landmark('bridge',[771,537],[44,43]),landmark('bridge',[970,526],[43,40])],
-    occluders:[mask('left-capillary-tuft',[223,524],[[0,137],[122,99],[270,138],[365,269],[400,373],[353,476],[276,531],[0,589]]),mask('central-tuft',[843,357],[[628,401],[704,302],[798,271],[907,309],[1017,385],[1028,457],[967,516],[709,528]]),mask('right-dais',[1498,706],[[1273,699],[1400,628],[1550,628],[1672,691],[1672,941],[1232,941]])],
+    topology:'switchback',camera:{height:25,fov:43,targetZ:-28},
+    title:['요세관 스위치백','The tubule switchbacks'],subtitle:['세 단 테라스를 지그재그로 내려와요','Three stepped terraces, two hairpins'],
+    briefing:['보먼주머니에서 나온 적이 위 테라스를 가로지른 뒤 헤어핀을 두 번 돌아 전경으로 내려와요. 가운데 헤어핀 안쪽 결정 바위에 선 간 가디언과 오른쪽 단상의 췌장 포탑이 함께 막아요.','Invaders leave the Bowman capsule, cross the upper terrace and take two hairpins down to the foreground. The guardian stands on the crystal shelf inside the middle hairpin, with the turret on the right dais.'],
+    routes:[route('tubule',['요세관 내리막','Tubular descent'],[[335,178],[440,215],[620,232],[820,243],[1010,252],[1160,262],[1290,290],[1370,335],[1360,388],[1250,412],[1080,428],[900,443],[720,452],[540,458],[390,475],[300,510],[278,558],[352,592],[500,614],[670,628],[840,646],[985,672],[1085,722],[1075,786],[975,842],[865,888],[780,941]])],trunk:[],
+    organs:{liver:organ([536,374],186),pancreas:organ([1472,749],213)},
+    landmarks:[landmark('crystal',[1152,268],[96,84],10),landmark('crystal',[716,452],[92,78],8)],
+    occluders:[mask('left-bank',[150,780],[[0,640],[120,610],[250,662],[300,760],[248,880],[120,941],[0,941]]),mask('right-dais',[1450,638],[[1290,620],[1400,570],[1560,575],[1672,620],[1672,941],[1240,941]])],
   },
   islet:{
     topology:'parallel-3',camera:{height:24,fov:44,targetZ:-28},
