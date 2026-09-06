@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a11';
-import { RouteEditor } from './route-editor.js?v=a11';
-import { World, THREE } from './world.js?v=a11';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a11';
+import { healthColor, weaponColor } from './feedback.js?v=a12';
+import { RouteEditor } from './route-editor.js?v=a12';
+import { World, THREE } from './world.js?v=a12';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a12';
 
-import { MAPS, getMap } from './maps/index.js?v=a11';
+import { MAPS, getMap } from './maps/index.js?v=a12';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -45,13 +45,13 @@ const TYPES = {
   plaque:{hp:34,speed:1.25,score:2600,impact:32,boss:true,names:['죽상경화 플라크 · 방어선 돌진','Atherosclerotic Plaque · charging the core']},
   fragment:{hp:2,speed:3.4,score:150,impact:5,names:['암세포 조각','Cancer Fragment']},
 };
-const DIFFICULTY = {easy:{speed:.75,impact:.5,gap:1.5,hp:.7},mid:{speed:.88,impact:.72,gap:1.25,hp:.85},hard:{speed:1,impact:1,gap:1,hp:1}};
+const DIFFICULTY = {easy:{speed:.75,impact:.5,gap:1.5,hp:.7,pulse:.85},mid:{speed:.9,impact:.75,gap:1.2,hp:.9,pulse:1},hard:{speed:1.18,impact:1.3,gap:.78,hp:1.3,pulse:1.25}};
 const WAVES = [
   {duration:40,bossAt:31,boss:'syrup',quiz:[16],spawns:[['soda',2.3,1],['fries',4.6,3],['icecream',7,8]]},
   {duration:60,bossAt:47,boss:'cancer',quiz:[24,49],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',10,6],['pizza',9,8],['icecream',6.5,4],['donut',10,9],['wing',15,26]]},
   {duration:70,bossAt:53,boss:'plaque',quiz:[14,36],spawns:[['soda',1.6,1],['fries',3,2],['burger',8.5,5],['pizza',7.5,3],['icecream',6,4.5],['donut',8,6],['wing',11,13]]},
 ];
-const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
+const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,glucagon:0,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
 state.lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ko';
 const bank=new QuizBank();
@@ -238,10 +238,16 @@ function damage(enemy,amount,byPlayer=true,point){
   if(enemy.boss){
     if(enemy.waveBoss)state.killedBosses.push(enemy.type);state.slow=.55;world.ring(position,0xffd39b,22);if(!sample('boss_die',1))sound(65,.5,'sawtooth',.06);
     // Sprites visualize the existing immediate recovery reward.
-    state.liver=clamp(state.liver-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;world.reward(position,enemy.type==='cancer'?'item_gcgr':'item_glp1');
+    state.liver=clamp(state.liver-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;
+    const gcgr=enemy.type==='cancer';if(gcgr)state.glucagon=10;world.reward(position,gcgr?'item_gcgr':'item_glp1');
     notice('보스 격파! 정화 지원 · 간과 췌장 회복','BOSS DEFEATED · Purification support & organ recovery',3.5);
     if(enemy.type==='cancer')for(let i=0;i<3;i++)spawn('fragment',{progress:Math.min(enemy.progress+i*.008,.94),routeId:enemy.routeId,lane:enemy.lane});
-  }else if(byPlayer&&Math.random()<.08){state.core=clamp(state.core+2);state.liver=clamp(state.liver-2);world.ring(position,0xb8e88a,3);world.reward(position);}
+  }else if(byPlayer&&Math.random()<.08){
+    const gcgr=Math.random()<.3;
+    state.core=clamp(state.core+2);state.liver=clamp(state.liver-2);world.ring(position,gcgr?0xffc46b:0xb8e88a,3);
+    if(gcgr){state.glucagon=Math.max(state.glucagon,7);world.reward(position,'item_gcgr');notice('글루카곤 획득 · 정화 파동 증폭','GLUCAGON · purification amplified',2);}
+    else world.reward(position);
+  }
 }
 function reload(){
   if(state.phase!=='combat'||state.paused||state.difficulty==='easy'||state.reload>0||state.ammo[state.weapon]===WEAPONS[state.weapon].mag)return;
@@ -347,7 +353,7 @@ function finish(victory){
   updateHUD();sound(victory?680:100,.5,'sine');
 }
 function combat(dt){
-  state.waveTime+=dt;state.cooldown=Math.max(0,state.cooldown-dt);state.boost=Math.max(0,state.boost-dt);
+  state.waveTime+=dt;state.cooldown=Math.max(0,state.cooldown-dt);state.boost=Math.max(0,state.boost-dt);state.glucagon=Math.max(0,state.glucagon-dt);
   if(state.reload>0){state.reload=Math.max(0,state.reload-dt);if(!state.reload){state.ammo[state.weapon]=WEAPONS[state.weapon].mag;state.reloadFlash=.18;if(!sample('reload_done',.7))sound(500,.055);}}
   for(let i=pendingShots.length-1;i>=0;i--){pendingShots[i].in-=dt;if(pendingShots[i].in<=0){const p=pendingShots.splice(i,1)[0];shot(p.x,p.y,true);}}
   if(state.shooting)shot(aim.x,aim.y);
@@ -375,9 +381,12 @@ function combat(dt){
   }
   state.pulse-=dt;
   if(state.pulse<=0){
-    state.pulse=[9.5,11.5,13.5,17][stageOfLiver()]*(state.boost>0?.5:1);
+    // 맵 전체를 훑는 대신 한 번의 피해는 작다. 글루카곤을 얻으면 더 자주, 더 세게 돈다.
+    const rate=state.glucagon>0?.42:state.boost>0?.6:1;
+    state.pulse=[7,8.5,10,13][stageOfLiver()]*rate*DIFFICULTY[state.difficulty].pulse;
     const origin=world.liver.position,radius=world.pulseRadius||25;world.pulse();if(!sample('pulse',.6))sound(390,.14,'sine',.018);
-    for(const enemy of [...enemies])if(!enemy.fly&&enemy.model.position.distanceTo(origin)<radius)damage(enemy,1,false);
+    const power=state.glucagon>0?1.5:.5;
+    for(const enemy of [...enemies])if(!enemy.fly&&enemy.model.position.distanceTo(origin)<radius)damage(enemy,power,false);
   }
   if(!state.failed){
     const targets=enemies.filter(e=>e.sugar&&!e.dead).sort((a,b)=>b.progress-a.progress);
@@ -430,7 +439,7 @@ function updateHUD(){
   $('wave-progress').style.width=`${clamp(state.waveTime/WAVES[state.wave].duration*100)}%`;
   $('wave-clock').textContent=`${Math.floor(state.waveTime)}s / ${WAVES[state.wave].duration}s`;
   $('liver-state').textContent=text(['건강 · 정화 파동 정상','MASLD · 파동 둔화','MASH · 보급 저하','섬유화 · 방어 약화'][stageOfLiver()],['Healthy · purification online','MASLD · slower pulses','MASH · reduced support','Fibrosis · weakened defense'][stageOfLiver()]);
-  $('liver-fill').style.width=`${100-state.liver}%`;$('pulse-time').textContent=text(`다음 정화 ${Math.ceil(state.pulse)}초`,`Next pulse ${Math.ceil(state.pulse)}s`);
+  $('liver-fill').style.width=`${100-state.liver}%`;$('pulse-time').textContent=state.glucagon>0?text(`글루카곤 증폭 · 다음 정화 ${Math.ceil(state.pulse)}초`,`Glucagon boost · next pulse ${Math.ceil(state.pulse)}s`):text(`다음 정화 ${Math.ceil(state.pulse)}초`,`Next pulse ${Math.ceil(state.pulse)}s`);
   $('pancreas-state').textContent=state.failed?text('췌장부전 · 지원 중단','Failure · support offline'):text(`기능 ${Math.round(state.pancreas)}% · ${state.pancreas>60?'지원 사격 중':state.pancreas>30?'인슐린 약화':state.pancreas>10?'과로 상태':'인슐린 저항성 · 무력화'}`,`Function ${Math.round(state.pancreas)}% · ${state.pancreas>60?'supporting fire':state.pancreas>30?'insulin weakening':state.pancreas>10?'overworked':'insulin resistance'}`);
   $('pancreas-fill').style.width=`${state.pancreas}%`;$('strain').textContent=state.strain>0?text(`부전 부담 ${state.strain.toFixed(1)} / 12초`,`Failure strain ${state.strain.toFixed(1)} / 12s`):text('당류 적 자동 요격','Auto-targeting sugar enemies');
   $('warning').textContent=state.failed?text('췌장부전 · 이번 판 회복 불가','PANCREATIC FAILURE · irreversible this run'):state.pancreas<=10?text('인슐린 무력화! 당류 적을 먼저 제거하세요','INSULIN RESISTANCE · clear sugar enemies'):state.sugar>70?text('고혈당 · 간과 췌장 부담 증가','HIGH GLUCOSE · liver & pancreas under strain'):'';

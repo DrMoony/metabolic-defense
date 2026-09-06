@@ -24,9 +24,9 @@
       350
     ],
     "junctionPixels": 200.00000000000003,
-    "pulseRadius": 42.08120888309235,
-    "coverageMax": 38.75585743687957,
-    "coveragePoints": 15
+    "pulseRadius": 947.4222756290502,
+    "coverageMax": 939.4222756290502,
+    "coveragePoints": 25
   },
   {
     "map": "omentum",
@@ -53,9 +53,9 @@
       611
     ],
     "junctionPixels": null,
-    "pulseRadius": 12.830413853590544,
-    "coverageMax": 11.160767786406174,
-    "coveragePoints": 5
+    "pulseRadius": 238.05096512119206,
+    "coverageMax": 230.05096512119206,
+    "coveragePoints": 22
   },
   {
     "map": "sinusoid",
@@ -82,9 +82,9 @@
       597
     ],
     "junctionPixels": null,
-    "pulseRadius": 44.313028433239054,
-    "coverageMax": 40.86134757852741,
-    "coveragePoints": 12
+    "pulseRadius": 211.20522438912198,
+    "coverageMax": 203.20522438912198,
+    "coveragePoints": 20
   },
   {
     "map": "carotid",
@@ -111,9 +111,9 @@
       480
     ],
     "junctionPixels": 228.58915109864688,
-    "pulseRadius": 443.23607111383654,
-    "coverageMax": 417.2038406734307,
-    "coveragePoints": 15
+    "pulseRadius": 1556.8135930284345,
+    "coverageMax": 1548.8135930284345,
+    "coveragePoints": 21
   },
   {
     "map": "stomach",
@@ -140,9 +140,9 @@
       439
     ],
     "junctionPixels": null,
-    "pulseRadius": 19.948581295322622,
-    "coverageMax": 17.876020089927,
-    "coveragePoints": 5
+    "pulseRadius": 93.95816883798604,
+    "coverageMax": 85.95816883798604,
+    "coveragePoints": 15
   },
   {
     "map": "glomerulus",
@@ -169,9 +169,9 @@
       374
     ],
     "junctionPixels": null,
-    "pulseRadius": 23.141420949682203,
-    "coverageMax": 20.888132971398303,
-    "coveragePoints": 5
+    "pulseRadius": 58.609193022220666,
+    "coverageMax": 50.609193022220666,
+    "coveragePoints": 27
   },
   {
     "map": "islet",
@@ -198,8 +198,8 @@
       374
     ],
     "junctionPixels": null,
-    "pulseRadius": 55.327273127161234,
-    "coverageMax": 51.25214445958607,
-    "coveragePoints": 13
+    "pulseRadius": 132.46851091412,
+    "coverageMax": 124.46851091412,
+    "coveragePoints": 44
   }
 ]
