@@ -1,5 +1,6 @@
 // Source PNG dimensions; assets are read-only. Used before textures finish loading.
 export const SPRITE_SIZES = {
+  "item_fiber": [331, 512],
   "bat_0": [512, 324],
   "bat_1": [512, 324],
   "burger_0": [465, 512],
