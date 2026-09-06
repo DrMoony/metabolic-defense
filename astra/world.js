@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a11';
+import { healthColor } from './feedback.js?v=a12';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a11';
-import { buildTerrain } from './terrain.js?v=a11';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a11';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a11';
-import { getMap } from './maps/index.js?v=a11';
+import { contact, glow, reflections } from './art.js?v=a12';
+import { buildTerrain } from './terrain.js?v=a12';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a12';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a12';
+import { getMap } from './maps/index.js?v=a12';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -90,23 +90,13 @@ export class World {
         model.userData.body.scale.x=Math.abs(model.userData.body.scale.x)*facing;this.tip.position.x=.32*facing;
       }
     }
-    // Cover branch tails + trunk entry, or each route's local bottleneck window.
+    // 정화 파동은 맵 전체를 덮는다. 넓은 대신 한 번에 주는 피해는 작다(main.js).
     this.pulseRadius=25;this.pulseCoverage=[];
     if(this.map.plate){
       const doc=this.terrain.document,liver=this.liver.position;
-      if(doc.trunk.length){
-        this.pulseCoverage=[...doc.routes.flatMap(r=>r.points.slice(-6)),...doc.trunk.slice(0,3)];
-      }else{
-        for(const route of doc.routes){
-          let nearest=0,best=Infinity;
-          route.points.forEach((p,i)=>{const distance=groundPoint(this.camera,p).distanceTo(liver);if(distance<best){best=distance;nearest=i;}});
-          this.pulseCoverage.push(...route.points.slice(Math.max(0,nearest-2),nearest+3));
-        }
-      }
-      const focus=doc.trunk[0]||this.pulseCoverage.reduce((best,p)=>!best||groundPoint(this.camera,p).distanceTo(liver)<groundPoint(this.camera,best).distanceTo(liver)?p:best,null);
-      const distance=focus?liver.distanceTo(groundPoint(this.camera,focus)):0;
-      const coverage=Math.max(0,...this.pulseCoverage.map(p=>liver.distanceTo(groundPoint(this.camera,p))));
-      this.pulseRadius=Math.max(distance*1.35+4,coverage*1.06+1);
+      this.pulseCoverage=[...doc.routes.flatMap(r=>r.points),...doc.trunk];
+      const far=Math.max(0,...this.pulseCoverage.map(p=>liver.distanceTo(groundPoint(this.camera,p))));
+      this.pulseRadius=far+8;
     }
     // 간이 화면에서 차지하는 폭을 재서 웨이브·보스 HUD를 그 바깥으로 밀어 둔다
     this.hudLeft=42;
