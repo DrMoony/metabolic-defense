@@ -879,6 +879,7 @@ function buildGunModel(tier) {
 // 1인칭 총 이미지 (생성 뷰모델). gun 그룹이 카메라 자식이라 평면은 자동으로 정면을 본다.
 // w: 평면 폭(월드), mz: 총구 위치 [x, y, z] — 총구 화염이 붙는 지점
 const WEAPON_SPRITES = {
+  5: { file: '../assets/sprites/w05_magnum.png', w: 1.15, ratio: 595 / 640, mz: [0.0, 0.59, -0.08] },
   4: { file: '../assets/sprites/w04_shotgun.png', w: 1.5, ratio: 605 / 640, mz: [0.0, 0.78, -0.08] },
   0: { file: '../assets/sprites/w00_slingshot.png', w: 1.05, ratio: 640 / 491, mz: [0.02, 0.62, -0.05] },
   1: { file: '../assets/sprites/w01_crossbow.png',  w: 1.45, ratio: 403 / 640, mz: [0.0, 0.34, -0.08] },
