@@ -13,6 +13,7 @@
 | 입력 테스트 | https://drmoony.github.io/metabolic-defense/input-test.html |
 | 문제은행 관리 | https://drmoony.github.io/metabolic-defense/quiz-admin.html |
 | 메타볼릭 점프(플랫포머) | https://drmoony.github.io/metabolic-defense/jump/ |
+| ASTRA (Codex 3D 재작성, 플레이트 멀티맵 7종) | https://drmoony.github.io/metabolic-defense/astra/ |
 
 인터넷만 되면 설치 없이 바로 플레이됩니다. **작업은 베타(`beta/`)에서 하세요.** 안정판(루트)은 롤백용으로 손대지 않습니다.
 
