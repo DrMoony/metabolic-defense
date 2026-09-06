@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a18';
+import { healthColor } from './feedback.js?v=a19';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a18';
-import { buildTerrain } from './terrain.js?v=a18';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a18';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality } from './sprites.js?v=a18';
-import { getMap } from './maps/index.js?v=a18';
+import { contact, glow, reflections } from './art.js?v=a19';
+import { buildTerrain } from './terrain.js?v=a19';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a19';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality } from './sprites.js?v=a19';
+import { getMap } from './maps/index.js?v=a19';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -277,7 +277,7 @@ export class World {
     mesh.rotation.x=-Math.PI/2;mesh.position.copy(position);mesh.position.y=.035;this.scene.add(mesh);
     this.fx.push({mesh,life:1.1,max:1.1,kind:'ring',radius});
   }
-  bolt(from,target,damage,onHit,homing=false){
+  bolt(from,target,damage,onHit,homing=false,arc=0){
     const mesh=new THREE.Group(),color=homing?0xffb95f:0x56f5ff;
     const mat=new THREE.MeshBasicMaterial({color,toneMapped:false,depthTest:homing,depthWrite:false});
     const core=new THREE.Mesh(shapes.sphere,mat);mesh.add(core);
@@ -289,7 +289,8 @@ export class World {
     mesh.position.copy(from);mesh.renderOrder=30;mesh.traverse(o=>o.renderOrder=30);this.scene.add(mesh);
     const distance=this.center(target.model).distanceTo(from),speed=Math.max(homing?43:30,distance/1.1);
     const projectile={mesh,core,tail,target,damage,onHit,life:3,homing,speed};
-    this.sizeBolt(projectile);this.projectiles.push(projectile);
+    if(arc){projectile.arc=arc;projectile.from=from.clone();projectile.t=0;}
+    this.sizeBolt(projectile);this.projectiles.push(projectile);return projectile;
   }
   sizeBolt(p){
     const pixels=screenHeight(this.camera,p.mesh.position,8/Math.max(1,this.renderer.domElement.getBoundingClientRect().height));
@@ -359,22 +360,49 @@ export class World {
     for(let i=this.fx.length-1;i>=0;i--){
       const fx=this.fx[i];fx.life-=dt;fx.mesh.material.opacity=Math.max(0,fx.life/fx.max);
       if(fx.kind==='ring'){fx.mesh.scale.setScalar(fx.radius*Math.pow(Math.min(1,(1-fx.life/fx.max)/.68),2));fx.mesh.material.opacity=Math.min(.7,fx.life/fx.max*2);}
+      if(fx.kind==='flash'){const k=1-fx.life/fx.max;fx.mesh.scale.setScalar(fx.radius*(.3+k*.9));fx.mesh.material.opacity=Math.max(0,1-k*k*1.15);}
       if(fx.life<=0){this.disposeFx(fx);this.fx.splice(i,1);}
     }
   }
   advanceProjectiles(dt){
     for(let i=this.projectiles.length-1;i>=0;i--){
       const p=this.projectiles[i];p.life-=dt;
-      if(!p.target.dead){const dest=this.center(p.target.model);const delta=dest.sub(p.mesh.position);const travel=dt*p.speed;
-        p.mesh.quaternion.setFromUnitVectors(V(0,0,1),delta.clone().normalize());
-        if(delta.length()<=travel){
-          const impact=this.center(p.target.model);
-          if(!p.homing){this.burst(impact,0x56f5ff,12);this.impactRing(impact);}
-          p.onHit(p.target,p.damage);p.life=0;
-        }else p.mesh.position.addScaledVector(delta.normalize(),travel);this.sizeBolt(p);}
+      if(!p.target.dead){
+        const dest=this.center(p.target.model);
+        if(p.arc){
+          // 로켓은 포물선을 그리며 날아간다
+          const span=Math.max(6,p.from.distanceTo(dest));
+          p.t=Math.min(1,p.t+dt*p.speed/span);
+          const flat=p.from.clone().lerp(dest,p.t);
+          const prev=p.mesh.position.clone();
+          flat.y+=p.arc*4*p.t*(1-p.t);
+          p.mesh.position.copy(flat);
+          const heading=flat.clone().sub(prev);
+          if(heading.lengthSq()>1e-6)p.mesh.quaternion.setFromUnitVectors(V(0,0,1),heading.normalize());
+          this.sizeBolt(p);
+          if(p.t>=1){this.explosion(dest,p.blast||5);p.onHit(p.target,p.damage);p.life=0;}
+        }else{
+          const delta=dest.sub(p.mesh.position);const travel=dt*p.speed;
+          p.mesh.quaternion.setFromUnitVectors(V(0,0,1),delta.clone().normalize());
+          if(delta.length()<=travel){
+            const impact=this.center(p.target.model);
+            if(!p.homing){this.burst(impact,0x56f5ff,12);this.impactRing(impact);}
+            p.onHit(p.target,p.damage);p.life=0;
+          }else p.mesh.position.addScaledVector(delta.normalize(),travel);this.sizeBolt(p);
+        }
+      }
       else p.life=0;
       if(p.life<=0){this.disposeBolt(p);this.projectiles.splice(i,1);}
     }
+  }
+  // 로켓 착탄: 확장하는 불꽃 고리 두 겹 + 파편 + 화면 흔들림
+  explosion(position,radius=5){
+    this.burst(position,0xffd08a,34);this.burst(position.clone().add(V(0,.8,0)),0xff8a4a,18);
+    this.ring(position,0xffb066,radius*1.15);this.ring(position,0xfff0c2,radius*.6);
+    const flash=new THREE.Mesh(shapes.sphere,new THREE.MeshBasicMaterial({color:0xfff2cc,transparent:true,opacity:.95,toneMapped:false,depthWrite:false}));
+    flash.position.copy(position);flash.position.y+=.6;flash.scale.setScalar(radius*.34);this.scene.add(flash);
+    this.fx.push({mesh:flash,life:.32,max:.32,kind:'flash',radius:radius*1.1});
+    this.shake=Math.max(this.shake,.9);
   }
   impactRing(position){
     const mesh=new THREE.Mesh(new THREE.RingGeometry(.78,1,32),new THREE.MeshBasicMaterial({color:0x56f5ff,transparent:true,opacity:1,toneMapped:false,depthTest:false,depthWrite:false}));

@@ -1,5 +1,5 @@
 import * as T from '../vendor/three.module.js';
-import { SPRITE_SIZES } from './sprite-sizes.js?v=a18';
+import { SPRITE_SIZES } from './sprite-sizes.js?v=a19';
 
 const loader=new T.TextureLoader(),textures=new Map();
 // 렌더러가 준비되면 world.js가 최대 이방성 값을 알려준다. 밉맵 없이는 멀리 있는 스프라이트가 심하게 깨진다.
@@ -16,6 +16,7 @@ export const ENEMY_ART=Object.fromEntries([
 ]);
 ENEMY_ART.fragment=ENEMY_ART.cancerlet;
 ENEMY_ART.wingking=ENEMY_ART.wing;ENEMY_ART.pizzaking=ENEMY_ART.pizza;
+ENEMY_ART.burgerlord=ENEMY_ART.burger;ENEMY_ART.sodatitan=ENEMY_ART.soda;
 export const WEAPON_ART=['slingshot','crossbow','matchlock','pistol','shotgun','magnum','smg','rifle','mg','bazooka','homing','laser'].map((name,i)=>`w${String(i).padStart(2,'0')}_${name}`);
 
 export function texture(key){
