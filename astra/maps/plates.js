@@ -56,7 +56,7 @@ export const PLATES={
     topology:'switchback',camera:{height:25,fov:43,targetZ:-28},
     title:['요세관 스위치백','The tubule switchbacks'],subtitle:['세 단 테라스를 지그재그로 내려와요','Three stepped terraces, two hairpins'],
     briefing:['보먼주머니에서 나온 적이 위 테라스를 가로지른 뒤 헤어핀을 두 번 돌아 전경으로 내려와요. 가운데 헤어핀 안쪽 결정 바위에 선 간 가디언과 오른쪽 단상의 췌장 포탑이 함께 막아요.','Invaders leave the Bowman capsule, cross the upper terrace and take two hairpins down to the foreground. The guardian stands on the crystal shelf inside the middle hairpin, with the turret on the right dais.'],
-    routes:[route('tubule',['요세관 내리막','Tubular descent'],[[335,160],[435,224],[619,231],[819,231],[1010,221],[1161,226],[1292,255],[1376,297],[1361,351],[1252,385],[1080,381],[900,391],[719,391],[540,412],[390,424],[312,440],[277,463],[300,490],[382,507],[501,543],[671,553],[843,557],[989,567],[1092,594],[1160,637],[1130,756],[1040,772],[937,765],[859,803],[771,822]])],trunk:[],
+    routes:[route('tubule',['요세관 내리막','Tubular descent'],[[335,160],[435,224],[619,231],[819,231],[1010,221],[1161,226],[1292,255],[1376,297],[1361,351],[1252,385],[1080,381],[900,391],[719,391],[540,412],[390,424],[312,440],[277,463],[300,490],[382,507],[501,543],[671,553],[843,557],[989,567],[1092,594],[1160,637],[937,765],[859,803],[771,822]])],trunk:[],
     organs:{liver:organ([515,345],186),pancreas:organ([1472,749],213)},
     landmarks:[landmark('crystal',[1155,227],[96,84],10),landmark('crystal',[719,392],[92,78],8)],
     occluders:[mask('left-bank',[150,780],[[0,640],[120,610],[250,662],[300,760],[248,880],[120,941],[0,941]]),mask('right-dais',[1450,638],[[1290,620],[1400,570],[1560,575],[1672,620],[1672,941],[1240,941]])],

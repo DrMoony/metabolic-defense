@@ -1,5 +1,5 @@
 import * as T from '../vendor/three.module.js';
-import { SPRITE_SIZES } from './sprite-sizes.js?v=a21';
+import { SPRITE_SIZES } from './sprite-sizes.js?v=a22';
 
 const loader=new T.TextureLoader(),textures=new Map();
 // 렌더러가 준비되면 world.js가 최대 이방성 값을 알려준다. 밉맵 없이는 멀리 있는 스프라이트가 심하게 깨진다.

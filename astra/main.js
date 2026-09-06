@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a21';
-import { RouteEditor } from './route-editor.js?v=a21';
-import { World, THREE } from './world.js?v=a21';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a21';
+import { healthColor, weaponColor } from './feedback.js?v=a22';
+import { RouteEditor } from './route-editor.js?v=a22';
+import { World, THREE } from './world.js?v=a22';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a22';
 
-import { MAPS, getMap } from './maps/index.js?v=a21';
+import { MAPS, getMap } from './maps/index.js?v=a22';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -441,7 +441,7 @@ function combat(dt){
     const routes=world.terrain.routes.items,route=routes[Math.floor(Math.random()*routes.length)];
     const pool=['item_glp1','item_gcgr','item_fiber'];
     const key=pool[Math.floor(Math.random()*pool.length)];
-    world.spawnPickup(route.id,key);
+    world.spawnPickup(route.id,key,.5+Math.random()*.28);
     notice('보급 캡슐 · 쏘면 획득','SUPPLY CAPSULE · shoot to collect',2);
   }
   state.pulse-=dt;
