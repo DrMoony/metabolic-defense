@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a14';
-import { RouteEditor } from './route-editor.js?v=a14';
-import { World, THREE } from './world.js?v=a14';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a14';
+import { healthColor, weaponColor } from './feedback.js?v=a15';
+import { RouteEditor } from './route-editor.js?v=a15';
+import { World, THREE } from './world.js?v=a15';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a15';
 
-import { MAPS, getMap } from './maps/index.js?v=a14';
+import { MAPS, getMap } from './maps/index.js?v=a15';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -45,7 +45,7 @@ const TYPES = {
   plaque:{hp:34,speed:1.25,score:2600,impact:32,boss:true,names:['죽상경화 플라크 · 방어선 돌진','Atherosclerotic Plaque · charging the core']},
   wingking:{hp:22,speed:2.4,score:1800,impact:20,fly:true,boss:true,names:['치킨윙 대장 · 상공에서 급습','Wing Commander · strikes from the air']},
   pizzaking:{hp:30,speed:1.05,score:2200,impact:28,boss:true,names:['대왕 피자 · 기름 장벽','Pizza Colossus · a wall of grease']},
-  fragment:{hp:2,speed:3.4,score:150,impact:5,names:['암세포 조각','Cancer Fragment']},
+  fragment:{hp:2,speed:4.1,score:150,impact:5,fly:true,names:['암세포 조각 · 흩어져 날아온다','Cancer Fragment · scatters through the air']},
 };
 const DIFFICULTY = {easy:{speed:.78,impact:.55,gap:1.35,hp:.75,pulse:.85},mid:{speed:1.02,impact:.98,gap:.94,hp:1.12,pulse:1.1},hard:{speed:1.26,impact:1.45,gap:.7,hp:1.45,pulse:1.35}};
 const WAVES = [
@@ -189,15 +189,15 @@ function spawn(type='soda',options={}){
   const routeId=world.terrain.routes.get(options.routeId??routes[((lane%routes.length)+routes.length)%routes.length].id).id;
   const hp=definition.hp*(definition.boss?1:DIFFICULTY[state.difficulty].hp);
   const enemy={type,...definition,waveBoss:definition.boss===true&&options.waveBoss===true,showHealth:definition.hp>=2,model,hp,maxHp:hp,lane,routeId,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:['fragment','cancerlet'].includes(type)?.7:1,flash:0,dead:false,guarded:false};
-  if(definition.fly)planFlight(enemy);
+  if(definition.fly)planFlight(enemy,options.from);
   enemies.push(enemy);positionEnemy(enemy);world.updateHealth(enemy);
   if(definition.boss){if(enemy.waveBoss)state.bosses.push(type);world.shake=1.5;world.ring(model.position,0xffa56e,10);notice(...definition.names,4);sound(95,.45,'sawtooth',.05);}
   updateBossHUD();return enemy;
 }
 // 날아다니는 적은 길을 따라가지 않는다. 맵 위쪽 아무 데서나 들어와 방어선까지 곧장 가로지른다.
-function planFlight(enemy){
+function planFlight(enemy,origin){
   const exit=world.routePoint(enemy.routeId,1).clone();
-  let from=null;
+  let from=origin?origin.clone().add(new THREE.Vector3((Math.random()-.5)*10,0,(Math.random()-.5)*8)):null;
   for(let tries=0;tries<8&&!from;tries++)from=world.platePoint(.04+Math.random()*.92,.05+Math.random()*.22);
   if(!from)from=world.routePoint(enemy.routeId,0).clone();
   enemy.flyFrom=from;
@@ -253,7 +253,7 @@ function damage(enemy,amount,byPlayer=true,point){
     state.liver=clamp(state.liver-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;
     const gcgr=enemy.type==='cancer';if(gcgr)state.glucagon=10;world.reward(position,gcgr?'item_gcgr':'item_glp1');
     notice('보스 격파! 정화 지원 · 간과 췌장 회복','BOSS DEFEATED · Purification support & organ recovery',3.5);
-    if(enemy.type==='cancer')for(let i=0;i<3;i++)spawn('fragment',{progress:Math.min(enemy.progress+i*.008,.94),routeId:enemy.routeId,lane:enemy.lane});
+    if(enemy.type==='cancer')for(let i=0;i<5;i++)spawn('fragment',{progress:Math.max(.12,enemy.progress-.30-Math.random()*.12),routeId:enemy.routeId,lane:enemy.lane,from:position});
   }else if(byPlayer&&Math.random()<.08){
     const gcgr=Math.random()<.3;
     state.core=clamp(state.core+2);state.liver=clamp(state.liver-2);world.ring(position,gcgr?0xffc46b:0xb8e88a,3);

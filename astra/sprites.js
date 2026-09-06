@@ -1,7 +1,13 @@
 import * as T from '../vendor/three.module.js';
-import { SPRITE_SIZES } from './sprite-sizes.js?v=a14';
+import { SPRITE_SIZES } from './sprite-sizes.js?v=a15';
 
 const loader=new T.TextureLoader(),textures=new Map();
+// 렌더러가 준비되면 world.js가 최대 이방성 값을 알려준다. 밉맵 없이는 멀리 있는 스프라이트가 심하게 깨진다.
+let maxAnisotropy=8;
+export function setTextureQuality(value){
+  maxAnisotropy=Math.max(1,value|0);
+  for(const map of textures.values()){map.anisotropy=maxAnisotropy;map.needsUpdate=true;}
+}
 export const spriteLoads=[];
 export const ENEMY_ART=Object.fromEntries([
   ...['soda','fries','burger','pizza','ramen','icecream','ciga','soju','cancerlet'].map(key=>[key,{frames:[`${key}_0`,`${key}_1`],anchor:'bottom'}]),
@@ -27,7 +33,9 @@ export function texture(key){
     loaded.userData.width=canvas.width;loaded.userData.height=canvas.height;done(loaded);
     }catch(error){failed(error);}
   },undefined,()=>failed(new Error(`Sprite failed to load: ${url}`)));
-  map.colorSpace=T.SRGBColorSpace;map.userData.key=key;textures.set(key,map);return map;
+  map.colorSpace=T.SRGBColorSpace;map.userData.key=key;
+  map.generateMipmaps=true;map.minFilter=T.LinearMipmapLinearFilter;map.magFilter=T.LinearFilter;map.anisotropy=maxAnisotropy;
+  textures.set(key,map);return map;
 }
 export function preloadSprites(){
   for(const art of Object.values(ENEMY_ART))art.frames.forEach(texture);

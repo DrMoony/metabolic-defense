@@ -8,7 +8,7 @@ const landmark=(kind,at,size,hp=0)=>({kind,at:point(at),size:size.map((n,i)=>n/(
 const mask=(id,at,points)=>({id,at:point(at),points:points.map(point)});
 // A standing regular enemy occupies 15% of the plate at these foreground anchors.
 // Keep physical height fixed along a route so depth, not route progress, sets perspective.
-const ACTORS={coronary:[835,825],omentum:[873,821],sinusoid:[837,735],carotid:[826,823],stomach:[988,844],glomerulus:[880,878],islet:[820,829]};
+const ACTORS={coronary:[835,825],omentum:[873,821],sinusoid:[837,735],carotid:[826,823],stomach:[988,844],glomerulus:[800,845],islet:[820,829]};
 export const PLATES={
   coronary:{
     topology:'Y',camera:{height:18,fov:46,targetZ:-25},
@@ -56,9 +56,9 @@ export const PLATES={
     topology:'switchback',camera:{height:25,fov:43,targetZ:-28},
     title:['요세관 스위치백','The tubule switchbacks'],subtitle:['세 단 테라스를 지그재그로 내려와요','Three stepped terraces, two hairpins'],
     briefing:['보먼주머니에서 나온 적이 위 테라스를 가로지른 뒤 헤어핀을 두 번 돌아 전경으로 내려와요. 가운데 헤어핀 안쪽 결정 바위에 선 간 가디언과 오른쪽 단상의 췌장 포탑이 함께 막아요.','Invaders leave the Bowman capsule, cross the upper terrace and take two hairpins down to the foreground. The guardian stands on the crystal shelf inside the middle hairpin, with the turret on the right dais.'],
-    routes:[route('tubule',['요세관 내리막','Tubular descent'],[[335,178],[440,215],[620,232],[820,243],[1010,252],[1160,262],[1290,290],[1370,335],[1360,388],[1250,412],[1080,428],[900,443],[720,452],[540,458],[390,475],[300,510],[278,558],[352,592],[500,614],[670,628],[840,646],[985,672],[1085,722],[1075,786],[975,842],[865,888],[780,941]])],trunk:[],
-    organs:{liver:organ([536,374],186),pancreas:organ([1472,749],213)},
-    landmarks:[landmark('crystal',[1152,268],[96,84],10),landmark('crystal',[716,452],[92,78],8)],
+    routes:[route('tubule',['요세관 내리막','Tubular descent'],[[335,160],[440,194],[620,209],[820,219],[1010,227],[1160,236],[1290,261],[1370,302],[1360,349],[1250,371],[1080,385],[900,399],[720,407],[540,412],[390,428],[300,459],[278,502],[352,533],[500,553],[670,565],[840,581],[985,605],[1085,650],[1075,707],[975,758],[880,800],[800,845],[740,890],[700,935]])],trunk:[],
+    organs:{liver:organ([515,345],186),pancreas:organ([1472,749],213)},
+    landmarks:[landmark('crystal',[1152,236],[96,84],10),landmark('crystal',[716,408],[92,78],8)],
     occluders:[mask('left-bank',[150,780],[[0,640],[120,610],[250,662],[300,760],[248,880],[120,941],[0,941]]),mask('right-dais',[1450,638],[[1290,620],[1400,570],[1560,575],[1672,620],[1672,941],[1240,941]])],
   },
   islet:{

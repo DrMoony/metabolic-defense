@@ -242,7 +242,10 @@ for(const map of A.MAPS){
   probe.model.removeFromParent();probe.model.geometry.dispose();probe.model.material.dispose();
   elements.get('routes-toggle').click();assert(terrain.debug.visible);elements.get('routes-toggle').click();assert(!terrain.debug.visible);
   A.start();const parent=A.spawn('cancer',{routeId:routes.items.at(-1).id,progress:.61});A.damage(parent,100);
-  const fragments=A.enemies.filter(e=>e.type==='fragment');assert.equal(fragments.length,3);assert(fragments.every(e=>e.routeId===parent.routeId));
+  const fragments=A.enemies.filter(e=>e.type==='fragment');assert.equal(fragments.length,5);assert(fragments.every(e=>e.routeId===parent.routeId));
+  // 파편은 터진 자리에서 흩어져 날아온다: 각자 다른 비행 경로를 갖는다
+  assert(fragments.every(e=>e.fly&&e.flyFrom&&e.flyCtrl),'fragments fly');
+  assert(new Set(fragments.map(e=>`${e.flyFrom.x.toFixed(2)},${e.flyFrom.z.toFixed(2)}`)).size===5,'fragments scatter');
   A.start();A.step(.02);
   for(const landmark of A.world.terrain.landmarks.filter(l=>l.maxHp)){
     // Find a visible lobe using the real pick path, never bypass occlusion.
