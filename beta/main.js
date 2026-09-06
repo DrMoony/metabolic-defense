@@ -881,7 +881,8 @@ function buildGunModel(tier) {
 const WEAPON_SPRITES = {
   0: { file: '../assets/sprites/w00_slingshot.png', w: 1.05, ratio: 640 / 491, mz: [0.02, 0.62, -0.05] },
   1: { file: '../assets/sprites/w01_crossbow.png',  w: 1.45, ratio: 403 / 640, mz: [0.0, 0.34, -0.08] },
-  2: { file: '../assets/sprites/w02_matchlock.png', w: 1.55, ratio: 1.0,       mz: [0.0, 0.5, -0.08] },
+  2: { file: '../assets/sprites/w02_matchlock.png', w: 1.55, ratio: 606 / 640, mz: [0.0, 0.5, -0.08] },
+  3: { file: '../assets/sprites/w03_pistol.png',    w: 1.05, ratio: 640 / 438, mz: [0.0, 0.62, -0.08] },
 };
 function buildGunSprite(tier) {
   const d = WEAPON_SPRITES[tier];

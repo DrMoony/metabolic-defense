@@ -15,7 +15,7 @@ from PIL import Image, ImageFilter
 from collections import deque
 
 
-def key_out(img: Image.Image, tol: int = 34, feather: float = 0.8) -> Image.Image:
+def key_out(img: Image.Image, tol: int = 34, feather: float = 0.8, global_mode: bool = False) -> Image.Image:
     img = img.convert("RGBA")
     a = np.array(img)
     h, w = a.shape[:2]
@@ -45,6 +45,8 @@ def key_out(img: Image.Image, tol: int = 34, feather: float = 0.8) -> Image.Imag
             if 0 <= ny < h and 0 <= nx < w and near[ny, nx] and not visited[ny, nx]:
                 visited[ny, nx] = True; q.append((ny, nx))
 
+    if global_mode:
+        visited = near              # 안쪽 흰색까지 전부 제거
     alpha = np.where(visited, 0, 255).astype(np.uint8)
     am = Image.fromarray(alpha)
     if feather:
@@ -70,9 +72,9 @@ def fit(img: Image.Image, maxdim: int) -> Image.Image:
     return img.resize((max(1, round(img.width * s)), max(1, round(img.height * s))), Image.LANCZOS)
 
 
-def process(src, dst, tol, maxdim, pad):
+def process(src, dst, tol, maxdim, pad, global_mode=False):
     img = Image.open(src)
-    out = fit(trim(key_out(img, tol=tol), pad=pad), maxdim)
+    out = fit(trim(key_out(img, tol=tol, global_mode=global_mode), pad=pad), maxdim)
     os.makedirs(os.path.dirname(os.path.abspath(dst)), exist_ok=True)
     out.save(dst, "PNG", optimize=True)
     opaque = int((np.array(out)[:, :, 3] > 8).sum())
@@ -88,6 +90,8 @@ if __name__ == "__main__":
     ap.add_argument("--tol", type=int, default=34, help="배경색 허용 오차 (기본 34)")
     ap.add_argument("--max", type=int, default=512, help="긴 변 최대 픽셀")
     ap.add_argument("--pad", type=int, default=6)
+    ap.add_argument("--global", dest="global_mode", action="store_true",
+                    help="테두리 연결 여부와 무관하게 흰색을 전부 제거 (활대 안쪽처럼 갇힌 배경용)")
     args = ap.parse_args()
 
     if os.path.isdir(args.src):
@@ -97,10 +101,10 @@ if __name__ == "__main__":
             if not f.lower().endswith((".png", ".jpg", ".jpeg", ".webp")):
                 continue
             name = os.path.splitext(f)[0] + ".png"
-            rows.append(process(os.path.join(args.src, f), os.path.join(outdir, name), args.tol, args.max, args.pad))
+            rows.append(process(os.path.join(args.src, f), os.path.join(outdir, name), args.tol, args.max, args.pad, args.global_mode))
         for r in rows:
             print(f"{r['src']:22s} → {r['dst']}  {r['size']}  채움 {r['채움']}")
         print(f"\n{len(rows)}장 처리 완료")
     else:
         dst = args.dst or (os.path.splitext(args.src)[0] + "_keyed.png")
-        print(process(args.src, dst, args.tol, args.max, args.pad))
+        print(process(args.src, dst, args.tol, args.max, args.pad, args.global_mode))
