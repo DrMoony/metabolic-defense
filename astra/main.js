@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a12';
-import { RouteEditor } from './route-editor.js?v=a12';
-import { World, THREE } from './world.js?v=a12';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a12';
+import { healthColor, weaponColor } from './feedback.js?v=a13';
+import { RouteEditor } from './route-editor.js?v=a13';
+import { World, THREE } from './world.js?v=a13';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a13';
 
-import { MAPS, getMap } from './maps/index.js?v=a12';
+import { MAPS, getMap } from './maps/index.js?v=a13';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -384,9 +384,9 @@ function combat(dt){
     // 맵 전체를 훑는 대신 한 번의 피해는 작다. 글루카곤을 얻으면 더 자주, 더 세게 돈다.
     const rate=state.glucagon>0?.42:state.boost>0?.6:1;
     state.pulse=[7,8.5,10,13][stageOfLiver()]*rate*DIFFICULTY[state.difficulty].pulse;
-    const origin=world.liver.position,radius=world.pulseRadius||25;world.pulse();if(!sample('pulse',.6))sound(390,.14,'sine',.018);
+    world.pulse();if(!sample('pulse',.6))sound(390,.14,'sine',.018);
     const power=state.glucagon>0?1.5:.5;
-    for(const enemy of [...enemies])if(!enemy.fly&&enemy.model.position.distanceTo(origin)<radius)damage(enemy,power,false);
+    for(const enemy of [...enemies])if(!enemy.fly)damage(enemy,power,false);   // 땅을 걷는 적은 맵 어디에 있든 맞는다
   }
   if(!state.failed){
     const targets=enemies.filter(e=>e.sugar&&!e.dead).sort((a,b)=>b.progress-a.progress);

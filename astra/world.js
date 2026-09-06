@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a12';
+import { healthColor } from './feedback.js?v=a13';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a12';
-import { buildTerrain } from './terrain.js?v=a12';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a12';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a12';
-import { getMap } from './maps/index.js?v=a12';
+import { contact, glow, reflections } from './art.js?v=a13';
+import { buildTerrain } from './terrain.js?v=a13';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a13';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites } from './sprites.js?v=a13';
+import { getMap } from './maps/index.js?v=a13';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -91,12 +91,14 @@ export class World {
       }
     }
     // 정화 파동은 맵 전체를 덮는다. 넓은 대신 한 번에 주는 피해는 작다(main.js).
-    this.pulseRadius=25;this.pulseCoverage=[];
+    this.pulseRadius=25;this.pulseRingRadius=25;this.pulseCoverage=[];
     if(this.map.plate){
       const doc=this.terrain.document,liver=this.liver.position;
       this.pulseCoverage=[...doc.routes.flatMap(r=>r.points),...doc.trunk];
       const far=Math.max(0,...this.pulseCoverage.map(p=>liver.distanceTo(groundPoint(this.camera,p))));
       this.pulseRadius=far+8;
+      // 링은 화면에 보기 좋은 크기까지만 퍼진다. 피해 판정은 맵 전체(main.js).
+      this.pulseRingRadius=Math.min(this.pulseRadius,88);
     }
     // 간이 화면에서 차지하는 폭을 재서 웨이브·보스 HUD를 그 바깥으로 밀어 둔다
     this.hudLeft=42;
@@ -134,7 +136,7 @@ export class World {
   pulse(){
     this.liverPulse=.35;this.liver.scale.setScalar(this.liver.userData.baseScale*1.18);
     this.liverBody.material.color.setHex(0xd5ef9c);
-    this.ring(this.liver.position,0xd5ef9c,this.pulseRadius);
+    this.ring(this.liver.position,0xd5ef9c,this.pulseRingRadius||this.pulseRadius);
   }
   aimTurret(target,charge=0){
     this.charge.material.opacity=target?charge*.95:0;
