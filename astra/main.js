@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a29';
-import { RouteEditor } from './route-editor.js?v=a29';
-import { World, THREE } from './world.js?v=a29';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a29';
+import { healthColor, weaponColor } from './feedback.js?v=a30';
+import { RouteEditor } from './route-editor.js?v=a30';
+import { World, THREE } from './world.js?v=a30';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a30';
 
-import { MAPS, getMap } from './maps/index.js?v=a29';
+import { MAPS, getMap } from './maps/index.js?v=a30';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -29,15 +29,15 @@ export const WEAPONS = [
 const TYPES = {
   soda:{hp:2,speed:3.2,score:150,impact:5,sugar:true,names:['소용돌이 캔디','Swirl Candy']},
   fries:{hp:3,speed:2.2,score:200,impact:7,names:['트랜스 프라이','Trans Fries']},
-  burger:{hp:8,speed:1.35,score:400,impact:13,names:['미드나잇 버거','Midnight Burger']},
+  burger:{hp:8,speed:1.35,score:400,impact:13,armor:.45,names:['미드나잇 버거 · 기름 장갑, 관통·폭발에 약하다','Midnight Burger · greasy armor, weak to pierce and blasts']},
   pizza:{hp:5,speed:1.8,score:300,impact:9,names:['기름진 피자','Greasy Pizza']},
-  icecream:{hp:2,speed:2.8,score:200,impact:6,sugar:true,names:['아이스크림 콘','Ice Cream Cone']},
-  donut:{hp:1,speed:3.4,score:250,impact:6,sugar:true,fly:true,names:['슈가 도넛','Sugar Donut']},
+  icecream:{hp:2,speed:2.8,score:200,impact:6,sugar:true,heal:{every:4.2,amount:1.2,radius:16},names:['아이스크림 콘 · 주변을 회복시킨다','Ice Cream Cone · heals nearby invaders']},
+  donut:{hp:1,speed:3.4,score:250,impact:6,sugar:true,fly:true,split:{into:'moth',count:2},names:['슈가 도넛 · 터지면 둘로 갈라진다','Sugar Donut · splits in two']},
   wing:{hp:2,speed:5,score:340,impact:8,fly:true,names:['프라이드 치킨윙','Fried Chicken Wing']},
-  ramen:{hp:6,speed:1.5,score:350,impact:11,names:['나트륨 컵라면','Sodium Cup Noodles']},
-  ciga:{hp:3,speed:2.5,score:250,impact:8,names:['꽁초 니코틴','Nicotine Butt']},
-  soju:{hp:4,speed:2,score:320,impact:6,names:['초록 소주병','Green Soju Bottle']},
-  moth:{hp:1,speed:4.2,score:250,impact:6,fly:true,names:['날아온 과자봉지','Flying Chip Bag']},
+  ramen:{hp:6,speed:1.5,score:350,impact:11,charge:{at:.72,mul:2.1},names:['나트륨 컵라면 · 막판에 돌진한다','Sodium Cup Noodles · sprints at the end']},
+  ciga:{hp:3,speed:2.5,score:250,impact:8,aura:{radius:14,armor:.3},names:['꽁초 니코틴 · 연기로 주변을 감싼다','Nicotine Butt · smoke shields neighbours']},
+  soju:{hp:4,speed:2,score:320,impact:6,ranged:{every:3.4,damage:3,from:.22},names:['초록 소주병 · 멀리서 병을 던진다','Green Soju Bottle · lobs bottles from afar']},
+  moth:{hp:1,speed:4.2,score:250,impact:6,fly:true,cloak:{every:3.6,duration:1.5},names:['날아온 과자봉지 · 잠깐씩 흐릿해진다','Flying Chip Bag · flickers out of sight']},
   bat:{hp:2,speed:3.6,score:300,impact:7,sugar:true,fly:true,names:['초콜릿 박쥐','Chocolate Bat']},
   cancerlet:{hp:2,speed:3.4,score:150,impact:5,names:['암세포 조각','Cancer Fragment']},
   syrup:{hp:16,speed:.8,score:1500,impact:18,sugar:true,boss:true,names:['과당 시럽통 · 위쪽 밸브가 약점','Syrup Drum · shoot the top valve']},
@@ -64,7 +64,7 @@ const bank=new QuizBank();
 const enemies=[];
 let world,editor;
 let manual=false,events=new Set(),spawnTimers=[],lastTime=performance.now(),noticeTime=0,hitTime=0,flashTime=0;
-let pendingShots=[],quizTransition=false,loading=false,loadFailed=false,loadGeneration=0;
+let pendingShots=[],pendingHits=[],quizTransition=false,loading=false,loadFailed=false,loadGeneration=0;
 let upgradeTime=0;
 let audioContext=null,muted=storage.get('muted',false)===true;
 let aim={x:innerWidth/2,y:innerHeight/2};
@@ -175,7 +175,7 @@ async function loadBanks(){
   if(generation===loadGeneration){loading=false;updateLoadUI();}
 }
 function setPhase(phase){
-  state.phase=phase;state.shooting=false;pendingShots=[];
+  state.phase=phase;state.shooting=false;pendingShots=[];pendingHits=[];
   for(const name of ['home','guide','admin','result'])show(name,phase===name);
   show('quiz-screen',phase==='quiz');show('hud',['combat','quiz'].includes(phase));show('pause',['combat','quiz'].includes(phase));
   $('world').style.cursor=phase==='combat'?'none':'default';$('reticle').style.display=phase==='combat'?'block':'none';
@@ -259,12 +259,20 @@ function upgrade(){
 }
 function damage(enemy,amount,byPlayer=true,point){
   if(enemy.dead)return;
+  if(byPlayer){
+    const weapon=WEAPONS[state.weapon];
+    const armor=(enemy.armor&&!weapon.pierce&&!weapon.splash?enemy.armor:0)+auraArmor(enemy);
+    if(armor>0)amount*=Math.max(.2,1-armor);
+  }
   enemy.hp-=amount;enemy.flash=1;if(byPlayer)sample(Math.random()<.5?'hit':'hit_squish',.5);world.burst(point||enemy.model.position.clone().add(new THREE.Vector3(0,1.2,0)),byPlayer?0xffd395:0x9dedb7,byPlayer?5:3);
   world.updateHealth(enemy);updateBossHUD();
   if(enemy.hp>0)return;
   const position=enemy.model.position.clone();removeEnemy(enemy,true);
   if(byPlayer){state.score+=Math.round(enemy.score*Math.min(4,1+state.combo*.12));world.shake=Math.max(world.shake,enemy.boss?2:.25);hitTime=enemy.boss?.13:enemy.maxHp>=5?.075:.045;}
   world.burst(position,enemy.boss?0xffad7f:0xffdc9b,enemy.boss?45:13);if(!enemy.boss)sample(Math.random()<.5?'kill_pop':'kill_splat',.8);
+  if(enemy.split&&!enemy.dead2){
+    for(let i=0;i<enemy.split.count;i++)spawn(enemy.split.into,{routeId:enemy.routeId,lane:enemy.lane,progress:Math.max(.08,enemy.progress-.05),from:position});
+  }
   if(enemy.boss){
     if(enemy.waveBoss)state.killedBosses.push(enemy.type);state.slow=.55;world.ring(position,0xffd39b,22);if(!sample('boss_die',1))sound(65,.5,'sawtooth',.06);
     // Sprites visualize the existing immediate recovery reward.
@@ -302,6 +310,47 @@ function collectItem(prop){
     for(const enemy of [...enemies])if(!enemy.fly){enemy.progress=Math.max(.02,enemy.progress-.14);damage(enemy,1.5,false);}
     notice('담즙 방출 · 지상 적을 밀어냈어요','BILE FLUSH · ground enemies pushed back',2.4);
   }
+}
+// 몬스터 특성: 투척·회복·은신·연막·분열. 체력과 속도만 다르면 전부 같은 적처럼 느껴진다.
+function tickTraits(enemy,dt,tuning){
+  if(enemy.ranged&&enemy.progress>enemy.ranged.from&&!enemy.dead){
+    enemy.throwT=(enemy.throwT??enemy.ranged.every*Math.random())-dt;
+    if(enemy.throwT<=0){
+      enemy.throwT=enemy.ranged.every;
+      const from=enemy.model.position.clone();from.y+=world.actorScale*1.4;
+      const target=world.routePoint(enemy.routeId,1);
+      world.lob(from,target,0xa8e06a);
+      pendingHits.push({in:.85,damage:enemy.ranged.damage*tuning.impact});
+    }
+  }
+  if(enemy.heal&&!enemy.dead){
+    enemy.healT=(enemy.healT??enemy.heal.every*Math.random())-dt;
+    if(enemy.healT<=0){
+      enemy.healT=enemy.heal.every;
+      let healed=0;
+      for(const other of enemies){
+        if(other===enemy||other.dead||other.hp>=other.maxHp)continue;
+        if(other.model.position.distanceTo(enemy.model.position)>enemy.heal.radius)continue;
+        other.hp=Math.min(other.maxHp,other.hp+enemy.heal.amount);world.updateHealth(other);healed++;
+      }
+      if(healed)world.ring(enemy.model.position,0x9fe8c8,enemy.heal.radius*.5);
+    }
+  }
+  if(enemy.cloak&&!enemy.dead){
+    enemy.cloakT=(enemy.cloakT??enemy.cloak.every*Math.random())-dt;
+    if(enemy.cloakT<=0){enemy.cloakT=enemy.cloak.every;enemy.cloaked=enemy.cloak.duration;}
+    if(enemy.cloaked>0){enemy.cloaked-=dt;world.setEnemyFade(enemy,.28);}
+    else world.setEnemyFade(enemy,1);
+  }
+}
+// 연막을 두른 이웃은 피해를 덜 받는다
+function auraArmor(enemy){
+  let best=0;
+  for(const other of enemies){
+    if(other===enemy||other.dead||!other.aura)continue;
+    if(other.model.position.distanceTo(enemy.model.position)<=other.aura.radius)best=Math.max(best,other.aura.armor);
+  }
+  return best;
 }
 function reload(){
   if(state.phase!=='combat'||state.paused||state.difficulty==='easy'||state.reload>0||state.ammo[state.weapon]===WEAPONS[state.weapon].mag)return;
@@ -439,8 +488,10 @@ function combat(dt){
   for(const enemy of [...enemies]){
     // Bosses advance in 28s; regular soda lane travel is approximately 28s on NORMAL.
     const travel=enemy.boss?28:25*(3.2/enemy.speed);
-    enemy.progress+=dt/travel*tuning.speed*(enemy.type==='plaque'&&enemy.progress>.7?1.9:1)*(state.slowField>0&&!enemy.fly?.55:1);
+    const charging=enemy.charge&&enemy.progress>enemy.charge.at?enemy.charge.mul:1;
+    enemy.progress+=dt/travel*tuning.speed*(enemy.type==='plaque'&&enemy.progress>.7?1.9:1)*charging*(state.slowField>0&&!enemy.fly?.55:1);
     positionEnemy(enemy);
+    tickTraits(enemy,dt,tuning);
     if(enemy.progress>.86&&!enemy.guarded&&!enemy.fly){
       enemy.guarded=true;state.liver=clamp(state.liver+enemy.impact*.35*tuning.impact);
       if(!enemy.boss&&stageOfLiver()<3){damage(enemy,[1.5,1,.5][stageOfLiver()]||0,false);}
@@ -451,6 +502,10 @@ function combat(dt){
     }
   }
   // 보급 캡슐이 길을 따라 밀려 내려온다. 쏘면 줍고, 전경까지 흘려보내면 놓친다.
+  for(let i=pendingHits.length-1;i>=0;i--){
+    const hit=pendingHits[i];hit.in-=dt;
+    if(hit.in<=0){state.core=clamp(state.core-hit.damage);flashTime=.25;world.shake=Math.max(world.shake,.5);pendingHits.splice(i,1);}
+  }
   state.supply-=dt;
   if(state.supply<=0&&state.waveTime<wave.bossAt){
     state.supply=9.5+Math.random()*5.5;
@@ -555,7 +610,7 @@ function step(seconds=1/60){
 }
 function pause(force){
   if(!['combat','quiz'].includes(state.phase))return;
-  state.paused=force??!state.paused;state.shooting=false;pendingShots=[];show('paused',state.paused);
+  state.paused=force??!state.paused;state.shooting=false;pendingShots=[];pendingHits=[];show('paused',state.paused);
 }
 // XGunner 라이트건은 절대좌표 마우스다. 방아쇠를 당길 때 눌림과 뗌이 다른 픽셀에 찍히면
 // click 이벤트가 아예 발생하지 않으므로, UI는 pointerdown 으로 받고 click 은 중복만 막아 함께 받는다.

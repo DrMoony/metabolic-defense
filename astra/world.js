@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a29';
+import { healthColor } from './feedback.js?v=a30';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a29';
-import { buildTerrain } from './terrain.js?v=a29';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a29';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality } from './sprites.js?v=a29';
-import { getMap } from './maps/index.js?v=a29';
+import { contact, glow, reflections } from './art.js?v=a30';
+import { buildTerrain } from './terrain.js?v=a30';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a30';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality } from './sprites.js?v=a30';
+import { getMap } from './maps/index.js?v=a30';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -246,6 +246,22 @@ export class World {
     const prop={model,lock:target,item:key,routeId,progress,life:15,kind:'pickup',baseY:model.position.y};
     this.props.push(prop);return prop;
   }
+  // 몬스터가 던지는 포물선 투사체 (원거리 공격 연출)
+  lob(from,to,color=0xa8e06a){
+    const mesh=new THREE.Mesh(shapes.sphere,new THREE.MeshBasicMaterial({color,toneMapped:false,depthWrite:false}));
+    mesh.scale.setScalar(this.actorScale*.34);mesh.position.copy(from);this.scene.add(mesh);
+    this.fx.push({mesh,life:.85,max:.85,kind:'lob',from:from.clone(),to:to.clone(),arc:this.actorScale*6});
+  }
+  // 은신: 스프라이트를 흐리게 (알파 테스트 대신 투명 패스로 전환)
+  setEnemyFade(enemy,alpha){
+    const body=enemy.model?.userData?.body;
+    if(!body||body.userData.fade===alpha)return;
+    body.userData.fade=alpha;
+    body.material.transparent=alpha<1;
+    body.material.opacity=alpha;
+    body.material.depthWrite=alpha>=1;
+    body.material.needsUpdate=true;
+  }
   removeProp(prop){disposeBillboard(prop.model);const i=this.props.indexOf(prop);if(i>=0)this.props.splice(i,1);}
   freeTrap(prop){disposeBillboard(prop.model);this.props.splice(this.props.indexOf(prop),1);this.reward(prop.model.position,'item_gcgr');}
   pick(x,y,enemies){
@@ -361,6 +377,13 @@ export class World {
     for(let i=this.fx.length-1;i>=0;i--){
       const fx=this.fx[i];fx.life-=dt;fx.mesh.material.opacity=Math.max(0,fx.life/fx.max);
       if(fx.kind==='ring'){fx.mesh.scale.setScalar(fx.radius*Math.pow(Math.min(1,(1-fx.life/fx.max)/.68),2));fx.mesh.material.opacity=Math.min(.7,fx.life/fx.max*2);}
+      if(fx.kind==='lob'){
+        const k=1-fx.life/fx.max;
+        fx.mesh.position.copy(fx.from).lerp(fx.to,k);
+        fx.mesh.position.y+=fx.arc*4*k*(1-k);
+        fx.mesh.material.opacity=1;
+        if(fx.life<=dt)this.burst(fx.mesh.position.clone(),0xa8e06a,8);
+      }
       if(fx.kind==='flash'){const k=1-fx.life/fx.max;fx.mesh.scale.setScalar(fx.radius*(.3+k*.9));fx.mesh.material.opacity=Math.max(0,1-k*k*1.15);}
       if(fx.life<=0){this.disposeFx(fx);this.fx.splice(i,1);}
     }
