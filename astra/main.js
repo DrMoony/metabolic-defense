@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a31';
-import { RouteEditor } from './route-editor.js?v=a31';
-import { World, THREE } from './world.js?v=a31';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a31';
+import { healthColor, weaponColor } from './feedback.js?v=a32';
+import { RouteEditor } from './route-editor.js?v=a32';
+import { World, THREE } from './world.js?v=a32';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a32';
 
-import { MAPS, getMap } from './maps/index.js?v=a31';
+import { MAPS, getMap } from './maps/index.js?v=a32';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -49,7 +49,7 @@ const TYPES = {
   pizzaking:{hp:30,speed:1.05,score:2200,impact:28,boss:true,names:['대왕 피자 · 기름 장벽','Pizza Colossus · a wall of grease']},
   fragment:{hp:2,speed:4.1,score:150,impact:5,fly:true,names:['암세포 조각 · 흩어져 날아온다','Cancer Fragment · scatters through the air']},
 };
-const DIFFICULTY = {easy:{speed:.78,impact:.55,gap:1.35,hp:.75,pulse:.85},mid:{speed:1.02,impact:.98,gap:.94,hp:1.12,pulse:1.1},hard:{speed:1.26,impact:1.45,gap:.7,hp:1.45,pulse:1.35}};
+const DIFFICULTY = {easy:{speed:.78,impact:.55,gap:1.35,hp:.75,pulse:.85,traits:false},mid:{speed:1.02,impact:.98,gap:.94,hp:1.12,pulse:1.1,traits:false},hard:{speed:1.26,impact:1.45,gap:.7,hp:1.45,pulse:1.35,traits:true}};
 const WAVES = [
   {duration:30,bossAt:22,boss:'syrup',quiz:[15],spawns:[['soda',2.1,1],['fries',4.2,3],['icecream',6.5,7],['donut',9,11],['sodatitan',30,18]]},
   {duration:31,bossAt:23,boss:'wingking',quiz:[10,20],spawns:[['soda',2,1],['fries',3.8,2],['icecream',6,5],['donut',6.5,4],['wing',7.5,8],['burger',11,9],['burgerlord',34,14]]},
@@ -108,7 +108,7 @@ function updateLanguage(){
   document.querySelector('h1').textContent='ASTRA';
 
   $('intro-text').textContent=text('몸속으로 이어지는 여정, 지식으로 지키는 방어선','A journey within. A defense powered by knowledge.');
-  $('difficulty-hint').textContent=state.difficulty==='easy'?text('무제한 탄약 · 느린 적 · 첫 플레이에 추천','Unlimited ammo · slower enemies · a gentle first mission'):text('누르고 있으면 연사 · 탄약 소진 시 자동 재장전','Hold to fire · automatic reload when empty');
+  $('difficulty-hint').textContent=state.difficulty==='hard'?text('몬스터 특성 발현 · 투척·회복·장갑·은신·분열까지 상대해야 해요','Monster traits awaken · ranged, healing, armour, cloaking and splitting'):state.difficulty==='easy'?text('무제한 탄약 · 느린 적 · 첫 플레이에 추천','Unlimited ammo · slower enemies · a gentle first mission'):text('누르고 있으면 연사 · 탄약 소진 시 자동 재장전','Hold to fire · automatic reload when empty');
   $('guide-cards').replaceChildren();
   for(const pair of [
     [['01 / 조준하고 쏘기','다가오는 정크푸드를 쏘세요. 방아쇠를 누르면 연사합니다. 재장전·무기 교체는 화면 버튼으로!'],['01 / Point and shoot','Shoot approaching junk food. Hold the trigger to fire. Use the on-screen reload and weapon buttons.']],
@@ -261,7 +261,7 @@ function damage(enemy,amount,byPlayer=true,point){
   if(enemy.dead)return;
   if(byPlayer){
     const weapon=WEAPONS[state.weapon];
-    const armor=(enemy.armor&&!weapon.pierce&&!weapon.splash?enemy.armor:0)+auraArmor(enemy);
+    const armor=traitsOn()?((enemy.armor&&!weapon.pierce&&!weapon.splash?enemy.armor:0)+auraArmor(enemy)):0;
     if(armor>0)amount*=Math.max(.2,1-armor);
   }
   enemy.hp-=amount;enemy.flash=1;if(byPlayer)sample(Math.random()<.5?'hit':'hit_squish',.5);world.burst(point||enemy.model.position.clone().add(new THREE.Vector3(0,1.2,0)),byPlayer?0xffd395:0x9dedb7,byPlayer?5:3);
@@ -270,7 +270,7 @@ function damage(enemy,amount,byPlayer=true,point){
   const position=enemy.model.position.clone();removeEnemy(enemy,true);
   if(byPlayer){state.score+=Math.round(enemy.score*Math.min(4,1+state.combo*.12));world.shake=Math.max(world.shake,enemy.boss?2:.25);hitTime=enemy.boss?.13:enemy.maxHp>=5?.075:.045;}
   world.burst(position,enemy.boss?0xffad7f:0xffdc9b,enemy.boss?45:13);if(!enemy.boss)sample(Math.random()<.5?'kill_pop':'kill_splat',.8);
-  if(enemy.split&&!enemy.dead2){
+  if(enemy.split&&traitsOn()){
     for(let i=0;i<enemy.split.count;i++)spawn(enemy.split.into,{routeId:enemy.routeId,lane:enemy.lane,progress:Math.max(.08,enemy.progress-.05),from:position});
   }
   if(enemy.boss){
@@ -319,7 +319,9 @@ function screenGap(a,b){
   return Math.hypot(p.x-q.x,p.y-q.y)/Math.max(1,rect.width);
 }
 // 몬스터 특성: 투척·회복·은신·연막·분열. 체력과 속도만 다르면 전부 같은 적처럼 느껴진다.
+const traitsOn=()=>DIFFICULTY[state.difficulty].traits===true;
 function tickTraits(enemy,dt,tuning){
+  if(!traitsOn())return;
   if(enemy.ranged&&enemy.progress>enemy.ranged.from&&!enemy.dead){
     enemy.throwT=(enemy.throwT??enemy.ranged.every*Math.random())-dt;
     if(enemy.throwT<=0){
@@ -495,7 +497,7 @@ function combat(dt){
   for(const enemy of [...enemies]){
     // Bosses advance in 28s; regular soda lane travel is approximately 28s on NORMAL.
     const travel=enemy.boss?28:25*(3.2/enemy.speed);
-    const charging=enemy.charge&&enemy.progress>enemy.charge.at?enemy.charge.mul:1;
+    const charging=traitsOn()&&enemy.charge&&enemy.progress>enemy.charge.at?enemy.charge.mul:1;
     enemy.progress+=dt/travel*tuning.speed*(enemy.type==='plaque'&&enemy.progress>.7?1.9:1)*charging*(state.slowField>0&&!enemy.fly?.55:1);
     positionEnemy(enemy);
     tickTraits(enemy,dt,tuning);
