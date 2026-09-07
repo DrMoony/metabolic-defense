@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a30';
-import { RouteEditor } from './route-editor.js?v=a30';
-import { World, THREE } from './world.js?v=a30';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a30';
+import { healthColor, weaponColor } from './feedback.js?v=a31';
+import { RouteEditor } from './route-editor.js?v=a31';
+import { World, THREE } from './world.js?v=a31';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a31';
 
-import { MAPS, getMap } from './maps/index.js?v=a30';
+import { MAPS, getMap } from './maps/index.js?v=a31';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -31,11 +31,11 @@ const TYPES = {
   fries:{hp:3,speed:2.2,score:200,impact:7,names:['트랜스 프라이','Trans Fries']},
   burger:{hp:8,speed:1.35,score:400,impact:13,armor:.45,names:['미드나잇 버거 · 기름 장갑, 관통·폭발에 약하다','Midnight Burger · greasy armor, weak to pierce and blasts']},
   pizza:{hp:5,speed:1.8,score:300,impact:9,names:['기름진 피자','Greasy Pizza']},
-  icecream:{hp:2,speed:2.8,score:200,impact:6,sugar:true,heal:{every:4.2,amount:1.2,radius:16},names:['아이스크림 콘 · 주변을 회복시킨다','Ice Cream Cone · heals nearby invaders']},
+  icecream:{hp:2,speed:2.8,score:200,impact:6,sugar:true,heal:{every:4.2,amount:1.2,radius:.16},names:['아이스크림 콘 · 주변을 회복시킨다','Ice Cream Cone · heals nearby invaders']},
   donut:{hp:1,speed:3.4,score:250,impact:6,sugar:true,fly:true,split:{into:'moth',count:2},names:['슈가 도넛 · 터지면 둘로 갈라진다','Sugar Donut · splits in two']},
   wing:{hp:2,speed:5,score:340,impact:8,fly:true,names:['프라이드 치킨윙','Fried Chicken Wing']},
   ramen:{hp:6,speed:1.5,score:350,impact:11,charge:{at:.72,mul:2.1},names:['나트륨 컵라면 · 막판에 돌진한다','Sodium Cup Noodles · sprints at the end']},
-  ciga:{hp:3,speed:2.5,score:250,impact:8,aura:{radius:14,armor:.3},names:['꽁초 니코틴 · 연기로 주변을 감싼다','Nicotine Butt · smoke shields neighbours']},
+  ciga:{hp:3,speed:2.5,score:250,impact:8,aura:{radius:.14,armor:.3},names:['꽁초 니코틴 · 연기로 주변을 감싼다','Nicotine Butt · smoke shields neighbours']},
   soju:{hp:4,speed:2,score:320,impact:6,ranged:{every:3.4,damage:3,from:.22},names:['초록 소주병 · 멀리서 병을 던진다','Green Soju Bottle · lobs bottles from afar']},
   moth:{hp:1,speed:4.2,score:250,impact:6,fly:true,cloak:{every:3.6,duration:1.5},names:['날아온 과자봉지 · 잠깐씩 흐릿해진다','Flying Chip Bag · flickers out of sight']},
   bat:{hp:2,speed:3.6,score:300,impact:7,sugar:true,fly:true,names:['초콜릿 박쥐','Chocolate Bat']},
@@ -311,6 +311,13 @@ function collectItem(prop){
     notice('담즙 방출 · 지상 적을 밀어냈어요','BILE FLUSH · ground enemies pushed back',2.4);
   }
 }
+// 두 적이 화면에서 얼마나 가까운지 (월드 거리는 원근 때문에 멀리서 과장된다)
+function screenGap(a,b){
+  const p=world.project(a.model),q=world.project(b.model);
+  if(!p.visible||!q.visible)return Infinity;
+  const rect=$('stage').getBoundingClientRect();
+  return Math.hypot(p.x-q.x,p.y-q.y)/Math.max(1,rect.width);
+}
 // 몬스터 특성: 투척·회복·은신·연막·분열. 체력과 속도만 다르면 전부 같은 적처럼 느껴진다.
 function tickTraits(enemy,dt,tuning){
   if(enemy.ranged&&enemy.progress>enemy.ranged.from&&!enemy.dead){
@@ -330,10 +337,10 @@ function tickTraits(enemy,dt,tuning){
       let healed=0;
       for(const other of enemies){
         if(other===enemy||other.dead||other.hp>=other.maxHp)continue;
-        if(other.model.position.distanceTo(enemy.model.position)>enemy.heal.radius)continue;
+        if(screenGap(other,enemy)>enemy.heal.radius)continue;
         other.hp=Math.min(other.maxHp,other.hp+enemy.heal.amount);world.updateHealth(other);healed++;
       }
-      if(healed)world.ring(enemy.model.position,0x9fe8c8,enemy.heal.radius*.5);
+      if(healed)world.ring(enemy.model.position,0x9fe8c8,world.actorScale*9);
     }
   }
   if(enemy.cloak&&!enemy.dead){
@@ -348,7 +355,7 @@ function auraArmor(enemy){
   let best=0;
   for(const other of enemies){
     if(other===enemy||other.dead||!other.aura)continue;
-    if(other.model.position.distanceTo(enemy.model.position)<=other.aura.radius)best=Math.max(best,other.aura.armor);
+    if(screenGap(other,enemy)<=other.aura.radius)best=Math.max(best,other.aura.armor);
   }
   return best;
 }
