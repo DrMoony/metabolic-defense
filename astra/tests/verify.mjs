@@ -384,7 +384,7 @@ for(const map of A.MAPS){
   const turretAngles=[];
   for(const progress of [.01,.95]){
     // 좌우 산개는 무작위라 조준각 비교가 흔들린다. 중심선에 세워 놓고 잰다.
-    const target=A.spawn('soda',{progress});target.side=0;
+    const target=A.spawn('soda',{progress,lane:0});target.side=0;   // 차선도 고정해야 조준각이 결정론적이다
     target.model.position.copy(w.routePoint(target.routeId,progress));
     w.aimTurret(target,1);w.scene.updateMatrixWorld(true);
     turretAngles.push(w.pancreas.userData.body.rotation.z);
