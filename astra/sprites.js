@@ -1,5 +1,5 @@
 import * as T from '../vendor/three.module.js';
-import { SPRITE_SIZES } from './sprite-sizes.js?v=a32';
+import { SPRITE_SIZES } from './sprite-sizes.js?v=a33';
 
 const loader=new T.TextureLoader(),textures=new Map();
 // 렌더러가 준비되면 world.js가 최대 이방성 값을 알려준다. 밉맵 없이는 멀리 있는 스프라이트가 심하게 깨진다.
@@ -82,13 +82,26 @@ export function enemyBillboard(type,boss=false){
   root.userData={body,maps,bar,bg,fill,anchor:art.anchor,height:3,baseWidth:body.scale.x,billboard:true,boss};
   return root;
 }
+export function attachFlashOverlay(root){
+  const body=root.userData.body;
+  if(!body||root.userData.flashMesh)return;
+  const mesh=new T.Mesh(body.geometry,new T.MeshBasicMaterial({
+    map:body.material.map,color:0xffffff,transparent:true,opacity:0,
+    blending:T.AdditiveBlending,depthWrite:false,toneMapped:false}));
+  mesh.position.copy(body.position);mesh.scale.copy(body.scale);mesh.renderOrder=5;
+  body.add(mesh);mesh.position.set(0,0,0);mesh.scale.set(1,1,1);
+  root.userData.flashMesh=mesh;
+}
 export function animateEnemy(root,camera,time,seed,flash=0){
   const data=root.userData,phase=time*(5+Math.floor(seed)%5)+seed;
   data.body.material.map=data.maps[Math.floor(phase)%data.maps.length];
   const squash=Math.sin(phase*Math.PI*2)*(data.maps.length===1?.045:.018);
   data.body.scale.set(data.baseWidth*(1-squash),3*(1+squash),1);
-  data.body.material.color.setHex(0xffffff).lerp(new T.Color(0xff6860),flash*.8);
-  root.quaternion.copy(camera.quaternion);root.rotateZ(Math.sin(time*5+seed)*.025+flash*.06);
+  // 맞는 순간 흰 섬광 + 몸이 살짝 부풀었다 돌아온다. 붉은 틴트는 붉은 맵에서 보이지 않았다.
+  if(data.flashMesh){data.flashMesh.material.map=data.body.material.map;data.flashMesh.material.opacity=Math.min(1,flash*1.15);}
+  const punch=1+flash*.14;
+  data.body.scale.multiplyScalar(punch);
+  root.quaternion.copy(camera.quaternion);root.rotateZ(Math.sin(time*5+seed)*.025+flash*.09);
 }
 export function disposeBillboard(root){
   root.traverse(mesh=>{if(mesh.geometry&&!mesh.geometry.userData.shared)mesh.geometry.dispose();if(mesh.material)mesh.material.dispose();});

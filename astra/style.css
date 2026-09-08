@@ -48,3 +48,7 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 
 #weapon-banner{position:absolute;left:50%;bottom:16%;transform:translateX(-50%);padding:1.1cqh 1.6cqw;background:#172125ed;border:1px solid #d5ef9c;border-top-width:3px;border-radius:4px;color:#f1ffe6;font-size:1.7cqh;text-align:center}
 #map-list button.beta{border-color:#e0a45c66}#map-list button.beta small{color:#f0b46a}
+#popups{position:absolute;inset:0;pointer-events:none;z-index:17;overflow:hidden}
+.dmg-pop{position:absolute;transform:translate(-50%,-100%);font-weight:900;letter-spacing:.02em;
+  text-shadow:0 2px 6px #200a12,0 0 10px #00000088;animation:dmgpop .7s ease-out forwards;pointer-events:none}
+@keyframes dmgpop{0%{opacity:0;transform:translate(-50%,-90%) scale(.7)}12%{opacity:1;transform:translate(-50%,-115%) scale(1.15)}100%{opacity:0;transform:translate(-50%,-215%) scale(1)}}
