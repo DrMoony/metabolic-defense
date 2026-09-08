@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a33';
-import { RouteEditor } from './route-editor.js?v=a33';
-import { World, THREE } from './world.js?v=a33';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a33';
+import { healthColor, weaponColor } from './feedback.js?v=a34';
+import { RouteEditor } from './route-editor.js?v=a34';
+import { World, THREE } from './world.js?v=a34';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a34';
 
-import { MAPS, getMap } from './maps/index.js?v=a33';
+import { MAPS, getMap } from './maps/index.js?v=a34';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -48,14 +48,22 @@ const TYPES = {
   wingking:{hp:22,speed:2.4,score:1800,impact:20,fly:true,boss:true,names:['치킨윙 대장 · 상공에서 급습','Wing Commander · strikes from the air']},
   pizzaking:{hp:30,speed:1.05,score:2200,impact:28,boss:true,names:['대왕 피자 · 기름 장벽','Pizza Colossus · a wall of grease']},
   fragment:{hp:2,speed:4.1,score:150,impact:5,fly:true,names:['암세포 조각 · 흩어져 날아온다','Cancer Fragment · scatters through the air']},
+  // ---- 하드 전용 신종 (임시 색상 스프라이트 · 전용 그림으로 교체 예정) ----
+  pizzabox:{hp:7,speed:1.6,score:520,impact:11,hardOnly:true,fallback:'pizza',tint:0xd9a45e,block:3,names:['피자 박스 방패병 · 방패가 3발을 막는다','Pizza Box Shieldman · blocks the first 3 hits']},
+  bubbletea:{hp:6,speed:1.7,score:560,impact:10,sugar:true,hardOnly:true,fallback:'soda',tint:0xc9a8ef,summon:{every:5,type:'pearl',max:4},names:['버블티 소환수 · 타피오카 펄을 계속 뱉는다','Bubble Tea Summoner · keeps spitting pearls']},
+  pearl:{hp:1,speed:4.4,score:90,impact:3,sugar:true,minion:true,fallback:'cancerlet',tint:0x6b4a3a,scaleMul:.55,names:['타피오카 펄','Tapioca Pearl']},
+  energycan:{hp:5,speed:2.1,score:520,impact:9,sugar:true,hardOnly:true,fallback:'soju',tint:0x7df2c9,haste:{radius:.15,mul:1.5},names:['에너지 드링크 캔 · 주변을 가속시킨다','Energy Can · hastens neighbours']},
+  mayo:{hp:6,speed:1.6,score:540,impact:10,hardOnly:true,fallback:'ramen',tint:0xf5ecd8,grease:{gap:.12,mul:1.4},names:['마요네즈 튜브 · 기름길로 뒤를 가속','Mayo Tube · greases the road behind it'] },
+  popcorn:{hp:7,speed:1.5,score:560,impact:10,hardOnly:true,fallback:'fries',tint:0xf3d98a,retaliate:{type:'pearl',chance:.5,max:5,tint:0xf6e6b0},names:['팝콘 버킷 · 맞을 때마다 알갱이가 튄다','Popcorn Bucket · pops a kernel when hit']},
+  cake:{hp:6,speed:1.5,score:560,impact:10,sugar:true,hardOnly:true,fallback:'icecream',tint:0xf6b7c9,puddle:{duration:8,radius:.13,heal:.6},names:['크림 케이크 · 죽은 자리가 회복 웅덩이','Cream Cake · leaves a healing puddle']},
 };
 const DIFFICULTY = {easy:{speed:.78,impact:.55,gap:1.35,hp:.75,pulse:.85,traits:false},mid:{speed:1.02,impact:.98,gap:.94,hp:1.12,pulse:1.1,traits:false},hard:{speed:1.26,impact:1.45,gap:.7,hp:1.45,pulse:1.35,traits:true}};
 const WAVES = [
-  {duration:30,bossAt:22,boss:'syrup',quiz:[15],spawns:[['soda',2.1,1],['fries',4.2,3],['icecream',6.5,7],['donut',9,11],['sodatitan',30,18]]},
-  {duration:31,bossAt:23,boss:'wingking',quiz:[10,20],spawns:[['soda',2,1],['fries',3.8,2],['icecream',6,5],['donut',6.5,4],['wing',7.5,8],['burger',11,9],['burgerlord',34,14]]},
-  {duration:32,bossAt:24,boss:'cancer',quiz:[9,19],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',9.5,6],['pizza',9,8],['icecream',6.2,4],['donut',6,3],['wing',6.5,7],['sodatitan',26,12],['burgerlord',30,20]]},
-  {duration:33,bossAt:25,boss:'pizzaking',quiz:[8,16,24],spawns:[['soda',1.7,1],['fries',3.1,2],['burger',8.5,5],['pizza',8,4],['icecream',5.8,3],['donut',5.5,3],['wing',5.5,6],['ramen',12,10],['burgerlord',24,11],['sodatitan',28,19]]},
-  {duration:34,bossAt:26,boss:'plaque',quiz:[7,14,21,28],spawns:[['soda',1.5,1],['fries',2.8,2],['burger',7.5,5],['pizza',7,3],['icecream',5.4,4],['donut',5,2],['wing',4.8,5],['ramen',10,8],['burgerlord',22,10],['sodatitan',24,16]]},
+  {duration:30,bossAt:22,boss:'syrup',quiz:[15],spawns:[['soda',2.1,1],['fries',4.2,3],['icecream',6.5,7],['donut',9,11],['sodatitan',30,18],['pizzabox',17,12]]},
+  {duration:31,bossAt:23,boss:'wingking',quiz:[10,20],spawns:[['soda',2,1],['fries',3.8,2],['icecream',6,5],['donut',6.5,4],['wing',7.5,8],['burger',11,9],['burgerlord',34,14],['bubbletea',15,10],['energycan',18,16]]},
+  {duration:32,bossAt:24,boss:'cancer',quiz:[9,19],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',9.5,6],['pizza',9,8],['icecream',6.2,4],['donut',6,3],['wing',6.5,7],['sodatitan',26,12],['burgerlord',30,20],['mayo',16,9],['popcorn',18,14]]},
+  {duration:33,bossAt:25,boss:'pizzaking',quiz:[8,16,24],spawns:[['soda',1.7,1],['fries',3.1,2],['burger',8.5,5],['pizza',8,4],['icecream',5.8,3],['donut',5.5,3],['wing',5.5,6],['ramen',12,10],['burgerlord',24,11],['sodatitan',28,19],['cake',15,8],['pizzabox',16,15],['bubbletea',17,20]]},
+  {duration:34,bossAt:26,boss:'plaque',quiz:[7,14,21,28],spawns:[['soda',1.5,1],['fries',2.8,2],['burger',7.5,5],['pizza',7,3],['icecream',5.4,4],['donut',5,2],['wing',4.8,5],['ramen',10,8],['burgerlord',22,10],['sodatitan',24,16],['energycan',14,7],['mayo',15,12],['popcorn',16,17],['cake',17,21]]},
 ];
 const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,glucagon:0,slowField:0,supply:8,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
@@ -184,7 +192,7 @@ async function fullscreen(){try{if(!document.fullscreenElement)await $('stage').
 function resetGame(){
   const {lang,difficulty,map}=state;Object.assign(state,freshState(),{lang,difficulty,map});
   const arrival=world.camera.position.clone();world.selectMap(map);world.flight=0;if(!world.map.plate)world.camera.position.copy(arrival);
-  enemies.length=0;world.clear();upgradeTime=0;show('weapon-banner',false);pendingShots=[];bank.reset();quizTransition=false;hitTime=flashTime=0;world.buildGun(0);world.shake=0;
+  enemies.length=0;creamZones=[];world.clear();upgradeTime=0;show('weapon-banner',false);pendingShots=[];bank.reset();quizTransition=false;hitTime=flashTime=0;world.buildGun(0);world.shake=0;
   updateMapUI();startWave(0);
 }
 function startWave(index){
@@ -192,7 +200,8 @@ function startWave(index){
   setPhase('combat');notice(`${index===WAVES.length-1?'최종 ':''}웨이브 ${index+1} · 방어선을 지켜주세요`,`${index===WAVES.length-1?'FINAL ':''}WAVE ${index+1} · Hold the line`,3);
 }
 function spawn(type='soda',options={}){
-  const definition=TYPES[type];if(!definition)throw new Error(`Unknown enemy: ${type}`);
+  let definition=TYPES[type];if(!definition)throw new Error(`Unknown enemy: ${type}`);
+  if(definition.hardOnly&&!DIFFICULTY[state.difficulty].traits){type=definition.fallback||'soda';definition=TYPES[type];}
   const model=world.addEnemy(type,definition.boss);
   const routes=world.terrain.routes.items,lane=options.lane??Math.floor(Math.random()*routes.length);
   const routeId=world.terrain.routes.get(options.routeId??routes[((lane%routes.length)+routes.length)%routes.length].id).id;
@@ -200,6 +209,9 @@ function spawn(type='soda',options={}){
   const enemy={type,...definition,waveBoss:definition.boss===true&&options.waveBoss===true,showHealth:definition.hp>=2,model,hp,maxHp:hp,lane,routeId,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:['fragment','cancerlet'].includes(type)?.7:1,flash:0,dead:false,guarded:false};
   if(definition.fly)planFlight(enemy,options.from);
   enemy.side=(Math.random()-.5)*(definition.boss?1.1:3.4);
+  if(definition.tint)model.userData.body.material.color.setHex(definition.tint);
+  if(definition.scaleMul)enemy.scale*=definition.scaleMul;
+  if(definition.block)enemy.blockLeft=definition.block;
   enemies.push(enemy);positionEnemy(enemy);world.updateHealth(enemy);
   if(definition.boss){if(enemy.waveBoss)state.bosses.push(type);world.shake=1.5;world.ring(model.position,0xffa56e,10);notice(...definition.names,4);sound(95,.45,'sawtooth',.05);}
   updateBossHUD();return enemy;
@@ -281,6 +293,19 @@ function damage(enemy,amount,byPlayer=true,point){
   if(enemy.dead)return;
   if(byPlayer){
     const weapon=WEAPONS[state.weapon];
+    if(traitsOn()&&enemy.blockLeft>0&&!weapon.pierce&&!weapon.splash){
+      enemy.blockLeft--;enemy.flash=.7;
+      damagePopup(point||world.center(enemy.model),enemy.blockLeft>0?text('막힘!','BLOCK!'):text('방패 파괴!','SHIELD DOWN!'),'#9fd6ff',1.05);
+      if(!sample('reload_click',.6))sound(220,.06,'square',.05);
+      return;
+    }
+    if(traitsOn()&&enemy.retaliate&&Math.random()<enemy.retaliate.chance){
+      const kids=enemies.filter(e=>e.minion&&e.owner===enemy).length;
+      if(kids<enemy.retaliate.max){
+        const kid=spawn(enemy.retaliate.type,{routeId:enemy.routeId,lane:enemy.lane,progress:Math.max(.03,enemy.progress-.03)});
+        kid.owner=enemy;if(enemy.retaliate.tint)kid.model.userData.body.material.color.setHex(enemy.retaliate.tint);
+      }
+    }
     const armor=traitsOn()?((enemy.armor&&!weapon.pierce&&!weapon.splash?enemy.armor:0)+auraArmor(enemy)):0;
     if(armor>0)amount*=Math.max(.2,1-armor);
   }
@@ -296,6 +321,11 @@ function damage(enemy,amount,byPlayer=true,point){
   const position=enemy.model.position.clone();removeEnemy(enemy,true);
   if(byPlayer){state.score+=Math.round(enemy.score*Math.min(4,1+state.combo*.12));world.shake=Math.max(world.shake,enemy.boss?2:.25);hitTime=enemy.boss?.13:enemy.maxHp>=5?.075:.045;}
   world.burst(position,enemy.boss?0xffad7f:0xffdc9b,enemy.boss?45:13);if(!enemy.boss)sample(Math.random()<.5?'kill_pop':'kill_splat',.8);
+  if(enemy.puddle&&traitsOn()){
+    creamZones.push({position:position.clone(),until:state.elapsed+enemy.puddle.duration,radius:enemy.puddle.radius,heal:enemy.puddle.heal,tick:0});
+    world.ring(position,0xf6b7c9,world.actorScale*8);
+    notice('크림 웅덩이 · 그 위의 적이 회복돼요','CREAM PUDDLE · enemies on it heal',2);
+  }
   if(enemy.split&&traitsOn()){
     for(let i=0;i<enemy.split.count;i++)spawn(enemy.split.into,{routeId:enemy.routeId,lane:enemy.lane,progress:Math.max(.08,enemy.progress-.05),from:position});
   }
@@ -340,6 +370,7 @@ function collectItem(prop){
 // 두 적이 화면에서 얼마나 가까운지 (월드 거리는 원근 때문에 멀리서 과장된다)
 // 피해 숫자 팝업 — 맞았다는 사실이 화면에 또렷이 남는다
 let popupCount=0;
+let creamZones=[];
 function damagePopup(worldPos,textValue,color='#ffd479',scale=1){
   if(popupCount>40)return;
   const v=worldPos.clone().project(world.camera);
@@ -388,6 +419,17 @@ function tickTraits(enemy,dt,tuning){
       if(healed)world.ring(enemy.model.position,0x9fe8c8,world.actorScale*9);
     }
   }
+  if(enemy.summon&&!enemy.dead){
+    enemy.summonT=(enemy.summonT??enemy.summon.every*Math.random())-dt;
+    if(enemy.summonT<=0){
+      enemy.summonT=enemy.summon.every;
+      const mine=enemies.filter(e=>e.minion&&e.owner===enemy).length;
+      if(mine<enemy.summon.max){
+        const kid=spawn(enemy.summon.type,{routeId:enemy.routeId,lane:enemy.lane,progress:Math.max(.03,enemy.progress-.04)});
+        kid.owner=enemy;world.ring(enemy.model.position,0xc9a8ef,world.actorScale*5);
+      }
+    }
+  }
   if(enemy.cloak&&!enemy.dead){
     enemy.cloakT=(enemy.cloakT??enemy.cloak.every*Math.random())-dt;
     if(enemy.cloakT<=0){enemy.cloakT=enemy.cloak.every;enemy.cloaked=enemy.cloak.duration;}
@@ -396,6 +438,17 @@ function tickTraits(enemy,dt,tuning){
   }
 }
 // 연막을 두른 이웃은 피해를 덜 받는다
+// 가속 오라(에너지캔)와 기름길(마요) — 이동 배수
+function speedBoost(enemy){
+  if(!traitsOn())return 1;
+  let mul=1;
+  for(const other of enemies){
+    if(other===enemy||other.dead)continue;
+    if(other.haste&&screenGap(other,enemy)<=other.haste.radius)mul=Math.max(mul,other.haste.mul);
+    if(other.grease&&other.routeId===enemy.routeId&&enemy.progress<other.progress&&other.progress-enemy.progress<=other.grease.gap)mul=Math.max(mul,other.grease.mul);
+  }
+  return mul;
+}
 function auraArmor(enemy){
   let best=0;
   for(const other of enemies){
@@ -541,7 +594,7 @@ function combat(dt){
     // Bosses advance in 28s; regular soda lane travel is approximately 28s on NORMAL.
     const travel=enemy.boss?28:25*(3.2/enemy.speed);
     const charging=traitsOn()&&enemy.charge&&enemy.progress>enemy.charge.at?enemy.charge.mul:1;
-    enemy.progress+=dt/travel*tuning.speed*(enemy.type==='plaque'&&enemy.progress>.7?1.9:1)*charging*(state.slowField>0&&!enemy.fly?.55:1);
+    enemy.progress+=dt/travel*tuning.speed*(enemy.type==='plaque'&&enemy.progress>.7?1.9:1)*charging*speedBoost(enemy)*(state.slowField>0&&!enemy.fly?.55:1);
     positionEnemy(enemy);
     tickTraits(enemy,dt,tuning);
     if(enemy.progress>.86&&!enemy.guarded&&!enemy.fly){
@@ -566,6 +619,19 @@ function combat(dt){
     const key=pool[Math.floor(Math.random()*pool.length)];
     world.spawnPickup(route.id,key,.5+Math.random()*.28);
     notice('보급 캡슐 · 쏘면 획득','SUPPLY CAPSULE · shoot to collect',2);
+  }
+  for(let i=creamZones.length-1;i>=0;i--){
+    const zone=creamZones[i];
+    if(state.elapsed>zone.until){creamZones.splice(i,1);continue;}
+    zone.tick-=dt;
+    if(zone.tick<=0){
+      zone.tick=1;world.ring(zone.position,0xf6b7c9,world.actorScale*6);
+      for(const enemy of enemies){
+        if(enemy.dead||enemy.fly||enemy.hp>=enemy.maxHp)continue;
+        const v=zone.position.clone().project(world.camera),w=enemy.model.position.clone().project(world.camera);
+        if(Math.hypot(v.x-w.x,v.y-w.y)/2<=zone.radius){enemy.hp=Math.min(enemy.maxHp,enemy.hp+zone.heal);world.updateHealth(enemy);damagePopup(world.center(enemy.model),`+${zone.heal}`,'#f6b7c9',.85);}
+      }
+    }
   }
   state.pulse-=dt;
   if(state.pulse<=0){
