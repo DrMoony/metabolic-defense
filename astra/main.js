@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a40';
-import { RouteEditor } from './route-editor.js?v=a40';
-import { World, THREE } from './world.js?v=a40';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a40';
+import { healthColor, weaponColor } from './feedback.js?v=a41';
+import { RouteEditor } from './route-editor.js?v=a41';
+import { World, THREE } from './world.js?v=a41';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a41';
 
-import { MAPS, getMap } from './maps/index.js?v=a40';
+import { MAPS, getMap } from './maps/index.js?v=a41';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -270,9 +270,15 @@ function positionEnemy(enemy){
   }else{
     position=world.routePoint(enemy.routeId,p);
     // 길 폭 안에서 좌우로 벌려 세운다. 한 줄로 행진하면 한 발에 쓸려버린다.
-    if(enemy.side){
+    // 합류 이후 마지막 구간(진행 60%~)은 출발한 길의 차선 편향 + 개체별 흔들림을 섞어
+    // 궤적을 조금씩 다르게 태운다. 전부 똑같은 직선으로 걸어 들어오지 않게.
+    {
       const tangent=world.terrain.routes.tangent(enemy.routeId,p);
-      const off=enemy.side*world.actorScale*(.55+p*.55);
+      const merge=Math.max(0,(p-.6)/.4);
+      const lanes=world.terrain.routes.items.length;
+      const laneBias=lanes>1?(((enemy.lane%lanes)+lanes)%lanes-(lanes-1)/2)*(enemy.boss?.25:.8):0;
+      const weave=Math.sin(p*6.2+enemy.seed)*(enemy.boss?.15:.55);
+      const off=Math.max(-1.95,Math.min(1.95,(enemy.side||0)*(.55+p*.55)+(laneBias+weave)*merge))*world.actorScale;
       position.x+=-tangent.z*off;position.z+=tangent.x*off;
     }
   }
