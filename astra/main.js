@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a35';
-import { RouteEditor } from './route-editor.js?v=a35';
-import { World, THREE } from './world.js?v=a35';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a35';
+import { healthColor, weaponColor } from './feedback.js?v=a36';
+import { RouteEditor } from './route-editor.js?v=a36';
+import { World, THREE } from './world.js?v=a36';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a36';
 
-import { MAPS, getMap } from './maps/index.js?v=a35';
+import { MAPS, getMap } from './maps/index.js?v=a36';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -220,6 +220,11 @@ function spawn(type='soda',options={}){
 function planFlight(enemy,origin){
   const exit=world.routePoint(enemy.routeId,1).clone();
   let from=origin?origin.clone().add(new THREE.Vector3((Math.random()-.5)*10,0,(Math.random()-.5)*8)):null;
+  // 맵이 비행 스폰 지점을 갖고 있으면(위 맵의 산호수 호수 가운데 섬) 거기서 날아오른다
+  if(!from&&world.map.flySpawn){
+    const anchor=world.map.flySpawn;
+    from=world.platePoint(anchor[0]+(Math.random()-.5)*.10,anchor[1]+(Math.random()-.5)*.06);
+  }
   for(let tries=0;tries<8&&!from;tries++)from=world.platePoint(.04+Math.random()*.92,.12+Math.random()*.20);
   if(!from)from=world.routePoint(enemy.routeId,0).clone();
   enemy.flyFrom=from;
