@@ -3,9 +3,9 @@
   "q": "The 2025 Lancet Commission split obesity into which two categories?",
   "a": [
    "Clinical obesity and preclinical obesity",
-   "Childhood and adult obesity",
-   "Type 1 and type 2 obesity",
-   "Acute and chronic obesity"
+   "Metabolically healthy and unhealthy obesity",
+   "Class 1 and class 2 obesity",
+   "Abdominal and peripheral obesity"
   ],
   "correct": 0,
   "diff": "easy",
@@ -15,9 +15,9 @@
   "q": "Under the Lancet Commission, what defines clinical obesity?",
   "a": [
    "Organ dysfunction or functional limitation caused by excess adiposity",
-   "A BMI above 30",
-   "Body weight above 100 kg",
-   "A positive family history"
+   "BMI above 30 plus an elevated waist circumference",
+   "Body weight above 120% of ideal weight",
+   "A family history of obesity-related disease"
   ],
   "correct": 0,
   "diff": "mid",
@@ -27,9 +27,9 @@
   "q": "What is preclinical obesity?",
   "a": [
    "Excess adiposity with preserved organ function",
-   "Diabetes already present",
-   "Requiring surgery",
-   "Normal body weight"
+   "Overweight with BMI 23–24.9",
+   "Normal fat mass with low muscle mass",
+   "The early phase where organ dysfunction has begun"
   ],
   "correct": 0,
   "diff": "mid",
@@ -39,9 +39,9 @@
   "q": "Why did the Commission say BMI alone should not diagnose obesity?",
   "a": [
    "BMI does not directly capture the amount or distribution of body fat",
-   "It is hard to calculate",
-   "Height is hard to measure",
-   "It adjusts for age"
+   "The BMI formula has to be recalculated for each ethnic group",
+   "BMI cannot be adjusted for age or sex in adults",
+   "BMI needs body-composition equipment to calculate"
   ],
   "correct": 0,
   "diff": "mid",
@@ -51,9 +51,9 @@
   "q": "Besides BMI, what does the Commission require to confirm excess adiposity?",
   "a": [
    "A fat measure such as waist circumference, waist-hip or waist-height ratio",
-   "Blood type",
-   "Visual acuity",
-   "Lung capacity"
+   "Fasting glucose and HbA1c to confirm metabolic disease",
+   "Blood pressure and LDL cholesterol to confirm cardiovascular risk",
+   "Liver enzyme (ALT) levels to confirm liver involvement"
   ],
   "correct": 0,
   "diff": "mid",
@@ -63,9 +63,9 @@
   "q": "Which waist-to-height ratio threshold suggests central adiposity?",
   "a": [
    "Above 0.5",
-   "Above 0.1",
-   "Above 1.5",
-   "Above 3.0"
+   "Above 0.4",
+   "Above 0.6",
+   "Above 0.8"
   ],
   "correct": 0,
   "diff": "hard",
@@ -75,9 +75,9 @@
   "q": "In Korea, obesity is defined from which BMI?",
   "a": [
    "25 kg/m² or higher",
-   "30 kg/m² or higher",
-   "35 kg/m² or higher",
-   "40 kg/m² or higher"
+   "23 kg/m² or higher",
+   "27.5 kg/m² or higher",
+   "30 kg/m² or higher"
   ],
   "correct": 0,
   "diff": "easy",
@@ -87,9 +87,9 @@
   "q": "In the Korean criteria, pre-obesity (overweight) starts at which BMI?",
   "a": [
    "23 kg/m² or higher",
-   "27 kg/m² or higher",
-   "30 kg/m² or higher",
-   "18 kg/m² or higher"
+   "24 kg/m² or higher",
+   "25 kg/m² or higher",
+   "22 kg/m² or higher"
   ],
   "correct": 0,
   "diff": "mid",
@@ -99,9 +99,9 @@
   "q": "Korean class 3 (severe) obesity starts at which BMI?",
   "a": [
    "35 kg/m² or higher",
-   "25 kg/m² or higher",
-   "28 kg/m² or higher",
-   "50 kg/m² or higher"
+   "30 kg/m² or higher",
+   "32.5 kg/m² or higher",
+   "40 kg/m² or higher"
   ],
   "correct": 0,
   "diff": "hard",
@@ -110,10 +110,10 @@
  {
   "q": "Why is metabolic risk higher in Asians at the same BMI?",
   "a": [
-   "A higher proportion of visceral fat at the same body weight",
-   "Shorter height",
-   "Lower body temperature",
-   "Lower blood pressure"
+   "A higher share of visceral fat at the same body weight",
+   "More muscle mass than Western populations",
+   "A higher basal metabolic rate",
+   "More subcutaneous fat accumulation"
   ],
   "correct": 0,
   "diff": "mid",
@@ -122,10 +122,10 @@
  {
   "q": "How should obesity be regarded?",
   "a": [
-   "A chronic, relapsing disease",
-   "A matter of willpower",
-   "A temporary state",
-   "A contagious disease"
+   "A chronic disease with frequent relapse",
+   "An acute condition cured by lifestyle change",
+   "A congenital disorder determined only by genes",
+   "A condition that does not recur after weight loss"
   ],
   "correct": 0,
   "diff": "easy",
@@ -134,10 +134,10 @@
  {
   "q": "What is the first benefit expected from 5-10% weight loss?",
   "a": [
-   "Improvement in glucose, blood pressure and triglycerides",
-   "Increased height",
-   "Higher body temperature",
-   "Better eyesight"
+   "Improvement in comorbidity markers such as glucose, blood pressure and triglycerides",
+   "Structural regeneration of knee joint cartilage",
+   "A significant rise in basal metabolic rate",
+   "Higher bone density and lower fracture risk"
   ],
   "correct": 0,
   "diff": "easy",
@@ -146,10 +146,10 @@
  {
   "q": "Why is visceral (central) adiposity especially harmful?",
   "a": [
-   "Free fatty acids drain via the portal vein to the liver and drive metabolic dysfunction",
-   "The skin stretches",
-   "Clothes stop fitting",
-   "Body temperature rises"
+   "Free fatty acids drain through the portal vein into the liver and drive metabolic dysfunction",
+   "Its fat cells are smaller and store less lipid than subcutaneous fat cells",
+   "It secretes more leptin, which suppresses appetite and lowers intake",
+   "It accumulates around muscle and directly reduces muscle strength"
   ],
   "correct": 0,
   "diff": "mid",
@@ -158,10 +158,10 @@
  {
   "q": "What should be protected during weight loss?",
   "a": [
-   "Muscle (lean body mass)",
-   "Fat mass",
-   "Body water",
-   "Bone density only"
+   "Muscle mass (lean body mass)",
+   "Visceral fat mass",
+   "Total body water",
+   "Subcutaneous fat mass"
   ],
   "correct": 0,
   "diff": "mid",
@@ -170,10 +170,10 @@
  {
   "q": "What was the headline result of the SELECT trial with semaglutide 2.4 mg?",
   "a": [
-   "About a 20% reduction in major adverse cardiovascular events",
-   "A 40% drop in blood pressure",
-   "Elimination of cancer risk",
-   "No effect"
+   "About a 20% reduction in major adverse cardiovascular events (MACE)",
+   "About a 50% reduction in heart-failure hospitalisation",
+   "A significant reduction in stroke only",
+   "No difference in cardiovascular death"
   ],
   "correct": 0,
   "diff": "hard",
@@ -183,10 +183,10 @@
  {
   "q": "Who were the participants in the SELECT trial?",
   "a": [
-   "Adults with overweight/obesity and established CVD, without diabetes",
-   "Children with type 1 diabetes",
-   "Healthy normal-weight adults",
-   "Pregnant women"
+   "Overweight or obese adults with cardiovascular disease and without diabetes",
+   "Adults with both type 2 diabetes and cardiovascular disease",
+   "High-risk obese adults without cardiovascular disease",
+   "Overweight adults for primary prevention"
   ],
   "correct": 0,
   "diff": "hard",
@@ -194,25 +194,25 @@
   "drug": true
  },
  {
-  "q": "In STEP 1, what was the mean weight loss with semaglutide 2.4 mg at 68 weeks?",
+  "q": "In STEP 1, what was the mean 68-week weight loss with semaglutide 2.4 mg?",
   "a": [
-   "About 15-17%",
-   "About 2%",
-   "About 40%",
-   "No change"
+   "About 15%",
+   "About 5%",
+   "About 10%",
+   "About 21%"
   ],
   "correct": 0,
   "diff": "hard",
-  "src": "STEP 1 (NEJM 2021)",
+  "src": "STEP 1 (NEJM 2021) — 14.9% vs 2.4% placebo",
   "drug": true
  },
  {
   "q": "In SURMOUNT-1, what weight loss did tirzepatide 15 mg achieve at 72 weeks?",
   "a": [
    "About 21%",
-   "About 3%",
-   "About 50%",
-   "About 5%"
+   "About 10%",
+   "About 15%",
+   "About 30%"
   ],
   "correct": 0,
   "diff": "hard",
@@ -222,10 +222,10 @@
  {
   "q": "What happens to weight after stopping a GLP-1 receptor agonist?",
   "a": [
-   "Much of it returns (STEP 1 extension: about two-thirds regained within a year)",
-   "It stays off",
-   "It keeps falling",
-   "It is unpredictable"
+   "Much of it returns (about two-thirds of the loss regained after one year)",
+   "Most of it is kept (over 90% of the loss is maintained at one year)",
+   "Only about half is regained (about 50% of the loss returns)",
+   "Weight keeps falling (the loss continues after stopping)"
   ],
   "correct": 0,
   "diff": "mid",
@@ -235,10 +235,10 @@
  {
   "q": "What must accompany pharmacotherapy for obesity?",
   "a": [
-   "Lifestyle intervention: diet, activity and behaviour",
-   "Strict bed rest",
-   "Fasting",
-   "Medication alone"
+   "Lifestyle intervention: diet, exercise and behavioural therapy",
+   "Monthly liver and kidney function tests throughout treatment",
+   "A low-calorie meal replacement used on its own",
+   "An antidepressant added from the start of treatment"
   ],
   "correct": 0,
   "diff": "easy",
@@ -248,9 +248,9 @@
   "q": "What is the most common side effect of GLP-1 receptor agonists?",
   "a": [
    "Gastrointestinal symptoms such as nausea and vomiting",
-   "Hair loss",
-   "Hearing loss",
-   "Joint pain"
+   "Hypoglycaemia requiring dose adjustment",
+   "Fluid retention with peripheral oedema",
+   "Headache and dizziness on standing"
   ],
   "correct": 0,
   "diff": "mid",
@@ -260,10 +260,10 @@
  {
   "q": "What BMI generally triggers consideration of metabolic/bariatric surgery?",
   "a": [
-   "BMI 35 or above, or 30 or above with metabolic disease",
-   "BMI 20 or above",
-   "BMI 23 or above",
-   "Only BMI 60 or above"
+   "BMI 35 or higher, or 30 or higher with comorbidities",
+   "BMI 40 or higher only",
+   "BMI 30 or higher regardless of comorbidities",
+   "BMI 25 or higher with diabetes"
   ],
   "correct": 0,
   "diff": "hard",
@@ -285,9 +285,9 @@
   "q": "Which sleep disorder commonly accompanies obesity?",
   "a": [
    "Obstructive sleep apnoea",
-   "Sleepwalking",
-   "Night terrors",
-   "Sleep paralysis only"
+   "Narcolepsy",
+   "Restless legs syndrome",
+   "Central sleep apnoea"
   ],
   "correct": 0,
   "diff": "easy",
@@ -296,10 +296,10 @@
  {
   "q": "How does weight loss affect steatotic liver disease (MASLD)?",
   "a": [
-   "5-7% improves inflammation; 7-10% can improve fibrosis",
-   "No effect",
-   "It worsens the liver",
-   "It only enlarges the liver"
+   "5–7% loss improves inflammation and 7–10% can improve fibrosis",
+   "A 3% loss alone improves fibrosis",
+   "Steatosis improves only after a loss of 15% or more",
+   "Only exercise helps, regardless of weight"
   ],
   "correct": 0,
   "diff": "mid",
@@ -321,9 +321,9 @@
   "q": "What metabolic adaptation follows weight loss?",
   "a": [
    "Energy expenditure falls and appetite hormones rise, pushing weight back up",
-   "Metabolism keeps speeding up",
-   "Appetite disappears",
-   "Nothing changes"
+   "Basal metabolic rate rises so further loss gets easier",
+   "Leptin rises and suppresses appetite",
+   "Thyroid hormone rises and increases heat production"
   ],
   "correct": 0,
   "diff": "hard",
@@ -334,8 +334,8 @@
   "a": [
    "Knee osteoarthritis",
    "Rheumatoid arthritis",
-   "Gout only",
-   "Fractures"
+   "Ankylosing spondylitis",
+   "Distal finger-joint arthritis"
   ],
   "correct": 0,
   "diff": "easy",
@@ -344,10 +344,10 @@
  {
   "q": "What is a safe, sustainable rate of weight loss?",
   "a": [
-   "0.5-1 kg per week",
-   "2 kg per day",
-   "5 kg per week",
-   "The faster the better"
+   "0.5–1 kg per week",
+   "2–3 kg per week",
+   "0.5 kg per day",
+   "0.5 kg per month"
   ],
   "correct": 0,
   "diff": "easy",
@@ -357,9 +357,9 @@
   "q": "How should cardiovascular risk in obesity be reduced?",
   "a": [
    "Manage weight together with blood pressure, lipids and glucose",
-   "Weight only",
-   "Blood pressure only",
-   "No management needed"
+   "Weight loss alone is enough to remove the risk",
+   "Prescribe a statin first and reassess weight later",
+   "No further management if a cardiac work-up is normal"
   ],
   "correct": 0,
   "diff": "mid",
@@ -368,10 +368,10 @@
  {
   "q": "In the AHA cardiovascular-kidney-metabolic (CKM) framework, where does obesity sit?",
   "a": [
-   "At the start, as excess/dysfunctional adipose tissue",
-   "At the terminal stage",
-   "Unrelated",
-   "As a consequence of complications"
+   "The starting point: excess or dysfunctional adipose tissue in the earliest stage",
+   "Stage 2, which comes after kidney damage has developed",
+   "Stage 4, which comes after cardiovascular disease has occurred",
+   "It is not included in the CKM staging at all"
   ],
   "correct": 0,
   "diff": "hard",
@@ -381,57 +381,57 @@
   "q": "What is the main role of exercise in weight management?",
   "a": [
    "Maintaining lost weight and preserving muscle",
-   "Rapid short-term weight loss",
-   "Suppressing appetite",
-   "It has no role"
+   "Producing large weight loss without dietary change",
+   "Suppressing appetite hormones",
+   "Reducing subcutaneous rather than visceral fat"
   ],
   "correct": 0,
   "diff": "mid",
   "src": "Obesity guidelines"
  },
  {
-  "q": "Per the KSSO Obesity Fact Sheet 2024, what was obesity prevalence in Korean men in 2022?",
+  "q": "According to the KSSO 2024 Obesity Fact Sheet, what was the obesity prevalence among Korean adult men in 2022?",
   "a": [
-   "About 49%",
-   "About 10%",
-   "About 20%",
-   "About 80%"
+   "About 50%",
+   "About 28%",
+   "About 38%",
+   "About 62%"
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO Obesity Fact Sheet 2024"
+  "src": "KSSO Obesity Fact Sheet 2024 — men 49.6%"
  },
  {
   "q": "Per the Fact Sheet, what was obesity prevalence in Korean women in 2022?",
   "a": [
-   "About 29%",
-   "About 5%",
-   "About 50%",
-   "About 70%"
+   "About 28%",
+   "About 18%",
+   "About 38%",
+   "About 50%"
   ],
   "correct": 0,
   "diff": "hard",
-  "src": "KSSO Obesity Fact Sheet 2024"
+  "src": "KSSO Obesity Fact Sheet 2024 — women 27.7%"
  },
  {
   "q": "Comparing 2013 with 2022, how did Korean class 3 (severe) obesity prevalence change?",
   "a": [
    "It rose about 2.6-fold",
-   "It halved",
-   "It did not change",
-   "It fell tenfold"
+   "It rose about 1.3-fold",
+   "It rose about 1.6-fold",
+   "It did not change"
   ],
   "correct": 0,
   "diff": "hard",
-  "src": "KSSO Obesity Fact Sheet 2024"
+  "src": "KSSO Obesity Fact Sheet 2024 — class III 2.6×, class II 1.6×"
  },
  {
   "q": "Per the Fact Sheet, what was abdominal obesity prevalence among Korean adults in 2022?",
   "a": [
    "About 24.5%",
-   "About 2%",
-   "About 60%",
-   "About 90%"
+   "About 15%",
+   "About 31%",
+   "About 38%"
   ],
   "correct": 0,
   "diff": "mid",
@@ -440,25 +440,422 @@
  {
   "q": "Per the Fact Sheet, how much higher is type 2 diabetes risk in class 3 obesity versus normal weight?",
   "a": [
-   "About 9-fold or more",
-   "No difference",
-   "About 1.1-fold",
-   "It is lower"
+   "About 9.5 times",
+   "About 2 times",
+   "About 5 times",
+   "About 20 times"
   ],
   "correct": 0,
   "diff": "hard",
-  "src": "KSSO Obesity Fact Sheet 2024"
+  "src": "KSSO Obesity Fact Sheet 2024 — class II 5.1×, class III 9.5×"
  },
  {
   "q": "What is the 10-year trend in abdominal obesity among Korean adults?",
   "a": [
-   "A steady increase",
-   "A steady decrease",
-   "No change at all",
-   "Halving each year"
+   "It has risen steadily",
+   "It fell sharply after 2019",
+   "It fell in men and rose in women",
+   "It has stayed flat"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "KSSO Obesity Fact Sheet 2024"
+ },
+ {
+  "q": "According to the KSSO 2025 Obesity Fact Sheet, what was the adult obesity prevalence (BMI ≥25) in Korea in 2023?",
+  "a": [
+   "About 38%",
+   "About 25%",
+   "About 32%",
+   "About 45%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO 2025 Obesity Fact Sheet — 38.4% in 2023"
+ },
+ {
+  "q": "Per the 2025 fact sheet, what was the obesity prevalence among adult men in 2023?",
+  "a": [
+   "About 50%",
+   "About 30%",
+   "About 38%",
+   "About 62%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO 2025 Obesity Fact Sheet — men 49.8%"
+ },
+ {
+  "q": "Per the 2025 fact sheet, what was the obesity prevalence among adult women in 2023?",
+  "a": [
+   "About 28%",
+   "About 18%",
+   "About 38%",
+   "About 50%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO 2025 Obesity Fact Sheet — women 27.5%"
+ },
+ {
+  "q": "How did adult obesity prevalence in Korea change between 2014 and 2023?",
+  "a": [
+   "It rose from about 31% to about 38%",
+   "It fell from about 38% to about 31%",
+   "It nearly doubled from about 20% to 38%",
+   "It stayed at about 38%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KSSO 2025 Obesity Fact Sheet — 31.1%→38.4% (1.23×)"
+ },
+ {
+  "q": "What trend in adult obesity prevalence over the last three years did the 2025 fact sheet highlight?",
+  "a": [
+   "It has plateaued at about 38%",
+   "It is rising about 2 points a year",
+   "It has turned into a clear decline",
+   "Only men fell sharply"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO 2025 Obesity Fact Sheet — plateau over 3 years"
+ },
+ {
+  "q": "Per the 2025 fact sheet, what was the prevalence of abdominal obesity (waist ≥90 cm men / ≥85 cm women) in 2023?",
+  "a": [
+   "About 24%",
+   "About 12%",
+   "About 38%",
+   "About 50%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO 2025 Obesity Fact Sheet — abdominal obesity 24.3%"
+ },
+ {
+  "q": "How did abdominal obesity prevalence compare between the sexes in 2023?",
+  "a": [
+   "Men (about 31%) were about 1.8 times women (about 18%)",
+   "Women were higher than men",
+   "Men and women were about equal",
+   "Men were more than three times women"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KSSO 2025 Obesity Fact Sheet — men 31.3% / women 17.7%"
+ },
+ {
+  "q": "Which age band had the highest obesity prevalence in 2023?",
+  "a": [
+   "People in their 30s and 40s (about 42%)",
+   "People in their 20s (about 32%)",
+   "People in their 60s (about 39%)",
+   "People aged 80 or older (about 35%)"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO 2025 Obesity Fact Sheet — 30s 42.0%, 40s 42.2%"
+ },
+ {
+  "q": "Which age band had the highest prevalence of class III obesity (BMI ≥35)?",
+  "a": [
+   "Early 30s (ages 30–34)",
+   "People in their 50s",
+   "People in their 60s",
+   "People in their 70s"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KSSO 2025 Obesity Fact Sheet — ages 30–34: 2.57%"
+ },
+ {
+  "q": "Metabolic syndrome affected about 52% of obese adults versus about 14% of non-obese adults. How many times higher?",
+  "a": [
+   "About 3.6 times",
+   "About 1.2 times",
+   "About 2 times",
+   "About 8 times"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO 2025 Obesity Fact Sheet — 51.6% vs 14.3%"
+ },
+ {
+  "q": "Among adults aged 19–39, how many times higher was diabetes prevalence in the obese group than in the non-obese group?",
+  "a": [
+   "About 13 times",
+   "About 2 times",
+   "About 5 times",
+   "About 30 times"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KSSO 2025 Obesity Fact Sheet — ages 19–39: 5.61% vs 0.43%"
+ },
+ {
+  "q": "Hypertension affected about 33% of obese adults versus about 16% of non-obese adults. How many times higher?",
+  "a": [
+   "About 2 times",
+   "About 1.2 times",
+   "About 4 times",
+   "No difference"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO 2025 Obesity Fact Sheet — 32.7% vs 16.0%"
+ },
+ {
+  "q": "Which condition was actually less prevalent in the obese group than in the non-obese group in the 2025 fact sheet?",
+  "a": [
+   "Osteoporosis",
+   "Osteoarthritis",
+   "Obstructive sleep apnoea",
+   "Hyperuricaemia"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KSSO 2025 Obesity Fact Sheet — osteoporosis 3.4% vs 4.2%"
+ },
+ {
+  "q": "How many times higher was obstructive sleep apnoea prevalence in the obese group than in the non-obese group?",
+  "a": [
+   "About 4.5 times",
+   "About 1.5 times",
+   "About 2 times",
+   "About 10 times"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO 2025 Obesity Fact Sheet — 14.2% vs 3.2%"
+ },
+ {
+  "q": "What waist-circumference cut-offs define abdominal obesity in Koreans according to KSSO?",
+  "a": [
+   "≥90 cm in men, ≥85 cm in women",
+   "≥94 cm in men, ≥80 cm in women",
+   "≥102 cm in men, ≥88 cm in women",
+   "≥85 cm in men, ≥80 cm in women"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO 2025 Obesity Fact Sheet / KSSO guideline"
+ },
+ {
+  "q": "Per the 2024 fact sheet, what was the obesity prevalence among men in their 20s in 2022?",
+  "a": [
+   "About 45%",
+   "About 25%",
+   "About 35%",
+   "About 60%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO 2024 Obesity Fact Sheet — men in their 20s 32.2%→45.0%"
+ },
+ {
+  "q": "In the 2024 fact sheet, how did female obesity prevalence by body-fat percentage (≥35%) compare with the BMI-based figure?",
+  "a": [
+   "Higher, about 37% versus about 28% by BMI",
+   "Lower, about 18% versus about 28% by BMI",
+   "The same, about 28% by both criteria",
+   "Not calculated; only BMI was reported"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KSSO 2024 Obesity Fact Sheet — body-fat criterion, women 37.1%"
+ },
+ {
+  "q": "Per the Diabetes Fact Sheet 2024, what was diabetes prevalence among Koreans aged 30 or older in 2022?",
+  "a": [
+   "About 15% (one in seven)",
+   "About 10% (one in ten)",
+   "About 20% (one in five)",
+   "About 25% (one in four)"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — 14.8% in 2022"
+ },
+ {
+  "q": "What is the prevalence of diabetes among Koreans aged 65 or older?",
+  "a": [
+   "About 30% (three in ten)",
+   "About 10% (one in ten)",
+   "About 50% (one in two)",
+   "About 60% (six in ten)"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — ages 65+: 28–30%"
+ },
+ {
+  "q": "How many Koreans aged 30 or older were estimated to have diabetes in 2021–2022?",
+  "a": [
+   "About 5.3 million",
+   "About 2.5 million",
+   "About 8 million",
+   "About 14 million"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — 5.33 million"
+ },
+ {
+  "q": "What share of Koreans aged 30 or older have prediabetes (fasting glucose 100–125 or HbA1c 5.7–6.4%)?",
+  "a": [
+   "About 40% (four in ten)",
+   "About 10% (one in ten)",
+   "About 20% (two in ten)",
+   "About 60% (six in ten)"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — 41.1%, 14 million"
+ },
+ {
+  "q": "In 2021–2022, what share of people with diabetes had HbA1c below 6.5% (control rate)?",
+  "a": [
+   "About 32%",
+   "About 50%",
+   "About 65%",
+   "About 75%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — awareness 74.7 / treatment 70.9 / control 32.4%"
+ },
+ {
+  "q": "What share of people with diabetes met all three targets: HbA1c <6.5%, BP <140/85 and LDL <100?",
+  "a": [
+   "About 16%",
+   "About 5%",
+   "About 32%",
+   "About 60%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — comprehensive control 15.9%"
+ },
+ {
+  "q": "What share of people with diabetes also had obesity (BMI ≥25)?",
+  "a": [
+   "About 54%",
+   "About 20%",
+   "About 35%",
+   "About 80%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — obesity 53.8%"
+ },
+ {
+  "q": "What share of people with diabetes also had abdominal obesity?",
+  "a": [
+   "About 61%",
+   "About 30%",
+   "About 45%",
+   "About 85%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — abdominal obesity 61.2%"
+ },
+ {
+  "q": "What share of people with diabetes aged 30 or older also had hypercholesterolaemia?",
+  "a": [
+   "About 74%",
+   "About 30%",
+   "About 45%",
+   "About 60%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — hypertension 59.6 / hypercholesterolaemia 74.2 / both 44.5%"
+ },
+ {
+  "q": "What share of young adults (19–39) with diabetes had actually been diagnosed (awareness)?",
+  "a": [
+   "About 43%",
+   "About 25%",
+   "About 60%",
+   "About 80%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — young-adult awareness 43%, treatment 35%"
+ },
+ {
+  "q": "What share of young adults (19–39) with diabetes also had obesity?",
+  "a": [
+   "About 87%",
+   "About 44%",
+   "About 54%",
+   "About 65%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — young adults 87%, elderly 44%"
+ },
+ {
+  "q": "What share of men in their 30s have prediabetes?",
+  "a": [
+   "About 37%",
+   "About 10%",
+   "About 20%",
+   "About 50%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — men in their 30s 37%"
+ },
+ {
+  "q": "How does current smoking among young adults with diabetes (about 34%) compare with elderly patients (about 10%)?",
+  "a": [
+   "About three times higher",
+   "About the same",
+   "About half",
+   "About ten times higher"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — young 34% vs elderly 10%"
+ },
+ {
+  "q": "Which of the following is NOT part of the fact sheet definition of diabetes?",
+  "a": [
+   "Fasting glucose 100–125 mg/dL",
+   "Fasting glucose ≥126 mg/dL",
+   "HbA1c ≥6.5%",
+   "Current treatment with antidiabetic drugs"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — definition of diabetes"
+ },
+ {
+  "q": "Which drug class did the fact sheet flag as steadily increasing among young adults with diabetes?",
+  "a": [
+   "SGLT2 inhibitors",
+   "Sulfonylureas",
+   "Insulin",
+   "Thiazolidinediones"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — prescription trends",
+  "drug": true
+ },
+ {
+  "q": "What is the most common form of treatment among people already diagnosed with diabetes?",
+  "a": [
+   "Oral glucose-lowering drugs alone (about 90%)",
+   "Insulin injections alone (about 6%)",
+   "Insulin combined with oral drugs",
+   "Non-drug therapy with diet and exercise only"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — oral agents alone ~90%, insulin ~6%"
  }
 ]

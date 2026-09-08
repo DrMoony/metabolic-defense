@@ -3,9 +3,9 @@
   "q": "In 2023, which new name replaced NAFLD?",
   "a": [
    "MASLD (metabolic dysfunction-associated steatotic liver disease)",
-   "ALD (alcohol-associated liver disease)",
-   "Cirrhosis",
-   "Hepatitis A"
+   "MAFLD (metabolic-associated fatty liver disease)",
+   "MetALD (MASLD with increased alcohol intake)",
+   "SLD (steatotic liver disease, the umbrella term)"
   ],
   "correct": 0,
   "src": "slide 9-11",
@@ -15,9 +15,9 @@
   "q": "What is the new umbrella term for all liver disease with >5% hepatic fat?",
   "a": [
    "SLD (steatotic liver disease)",
-   "MASH",
-   "Hepatocellular carcinoma",
-   "Gallstone disease"
+   "MASLD (metabolic dysfunction-associated)",
+   "MetALD (metabolic plus alcohol)",
+   "MASH (metabolic dysfunction-associated steatohepatitis)"
   ],
   "correct": 0,
   "src": "slide 9",
@@ -26,10 +26,10 @@
  {
   "q": "What was one reason for retiring the name NAFLD?",
   "a": [
-   "Concern about stigma from 'non-alcoholic' and 'fatty'",
-   "It was hard to pronounce",
-   "It clashed with a drug name",
-   "Insurance coding issues"
+   "Stigma around the words 'non-alcoholic' and 'fatty'",
+   "It could not be separated from alcohol-related liver disease",
+   "The name could not be used in children",
+   "No biopsy criteria existed"
   ],
   "correct": 0,
   "src": "slide 9",
@@ -39,9 +39,9 @@
   "q": "What does MASH describe?",
   "a": [
    "A subtype of MASLD with inflammation",
-   "Simple steatosis only",
-   "Alcoholic hepatitis",
-   "Biliary disease"
+   "Fat without fibrosis",
+   "Steatosis with alcohol intake",
+   "The end stage after cirrhosis"
   ],
   "correct": 0,
   "src": "slide 11",
@@ -51,9 +51,9 @@
   "q": "MASH can be diagnosed even at F0. What defines 'at-risk MASH'?",
   "a": [
    "MASH with fibrosis stage F2 or higher",
-   "Any hepatic fat at all",
-   "Presence of jaundice",
-   "Age over 65"
+   "Grade 3 steatosis or higher",
+   "ALT more than twice the upper limit",
+   "Coexisting type 2 diabetes"
   ],
   "correct": 0,
   "src": "slide 11, 17",
@@ -62,10 +62,10 @@
  {
   "q": "Roughly how prevalent is MASLD among US adults?",
   "a": [
-   "Up to 1 in 3 adults",
-   "1 in 100",
-   "1 in 1,000",
-   "Almost none"
+   "Up to one in three adults",
+   "One in ten adults",
+   "One in twenty adults",
+   "One in two adults"
   ],
   "correct": 0,
   "src": "slide 19",
@@ -74,10 +74,10 @@
  {
   "q": "Why is MASLD commonly underdiagnosed?",
   "a": [
-   "It is asymptomatic and liver tests are often normal",
-   "Testing is prohibited",
-   "The pain is too severe",
-   "It is contagious"
+   "It is symptomless and liver enzymes are often normal",
+   "Ultrasound cannot detect it in most patients",
+   "Only a liver biopsy can establish the diagnosis",
+   "It is rare in people under 50 years of age"
   ],
   "correct": 0,
   "src": "slide 19",
@@ -86,10 +86,10 @@
  {
   "q": "Compared with the general population, overall mortality in MASLD is:",
   "a": [
-   "About 2-fold higher",
-   "Half as high",
-   "The same",
-   "10-fold higher"
+   "About 2-fold",
+   "About 1.2-fold",
+   "About 5-fold",
+   "No difference"
   ],
   "correct": 0,
   "src": "slide 15",
@@ -98,10 +98,10 @@
  {
   "q": "Which factor most strongly drives prognosis in MASLD?",
   "a": [
-   "Severity of hepatic fibrosis",
-   "Amount of hepatic fat",
-   "Height",
-   "Blood type"
+   "The degree of liver fibrosis",
+   "The amount of liver fat (steatosis grade)",
+   "The ALT level at diagnosis",
+   "The BMI at diagnosis"
   ],
   "correct": 0,
   "src": "slide 15, 17",
@@ -111,9 +111,9 @@
   "q": "On average, MASH fibrosis progresses by one stage every:",
   "a": [
    "About 7 years",
-   "1 month",
-   "6 months",
-   "30 years"
+   "About 1 year",
+   "About 3 years",
+   "About 15 years"
   ],
   "correct": 0,
   "src": "slide 17",
@@ -122,10 +122,10 @@
  {
   "q": "What is the initial non-invasive index for fibrosis screening in primary care?",
   "a": [
-   "FIB-4 index",
-   "MRI",
-   "Liver transplant",
-   "Colonoscopy"
+   "The FIB-4 index",
+   "Transient elastography (VCTE)",
+   "The ELF panel",
+   "MR elastography (MRE)"
   ],
   "correct": 0,
   "src": "slide 27",
@@ -135,9 +135,9 @@
   "q": "What is the FIB-4 low-risk cutoff for ages 35-65?",
   "a": [
    "Below 1.3",
-   "Above 5",
-   "Above 10",
-   "Below 0.1"
+   "Below 1.0",
+   "Below 2.0",
+   "Below 2.67"
   ],
   "correct": 0,
   "src": "slide 27",
@@ -146,10 +146,10 @@
  {
   "q": "If FIB-4 is 1.3 or higher, what comes next?",
   "a": [
-   "ELF blood panel or transient elastography (VCTE)",
-   "Immediate surgery",
-   "Watch and wait only",
-   "Antibiotics"
+   "An ELF blood test or transient elastography (VCTE)",
+   "Immediate liver biopsy for staging",
+   "Repeat FIB-4 after six months",
+   "A contrast-enhanced liver CT scan"
   ],
   "correct": 0,
   "src": "slide 33",
@@ -159,9 +159,9 @@
   "q": "What does VCTE (transient elastography) measure?",
   "a": [
    "Liver stiffness (degree of fibrosis)",
-   "Gastric acid output",
-   "Lung capacity",
-   "Bone density"
+   "Hepatic blood flow velocity",
+   "Liver volume and contour",
+   "Degree of bile-duct obstruction"
   ],
   "correct": 0,
   "src": "slide 36",
@@ -170,10 +170,10 @@
  {
   "q": "AASLD recommends MASLD screening in which patients?",
   "a": [
-   "Type 2 diabetes and obesity",
-   "All newborns",
-   "Healthy people in their 20s",
-   "Athletes"
+   "People with type 2 diabetes or obesity",
+   "Every adult at a health check-up",
+   "Only people with raised liver enzymes",
+   "Hepatitis B carriers"
   ],
   "correct": 0,
   "src": "slide 24",
@@ -182,10 +182,10 @@
  {
   "q": "A 5-7% weight loss is expected to bring:",
   "a": [
-   "Reduced liver inflammation",
-   "No change",
-   "More liver fat",
-   "Worse fibrosis"
+   "Less inflammation",
+   "Complete resolution of fibrosis",
+   "Reversal of cirrhosis",
+   "No change"
   ],
   "correct": 0,
   "src": "slide 42",
@@ -194,10 +194,10 @@
  {
   "q": "A 7-10% weight loss can additionally bring:",
   "a": [
-   "Fibrosis regression",
-   "Hair loss",
-   "Glucose spikes",
-   "Liver shrinkage"
+   "Fibrosis improvement",
+   "Less inflammation only",
+   "Elimination of liver-cancer risk",
+   "No change"
   ],
   "correct": 0,
   "src": "slide 42",
@@ -206,10 +206,10 @@
  {
   "q": "Which diet has the strongest evidence in MASLD?",
   "a": [
-   "Mediterranean diet",
-   "Late-night snack diet",
-   "Sugary drink diet",
-   "Fried-food diet"
+   "The Mediterranean diet",
+   "A low-fat, high-carbohydrate diet",
+   "Intermittent fasting",
+   "A ketogenic diet"
   ],
   "correct": 0,
   "src": "slide 43-44",
@@ -218,10 +218,10 @@
  {
   "q": "An exercise prescription that improved MASLD parameters was:",
   "a": [
-   "40-minute sessions, 3 times a week",
-   "One walk per month",
-   "No exercise at all",
-   "Sitting all day"
+   "40-minute aerobic or resistance sessions three times a week",
+   "One two-hour high-intensity session a week",
+   "Ten minutes of stretching daily",
+   "Start exercise only after weight loss"
   ],
   "correct": 0,
   "src": "slide 43",
@@ -231,9 +231,9 @@
   "q": "Which drug pair is FDA-approved for MASH with F2-F3 fibrosis (as of 2025)?",
   "a": [
    "Resmetirom and semaglutide",
-   "Aspirin and acetaminophen",
-   "Two antibiotics",
-   "Vitamins C and D"
+   "Pioglitazone and vitamin E",
+   "Obeticholic acid and elafibranor",
+   "Liraglutide and metformin"
   ],
   "correct": 0,
   "src": "slide 47, 49",
@@ -243,10 +243,10 @@
  {
   "q": "Statin use in MASLD patients is:",
   "a": [
-   "Appropriate when indicated",
-   "Absolutely contraindicated",
-   "Always liver-toxic",
-   "Completely ineffective"
+   "They can be used when indicated",
+   "Absolutely contraindicated when liver enzymes are raised",
+   "Approved as an antifibrotic therapy",
+   "Recommended only in decompensated cirrhosis"
   ],
   "correct": 0,
   "src": "slide 50-51",
@@ -255,10 +255,10 @@
  {
   "q": "Which medications can cause hepatic fat accumulation?",
   "a": [
-   "Corticosteroids, amiodarone, tamoxifen",
-   "Vitamins",
-   "Normal saline",
-   "Probiotics"
+   "Steroids, amiodarone, tamoxifen and others",
+   "Statins and ezetimibe",
+   "Metformin and SGLT2 inhibitors",
+   "Aspirin and clopidogrel"
   ],
   "correct": 0,
   "src": "slide 45",
@@ -269,9 +269,9 @@
   "q": "Which blood biomarker helps overcome underreported alcohol intake?",
   "a": [
    "PEth (phosphatidylethanol)",
-   "CRP",
-   "Hemoglobin",
-   "Uric acid"
+   "Gamma-GT",
+   "AST/ALT ratio",
+   "MCV (mean corpuscular volume)"
   ],
   "correct": 0,
   "src": "slide 13",
@@ -280,10 +280,10 @@
  {
   "q": "In MASLD, even low-level alcohol intake is:",
   "a": [
-   "Still potentially harmful to the liver",
-   "Completely safe",
-   "Actually therapeutic",
-   "Recommended"
+   "Even that may harm the liver",
+   "Up to one drink a day protects the liver",
+   "Wine is an exception and is safe",
+   "Men can safely have two drinks a day"
   ],
   "correct": 0,
   "src": "slide 53",
@@ -293,9 +293,9 @@
   "q": "By 2050, the number of US MASLD patients is projected to:",
   "a": [
    "Rise to about 122 million",
-   "Fall sharply",
-   "Nearly disappear",
-   "Stay unchanged"
+   "Stay at about 86 million",
+   "Fall to about 50 million",
+   "Rise to about 200 million"
   ],
   "correct": 0,
   "src": "slide 20",
@@ -306,8 +306,8 @@
   "a": [
    "Cirrhosis",
    "Normal liver",
-   "Fat only",
-   "Inflammation only"
+   "Periportal fibrosis",
+   "Bridging fibrosis"
   ],
   "correct": 0,
   "src": "slide 18, 21",
@@ -316,10 +316,10 @@
  {
   "q": "What does MetALD describe?",
   "a": [
-   "Steatotic liver disease with alcohol intake above MASLD limits",
-   "Alcohol-free fatty liver",
-   "Viral hepatitis",
-   "Drug-induced hepatitis"
+   "Steatosis with alcohol intake above the MASLD limit",
+   "Steatosis from alcohol alone without metabolic risk factors",
+   "Drug-induced steatosis",
+   "MASLD with two or more metabolic risk factors"
   ],
   "correct": 0,
   "src": "slide 11",
@@ -328,10 +328,10 @@
  {
   "q": "What is the female alcohol threshold within the MASLD definition?",
   "a": [
-   "Under about 1.5 drinks/day (20 g)",
-   "Unlimited",
-   "Up to 5 drinks a day",
-   "Two bottles of soju"
+   "Under about 1.5 drinks (20 g) a day",
+   "Under about 2 drinks (30 g) a day",
+   "Under about 1 drink (10 g) a day",
+   "At most once a week"
   ],
   "correct": 0,
   "src": "slide 11",
@@ -340,10 +340,10 @@
  {
   "q": "In the US, one 'standard drink' of beer is:",
   "a": [
-   "12 ounces of 5% ABV beer",
-   "One liter",
-   "Three 500 mL cans",
-   "Any amount"
+   "12 oz (about 355 mL) of 5% beer",
+   "500 mL of 5% beer",
+   "8 oz (about 240 mL) of 5% beer",
+   "1 litre of 5% beer"
   ],
   "correct": 0,
   "src": "slide 12",
@@ -352,10 +352,10 @@
  {
   "q": "Serum PEth reflects alcohol intake over the prior:",
   "a": [
-   "1 to 4 weeks",
-   "10 years",
-   "24 hours",
-   "Lifetime"
+   "The past 1–4 weeks",
+   "The past 24 hours",
+   "The past 3–6 months",
+   "The past year"
   ],
   "correct": 0,
   "src": "slide 13",
@@ -378,8 +378,8 @@
   "a": [
    "Below 2.0",
    "Below 1.3",
-   "Below 5.0",
-   "Below 0.5"
+   "Below 1.5",
+   "Below 2.67"
   ],
   "correct": 0,
   "src": "slide 28",
@@ -388,10 +388,10 @@
  {
   "q": "The specificity of FIB-4 above 2.67 is about:",
   "a": [
-   "98%",
-   "30%",
-   "50%",
-   "10%"
+   "About 98%",
+   "About 65%",
+   "About 85%",
+   "About 70%"
   ],
   "correct": 0,
   "src": "slide 28",
@@ -412,10 +412,10 @@
  {
   "q": "An ELF score below 7.7 suggests:",
   "a": [
-   "At-risk MASH can largely be ruled out",
-   "Confirmed cirrhosis",
-   "Confirmed liver cancer",
-   "Immediate transplant needed"
+   "It helps rule out at-risk MASH",
+   "It confirms at-risk MASH",
+   "It suggests cirrhosis",
+   "It means a liver biopsy is needed"
   ],
   "correct": 0,
   "src": "slide 35",
@@ -425,9 +425,9 @@
   "q": "What preparation does a VCTE exam require?",
   "a": [
    "Fasting for at least 3 hours",
-   "A 3-day fast",
-   "Drinking 2 liters of water",
-   "Vigorous exercise"
+   "Fasting for 12 hours",
+   "No fasting needed",
+   "Drinking 500 mL of water beforehand"
   ],
   "correct": 0,
   "src": "slide 36",
@@ -436,10 +436,10 @@
  {
   "q": "VCTE readings can be unreliable in patients with:",
   "a": [
-   "Severe obesity, ascites, or heart failure",
-   "Normal weight",
-   "Morning appointments",
-   "Young age"
+   "Severe obesity, ascites or heart failure",
+   "Normal weight and younger age",
+   "The fasting state before the scan",
+   "Absence of type 2 diabetes"
   ],
   "correct": 0,
   "src": "slide 37",
@@ -448,10 +448,10 @@
  {
   "q": "The CAP score from VCTE reflects:",
   "a": [
-   "The amount of hepatic steatosis (liver fat)",
-   "Bone density",
-   "Muscle mass",
-   "Lung function"
+   "The amount of liver fat (steatosis)",
+   "The degree of liver fibrosis",
+   "Inflammatory activity in the liver",
+   "Portal venous pressure"
   ],
   "correct": 0,
   "src": "slide 37",
@@ -460,10 +460,10 @@
  {
   "q": "FIB-4 of 1.3 or more plus liver stiffness above 8 kPa calls for:",
   "a": [
-   "Referral to hepatology",
-   "Observation only",
-   "Antibiotics",
-   "Painkillers"
+   "Refer to hepatology",
+   "Recheck in primary care after six months",
+   "Lifestyle change alone is enough",
+   "Immediate transplant evaluation"
   ],
   "correct": 0,
   "src": "slide 39",
@@ -473,9 +473,9 @@
   "q": "Progression from F3 fibrosis to cirrhosis takes on average:",
   "a": [
    "About 2 years",
-   "About 20 years",
-   "About 1 month",
-   "About 50 years"
+   "About 7 years",
+   "About 5 years",
+   "About 10 years"
   ],
   "correct": 0,
   "src": "slide 17",
@@ -484,10 +484,10 @@
  {
   "q": "The intensive lifestyle trial that improved MASLD prescribed:",
   "a": [
-   "A 750 kcal daily deficit plus 200 minutes of walking weekly",
-   "An extra 2,000 kcal daily",
-   "No walking",
-   "Water only"
+   "A 750 kcal daily deficit plus 200 minutes of walking a week",
+   "A 300 kcal daily deficit plus 60 minutes of walking a week",
+   "A 1,500 kcal daily deficit plus an hour of running every day",
+   "No calorie limit, 150 minutes of walking a week"
   ],
   "correct": 0,
   "src": "slide 42",
@@ -497,9 +497,9 @@
   "q": "Which GLP-1 drug did the FDA approve for MASH in August 2025?",
   "a": [
    "Semaglutide (Wegovy)",
-   "Aspirin",
-   "Penicillin",
-   "Caffeine"
+   "Liraglutide (Saxenda)",
+   "Tirzepatide (Mounjaro)",
+   "Dulaglutide (Trulicity)"
   ],
   "correct": 0,
   "src": "slide 49",
@@ -510,9 +510,9 @@
   "q": "Which drug pair warrants caution for hepatic fat accumulation?",
   "a": [
    "Methotrexate and tamoxifen",
-   "Vitamin D and omega-3",
-   "Probiotics and fiber",
-   "IV fluids and saline"
+   "Metformin and pioglitazone",
+   "Atorvastatin and ezetimibe",
+   "Vitamin E and omega-3"
   ],
   "correct": 0,
   "src": "slide 45",
@@ -523,9 +523,9 @@
   "q": "Which hydrophilic statins are relatively safer in cirrhosis?",
   "a": [
    "Rosuvastatin and pravastatin",
+   "Atorvastatin and simvastatin",
    "All statins are contraindicated",
-   "Ibuprofen",
-   "Acetaminophen"
+   "Lovastatin and fluvastatin"
   ],
   "correct": 0,
   "src": "slide 51",
@@ -536,9 +536,9 @@
   "q": "Which brief alcohol screening tool is used in primary care?",
   "a": [
    "AUDIT-C",
-   "MRI",
-   "ECG",
-   "Hearing test"
+   "PHQ-9",
+   "FIB-4",
+   "A PEth blood test"
   ],
   "correct": 0,
   "src": "slide 53",
@@ -548,12 +548,254 @@
   "q": "In the Mediterranean diet, what should be kept low?",
   "a": [
    "Processed meat and added sugar",
-   "Olive oil",
-   "Fish",
-   "Whole grains"
+   "Olive oil and nuts",
+   "Fish and seafood",
+   "Whole grains and legumes"
   ],
   "correct": 0,
   "src": "slide 44",
   "diff": "mid"
+ },
+ {
+  "q": "Which Korean-language name did KASL adopt for MASLD?",
+  "a": [
+   "대사이상지방간질환 (metabolic dysfunction-associated steatotic liver disease)",
+   "대사성지방간염 (metabolic steatohepatitis)",
+   "비알코올지방간질환 (non-alcoholic fatty liver disease)",
+   "대사연관지방간질환 (metabolic-associated fatty liver disease)"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — nomenclature"
+ },
+ {
+  "q": "What are the KASL 2025 diagnostic criteria for MASLD?",
+  "a": [
+   "Hepatic steatosis on imaging or biopsy plus at least one cardiometabolic risk factor and no significant alcohol intake",
+   "Hepatic steatosis plus at least two cardiometabolic risk factors is required",
+   "A liver biopsy confirming steatohepatitis is mandatory for diagnosis",
+   "Hepatic steatosis plus a BMI of 25 or higher is required"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — definition"
+ },
+ {
+  "q": "Which waist-circumference cut-offs did KASL adopt as the cardiometabolic criterion for Koreans?",
+  "a": [
+   "≥90 cm in men, ≥85 cm in women",
+   "≥94 cm in men, ≥80 cm in women",
+   "≥102 cm in men, ≥88 cm in women",
+   "≥90 cm in men, ≥80 cm in women"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — Korean waist cut-offs"
+ },
+ {
+  "q": "What BMI threshold defines overweight/obesity as a cardiometabolic criterion for Asians in MASLD?",
+  "a": [
+   "23 kg/m² or higher",
+   "25 kg/m² or higher",
+   "27.5 kg/m² or higher",
+   "30 kg/m² or higher"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — Asian BMI cut-off"
+ },
+ {
+  "q": "What is the daily alcohol limit allowed within the MASLD definition?",
+  "a": [
+   "Under 30 g in men and 20 g in women",
+   "Under 20 g in men and 10 g in women",
+   "Under 40 g in men and 30 g in women",
+   "Under 10 g for everyone"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — alcohol threshold"
+ },
+ {
+  "q": "What weekly alcohol intake marks the lower bound of MetALD?",
+  "a": [
+   "≥210 g in men, ≥140 g in women",
+   "≥140 g in men, ≥70 g in women",
+   "≥350 g in men, ≥210 g in women",
+   "≥100 g in men, ≥50 g in women"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — MetALD weekly threshold"
+ },
+ {
+  "q": "How closely does the MASLD-defined population overlap with the former NAFLD population?",
+  "a": [
+   "More than 95% concordance",
+   "About 50% concordance",
+   "About 70% concordance",
+   "About 85% concordance"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — >95% concordance with NAFLD"
+ },
+ {
+  "q": "In Korean health-screening cohorts, roughly what is the adult prevalence of MASLD?",
+  "a": [
+   "About 25–35% (one in three or four adults), higher in men",
+   "About 5–10% (one in ten to twenty adults), similar in both sexes",
+   "About 15% (one in six or seven adults), higher in women",
+   "Over 50% (one in two adults), higher in men"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — Korean prevalence 27.5–33.5% (men > women)"
+ },
+ {
+  "q": "What does the guideline identify as the leading cause of death in MASLD?",
+  "a": [
+   "Cardiovascular disease",
+   "Hepatocellular carcinoma",
+   "Liver failure",
+   "Infection"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — prognosis"
+ },
+ {
+  "q": "Using age-adjusted FIB-4 (≥1.3 at 35–64, ≥2.0 at 65+), what share of Koreans with MASLD had suspected significant fibrosis?",
+  "a": [
+   "About 27%",
+   "About 5%",
+   "About 10%",
+   "About 50%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — age-adjusted FIB-4: 26.7%"
+ },
+ {
+  "q": "Which MASLD patients should undergo hepatocellular carcinoma surveillance?",
+  "a": [
+   "Those with confirmed or suspected cirrhosis",
+   "All patients with MASLD",
+   "Those with simple steatosis",
+   "Everyone with coexisting diabetes"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — HCC ≥1.5%/yr in cirrhosis"
+ },
+ {
+  "q": "For whom does the KASL 2025 guideline say resmetirom can be used?",
+  "a": [
+   "MASH patients with F2/F3 fibrosis",
+   "Simple steatosis without fibrosis",
+   "Decompensated cirrhosis",
+   "Children and adolescents with MASLD"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — resmetirom (A1)",
+  "drug": true
+ },
+ {
+  "q": "In whom does the KASL 2025 guideline say vitamin E may be considered?",
+  "a": [
+   "MASH patients without type 2 diabetes",
+   "Only patients with type 2 diabetes",
+   "Patients with cirrhosis",
+   "All patients with MASLD"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — vitamin E (B2)",
+  "drug": true
+ },
+ {
+  "q": "What is the KASL position on statins in MASLD patients with dyslipidaemia?",
+  "a": [
+   "They can be used to prevent cardiovascular disease",
+   "They are contraindicated because of hepatotoxicity",
+   "They are approved as antifibrotic therapy",
+   "They can be used only when liver enzymes are normal"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — statins (B1)"
+ },
+ {
+  "q": "Under what condition does KASL say SGLT2 inhibitors can be used in MASLD?",
+  "a": [
+   "To improve comorbid type 2 diabetes, heart failure or chronic kidney disease",
+   "As antifibrotic therapy for every patient with MASLD",
+   "To control ascites and oedema in patients with cirrhosis",
+   "For weight loss alone, regardless of comorbidities"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — SGLT2 inhibitors (B1)"
+ },
+ {
+  "q": "Per the KDA fatty liver statistics, what share of adults with type 2 diabetes had fatty liver (FLI ≥60)?",
+  "a": [
+   "About 30%",
+   "About 10%",
+   "About 50%",
+   "About 70%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA Fatty Liver & Diabetes Statistics in Korea (2009–2017) — 29.6% in 2017"
+ },
+ {
+  "q": "Among young adults (20–39) with type 2 diabetes, what share had fatty liver (FLI ≥60) in 2017?",
+  "a": [
+   "About 60%",
+   "About 20%",
+   "About 30%",
+   "About 45%"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KDA Fatty Liver & Diabetes Statistics in Korea (2009–2017) — ages 20–39: 42.2%→60.1%"
+ },
+ {
+  "q": "Which index and cut-off defined fatty liver in the KDA fatty liver statistics?",
+  "a": [
+   "Fatty liver index (FLI) of 60 or higher",
+   "FIB-4 of 1.3 or higher",
+   "Liver stiffness of 8 kPa or higher",
+   "ALT of 40 IU/L or higher"
+  ],
+  "correct": 0,
+  "diff": "hard",
+  "src": "KDA Fatty Liver & Diabetes Statistics in Korea (2009–2017) — FLI ≥60"
+ },
+ {
+  "q": "What is specifically emphasised when diagnosing MASLD in children and adolescents?",
+  "a": [
+   "Other causes of hepatic fat (such as inborn errors of metabolism) must also be reviewed",
+   "A liver biopsy is mandatory to confirm the diagnosis, unlike in adults",
+   "A BMI cut-off of 30 is applied instead of the adult criteria",
+   "Only the alcohol history needs checking; no further review"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — paediatrics"
+ },
+ {
+  "q": "Which factors does the guideline name as raising extrahepatic cancer risk in MASLD?",
+  "a": [
+   "Obesity and type 2 diabetes",
+   "Hypertension and smoking",
+   "Female sex and old age",
+   "Underweight"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — extrahepatic cancer risk"
  }
 ]

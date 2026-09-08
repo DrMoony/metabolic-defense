@@ -176,8 +176,8 @@ assert.equal(A.state.phase,'result');assert(A.state.victory,'normal mode is winn
 console.log(`PASS: all ${A.WAVES.length} waves and bosses via raycast shots (${A.state.elapsed.toFixed(1)}s, core ${A.state.core.toFixed(1)}, score ${A.state.score})`);
 // A missed boss cannot produce a victory at the old wave timeout.
 A.start();A.step(70);assert(!A.state.victory);assert(A.state.phase==='result'||A.state.wave===0);
-// Failure remains permanent after a correct quiz, while overload threshold is 12 seconds.
-A.start();A.state.pancreas=0;A.state.sugar=100;A.state.strain=11.9;A.state.insulin=100;A.state.pulse=100;
+// Failure remains permanent after a correct quiz, once strain passes PANCREAS.strainLimit.
+A.start();A.state.pancreas=0;A.state.sugar=100;A.state.strain=A.PANCREAS.strainLimit-.1;A.state.insulin=100;A.state.pulse=100;
 A.spawn('syrup',{progress:.65,lane:0});A.step(.2);assert(A.state.failed);A.openQuiz();A.state.selection=A.state.quiz.correct;A.answerQuiz();assert(A.state.failed);assert.equal(A.state.pancreas,0);
 console.log('PASS: missed-boss loss and permanent pancreatic failure');
 // Every plate is available; legacy terrain remains a separately tested fallback.
