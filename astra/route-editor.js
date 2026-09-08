@@ -1,4 +1,4 @@
-import { groundPoint, routeDocument, validateRoutes, loadRoutes } from './plate.js?v=a36';
+import { groundPoint, routeDocument, validateRoutes, loadRoutes } from './plate.js?v=a37';
 const $=id=>document.getElementById(id);
 const clone=value=>JSON.parse(JSON.stringify(value));
 export class RouteEditor {
