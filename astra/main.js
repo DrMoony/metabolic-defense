@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a41';
-import { RouteEditor } from './route-editor.js?v=a41';
-import { World, THREE } from './world.js?v=a41';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a41';
+import { healthColor, weaponColor } from './feedback.js?v=a42';
+import { RouteEditor } from './route-editor.js?v=a42';
+import { World, THREE } from './world.js?v=a42';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a42';
 
-import { MAPS, getMap } from './maps/index.js?v=a41';
+import { MAPS, getMap } from './maps/index.js?v=a42';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -57,7 +57,13 @@ const TYPES = {
   popcorn:{hp:7,speed:1.5,score:560,impact:10,hardOnly:true,fallback:'fries',tint:0xf3d98a,retaliate:{type:'pearl',chance:.5,max:5,tint:0xf6e6b0},names:['팝콘 버킷 · 맞을 때마다 알갱이가 튄다','Popcorn Bucket · pops a kernel when hit']},
   cake:{hp:6,speed:1.5,score:560,impact:10,sugar:true,hardOnly:true,fallback:'icecream',tint:0xf6b7c9,puddle:{duration:8,radius:.13,heal:.6},names:['크림 케이크 · 죽은 자리가 회복 웅덩이','Cream Cake · leaves a healing puddle']},
 };
-const DIFFICULTY = {easy:{speed:.78,impact:.55,gap:1.35,hp:.75,pulse:.85,traits:false},mid:{speed:1.02,impact:.98,gap:.94,hp:1.12,pulse:1.1,traits:false},hard:{speed:1.26,impact:1.45,gap:.7,hp:1.45,pulse:1.35,traits:true}};
+// traits: false=없음, 'lite'=장갑·돌진·분열·은신만, true=전부(하드 전용 신종 포함)
+const DIFFICULTY = {easy:{speed:.85,impact:.75,gap:1.2,hp:.85,pulse:.85,traits:false},mid:{speed:1.08,impact:1.1,gap:.88,hp:1.2,pulse:1.1,traits:'lite',ramp:.7},hard:{speed:1.18,impact:1.3,gap:.78,hp:1.3,pulse:1.35,traits:true,ramp:.4}};
+const LITE_TRAITS=new Set(['armor','charge','split','cloak']);
+// 췌장 포탑 수지: 발사마다 drain, 당류 적이 있으면 regenBusy, 없으면 regenIdle 만큼 회복. 기능 5% 이하로 strainLimit 초를 버티면 부전.
+const PANCREAS = {drain:1.5,drainHigh:4,regenBusy:1,regenIdle:2.2,strainLimit:20,strainRecover:.5};
+// ramp가 있으면 1웨이브에서는 배율의 ramp 비율만 적용하고 3웨이브부터 전량 적용한다 (초반 절벽 완화)
+function tuningFor(){const t=DIFFICULTY[state.difficulty];if(t.ramp==null)return t;const k=Math.min(1,t.ramp+(1-t.ramp)*state.wave/2),soften=v=>1+(v-1)*k;return {...t,hp:soften(t.hp),speed:soften(t.speed),gap:soften(t.gap),impact:soften(t.impact)};}
 const WAVES = [
   {duration:30,bossAt:22,boss:'syrup',quiz:[15],spawns:[['soda',2.1,1],['fries',4.2,3],['icecream',6.5,7],['donut',9,11],['sodatitan',30,18],['pizzabox',17,12]]},
   {duration:31,bossAt:23,boss:'wingking',quiz:[10,20],spawns:[['soda',2,1],['fries',3.8,2],['icecream',6,5],['donut',6.5,4],['wing',7.5,8],['burger',11,9],['burgerlord',34,14],['bubbletea',15,10],['energycan',18,16]]},
@@ -116,7 +122,7 @@ function updateLanguage(){
   document.querySelector('h1').textContent='ASTRA';
 
   $('intro-text').textContent=text('몸속으로 이어지는 여정, 지식으로 지키는 방어선','A journey within. A defense powered by knowledge.');
-  $('difficulty-hint').textContent=state.difficulty==='hard'?text('몬스터 특성 발현 · 투척·회복·장갑·은신·분열까지 상대해야 해요','Monster traits awaken · ranged, healing, armour, cloaking and splitting'):state.difficulty==='easy'?text('무제한 탄약 · 느린 적 · 첫 플레이에 추천','Unlimited ammo · slower enemies · a gentle first mission'):text('누르고 있으면 연사 · 탄약 소진 시 자동 재장전','Hold to fire · automatic reload when empty');
+  $('difficulty-hint').textContent=state.difficulty==='hard'?text('몬스터 특성 발현 · 투척·회복·장갑·은신·분열까지 상대해야 해요','Monster traits awaken · ranged, healing, armour, cloaking and splitting'):state.difficulty==='easy'?text('무제한 탄약 · 느린 적 · 첫 플레이에 추천','Unlimited ammo · slower enemies · a gentle first mission'):text('누르고 있으면 연사 · 탄약 소진 시 자동 재장전 · 장갑·돌진·분열 특성 일부 등장','Hold to fire · automatic reload when empty · some traits: armour, charge, splitting');
   $('guide-cards').replaceChildren();
   for(const pair of [
     [['01 / 조준하고 쏘기','다가오는 정크푸드를 쏘세요. 방아쇠를 누르면 연사합니다. 재장전·무기 교체는 화면 버튼으로!'],['01 / Point and shoot','Shoot approaching junk food. Hold the trigger to fire. Use the on-screen reload and weapon buttons.']],
@@ -201,11 +207,11 @@ function startWave(index){
 }
 function spawn(type='soda',options={}){
   let definition=TYPES[type];if(!definition)throw new Error(`Unknown enemy: ${type}`);
-  if(definition.hardOnly&&!DIFFICULTY[state.difficulty].traits){type=definition.fallback||'soda';definition=TYPES[type];}
+  if(definition.hardOnly&&DIFFICULTY[state.difficulty].traits!==true){type=definition.fallback||'soda';definition=TYPES[type];}
   const model=world.addEnemy(type,definition.boss);
   const routes=world.terrain.routes.items,lane=options.lane??Math.floor(Math.random()*routes.length);
   const routeId=world.terrain.routes.get(options.routeId??routes[((lane%routes.length)+routes.length)%routes.length].id).id;
-  const hp=definition.hp*(definition.boss?1:DIFFICULTY[state.difficulty].hp);
+  const hp=definition.hp*(definition.boss?1:tuningFor().hp);
   const enemy={type,...definition,waveBoss:definition.boss===true&&options.waveBoss===true,showHealth:definition.hp>=2,model,hp,maxHp:hp,lane,routeId,progress:options.progress??0,seed:Math.random()*100,scale:definition.boss?2:['fragment','cancerlet'].includes(type)?.7:1,flash:0,dead:false,guarded:false};
   if(definition.fly)planFlight(enemy,options.from);
   enemy.side=(Math.random()-.5)*(definition.boss?1.1:3.4);
@@ -304,20 +310,20 @@ function damage(enemy,amount,byPlayer=true,point){
   if(enemy.dead)return;
   if(byPlayer){
     const weapon=WEAPONS[state.weapon];
-    if(traitsOn()&&enemy.blockLeft>0&&!weapon.pierce&&!weapon.splash){
+    if(traitsOn('block')&&enemy.blockLeft>0&&!weapon.pierce&&!weapon.splash){
       enemy.blockLeft--;enemy.flash=.7;
       damagePopup(point||world.center(enemy.model),enemy.blockLeft>0?text('막힘!','BLOCK!'):text('방패 파괴!','SHIELD DOWN!'),'#9fd6ff',1.05);
       if(!sample('reload_click',.6))sound(220,.06,'square',.05);
       return;
     }
-    if(traitsOn()&&enemy.retaliate&&Math.random()<enemy.retaliate.chance){
+    if(traitsOn('retaliate')&&enemy.retaliate&&Math.random()<enemy.retaliate.chance){
       const kids=enemies.filter(e=>e.minion&&e.owner===enemy).length;
       if(kids<enemy.retaliate.max){
         const kid=spawn(enemy.retaliate.type,{routeId:enemy.routeId,lane:enemy.lane,progress:Math.max(.03,enemy.progress-.03)});
         kid.owner=enemy;if(enemy.retaliate.tint)kid.model.userData.body.material.color.setHex(enemy.retaliate.tint);
       }
     }
-    const armor=traitsOn()?((enemy.armor&&!weapon.pierce&&!weapon.splash?enemy.armor:0)+auraArmor(enemy)):0;
+    const armor=(traitsOn('armor')&&enemy.armor&&!weapon.pierce&&!weapon.splash?enemy.armor:0)+(traitsOn('aura')?auraArmor(enemy):0);
     if(armor>0)amount*=Math.max(.2,1-armor);
   }
   enemy.hp-=amount;enemy.flash=1;
@@ -332,12 +338,12 @@ function damage(enemy,amount,byPlayer=true,point){
   const position=enemy.model.position.clone();removeEnemy(enemy,true);
   if(byPlayer){state.score+=Math.round(enemy.score*Math.min(4,1+state.combo*.12));world.shake=Math.max(world.shake,enemy.boss?2:.25);hitTime=enemy.boss?.13:enemy.maxHp>=5?.075:.045;}
   world.burst(position,enemy.boss?0xffad7f:0xffdc9b,enemy.boss?45:13);if(!enemy.boss)sample(Math.random()<.5?'kill_pop':'kill_splat',.8);
-  if(enemy.puddle&&traitsOn()){
+  if(enemy.puddle&&traitsOn('puddle')){
     creamZones.push({position:position.clone(),until:state.elapsed+enemy.puddle.duration,radius:enemy.puddle.radius,heal:enemy.puddle.heal,tick:0});
     world.ring(position,0xf6b7c9,world.actorScale*8);
     notice('크림 웅덩이 · 그 위의 적이 회복돼요','CREAM PUDDLE · enemies on it heal',2);
   }
-  if(enemy.split&&traitsOn()){
+  if(enemy.split&&traitsOn('split')){
     for(let i=0;i<enemy.split.count;i++)spawn(enemy.split.into,{routeId:enemy.routeId,lane:enemy.lane,progress:Math.max(.08,enemy.progress-.05),from:position});
   }
   if(enemy.boss){
@@ -404,10 +410,11 @@ function screenGap(a,b){
   return Math.hypot(p.x-q.x,p.y-q.y)/Math.max(1,rect.width);
 }
 // 몬스터 특성: 투척·회복·은신·연막·분열. 체력과 속도만 다르면 전부 같은 적처럼 느껴진다.
-const traitsOn=()=>DIFFICULTY[state.difficulty].traits===true;
+const traitsOn=kind=>{const t=DIFFICULTY[state.difficulty].traits;return t===true||(t==='lite'&&kind!==undefined&&LITE_TRAITS.has(kind));};
 function tickTraits(enemy,dt,tuning){
-  if(!traitsOn())return;
-  if(enemy.ranged&&enemy.progress>enemy.ranged.from&&!enemy.dead){
+  const full=traitsOn();
+  if(!full&&!traitsOn('cloak'))return;
+  if(full&&enemy.ranged&&enemy.progress>enemy.ranged.from&&!enemy.dead){
     enemy.throwT=(enemy.throwT??enemy.ranged.every*Math.random())-dt;
     if(enemy.throwT<=0){
       enemy.throwT=enemy.ranged.every;
@@ -417,7 +424,7 @@ function tickTraits(enemy,dt,tuning){
       pendingHits.push({in:.85,damage:enemy.ranged.damage*tuning.impact});
     }
   }
-  if(enemy.heal&&!enemy.dead){
+  if(full&&enemy.heal&&!enemy.dead){
     enemy.healT=(enemy.healT??enemy.heal.every*Math.random())-dt;
     if(enemy.healT<=0){
       enemy.healT=enemy.heal.every;
@@ -430,7 +437,7 @@ function tickTraits(enemy,dt,tuning){
       if(healed)world.ring(enemy.model.position,0x9fe8c8,world.actorScale*9);
     }
   }
-  if(enemy.summon&&!enemy.dead){
+  if(full&&enemy.summon&&!enemy.dead){
     enemy.summonT=(enemy.summonT??enemy.summon.every*Math.random())-dt;
     if(enemy.summonT<=0){
       enemy.summonT=enemy.summon.every;
@@ -441,7 +448,7 @@ function tickTraits(enemy,dt,tuning){
       }
     }
   }
-  if(enemy.cloak&&!enemy.dead){
+  if(traitsOn('cloak')&&enemy.cloak&&!enemy.dead){
     enemy.cloakT=(enemy.cloakT??enemy.cloak.every*Math.random())-dt;
     if(enemy.cloakT<=0){enemy.cloakT=enemy.cloak.every;enemy.cloaked=enemy.cloak.duration;}
     if(enemy.cloaked>0){enemy.cloaked-=dt;world.setEnemyFade(enemy,.28);}
@@ -451,7 +458,7 @@ function tickTraits(enemy,dt,tuning){
 // 연막을 두른 이웃은 피해를 덜 받는다
 // 가속 오라(에너지캔)와 기름길(마요) — 이동 배수
 function speedBoost(enemy){
-  if(!traitsOn())return 1;
+  if(!traitsOn('haste'))return 1;
   let mul=1;
   for(const other of enemies){
     if(other===enemy||other.dead)continue;
@@ -593,7 +600,7 @@ function combat(dt){
   if(state.reload>0){state.reload=Math.max(0,state.reload-dt);if(!state.reload){state.ammo[state.weapon]=WEAPONS[state.weapon].mag;state.reloadFlash=.18;if(!sample('reload_done',.7))sound(500,.055);}}
   for(let i=pendingShots.length-1;i>=0;i--){pendingShots[i].in-=dt;if(pendingShots[i].in<=0){const p=pendingShots.splice(i,1)[0];shot(p.x,p.y,true);}}
   if(state.shooting)shot(aim.x,aim.y);
-  const wave=WAVES[state.wave],tuning=DIFFICULTY[state.difficulty];
+  const wave=WAVES[state.wave],tuning=tuningFor();
   if(state.waveTime<wave.bossAt){for(const timer of spawnTimers)if(state.waveTime>=timer.next){const variants={fries:['fries','ciga','soju'],burger:['burger','ramen'],donut:['donut','moth','bat']};
     const choices=state.wave>0?variants[timer.type]:null;spawn(choices?choices[(timer.count||0)%choices.length]:timer.type);timer.count=(timer.count||0)+1;timer.next+=timer.interval*tuning.gap;}}
   if(state.waveTime>=wave.bossAt&&!events.has('boss')){events.add('boss');spawn(wave.boss,{waveBoss:true,routeId:world.map.bossRoute});}
@@ -604,7 +611,7 @@ function combat(dt){
   for(const enemy of [...enemies]){
     // Bosses advance in 28s; regular soda lane travel is approximately 28s on NORMAL.
     const travel=enemy.boss?28:25*(3.2/enemy.speed);
-    const charging=traitsOn()&&enemy.charge&&enemy.progress>enemy.charge.at?enemy.charge.mul:1;
+    const charging=traitsOn('charge')&&enemy.charge&&enemy.progress>enemy.charge.at?enemy.charge.mul:1;
     enemy.progress+=dt/travel*tuning.speed*(enemy.type==='plaque'&&enemy.progress>.7?1.9:1)*charging*speedBoost(enemy)*(state.slowField>0&&!enemy.fly?.55:1);
     positionEnemy(enemy);
     tickTraits(enemy,dt,tuning);
@@ -656,13 +663,13 @@ function combat(dt){
   if(!state.failed){
     const targets=enemies.filter(e=>e.sugar&&!e.dead).sort((a,b)=>b.progress-a.progress);
     world.aimTurret(targets[0],Math.max(0,1-state.insulin/.25));
-    state.pancreas=clamp(state.pancreas+dt*(targets.length?.4:2.2));
+    state.pancreas=clamp(state.pancreas+dt*(targets.length?PANCREAS.regenBusy:PANCREAS.regenIdle));
     if(state.sugar>70&&targets.length)state.pancreas=clamp(state.pancreas-dt*1.4);
-    if(state.pancreas<=5&&targets.length)state.strain+=dt;else if(state.pancreas>30)state.strain=Math.max(0,state.strain-dt*.5);
-    if(state.strain>=12){state.failed=true;state.pancreas=0;notice('췌장부전 · 이번 판 인슐린 지원이 중단됩니다.','PANCREATIC FAILURE · Insulin support lost for this run.',4);}
+    if(state.pancreas<=5&&targets.length)state.strain+=dt;else if(state.pancreas>30)state.strain=Math.max(0,state.strain-dt*PANCREAS.strainRecover);
+    if(state.strain>=PANCREAS.strainLimit){state.failed=true;state.pancreas=0;notice('췌장부전 · 이번 판 인슐린 지원이 중단됩니다.','PANCREATIC FAILURE · Insulin support lost for this run.',4);}
     state.insulin-=dt;
     if(targets.length&&state.insulin<=0&&!state.failed){
-      state.insulin=1+stageOfLiver()*.25;state.pancreas=clamp(state.pancreas-(state.sugar>70?5:2.2));
+      state.insulin=1+stageOfLiver()*.25;state.pancreas=clamp(state.pancreas-(state.sugar>70?PANCREAS.drainHigh:PANCREAS.drain));
       const target=targets[0];world.fireTurret();
       sample('insulin',.35);world.bolt(world.tip.getWorldPosition(new THREE.Vector3()),target,1.2*pancreaticPower(),(e,d)=>damage(e,d,false));
     }
@@ -706,7 +713,7 @@ function updateHUD(){
   $('liver-state').textContent=text(['건강 · 정화 파동 정상','MASLD · 파동 둔화','MASH · 보급 저하','섬유화 · 방어 약화'][stageOfLiver()],['Healthy · purification online','MASLD · slower pulses','MASH · reduced support','Fibrosis · weakened defense'][stageOfLiver()]);
   $('liver-fill').style.width=`${100-state.liver}%`;$('pulse-time').textContent=state.glucagon>0?text(`글루카곤 증폭 · 다음 정화 ${Math.ceil(state.pulse)}초`,`Glucagon boost · next pulse ${Math.ceil(state.pulse)}s`):text(`다음 정화 ${Math.ceil(state.pulse)}초`,`Next pulse ${Math.ceil(state.pulse)}s`);
   $('pancreas-state').textContent=state.failed?text('췌장부전 · 지원 중단','Failure · support offline'):text(`기능 ${Math.round(state.pancreas)}% · ${state.pancreas>60?'지원 사격 중':state.pancreas>30?'인슐린 약화':state.pancreas>10?'과로 상태':'인슐린 저항성 · 무력화'}`,`Function ${Math.round(state.pancreas)}% · ${state.pancreas>60?'supporting fire':state.pancreas>30?'insulin weakening':state.pancreas>10?'overworked':'insulin resistance'}`);
-  $('pancreas-fill').style.width=`${state.pancreas}%`;$('strain').textContent=state.strain>0?text(`부전 부담 ${state.strain.toFixed(1)} / 12초`,`Failure strain ${state.strain.toFixed(1)} / 12s`):text('당류 적 자동 요격','Auto-targeting sugar enemies');
+  $('pancreas-fill').style.width=`${state.pancreas}%`;$('strain').textContent=state.strain>0?text(`부전 부담 ${state.strain.toFixed(1)} / ${PANCREAS.strainLimit}초`,`Failure strain ${state.strain.toFixed(1)} / ${PANCREAS.strainLimit}s`):text('당류 적 자동 요격','Auto-targeting sugar enemies');
   $('warning').textContent=state.failed?text('췌장부전 · 이번 판 회복 불가','PANCREATIC FAILURE · irreversible this run'):state.pancreas<=10?text('인슐린 무력화! 당류 적을 먼저 제거하세요','INSULIN RESISTANCE · clear sugar enemies'):state.sugar>70?text('고혈당 · 간과 췌장 부담 증가','HIGH GLUCOSE · liver & pancreas under strain'):'';
   $('weapon-tier').textContent=`ARSENAL ${String(state.weapon+1).padStart(2,'0')} / 12`;$('weapon-name').textContent=weaponName();
   $('ammo').textContent=state.difficulty==='easy'?text('∞ 무제한 탄약','∞ UNLIMITED AMMO'):state.reload>0?text(`재장전 ${state.reload.toFixed(1)}초`,`RELOAD ${state.reload.toFixed(1)}s`):`${state.ammo[state.weapon]} / ${WEAPONS[state.weapon].mag}`;
@@ -817,7 +824,7 @@ try{
     $('fps').dataset.quality=String(world.quality);
     frameSamples=[];sampleStart=now;
   }
-  window.ASTRA={loadSfx,sample,sfxBuffers,unlockAudio,editor,MAPS,selectMap,state,enemies,world,bank,WEAPONS,TYPES,WAVES,performance:performanceStats,spawn,shot,reload,swap,start:resetGame,openQuiz,answerQuiz,continueQuiz,pause,step,project:enemy=>world.project(enemy.model),setManual(value=true){manual=value;lastTime=performance.now();frameSamples=[];sampleStart=lastTime;slowWindows=goodWindows=0;},damage,finish};
+  window.ASTRA={loadSfx,sample,sfxBuffers,unlockAudio,editor,MAPS,selectMap,state,enemies,world,bank,WEAPONS,TYPES,WAVES,DIFFICULTY,PANCREAS,performance:performanceStats,spawn,shot,reload,swap,start:resetGame,openQuiz,answerQuiz,continueQuiz,pause,step,project:enemy=>world.project(enemy.model),setManual(value=true){manual=value;lastTime=performance.now();frameSamples=[];sampleStart=lastTime;slowWindows=goodWindows=0;},damage,finish};
   function frame(now){const elapsed=now-lastTime;lastTime=now;measureFrame(now,elapsed);if(!manual)step(Math.min(.05,elapsed/1000));requestAnimationFrame(frame);}requestAnimationFrame(frame);
 
 }catch(error){console.error(error);$('fatal-text').textContent=text('3D 화면을 시작하지 못했습니다. WebGL2를 지원하는 브라우저에서 서버 주소로 열어 주세요.','Could not start 3D graphics. Open the HTTP server URL in a browser supporting WebGL2.');show('fatal',true);}
