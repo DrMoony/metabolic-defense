@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a32';
+import { healthColor } from './feedback.js?v=a33';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a32';
-import { buildTerrain } from './terrain.js?v=a32';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a32';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality } from './sprites.js?v=a32';
-import { getMap } from './maps/index.js?v=a32';
+import { contact, glow, reflections } from './art.js?v=a33';
+import { buildTerrain } from './terrain.js?v=a33';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a33';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality, attachFlashOverlay } from './sprites.js?v=a33';
+import { getMap } from './maps/index.js?v=a33';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -213,7 +213,7 @@ export class World {
     this.renderer.setSize(rect.width,rect.height,false);
     this.camera.aspect=this.map.plate?16/9:rect.width/Math.max(1,rect.height);this.camera.updateProjectionMatrix();this.layoutGun();
   }
-  addEnemy(type,boss){const model=enemyBillboard(type,boss);this.root.add(model);this.contacts.set(model,contact(this.scene,boss?6:3,.65));return model;}
+  addEnemy(type,boss){const model=enemyBillboard(type,boss);attachFlashOverlay(model);this.root.add(model);this.contacts.set(model,contact(this.scene,boss?6:3,.65));return model;}
   remove(model,dying=false){
     const shadow=this.contacts.get(model);if(shadow){shadow.removeFromParent();shadow.material.dispose();shadow.geometry.dispose();this.contacts.delete(model);}
     if(dying){model.userData.bar.visible=false;this.deaths.push({model,life:.38,scale:model.scale.clone()});}

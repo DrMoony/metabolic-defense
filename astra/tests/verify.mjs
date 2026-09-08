@@ -82,7 +82,11 @@ for(const [type,art] of Object.entries(ENEMY_ART)){
   animateEnemy(enemy.model,A.world.camera,0,0);const first=data.body.material.map;
   animateEnemy(enemy.model,A.world.camera,.21,0,.8);
   assert.equal(data.body.material.map,data.maps[art.frames.length===2?1:0]);
-  assert(data.body.material.color.g<1,'damage tints the image');
+  // 피격은 이제 틴트가 아니라 가산 블렌딩 흰 섬광으로 표현한다
+  assert(data.flashMesh&&data.flashMesh.material.opacity>.5,'damage flashes the overlay');
+  assert.equal(data.flashMesh.material.blending,T.AdditiveBlending);
+  animateEnemy(enemy.model,A.world.camera,.21,0,0);
+  assert(data.flashMesh.material.opacity===0,'overlay rests at zero');
   if(art.frames.length===2)assert.notEqual(first,data.body.material.map);
 }
 A.start();

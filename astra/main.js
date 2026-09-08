@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a32';
-import { RouteEditor } from './route-editor.js?v=a32';
-import { World, THREE } from './world.js?v=a32';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a32';
+import { healthColor, weaponColor } from './feedback.js?v=a33';
+import { RouteEditor } from './route-editor.js?v=a33';
+import { World, THREE } from './world.js?v=a33';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a33';
 
-import { MAPS, getMap } from './maps/index.js?v=a32';
+import { MAPS, getMap } from './maps/index.js?v=a33';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -208,7 +208,7 @@ function spawn(type='soda',options={}){
 function planFlight(enemy,origin){
   const exit=world.routePoint(enemy.routeId,1).clone();
   let from=origin?origin.clone().add(new THREE.Vector3((Math.random()-.5)*10,0,(Math.random()-.5)*8)):null;
-  for(let tries=0;tries<8&&!from;tries++)from=world.platePoint(.04+Math.random()*.92,.05+Math.random()*.22);
+  for(let tries=0;tries<8&&!from;tries++)from=world.platePoint(.04+Math.random()*.92,.12+Math.random()*.20);
   if(!from)from=world.routePoint(enemy.routeId,0).clone();
   enemy.flyFrom=from;
   enemy.flyTo=exit.add(new THREE.Vector3((Math.random()-.5)*14,0,(Math.random()-.5)*6));
@@ -219,12 +219,32 @@ function planFlight(enemy,origin){
   enemy.flyCtrl=mid.add(new THREE.Vector3(-dir.z*side,0,dir.x*side));
   enemy.swayAmp=1.1+Math.random()*2.6;enemy.swayFreq=1.5+Math.random()*2.2;
   enemy.flyHeight=2.9+Math.random()*1.9;enemy.bobFreq=12+Math.random()*10;
+  // 세상 거리 기준 등속이면 먼 구간에서 화면상 멈춰 보인다. 화면 이동량으로 재매개변수화한다.
+  const lut=[0];let prev=null,acc=0;
+  for(let k=0;k<=32;k++){
+    const t=k/32,q=1-t;
+    const pos=enemy.flyFrom.clone().multiplyScalar(q*q).addScaledVector(enemy.flyCtrl,2*q*t).addScaledVector(enemy.flyTo,t*t);
+    const scr=pos.project(world.camera);
+    const sx=(scr.x+1)/2,sy=(1-scr.y)/2;
+    if(prev)acc+=Math.hypot(sx-prev[0],sy-prev[1]);
+    prev=[sx,sy];
+    if(k>0)lut.push(acc);
+  }
+  enemy.flyLUT=lut;
 }
 function positionEnemy(enemy){
-  const p=enemy.progress;
+  let p=enemy.progress;
   let position;
   if(enemy.fly&&enemy.flyFrom&&enemy.flyTo){
     // 2차 베지어로 휘어 날고, 개체마다 다른 진폭·주기로 좌우로 흔들린다
+    let ft=p;
+    if(enemy.flyLUT){
+      const lut=enemy.flyLUT,total=lut[lut.length-1]||1,target=p*total;
+      let k=1;while(k<lut.length&&lut[k]<target)k++;
+      const a0=lut[k-1],b0=lut[k]??a0;
+      ft=(k-1+(b0>a0?(target-a0)/(b0-a0):0))/(lut.length-1);
+    }
+    p=ft;
     const q=1-p,c=enemy.flyCtrl||enemy.flyFrom;
     position=enemy.flyFrom.clone().multiplyScalar(q*q).addScaledVector(c,2*q*p).addScaledVector(enemy.flyTo,p*p);
     const dir=enemy.flyTo.clone().sub(enemy.flyFrom).setY(0).normalize();
@@ -264,7 +284,13 @@ function damage(enemy,amount,byPlayer=true,point){
     const armor=traitsOn()?((enemy.armor&&!weapon.pierce&&!weapon.splash?enemy.armor:0)+auraArmor(enemy)):0;
     if(armor>0)amount*=Math.max(.2,1-armor);
   }
-  enemy.hp-=amount;enemy.flash=1;if(byPlayer)sample(Math.random()<.5?'hit':'hit_squish',.5);world.burst(point||enemy.model.position.clone().add(new THREE.Vector3(0,1.2,0)),byPlayer?0xffd395:0x9dedb7,byPlayer?5:3);
+  enemy.hp-=amount;enemy.flash=1;
+  if(byPlayer){
+    sample(Math.random()<.5?'hit':'hit_squish',.5);
+    const shown=Math.round(amount*10)/10;
+    if(shown>0)damagePopup(point||world.center(enemy.model),`-${shown}`,point&&enemy.boss?'#ffe9a8':'#ffd479',enemy.boss?1.25:1);
+  }
+  world.burst(point||enemy.model.position.clone().add(new THREE.Vector3(0,1.2,0)),byPlayer?0xffd395:0x9dedb7,byPlayer?5:3);
   world.updateHealth(enemy);updateBossHUD();
   if(enemy.hp>0)return;
   const position=enemy.model.position.clone();removeEnemy(enemy,true);
@@ -312,6 +338,23 @@ function collectItem(prop){
   }
 }
 // 두 적이 화면에서 얼마나 가까운지 (월드 거리는 원근 때문에 멀리서 과장된다)
+// 피해 숫자 팝업 — 맞았다는 사실이 화면에 또렷이 남는다
+let popupCount=0;
+function damagePopup(worldPos,textValue,color='#ffd479',scale=1){
+  if(popupCount>40)return;
+  const v=worldPos.clone().project(world.camera);
+  if(v.z>1||Math.abs(v.x)>1.05||Math.abs(v.y)>1.05)return;
+  const rect=$('stage').getBoundingClientRect();
+  const el=document.createElement('div');
+  el.className='dmg-pop';
+  el.textContent=textValue;
+  el.style.left=`${(v.x+1)/2*rect.width}px`;
+  el.style.top=`${(1-v.y)/2*rect.height}px`;
+  el.style.color=color;
+  el.style.fontSize=`${1.9*scale}cqh`;
+  $('popups').append(el);popupCount++;
+  setTimeout(()=>{el.remove?.();popupCount=Math.max(0,popupCount-1);},700);
+}
 function screenGap(a,b){
   const p=world.project(a.model),q=world.project(b.model);
   if(!p.visible||!q.visible)return Infinity;
@@ -340,7 +383,7 @@ function tickTraits(enemy,dt,tuning){
       for(const other of enemies){
         if(other===enemy||other.dead||other.hp>=other.maxHp)continue;
         if(screenGap(other,enemy)>enemy.heal.radius)continue;
-        other.hp=Math.min(other.maxHp,other.hp+enemy.heal.amount);world.updateHealth(other);healed++;
+        other.hp=Math.min(other.maxHp,other.hp+enemy.heal.amount);world.updateHealth(other);healed++;damagePopup(world.center(other.model),`+${enemy.heal.amount}`,'#8fe8b0',.9);
       }
       if(healed)world.ring(enemy.model.position,0x9fe8c8,world.actorScale*9);
     }
