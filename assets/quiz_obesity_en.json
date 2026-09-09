@@ -68,7 +68,7 @@
    "Above 0.8"
   ],
   "correct": 0,
-  "diff": "hard",
+  "diff": "mid",
   "src": "EASO framework 2024"
  },
  {
@@ -92,7 +92,7 @@
    "22 kg/m² or higher"
   ],
   "correct": 0,
-  "diff": "mid",
+  "diff": "easy",
   "src": "KSSO guideline"
  },
  {
@@ -104,7 +104,7 @@
    "40 kg/m² or higher"
   ],
   "correct": 0,
-  "diff": "hard",
+  "diff": "mid",
   "src": "KSSO guideline"
  },
  {
@@ -168,72 +168,7 @@
   "src": "Obesity management guidelines"
  },
  {
-  "q": "What was the headline result of the SELECT trial with semaglutide 2.4 mg?",
-  "a": [
-   "About a 20% reduction in major adverse cardiovascular events (MACE)",
-   "About a 50% reduction in heart-failure hospitalisation",
-   "A significant reduction in stroke only",
-   "No difference in cardiovascular death"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "SELECT trial (NEJM 2023)",
-  "drug": true
- },
- {
-  "q": "Who were the participants in the SELECT trial?",
-  "a": [
-   "Overweight or obese adults with cardiovascular disease and without diabetes",
-   "Adults with both type 2 diabetes and cardiovascular disease",
-   "High-risk obese adults without cardiovascular disease",
-   "Overweight adults for primary prevention"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "SELECT trial",
-  "drug": true
- },
- {
-  "q": "In STEP 1, what was the mean 68-week weight loss with semaglutide 2.4 mg?",
-  "a": [
-   "About 15%",
-   "About 5%",
-   "About 10%",
-   "About 21%"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "STEP 1 (NEJM 2021) — 14.9% vs 2.4% placebo",
-  "drug": true
- },
- {
-  "q": "In SURMOUNT-1, what weight loss did tirzepatide 15 mg achieve at 72 weeks?",
-  "a": [
-   "About 21%",
-   "About 10%",
-   "About 15%",
-   "About 30%"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "SURMOUNT-1 (NEJM 2022)",
-  "drug": true
- },
- {
-  "q": "What happens to weight after stopping a GLP-1 receptor agonist?",
-  "a": [
-   "Much of it returns (about two-thirds of the loss regained after one year)",
-   "Most of it is kept (over 90% of the loss is maintained at one year)",
-   "Only about half is regained (about 50% of the loss returns)",
-   "Weight keeps falling (the loss continues after stopping)"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "STEP 1 extension (DOM 2022)",
-  "drug": true
- },
- {
-  "q": "What must accompany pharmacotherapy for obesity?",
+  "q": "What is the foundation of every obesity treatment plan?",
   "a": [
    "Lifestyle intervention: diet, exercise and behavioural therapy",
    "Monthly liver and kidney function tests throughout treatment",
@@ -245,19 +180,6 @@
   "src": "Obesity guidelines"
  },
  {
-  "q": "What is the most common side effect of GLP-1 receptor agonists?",
-  "a": [
-   "Gastrointestinal symptoms such as nausea and vomiting",
-   "Hypoglycaemia requiring dose adjustment",
-   "Fluid retention with peripheral oedema",
-   "Headache and dizziness on standing"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "STEP/SURMOUNT trials",
-  "drug": true
- },
- {
   "q": "What BMI generally triggers consideration of metabolic/bariatric surgery?",
   "a": [
    "BMI 35 or higher, or 30 or higher with comorbidities",
@@ -266,7 +188,7 @@
    "BMI 25 or higher with diabetes"
   ],
   "correct": 0,
-  "diff": "hard",
+  "diff": "mid",
   "src": "ASMBS/IFSO 2022"
  },
  {
@@ -278,7 +200,7 @@
    "Endometrial cancer"
   ],
   "correct": 0,
-  "diff": "hard",
+  "diff": "mid",
   "src": "IARC / WHO"
  },
  {
@@ -326,7 +248,7 @@
    "Thyroid hormone rises and increases heat production"
   ],
   "correct": 0,
-  "diff": "hard",
+  "diff": "mid",
   "src": "Metabolic adaptation research"
  },
  {
@@ -357,8 +279,8 @@
   "q": "How should cardiovascular risk in obesity be reduced?",
   "a": [
    "Manage weight together with blood pressure, lipids and glucose",
-   "Weight loss alone is enough to remove the risk",
-   "Prescribe a statin first and reassess weight later",
+   "Weight loss alone is enough",
+   "Treat blood pressure first and leave weight for later",
    "No further management if a cardiac work-up is normal"
   ],
   "correct": 0,
@@ -390,78 +312,6 @@
   "src": "Obesity guidelines"
  },
  {
-  "q": "According to the KSSO 2024 Obesity Fact Sheet, what was the obesity prevalence among Korean adult men in 2022?",
-  "a": [
-   "About 50%",
-   "About 28%",
-   "About 38%",
-   "About 62%"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KSSO Obesity Fact Sheet 2024 — men 49.6%"
- },
- {
-  "q": "Per the Fact Sheet, what was obesity prevalence in Korean women in 2022?",
-  "a": [
-   "About 28%",
-   "About 18%",
-   "About 38%",
-   "About 50%"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KSSO Obesity Fact Sheet 2024 — women 27.7%"
- },
- {
-  "q": "Comparing 2013 with 2022, how did Korean class 3 (severe) obesity prevalence change?",
-  "a": [
-   "It rose about 2.6-fold",
-   "It rose about 1.3-fold",
-   "It rose about 1.6-fold",
-   "It did not change"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KSSO Obesity Fact Sheet 2024 — class III 2.6×, class II 1.6×"
- },
- {
-  "q": "Per the Fact Sheet, what was abdominal obesity prevalence among Korean adults in 2022?",
-  "a": [
-   "About 24.5%",
-   "About 15%",
-   "About 31%",
-   "About 38%"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KSSO Obesity Fact Sheet 2024"
- },
- {
-  "q": "Per the Fact Sheet, how much higher is type 2 diabetes risk in class 3 obesity versus normal weight?",
-  "a": [
-   "About 9.5 times",
-   "About 2 times",
-   "About 5 times",
-   "About 20 times"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KSSO Obesity Fact Sheet 2024 — class II 5.1×, class III 9.5×"
- },
- {
-  "q": "What is the 10-year trend in abdominal obesity among Korean adults?",
-  "a": [
-   "It has risen steadily",
-   "It fell sharply after 2019",
-   "It fell in men and rose in women",
-   "It has stayed flat"
-  ],
-  "correct": 0,
-  "diff": "easy",
-  "src": "KSSO Obesity Fact Sheet 2024"
- },
- {
   "q": "According to the KSSO 2025 Obesity Fact Sheet, what was the adult obesity prevalence (BMI ≥25) in Korea in 2023?",
   "a": [
    "About 38%",
@@ -482,7 +332,7 @@
    "About 62%"
   ],
   "correct": 0,
-  "diff": "mid",
+  "diff": "easy",
   "src": "KSSO 2025 Obesity Fact Sheet — men 49.8%"
  },
  {
@@ -496,18 +346,6 @@
   "correct": 0,
   "diff": "mid",
   "src": "KSSO 2025 Obesity Fact Sheet — women 27.5%"
- },
- {
-  "q": "How did adult obesity prevalence in Korea change between 2014 and 2023?",
-  "a": [
-   "It rose from about 31% to about 38%",
-   "It fell from about 38% to about 31%",
-   "It nearly doubled from about 20% to 38%",
-   "It stayed at about 38%"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KSSO 2025 Obesity Fact Sheet — 31.1%→38.4% (1.23×)"
  },
  {
   "q": "What trend in adult obesity prevalence over the last three years did the 2025 fact sheet highlight?",
@@ -534,18 +372,6 @@
   "src": "KSSO 2025 Obesity Fact Sheet — abdominal obesity 24.3%"
  },
  {
-  "q": "How did abdominal obesity prevalence compare between the sexes in 2023?",
-  "a": [
-   "Men (about 31%) were about 1.8 times women (about 18%)",
-   "Women were higher than men",
-   "Men and women were about equal",
-   "Men were more than three times women"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KSSO 2025 Obesity Fact Sheet — men 31.3% / women 17.7%"
- },
- {
   "q": "Which age band had the highest obesity prevalence in 2023?",
   "a": [
    "People in their 30s and 40s (about 42%)",
@@ -556,78 +382,6 @@
   "correct": 0,
   "diff": "mid",
   "src": "KSSO 2025 Obesity Fact Sheet — 30s 42.0%, 40s 42.2%"
- },
- {
-  "q": "Which age band had the highest prevalence of class III obesity (BMI ≥35)?",
-  "a": [
-   "Early 30s (ages 30–34)",
-   "People in their 50s",
-   "People in their 60s",
-   "People in their 70s"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KSSO 2025 Obesity Fact Sheet — ages 30–34: 2.57%"
- },
- {
-  "q": "Metabolic syndrome affected about 52% of obese adults versus about 14% of non-obese adults. How many times higher?",
-  "a": [
-   "About 3.6 times",
-   "About 1.2 times",
-   "About 2 times",
-   "About 8 times"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KSSO 2025 Obesity Fact Sheet — 51.6% vs 14.3%"
- },
- {
-  "q": "Among adults aged 19–39, how many times higher was diabetes prevalence in the obese group than in the non-obese group?",
-  "a": [
-   "About 13 times",
-   "About 2 times",
-   "About 5 times",
-   "About 30 times"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KSSO 2025 Obesity Fact Sheet — ages 19–39: 5.61% vs 0.43%"
- },
- {
-  "q": "Hypertension affected about 33% of obese adults versus about 16% of non-obese adults. How many times higher?",
-  "a": [
-   "About 2 times",
-   "About 1.2 times",
-   "About 4 times",
-   "No difference"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KSSO 2025 Obesity Fact Sheet — 32.7% vs 16.0%"
- },
- {
-  "q": "Which condition was actually less prevalent in the obese group than in the non-obese group in the 2025 fact sheet?",
-  "a": [
-   "Osteoporosis",
-   "Osteoarthritis",
-   "Obstructive sleep apnoea",
-   "Hyperuricaemia"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KSSO 2025 Obesity Fact Sheet — osteoporosis 3.4% vs 4.2%"
- },
- {
-  "q": "How many times higher was obstructive sleep apnoea prevalence in the obese group than in the non-obese group?",
-  "a": [
-   "About 4.5 times",
-   "About 1.5 times",
-   "About 2 times",
-   "About 10 times"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KSSO 2025 Obesity Fact Sheet — 14.2% vs 3.2%"
  },
  {
   "q": "What waist-circumference cut-offs define abdominal obesity in Koreans according to KSSO?",
@@ -642,30 +396,6 @@
   "src": "KSSO 2025 Obesity Fact Sheet / KSSO guideline"
  },
  {
-  "q": "Per the 2024 fact sheet, what was the obesity prevalence among men in their 20s in 2022?",
-  "a": [
-   "About 45%",
-   "About 25%",
-   "About 35%",
-   "About 60%"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KSSO 2024 Obesity Fact Sheet — men in their 20s 32.2%→45.0%"
- },
- {
-  "q": "In the 2024 fact sheet, how did female obesity prevalence by body-fat percentage (≥35%) compare with the BMI-based figure?",
-  "a": [
-   "Higher, about 37% versus about 28% by BMI",
-   "Lower, about 18% versus about 28% by BMI",
-   "The same, about 28% by both criteria",
-   "Not calculated; only BMI was reported"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KSSO 2024 Obesity Fact Sheet — body-fat criterion, women 37.1%"
- },
- {
   "q": "Per the Diabetes Fact Sheet 2024, what was diabetes prevalence among Koreans aged 30 or older in 2022?",
   "a": [
    "About 15% (one in seven)",
@@ -674,7 +404,7 @@
    "About 25% (one in four)"
   ],
   "correct": 0,
-  "diff": "mid",
+  "diff": "easy",
   "src": "KDA Diabetes Fact Sheet in Korea 2024 — 14.8% in 2022"
  },
  {
@@ -690,18 +420,6 @@
   "src": "KDA Diabetes Fact Sheet in Korea 2024 — ages 65+: 28–30%"
  },
  {
-  "q": "How many Koreans aged 30 or older were estimated to have diabetes in 2021–2022?",
-  "a": [
-   "About 5.3 million",
-   "About 2.5 million",
-   "About 8 million",
-   "About 14 million"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — 5.33 million"
- },
- {
   "q": "What share of Koreans aged 30 or older have prediabetes (fasting glucose 100–125 or HbA1c 5.7–6.4%)?",
   "a": [
    "About 40% (four in ten)",
@@ -714,30 +432,6 @@
   "src": "KDA Diabetes Fact Sheet in Korea 2024 — 41.1%, 14 million"
  },
  {
-  "q": "In 2021–2022, what share of people with diabetes had HbA1c below 6.5% (control rate)?",
-  "a": [
-   "About 32%",
-   "About 50%",
-   "About 65%",
-   "About 75%"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — awareness 74.7 / treatment 70.9 / control 32.4%"
- },
- {
-  "q": "What share of people with diabetes met all three targets: HbA1c <6.5%, BP <140/85 and LDL <100?",
-  "a": [
-   "About 16%",
-   "About 5%",
-   "About 32%",
-   "About 60%"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — comprehensive control 15.9%"
- },
- {
   "q": "What share of people with diabetes also had obesity (BMI ≥25)?",
   "a": [
    "About 54%",
@@ -746,7 +440,7 @@
    "About 80%"
   ],
   "correct": 0,
-  "diff": "mid",
+  "diff": "easy",
   "src": "KDA Diabetes Fact Sheet in Korea 2024 — obesity 53.8%"
  },
  {
@@ -762,66 +456,6 @@
   "src": "KDA Diabetes Fact Sheet in Korea 2024 — abdominal obesity 61.2%"
  },
  {
-  "q": "What share of people with diabetes aged 30 or older also had hypercholesterolaemia?",
-  "a": [
-   "About 74%",
-   "About 30%",
-   "About 45%",
-   "About 60%"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — hypertension 59.6 / hypercholesterolaemia 74.2 / both 44.5%"
- },
- {
-  "q": "What share of young adults (19–39) with diabetes had actually been diagnosed (awareness)?",
-  "a": [
-   "About 43%",
-   "About 25%",
-   "About 60%",
-   "About 80%"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — young-adult awareness 43%, treatment 35%"
- },
- {
-  "q": "What share of young adults (19–39) with diabetes also had obesity?",
-  "a": [
-   "About 87%",
-   "About 44%",
-   "About 54%",
-   "About 65%"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — young adults 87%, elderly 44%"
- },
- {
-  "q": "What share of men in their 30s have prediabetes?",
-  "a": [
-   "About 37%",
-   "About 10%",
-   "About 20%",
-   "About 50%"
-  ],
-  "correct": 0,
-  "diff": "hard",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — men in their 30s 37%"
- },
- {
-  "q": "How does current smoking among young adults with diabetes (about 34%) compare with elderly patients (about 10%)?",
-  "a": [
-   "About three times higher",
-   "About the same",
-   "About half",
-   "About ten times higher"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — young 34% vs elderly 10%"
- },
- {
   "q": "Which of the following is NOT part of the fact sheet definition of diabetes?",
   "a": [
    "Fasting glucose 100–125 mg/dL",
@@ -834,28 +468,471 @@
   "src": "KDA Diabetes Fact Sheet in Korea 2024 — definition of diabetes"
  },
  {
-  "q": "Which drug class did the fact sheet flag as steadily increasing among young adults with diabetes?",
+  "q": "How did the Lancet Commission say BMI should be used when diagnosing obesity?",
   "a": [
-   "SGLT2 inhibitors",
-   "Sulfonylureas",
-   "Insulin",
-   "Thiazolidinediones"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — prescription trends",
-  "drug": true
- },
- {
-  "q": "What is the most common form of treatment among people already diagnosed with diabetes?",
-  "a": [
-   "Oral glucose-lowering drugs alone (about 90%)",
-   "Insulin injections alone (about 6%)",
-   "Insulin combined with oral drugs",
-   "Non-drug therapy with diet and exercise only"
+   "Only as a screening tool; confirmation needs a measure of body fat",
+   "BMI alone confirms the diagnosis",
+   "BMI should not be used at all",
+   "Only in children"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — oral agents alone ~90%, insulin ~6%"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "When can excess adiposity be assumed without additional measurements under the Commission criteria?",
+  "a": [
+   "When BMI exceeds 40 kg/m²",
+   "When BMI exceeds 30 kg/m²",
+   "When only waist circumference is measured",
+   "When there is a family history"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "Which of these are examples of organ dysfunction that count toward clinical obesity?",
+  "a": [
+   "Fatty liver, sleep apnoea, knee pain with reduced function",
+   "Migraine, myopia, dental caries",
+   "Hypothyroidism, iron-deficiency anaemia",
+   "Allergic rhinitis, eczema"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "Besides organ dysfunction, what other criterion can establish clinical obesity?",
+  "a": [
+   "Significant, age-adjusted limitation of mobility or basic daily activities",
+   "Body weight above 100 kg",
+   "Obesity in a family member",
+   "A large appetite"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "What management did the Commission recommend for preclinical obesity?",
+  "a": [
+   "Counselling, monitoring and lifestyle management to reduce risk",
+   "Immediate surgery",
+   "No management at all",
+   "Hospital admission"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "How did the Commission define the goal of treating clinical obesity?",
+  "a": [
+   "Improving or achieving remission of organ dysfunction and preventing complications",
+   "Only bringing the weight number back to a normal BMI",
+   "Eliminating appetite completely",
+   "Maximising the speed of weight loss"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "How did the Lancet Commission characterise clinical obesity?",
+  "a": [
+   "A chronic systemic illness in which excess adiposity alters organ function",
+   "A temporary state created by lifestyle",
+   "A congenital disorder determined only by genes",
+   "An acute infectious illness"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "What did the Commission recommend regarding weight stigma?",
+  "a": [
+   "Training for clinicians and policymakers to address weight-based bias and stigma",
+   "Telling patients they lack willpower",
+   "Removing weight from medical records",
+   "Banning the word obesity"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "Which cluster forms the \"metabolic\" criterion for clinical obesity?",
+  "a": [
+   "Hyperglycaemia together with high triglycerides and low HDL cholesterol",
+   "Anaemia with low white cells",
+   "High uric acid with low calcium",
+   "Raised liver enzymes alone"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "Which findings belong to the cardiovascular criteria for clinical obesity?",
+  "a": [
+   "Heart failure, atrial fibrillation, raised blood pressure",
+   "Tachycardia only",
+   "Varicose veins",
+   "Low blood pressure"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "What is the key distinction between clinical and preclinical obesity?",
+  "a": [
+   "Whether organ dysfunction or limitation of daily activities is present",
+   "Whether weight exceeds 100 kg",
+   "Whether age is over 40",
+   "Whether the person exercises"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+ },
+ {
+  "q": "What first-line treatment goal does the KSSO guideline recommend?",
+  "a": [
+   "Losing 5–10% of initial body weight within 6 months",
+   "Losing 20% within one month",
+   "Continuing until a normal BMI is reached",
+   "Gaining muscle without any weight change"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "How often does the KSSO guideline advise adults to have BMI measured?",
+  "a": [
+   "Once a year",
+   "Once every five years",
+   "Only when symptoms appear",
+   "Every day"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "What daily calorie reduction does the guideline recommend for a low-calorie diet?",
+  "a": [
+   "A deficit of 500–1,000 kcal a day (0.5–1 kg loss a week)",
+   "A deficit of 100 kcal a day",
+   "A deficit of 2,000 kcal a day",
+   "Skipping one meal entirely each day"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "What exercise prescription does the guideline recommend for weight loss?",
+  "a": [
+   "At least 150 minutes of aerobic exercise a week plus resistance training 2–3 times a week",
+   "One high-intensity session a week only",
+   "Ten minutes of stretching daily only",
+   "Diet alone without exercise"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "Under the Korean guideline, when may pharmacotherapy for obesity be considered?",
+  "a": [
+   "BMI ≥25 with failure of non-drug treatment",
+   "Anyone with BMI ≥23",
+   "Only at BMI ≥30",
+   "Whenever the patient wishes, regardless of BMI"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "What does the guideline recommend to keep weight off after loss?",
+  "a": [
+   "Continue a high-protein, low-fat diet with exercise and check weight regularly",
+   "Lift all dietary limits after losing weight",
+   "Exercise only, with unrestricted eating",
+   "Put the scale away and go by feel"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "Which measure is combined with BMI in the KSSO comorbidity-risk table?",
+  "a": [
+   "Waist circumference (≥90 cm men / ≥85 cm women raises the risk category)",
+   "Blood type",
+   "Height",
+   "Body temperature"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "What should be checked at the first visit to rule out secondary obesity?",
+  "a": [
+   "Conditions that raise weight (hypothyroidism, Cushing syndrome) and current medications",
+   "Blood type and eyesight",
+   "Family occupations",
+   "Birth weight only"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "At what age does the KDA 2023 guideline recommend starting diabetes screening?",
+  "a": [
+   "All adults aged 35 or older (19 or older with risk factors)",
+   "Only those 50 or older",
+   "Only those 65 or older",
+   "Only when symptoms appear"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+ },
+ {
+  "q": "Which item was newly added to the diabetes-screening risk factors in the 2023 guideline?",
+  "a": [
+   "Abdominal obesity (waist ≥90 cm men / ≥85 cm women)",
+   "Left-handedness",
+   "Blood type O",
+   "Height over 180 cm"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+ },
+ {
+  "q": "How much weight loss does the KDA 2023 guideline recommend for overweight or obese adults with diabetes?",
+  "a": [
+   "At least 5%, then maintain it",
+   "1%",
+   "At least 20%",
+   "Weight maintenance only"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+ },
+ {
+  "q": "How much exercise is recommended for people with diabetes?",
+  "a": [
+   "At least 150 minutes of moderate aerobic exercise a week plus resistance exercise twice a week or more",
+   "A 30-minute walk once a week",
+   "Standing for 5 minutes after meals",
+   "Exercise is not recommended"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+ },
+ {
+  "q": "What lifestyle target is recommended to prevent progression from prediabetes to type 2 diabetes?",
+  "a": [
+   "5–7% weight loss and at least 150 minutes of exercise a week",
+   "Weight maintenance and 30 minutes of exercise a week",
+   "Complete carbohydrate restriction",
+   "Fasting"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+ },
+ {
+  "q": "What is the general HbA1c target for adults with type 2 diabetes in the Korean guideline?",
+  "a": [
+   "Below 6.5%",
+   "Below 8.0%",
+   "Below 5.0%",
+   "Below 10%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+ },
+ {
+  "q": "Which of the following is NOT a diagnostic criterion for diabetes?",
+  "a": [
+   "Fasting glucose of 110 mg/dL",
+   "Fasting glucose ≥126 mg/dL",
+   "HbA1c ≥6.5%",
+   "2-hour glucose ≥200 mg/dL on a 75 g OGTT"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+ },
+ {
+  "q": "How should fatty liver be viewed in people with type 2 diabetes?",
+  "a": [
+   "It is very common and carries a higher risk of fibrosis, so it should be assessed",
+   "It is unrelated to diabetes",
+   "It is rare and need not be checked",
+   "Normal liver enzymes rule it out"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes / KASL 2025 MASLD Clinical Practice Guideline"
+ },
+ {
+  "q": "What is the simplest way to identify abdominal obesity?",
+  "a": [
+   "Measuring waist circumference with a tape",
+   "Measuring body weight only",
+   "Measuring blood pressure",
+   "Measuring height"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "Where and how should waist circumference be measured?",
+  "a": [
+   "Midway between the lowest rib and the top of the hip bone, after breathing out",
+   "At the narrowest point while breathing in",
+   "5 cm below the navel over clothing",
+   "At the widest part of the hips"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "What is the most effective way to reduce visceral fat?",
+  "a": [
+   "Calorie restriction with regular aerobic and resistance exercise",
+   "Daily sit-ups only",
+   "Sweating in a sauna",
+   "Fasting one meal a day"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "What can a person with type 2 diabetes and obesity expect from losing 5–10% of body weight?",
+  "a": [
+   "Better insulin sensitivity and lower glucose and HbA1c",
+   "No change in glucose",
+   "Insulin secretion stops completely",
+   "Glucose rises instead"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+ },
+ {
+  "q": "Which statement about fatty liver and type 2 diabetes is correct?",
+  "a": [
+   "They raise each other's risk in both directions",
+   "They are unrelated",
+   "Fatty liver prevents diabetes",
+   "Diabetes clears fatty liver"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline"
+ },
+ {
+  "q": "When a person with type 2 diabetes has fatty liver, what should be checked in particular?",
+  "a": [
+   "Whether fibrosis has developed (non-invasive markers such as FIB-4)",
+   "Blood type",
+   "Eyesight",
+   "Bone density"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KASL 2025 MASLD Clinical Practice Guideline"
+ },
+ {
+  "q": "How does body-fat distribution change after menopause?",
+  "a": [
+   "Visceral fat increases and abdominal obesity becomes more common",
+   "Only subcutaneous fat rises while visceral fat falls",
+   "Body fat falls on its own",
+   "There is no change"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "In which group has obesity risen most steeply in Korea over the past decade?",
+  "a": [
+   "Young men in their 20s and 30s",
+   "Women over 70",
+   "Teenage girls",
+   "Men in their 60s"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO 2025 Obesity Fact Sheet"
+ },
+ {
+  "q": "What needs special attention when managing obesity in older adults?",
+  "a": [
+   "Preventing sarcopenic obesity by combining resistance exercise with adequate protein",
+   "Losing as much weight as fast as possible",
+   "Avoiding resistance exercise as dangerous",
+   "Restricting protein"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+ },
+ {
+  "q": "Which statement describes young-adult (19–39) diabetes in Korea?",
+  "a": [
+   "Obesity is very common (nine in ten) and diagnosis and treatment rates are low",
+   "Most have normal weight",
+   "Control rates are higher than in the elderly",
+   "It is far more common in women"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KDA Diabetes Fact Sheet in Korea 2024"
+ },
+ {
+  "q": "What should a woman do after a pregnancy with gestational diabetes?",
+  "a": [
+   "Have regular glucose testing because the risk of type 2 diabetes is high",
+   "No testing is needed because the risk ends with delivery",
+   "Test only during the next pregnancy",
+   "Check blood pressure only"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+ },
+ {
+  "q": "Why does obesity matter so much in adults with diabetes?",
+  "a": [
+   "More than half of people with diabetes have obesity, and it makes glucose, blood pressure and lipid control harder",
+   "Obesity is rare in people with diabetes",
+   "Obesity lowers glucose",
+   "Obesity increases insulin secretion"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
  }
 ]

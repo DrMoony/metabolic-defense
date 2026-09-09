@@ -20,7 +20,7 @@ export const storage = {
 export class QuizBank {
   constructor() {
     this.sets = { masld: [], obesity: [] };
-    this.mix = [0, 30, 50, 70, 100].includes(storage.get('mix', 70)) ? storage.get('mix', 70) : 70;
+    this.mix = [0, 30, 50, 70, 100].includes(storage.get('mix', 30)) ? storage.get('mix', 30) : 30;   // 기본 MASLD 30 : Clinical Obesity 70 (임상 비만 중심)
     this.drug = storage.get('drug', false) === true;
     const history = storage.get('recent', []);
     this.recent = Array.isArray(history) ? history.filter(id => typeof id === 'string').slice(-24) : [];
@@ -51,7 +51,7 @@ export class QuizBank {
     return true;
   }
   configure(mix, drug) {
-    this.mix = [0, 30, 50, 70, 100].includes(Number(mix)) ? Number(mix) : 70;
+    this.mix = [0, 30, 50, 70, 100].includes(Number(mix)) ? Number(mix) : 30;
     this.drug = drug === true;
     const savedMix = storage.set('mix', this.mix);
     const savedDrug = storage.set('drug', this.drug);
