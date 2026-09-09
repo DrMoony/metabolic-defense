@@ -32,6 +32,8 @@
   .fact .src { color:rgba(255,255,255,.45); font-size:12px; margin-top:4px; }
   .fact .src b { color:#9fd6ff; font-weight:600; }
   .fact .tags { margin-top:4px; }
+  .badge { font-size:10.5px; font-weight:800; padding:2px 6px; border-radius:6px; margin-left:6px; background:rgba(255,255,255,.1); color:rgba(255,255,255,.7); vertical-align:middle; }
+  .badge.warn { background:rgba(255,160,80,.18); color:#ffb070; } .badge.drug { background:rgba(255,93,115,.16); color:#ff8fa3; }
   .refs { margin-top:5px; font-size:12px; color:rgba(255,255,255,.55); }
   .refs summary { cursor:pointer; color:#9fd6ff; }
   .refs ul { margin:4px 0 0 16px; }
@@ -92,7 +94,8 @@ function renderTree() {
 }
 function factCard(f) {
   const q = KB.questions.find(x => x.fact === f.id);
-  return `<div class="fact"><div class="s">${f.statement_ko}<span class="diff ${f.diff || 'mid'}">${(f.diff || '').toUpperCase()}</span></div>
+  const badges = (f.year ? `<span class="badge">${f.year}</span>` : '') + (f.dated ? `<span class="badge warn" title="용어·수치가 낡았을 수 있어요">낡음 주의</span>` : '') + (f.drug ? `<span class="badge drug" title="약제명 포함 — 게임 문항 금지">약제</span>` : '');
+  return `<div class="fact"><div class="s">${f.statement_ko}${q ? `<span class="diff ${f.diff || 'mid'}">${(f.diff || '').toUpperCase()}</span>` : ''}${badges}</div>
     <div class="src">출처 <b>${f.source_family}</b> · ${f.source || ''}${q ? ` · 문항 ${q.id}` : ' · 문항 없음'}</div>
     ${f.refs && f.refs.length ? `<details class="refs"><summary>1차 문헌 ${f.refs.length}</summary><ul>${f.refs.map(r => `<li>${r}</li>`).join('')}</ul></details>` : ''}
     <div class="tags">${f.concepts.map(c => byId[c] ? `<span class="tag" data-id="${c}">${byId[c].ko}</span>` : '').join('')}</div></div>`;
@@ -114,7 +117,7 @@ function show(id) {
   renderTree(); drawGraph(id);
 }
 function renderSearch() {
-  const hit = KB.facts.filter(f => (f.statement_ko + ' ' + f.statement_en + ' ' + f.source).toLowerCase().includes(filter));
+  const hit = KB.facts.filter(f => (f.statement_ko + ' ' + f.statement_en + ' ' + f.source + ' ' + (f.refs || []).join(' ')).toLowerCase().includes(filter));
   const cs = KB.ontology.concepts.filter(c => (c.ko + c.en + c.def).toLowerCase().includes(filter));
   $('page').innerHTML = `<h2>검색: ${filter}</h2><div class="en">개념 ${cs.length} · 사실 ${hit.length}</div>
     <div class="rel">${cs.map(c => `<span class="chip" data-id="${c.id}">${c.ko}</span>`).join('')}</div>${hit.map(factCard).join('')}`;
