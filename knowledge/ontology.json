@@ -584,6 +584,469 @@
     "elderly",
     "older"
    ]
+  },
+  {
+   "id": "causes",
+   "ko": "비만의 원인",
+   "en": "Causes of obesity",
+   "parent": null,
+   "def": "유전 소인 + 촉진 환경. 에너지 균형, 호르몬, 생애 요인.",
+   "keys": []
+  },
+  {
+   "id": "energy-balance",
+   "ko": "에너지 균형·항상성 조절",
+   "en": "Energy balance & homeostasis",
+   "parent": "causes",
+   "def": "시상하부 중심의 체중 항상성. 렙틴·그렐린·PYY·GLP-1 등 신호.",
+   "keys": [
+    "렙틴",
+    "그렐린",
+    "시상하부",
+    "leptin",
+    "ghrelin",
+    "hypothalam",
+    "항상성",
+    "energy expenditure",
+    "에너지 소비"
+   ]
+  },
+  {
+   "id": "genetics-of-obesity",
+   "ko": "비만의 유전",
+   "en": "Genetics of obesity",
+   "parent": "causes",
+   "def": "체중 유전율 40~70%. 단일유전자·증후군성·다유전자.",
+   "keys": [
+    "유전",
+    "genetic",
+    "heritab",
+    "twin",
+    "쌍둥이",
+    "입양"
+   ]
+  },
+  {
+   "id": "monogenic-obesity",
+   "ko": "단일유전자 비만",
+   "en": "Monogenic obesity",
+   "parent": "genetics-of-obesity",
+   "def": "렙틴-멜라노코르틴 경로(LEP·LEPR·POMC·MC4R) 변이. 조기 발병·과식증.",
+   "keys": [
+    "MC4R",
+    "POMC",
+    "LEPR",
+    "monogenic",
+    "단일유전자",
+    "과식증",
+    "hyperphagia",
+    "melanocortin"
+   ]
+  },
+  {
+   "id": "syndromic-obesity",
+   "ko": "증후군성 비만",
+   "en": "Syndromic obesity",
+   "parent": "genetics-of-obesity",
+   "def": "프라더윌리, 바르데-비들 등 발달 이상 동반.",
+   "keys": [
+    "프라더",
+    "Prader",
+    "Bardet",
+    "증후군성",
+    "syndromic",
+    "ciliopath"
+   ]
+  },
+  {
+   "id": "polygenic-obesity",
+   "ko": "다유전자 비만·유전위험점수",
+   "en": "Polygenic obesity",
+   "parent": "genetics-of-obesity",
+   "def": "흔한 변이 다수의 합. FTO 등. 다유전자 위험점수.",
+   "keys": [
+    "polygenic",
+    "다유전자",
+    "FTO",
+    "PRS",
+    "위험점수"
+   ]
+  },
+  {
+   "id": "secondary-obesity",
+   "ko": "2차성 비만 원인",
+   "en": "Secondary causes",
+   "parent": "causes",
+   "def": "쿠싱증후군, 갑상샘저하증, 시상하부 손상, 체중 증가 약물.",
+   "keys": [
+    "쿠싱",
+    "Cushing",
+    "갑상샘",
+    "thyroid",
+    "2차성",
+    "secondary",
+    "약물 유발"
+   ]
+  },
+  {
+   "id": "environment",
+   "ko": "환경·생활 요인",
+   "en": "Environment & lifestyle factors",
+   "parent": "causes",
+   "def": "식환경, 수면 부족, 스트레스, 장내미생물, 바이러스, 내분비교란물질.",
+   "keys": [
+    "환경",
+    "수면",
+    "stress",
+    "스트레스",
+    "microbiot",
+    "미생물",
+    "Ad-36",
+    "virus",
+    "바이러스",
+    "toxin"
+   ]
+  },
+  {
+   "id": "eoss",
+   "ko": "비만 병기(EOSS)",
+   "en": "Edmonton Obesity Staging System",
+   "parent": "adiposity-measures",
+   "def": "0~4단계. BMI보다 사망을 잘 예측.",
+   "keys": [
+    "EOSS",
+    "Edmonton",
+    "병기",
+    "staging"
+   ]
+  },
+  {
+   "id": "ckd",
+   "ko": "만성콩팥병",
+   "en": "Chronic kidney disease",
+   "parent": "comorbidity",
+   "def": "비만은 고혈압·당뇨·직접 사구체 과여과로 CKD 위험 증가.",
+   "keys": [
+    "콩팥",
+    "신장",
+    "kidney",
+    "renal",
+    "CKD",
+    "사구체",
+    "glomerul",
+    "albuminuria"
+   ]
+  },
+  {
+   "id": "pcos",
+   "ko": "다낭성난소증후군",
+   "en": "PCOS",
+   "parent": "comorbidity",
+   "def": "50~80% 비만 동반, 인슐린 저항성.",
+   "keys": [
+    "PCOS",
+    "다낭성",
+    "난소",
+    "hyperandrogen",
+    "testosterone"
+   ]
+  },
+  {
+   "id": "hypogonadism",
+   "ko": "남성 성선기능저하",
+   "en": "Male hypogonadism",
+   "parent": "comorbidity",
+   "def": "비만 남성 테스토스테론 저하.",
+   "keys": [
+    "hypogonad",
+    "성선",
+    "테스토스테론"
+   ]
+  },
+  {
+   "id": "cvd",
+   "ko": "심혈관질환",
+   "en": "Cardiovascular disease",
+   "parent": "comorbidity",
+   "def": "심부전, 심방세동, 관상동맥질환, 뇌졸중.",
+   "keys": [
+    "심부전",
+    "heart failure",
+    "심방세동",
+    "atrial",
+    "관상동맥",
+    "coronary",
+    "뇌졸중",
+    "stroke"
+   ]
+  },
+  {
+   "id": "medical-nutrition-therapy",
+   "ko": "의학영양요법",
+   "en": "Medical nutrition therapy",
+   "parent": "diet",
+   "def": "저열량식·초저열량식·다량영양소 구성·식사 패턴(DASH·지중해·채식)·간헐적 단식.",
+   "keys": [
+    "VLED",
+    "초저열량",
+    "저탄수",
+    "low-carb",
+    "ketogenic",
+    "케톤",
+    "DASH",
+    "채식",
+    "vegetarian",
+    "간헐",
+    "intermittent",
+    "fasting",
+    "식사 대체",
+    "meal replacement"
+   ]
+  },
+  {
+   "id": "physical-activity-guidance",
+   "ko": "신체활동·좌식 시간 권고",
+   "en": "Physical activity & screen-time guidance",
+   "parent": "exercise",
+   "def": "성인 주 150분, 소아 하루 60분, 스크린타임 제한.",
+   "keys": [
+    "screen",
+    "스크린",
+    "좌식",
+    "sedentary",
+    "60분",
+    "MVPA"
+   ]
+  },
+  {
+   "id": "childhood-assessment",
+   "ko": "소아 비만 평가",
+   "en": "Paediatric assessment",
+   "parent": "childhood-obesity",
+   "def": "성장도표(WHO/IOTF/CDC), BMI 백분위·SD, 소아 대사증후군 기준, 성인기로의 추적.",
+   "keys": [
+    "백분위",
+    "percentile",
+    "성장도표",
+    "growth chart",
+    "IOTF",
+    "CDC",
+    "z-score",
+    "SD",
+    "tracking"
+   ]
+  },
+  {
+   "id": "assessment-history-exam",
+   "ko": "병력·진찰",
+   "en": "History & examination",
+   "parent": "management",
+   "def": "체중 이력, 가족력, 계통 문진, 목둘레·혈압 커프 등 표적 진찰.",
+   "keys": [
+    "병력",
+    "history",
+    "진찰",
+    "examination",
+    "목둘레",
+    "neck",
+    "커프",
+    "cuff",
+    "Mallampati"
+   ]
+  },
+  {
+   "id": "communication",
+   "ko": "환자 대화·5As",
+   "en": "Patient dialogue & 5As",
+   "parent": "management",
+   "def": "Ask-Assess-Advise-Agree-Assist. 주 호소 먼저, 허락 구하기, 4M.",
+   "keys": [
+    "5As",
+    "4M",
+    "대화",
+    "dialogue",
+    "conversation",
+    "허락",
+    "permission"
+   ]
+  },
+  {
+   "id": "insulin-resistance",
+   "ko": "인슐린 저항성",
+   "en": "Insulin resistance",
+   "parent": "t2dm",
+   "def": "비만·내장지방·MASLD·PCOS를 잇는 공통 기전.",
+   "keys": [
+    "인슐린 저항성",
+    "insulin resistance",
+    "HOMA"
+   ]
+  },
+  {
+   "id": "lean-masld",
+   "ko": "비비만 MASLD",
+   "en": "Lean MASLD",
+   "parent": "masld",
+   "def": "BMI 25 미만(아시아 23 미만)에서도 생기는 MASLD.",
+   "keys": [
+    "lean",
+    "비비만",
+    "마른"
+   ]
+  },
+  {
+   "id": "liver-blood-tests",
+   "ko": "간 혈액검사·지방증 점수",
+   "en": "Liver blood tests & steatosis scores",
+   "parent": "liver-assessment",
+   "def": "ALT/AST, 지방간지수(FLI), HSI 등.",
+   "keys": [
+    "ALT",
+    "AST",
+    "FLI",
+    "지방간지수",
+    "HSI"
+   ]
+  },
+  {
+   "id": "mri-pdff",
+   "ko": "MRI-PDFF·MRE",
+   "en": "MRI-PDFF & MR elastography",
+   "parent": "liver-assessment",
+   "def": "지방 정량(PDFF)과 섬유화(MRE)의 정밀 영상.",
+   "keys": [
+    "PDFF",
+    "MRE",
+    "MR elastography",
+    "MRI"
+   ]
+  },
+  {
+   "id": "liver-biopsy",
+   "ko": "간 조직검사",
+   "en": "Liver biopsy",
+   "parent": "liver-assessment",
+   "def": "지방·염증·섬유화 확진 기준.",
+   "keys": [
+    "조직검사",
+    "biopsy",
+    "생검"
+   ]
+  },
+  {
+   "id": "models-of-care",
+   "ko": "진료 경로·의뢰",
+   "en": "Models of care & referral",
+   "parent": "masld",
+   "def": "1차 진료 선별 → 위험도별 의뢰 경로.",
+   "keys": [
+    "의뢰",
+    "referral",
+    "care pathway",
+    "진료 경로"
+   ]
+  },
+  {
+   "id": "cv-risk",
+   "ko": "심혈관 위험 평가",
+   "en": "Cardiovascular risk assessment",
+   "parent": "cvd",
+   "def": "MASLD·대사증후군 환자의 심혈관 위험 점수와 관리.",
+   "keys": [
+    "위험 점수",
+    "risk score",
+    "ASCVD",
+    "SCORE"
+   ]
+  },
+  {
+   "id": "eating-behaviour",
+   "ko": "섭식행동·식욕",
+   "en": "Eating behaviour & appetite",
+   "parent": "causes",
+   "def": "식욕 조절, 폭식, 정서적 섭식, 식사 패턴.",
+   "keys": [
+    "섭식",
+    "식욕",
+    "appetite",
+    "eating behav",
+    "binge",
+    "폭식"
+   ]
+  },
+  {
+   "id": "psychosocial",
+   "ko": "심리·사회적 동반문제",
+   "en": "Psychosocial comorbidity",
+   "parent": "comorbidity",
+   "def": "우울, 자존감, 괴롭힘, 삶의 질.",
+   "keys": [
+    "우울",
+    "depress",
+    "자존감",
+    "self-esteem",
+    "bullying",
+    "괴롭힘",
+    "quality of life",
+    "삶의 질"
+   ]
+  },
+  {
+   "id": "physical-fitness",
+   "ko": "체력·심폐지구력",
+   "en": "Physical fitness",
+   "parent": "exercise",
+   "def": "심폐체력은 체중과 독립적으로 예후를 개선.",
+   "keys": [
+    "체력",
+    "fitness",
+    "심폐",
+    "cardiorespiratory",
+    "VO2"
+   ]
+  },
+  {
+   "id": "early-life",
+   "ko": "생애 초기(임신·영유아)",
+   "en": "Early life (first 1000 days)",
+   "parent": "life-course",
+   "def": "임신 중 체중, 출생체중, 모유수유, 지방 재증가 시점.",
+   "keys": [
+    "1000 days",
+    "출생체중",
+    "birth weight",
+    "모유",
+    "breastfeed",
+    "adiposity rebound",
+    "지방 재증가",
+    "영유아"
+   ]
+  },
+  {
+   "id": "child-nutrition",
+   "ko": "소아 영양 이중부담",
+   "en": "Child nutrition & double burden",
+   "parent": "childhood-obesity",
+   "def": "비만과 미량영양소 결핍·저성장이 공존.",
+   "keys": [
+    "이중부담",
+    "double burden",
+    "micronutrient",
+    "미량영양소",
+    "stunting",
+    "저성장"
+   ]
+  },
+  {
+   "id": "asthma",
+   "ko": "천식",
+   "en": "Asthma",
+   "parent": "comorbidity",
+   "def": "소아 비만에서 천식 위험 증가.",
+   "keys": [
+    "천식",
+    "asthma"
+   ]
   }
  ],
  "links": [
@@ -731,6 +1194,46 @@
    "elderly",
    "risk_factor_of",
    "sarcopenic-obesity"
+  ],
+  [
+   "genetics-of-obesity",
+   "risk_factor_of",
+   "obesity"
+  ],
+  [
+   "environment",
+   "risk_factor_of",
+   "obesity"
+  ],
+  [
+   "obesity",
+   "risk_factor_of",
+   "ckd"
+  ],
+  [
+   "obesity",
+   "risk_factor_of",
+   "pcos"
+  ],
+  [
+   "obesity",
+   "risk_factor_of",
+   "cvd"
+  ],
+  [
+   "obesity",
+   "measured_by",
+   "eoss"
+  ],
+  [
+   "childhood-obesity",
+   "risk_factor_of",
+   "obesity"
+  ],
+  [
+   "obesity",
+   "treated_by",
+   "communication"
   ]
  ]
 }
