@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메타볼릭 지식 위키</title>
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:"Pretendard","Apple SD Gothic Neo",system-ui,sans-serif; background:#140a12; color:#f2eef2; line-height:1.55; }
+  header { display:flex; gap:14px; align-items:center; padding:12px 18px; border-bottom:1px solid rgba(255,255,255,.12); position:sticky; top:0; background:rgba(20,10,18,.96); z-index:5; }
+  header h1 { font-size:17px; font-weight:800; }
+  header input { flex:1; max-width:460px; background:rgba(0,0,0,.3); border:1px solid rgba(255,255,255,.18); border-radius:9px; color:#fff; padding:8px 12px; font-size:14px; }
+  header .meta { color:rgba(255,255,255,.5); font-size:12px; margin-left:auto; }
+  main { display:grid; grid-template-columns:270px 1fr 360px; min-height:calc(100vh - 54px); }
+  nav { border-right:1px solid rgba(255,255,255,.1); padding:12px 8px; overflow:auto; font-size:13.5px; }
+  nav .node { padding:5px 8px; border-radius:7px; cursor:pointer; display:flex; justify-content:space-between; gap:6px; }
+  nav .node:hover { background:rgba(255,255,255,.07); }
+  nav .node.active { background:rgba(125,255,176,.16); color:#7dffb0; }
+  nav .node small { color:rgba(255,255,255,.4); }
+  nav .kids { margin-left:14px; border-left:1px dashed rgba(255,255,255,.12); }
+  article { padding:20px 26px; overflow:auto; }
+  article h2 { font-size:22px; font-weight:800; }
+  article .en { color:rgba(255,255,255,.5); font-size:13px; margin-bottom:8px; }
+  article .def { background:rgba(125,255,176,.08); border-left:3px solid #7dffb0; padding:10px 14px; border-radius:6px; margin:10px 0 18px; }
+  .rel { display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 16px; }
+  .chip { font-size:12px; padding:4px 9px; border-radius:999px; background:rgba(255,255,255,.08); cursor:pointer; border:1px solid rgba(255,255,255,.12); }
+  .chip b { color:#ffd166; font-weight:700; margin-right:4px; }
+  .chip:hover { background:rgba(255,255,255,.16); }
+  h3 { font-size:14px; letter-spacing:.4px; color:rgba(255,255,255,.55); margin:18px 0 8px; text-transform:uppercase; }
+  .fact { background:rgba(255,255,255,.045); border:1px solid rgba(255,255,255,.1); border-radius:10px; padding:10px 14px; margin-bottom:8px; }
+  .fact .s { font-size:14.5px; }
+  .fact .src { color:rgba(255,255,255,.45); font-size:12px; margin-top:4px; }
+  .fact .src b { color:#9fd6ff; font-weight:600; }
+  .fact .tags { margin-top:4px; }
+  .tag { font-size:11px; padding:2px 7px; border-radius:6px; background:rgba(255,209,102,.14); color:#ffd166; margin-right:4px; cursor:pointer; }
+  .diff { font-size:11px; font-weight:800; padding:2px 7px; border-radius:6px; margin-left:6px; }
+  .easy { background:rgba(125,255,176,.16); color:#7dffb0; } .mid { background:rgba(255,209,102,.16); color:#ffd166; } .hard { background:rgba(255,93,115,.16); color:#ff8fa3; }
+  aside { border-left:1px solid rgba(255,255,255,.1); padding:12px; }
+  canvas { width:100%; height:340px; background:rgba(0,0,0,.25); border-radius:10px; }
+  aside h3 { margin-top:6px; }
+  .legend { font-size:11.5px; color:rgba(255,255,255,.5); margin-top:6px; }
+  .srcbar { font-size:12.5px; margin-top:6px; }
+  .srcbar div { display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px dotted rgba(255,255,255,.1); cursor:pointer; }
+  .srcbar div:hover { color:#9fd6ff; }
+  @media (max-width: 980px) { main { grid-template-columns:1fr; } nav, aside { border:0; } canvas { height:260px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>메타볼릭 지식 위키</h1>
+  <input id="q" placeholder="개념·사실·출처 검색 (예: 허리둘레, FIB-4, 5%)">
+  <span class="meta" id="meta"></span>
+</header>
+<main>
+  <nav id="tree"></nav>
+  <article id="page"></article>
+  <aside>
+    <h3>관계 그래프 (선택 개념 중심)</h3>
+    <canvas id="graph"></canvas>
+    <div class="legend">노란 선 = 위험인자 · 파란 선 = 진단/측정 · 초록 선 = 치료 · 회색 = 상하위. 노드를 클릭하면 이동해요.</div>
+    <h3>출처별 사실 수</h3>
+    <div class="srcbar" id="sources"></div>
+  </aside>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+let KB, byId, kids, factsBy, current = null, filter = '';
+const REL_KO = {is_a:'상위', risk_factor_of:'위험인자 →', diagnosed_by:'진단 도구', treated_by:'치료', complication_of:'합병증', measured_by:'측정 지표', part_of:'구성'};
+const REL_COLOR = {risk_factor_of:'#ffd166', diagnosed_by:'#9fd6ff', measured_by:'#9fd6ff', treated_by:'#7dffb0', part_of:'#7dffb0', is_a:'#888', complication_of:'#ff8fa3'};
+
+fetch('./kb.json?t=' + Date.now()).then(r => r.json()).then(kb => {
+  KB = kb; byId = Object.fromEntries(kb.ontology.concepts.map(c => [c.id, c]));
+  kids = {}; kb.ontology.concepts.forEach(c => { (kids[c.parent || '_root'] ||= []).push(c.id); });
+  factsBy = {}; kb.facts.forEach(f => f.concepts.forEach(c => (factsBy[c] ||= []).push(f)));
+  $('meta').textContent = `개념 ${kb.ontology.concepts.length} · 사실 ${kb.facts.length} · 문항 ${kb.questions.length} · 빌드 ${kb.built}`;
+  renderTree(); renderSources();
+  const hash = location.hash.slice(1);
+  show(byId[hash] ? hash : 'obesity');
+});
+$('q').addEventListener('input', e => { filter = e.target.value.trim().toLowerCase(); if (filter) renderSearch(); else show(current || 'obesity'); });
+window.addEventListener('hashchange', () => { const h = location.hash.slice(1); if (byId[h]) show(h); });
+
+function countAll(id) { return (factsBy[id] || []).length + (kids[id] || []).reduce((s, k) => s + countAll(k), 0); }
+function renderTree() {
+  const build = id => `<div class="node${id === current ? ' active' : ''}" data-id="${id}"><span>${byId[id].ko}</span><small>${countAll(id)}</small></div>` +
+    (kids[id] ? `<div class="kids">${kids[id].map(build).join('')}</div>` : '');
+  $('tree').innerHTML = kids._root.map(build).join('');
+  $('tree').querySelectorAll('.node').forEach(n => n.addEventListener('click', () => { $('q').value = ''; filter = ''; show(n.dataset.id); }));
+}
+function factCard(f) {
+  const q = KB.questions.find(x => x.fact === f.id);
+  return `<div class="fact"><div class="s">${f.statement_ko}<span class="diff ${f.diff || 'mid'}">${(f.diff || '').toUpperCase()}</span></div>
+    <div class="src">출처 <b>${f.source_family}</b> · ${f.source || ''}${q ? ` · 문항 ${q.id}` : ' · 문항 없음'}</div>
+    <div class="tags">${f.concepts.map(c => byId[c] ? `<span class="tag" data-id="${c}">${byId[c].ko}</span>` : '').join('')}</div></div>`;
+}
+function show(id) {
+  current = id; location.hash = id; const c = byId[id];
+  const rels = KB.ontology.links.filter(l => l[0] === id || l[2] === id);
+  const chips = [];
+  if (c.parent) chips.push(`<span class="chip" data-id="${c.parent}"><b>상위</b>${byId[c.parent].ko}</span>`);
+  (kids[id] || []).forEach(k => chips.push(`<span class="chip" data-id="${k}"><b>하위</b>${byId[k].ko}</span>`));
+  rels.forEach(([a, r, b]) => { const other = a === id ? b : a; const label = a === id ? REL_KO[r] : (r === 'risk_factor_of' ? '← 위험인자' : r === 'diagnosed_by' || r === 'measured_by' ? '이 지표로 평가하는 대상' : r === 'treated_by' ? '이 치료의 대상' : REL_KO[r]); chips.push(`<span class="chip" data-id="${other}"><b>${label}</b>${byId[other].ko}</span>`); });
+  const own = factsBy[id] || [];
+  const inherited = (kids[id] || []).flatMap(k => (factsBy[k] || []).map(f => ({ ...f, via: byId[k].ko })));
+  $('page').innerHTML = `<h2>${c.ko}</h2><div class="en">${c.en} · ${c.id}</div>${c.def ? `<div class="def">${c.def}</div>` : ''}
+    <h3>관계</h3><div class="rel">${chips.join('') || '<span class="chip">없음</span>'}</div>
+    <h3>사실 ${own.length}</h3>${own.map(factCard).join('') || '<div class="fact">아직 연결된 사실이 없어요.</div>'}
+    ${inherited.length ? `<h3>하위 개념의 사실 ${inherited.length}</h3>${inherited.map(factCard).join('')}` : ''}`;
+  $('page').querySelectorAll('[data-id]').forEach(el => el.addEventListener('click', () => show(el.dataset.id)));
+  renderTree(); drawGraph(id);
+}
+function renderSearch() {
+  const hit = KB.facts.filter(f => (f.statement_ko + ' ' + f.statement_en + ' ' + f.source).toLowerCase().includes(filter));
+  const cs = KB.ontology.concepts.filter(c => (c.ko + c.en + c.def).toLowerCase().includes(filter));
+  $('page').innerHTML = `<h2>검색: ${filter}</h2><div class="en">개념 ${cs.length} · 사실 ${hit.length}</div>
+    <div class="rel">${cs.map(c => `<span class="chip" data-id="${c.id}">${c.ko}</span>`).join('')}</div>${hit.map(factCard).join('')}`;
+  $('page').querySelectorAll('[data-id]').forEach(el => el.addEventListener('click', () => { $('q').value = ''; filter = ''; show(el.dataset.id); }));
+}
+function renderSources() {
+  const cnt = {}; KB.facts.forEach(f => cnt[f.source_family] = (cnt[f.source_family] || 0) + 1);
+  $('sources').innerHTML = Object.entries(cnt).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<div data-src="${k}"><span>${k}</span><b>${v}</b></div>`).join('');
+  $('sources').querySelectorAll('[data-src]').forEach(el => el.addEventListener('click', () => { $('q').value = el.dataset.src; filter = el.dataset.src.toLowerCase(); renderSearchBySource(el.dataset.src); }));
+}
+function renderSearchBySource(src) {
+  const hit = KB.facts.filter(f => f.source_family === src);
+  $('page').innerHTML = `<h2>출처: ${src}</h2><div class="en">사실 ${hit.length}</div>${hit.map(factCard).join('')}`;
+  $('page').querySelectorAll('[data-id]').forEach(el => el.addEventListener('click', () => { $('q').value = ''; filter = ''; show(el.dataset.id); }));
+}
+// ---- 간단한 방사형 관계 그래프 ----
+let nodesPos = [];
+function drawGraph(center) {
+  const cv = $('graph'), dpr = devicePixelRatio || 1; cv.width = cv.clientWidth * dpr; cv.height = cv.clientHeight * dpr;
+  const ctx = cv.getContext('2d'); ctx.scale(dpr, dpr); const W = cv.clientWidth, H = cv.clientHeight;
+  const neighbours = new Map();
+  const add = (id, rel) => { if (id !== center && byId[id]) neighbours.set(id, rel); };
+  KB.ontology.links.forEach(([a, r, b]) => { if (a === center) add(b, r); if (b === center) add(a, r); });
+  if (byId[center].parent) add(byId[center].parent, 'is_a'); (kids[center] || []).forEach(k => add(k, 'is_a'));
+  const list = [...neighbours.entries()]; nodesPos = [];
+  const cx = W / 2, cy = H / 2, R = Math.min(W, H) / 2 - 34;
+  ctx.clearRect(0, 0, W, H); ctx.font = '11px system-ui'; ctx.textAlign = 'center';
+  list.forEach(([id, rel], i) => {
+    const a = -Math.PI / 2 + i * 2 * Math.PI / Math.max(1, list.length), x = cx + R * Math.cos(a), y = cy + R * Math.sin(a);
+    ctx.strokeStyle = REL_COLOR[rel] || '#888'; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x, y); ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,.12)'; ctx.beginPath(); ctx.arc(x, y, 16, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#f2eef2'; wrap(ctx, byId[id].ko, x, y + 4, 60);
+    nodesPos.push({ id, x, y });
+  });
+  ctx.fillStyle = '#7dffb0'; ctx.beginPath(); ctx.arc(cx, cy, 22, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = '#10261a'; ctx.font = 'bold 11px system-ui'; wrap(ctx, byId[center].ko, cx, cy + 4, 44);
+}
+function wrap(ctx, text, x, y, max) { if (ctx.measureText(text).width <= max || text.length < 5) { ctx.fillText(text, x, y); return; } const h = Math.ceil(text.length / 2); ctx.fillText(text.slice(0, h), x, y - 6); ctx.fillText(text.slice(h), x, y + 7); }
+$('graph').addEventListener('click', e => { const r = $('graph').getBoundingClientRect(); const x = e.clientX - r.left, y = e.clientY - r.top; const hit = nodesPos.find(n => Math.hypot(n.x - x, n.y - y) < 18); if (hit) show(hit.id); });
+window.addEventListener('resize', () => current && drawGraph(current));
+</script>
+</body>
+</html>

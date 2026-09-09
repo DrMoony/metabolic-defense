@@ -1,0 +1,736 @@
+{
+ "version": 1,
+ "relations": [
+  "is_a",
+  "risk_factor_of",
+  "diagnosed_by",
+  "treated_by",
+  "complication_of",
+  "measured_by",
+  "part_of"
+ ],
+ "concepts": [
+  {
+   "id": "obesity",
+   "ko": "비만",
+   "en": "Obesity",
+   "parent": null,
+   "def": "과잉 체지방으로 건강에 해를 끼치는 만성질환. 한국 기준 BMI 25 이상.",
+   "keys": [
+    "비만",
+    "obesity"
+   ]
+  },
+  {
+   "id": "clinical-obesity",
+   "ko": "임상적 비만",
+   "en": "Clinical obesity",
+   "parent": "obesity",
+   "def": "과잉 지방으로 장기 기능 이상이나 일상생활 제한이 생긴 만성 전신 질환 (Lancet 2025).",
+   "keys": [
+    "임상적 비만",
+    "clinical obesity",
+    "Lancet"
+   ]
+  },
+  {
+   "id": "preclinical-obesity",
+   "ko": "전임상 비만",
+   "en": "Preclinical obesity",
+   "parent": "obesity",
+   "def": "과잉 지방은 있으나 장기 기능은 보존된 상태. 위험 관리 대상.",
+   "keys": [
+    "전임상",
+    "preclinical"
+   ]
+  },
+  {
+   "id": "abdominal-obesity",
+   "ko": "복부비만",
+   "en": "Abdominal obesity",
+   "parent": "obesity",
+   "def": "내장지방 과다. 허리둘레 남 90cm·여 85cm 이상.",
+   "keys": [
+    "복부비만",
+    "내장지방",
+    "허리둘레",
+    "abdominal",
+    "visceral",
+    "waist"
+   ]
+  },
+  {
+   "id": "severe-obesity",
+   "ko": "고도(3단계) 비만",
+   "en": "Class III obesity",
+   "parent": "obesity",
+   "def": "BMI 35 이상.",
+   "keys": [
+    "3단계",
+    "고도비만",
+    "class III",
+    "BMI 35"
+   ]
+  },
+  {
+   "id": "sarcopenic-obesity",
+   "ko": "근감소성 비만",
+   "en": "Sarcopenic obesity",
+   "parent": "obesity",
+   "def": "근육은 줄고 지방은 늘어난 상태, 노년층에서 주의.",
+   "keys": [
+    "근감소",
+    "노인 비만",
+    "sarcopenic",
+    "older adult"
+   ]
+  },
+  {
+   "id": "childhood-obesity",
+   "ko": "소아청소년 비만",
+   "en": "Childhood obesity",
+   "parent": "obesity",
+   "def": "연령별 BMI 백분위로 판정.",
+   "keys": [
+    "소아",
+    "청소년",
+    "child",
+    "adolescen"
+   ]
+  },
+  {
+   "id": "adiposity-measures",
+   "ko": "체지방 평가 지표",
+   "en": "Adiposity measures",
+   "parent": null,
+   "def": "체지방의 양과 분포를 가늠하는 지표들.",
+   "keys": []
+  },
+  {
+   "id": "bmi",
+   "ko": "체질량지수(BMI)",
+   "en": "Body mass index",
+   "parent": "adiposity-measures",
+   "def": "체중(kg)/키(m)². 선별 도구이며 단독 확진 지표는 아님.",
+   "keys": [
+    "BMI",
+    "체질량지수"
+   ]
+  },
+  {
+   "id": "waist",
+   "ko": "허리둘레",
+   "en": "Waist circumference",
+   "parent": "adiposity-measures",
+   "def": "갈비뼈 아래와 골반뼈 위 중간에서 숨을 내쉰 뒤 측정.",
+   "keys": [
+    "허리둘레",
+    "waist circumference"
+   ]
+  },
+  {
+   "id": "whtr",
+   "ko": "허리키비",
+   "en": "Waist-to-height ratio",
+   "parent": "adiposity-measures",
+   "def": "0.5 초과 시 복부비만 시사.",
+   "keys": [
+    "허리키비",
+    "waist-to-height",
+    "0.5"
+   ]
+  },
+  {
+   "id": "body-fat",
+   "ko": "체지방률",
+   "en": "Body-fat percentage",
+   "parent": "adiposity-measures",
+   "def": "남 25%·여 35% 이상을 비만으로 보기도 함.",
+   "keys": [
+    "체지방률",
+    "body fat",
+    "body-fat"
+   ]
+  },
+  {
+   "id": "comorbidity",
+   "ko": "비만 동반질환",
+   "en": "Obesity-related conditions",
+   "parent": null,
+   "def": "과잉 지방이 위험을 높이거나 기능 이상을 일으키는 질환들.",
+   "keys": []
+  },
+  {
+   "id": "t2dm",
+   "ko": "2형당뇨병",
+   "en": "Type 2 diabetes",
+   "parent": "comorbidity",
+   "def": "인슐린 저항성과 분비 저하로 생기는 고혈당. 한국 30세 이상 유병률 약 15%.",
+   "keys": [
+    "당뇨병",
+    "diabetes",
+    "당화혈색소",
+    "HbA1c",
+    "혈당"
+   ]
+  },
+  {
+   "id": "prediabetes",
+   "ko": "당뇨병전단계",
+   "en": "Prediabetes",
+   "parent": "t2dm",
+   "def": "공복혈당 100~125 또는 당화혈색소 5.7~6.4%.",
+   "keys": [
+    "전단계",
+    "prediabetes"
+   ]
+  },
+  {
+   "id": "masld",
+   "ko": "대사이상지방간질환(MASLD)",
+   "en": "MASLD",
+   "parent": "comorbidity",
+   "def": "간내 지방 축적 + 심장대사 위험인자 1개 이상 + 유의한 음주 없음.",
+   "keys": [
+    "MASLD",
+    "지방간",
+    "fatty liver",
+    "NAFLD",
+    "steatotic",
+    "SLD",
+    "MetALD",
+    "간외 암"
+   ]
+  },
+  {
+   "id": "mash",
+   "ko": "대사이상지방간염(MASH)",
+   "en": "MASH",
+   "parent": "masld",
+   "def": "MASLD에 염증이 동반된 아형. F2 이상이면 고위험.",
+   "keys": [
+    "MASH",
+    "지방간염",
+    "steatohepatitis",
+    "at-risk"
+   ]
+  },
+  {
+   "id": "fibrosis",
+   "ko": "간섬유화",
+   "en": "Liver fibrosis",
+   "parent": "masld",
+   "def": "MASLD 예후를 결정하는 핵심. F0~F4(간경변).",
+   "keys": [
+    "섬유화",
+    "fibrosis",
+    "간경변",
+    "cirrhosis",
+    "F3",
+    "F4",
+    "F2"
+   ]
+  },
+  {
+   "id": "hcc",
+   "ko": "간세포암종",
+   "en": "Hepatocellular carcinoma",
+   "parent": "masld",
+   "def": "간경변 동반 시 연 1.5% 이상 발생 → 감시검사.",
+   "keys": [
+    "간세포암",
+    "hepatocellular",
+    "HCC"
+   ]
+  },
+  {
+   "id": "hypertension",
+   "ko": "고혈압",
+   "en": "Hypertension",
+   "parent": "comorbidity",
+   "def": "",
+   "keys": [
+    "고혈압",
+    "혈압",
+    "hypertension",
+    "blood pressure"
+   ]
+  },
+  {
+   "id": "dyslipidemia",
+   "ko": "이상지질혈증",
+   "en": "Dyslipidaemia",
+   "parent": "comorbidity",
+   "def": "",
+   "keys": [
+    "콜레스테롤",
+    "지질",
+    "중성지방",
+    "cholesterol",
+    "lipid",
+    "triglyceride"
+   ]
+  },
+  {
+   "id": "osa",
+   "ko": "폐쇄성 수면무호흡",
+   "en": "Obstructive sleep apnoea",
+   "parent": "comorbidity",
+   "def": "",
+   "keys": [
+    "수면무호흡",
+    "sleep apnoea",
+    "sleep apnea"
+   ]
+  },
+  {
+   "id": "osteoarthritis",
+   "ko": "골관절염",
+   "en": "Osteoarthritis",
+   "parent": "comorbidity",
+   "def": "",
+   "keys": [
+    "관절",
+    "osteoarthritis",
+    "knee"
+   ]
+  },
+  {
+   "id": "cancer",
+   "ko": "비만 관련 암",
+   "en": "Obesity-related cancer",
+   "parent": "comorbidity",
+   "def": "",
+   "keys": [
+    "암",
+    "cancer"
+   ]
+  },
+  {
+   "id": "ckm",
+   "ko": "심장-신장-대사(CKM) 증후군",
+   "en": "CKM syndrome",
+   "parent": "comorbidity",
+   "def": "AHA 2023. 과잉·이상 지방조직이 출발점.",
+   "keys": [
+    "CKM",
+    "심혈관",
+    "cardiovascular",
+    "심장"
+   ]
+  },
+  {
+   "id": "metabolic-syndrome",
+   "ko": "대사증후군",
+   "en": "Metabolic syndrome",
+   "parent": "comorbidity",
+   "def": "",
+   "keys": [
+    "대사증후군",
+    "metabolic syndrome"
+   ]
+  },
+  {
+   "id": "liver-assessment",
+   "ko": "간 평가 도구",
+   "en": "Liver assessment tools",
+   "parent": "masld",
+   "def": "지방·섬유화를 비침습적으로 가늠하는 검사.",
+   "keys": []
+  },
+  {
+   "id": "fib4",
+   "ko": "FIB-4",
+   "en": "FIB-4 index",
+   "parent": "liver-assessment",
+   "def": "나이·AST·ALT·혈소판. 35~65세 <1.3 저위험, 65세 이상 <2.0.",
+   "keys": [
+    "FIB-4"
+   ]
+  },
+  {
+   "id": "vcte",
+   "ko": "간탄성도(VCTE)",
+   "en": "Transient elastography",
+   "parent": "liver-assessment",
+   "def": "간 딱딱함(kPa). 8 kPa 미만이면 고위험 MASH 배제 도움. CAP는 지방량.",
+   "keys": [
+    "VCTE",
+    "탄성도",
+    "elastography",
+    "kPa",
+    "CAP"
+   ]
+  },
+  {
+   "id": "elf",
+   "ko": "ELF 패널",
+   "en": "ELF panel",
+   "parent": "liver-assessment",
+   "def": "히알루론산·TIMP-1·PIIINP.",
+   "keys": [
+    "ELF"
+   ]
+  },
+  {
+   "id": "ultrasound",
+   "ko": "복부 초음파",
+   "en": "Abdominal ultrasound",
+   "parent": "liver-assessment",
+   "def": "지방간 1차 영상검사.",
+   "keys": [
+    "초음파",
+    "ultrasound"
+   ]
+  },
+  {
+   "id": "alcohol",
+   "ko": "음주 평가",
+   "en": "Alcohol assessment",
+   "parent": "masld",
+   "def": "MASLD 허용: 남 30g·여 20g/일 미만. AUDIT-C, PEth.",
+   "keys": [
+    "음주",
+    "alcohol",
+    "PEth",
+    "AUDIT",
+    "drink",
+    "잔"
+   ]
+  },
+  {
+   "id": "management",
+   "ko": "치료·관리",
+   "en": "Management",
+   "parent": null,
+   "def": "비만·MASLD·당뇨병의 생활습관 중심 관리.",
+   "keys": []
+  },
+  {
+   "id": "weight-loss-target",
+   "ko": "체중 감량 목표",
+   "en": "Weight-loss targets",
+   "parent": "management",
+   "def": "6개월 5~10%(KSSO), 당뇨병 5% 이상(KDA), MASLD 5~7% 염증·7~10% 섬유화 개선.",
+   "keys": [
+    "감량",
+    "weight loss",
+    "5%",
+    "7%",
+    "10%",
+    "kg"
+   ]
+  },
+  {
+   "id": "diet",
+   "ko": "식사요법",
+   "en": "Diet",
+   "parent": "management",
+   "def": "하루 500~1,000 kcal 감량, 지중해식.",
+   "keys": [
+    "식단",
+    "식사",
+    "kcal",
+    "diet",
+    "지중해",
+    "Mediterranean"
+   ]
+  },
+  {
+   "id": "exercise",
+   "ko": "운동요법",
+   "en": "Exercise",
+   "parent": "management",
+   "def": "유산소 주 150분 이상 + 근력 주 2~3회.",
+   "keys": [
+    "운동",
+    "exercise",
+    "150",
+    "근력",
+    "resistance"
+   ]
+  },
+  {
+   "id": "pharmacotherapy-criteria",
+   "ko": "약물치료 고려 기준",
+   "en": "Pharmacotherapy criteria",
+   "parent": "management",
+   "def": "BMI 25 이상 + 비약물 치료 실패 (한국). 특정 약제는 다루지 않음.",
+   "keys": [
+    "약물치료",
+    "pharmacotherapy"
+   ]
+  },
+  {
+   "id": "bariatric",
+   "ko": "비만대사수술",
+   "en": "Bariatric surgery",
+   "parent": "management",
+   "def": "BMI 35 이상 또는 동반질환 있는 30 이상.",
+   "keys": [
+    "수술",
+    "surgery",
+    "bariatric"
+   ]
+  },
+  {
+   "id": "weight-maintenance",
+   "ko": "체중 유지·대사 적응",
+   "en": "Weight maintenance",
+   "parent": "management",
+   "def": "감량 후 에너지 소비 감소·식욕 증가로 되돌아가려는 경향.",
+   "keys": [
+    "유지",
+    "요요",
+    "대사 적응",
+    "maintenance",
+    "regain",
+    "adaptation"
+   ]
+  },
+  {
+   "id": "stigma",
+   "ko": "체중 낙인",
+   "en": "Weight stigma",
+   "parent": "management",
+   "def": "의지 부족으로 단정하는 표현 금지, 의료진 교육.",
+   "keys": [
+    "낙인",
+    "stigma",
+    "태도"
+   ]
+  },
+  {
+   "id": "screening",
+   "ko": "선별검사",
+   "en": "Screening",
+   "parent": "management",
+   "def": "당뇨병 35세 이상(위험인자 19세 이상), 지방간은 당뇨병·비만 환자.",
+   "keys": [
+    "선별",
+    "screening",
+    "검진"
+   ]
+  },
+  {
+   "id": "epidemiology",
+   "ko": "한국 역학",
+   "en": "Korean epidemiology",
+   "parent": null,
+   "def": "대한비만학회 팩트시트·대한당뇨병학회 DFS 기준 유병률.",
+   "keys": [
+    "팩트시트",
+    "fact sheet",
+    "유병률",
+    "prevalence",
+    "만 명",
+    "million"
+   ]
+  },
+  {
+   "id": "life-course",
+   "ko": "생애전환기",
+   "en": "Life course",
+   "parent": null,
+   "def": "청년·폐경·노년·임신 등 생애 단계별 비만·대사 위험.",
+   "keys": []
+  },
+  {
+   "id": "young-adult",
+   "ko": "청년(19~39세)",
+   "en": "Young adults",
+   "parent": "life-course",
+   "def": "20~30대 남성 비만 급증, 청년 당뇨병은 비만 동반 9할·인지율 낮음.",
+   "keys": [
+    "청년",
+    "20대",
+    "30대",
+    "젊은",
+    "young"
+   ]
+  },
+  {
+   "id": "menopause",
+   "ko": "폐경",
+   "en": "Menopause",
+   "parent": "life-course",
+   "def": "에스트로겐 감소로 내장지방 증가.",
+   "keys": [
+    "폐경",
+    "menopause"
+   ]
+  },
+  {
+   "id": "pregnancy",
+   "ko": "임신·임신당뇨병",
+   "en": "Pregnancy",
+   "parent": "life-course",
+   "def": "임신당뇨병 후 2형당뇨병 위험 증가 → 정기 검사.",
+   "keys": [
+    "임신",
+    "pregnan",
+    "gestational"
+   ]
+  },
+  {
+   "id": "elderly",
+   "ko": "노년",
+   "en": "Older adults",
+   "parent": "life-course",
+   "def": "65세 이상 당뇨병 약 30%, 근감소성 비만 주의.",
+   "keys": [
+    "노인",
+    "65세",
+    "elderly",
+    "older"
+   ]
+  }
+ ],
+ "links": [
+  [
+   "abdominal-obesity",
+   "risk_factor_of",
+   "t2dm"
+  ],
+  [
+   "abdominal-obesity",
+   "risk_factor_of",
+   "masld"
+  ],
+  [
+   "obesity",
+   "risk_factor_of",
+   "t2dm"
+  ],
+  [
+   "obesity",
+   "risk_factor_of",
+   "masld"
+  ],
+  [
+   "obesity",
+   "risk_factor_of",
+   "hypertension"
+  ],
+  [
+   "obesity",
+   "risk_factor_of",
+   "osa"
+  ],
+  [
+   "obesity",
+   "risk_factor_of",
+   "osteoarthritis"
+  ],
+  [
+   "obesity",
+   "risk_factor_of",
+   "cancer"
+  ],
+  [
+   "t2dm",
+   "risk_factor_of",
+   "masld"
+  ],
+  [
+   "masld",
+   "risk_factor_of",
+   "t2dm"
+  ],
+  [
+   "masld",
+   "risk_factor_of",
+   "hcc"
+  ],
+  [
+   "obesity",
+   "measured_by",
+   "bmi"
+  ],
+  [
+   "obesity",
+   "measured_by",
+   "waist"
+  ],
+  [
+   "abdominal-obesity",
+   "measured_by",
+   "waist"
+  ],
+  [
+   "abdominal-obesity",
+   "measured_by",
+   "whtr"
+  ],
+  [
+   "clinical-obesity",
+   "diagnosed_by",
+   "adiposity-measures"
+  ],
+  [
+   "masld",
+   "diagnosed_by",
+   "ultrasound"
+  ],
+  [
+   "fibrosis",
+   "diagnosed_by",
+   "fib4"
+  ],
+  [
+   "fibrosis",
+   "diagnosed_by",
+   "vcte"
+  ],
+  [
+   "fibrosis",
+   "diagnosed_by",
+   "elf"
+  ],
+  [
+   "obesity",
+   "treated_by",
+   "weight-loss-target"
+  ],
+  [
+   "masld",
+   "treated_by",
+   "weight-loss-target"
+  ],
+  [
+   "t2dm",
+   "treated_by",
+   "weight-loss-target"
+  ],
+  [
+   "weight-loss-target",
+   "part_of",
+   "diet"
+  ],
+  [
+   "weight-loss-target",
+   "part_of",
+   "exercise"
+  ],
+  [
+   "menopause",
+   "risk_factor_of",
+   "abdominal-obesity"
+  ],
+  [
+   "young-adult",
+   "risk_factor_of",
+   "obesity"
+  ],
+  [
+   "pregnancy",
+   "risk_factor_of",
+   "t2dm"
+  ],
+  [
+   "elderly",
+   "risk_factor_of",
+   "sarcopenic-obesity"
+  ]
+ ]
+}
