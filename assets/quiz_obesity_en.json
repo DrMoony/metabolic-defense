@@ -9,7 +9,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diab Endo Commission 2025"
+  "src": "Lancet Diab Endo Commission 2025",
+  "exp": "The 2025 Lancet Commission split obesity into clinical obesity, where excess fat already harms organ function, and preclinical obesity, where function is still preserved."
  },
  {
   "q": "Under the Lancet Commission, what defines clinical obesity?",
@@ -21,7 +22,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Commission 2025"
+  "src": "Lancet Commission 2025",
+  "exp": "The defining feature is not the weight number but organ dysfunction or limitation of daily life caused by excess adiposity."
  },
  {
   "q": "What is preclinical obesity?",
@@ -33,7 +35,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Commission 2025"
+  "src": "Lancet Commission 2025",
+  "exp": "Preclinical obesity means excess fat with normal organ function, so it calls for risk management and monitoring rather than treatment."
  },
  {
   "q": "Why did the Commission say BMI alone should not diagnose obesity?",
@@ -45,7 +48,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Commission 2025"
+  "src": "Lancet Commission 2025",
+  "exp": "BMI shows neither how much fat there is nor where it sits, so it cannot separate a muscular person from one with visceral fat."
  },
  {
   "q": "Besides BMI, what does the Commission require to confirm excess adiposity?",
@@ -57,7 +61,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Commission 2025"
+  "src": "Lancet Commission 2025",
+  "exp": "That is why at least one fat-distribution measure such as waist circumference, waist-hip or waist-height ratio should be added to BMI."
  },
  {
   "q": "Which waist-to-height ratio threshold suggests central adiposity?",
@@ -69,7 +74,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "EASO framework 2024"
+  "src": "EASO framework 2024",
+  "exp": "A waist larger than half the height (ratio above 0.5) signals excess abdominal fat."
  },
  {
   "q": "In Korea, obesity is defined from which BMI?",
@@ -81,7 +87,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Korean Society for the Study of Obesity"
+  "src": "Korean Society for the Study of Obesity",
+  "exp": "Western cut-offs use 30, but Asians develop metabolic disease at lower BMI, so Korea defines obesity from 25."
  },
  {
   "q": "In the Korean criteria, pre-obesity (overweight) starts at which BMI?",
@@ -93,7 +100,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO guideline"
+  "src": "KSSO guideline",
+  "exp": "BMI 23–24.9 is the pre-obesity range where metabolic risk starts to climb."
  },
  {
   "q": "Korean class 3 (severe) obesity starts at which BMI?",
@@ -105,7 +113,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO guideline"
+  "src": "KSSO guideline",
+  "exp": "Korean classes are 25–29.9 (class 1), 30–34.9 (class 2) and 35 or more (class 3)."
  },
  {
   "q": "Why is metabolic risk higher in Asians at the same BMI?",
@@ -117,7 +126,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "WHO Asia-Pacific / KSSO"
+  "src": "WHO Asia-Pacific / KSSO",
+  "exp": "At the same weight Asians carry a larger share of visceral fat, so insulin resistance and metabolic dysfunction appear more easily."
  },
  {
   "q": "How should obesity be regarded?",
@@ -129,7 +139,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Commission 2025 / WHO"
+  "src": "Lancet Commission 2025 / WHO",
+  "exp": "Obesity is a chronic, relapsing disease rather than a matter of willpower, so it needs long-term care."
  },
  {
   "q": "What is the first benefit expected from 5-10% weight loss?",
@@ -141,7 +152,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "AHA/ACC/TOS Guideline"
+  "src": "AHA/ACC/TOS Guideline",
+  "exp": "Even a 5–10% loss improves comorbidity markers such as glucose, blood pressure and triglycerides first."
  },
  {
   "q": "Why is visceral (central) adiposity especially harmful?",
@@ -153,7 +165,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Portal theory / KSSO"
+  "src": "Portal theory / KSSO",
+  "exp": "Free fatty acids from visceral fat drain through the portal vein straight into the liver, driving insulin resistance and fatty liver."
  },
  {
   "q": "What should be protected during weight loss?",
@@ -165,7 +178,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Obesity management guidelines"
+  "src": "Obesity management guidelines",
+  "exp": "Losing muscle along with fat lowers metabolic rate and invites regain, so protein intake and resistance training protect lean mass."
  },
  {
   "q": "What is the foundation of every obesity treatment plan?",
@@ -177,7 +191,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Obesity guidelines"
+  "src": "Obesity guidelines",
+  "exp": "Whatever treatment is chosen, diet, exercise and behavioural therapy are the base on which everything else is built."
  },
  {
   "q": "What BMI generally triggers consideration of metabolic/bariatric surgery?",
@@ -189,7 +204,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "ASMBS/IFSO 2022"
+  "src": "ASMBS/IFSO 2022",
+  "exp": "Surgery is considered at BMI 35 or higher regardless of comorbidity, and at 30 or higher with metabolic disease."
  },
  {
   "q": "Which cancer is NOT among those linked to obesity?",
@@ -201,7 +217,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "IARC / WHO"
+  "src": "IARC / WHO",
+  "exp": "Obesity raises the risk of colorectal, postmenopausal breast, endometrial and other cancers, but melanoma is not on that list."
  },
  {
   "q": "Which sleep disorder commonly accompanies obesity?",
@@ -213,7 +230,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Obesity comorbidity"
+  "src": "Obesity comorbidity",
+  "exp": "Fat around the neck and upper airway narrows it, so obstructive sleep apnoea is common in obesity."
  },
  {
   "q": "How does weight loss affect steatotic liver disease (MASLD)?",
@@ -225,7 +243,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Vilar-Gomez 2015 / AASLD"
+  "src": "Vilar-Gomez 2015 / AASLD",
+  "exp": "Inflammation improves with 5–7% loss and fibrosis with 7–10%, which is why weight loss is the core of fatty-liver care."
  },
  {
   "q": "What should clinicians avoid when caring for patients with obesity?",
@@ -237,7 +256,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Weight stigma consensus 2020"
+  "src": "Weight stigma consensus 2020",
+  "exp": "Blaming willpower stigmatises patients and drives them away from care; obesity should be treated as a disease."
  },
  {
   "q": "What metabolic adaptation follows weight loss?",
@@ -249,7 +269,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Metabolic adaptation research"
+  "src": "Metabolic adaptation research",
+  "exp": "After loss, energy expenditure falls and appetite hormones rise, pushing the body back toward its old weight, so a maintenance plan is essential."
  },
  {
   "q": "Which joint problem commonly accompanies obesity?",
@@ -261,7 +282,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Obesity comorbidity"
+  "src": "Obesity comorbidity",
+  "exp": "Load on the knee cartilage makes knee osteoarthritis the most common joint problem."
  },
  {
   "q": "What is a safe, sustainable rate of weight loss?",
@@ -273,7 +295,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Obesity guidelines"
+  "src": "Obesity guidelines",
+  "exp": "0.5–1 kg a week is a sustainable pace that preserves muscle."
  },
  {
   "q": "How should cardiovascular risk in obesity be reduced?",
@@ -285,7 +308,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "CKM syndrome (AHA 2023)"
+  "src": "CKM syndrome (AHA 2023)",
+  "exp": "Weight loss alone is not enough; blood pressure, lipids and glucose must be managed together to lower cardiovascular risk."
  },
  {
   "q": "In the AHA cardiovascular-kidney-metabolic (CKM) framework, where does obesity sit?",
@@ -297,7 +321,8 @@
   ],
   "correct": 0,
   "diff": "hard",
-  "src": "AHA CKM advisory 2023"
+  "src": "AHA CKM advisory 2023",
+  "exp": "The AHA places excess or dysfunctional adipose tissue at stage 1, the starting point of CKM syndrome."
  },
  {
   "q": "What is the main role of exercise in weight management?",
@@ -309,7 +334,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Obesity guidelines"
+  "src": "Obesity guidelines",
+  "exp": "Exercise rarely produces large loss on its own, but it is central to keeping weight off and preserving muscle."
  },
  {
   "q": "According to the KSSO 2025 Obesity Fact Sheet, what was the adult obesity prevalence (BMI ≥25) in Korea in 2023?",
@@ -321,7 +347,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO 2025 Obesity Fact Sheet — 38.4% in 2023"
+  "src": "KSSO 2025 Obesity Fact Sheet — 38.4% in 2023",
+  "exp": "Adult obesity prevalence in Korea was 38.4% in 2023, about four in ten adults."
  },
  {
   "q": "Per the 2025 fact sheet, what was the obesity prevalence among adult men in 2023?",
@@ -333,7 +360,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO 2025 Obesity Fact Sheet — men 49.8%"
+  "src": "KSSO 2025 Obesity Fact Sheet — men 49.8%",
+  "exp": "Among men it was 49.8%, one in two."
  },
  {
   "q": "Per the 2025 fact sheet, what was the obesity prevalence among adult women in 2023?",
@@ -345,7 +373,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO 2025 Obesity Fact Sheet — women 27.5%"
+  "src": "KSSO 2025 Obesity Fact Sheet — women 27.5%",
+  "exp": "Among women it was 27.5%, about half the male rate but still more than one in four."
  },
  {
   "q": "What trend in adult obesity prevalence over the last three years did the 2025 fact sheet highlight?",
@@ -357,7 +386,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO 2025 Obesity Fact Sheet — plateau over 3 years"
+  "src": "KSSO 2025 Obesity Fact Sheet — plateau over 3 years",
+  "exp": "After rising for a decade, prevalence has plateaued around 38% for three years, the first positive signal."
  },
  {
   "q": "Per the 2025 fact sheet, what was the prevalence of abdominal obesity (waist ≥90 cm men / ≥85 cm women) in 2023?",
@@ -369,7 +399,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO 2025 Obesity Fact Sheet — abdominal obesity 24.3%"
+  "src": "KSSO 2025 Obesity Fact Sheet — abdominal obesity 24.3%",
+  "exp": "Abdominal obesity was 24.3%, one in four adults: 31.3% of men and 17.7% of women."
  },
  {
   "q": "Which age band had the highest obesity prevalence in 2023?",
@@ -381,7 +412,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO 2025 Obesity Fact Sheet — 30s 42.0%, 40s 42.2%"
+  "src": "KSSO 2025 Obesity Fact Sheet — 30s 42.0%, 40s 42.2%",
+  "exp": "Prevalence peaks in the 30s (42.0%) and 40s (42.2%), the prime working years."
  },
  {
   "q": "What waist-circumference cut-offs define abdominal obesity in Koreans according to KSSO?",
@@ -393,7 +425,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO 2025 Obesity Fact Sheet / KSSO guideline"
+  "src": "KSSO 2025 Obesity Fact Sheet / KSSO guideline",
+  "exp": "KSSO defines abdominal obesity as a waist of 90 cm or more in men and 85 cm or more in women."
  },
  {
   "q": "Per the Diabetes Fact Sheet 2024, what was diabetes prevalence among Koreans aged 30 or older in 2022?",
@@ -405,7 +438,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — 14.8% in 2022"
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — 14.8% in 2022",
+  "exp": "In 2022, 14.8% of adults aged 30 or older had diabetes: one in seven, about 5.3 million people."
  },
  {
   "q": "What is the prevalence of diabetes among Koreans aged 65 or older?",
@@ -417,7 +451,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — ages 65+: 28–30%"
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — ages 65+: 28–30%",
+  "exp": "Among people aged 65 or older, 28–30% have diabetes, three in ten."
  },
  {
   "q": "What share of Koreans aged 30 or older have prediabetes (fasting glucose 100–125 or HbA1c 5.7–6.4%)?",
@@ -429,7 +464,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — 41.1%, 14 million"
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — 41.1%, 14 million",
+  "exp": "Prediabetes affects 41.1%, about 14 million people, nearly three times the number with diabetes."
  },
  {
   "q": "What share of people with diabetes also had obesity (BMI ≥25)?",
@@ -441,7 +477,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — obesity 53.8%"
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — obesity 53.8%",
+  "exp": "53.8% of people with diabetes have obesity (BMI ≥25), so weight and glucose management go together."
  },
  {
   "q": "What share of people with diabetes also had abdominal obesity?",
@@ -453,7 +490,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — abdominal obesity 61.2%"
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — abdominal obesity 61.2%",
+  "exp": "61.2% of people with diabetes have abdominal obesity, more often women."
  },
  {
   "q": "Which of the following is NOT part of the fact sheet definition of diabetes?",
@@ -465,7 +503,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024 — definition of diabetes"
+  "src": "KDA Diabetes Fact Sheet in Korea 2024 — definition of diabetes",
+  "exp": "Fasting glucose 100–125 defines prediabetes; diabetes means ≥126, HbA1c ≥6.5%, a physician diagnosis or drug treatment."
  },
  {
   "q": "How did the Lancet Commission say BMI should be used when diagnosing obesity?",
@@ -477,7 +516,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "BMI is only a screening tool; confirmation needs a fat-distribution measure such as waist circumference or direct measurement."
  },
  {
   "q": "When can excess adiposity be assumed without additional measurements under the Commission criteria?",
@@ -489,7 +529,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "Above BMI 40 excess adiposity is virtually certain, so no further measurement is required."
  },
  {
   "q": "Which of these are examples of organ dysfunction that count toward clinical obesity?",
@@ -501,7 +542,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "Findings such as fatty liver, sleep apnoea and impaired knee function show that excess fat has altered organ function."
  },
  {
   "q": "Besides organ dysfunction, what other criterion can establish clinical obesity?",
@@ -513,7 +555,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "Even without test findings, significant limitation of mobility or basic daily activities can establish clinical obesity."
  },
  {
   "q": "What management did the Commission recommend for preclinical obesity?",
@@ -525,7 +568,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "Preclinical obesity is a risk state rather than a disease, so the goal is counselling, monitoring and lifestyle care to prevent progression."
  },
  {
   "q": "How did the Commission define the goal of treating clinical obesity?",
@@ -537,7 +581,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "The goal is not a weight number but improvement or remission of organ dysfunction and prevention of complications."
  },
  {
   "q": "How did the Lancet Commission characterise clinical obesity?",
@@ -549,7 +594,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "The Commission defined clinical obesity as a chronic systemic illness in which excess fat alters organ function."
  },
  {
   "q": "What did the Commission recommend regarding weight stigma?",
@@ -561,7 +607,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "It recommended training for clinicians and policymakers to reduce weight-based bias and stigma."
  },
  {
   "q": "Which cluster forms the \"metabolic\" criterion for clinical obesity?",
@@ -573,7 +620,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "The metabolic criterion is hyperglycaemia together with high triglycerides and low HDL cholesterol."
  },
  {
   "q": "Which findings belong to the cardiovascular criteria for clinical obesity?",
@@ -585,7 +633,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "Cardiovascular criteria include heart failure, atrial fibrillation and raised blood pressure."
  },
  {
   "q": "What is the key distinction between clinical and preclinical obesity?",
@@ -597,7 +646,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (clinical obesity)",
+  "exp": "What separates the two is not weight but whether organ dysfunction or limitation of daily life is present."
  },
  {
   "q": "What first-line treatment goal does the KSSO guideline recommend?",
@@ -609,7 +659,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "KSSO recommends losing 5–10% of initial weight within 6 months as the first goal."
  },
  {
   "q": "How often does the KSSO guideline advise adults to have BMI measured?",
@@ -621,7 +672,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "Every adult should have BMI measured yearly: 23 or more is pre-obesity, 25 or more is obesity."
  },
  {
   "q": "What daily calorie reduction does the guideline recommend for a low-calorie diet?",
@@ -633,7 +685,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "A 500–1,000 kcal daily deficit gives 0.5–1 kg a week, with the biggest effect in the first 6 months."
  },
  {
   "q": "What exercise prescription does the guideline recommend for weight loss?",
@@ -645,7 +698,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "At least 150 minutes of aerobic exercise plus resistance training 2–3 times a week preserves muscle while losing weight."
  },
  {
   "q": "Under the Korean guideline, when may pharmacotherapy for obesity be considered?",
@@ -657,7 +711,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "The Korean guideline considers pharmacotherapy as an add-on at BMI 25 or higher when lifestyle change has failed."
  },
  {
   "q": "What does the guideline recommend to keep weight off after loss?",
@@ -669,7 +724,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "A high-protein, low-fat diet with continued exercise, regular weigh-ins and professional feedback keeps the weight off."
  },
  {
   "q": "Which measure is combined with BMI in the KSSO comorbidity-risk table?",
@@ -681,7 +737,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "At the same BMI, a waist of 90/85 cm or more moves the comorbidity risk up one category."
  },
  {
   "q": "What should be checked at the first visit to rule out secondary obesity?",
@@ -693,7 +750,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "Rule out secondary obesity first by checking conditions such as hypothyroidism or Cushing syndrome and weight-gaining medications."
  },
  {
   "q": "At what age does the KDA 2023 guideline recommend starting diabetes screening?",
@@ -705,7 +763,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes",
+  "exp": "The 2023 guideline recommends screening all adults from 35, and from 19 when risk factors are present."
  },
  {
   "q": "Which item was newly added to the diabetes-screening risk factors in the 2023 guideline?",
@@ -717,7 +776,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes",
+  "exp": "Because abdominal obesity and diabetes are rising in younger adults, abdominal obesity was added as a screening risk factor."
  },
  {
   "q": "How much weight loss does the KDA 2023 guideline recommend for overweight or obese adults with diabetes?",
@@ -729,7 +789,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes",
+  "exp": "Overweight or obese adults with diabetes should lose at least 5% and maintain it by cutting total calories."
  },
  {
   "q": "How much exercise is recommended for people with diabetes?",
@@ -741,7 +802,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes",
+  "exp": "At least 150 minutes of moderate aerobic exercise plus resistance training twice a week is the standard prescription."
  },
  {
   "q": "What lifestyle target is recommended to prevent progression from prediabetes to type 2 diabetes?",
@@ -753,7 +815,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes",
+  "exp": "In prediabetes, 5–7% weight loss and 150 minutes of exercise a week cut the risk of diabetes by more than half."
  },
  {
   "q": "What is the general HbA1c target for adults with type 2 diabetes in the Korean guideline?",
@@ -765,7 +828,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes",
+  "exp": "The KDA general HbA1c target is below 6.5%, adjusted for the individual."
  },
  {
   "q": "Which of the following is NOT a diagnostic criterion for diabetes?",
@@ -777,7 +841,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes",
+  "exp": "Diabetes is diagnosed by fasting glucose ≥126, HbA1c ≥6.5% or a 2-hour OGTT value ≥200; 110 falls in the prediabetes range."
  },
  {
   "q": "How should fatty liver be viewed in people with type 2 diabetes?",
@@ -789,7 +854,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes / KASL 2025 MASLD Clinical Practice Guideline"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes / KASL 2025 MASLD Clinical Practice Guideline",
+  "exp": "Fatty liver is very common in type 2 diabetes and more likely to progress to fibrosis, so it should be assessed."
  },
  {
   "q": "What is the simplest way to identify abdominal obesity?",
@@ -801,7 +867,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "A tape measure around the waist is the simplest validated way to identify abdominal obesity."
  },
  {
   "q": "Where and how should waist circumference be measured?",
@@ -813,7 +880,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "Measure horizontally midway between the lowest rib and the top of the hip bone after breathing out."
  },
  {
   "q": "What is the most effective way to reduce visceral fat?",
@@ -825,7 +893,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "Visceral fat responds best to calorie restriction with aerobic and resistance exercise; spot exercises do not remove it."
  },
  {
   "q": "What can a person with type 2 diabetes and obesity expect from losing 5–10% of body weight?",
@@ -837,7 +906,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes",
+  "exp": "A 5–10% loss improves insulin sensitivity and lowers glucose and HbA1c, and larger losses can lead to remission."
  },
  {
   "q": "Which statement about fatty liver and type 2 diabetes is correct?",
@@ -849,7 +919,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline",
+  "exp": "Fatty liver roughly doubles the risk of diabetes, and diabetes speeds the progression of fatty liver, a two-way relationship."
  },
  {
   "q": "When a person with type 2 diabetes has fatty liver, what should be checked in particular?",
@@ -861,7 +932,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline",
+  "exp": "Fibrosis, not fat itself, determines prognosis, so FIB-4 or similar markers are used to gauge fibrosis risk first."
  },
  {
   "q": "How does body-fat distribution change after menopause?",
@@ -873,7 +945,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "Falling oestrogen after menopause shifts fat from hips and thighs to the abdomen."
  },
  {
   "q": "In which group has obesity risen most steeply in Korea over the past decade?",
@@ -885,7 +958,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO 2025 Obesity Fact Sheet"
+  "src": "KSSO 2025 Obesity Fact Sheet",
+  "exp": "Obesity among men in their 20s rose from 32% to 45% in a decade, the steepest increase of any group."
  },
  {
   "q": "What needs special attention when managing obesity in older adults?",
@@ -897,7 +971,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)"
+  "src": "KSSO Obesity Clinical Practice Guideline 2022 (8th ed)",
+  "exp": "Older adults lose muscle easily during weight loss, so resistance training and adequate protein prevent sarcopenic obesity."
  },
  {
   "q": "Which statement describes young-adult (19–39) diabetes in Korea?",
@@ -909,7 +984,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA Diabetes Fact Sheet in Korea 2024"
+  "src": "KDA Diabetes Fact Sheet in Korea 2024",
+  "exp": "Nine in ten young adults with diabetes have obesity, and awareness (43%) and treatment (35%) are the lowest of any age group."
  },
  {
   "q": "What should a woman do after a pregnancy with gestational diabetes?",
@@ -921,7 +997,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes",
+  "exp": "Gestational diabetes greatly raises later type 2 diabetes risk, so regular glucose testing continues after delivery."
  },
  {
   "q": "Why does obesity matter so much in adults with diabetes?",
@@ -933,7 +1010,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+  "src": "KDA 2023 Clinical Practice Guidelines for Diabetes",
+  "exp": "More than half of people with diabetes have obesity, which makes glucose, blood pressure and lipid control all harder."
  },
  {
   "q": "Why does adult body weight stay stable for years despite large daily swings in intake and activity?",
@@ -945,7 +1023,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Pasquet P, Apfelbaum M. Am J Clin Nutr 1994 (cited in SCOPE Core Learning Path, module 1)"
+  "src": "Pasquet P, Apfelbaum M. Am J Clin Nutr 1994 (cited in SCOPE Core Learning Path, module 1)",
+  "exp": "The hypothalamus integrates signals such as leptin and ghrelin to balance intake and expenditure, keeping weight stable."
  },
  {
   "q": "Where is leptin produced and what does it do?",
@@ -957,7 +1036,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Zhang Y et al. Nature 1994; Considine RV et al. N Engl J Med 1996 (cited in SCOPE Core Learning Path, module 1)"
+  "src": "Zhang Y et al. Nature 1994; Considine RV et al. N Engl J Med 1996 (cited in SCOPE Core Learning Path, module 1)",
+  "exp": "Leptin from fat cells tells the hypothalamus the body is well fed and suppresses appetite."
  },
  {
   "q": "Which statement about ghrelin is correct?",
@@ -969,7 +1049,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Wren AM et al. Endocrinology 2000 (cited in SCOPE Core Learning Path, module 1)"
+  "src": "Wren AM et al. Endocrinology 2000 (cited in SCOPE Core Learning Path, module 1)",
+  "exp": "Ghrelin is the hunger hormone from the stomach that rises before meals."
  },
  {
   "q": "What is the typical course after lifestyle-induced weight loss?",
@@ -981,7 +1062,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "NHMRC Clinical Practice Guidelines for the Management of Overweight and Obesity 2013 (cited in SCOPE Core Learning Path, module 1)"
+  "src": "NHMRC Clinical Practice Guidelines for the Management of Overweight and Obesity 2013 (cited in SCOPE Core Learning Path, module 1)",
+  "exp": "Loss peaks at 6–12 months, most is regained within 2 years and most people are back at baseline by 5 years, so maintenance is key."
  },
  {
   "q": "What happens to energy expenditure after a 10% weight loss?",
@@ -993,7 +1075,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Rosenbaum M, Leibel RL. Obesity 2016; Fothergill E et al. Obesity 2016 (cited in SCOPE Core Learning Path, module 1)"
+  "src": "Rosenbaum M, Leibel RL. Obesity 2016; Fothergill E et al. Obesity 2016 (cited in SCOPE Core Learning Path, module 1)",
+  "exp": "After a 10% loss, expenditure falls below what the new weight predicts and the change persists."
  },
  {
   "q": "One year after weight loss, how does hunger compare with before?",
@@ -1005,7 +1088,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Sumithran P et al. N Engl J Med 2011 (cited in SCOPE Core Learning Path, module 1)"
+  "src": "Sumithran P et al. N Engl J Med 2011 (cited in SCOPE Core Learning Path, module 1)",
+  "exp": "A year after weight loss, hunger and appetite hormones remain higher than before the loss."
  },
  {
   "q": "What did the study overfeeding 12 pairs of identical twins by about 1,000 kcal/day for 100 days show?",
@@ -1017,7 +1101,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Bouchard C et al. N Engl J Med 1990 (cited in SCOPE Core Learning Path, module 2)"
+  "src": "Bouchard C et al. N Engl J Med 1990 (cited in SCOPE Core Learning Path, module 2)",
+  "exp": "Twins gained similar amounts within pairs but differed widely between pairs, showing a strong genetic effect on weight gain."
  },
  {
   "q": "In the Danish adoption study, whose weight did adult adoptees resemble?",
@@ -1029,7 +1114,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Stunkard AJ et al. N Engl J Med 1986 (cited in SCOPE Core Learning Path, module 2)"
+  "src": "Stunkard AJ et al. N Engl J Med 1986 (cited in SCOPE Core Learning Path, module 2)",
+  "exp": "Adoptees resembled their biological rather than adoptive parents, showing the influence of genes."
  },
  {
   "q": "What characterises weight gain at menopause?",
@@ -1041,7 +1127,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lovejoy JC et al. Int J Obes 2008 (cited in SCOPE Core Learning Path, module 2)"
+  "src": "Lovejoy JC et al. Int J Obes 2008 (cited in SCOPE Core Learning Path, module 2)",
+  "exp": "Menopausal weight gain is centred on visceral fat, so the waist expands first."
  },
  {
   "q": "Which of these is NOT a medical cause of weight gain?",
@@ -1053,7 +1140,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Nieman LK et al. J Clin Endocrinol Metab 2008 (cited in SCOPE Core Learning Path, module 2)"
+  "src": "Nieman LK et al. J Clin Endocrinol Metab 2008 (cited in SCOPE Core Learning Path, module 2)",
+  "exp": "Hyperthyroidism causes weight loss; Cushing syndrome, hypothalamic injury and Prader–Willi syndrome cause gain."
  },
  {
   "q": "Which of these is NOT one of the five components of the metabolic syndrome?",
@@ -1065,7 +1153,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Alberti KG et al. Circulation 2009 (cited in SCOPE Core Learning Path, module 3)"
+  "src": "Alberti KG et al. Circulation 2009 (cited in SCOPE Core Learning Path, module 3)",
+  "exp": "The five criteria are waist circumference, triglycerides, HDL, blood pressure and glucose; BMI is not one of them."
  },
  {
   "q": "How many of the five risk factors are needed to diagnose the metabolic syndrome?",
@@ -1077,7 +1166,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Alberti KG et al. Circulation 2009 (cited in SCOPE Core Learning Path, module 3)"
+  "src": "Alberti KG et al. Circulation 2009 (cited in SCOPE Core Learning Path, module 3)",
+  "exp": "Three or more of the five risk factors make the diagnosis."
  },
  {
   "q": "What share of women with PCOS have obesity?",
@@ -1089,7 +1179,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (cited in SCOPE Core Learning Path, module 3)"
+  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (cited in SCOPE Core Learning Path, module 3)",
+  "exp": "50–80% of women with PCOS have obesity, and weight loss improves both ovulation and metabolism."
  },
  {
   "q": "Which statement about PCOS and metabolic health is correct?",
@@ -1101,7 +1192,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (cited in SCOPE Core Learning Path, module 3)"
+  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (cited in SCOPE Core Learning Path, module 3)",
+  "exp": "PCOS is closely tied to insulin resistance and raises the risk of type 2 diabetes and metabolic syndrome."
  },
  {
   "q": "What is the strongest predictor of obstructive sleep apnoea?",
@@ -1113,7 +1205,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Epstein LJ et al. (AASM Task Force) J Clin Sleep Med 2009 (cited in SCOPE Core Learning Path, module 3)"
+  "src": "Epstein LJ et al. (AASM Task Force) J Clin Sleep Med 2009 (cited in SCOPE Core Learning Path, module 3)",
+  "exp": "Obesity is the strongest predictor of sleep apnoea, ahead of age, sex or hypertension."
  },
  {
   "q": "In the STOP-BANG sleep-apnoea screen, what does the B stand for?",
@@ -1125,7 +1218,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Chung F et al. Anesthesiology 2008 (STOP-BANG) (cited in SCOPE Core Learning Path, module 3)"
+  "src": "Chung F et al. Anesthesiology 2008 (STOP-BANG) (cited in SCOPE Core Learning Path, module 3)",
+  "exp": "In STOP-BANG, B is BMI over 35, A age over 50, N neck over 40 cm and G male gender."
  },
  {
   "q": "What does \"BMI tells you how big your patient is\" imply?",
@@ -1137,7 +1231,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Sharma AM, Kushner RF. Int J Obes 2009 (Edmonton Obesity Staging System) (cited in SCOPE Core Learning Path, module 4)"
+  "src": "Sharma AM, Kushner RF. Int J Obes 2009 (Edmonton Obesity Staging System) (cited in SCOPE Core Learning Path, module 4)",
+  "exp": "BMI only tells you size; actual health impact needs a staging tool such as EOSS."
  },
  {
   "q": "Which predicts survival better in people with obesity?",
@@ -1149,7 +1244,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Padwal RS et al. CMAJ 2011 (EOSS and mortality) (cited in SCOPE Core Learning Path, module 4)"
+  "src": "Padwal RS et al. CMAJ 2011 (EOSS and mortality) (cited in SCOPE Core Learning Path, module 4)",
+  "exp": "EOSS staging, which reflects organ damage, predicts survival far better than BMI class."
  },
  {
   "q": "Which is NOT one of the \"4Ms\" of obesity assessment?",
@@ -1161,7 +1257,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Sharma AM. Obes Rev 2010 (the 4Ms) (cited in SCOPE Core Learning Path, module 4)"
+  "src": "Sharma AM. Obes Rev 2010 (the 4Ms) (cited in SCOPE Core Learning Path, module 4)",
+  "exp": "The 4Ms are Mental, Mechanical, Monetary and Metabolic, a frame for causes, complications and barriers."
  },
  {
   "q": "What is the right way to raise weight during a consultation?",
@@ -1173,7 +1270,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Vallis M et al. Can Fam Physician 2013 (5As of obesity management) (cited in SCOPE Core Learning Path, module 4)"
+  "src": "Vallis M et al. Can Fam Physician 2013 (5As of obesity management) (cited in SCOPE Core Learning Path, module 4)",
+  "exp": "Handle the presenting problem first and link weight to it where possible so the conversation stays open."
  },
  {
   "q": "Roughly how many kilocalories does 1 kg of body fat represent?",
@@ -1185,7 +1283,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Wishnofsky M. Am J Clin Nutr 1958 (cited in SCOPE Core Learning Path, module 6)"
+  "src": "Wishnofsky M. Am J Clin Nutr 1958 (cited in SCOPE Core Learning Path, module 6)",
+  "exp": "One kilogram of fat is about 7,000 kcal, so a 500 kcal daily deficit removes about 1 kg in two weeks."
  },
  {
   "q": "What did the 2-year trial of 811 adults on four diets with different fat, protein and carbohydrate shares conclude?",
@@ -1197,7 +1296,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Sacks FM et al. N Engl J Med 2009 (cited in SCOPE Core Learning Path, module 6)"
+  "src": "Sacks FM et al. N Engl J Med 2009 (cited in SCOPE Core Learning Path, module 6)",
+  "exp": "In 811 adults over two years, weight loss was similar whatever the macronutrient mix, showing that calorie reduction is what matters."
  },
  {
   "q": "How did intermittent calorie restriction (e.g. 5:2) compare with daily restriction?",
@@ -1209,7 +1309,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Harvie MN et al. Int J Obes 2011 (cited in SCOPE Core Learning Path, module 6)"
+  "src": "Harvie MN et al. Int J Obes 2011 (cited in SCOPE Core Learning Path, module 6)",
+  "exp": "Intermittent restriction such as 5:2 works about as well as daily restriction, so choose what fits the person."
  },
  {
   "q": "What is the main value of exercise in weight management?",
@@ -1221,7 +1322,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Donnelly JE et al. (ACSM position stand) Med Sci Sports Exerc 2009 (cited in SCOPE Core Learning Path, module 6)"
+  "src": "Donnelly JE et al. (ACSM position stand) Med Sci Sports Exerc 2009 (cited in SCOPE Core Learning Path, module 6)",
+  "exp": "Exercise matters less for the loss itself than for limiting muscle loss and keeping the weight off."
  },
  {
   "q": "What is described as the hardest part of obesity treatment?",
@@ -1233,6 +1335,7 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "NHMRC Clinical Practice Guidelines 2013 (cited in SCOPE Core Learning Path, module 6)"
+  "src": "NHMRC Clinical Practice Guidelines 2013 (cited in SCOPE Core Learning Path, module 6)",
+  "exp": "Keeping weight off long term is the hard part, which is why obesity is treated as a chronic condition needing lifelong care."
  }
 ]

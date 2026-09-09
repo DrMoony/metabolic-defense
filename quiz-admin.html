@@ -115,6 +115,7 @@ function render() {
           <input type="text" data-role="a${k}" value="${(q.a && q.a[k] || '').replace(/"/g,'&quot;')}" placeholder="보기 ${k+1}">
         `).join('')}
       </div>
+      <textarea data-role="exp" placeholder="해설 (정답 뒤 팝업으로 보여요, 1~2문장)" style="min-height:40px">${q.exp || ''}</textarea>
       <div class="meta">
         <span class="hint">출처</span><input type="text" data-role="src" value="${(q.src||'').replace(/"/g,'&quot;')}" placeholder="예: slide 27 / KSSO Fact Sheet 2024">
         <label class="drugbox"><input type="checkbox" data-role="drug" ${q.drug?'checked':''}> 특정 약물 문항(기본 숨김)</label>
@@ -128,6 +129,7 @@ function render() {
       q.correct = sel ? +sel.value : 0;
       q.diff = g('diff').value;
       q.src = g('src').value;
+      q.exp = g('exp').value;
       q.drug = g('drug').checked;
       const tag = g('difftag');
       tag.textContent = q.diff.toUpperCase(); tag.className = 'tag ' + q.diff;
@@ -151,7 +153,7 @@ function toJSON() {
   const clean = data
     .filter((q) => (q.q || '').trim() && (q.a || []).filter((x) => (x || '').trim()).length === 4)
     .map((q) => ({ q: q.q.trim(), a: q.a.map((x) => x.trim()), correct: q.correct || 0,
-                   diff: q.diff || 'mid', ...(q.src ? { src: q.src.trim() } : {}), ...(q.drug ? { drug: true } : {}) }));
+                   diff: q.diff || 'mid', ...(q.src ? { src: q.src.trim() } : {}), ...(q.exp ? { exp: q.exp.trim() } : {}), ...(q.drug ? { drug: true } : {}) }));
   return JSON.stringify(clean, null, 1) + '\n';
 }
 
@@ -171,6 +173,7 @@ async function verify() {
     if (!Number.isInteger(q.correct) || q.correct < 0 || q.correct > 3) issues.push([n, '정답 인덱스 오류']);
     if (!['easy', 'mid', 'hard'].includes(q.diff)) issues.push([n, `난이도 값 이상: ${q.diff}`]);
     if (!(q.src || '').trim()) issues.push([n, '출처(src) 없음']);
+    if (!(q.exp || '').trim()) issues.push([n, '해설(exp) 없음']);
     const key = (q.q || '').replace(/\s+/g, '').toLowerCase();
     if (seen.has(key)) issues.push([n, `#${seen.get(key)}과 문항 텍스트 중복`]); else seen.set(key, n);
     const c = opts[q.correct] || '', others = opts.filter((_, k) => k !== q.correct);

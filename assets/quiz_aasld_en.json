@@ -9,7 +9,8 @@
   ],
   "correct": 0,
   "src": "slide 9-11",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "A 2023 multi-society Delphi consensus renamed NAFLD to MASLD to emphasise metabolic dysfunction."
  },
  {
   "q": "What is the new umbrella term for all liver disease with >5% hepatic fat?",
@@ -21,7 +22,8 @@
   ],
   "correct": 0,
   "src": "slide 9",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "SLD (steatotic liver disease) is the umbrella term covering MASLD, MetALD and ALD."
  },
  {
   "q": "What was one reason for retiring the name NAFLD?",
@@ -33,7 +35,8 @@
   ],
   "correct": 0,
   "src": "slide 9",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "The exclusionary \"non-alcoholic\" label and the stigma of \"fatty\" prompted a name that reflects the pathophysiology."
  },
  {
   "q": "What does MASH describe?",
@@ -45,7 +48,8 @@
   ],
   "correct": 0,
   "src": "slide 11",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "MASH adds inflammation and hepatocyte injury to fat and carries a higher risk of progressing to fibrosis."
  },
  {
   "q": "MASH can be diagnosed even at F0. What defines 'at-risk MASH'?",
@@ -57,7 +61,8 @@
   ],
   "correct": 0,
   "src": "slide 11, 17",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "MASH with fibrosis stage F2 or higher has clearly higher liver-event and mortality risk, so it is classed as at-risk MASH."
  },
  {
   "q": "Why is MASLD commonly underdiagnosed?",
@@ -69,7 +74,8 @@
   ],
   "correct": 0,
   "src": "slide 19",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "Most patients have no symptoms and often normal liver enzymes, so it is found incidentally."
  },
  {
   "q": "Compared with the general population, overall mortality in MASLD is:",
@@ -81,7 +87,8 @@
   ],
   "correct": 0,
   "src": "slide 15",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "All-cause mortality in MASLD is about twice that of the general population and rises with fibrosis, not fat."
  },
  {
   "q": "Which factor most strongly drives prognosis in MASLD?",
@@ -93,7 +100,8 @@
   ],
   "correct": 0,
   "src": "slide 15, 17",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "Prognosis is set by the fibrosis stage, not by the amount of fat."
  },
  {
   "q": "On average, MASH fibrosis progresses by one stage every:",
@@ -105,7 +113,8 @@
   ],
   "correct": 0,
   "src": "slide 17",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "MASH fibrosis advances about one stage every 7 years, accelerating to about 2 years from F3 to cirrhosis."
  },
  {
   "q": "What is the initial non-invasive index for fibrosis screening in primary care?",
@@ -117,7 +126,8 @@
   ],
   "correct": 0,
   "src": "slide 27",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "FIB-4 is calculated from age, AST, ALT and platelets, making it a first-line screen usable in primary care."
  },
  {
   "q": "What is the FIB-4 low-risk cutoff for ages 35-65?",
@@ -129,7 +139,8 @@
   ],
   "correct": 0,
   "src": "slide 27",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "At ages 35–65 a FIB-4 below 1.3 is low risk and rules out advanced fibrosis."
  },
  {
   "q": "If FIB-4 is 1.3 or higher, what comes next?",
@@ -141,7 +152,8 @@
   ],
   "correct": 0,
   "src": "slide 33",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "A FIB-4 of 1.3 or more leads to a second step: an ELF blood test or transient elastography (VCTE)."
  },
  {
   "q": "What does VCTE (transient elastography) measure?",
@@ -153,7 +165,8 @@
   ],
   "correct": 0,
   "src": "slide 36",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "VCTE measures liver stiffness in kPa as a gauge of fibrosis."
  },
  {
   "q": "AASLD recommends MASLD screening in which patients?",
@@ -165,7 +178,8 @@
   ],
   "correct": 0,
   "src": "slide 24",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "People with type 2 diabetes or obesity have a high MASLD prevalence and are the screening targets."
  },
  {
   "q": "A 5-7% weight loss is expected to bring:",
@@ -177,7 +191,8 @@
   ],
   "correct": 0,
   "src": "slide 42",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "Liver inflammation starts to improve with a 5–7% weight loss."
  },
  {
   "q": "A 7-10% weight loss can additionally bring:",
@@ -189,7 +204,8 @@
   ],
   "correct": 0,
   "src": "slide 42",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "With a 7–10% loss, fibrosis can improve as well."
  },
  {
   "q": "Which diet has the strongest evidence in MASLD?",
@@ -201,7 +217,8 @@
   ],
   "correct": 0,
   "src": "slide 43-44",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "The Mediterranean diet has the strongest evidence for reducing liver fat, even independent of weight loss."
  },
  {
   "q": "An exercise prescription that improved MASLD parameters was:",
@@ -213,7 +230,8 @@
   ],
   "correct": 0,
   "src": "slide 43",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "Three 40-minute aerobic or resistance sessions a week improve liver fat and ALT within 12 weeks."
  },
  {
   "q": "Which blood biomarker helps overcome underreported alcohol intake?",
@@ -225,7 +243,8 @@
   ],
   "correct": 0,
   "src": "slide 13",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "PEth reflects alcohol intake over the past 1–4 weeks and complements self-report."
  },
  {
   "q": "In MASLD, even low-level alcohol intake is:",
@@ -237,7 +256,8 @@
   ],
   "correct": 0,
   "src": "slide 53",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "Even low alcohol intake can harm the liver in MASLD, so restraint is advised."
  },
  {
   "q": "In fibrosis staging, what does F4 mean?",
@@ -249,7 +269,8 @@
   ],
   "correct": 0,
   "src": "slide 18, 21",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "F0 is normal, F1–F3 progressive fibrosis and F4 cirrhosis."
  },
  {
   "q": "What does MetALD describe?",
@@ -261,7 +282,8 @@
   ],
   "correct": 0,
   "src": "slide 11",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "MetALD is steatosis with metabolic risk factors plus alcohol intake above the MASLD limit."
  },
  {
   "q": "What is the female alcohol threshold within the MASLD definition?",
@@ -273,7 +295,8 @@
   ],
   "correct": 0,
   "src": "slide 11",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "MASLD allows under 20 g a day (about 1.5 drinks) for women and under 30 g for men."
  },
  {
   "q": "Which item is NOT part of the FIB-4 formula?",
@@ -285,7 +308,8 @@
   ],
   "correct": 0,
   "src": "slide 27",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "FIB-4 uses age, AST, ALT and platelets; blood pressure is not part of it."
  },
  {
   "q": "What is the FIB-4 low-risk cutoff for patients 65 or older?",
@@ -297,7 +321,8 @@
   ],
   "correct": 0,
   "src": "slide 28",
-  "diff": "hard"
+  "diff": "hard",
+  "exp": "Because age is in the formula, the low-risk cut-off is raised to below 2.0 at 65 and older."
  },
  {
   "q": "VCTE readings can be unreliable in patients with:",
@@ -309,7 +334,8 @@
   ],
   "correct": 0,
   "src": "slide 37",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "VCTE can be unreliable in severe obesity, ascites or heart failure."
  },
  {
   "q": "The CAP score from VCTE reflects:",
@@ -321,7 +347,8 @@
   ],
   "correct": 0,
   "src": "slide 37",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "CAP reflects liver fat, while LSM reflects fibrosis."
  },
  {
   "q": "FIB-4 of 1.3 or more plus liver stiffness above 8 kPa calls for:",
@@ -333,7 +360,8 @@
   ],
   "correct": 0,
   "src": "slide 39",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "A FIB-4 of 1.3 or more with stiffness above 8 kPa warrants referral to hepatology."
  },
  {
   "q": "Progression from F3 fibrosis to cirrhosis takes on average:",
@@ -345,7 +373,8 @@
   ],
   "correct": 0,
   "src": "slide 17",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "From F3 to cirrhosis takes about 2 years on average, much faster than the early stages."
  },
  {
   "q": "The intensive lifestyle trial that improved MASLD prescribed:",
@@ -357,7 +386,8 @@
   ],
   "correct": 0,
   "src": "slide 42",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "A 750 kcal daily deficit plus 200 minutes of walking a week that achieved 5–10% loss improved inflammation and fibrosis."
  },
  {
   "q": "Which brief alcohol screening tool is used in primary care?",
@@ -369,7 +399,8 @@
   ],
   "correct": 0,
   "src": "slide 53",
-  "diff": "mid"
+  "diff": "mid",
+  "exp": "AUDIT-C is a simple three-item alcohol screening tool."
  },
  {
   "q": "In the Mediterranean diet, what should be kept low?",
@@ -381,7 +412,8 @@
   ],
   "correct": 0,
   "src": "slide 44",
-  "diff": "easy"
+  "diff": "easy",
+  "exp": "The Mediterranean diet cuts processed meat and added sugar while adding vegetables, whole grains, olive oil and fish."
  },
  {
   "q": "Which Korean-language name did KASL adopt for MASLD?",
@@ -393,7 +425,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — nomenclature"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — nomenclature",
+  "exp": "KASL adopted 대사이상지방간질환 as the official Korean name for MASLD."
  },
  {
   "q": "What are the KASL 2025 diagnostic criteria for MASLD?",
@@ -405,7 +438,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — definition"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — definition",
+  "exp": "MASLD is diagnosed by hepatic fat plus at least one cardiometabolic risk factor and no significant alcohol intake."
  },
  {
   "q": "Which waist-circumference cut-offs did KASL adopt as the cardiometabolic criterion for Koreans?",
@@ -417,7 +451,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — Korean waist cut-offs"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — Korean waist cut-offs",
+  "exp": "Given average Korean waist sizes, the domestic cut-offs are 90 cm for men and 85 cm for women."
  },
  {
   "q": "What BMI threshold defines overweight/obesity as a cardiometabolic criterion for Asians in MASLD?",
@@ -429,7 +464,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — Asian BMI cut-off"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — Asian BMI cut-off",
+  "exp": "For Asians a BMI of 23 or more counts as a cardiometabolic risk factor."
  },
  {
   "q": "What is the daily alcohol limit allowed within the MASLD definition?",
@@ -441,7 +477,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — alcohol threshold"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — alcohol threshold",
+  "exp": "Under 30 g a day for men and 20 g for women is the alcohol limit allowed in MASLD."
  },
  {
   "q": "How closely does the MASLD-defined population overlap with the former NAFLD population?",
@@ -453,7 +490,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — >95% concordance with NAFLD"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — >95% concordance with NAFLD",
+  "exp": "The MASLD population overlaps the former NAFLD population by more than 95%, so earlier evidence still applies."
  },
  {
   "q": "Roughly how common is MASLD among Korean adults?",
@@ -465,7 +503,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — Korean prevalence 27.5–33.5% (men > women)"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — Korean prevalence 27.5–33.5% (men > women)",
+  "exp": "Korean studies put MASLD prevalence at 27–34%, one in three or four adults, more often men."
  },
  {
   "q": "What does the guideline identify as the leading cause of death in MASLD?",
@@ -477,7 +516,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — prognosis"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — prognosis",
+  "exp": "The leading cause of death in MASLD is cardiovascular disease rather than liver disease."
  },
  {
   "q": "Which MASLD patients should undergo hepatocellular carcinoma surveillance?",
@@ -489,7 +529,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — HCC ≥1.5%/yr in cirrhosis"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — HCC ≥1.5%/yr in cirrhosis",
+  "exp": "With cirrhosis, hepatocellular carcinoma develops at 1.5% or more per year, so surveillance is recommended."
  },
  {
   "q": "Per the KDA fatty liver statistics, what share of adults with type 2 diabetes had fatty liver (FLI ≥60)?",
@@ -501,7 +542,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA Fatty Liver & Diabetes Statistics in Korea (2009–2017) — 29.6% in 2017"
+  "src": "KDA Fatty Liver & Diabetes Statistics in Korea (2009–2017) — 29.6% in 2017",
+  "exp": "One in three adults with type 2 diabetes has fatty liver by a fatty liver index of 60 or more."
  },
  {
   "q": "Among young adults (20–39) with type 2 diabetes, what share had fatty liver (FLI ≥60) in 2017?",
@@ -513,7 +555,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KDA Fatty Liver & Diabetes Statistics in Korea (2009–2017) — ages 20–39: 42.2%→60.1%"
+  "src": "KDA Fatty Liver & Diabetes Statistics in Korea (2009–2017) — ages 20–39: 42.2%→60.1%",
+  "exp": "Among young adults with type 2 diabetes, fatty liver rose from 42% in 2009 to 60% in 2017."
  },
  {
   "q": "What is specifically emphasised when diagnosing MASLD in children and adolescents?",
@@ -525,7 +568,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — paediatrics"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — paediatrics",
+  "exp": "In children, other causes of hepatic fat such as inborn errors of metabolism must also be reviewed."
  },
  {
   "q": "Which factors does the guideline name as raising extrahepatic cancer risk in MASLD?",
@@ -537,7 +581,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — extrahepatic cancer risk"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline — extrahepatic cancer risk",
+  "exp": "Obesity and type 2 diabetes are the main factors raising extrahepatic cancer risk in MASLD."
  },
  {
   "q": "Which first-line imaging test is most commonly used to detect fatty liver?",
@@ -549,7 +594,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline",
+  "exp": "Abdominal ultrasound is the most common first-line imaging test for fatty liver."
  },
  {
   "q": "Which of the following is NOT a cardiometabolic risk factor used to diagnose MASLD?",
@@ -561,7 +607,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline",
+  "exp": "The five cardiometabolic factors are weight/waist, glucose, blood pressure, triglycerides and HDL; smoking is not one."
  },
  {
   "q": "What is the foundation of treatment for MASLD?",
@@ -573,7 +620,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline",
+  "exp": "Lifestyle change for weight loss through diet and exercise is the foundation of MASLD treatment."
  },
  {
   "q": "Which index is used first to gauge fibrosis risk in a person with diabetes and fatty liver?",
@@ -585,7 +633,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline",
+  "exp": "FIB-4, from age, AST, ALT and platelets, is the first index used to gauge fibrosis risk."
  },
  {
   "q": "Why does abdominal (visceral) fat matter in fatty liver?",
@@ -597,7 +646,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline",
+  "exp": "Fatty acids from visceral fat reach the liver directly through the portal vein and drive steatosis."
  },
  {
   "q": "What most strongly determines prognosis in MASLD?",
@@ -609,7 +659,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline"
+  "src": "KASL 2025 MASLD Clinical Practice Guideline",
+  "exp": "The fibrosis stage determines prognosis in MASLD."
  },
  {
   "q": "How is fatty liver usually discovered?",
@@ -621,7 +672,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (cited in SCOPE Core Learning Path, module 3)"
+  "src": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (cited in SCOPE Core Learning Path, module 3)",
+  "exp": "Fatty liver rarely causes symptoms, so it is usually an incidental finding on tests done for other reasons."
  },
  {
   "q": "What is the most common blood-test pattern in fatty liver?",
@@ -633,7 +685,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (cited in SCOPE Core Learning Path, module 3)"
+  "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (cited in SCOPE Core Learning Path, module 3)",
+  "exp": "ALT higher than AST is the most common blood-test pattern in fatty liver."
  },
  {
   "q": "On average, how long does simple fatty liver without inflammation or fibrosis take to reach cirrhosis?",
@@ -645,7 +698,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (cited in SCOPE Core Learning Path, module 3)"
+  "src": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (cited in SCOPE Core Learning Path, module 3)",
+  "exp": "Simple steatosis without inflammation or fibrosis progresses slowly, about 57 years to cirrhosis, but far faster once inflammation appears."
  },
  {
   "q": "Which test gives the definitive diagnosis of liver fat, inflammation and fibrosis?",
@@ -657,6 +711,7 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (cited in SCOPE Core Learning Path, module 3)"
+  "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (cited in SCOPE Core Learning Path, module 3)",
+  "exp": "Liver biopsy is the reference test that confirms fat, inflammation and fibrosis."
  }
 ]
