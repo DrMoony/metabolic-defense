@@ -1337,5 +1337,798 @@
   "diff": "easy",
   "src": "NHMRC Clinical Practice Guidelines 2013 (cited in SCOPE Core Learning Path, module 6)",
   "exp": "Keeping weight off long term is the hard part, which is why obesity is treated as a chronic condition needing lifelong care."
+ },
+ {
+  "q": "At roughly what nightly sleep duration is BMI lowest in adults?",
+  "a": [
+   "About 7-8 hours",
+   "About 4-5 hours",
+   "About 5-6 hours",
+   "About 10-11 hours"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Taheri S et al. PLoS Medicine 2004 (SCOPE Core Learning Path 모듈 2 인용)",
+  "exp": "Sleep and BMI show a U-shaped relationship with a nadir at about 7-8 hours; both shorter and longer sleep raise BMI."
+ },
+ {
+  "q": "Which group lists conditions that can cause obesity?",
+  "a": [
+   "Cushing's disease, hypothalamic damage and Prader-Willi syndrome",
+   "Cystic fibrosis, haemophilia and iron-deficiency anaemia",
+   "Asthma, atopic dermatitis and psoriasis",
+   "Appendicitis, gallstones and urinary stones"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Core Learning Path 모듈 2 (Causes of Obesity) 인용",
+  "exp": "Cushing's disease, hypothalamic disorders such as craniopharyngioma or trauma, and Prader-Willi syndrome are classic causes of weight gain."
+ },
+ {
+  "q": "What mechanism is proposed when gene mutation alone cannot explain the recent rise in obesity?",
+  "a": [
+   "Epigenetics - environmental factors switching genes on and off",
+   "Chromosomal aneuploidy",
+   "Accumulated somatic mutations",
+   "Increased genetic recombination"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rodenhiser D, Mann M. Canadian Medical Association Journal 2006 (SCOPE Core Learning Path 모듈 2 인용)",
+  "exp": "Epigenetics alters gene expression through promoter methylation and histone modification, so phenotype can shift within decades without any change in DNA sequence."
+ },
+ {
+  "q": "What happened in adulthood to fetuses that experienced maternal malnourishment in the first trimester?",
+  "a": [
+   "They were wired to be hungrier and more fuel-efficient and had more obesity",
+   "They were more likely to be underweight",
+   "There was no effect on body weight",
+   "They had more hyperthyroidism"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Ravelli GP, Stein ZA, Susser MW. New England Journal of Medicine 1976 (SCOPE Core Learning Path 모듈 2 인용)",
+  "exp": "Known since 1976, the early-gestation malnourishment signal sets the brain to be hungrier and more fuel-efficient."
+ },
+ {
+  "q": "Which BMI-for-age centile marks the obesity range in children and adolescents?",
+  "a": [
+   "Above the 95th centile",
+   "Above the 50th centile",
+   "Above the 75th centile",
+   "Above the 99.9th centile"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Barlow SE and the Expert Committee. Pediatrics 2007 (SCOPE Core Learning Path 모듈 8 인용)",
+  "exp": "Adult BMI cut-points cannot be used in children, so BMI must be plotted on age charts, and above the 95th centile is the obesity range."
+ },
+ {
+  "q": "What happens to BMI in a still-growing child whose weight is held steady?",
+  "a": [
+   "BMI falls as height increases",
+   "BMI stays the same",
+   "BMI rises",
+   "BMI cannot be calculated"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Barlow SE and the Expert Committee. Pediatrics 2007 (SCOPE Core Learning Path 모듈 8 인용)",
+  "exp": "In the case the girl's weight stayed at 33 kg for six months while she grew 3 cm, so her BMI fell; weight maintenance can be the goal in less severe obesity."
+ },
+ {
+  "q": "Thickened, darkened skin in the flexures at the base of the neck (acanthosis nigricans) is characteristic of what?",
+  "a": [
+   "Insulin resistance",
+   "Iron deficiency",
+   "Vitamin D deficiency",
+   "Hypothyroidism"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Baur LA, Hazelton B, Shrewsbury VA. Nature Reviews Gastroenterology & Hepatology 2011 (SCOPE Core Learning Path 모듈 8 인용)",
+  "exp": "Acanthosis nigricans is characteristic of insulin resistance, particularly in children and young people, and can fade with successful treatment."
+ },
+ {
+  "q": "Which HbA1c range indicates prediabetes (impaired fasting glucose or impaired glucose tolerance)?",
+  "a": [
+   "5.7-6.4%",
+   "4.0-4.6%",
+   "6.5-7.4%",
+   "7.5-8.4%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association. Diabetes Care 2017 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "Below 5.7% is normal, 5.7-6.4% is prediabetes and 6.5% or more indicates type 2 diabetes."
+ },
+ {
+  "q": "Which test for glucose abnormalities does not require fasting?",
+  "a": [
+   "HbA1c",
+   "Fasting plasma glucose",
+   "Oral glucose tolerance test",
+   "Fasting insulin"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association. Diabetes Care 2017 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "HbA1c needs no fasting and adds diagnostic value even when fasting plasma glucose is in the normal range."
+ },
+ {
+  "q": "What is the metabolic syndrome cut-point for elevated triglycerides?",
+  "a": [
+   "At least 1.7 mmol/L (150 mg/dl)",
+   "At least 1.0 mmol/L (89 mg/dl)",
+   "At least 2.5 mmol/L (220 mg/dl)",
+   "At least 3.4 mmol/L (300 mg/dl)"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "In the harmonised criteria triglycerides count as elevated at 1.7 mmol/L (150 mg/dl) or more, or on drug treatment for them."
+ },
+ {
+  "q": "What is the metabolic syndrome cut-point for reduced HDL cholesterol?",
+  "a": [
+   "Below 1.0 mmol/L (40 mg/dl) in males and below 1.3 mmol/L (50 mg/dl) in females",
+   "Below 1.0 mmol/L in both sexes",
+   "Below 1.3 in males and 1.0 mmol/L in females",
+   "Below 1.6 mmol/L in both sexes"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "The HDL cut-point differs by sex, with the lower value in males, and drug treatment for low HDL also counts."
+ },
+ {
+  "q": "What is the metabolic syndrome cut-point for elevated blood pressure?",
+  "a": [
+   "Systolic at least 130 and/or diastolic at least 85 mmHg",
+   "Systolic at least 140 and/or diastolic at least 90 mmHg",
+   "Systolic at least 120 and/or diastolic at least 80 mmHg",
+   "Systolic at least 160 and/or diastolic at least 100 mmHg"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "The metabolic syndrome blood pressure cut-point is 130/85 mmHg, and a history of hypertension or drug treatment also counts."
+ },
+ {
+  "q": "Which Mallampati class on oropharyngeal examination should particularly raise suspicion for obstructive sleep apnoea?",
+  "a": [
+   "Class III or Class IV",
+   "Class I or Class II",
+   "Class 0",
+   "Class V or Class VI"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine. Journal of Clinical Sleep Medicine 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "Class I shows soft palate, uvula, fauces and pillars, while classes III and IV are associated with moderate or severe obstruction."
+ },
+ {
+  "q": "What Epworth Sleepiness Scale score is consistent with excessive daytime sleepiness and should prompt further evaluation?",
+  "a": [
+   "More than 10",
+   "More than 3",
+   "More than 20",
+   "More than 30"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine. Journal of Clinical Sleep Medicine 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "The Epworth Sleepiness Scale rates eight situations on a 3-point scale, and a total above 10 warrants further evaluation."
+ },
+ {
+  "q": "What is required for a definitive diagnosis of obstructive sleep apnoea?",
+  "a": [
+   "A sleep study, either home testing or laboratory polysomnography",
+   "A single blood oxygen saturation reading",
+   "A chest X-ray",
+   "Neck ultrasound"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine. Journal of Clinical Sleep Medicine 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "Questionnaires are for screening; a sleep study is needed for diagnosis, and referral to a sleep medicine clinic is a reasonable alternative."
+ },
+ {
+  "q": "What is the correct order of the clinical spectrum of MASLD?",
+  "a": [
+   "Steatosis, then steatohepatitis, then cirrhosis, then hepatocellular carcinoma",
+   "Cirrhosis, then steatosis, then steatohepatitis, then hepatocellular carcinoma",
+   "Steatohepatitis, then hepatocellular carcinoma, then steatosis, then cirrhosis",
+   "Steatosis, then hepatocellular carcinoma, then cirrhosis, then steatohepatitis"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Glen J et al. British Medical Journal 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "Fat accumulation becomes steatohepatitis when inflammation is added, then scarring leads to cirrhosis and on to hepatocellular carcinoma."
+ },
+ {
+  "q": "How often is hepatic steatosis found in people with obesity according to the course?",
+  "a": [
+   "In over two thirds, and in more than 90% of those with severe obesity",
+   "In about 10%, and 20% of those with severe obesity",
+   "In about 30%, and about 40% of those with severe obesity",
+   "In about 5% regardless of obesity"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Glen J et al. British Medical Journal 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "Steatosis is found in over two thirds of the population with obesity and in more than 90% of people with severe obesity."
+ },
+ {
+  "q": "Which are the characteristic abdominal ultrasound findings in fatty liver?",
+  "a": [
+   "Increased liver size, diffuse hyperechoic parenchyma and vascular blunting",
+   "Reduced liver size with hypoechoic parenchyma",
+   "Bile duct dilatation and gallstones",
+   "Multiple surface cysts"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Shen FF, Lu LG. Journal of Digestive Diseases 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "Ultrasound sensitivity rises with higher stages of steatosis, and it is the first-line imaging test for fatty liver."
+ },
+ {
+  "q": "In a man with obesity reporting decreased libido and erectile dysfunction, which test comes first?",
+  "a": [
+   "Morning total testosterone",
+   "Late-night cortisol",
+   "Fasting insulin",
+   "Serum prolactin alone"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Morales A et al. Canadian Medical Association Journal 2015 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "If morning total testosterone is low, FSH, LH, sex hormone binding globulin and prolactin are added to distinguish primary from secondary hypogonadism."
+ },
+ {
+  "q": "How should Cushing's syndrome be positioned when evaluating a patient with obesity?",
+  "a": [
+   "As a cause of obesity rather than a co-morbidity",
+   "As a common complication of obesity",
+   "As an incidental finding unrelated to obesity",
+   "As something that arises only after long-standing obesity"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Nieman LK et al. Journal of Clinical Endocrinology & Metabolism 2008 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "Cushing's syndrome is an uncommon cause of obesity rather than a consequence, so it belongs in the differential for cause, not the comorbidity list."
+ },
+ {
+  "q": "How can a goitre be distinguished from neck fat in a patient with a thick neck?",
+  "a": [
+   "On swallowing the thyroid moves up while fat does not",
+   "On swallowing only fat moves up",
+   "Only the thyroid is tender to pressure",
+   "Fat disappears when the head is extended"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Core Learning Path 모듈 5 (History Taking and Examination) 인용",
+  "exp": "With index finger and thumb gently around the neck, ask the patient to swallow: an enlarged thyroid clearly moves up the neck."
+ },
+ {
+  "q": "What is the most common precipitating event for obesity in women?",
+  "a": [
+   "Pregnancy",
+   "Changing jobs",
+   "Moving house",
+   "Stopping smoking"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Core Learning Path 모듈 5 (History Taking and Examination) 인용",
+  "exp": "In the Melbourne clinic close to 30% of women named pregnancy, with other events each contributing small numbers."
+ },
+ {
+  "q": "In the family history, what does an apple-shaped body indicate?",
+  "a": [
+   "Android obesity",
+   "Gynoid obesity",
+   "Sarcopenic obesity",
+   "Preclinical obesity"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Core Learning Path 모듈 5 (History Taking and Examination) 인용",
+  "exp": "Pear-shaped means gynoid fat on the hips and thighs, while apple-shaped means android fat around the abdomen."
+ },
+ {
+  "q": "Which three components make up total energy expenditure?",
+  "a": [
+   "Basal metabolic rate, post-prandial thermogenesis and physical activity",
+   "Basal metabolic rate, sleep and body temperature",
+   "Physical activity, muscle mass and body fat percentage",
+   "Post-prandial thermogenesis, hepatic metabolism and renal excretion"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Harris JA, Benedict FG. Proceedings of the National Academy of Sciences 1918 (SCOPE Core Learning Path 모듈 6 인용)",
+  "exp": "The three are summed, and if weight has been steady for over a week the total also equals the patient's intake."
+ },
+ {
+  "q": "What is a reasonable target for an initial weight loss intervention?",
+  "a": [
+   "About 10% of baseline weight",
+   "About 5% of baseline weight",
+   "About 20% of baseline weight",
+   "About 40% of baseline weight"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "An initial target of about 10% of baseline weight within roughly six months is recommended."
+ },
+ {
+  "q": "A very low calorie diet is defined as fewer than how many kcal per day?",
+  "a": [
+   "800 kcal",
+   "1,200 kcal",
+   "1,500 kcal",
+   "500 kcal"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton et al. CMAJ 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "A very low calorie diet of under 800 kcal/day should only be prescribed in limited circumstances under trained supervision."
+ },
+ {
+  "q": "In an evidence-based weight-loss prescription, what daily energy intake is recommended for women?",
+  "a": [
+   "1,200-1,500 kcal",
+   "800-1,000 kcal",
+   "1,800-2,000 kcal",
+   "2,000-2,200 kcal"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton et al. CMAJ 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "Body-weight adjusted intake is 1,200-1,500 kcal/day for women and 1,500-1,800 kcal/day for men."
+ },
+ {
+  "q": "What must usually accompany weight loss beyond six months?",
+  "a": [
+   "Weight loss maintenance strategies, continued indefinitely",
+   "Progressively stricter energy restriction",
+   "Adding fasting days",
+   "Continuous protein supplementation"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "Weight loss beyond six months needs to be accompanied by maintenance strategies, indefinitely."
+ },
+ {
+  "q": "What is the first step of medical nutrition therapy?",
+  "a": [
+   "The nutritional assessment",
+   "Prescribing a calorie target",
+   "Handing over a meal plan",
+   "Booking a body composition scan"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "Medical nutrition therapy begins with the nutritional assessment, which includes recording anthropometry."
+ },
+ {
+  "q": "In the Mediterranean dietary pattern, where does most dietary fat come from?",
+  "a": [
+   "Extra virgin olive oil",
+   "Butter",
+   "Coconut oil",
+   "Lard"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "The Mediterranean pattern has a high fat intake, mostly as extra virgin olive oil."
+ },
+ {
+  "q": "Does a high-fat Mediterranean diet enriched with olive oil and nuts promote adiposity?",
+  "a": [
+   "No, it does not promote adiposity",
+   "Yes, body fat rises in proportion to fat intake",
+   "Yes, but only waist circumference increases",
+   "It has never been studied"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Estruch et al. Lancet Diabetes Endocrinol 2019 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "A high-fat Mediterranean diet, even enriched with olive oil and nuts, does not promote adiposity."
+ },
+ {
+  "q": "In large cohorts, which foods showed the strongest positive association with four-year weight gain?",
+  "a": [
+   "Starches, refined grains and processed foods",
+   "Vegetables",
+   "Nuts",
+   "Whole grains"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Mozaffarian et al. NEJM 2011 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "Starches, refined grains and processed foods showed the strongest positive associations, with similar findings for sugary drinks, alcohol and 100% fruit juice."
+ },
+ {
+  "q": "Increased intake of which foods was associated with less weight gain?",
+  "a": [
+   "Vegetables, nuts, fruits and whole grains",
+   "French fries",
+   "Processed meats",
+   "Sweets and desserts"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Mozaffarian et al. NEJM 2011 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "Increased consumption of vegetables, nuts, fruits and whole grains was associated with less weight gain over each four-year period."
+ },
+ {
+  "q": "Among people drinking one or more sugary drinks a day, how large are the combined genetic effects on BMI compared with those drinking less than one a month?",
+  "a": [
+   "About twice as large",
+   "About the same",
+   "About half as large",
+   "They disappear"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Qi et al. NEJM 2012 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "Combined genetic effects on BMI and obesity risk were about twice as large in people drinking one or more sugary drinks a day."
+ },
+ {
+  "q": "What is the main limitation of intermittent fasting in practice?",
+  "a": [
+   "Hunger makes maintenance difficult and long-term evidence is scarce",
+   "It increases body weight instead",
+   "It markedly raises blood pressure",
+   "It always increases muscle mass"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Welton et al. Can Fam Physician 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "Intermittent fasting promotes weight loss and is easy to apply, but hunger makes maintenance difficult and long-term effects are unclear."
+ },
+ {
+  "q": "Why does early weight loss look especially large on a low-carbohydrate diet?",
+  "a": [
+   "Appetite falls sharply and significant water is lost in the first week or two",
+   "Fat oxidation permanently doubles",
+   "Basal metabolic rate rises sharply",
+   "The gut stops absorbing calories"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "Reduced appetite, significant water loss and the energy cost of metabolising higher protein all contribute to early loss."
+ },
+ {
+  "q": "What nutritional problem can arise from a prolonged low-carbohydrate diet?",
+  "a": [
+   "Reduced intake of fibre, minerals, vitamins and trace elements",
+   "Inadequate protein intake",
+   "Excessive sodium excretion",
+   "Excess water retention"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Barber et al. Nutrients 2021 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "Low-carbohydrate diets reduce fibre and micronutrient intake, with sequelae including dyslipidaemia, bone health problems and renal calculi."
+ },
+ {
+  "q": "Why is severe energy restriction a particular concern in postmenopausal women?",
+  "a": [
+   "It causes greater loss of lean mass and total hip bone mineral density",
+   "It raises blood pressure excessively",
+   "It always raises liver enzymes",
+   "It produces no weight loss at all"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Seimon et al. JAMA Netw Open 2019 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "Severe energy restriction caused greater loss of whole-body lean mass and total hip BMD, raising osteoporosis and fracture risk."
+ },
+ {
+  "q": "Is dietary intervention alone typically enough to achieve weight loss?",
+  "a": [
+   "No, it usually needs to be combined with other lifestyle interventions such as increased physical activity",
+   "Yes, nothing else is needed",
+   "No, diet actually gets in the way",
+   "No weight loss is possible without medication"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "Dietary intervention alone is typically not effective and needs to be combined with other lifestyle interventions."
+ },
+ {
+  "q": "Is there a one-size-fits-all eating pattern for obesity management?",
+  "a": [
+   "No, recommendations must be personalised to values, preferences and treatment goals",
+   "Yes, a low-fat diet is best for everyone",
+   "Yes, a low-carbohydrate diet is best for everyone",
+   "Yes, a vegetarian diet is best for everyone"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton et al. CMAJ 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "There is no one-size-fits-all eating pattern, so nutrition advice must be personalised to be safe, effective, acceptable and affordable."
+ },
+ {
+  "q": "What proportion of variation in body weight is explained by genetic factors?",
+  "a": [
+   "40-70%",
+   "5-10%",
+   "10-20%",
+   "90-95%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "exp": "The heritability of body weight is 40% to 70%, and genetic influences act across the whole weight spectrum."
+ },
+ {
+  "q": "When should genetic testing be considered for a suspected genetic obesity syndrome?",
+  "a": [
+   "Severe obesity of onset before age five with hyperphagia or developmental delay",
+   "Mild obesity that developed gradually in adulthood",
+   "Overweight with no family history at all",
+   "Weight gain during pregnancy"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "exp": "Guidelines recommend genetic testing when obesity is severe, of early childhood onset, and accompanied by clues such as hyperphagia, developmental delay or family history."
+ },
+ {
+  "q": "What does hyperphagia, the key clue in genetic obesity syndromes, mean?",
+  "a": [
+   "Persistent hunger with food being very rewarding and satiety impaired",
+   "Eating only at night",
+   "Eating only selected foods",
+   "Repeated vomiting after meals"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "exp": "Hyperphagia means persistent hunger, food being very rewarding, and impaired satiety."
+ },
+ {
+  "q": "What have genetic obesity syndromes taught us about eating behaviour?",
+  "a": [
+   "It has a strong biological basis and is not simply under voluntary control",
+   "It is entirely a learned habit",
+   "It can be fully controlled by willpower",
+   "It is unrelated to genetics"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "exp": "Genetic obesity syndromes show eating behaviour has a strong biological basis, which also helps reduce weight stigma."
+ },
+ {
+  "q": "In the Kaiser Permanente cohort of 320,252 adults, from which BMI does the odds ratio for end-stage renal disease rise substantially?",
+  "a": [
+   "BMI 30 and above",
+   "BMI 22 and above",
+   "BMI 25 and above",
+   "BMI 40 and above"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Hsu et al. (2006) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "exp": "In this cohort the odds ratio for end-stage renal disease climbs steeply from BMI 30, the classic definition of obesity."
+ },
+ {
+  "q": "In people without type 2 diabetes or hypertension, how much did the risk of chronic kidney disease increase if they were overweight at age 20?",
+  "a": [
+   "About threefold",
+   "About 1.2-fold",
+   "About twofold",
+   "About tenfold"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Chertow, Hsu, Johansen (2006) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "exp": "Even without metabolic disease, being overweight at age 20 tripled the risk of chronic kidney disease, showing how early-life weight tracks into later kidney outcomes."
+ },
+ {
+  "q": "Which statement about metabolically healthy obesity and chronic kidney disease is correct?",
+  "a": [
+   "The risk of chronic kidney disease is raised even without metabolic abnormalities",
+   "Without metabolic abnormalities the risk equals that of normal weight",
+   "Being metabolically healthy lowers the risk of chronic kidney disease",
+   "No relationship has ever been shown"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Vimaleswaran et al. (2013) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "exp": "Both metabolically healthy and metabolically unhealthy obesity are risk factors for chronic kidney disease, so normal metabolic markers are not reassuring."
+ },
+ {
+  "q": "How many glomerular filters are humans born with?",
+  "a": [
+   "Between 800,000 and 1,000,000",
+   "Between 80,000 and 100,000",
+   "Between 8 and 10 million",
+   "Between 8,000 and 10,000"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Obesity and Chronic Kidney Disease 모듈 (원저 미기재)",
+  "exp": "The 800,000 to 1,000,000 filters present at birth are the lifetime reserve; if they enlarge too much, the Law of LaPlace raises wall tension and injury begins."
+ },
+ {
+  "q": "Which adipokine DECREASES in obesity in relation to kidney injury?",
+  "a": [
+   "Adiponectin",
+   "Leptin",
+   "Interleukin-6",
+   "Tumour necrosis factor alpha"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Obesity and Chronic Kidney Disease 모듈 (원저 미기재)",
+  "exp": "The key imbalance is falling adiponectin with rising leptin; adiponectin is inversely related to albuminuria and protects podocytes."
+ },
+ {
+  "q": "What are the three major DIRECT mechanisms linking increased fat mass to kidney disease?",
+  "a": [
+   "Hypertension, diabetes and atherosclerosis",
+   "Hypertension, anaemia and bone disease",
+   "Diabetes, gout and urolithiasis",
+   "Atherosclerosis, anaemia and infection"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Obesity and Chronic Kidney Disease 모듈 (원저 미기재)",
+  "exp": "The direct mechanisms are hypertension, diabetes and atherosclerosis, while the indirect ones are aldosterone-mediated vasculotoxicity, RAAS and SNS activation, oxidative stress, inflammation and adipokine imbalance."
+ },
+ {
+  "q": "What relationship between a sedentary lifestyle and chronic kidney disease is presented?",
+  "a": [
+   "It is associated with prevalent chronic kidney disease",
+   "It is unrelated to chronic kidney disease",
+   "It applies only to dialysis patients",
+   "It protects the kidney"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Ricardo et al. (2013) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "exp": "A sedentary lifestyle is associated with prevalent chronic kidney disease, while adherence to a healthy lifestyle is associated with lower all-cause mortality in these patients."
+ },
+ {
+  "q": "What is the lowest point of the BMI curve, occurring at about six years of age, called?",
+  "a": [
+   "The adiposity rebound",
+   "The growth spurt",
+   "The prepubertal nadir",
+   "The fat switch"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "The BMI curve rises in infancy, reaches its lowest point at around six years and then rises again; that nadir is the adiposity rebound."
+ },
+ {
+  "q": "What is the prognosis for a child with an early adiposity rebound?",
+  "a": [
+   "They tend to stay in the overweight or obesity range into adulthood",
+   "They naturally return to average BMI in adolescence",
+   "There is no relation to adult obesity risk",
+   "Only the risk of short stature increases"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "Early adiposity rebound is an early indicator of adult obesity, whereas children with a late rebound tend to return to average BMI in late adolescence."
+ },
+ {
+  "q": "Which growth charts are proposed for use in clinical settings?",
+  "a": [
+   "The WHO growth charts",
+   "The IOTF curves",
+   "The CDC charts",
+   "The Sempe charts"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "De Onis, M. ECOG eBook 2015 (SCOPE Childhood Obesity: From Diagnosis to Treatment 인용)",
+  "exp": "The WHO growth charts are free to access and apply to all children worldwide, making them the most appropriate clinical tool; the CDC charts reflect the US population growth pattern."
+ },
+ {
+  "q": "What should be done when a child shows increased weight velocity together with low height velocity?",
+  "a": [
+   "It is an indication for urgent investigation",
+   "Re-evaluate in six months",
+   "Only dietary counselling is needed",
+   "It is a normal variant needing observation only"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "Rising weight with slowing height growth suggests an endocrine cause such as hypothyroidism or growth hormone deficiency and calls for immediate investigation."
+ },
+ {
+  "q": "What proportion of children with obesity have an underlying endocrine or genetic cause for their weight gain?",
+  "a": [
+   "Less than 5%",
+   "About 15%",
+   "About 30%",
+   "About 50%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Kumar, S., Kelly, A. S. Mayo Clinic Proceedings 2017 (SCOPE Childhood Obesity: From Diagnosis to Treatment 인용)",
+  "exp": "Most have primary or simple obesity with normal or rapid growth; endocrine work-up is warranted mainly when linear growth slows."
+ },
+ {
+  "q": "In the WHO recommendations, what is the minimum daily moderate-to-vigorous physical activity for children and adolescents aged five to 18?",
+  "a": [
+   "At least 60 minutes",
+   "At least 30 minutes",
+   "At least 90 minutes",
+   "At least 120 minutes"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "At least 60 minutes a day, plus vigorous muscle- and bone-strengthening activities at least three times per week; moderate intensity is the point where speaking becomes difficult."
+ },
+ {
+  "q": "In the WHO recommendations, how many minutes per day of active play or physical activity should children younger than six accumulate?",
+  "a": [
+   "180 minutes",
+   "60 minutes",
+   "90 minutes",
+   "240 minutes"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "Children under six should accumulate 180 minutes per day of fun, developmentally appropriate activity; those who do not are more likely to have impaired fitness development."
+ },
+ {
+  "q": "In the WHO recommendations, what is the maximum daily screen time for children under five years?",
+  "a": [
+   "A maximum of one hour",
+   "A maximum of two hours",
+   "A maximum of 30 minutes",
+   "No limit"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "The limit is one hour per day for under-fives, though as screen-time research is in its infancy the primary focus should be on increasing activity."
+ },
+ {
+  "q": "In the WHO recommendations, what is the daily screen time limit for children and adolescents?",
+  "a": [
+   "It should not exceed two hours",
+   "It should not exceed four hours",
+   "It should not exceed one hour",
+   "Educational screen use is unlimited"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "Counting cell phones, tablets, TV and computers together, screen time should not exceed two hours per day."
+ },
+ {
+  "q": "In the IDF definition of paediatric metabolic syndrome, what is the excess adiposity criterion?",
+  "a": [
+   "Waist circumference at or above the 90th percentile",
+   "Waist circumference at or above the 75th percentile",
+   "BMI at or above the 95th percentile",
+   "Body fat percentage at or above 30%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Zimmet, P. et al. Lancet 2007 (SCOPE Childhood Obesity: From Diagnosis to Treatment 인용)",
+  "exp": "In children a fixed centimetre cut-off is not used; the criterion is waist circumference at or above the 90th percentile, because growth and puberty require age-dependent values."
  }
 ]

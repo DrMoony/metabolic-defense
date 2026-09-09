@@ -713,5 +713,291 @@
   "diff": "easy",
   "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (cited in SCOPE Core Learning Path, module 3)",
   "exp": "Liver biopsy is the reference test that confirms fat, inflammation and fibrosis."
+ },
+ {
+  "q": "MASLD is diagnosed when steatosis affects more than what proportion of the liver parenchyma?",
+  "a": [
+   "More than 5%",
+   "More than 10%",
+   "More than 20%",
+   "More than 33%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Hagstrom H et al. Lancet Gastroenterol Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "MASLD is defined when more than 5% of liver parenchyma is affected by steatosis with no or only minor inflammation; 33% is the global adult prevalence figure."
+ },
+ {
+  "q": "In the histological definition of MASH, which findings must accompany steatosis?",
+  "a": [
+   "Inflammation and hepatocellular ballooning",
+   "Stage 4 fibrosis",
+   "Cholestasis",
+   "Iron deposition in hepatocytes"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Hagstrom H et al. Lancet Gastroenterol Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "MASH is hepatic steatosis combined with inflammation and hepatocellular ballooning, with or without fibrosis."
+ },
+ {
+  "q": "What is the estimated global prevalence of MASLD among adults?",
+  "a": [
+   "More than 33%",
+   "About 11%",
+   "About 22%",
+   "About 55%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Riazi K et al. Lancet Gastroenterol Hepatol 2022 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "MASLD is estimated to affect more than 33% of adults globally - more than one in three."
+ },
+ {
+  "q": "What is the prevalence range of MASLD in individuals living with obesity?",
+  "a": [
+   "58-74%",
+   "8-14%",
+   "20-30%",
+   "Over 90%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Huang DQ et al. Nat Rev Dis Primers 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "MASLD prevalence in people living with obesity is 58-74%, which is why obesity care should include the liver."
+ },
+ {
+  "q": "What is the prevalence of MASLD in people living with type 2 diabetes?",
+  "a": [
+   "65%",
+   "15%",
+   "32%",
+   "90%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "En Li Cho E et al. Gut 2023 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "A meta-analysis found MASLD in 65% of people with type 2 diabetes, MASH in 32% and advanced fibrosis in 15%."
+ },
+ {
+  "q": "What proportion of people living with type 2 diabetes have advanced liver fibrosis?",
+  "a": [
+   "15%",
+   "2%",
+   "32%",
+   "50%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "En Li Cho E et al. Gut 2023 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "15% of people with type 2 diabetes have advanced liver fibrosis, which is why fibrosis assessment belongs in diabetes care."
+ },
+ {
+  "q": "Which of the following increases the risk of MASLD progression?",
+  "a": [
+   "Male sex",
+   "Female sex",
+   "Younger age",
+   "Low body weight"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Schulz M, Tacke F. Hepatic Medicine 2020 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "Genetic risk factors, older age and male sex increase progression risk; being female is not a risk factor."
+ },
+ {
+  "q": "Which is an independent risk factor for progression to cirrhosis or hepatocellular carcinoma in people with MASLD and MASH?",
+  "a": [
+   "Diabetes",
+   "Gallstones",
+   "Iron deficiency",
+   "Hyperthyroidism"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Schulz M, Tacke F. Hepatic Medicine 2020 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "Diabetes is an independent risk factor for progression to cirrhosis or HCC; it is iron overload, not deficiency, that predisposes to liver cancer."
+ },
+ {
+  "q": "Which screening test is crucial in a person found to have MASLD?",
+  "a": [
+   "Blood glucose, HbA1c or a glucose tolerance test",
+   "Bone density scan",
+   "Pulmonary function test",
+   "Colonoscopy"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Schulz M, Tacke F. Hepatic Medicine 2020 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "Screening for diabetes with blood glucose, HbA1c or a glucose tolerance test is crucial in people with MASLD."
+ },
+ {
+  "q": "Which statement about ALT in people living with MASLD is correct?",
+  "a": [
+   "Over half can have a normal ALT level",
+   "Almost all have ALT above three times the upper limit",
+   "ALT rises in proportion to disease severity",
+   "A normal ALT excludes MASLD"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Newsome PN et al. Gut 2018 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "Over half of people with MASLD can have a normal ALT, and ALT correlates poorly with disease severity."
+ },
+ {
+  "q": "How often is liver fibrosis testing recommended for people living with obesity and/or type 2 diabetes?",
+  "a": [
+   "Annually",
+   "Every 5 years",
+   "Every 10 years",
+   "Only when symptoms appear"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "EASL-EASD-EASO. J Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "Annual fibrosis testing is recommended for people living with indicator conditions such as obesity and/or type 2 diabetes."
+ },
+ {
+  "q": "Which statement about fructose is correct?",
+  "a": [
+   "Almost all consumed fructose is metabolised in the liver and is a substrate for de novo lipogenesis",
+   "It is mainly metabolised in skeletal muscle",
+   "Its metabolism is tightly controlled by insulin",
+   "It is unrelated to the development of steatosis"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Vos MB, Lavine JE. Hepatology 2013 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "Almost all consumed fructose is metabolised in the liver as a substrate for de novo lipogenesis, leading directly to steatosis, and unlike glucose its metabolism is not insulin-controlled."
+ },
+ {
+  "q": "When patients with MASLD are told to reduce 'fructose', what does this mainly refer to?",
+  "a": [
+   "The fructose in soft drinks and high-fructose corn syrup",
+   "The fructose in fresh fruit",
+   "Lactose in milk",
+   "Dietary fibre in vegetables"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Vos MB, Lavine JE. Hepatology 2013 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "The advice targets the very high fructose content of soft drinks and high-fructose corn syrup, not the consumption of fruit."
+ },
+ {
+  "q": "Which type of exercise is beneficial for people living with MASLD?",
+  "a": [
+   "Both aerobic and resistance exercise",
+   "Aerobic exercise only",
+   "Resistance exercise only",
+   "Exercise does not help the liver"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Hashida R et al. J Hepatol 2017 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "Both aerobic and resistance exercise benefit MASLD, so resistance work can be offered to people limited by joint pain."
+ },
+ {
+  "q": "Which is a hepatic effect of exercise?",
+  "a": [
+   "Reduced intrahepatic triglycerides, inflammation and ALT",
+   "Increased intrahepatic triglycerides",
+   "Reduced hepatic insulin sensitivity",
+   "Increased liver-related mortality"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Razzak I et al. Liver Int 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "In the liver, exercise raises insulin sensitivity and glucose uptake while lowering intrahepatic triglycerides, inflammation, ALT, disease progression and liver-related mortality."
+ },
+ {
+  "q": "What is appropriate advice for a patient who has MASLD at a normal body weight?",
+  "a": [
+   "A healthy lifestyle still improves the liver, so there is no need to focus on the degree of weight reduction",
+   "They must lose more than 10% of body weight",
+   "Lifestyle change has no effect at normal weight",
+   "Surgery should be considered immediately"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "EASL-EASD-EASO. J Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "In patients with MASLD and normal body weight a healthy lifestyle still improves the liver condition, so the degree of weight reduction need not be the focus."
+ },
+ {
+  "q": "What is particularly emphasised for people living with MASLD to avoid?",
+  "a": [
+   "Sugar-sweetened beverages and processed or ultra-processed foods",
+   "Olive oil",
+   "Legumes",
+   "Nuts"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Pekarska K et al. Frontline Gastroenterol 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "People with MASLD are urged to avoid sugar-sweetened beverages and processed or ultra-processed foods, while legumes, olive oil and nuts are encouraged."
+ },
+ {
+  "q": "What is the minimum metabolic work-up for someone found to have hepatic steatosis?",
+  "a": [
+   "Assessment of hyperglycaemia, dyslipidaemia, hypertension and obesity",
+   "Thyroid and adrenal function",
+   "Pulmonary function test and ECG",
+   "Bone density and muscle strength"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Huang DQ et al. Nat Rev Dis Primers 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "exp": "The minimum metabolic work-up in a person with hepatic steatosis covers hyperglycaemia, dyslipidaemia, hypertension and obesity."
+ },
+ {
+  "q": "For which measurement must gender- and ethnicity-specific cut-offs be used when assessing the metabolic syndrome?",
+  "a": [
+   "Waist circumference",
+   "Blood pressure",
+   "Triglycerides",
+   "Fasting glucose"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Lancet 2005 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
+  "exp": "Waist circumference needs gender- and ethnicity-specific cut-offs, and the International Consensus Definition lists separate USA, Europe and Asia thresholds."
+ },
+ {
+  "q": "Which statement about assessing visceral fat is correct?",
+  "a": [
+   "'Pinch an inch' measures subcutaneous fat, and the reference standard is CT or MRI",
+   "'Pinch an inch' measures visceral fat",
+   "Body weight best reflects visceral fat",
+   "BMI is the reference standard for visceral fat"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wajchenberg BL. Endocr Rev 2000 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
+  "exp": "'Pinch an inch' measures subcutaneous tissue; the reference standard for visceral fat is CT or MRI, with waist circumference the easily available clinic tool."
+ },
+ {
+  "q": "How much does the risk of type 2 diabetes rise when a man goes from zero to four or five metabolic syndrome risk factors?",
+  "a": [
+   "About 25-fold",
+   "About 2-fold",
+   "About 5-fold",
+   "About 10-fold"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Sattar N et al. Circulation 2003 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
+  "exp": "In a cohort of middle-aged Scottish men, going from zero to four or five factors gave a 25-fold increase in type 2 diabetes risk."
+ },
+ {
+  "q": "Which of the following is NOT a feature of the International Consensus Definition of the metabolic syndrome?",
+  "a": [
+   "LDL cholesterol",
+   "HDL cholesterol",
+   "Triglycerides",
+   "Waist circumference"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Lancet 2005 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
+  "exp": "LDL cholesterol is not a feature of the consensus definition; the lipid components are high triglycerides paired with low HDL."
  }
 ]
