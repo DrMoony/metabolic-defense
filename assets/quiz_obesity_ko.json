@@ -9,7 +9,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diab Endo Commission 2025"
+  "src": "Lancet Diab Endo Commission 2025",
+  "exp": "2025년 Lancet 위원회는 과잉 지방이 이미 장기 기능을 해친 상태를 임상적 비만, 아직 기능은 보존된 상태를 전임상 비만으로 나눴어요."
  },
  {
   "q": "Lancet 위원회 기준에서 '임상적 비만(clinical obesity)'의 핵심 조건은 무엇일까요?",
@@ -21,7 +22,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Commission 2025"
+  "src": "Lancet Commission 2025",
+  "exp": "핵심은 체중 숫자가 아니라 과잉 지방 때문에 장기 기능이 떨어졌거나 일상생활이 제한되는지예요."
  },
  {
   "q": "'전임상 비만(preclinical obesity)'은 어떤 상태일까요?",
@@ -33,7 +35,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Commission 2025"
+  "src": "Lancet Commission 2025",
+  "exp": "전임상 비만은 지방은 많지만 장기 기능은 아직 정상인 상태라, 치료보다는 위험 관리와 모니터링 대상이에요."
  },
  {
   "q": "Lancet 위원회가 BMI만으로 비만을 진단하지 말라고 한 이유는 무엇일까요?",
@@ -45,7 +48,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Commission 2025"
+  "src": "Lancet Commission 2025",
+  "exp": "BMI는 체지방의 양도, 어디에 쌓였는지도 직접 보여 주지 못해서 근육이 많은 사람과 내장지방이 많은 사람을 구분하지 못해요."
  },
  {
   "q": "Lancet 위원회가 BMI에 더해 확인하라고 권고한 지표는 무엇일까요?",
@@ -57,7 +61,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Commission 2025"
+  "src": "Lancet Commission 2025",
+  "exp": "그래서 BMI에 더해 허리둘레·허리엉덩이비·허리키비 같은 체지방 분포 지표를 하나 이상 확인하라고 했어요."
  },
  {
   "q": "허리키비(waist-to-height ratio)에서 복부비만을 시사하는 기준값은 얼마일까요?",
@@ -69,7 +74,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "EASO framework 2024"
+  "src": "EASO framework 2024",
+  "exp": "허리둘레가 키의 절반(0.5)을 넘으면 복부에 지방이 과하게 쌓였다고 봐요."
  },
  {
   "q": "대한비만학회 기준으로 한국인의 비만은 BMI 몇 이상일까요?",
@@ -81,7 +87,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 진료지침"
+  "src": "대한비만학회 진료지침",
+  "exp": "서양 기준은 30이지만 아시아인은 낮은 BMI에서도 대사질환이 생겨서 한국은 25부터 비만으로 봐요."
  },
  {
   "q": "대한비만학회 기준에서 비만 전단계(과체중)는 BMI 몇부터일까요?",
@@ -93,7 +100,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 진료지침"
+  "src": "대한비만학회 진료지침",
+  "exp": "BMI 23~24.9는 비만 전단계로, 여기서부터 대사 위험이 오르기 시작해요."
  },
  {
   "q": "한국 기준 3단계 비만(고도비만)은 BMI 몇 이상일까요?",
@@ -105,7 +113,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 진료지침"
+  "src": "대한비만학회 진료지침",
+  "exp": "한국 기준 1단계 25~29.9, 2단계 30~34.9, 3단계 35 이상이에요."
  },
  {
   "q": "같은 BMI라도 아시아인에서 대사질환 위험이 더 높은 이유는 무엇일까요?",
@@ -117,7 +126,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "WHO Asia-Pacific / KSSO"
+  "src": "WHO Asia-Pacific / KSSO",
+  "exp": "같은 체중에서도 아시아인은 내장지방 비율이 높아 인슐린 저항성과 대사이상이 더 쉽게 생겨요."
  },
  {
   "q": "비만은 어떤 성격의 질환으로 보아야 할까요?",
@@ -129,7 +139,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Commission 2025 / WHO"
+  "src": "Lancet Commission 2025 / WHO",
+  "exp": "비만은 의지의 문제가 아니라 재발이 흔한 만성질환이라 장기적인 관리가 필요해요."
  },
  {
   "q": "체중을 5~10% 줄였을 때 가장 먼저 기대할 수 있는 변화는 무엇일까요?",
@@ -141,7 +152,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "AHA/ACC/TOS Guideline"
+  "src": "AHA/ACC/TOS Guideline",
+  "exp": "5~10%만 줄여도 혈당·혈압·중성지방 같은 동반질환 지표가 먼저 좋아져요."
  },
  {
   "q": "복부비만(내장지방)이 특히 위험한 이유는 무엇일까요?",
@@ -153,7 +165,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Portal theory / KSSO"
+  "src": "Portal theory / KSSO",
+  "exp": "내장지방에서 나온 유리지방산이 문맥을 타고 간으로 곧장 흘러 들어가 인슐린 저항성과 지방간을 일으켜요."
  },
  {
   "q": "체중 감량 중 특히 지켜야 할 신체 구성 요소는 무엇일까요?",
@@ -165,7 +178,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Obesity management guidelines"
+  "src": "Obesity management guidelines",
+  "exp": "감량하면서 근육이 같이 빠지면 기초대사가 떨어지고 요요가 쉬워지니 단백질 섭취와 근력운동으로 근육을 지켜야 해요."
  },
  {
   "q": "비만 치료를 시작할 때 모든 치료의 기본이 되는 것은 무엇일까요?",
@@ -177,7 +191,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Obesity guidelines"
+  "src": "Obesity guidelines",
+  "exp": "어떤 치료를 택하든 식사·운동·행동 요법이 바탕이고, 그 위에 다른 치료를 얹는 구조예요."
  },
  {
   "q": "비만 대사수술을 고려하는 일반적인 BMI 기준은 어느 정도일까요?",
@@ -189,7 +204,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "ASMBS/IFSO 2022"
+  "src": "ASMBS/IFSO 2022",
+  "exp": "BMI 35 이상이면 동반질환과 무관하게, 30 이상이면 대사 동반질환이 있을 때 수술을 고려해요."
  },
  {
   "q": "비만이 위험을 높이는 것으로 알려진 암이 아닌 것은 무엇일까요?",
@@ -201,7 +217,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "IARC / WHO"
+  "src": "IARC / WHO",
+  "exp": "비만은 대장암·유방암(폐경 후)·자궁내막암 등 여러 암의 위험을 높이지만 피부 흑색종은 여기에 들지 않아요."
  },
  {
   "q": "비만과 함께 흔히 동반되는 수면 문제는 무엇일까요?",
@@ -213,7 +230,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Obesity comorbidity"
+  "src": "Obesity comorbidity",
+  "exp": "목과 상기도 주변 지방이 기도를 좁혀 폐쇄성 수면무호흡이 흔히 동반돼요."
  },
  {
   "q": "체중 감량이 지방간(MASLD)에 주는 영향은 무엇일까요?",
@@ -225,7 +243,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Vilar-Gomez 2015 / AASLD"
+  "src": "Vilar-Gomez 2015 / AASLD",
+  "exp": "5~7% 감량에서 염증이, 7~10%에서는 섬유화까지 좋아질 수 있어서 지방간 치료의 핵심이 체중 감량이에요."
  },
  {
   "q": "비만 환자 진료에서 피해야 할 태도는 무엇일까요?",
@@ -237,7 +256,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Weight stigma consensus 2020"
+  "src": "Weight stigma consensus 2020",
+  "exp": "의지 부족으로 단정하는 낙인은 환자가 진료를 피하게 만들어요. 비만은 질환으로 다뤄야 해요."
  },
  {
   "q": "체중이 줄어든 뒤 몸에서 일어나는 대사 적응은 무엇일까요?",
@@ -249,7 +269,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Metabolic adaptation research"
+  "src": "Metabolic adaptation research",
+  "exp": "감량 뒤에는 에너지 소비가 줄고 식욕 호르몬이 늘어 몸이 원래 체중으로 돌아가려 해서 유지 전략이 꼭 필요해요."
  },
  {
   "q": "비만에서 흔히 동반되는 관절 문제는 무엇일까요?",
@@ -261,7 +282,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Obesity comorbidity"
+  "src": "Obesity comorbidity",
+  "exp": "체중 부하가 무릎 연골을 닳게 해서 무릎 골관절염이 가장 흔해요."
  },
  {
   "q": "안전하고 지속 가능한 체중 감량 속도는 어느 정도일까요?",
@@ -273,7 +295,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Obesity guidelines"
+  "src": "Obesity guidelines",
+  "exp": "주당 0.5~1kg이 근육을 지키면서 지속 가능한 속도예요."
  },
  {
   "q": "비만·과체중에 동반된 심혈관 위험을 줄이려면 무엇이 필요할까요?",
@@ -285,7 +308,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "CKM syndrome (AHA 2023)"
+  "src": "CKM syndrome (AHA 2023)",
+  "exp": "체중만 줄여서는 부족하고 혈압·지질·혈당을 같이 관리해야 심혈관 위험이 실제로 낮아져요."
  },
  {
   "q": "AHA가 제시한 심장-신장-대사(CKM) 증후군에서 비만의 위치는 무엇일까요?",
@@ -297,7 +321,8 @@
   ],
   "correct": 0,
   "diff": "hard",
-  "src": "AHA CKM advisory 2023"
+  "src": "AHA CKM advisory 2023",
+  "exp": "AHA는 과잉·이상 지방조직을 CKM 증후군의 출발점(1단계)으로 두었어요."
  },
  {
   "q": "체중 관리에서 운동의 가장 큰 역할은 무엇일까요?",
@@ -309,7 +334,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Obesity guidelines"
+  "src": "Obesity guidelines",
+  "exp": "운동만으로 큰 감량을 내기는 어렵지만, 감량한 체중을 유지하고 근육을 지키는 데는 운동이 핵심이에요."
  },
  {
   "q": "대한비만학회 2025 비만 팩트시트 기준, 2023년 우리나라 성인 비만(BMI 25 이상) 유병률은 어느 정도일까요?",
@@ -321,7 +347,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 2025 비만 팩트시트 — 2023년 38.4%"
+  "src": "대한비만학회 2025 비만 팩트시트 — 2023년 38.4%",
+  "exp": "2023년 우리나라 성인 비만 유병률은 38.4%로 성인 10명 중 4명꼴이에요."
  },
  {
   "q": "2025 팩트시트 기준, 2023년 성인 남성의 비만 유병률은 어느 정도일까요?",
@@ -333,7 +360,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 2025 비만 팩트시트 — 남성 49.8%"
+  "src": "대한비만학회 2025 비만 팩트시트 — 남성 49.8%",
+  "exp": "남성은 49.8%로 두 명 중 한 명이 비만이에요."
  },
  {
   "q": "2025 팩트시트 기준, 2023년 성인 여성의 비만 유병률은 어느 정도일까요?",
@@ -345,7 +373,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 2025 비만 팩트시트 — 여성 27.5%"
+  "src": "대한비만학회 2025 비만 팩트시트 — 여성 27.5%",
+  "exp": "여성은 27.5%로 남성의 절반 수준이지만 여전히 네 명 중 한 명이 넘어요."
  },
  {
   "q": "2025 팩트시트가 짚은 최근 3년간 성인 비만 유병률의 흐름은 무엇일까요?",
@@ -357,7 +386,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 2025 비만 팩트시트 — 최근 3년 정체"
+  "src": "대한비만학회 2025 비만 팩트시트 — 최근 3년 정체",
+  "exp": "10년 넘게 오르던 비만 유병률이 최근 3년은 38% 안팎에서 정체된 것이 처음 나타난 긍정 신호예요."
  },
  {
   "q": "2025 팩트시트 기준, 2023년 성인 복부비만 유병률(허리둘레 남 90·여 85cm 이상)은 어느 정도일까요?",
@@ -369,7 +399,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 2025 비만 팩트시트 — 복부비만 24.3%"
+  "src": "대한비만학회 2025 비만 팩트시트 — 복부비만 24.3%",
+  "exp": "복부비만은 24.3%로 성인 네 명 중 한 명이고, 남성 31.3%·여성 17.7%예요."
  },
  {
   "q": "2023년 연령대별 비만 유병률이 가장 높은 구간은 어디일까요?",
@@ -381,7 +412,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 2025 비만 팩트시트 — 30대 42.0%, 40대 42.2%"
+  "src": "대한비만학회 2025 비만 팩트시트 — 30대 42.0%, 40대 42.2%",
+  "exp": "30대 42.0%, 40대 42.2%로 한창 일할 나이에 가장 높아요."
  },
  {
   "q": "대한비만학회가 정한 한국인 복부비만의 허리둘레 기준은 무엇일까요?",
@@ -393,7 +425,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 2025 비만 팩트시트 / 대한비만학회 진료지침"
+  "src": "대한비만학회 2025 비만 팩트시트 / 대한비만학회 진료지침",
+  "exp": "대한비만학회는 남성 90cm, 여성 85cm 이상을 복부비만으로 정의해요."
  },
  {
   "q": "당뇨병 팩트시트 2024 기준, 2022년 30세 이상 성인 당뇨병 유병률은 어느 정도일까요?",
@@ -405,7 +438,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 2022년 14.8%"
+  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 2022년 14.8%",
+  "exp": "2022년 30세 이상 당뇨병 유병률은 14.8%로 7명 중 1명, 약 530만 명이에요."
  },
  {
   "q": "65세 이상 노인에서 당뇨병 유병률은 어느 정도일까요?",
@@ -417,7 +451,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 65세 이상 28~30%"
+  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 65세 이상 28~30%",
+  "exp": "65세 이상에서는 28~30%로 10명 중 3명이 당뇨병이에요."
  },
  {
   "q": "30세 이상 성인 중 당뇨병전단계(공복혈당 100~125 또는 당화혈색소 5.7~6.4%)에 해당하는 비율은 어느 정도일까요?",
@@ -429,7 +464,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 41.1%, 1,400만 명"
+  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 41.1%, 1,400만 명",
+  "exp": "당뇨병전단계는 41.1%, 약 1,400만 명으로 당뇨병보다 세 배 가까이 많아요."
  },
  {
   "q": "당뇨병 유병자 중 비만(BMI 25 이상)을 동반한 비율은 어느 정도일까요?",
@@ -441,7 +477,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 비만 동반 53.8%"
+  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 비만 동반 53.8%",
+  "exp": "당뇨병 유병자의 53.8%가 BMI 25 이상 비만이라 체중 관리가 혈당 관리와 떼어질 수 없어요."
  },
  {
   "q": "당뇨병 유병자 중 복부비만을 동반한 비율은 어느 정도일까요?",
@@ -453,7 +490,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 복부비만 61.2%"
+  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 복부비만 61.2%",
+  "exp": "당뇨병 유병자의 61.2%가 복부비만이고 여성에서 더 높아요."
  },
  {
   "q": "당뇨병 팩트시트의 당뇨병 정의에 포함되지 않는 것은 무엇일까요?",
@@ -465,7 +503,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 당뇨병 정의"
+  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024 — 당뇨병 정의",
+  "exp": "공복혈당 100~125는 당뇨병전단계 기준이고, 당뇨병은 126 이상·당화혈색소 6.5% 이상·의사 진단·약물치료 중 하나예요."
  },
  {
   "q": "Lancet 위원회는 비만 진단에서 BMI를 어떤 용도로 쓰라고 했을까요?",
@@ -477,7 +516,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "BMI는 걸러내는 선별 도구로만 쓰고, 확진하려면 허리둘레 같은 체지방 지표나 직접 측정이 필요해요."
  },
  {
   "q": "Lancet 위원회 기준에서 추가 측정 없이 과잉 지방을 인정할 수 있는 경우는 언제일까요?",
@@ -489,7 +529,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "BMI가 40을 넘으면 과잉 지방이 사실상 확실해서 추가 측정 없이 인정해요."
  },
  {
   "q": "임상적 비만의 진단 기준이 되는 장기 기능 이상의 예로 맞는 것은 무엇일까요?",
@@ -501,7 +542,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "지방간·수면무호흡·무릎 관절 기능 저하처럼 과잉 지방이 장기 기능을 바꾼 소견이 임상적 비만의 진단 기준이에요."
  },
  {
   "q": "장기 검사 소견이 없어도 임상적 비만으로 진단할 수 있는 또 하나의 기준은 무엇일까요?",
@@ -513,7 +555,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "검사 소견이 없어도 이동성이나 기본 일상생활이 유의하게 제한되면 임상적 비만으로 진단할 수 있어요."
  },
  {
   "q": "전임상 비만(preclinical obesity)에 대해 위원회가 권고한 관리 방향은 무엇일까요?",
@@ -525,7 +568,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "전임상 비만은 질병이 아니라 위험 상태라 상담·모니터링·생활습관 관리로 진행을 막는 것이 목표예요."
  },
  {
   "q": "임상적 비만의 치료 목표를 위원회는 어떻게 정의했을까요?",
@@ -537,7 +581,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "치료 목표는 체중 숫자가 아니라 장기 기능 이상을 개선하거나 관해시키고 합병증을 막는 것이에요."
  },
  {
   "q": "Lancet 위원회는 임상적 비만을 어떤 질환으로 규정했을까요?",
@@ -549,7 +594,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "위원회는 임상적 비만을 과잉 지방으로 장기 기능이 바뀐 만성 전신 질환으로 규정했어요."
  },
  {
   "q": "체중 낙인(weight stigma)과 관련해 위원회가 권고한 것은 무엇일까요?",
@@ -561,7 +607,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "위원회는 의료진과 정책 결정자가 체중 편견과 낙인을 줄이는 교육을 받도록 권고했어요."
  },
  {
   "q": "임상적 비만 진단 기준 중 \"대사\" 항목에 해당하는 묶음은 무엇일까요?",
@@ -573,7 +620,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "대사 항목은 고혈당에 높은 중성지방과 낮은 HDL이 함께 있는 묶음이에요."
  },
  {
   "q": "임상적 비만의 심혈관 항목에 포함되는 소견은 무엇일까요?",
@@ -585,7 +633,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "심혈관 항목에는 심부전·심방세동·혈압 상승 같은 소견이 들어가요."
  },
  {
   "q": "임상적 비만과 전임상 비만을 나누는 핵심은 무엇일까요?",
@@ -597,7 +646,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)"
+  "src": "Lancet Diabetes & Endocrinology Commission 2025 (임상적 비만)",
+  "exp": "둘을 가르는 기준은 체중이 아니라 장기 기능 이상이나 일상생활 제한이 있는지예요."
  },
  {
   "q": "대한비만학회가 권고하는 비만의 1차 치료 목표는 무엇일까요?",
@@ -609,7 +659,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "대한비만학회는 6개월 안에 치료 전 체중의 5~10% 감량을 1차 목표로 권고해요."
  },
  {
   "q": "대한비만학회는 모든 성인이 체질량지수를 얼마나 자주 재도록 권고할까요?",
@@ -621,7 +672,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "모든 성인은 1년에 한 번 BMI를 재서 23 이상이면 비만 전단계, 25 이상이면 비만으로 진단해요."
  },
  {
   "q": "저열량식으로 체중을 줄일 때 권고되는 하루 열량 감량 폭은 얼마일까요?",
@@ -633,7 +685,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "하루 500~1,000 kcal를 줄이면 주당 0.5~1kg이 빠지고, 6개월까지 효과가 가장 커요."
  },
  {
   "q": "체중 감량을 위한 운동 처방으로 권고되는 것은 무엇일까요?",
@@ -645,7 +698,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "유산소 운동 주 150분 이상에 대근육 근력운동을 주 2~3회 더해야 근육을 지키면서 감량돼요."
  },
  {
   "q": "한국 진료지침에서 비만 약물치료를 고려할 수 있는 기준은 무엇일까요?",
@@ -657,7 +711,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "한국 지침은 BMI 25 이상이면서 생활습관 교정으로 감량에 실패했을 때 약물치료를 보조요법으로 고려해요."
  },
  {
   "q": "감량한 체중을 요요 없이 유지하기 위해 권고되는 방법은 무엇일까요?",
@@ -669,7 +724,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "고단백·저지방 식이와 운동을 이어가며 체중을 정기적으로 점검하고 전문가 피드백을 받아야 요요를 막아요."
  },
  {
   "q": "대한비만학회의 동반질환 위험도 표에서 BMI와 함께 보는 지표는 무엇일까요?",
@@ -681,7 +737,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "같은 BMI라도 허리둘레가 남 90·여 85cm 이상이면 동반질환 위험도가 한 단계 올라가요."
  },
  {
   "q": "비만 환자를 처음 평가할 때 2차성 비만을 가리기 위해 확인해야 할 것은 무엇일까요?",
@@ -693,7 +750,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "갑상샘저하증·쿠싱증후군 같은 질환과 체중을 늘리는 약물을 먼저 확인해 2차성 비만을 걸러야 해요."
  },
  {
   "q": "2023 당뇨병 진료지침이 권고하는 당뇨병 선별검사 시작 연령은 언제일까요?",
@@ -705,7 +763,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침",
+  "exp": "2023 지침은 35세 이상 모든 성인과 위험인자가 있는 19세 이상 성인에게 선별검사를 권고해요."
  },
  {
   "q": "2023 진료지침에서 당뇨병 선별의 위험인자 목록에 새로 추가된 항목은 무엇일까요?",
@@ -717,7 +776,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침",
+  "exp": "젊은 층에서 복부비만과 당뇨병이 함께 늘어서 복부비만이 선별 위험인자에 새로 추가됐어요."
  },
  {
   "q": "과체중·비만한 당뇨병 성인에게 2023 진료지침이 권고하는 체중 감량 폭은 얼마일까요?",
@@ -729,7 +789,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침",
+  "exp": "과체중·비만 당뇨병 성인은 5% 이상 감량하고 유지하도록 총 열량 섭취를 줄이라고 권고해요."
  },
  {
   "q": "당뇨병 환자에게 권고되는 운동량은 어느 정도일까요?",
@@ -741,7 +802,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침",
+  "exp": "중강도 유산소 주 150분 이상과 저항운동 주 2회 이상이 당뇨병 환자 운동 처방의 기본이에요."
  },
  {
   "q": "당뇨병전단계에서 2형당뇨병으로의 진행을 막기 위해 권고되는 생활습관 목표는 무엇일까요?",
@@ -753,7 +815,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침",
+  "exp": "당뇨병전단계에서 체중 5~7% 감량과 주 150분 운동은 당뇨병 발생을 절반 넘게 줄여요."
  },
  {
   "q": "2형당뇨병 성인의 일반적인 당화혈색소 조절 목표는 얼마일까요?",
@@ -765,7 +828,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침",
+  "exp": "대한당뇨병학회의 일반적 당화혈색소 목표는 6.5% 미만이고 환자에 따라 조정해요."
  },
  {
   "q": "당뇨병 진단 기준에 해당하지 않는 것은 무엇일까요?",
@@ -777,7 +841,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침",
+  "exp": "당뇨병 진단은 공복혈당 126 이상, 당화혈색소 6.5% 이상, 경구당부하 2시간 200 이상 등이고 110은 전단계 범위예요."
  },
  {
   "q": "2형당뇨병 환자에서 지방간은 어떻게 보아야 할까요?",
@@ -789,7 +854,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침 / 대한간학회 2025 대사이상지방간질환 진료 가이드라인"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침 / 대한간학회 2025 대사이상지방간질환 진료 가이드라인",
+  "exp": "2형당뇨병 환자는 지방간이 매우 흔하고 섬유화로 진행할 위험이 높아 평가가 필요해요."
  },
  {
   "q": "복부비만을 판정하는 가장 간단한 방법은 무엇일까요?",
@@ -801,7 +867,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "줄자 하나로 허리둘레를 재는 것이 복부비만을 판정하는 가장 간단하고 검증된 방법이에요."
  },
  {
   "q": "허리둘레는 어디에서 어떻게 재는 것이 맞을까요?",
@@ -813,7 +880,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "갈비뼈 아래와 골반뼈 위의 중간 높이에서 숨을 내쉰 뒤 수평으로 재는 것이 표준이에요."
  },
  {
   "q": "내장지방을 줄이는 데 가장 효과적인 방법은 무엇일까요?",
@@ -825,7 +893,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "내장지방은 열량 제한과 유산소·근력운동에 가장 잘 반응하고, 특정 부위 운동만으로는 줄지 않아요."
  },
  {
   "q": "비만을 동반한 2형당뇨병 환자가 체중을 5~10% 줄이면 기대할 수 있는 것은 무엇일까요?",
@@ -837,7 +906,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침",
+  "exp": "5~10% 감량은 인슐린 저항성을 개선해 혈당과 당화혈색소를 낮추고, 더 큰 감량은 관해까지 이어질 수 있어요."
  },
  {
   "q": "지방간과 2형당뇨병의 관계로 맞는 것은 무엇일까요?",
@@ -849,7 +919,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한간학회 2025 대사이상지방간질환 진료 가이드라인"
+  "src": "대한간학회 2025 대사이상지방간질환 진료 가이드라인",
+  "exp": "지방간이 있으면 당뇨병 위험이 약 2배 오르고, 당뇨병이 있으면 지방간이 더 잘 진행하는 양방향 관계예요."
  },
  {
   "q": "2형당뇨병 환자에게 지방간이 있을 때 특히 확인해야 할 것은 무엇일까요?",
@@ -861,7 +932,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한간학회 2025 대사이상지방간질환 진료 가이드라인"
+  "src": "대한간학회 2025 대사이상지방간질환 진료 가이드라인",
+  "exp": "지방간 자체보다 섬유화가 예후를 결정하니 FIB-4 같은 지표로 섬유화 위험을 먼저 가늠해요."
  },
  {
   "q": "폐경 이후 여성의 체지방 분포는 어떻게 바뀔까요?",
@@ -873,7 +945,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "폐경으로 에스트로겐이 줄면 지방이 엉덩이·허벅지에서 복부 내장으로 옮겨 가요."
  },
  {
   "q": "최근 10년간 우리나라에서 비만이 가장 가파르게 늘어난 집단은 누구일까요?",
@@ -885,7 +958,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 2025 비만 팩트시트"
+  "src": "대한비만학회 2025 비만 팩트시트",
+  "exp": "20대 남성 비만 유병률은 10년 사이 32%에서 45%로 올라 가장 가파른 증가를 보였어요."
  },
  {
   "q": "노인 비만을 관리할 때 특히 주의해야 할 점은 무엇일까요?",
@@ -897,7 +971,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한비만학회 비만 진료지침 2022 (8판)"
+  "src": "대한비만학회 비만 진료지침 2022 (8판)",
+  "exp": "노인은 감량하며 근육이 빠지기 쉬워서 근력운동과 충분한 단백질로 근감소성 비만을 막아야 해요."
  },
  {
   "q": "19~39세 청년 당뇨병의 특징으로 맞는 것은 무엇일까요?",
@@ -909,7 +984,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024"
+  "src": "대한당뇨병학회 Diabetes Fact Sheet in Korea 2024",
+  "exp": "청년 당뇨병 환자는 열에 아홉이 비만이고 인지율 43%·치료율 35%로 관리가 가장 취약해요."
  },
  {
   "q": "임신당뇨병을 겪은 여성은 출산 후 어떻게 해야 할까요?",
@@ -921,7 +997,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침",
+  "exp": "임신당뇨병을 겪은 여성은 2형당뇨병 위험이 크게 높아 출산 후에도 정기 혈당 검사가 필요해요."
  },
  {
   "q": "당뇨병이 있는 성인에서 비만은 왜 특히 중요할까요?",
@@ -933,7 +1010,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+  "src": "대한당뇨병학회 2023 당뇨병 진료지침",
+  "exp": "당뇨병 환자의 절반 이상이 비만이고, 비만은 혈당·혈압·지질 조절을 모두 어렵게 만들어요."
  },
  {
   "q": "하루하루 먹는 양과 활동량이 크게 달라도 성인의 체중이 오랫동안 안정적인 이유는 무엇일까요?",
@@ -945,7 +1023,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Pasquet P, Apfelbaum M. Am J Clin Nutr 1994 (SCOPE Core Learning Path 모듈 1 인용)"
+  "src": "Pasquet P, Apfelbaum M. Am J Clin Nutr 1994 (SCOPE Core Learning Path 모듈 1 인용)",
+  "exp": "시상하부가 렙틴·그렐린 같은 신호를 받아 섭취와 소비를 조절해서 체중이 항상성을 유지해요."
  },
  {
   "q": "렙틴은 어디에서 분비되고 어떤 역할을 할까요?",
@@ -957,7 +1036,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Zhang Y et al. Nature 1994; Considine RV et al. N Engl J Med 1996 (SCOPE Core Learning Path 모듈 1 인용)"
+  "src": "Zhang Y et al. Nature 1994; Considine RV et al. N Engl J Med 1996 (SCOPE Core Learning Path 모듈 1 인용)",
+  "exp": "렙틴은 지방세포에서 나와 시상하부에 배부르다는 신호를 보내 식욕을 억제해요."
  },
  {
   "q": "그렐린의 역할로 맞는 것은 무엇일까요?",
@@ -969,7 +1049,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Wren AM et al. Endocrinology 2000 (SCOPE Core Learning Path 모듈 1 인용)"
+  "src": "Wren AM et al. Endocrinology 2000 (SCOPE Core Learning Path 모듈 1 인용)",
+  "exp": "그렐린은 위에서 분비되는 배고픔 호르몬으로 식사 전에 올라가요."
  },
  {
   "q": "생활습관 중재로 체중을 줄인 뒤의 전형적인 경과는 무엇일까요?",
@@ -981,7 +1062,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "NHMRC Clinical Practice Guidelines for the Management of Overweight and Obesity 2013 (SCOPE Core Learning Path 모듈 1 인용)"
+  "src": "NHMRC Clinical Practice Guidelines for the Management of Overweight and Obesity 2013 (SCOPE Core Learning Path 모듈 1 인용)",
+  "exp": "감량은 6~12개월에 최대가 되고 2년 안에 대부분 회복되며 5년이면 대다수가 원래 체중이라 유지 전략이 핵심이에요."
  },
  {
   "q": "체중을 10% 줄인 뒤 에너지 소비는 어떻게 될까요?",
@@ -993,7 +1075,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Rosenbaum M, Leibel RL. Obesity 2016; Fothergill E et al. Obesity 2016 (SCOPE Core Learning Path 모듈 1 인용)"
+  "src": "Rosenbaum M, Leibel RL. Obesity 2016; Fothergill E et al. Obesity 2016 (SCOPE Core Learning Path 모듈 1 인용)",
+  "exp": "10% 감량 후 에너지 소비는 새 체중으로 예상되는 것보다 더 낮아지고 이 변화가 오래 지속돼요."
  },
  {
   "q": "체중 감량 1년 뒤 허기(배고픔)는 감량 전과 비교해 어떨까요?",
@@ -1005,7 +1088,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Sumithran P et al. N Engl J Med 2011 (SCOPE Core Learning Path 모듈 1 인용)"
+  "src": "Sumithran P et al. N Engl J Med 2011 (SCOPE Core Learning Path 모듈 1 인용)",
+  "exp": "감량 1년 뒤에도 허기와 식욕 호르몬은 감량 전보다 높은 상태로 남아 있어요."
  },
  {
   "q": "일란성 쌍둥이 12쌍에게 100일간 하루 약 1,000 kcal를 더 먹인 실험에서 무엇이 관찰됐을까요?",
@@ -1017,7 +1101,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Bouchard C et al. N Engl J Med 1990 (SCOPE Core Learning Path 모듈 2 인용)"
+  "src": "Bouchard C et al. N Engl J Med 1990 (SCOPE Core Learning Path 모듈 2 인용)",
+  "exp": "같은 양을 더 먹여도 쌍둥이끼리는 비슷하게 늘고 쌍 사이에는 차이가 커서 체중 증가에 유전이 크게 작용함을 보여 줬어요."
  },
  {
   "q": "덴마크 입양아 연구에서 성인 입양아의 체중은 누구와 관련이 있었을까요?",
@@ -1029,7 +1114,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Stunkard AJ et al. N Engl J Med 1986 (SCOPE Core Learning Path 모듈 2 인용)"
+  "src": "Stunkard AJ et al. N Engl J Med 1986 (SCOPE Core Learning Path 모듈 2 인용)",
+  "exp": "입양아의 체중은 함께 산 양부모가 아니라 생물학적 부모와 관련이 있어 유전의 영향을 보여 줬어요."
  },
  {
   "q": "폐경기 체중 증가의 특징은 무엇일까요?",
@@ -1041,7 +1127,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Lovejoy JC et al. Int J Obes 2008 (SCOPE Core Learning Path 모듈 2 인용)"
+  "src": "Lovejoy JC et al. Int J Obes 2008 (SCOPE Core Learning Path 모듈 2 인용)",
+  "exp": "폐경기 체중 증가는 내장지방 중심이라 허리둘레가 먼저 늘어요."
  },
  {
   "q": "체중 증가를 일으키는 의학적 원인이 아닌 것은 무엇일까요?",
@@ -1053,7 +1140,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Nieman LK et al. J Clin Endocrinol Metab 2008 (SCOPE Core Learning Path 모듈 2 인용)"
+  "src": "Nieman LK et al. J Clin Endocrinol Metab 2008 (SCOPE Core Learning Path 모듈 2 인용)",
+  "exp": "갑상샘기능항진증은 오히려 체중을 줄이고, 쿠싱증후군·시상하부 손상·프라더윌리 증후군은 체중을 늘려요."
  },
  {
   "q": "대사증후군의 5가지 구성요소에 들어가지 않는 것은 무엇일까요?",
@@ -1065,7 +1153,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)"
+  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "대사증후군 기준은 허리둘레·중성지방·HDL·혈압·혈당 다섯 가지이고 BMI는 들어가지 않아요."
  },
  {
   "q": "대사증후군은 5가지 위험인자 중 몇 개 이상이면 진단할까요?",
@@ -1077,7 +1166,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)"
+  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "다섯 가지 위험인자 중 세 개 이상이면 대사증후군으로 진단해요."
  },
  {
   "q": "다낭성난소증후군(PCOS) 여성 중 비만을 동반한 비율은 어느 정도일까요?",
@@ -1089,7 +1179,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (SCOPE Core Learning Path 모듈 3 인용)"
+  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "PCOS 여성의 50~80%가 비만을 동반하고, 체중 감량이 배란과 대사 모두를 개선해요."
  },
  {
   "q": "PCOS와 대사 건강의 관계로 맞는 것은 무엇일까요?",
@@ -1101,7 +1192,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (SCOPE Core Learning Path 모듈 3 인용)"
+  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "PCOS는 인슐린 저항성과 깊이 얽혀 있어 2형당뇨병과 대사증후군 위험을 높여요."
  },
  {
   "q": "폐쇄성 수면무호흡의 가장 강력한 예측인자는 무엇일까요?",
@@ -1113,7 +1205,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Epstein LJ et al. (AASM Task Force) J Clin Sleep Med 2009 (SCOPE Core Learning Path 모듈 3 인용)"
+  "src": "Epstein LJ et al. (AASM Task Force) J Clin Sleep Med 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "비만은 수면무호흡의 가장 강력한 예측인자로, 나이·성별·고혈압보다 영향이 커요."
  },
  {
   "q": "수면무호흡 선별 도구 STOP-BANG에서 B는 무엇을 뜻할까요?",
@@ -1125,7 +1218,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Chung F et al. Anesthesiology 2008 (STOP-BANG) (SCOPE Core Learning Path 모듈 3 인용)"
+  "src": "Chung F et al. Anesthesiology 2008 (STOP-BANG) (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "STOP-BANG의 B는 BMI 35 초과, A는 50세 초과, N은 목둘레 40cm 초과, G는 남성이에요."
  },
  {
   "q": "\"BMI는 환자가 얼마나 큰지를 말할 뿐\"이라는 말의 뜻은 무엇일까요?",
@@ -1137,7 +1231,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Sharma AM, Kushner RF. Int J Obes 2009 (Edmonton Obesity Staging System) (SCOPE Core Learning Path 모듈 4 인용)"
+  "src": "Sharma AM, Kushner RF. Int J Obes 2009 (Edmonton Obesity Staging System) (SCOPE Core Learning Path 모듈 4 인용)",
+  "exp": "BMI는 크기만 말해 주니 실제 건강 손상은 EOSS 같은 병기 도구로 따로 평가해야 해요."
  },
  {
   "q": "비만 환자의 생존을 더 잘 예측하는 것은 무엇일까요?",
@@ -1149,7 +1244,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Padwal RS et al. CMAJ 2011 (EOSS and mortality) (SCOPE Core Learning Path 모듈 4 인용)"
+  "src": "Padwal RS et al. CMAJ 2011 (EOSS and mortality) (SCOPE Core Learning Path 모듈 4 인용)",
+  "exp": "장기 손상을 반영한 EOSS 병기는 BMI 등급보다 생존을 훨씬 잘 예측해요."
  },
  {
   "q": "비만 평가의 \"4M\"에 해당하지 않는 것은 무엇일까요?",
@@ -1161,7 +1257,8 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Sharma AM. Obes Rev 2010 (the 4Ms) (SCOPE Core Learning Path 모듈 4 인용)"
+  "src": "Sharma AM. Obes Rev 2010 (the 4Ms) (SCOPE Core Learning Path 모듈 4 인용)",
+  "exp": "4M은 Mental·Mechanical·Monetary·Metabolic로 비만의 원인·합병증·장벽을 살피는 틀이에요."
  },
  {
   "q": "진료에서 체중 이야기를 꺼내는 올바른 순서는 무엇일까요?",
@@ -1173,7 +1270,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Vallis M et al. Can Fam Physician 2013 (5As of obesity management) (SCOPE Core Learning Path 모듈 4 인용)"
+  "src": "Vallis M et al. Can Fam Physician 2013 (5As of obesity management) (SCOPE Core Learning Path 모듈 4 인용)",
+  "exp": "환자가 온 이유를 먼저 다루고 가능하면 그것과 연결해 체중 이야기를 꺼내야 대화가 이어져요."
  },
  {
   "q": "체지방 1kg은 대략 몇 kcal에 해당할까요?",
@@ -1185,7 +1283,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Wishnofsky M. Am J Clin Nutr 1958 (SCOPE Core Learning Path 모듈 6 인용)"
+  "src": "Wishnofsky M. Am J Clin Nutr 1958 (SCOPE Core Learning Path 모듈 6 인용)",
+  "exp": "체지방 1kg은 약 7,000 kcal에 해당해서 하루 500 kcal를 줄이면 2주에 약 1kg이 빠져요."
  },
  {
   "q": "811명을 2년간 지방·단백질·탄수화물 비율이 다른 4가지 식단으로 나눈 연구의 결론은 무엇일까요?",
@@ -1197,7 +1296,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Sacks FM et al. N Engl J Med 2009 (SCOPE Core Learning Path 모듈 6 인용)"
+  "src": "Sacks FM et al. N Engl J Med 2009 (SCOPE Core Learning Path 모듈 6 인용)",
+  "exp": "811명 2년 연구에서 지방·단백질·탄수화물 비율과 무관하게 감량 폭이 비슷해 열량 감소가 핵심임을 보여 줬어요."
  },
  {
   "q": "간헐적 열량 제한(예: 5:2)은 매일 제한하는 방식과 비교해 어땠을까요?",
@@ -1209,7 +1309,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Harvie MN et al. Int J Obes 2011 (SCOPE Core Learning Path 모듈 6 인용)"
+  "src": "Harvie MN et al. Int J Obes 2011 (SCOPE Core Learning Path 모듈 6 인용)",
+  "exp": "5:2 같은 간헐적 제한은 매일 제한과 감량 효과가 비슷해서 생활에 맞는 쪽을 고르면 돼요."
  },
  {
   "q": "체중 관리에서 운동의 가장 큰 가치는 무엇일까요?",
@@ -1221,7 +1322,8 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Donnelly JE et al. (ACSM position stand) Med Sci Sports Exerc 2009 (SCOPE Core Learning Path 모듈 6 인용)"
+  "src": "Donnelly JE et al. (ACSM position stand) Med Sci Sports Exerc 2009 (SCOPE Core Learning Path 모듈 6 인용)",
+  "exp": "운동은 감량 자체보다 근육 손실을 막고 감량한 체중을 유지하는 데 가장 큰 가치가 있어요."
  },
  {
   "q": "비만 치료에서 가장 어려운 부분은 무엇이라고 할까요?",
@@ -1233,6 +1335,7 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "NHMRC Clinical Practice Guidelines 2013 (SCOPE Core Learning Path 모듈 6 인용)"
+  "src": "NHMRC Clinical Practice Guidelines 2013 (SCOPE Core Learning Path 모듈 6 인용)",
+  "exp": "어떻게 빼느냐보다 오래 유지하기가 어려워서 비만은 평생 관리가 필요한 만성질환으로 봐요."
  }
 ]

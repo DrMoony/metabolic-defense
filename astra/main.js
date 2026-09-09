@@ -1,15 +1,15 @@
-import { healthColor, weaponColor } from './feedback.js?v=a44';
-import { RouteEditor } from './route-editor.js?v=a44';
-import { World, THREE } from './world.js?v=a44';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a44';
+import { healthColor, weaponColor } from './feedback.js?v=a45';
+import { RouteEditor } from './route-editor.js?v=a45';
+import { World, THREE } from './world.js?v=a45';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a45';
 
-import { MAPS, getMap } from './maps/index.js?v=a44';
+import { MAPS, getMap } from './maps/index.js?v=a45';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
 const text = (ko, en) => state.lang === 'ko' ? ko : en;
 const strings = {
-  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],liver:['간 가디언','Liver Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],mix:['MASLD : Clinical Obesity 비율','MASLD : Clinical Obesity ratio'],drug:['특정 약물 문항 포함 (기본: 숨김)','Include drug-specific questions (default: hidden)'],drugNote:['공정경쟁규약을 고려해 기본 출제에서 제외합니다. 이 설정은 이 기기에 저장됩니다.','Drug-specific questions are excluded by default for fair-competition compliance. Settings are saved on this device.'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['계속하기 →','Continue →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],
+  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],liver:['간 가디언','Liver Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],mix:['MASLD : Clinical Obesity 비율','MASLD : Clinical Obesity ratio'],drug:['특정 약물 문항 포함 (기본: 숨김)','Include drug-specific questions (default: hidden)'],drugNote:['공정경쟁규약을 고려해 기본 출제에서 제외합니다. 이 설정은 이 기기에 저장됩니다.','Drug-specific questions are excluded by default for fair-competition compliance. Settings are saved on this device.'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],
 };
 // Beta reference values are balance data; simulation, meshes and input are rebuilt.
 export const WEAPONS = [
@@ -554,7 +554,7 @@ function shot(clientX,clientY,extra=false){
 function openQuiz(transition=false){
   if(!bank.ready)return;
   state.quiz=bank.draw(state.difficulty);state.quizTotal++;state.quizTime=18;state.selection=null;state.answered=false;state.feedbackTime=0;quizTransition=transition;
-  setPhase('quiz');$('answers').replaceChildren();$('question').textContent=state.quiz.q;$('feedback').textContent='';$('source').textContent='';$('submit').disabled=true;show('submit',true);show('quiz-next',false);
+  setPhase('quiz');$('answers').replaceChildren();$('question').textContent=state.quiz.q;$('feedback').textContent='';$('source').textContent='';$('explain').textContent='';show('explain',false);$('submit').disabled=true;show('submit',true);show('quiz-next',false);
   $('quiz-tag').textContent=`KNOWLEDGE / ${state.quiz.set==='masld'?'MASLD · MASH':'CLINICAL OBESITY'} / ${state.quiz.diff.toUpperCase()}`;
   shuffled([0,1,2,3]).forEach((answer,index)=>{
     const button=document.createElement('button');button.dataset.answer=answer;button.textContent=`${String(index+1).padStart(2,'0')}  ${state.quiz.a[answer]}`;
@@ -566,7 +566,9 @@ function openQuiz(transition=false){
 }
 function answerQuiz(){
   if(state.phase!=='quiz'||state.answered||state.paused)return;
-  const correct=state.selection===state.quiz.correct;state.answered=true;state.feedbackTime=1.4;
+  const correct=state.selection===state.quiz.correct;state.answered=true;
+  // 해설이 있으면 팝업을 띄우고 한 번 더 쏠 때까지 기다린다(방치 대비 14초 뒤 자동 진행). 없으면 예전처럼 1.4초.
+  state.feedbackTime=state.quiz.exp?14:1.4;
   [...$('answers').children].forEach(button=>{button.disabled=true;button.classList.remove('selected');button.classList.toggle('correct',Number(button.dataset.answer)===state.quiz.correct);button.classList.toggle('wrong',Number(button.dataset.answer)===state.selection&&!correct);});
   if(correct){
     state.correct++;state.score+=1500+Math.round(state.quizTime/18*500);state.core=clamp(state.core+8);state.liver=clamp(state.liver-25);state.sugar=clamp(state.sugar-20);
@@ -576,7 +578,8 @@ function answerQuiz(){
     $('feedback').textContent=text(`정답: ${state.quiz.a[state.quiz.correct]}`,`Correct answer: ${state.quiz.a[state.quiz.correct]}`);if(!sample('quiz_no',.7))sound(150,.2,'sine');
   }
   $('source').textContent=state.quiz.src?`${text('출처','Source')}: ${state.quiz.src}`:'';
-  show('submit',false);show('quiz-next',false);updateHUD();
+  if(state.quiz.exp){$('explain').replaceChildren(Object.assign(document.createElement('b'),{textContent:text('해설','Why')}),Object.assign(document.createElement('span'),{textContent:state.quiz.exp}));show('explain',true);}
+  show('submit',false);show('quiz-next',!!state.quiz.exp);updateHUD();
 }
 function continueQuiz(){
   if(state.phase!=='quiz'||!state.answered||state.paused)return;
@@ -769,6 +772,8 @@ function bindUI(){
   $('sound').textContent=muted?'♪ OFF':'♪ ON';tap($('sound'),()=>{unlockAudio();muted=!muted;storage.set('muted',muted);$('sound').textContent=muted?'♪ OFF':'♪ ON';});
   tap($('reload'),reload);tap($('swap'),swap);tap($('pause'),()=>pause());tap($('resume'),()=>pause(false));
   tap($('submit'),()=>{if(state.selection!==null)answerQuiz();});tap($('quiz-next'),continueQuiz);
+  // 해설 팝업이 뜬 뒤에는 화면 아무 곳이나 한 번 더 쏘면 게임으로 돌아간다 (0.6초 오클릭 보호)
+  tap($('quiz-screen'),()=>{if(state.answered&&state.quiz?.exp&&state.feedbackTime<=13.4)continueQuiz();});
   tap($('restart'),()=>{world.clear();enemies.length=0;state.paused=false;world.selectMap(state.map);setPhase('home');updateLanguage();});
   tap($('admin-open'),()=>{
     $('mix').value=bank.mix;$('drug').checked=bank.drug;

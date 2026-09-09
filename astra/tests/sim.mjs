@@ -118,8 +118,8 @@ function run(map,diff,personaName,seed){
       maxEnemies=Math.max(maxEnemies,A.enemies.length);
     }else if(S.phase==='quiz'&&!S.answered){
       if(!quizAt)quizAt=t+3+r()*5;
-      else if(t>=quizAt){const ok=r()<P.quiz;S.selection=ok?S.quiz.correct:(S.quiz.correct+1+Math.floor(r()*3))%4;A.answerQuiz();log.quiz.total++;if(ok)log.quiz.ok++;quizAt=0;}
-    }
+      else if(t>=quizAt){const ok=r()<P.quiz;S.selection=ok?S.quiz.correct:(S.quiz.correct+1+Math.floor(r()*3))%4;A.answerQuiz();log.quiz.total++;if(ok)log.quiz.ok++;quizAt=t;}
+    }else if(S.phase==='quiz'&&S.answered&&t>=quizAt+2){A.continueQuiz();quizAt=0;}
     A.step(TICK);t+=TICK;
     if(S.phase==='combat'){const d=S.core-lastCore;if(d<0)leak-=d;}
     lastCore=S.core;minCore=Math.min(minCore,S.core);
