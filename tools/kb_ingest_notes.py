@@ -27,7 +27,7 @@ def tags(text):
 for line in open(notes, encoding='utf-8'):
     if line.startswith('## '): module = line[3:].strip(); section = None; continue
     if line.startswith('### '): section = line[4:].strip().lower(); continue
-    if not (module and section and section.startswith('key facts') and line.startswith('- ')): continue
+    if not (module and section and ('key facts' in section or section.startswith('conclusions')) and line.startswith('- ')): continue
     if skip and re.search(skip, module): skipped += 1; continue
     text = re.sub(r'\s+', ' ', line[2:]).strip()
     text = re.sub(r'\s*\(?Source:.*$', '', text).strip()
