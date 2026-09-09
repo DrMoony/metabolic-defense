@@ -934,5 +934,305 @@
   "correct": 0,
   "diff": "mid",
   "src": "KDA 2023 Clinical Practice Guidelines for Diabetes"
+ },
+ {
+  "q": "Why does adult body weight stay stable for years despite large daily swings in intake and activity?",
+  "a": [
+   "Because body weight is homeostatically regulated, centred on the hypothalamus",
+   "Because stomach size is fixed",
+   "Because muscle mass never changes",
+   "Because calorie intake is the same every day"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Pasquet P, Apfelbaum M. Am J Clin Nutr 1994 (cited in SCOPE Core Learning Path, module 1)"
+ },
+ {
+  "q": "Where is leptin produced and what does it do?",
+  "a": [
+   "It is made by fat cells and suppresses appetite",
+   "It is made by the stomach and triggers hunger",
+   "It is made by the pancreas and raises glucose",
+   "It is made by the liver and stores fat"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Zhang Y et al. Nature 1994; Considine RV et al. N Engl J Med 1996 (cited in SCOPE Core Learning Path, module 1)"
+ },
+ {
+  "q": "Which statement about ghrelin is correct?",
+  "a": [
+   "It is released from the stomach and stimulates hunger",
+   "It is released from fat cells and suppresses appetite",
+   "It is released from muscle and raises heat production",
+   "It is released from the kidney and regulates water"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wren AM et al. Endocrinology 2000 (cited in SCOPE Core Learning Path, module 1)"
+ },
+ {
+  "q": "What is the typical course after lifestyle-induced weight loss?",
+  "a": [
+   "Loss peaks at 6–12 months and by 5 years most people are back at their starting weight",
+   "Loss continues and people are lighter at 5 years",
+   "Once lost, weight is mostly kept for life",
+   "Everything is regained within a month"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "NHMRC Clinical Practice Guidelines for the Management of Overweight and Obesity 2013 (cited in SCOPE Core Learning Path, module 1)"
+ },
+ {
+  "q": "What happens to energy expenditure after a 10% weight loss?",
+  "a": [
+   "It falls below what the new body size predicts and the drop persists",
+   "It does not change",
+   "It actually rises",
+   "It returns to normal within a week"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rosenbaum M, Leibel RL. Obesity 2016; Fothergill E et al. Obesity 2016 (cited in SCOPE Core Learning Path, module 1)"
+ },
+ {
+  "q": "One year after weight loss, how does hunger compare with before?",
+  "a": [
+   "It is still higher than before the loss",
+   "It returns to the pre-loss level",
+   "It is lower than before",
+   "It disappears completely"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Sumithran P et al. N Engl J Med 2011 (cited in SCOPE Core Learning Path, module 1)"
+ },
+ {
+  "q": "What did the study overfeeding 12 pairs of identical twins by about 1,000 kcal/day for 100 days show?",
+  "a": [
+   "Weight gain was similar within each twin pair, pointing to genetic influence",
+   "Everyone gained exactly the same amount",
+   "Nobody gained weight",
+   "Twins gained completely different amounts"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Bouchard C et al. N Engl J Med 1990 (cited in SCOPE Core Learning Path, module 2)"
+ },
+ {
+  "q": "In the Danish adoption study, whose weight did adult adoptees resemble?",
+  "a": [
+   "Their biological parents",
+   "Their adoptive parents",
+   "Their siblings-in-law",
+   "Nobody"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Stunkard AJ et al. N Engl J Med 1986 (cited in SCOPE Core Learning Path, module 2)"
+ },
+ {
+  "q": "What characterises weight gain at menopause?",
+  "a": [
+   "Visceral fat rises and gain is central (abdominal)",
+   "It goes only to hips and thighs",
+   "It turns into muscle",
+   "Weight actually falls"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lovejoy JC et al. Int J Obes 2008 (cited in SCOPE Core Learning Path, module 2)"
+ },
+ {
+  "q": "Which of these is NOT a medical cause of weight gain?",
+  "a": [
+   "Hyperthyroidism",
+   "Cushing syndrome",
+   "Hypothalamic injury",
+   "Prader–Willi syndrome"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Nieman LK et al. J Clin Endocrinol Metab 2008 (cited in SCOPE Core Learning Path, module 2)"
+ },
+ {
+  "q": "Which of these is NOT one of the five components of the metabolic syndrome?",
+  "a": [
+   "High BMI",
+   "Increased waist circumference",
+   "High triglycerides",
+   "High blood glucose"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Circulation 2009 (cited in SCOPE Core Learning Path, module 3)"
+ },
+ {
+  "q": "How many of the five risk factors are needed to diagnose the metabolic syndrome?",
+  "a": [
+   "Three or more",
+   "One or more",
+   "All five",
+   "Two or more"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Circulation 2009 (cited in SCOPE Core Learning Path, module 3)"
+ },
+ {
+  "q": "What share of women with PCOS have obesity?",
+  "a": [
+   "About 50–80%",
+   "About 5%",
+   "About 20%",
+   "Nearly 100%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (cited in SCOPE Core Learning Path, module 3)"
+ },
+ {
+  "q": "Which statement about PCOS and metabolic health is correct?",
+  "a": [
+   "It is linked to insulin resistance and a higher risk of type 2 diabetes",
+   "It lowers blood glucose",
+   "It has no metabolic link",
+   "It makes weight gain unlikely"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (cited in SCOPE Core Learning Path, module 3)"
+ },
+ {
+  "q": "What is the strongest predictor of obstructive sleep apnoea?",
+  "a": [
+   "Obesity",
+   "Age",
+   "Sex",
+   "Hypertension"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Epstein LJ et al. (AASM Task Force) J Clin Sleep Med 2009 (cited in SCOPE Core Learning Path, module 3)"
+ },
+ {
+  "q": "In the STOP-BANG sleep-apnoea screen, what does the B stand for?",
+  "a": [
+   "BMI over 35",
+   "Blood pressure",
+   "Breathing",
+   "Blood sugar"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Chung F et al. Anesthesiology 2008 (STOP-BANG) (cited in SCOPE Core Learning Path, module 3)"
+ },
+ {
+  "q": "What does \"BMI tells you how big your patient is\" imply?",
+  "a": [
+   "How sick they are needs a separate staging tool such as EOSS",
+   "A higher BMI always means sicker",
+   "BMI is useless",
+   "BMI predicts lifespan precisely"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Sharma AM, Kushner RF. Int J Obes 2009 (Edmonton Obesity Staging System) (cited in SCOPE Core Learning Path, module 4)"
+ },
+ {
+  "q": "Which predicts survival better in people with obesity?",
+  "a": [
+   "A staging system that reflects organ damage (EOSS)",
+   "BMI class (I, II, III)",
+   "Height",
+   "Blood type"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Padwal RS et al. CMAJ 2011 (EOSS and mortality) (cited in SCOPE Core Learning Path, module 4)"
+ },
+ {
+  "q": "Which is NOT one of the \"4Ms\" of obesity assessment?",
+  "a": [
+   "Mass",
+   "Mental",
+   "Mechanical",
+   "Metabolic"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Sharma AM. Obes Rev 2010 (the 4Ms) (cited in SCOPE Core Learning Path, module 4)"
+ },
+ {
+  "q": "What is the right way to raise weight during a consultation?",
+  "a": [
+   "Deal with the presenting problem first, then raise weight, linked to it where possible",
+   "Point out the weight in the first sentence so it is not forgotten",
+   "Set the presenting complaint aside and talk only about weight",
+   "Never mention weight until the patient does"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Vallis M et al. Can Fam Physician 2013 (5As of obesity management) (cited in SCOPE Core Learning Path, module 4)"
+ },
+ {
+  "q": "Roughly how many kilocalories does 1 kg of body fat represent?",
+  "a": [
+   "About 7,000 kcal",
+   "About 700 kcal",
+   "About 2,000 kcal",
+   "About 20,000 kcal"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wishnofsky M. Am J Clin Nutr 1958 (cited in SCOPE Core Learning Path, module 6)"
+ },
+ {
+  "q": "What did the 2-year trial of 811 adults on four diets with different fat, protein and carbohydrate shares conclude?",
+  "a": [
+   "With calories reduced, weight loss was similar whatever the macronutrient mix",
+   "Only the high-fat diet worked",
+   "The high-carbohydrate diet caused weight gain",
+   "Nobody lost weight on any diet"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Sacks FM et al. N Engl J Med 2009 (cited in SCOPE Core Learning Path, module 6)"
+ },
+ {
+  "q": "How did intermittent calorie restriction (e.g. 5:2) compare with daily restriction?",
+  "a": [
+   "Similar weight loss; a matter of what suits the person",
+   "Twice the loss",
+   "Weight actually rose",
+   "No effect at all"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Harvie MN et al. Int J Obes 2011 (cited in SCOPE Core Learning Path, module 6)"
+ },
+ {
+  "q": "What is the main value of exercise in weight management?",
+  "a": [
+   "Limiting muscle loss during weight loss and keeping the weight off",
+   "Producing large loss without dietary change",
+   "Removing appetite",
+   "Turning fat into muscle"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Donnelly JE et al. (ACSM position stand) Med Sci Sports Exerc 2009 (cited in SCOPE Core Learning Path, module 6)"
+ },
+ {
+  "q": "What is described as the hardest part of obesity treatment?",
+  "a": [
+   "Keeping weight off long term — obesity is a chronic condition needing lifelong care",
+   "Losing the first kilogram",
+   "Choosing a diet",
+   "Choosing a type of exercise"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "NHMRC Clinical Practice Guidelines 2013 (cited in SCOPE Core Learning Path, module 6)"
  }
 ]

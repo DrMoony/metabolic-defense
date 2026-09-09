@@ -610,5 +610,53 @@
   "correct": 0,
   "diff": "mid",
   "src": "KASL 2025 MASLD Clinical Practice Guideline"
+ },
+ {
+  "q": "How is fatty liver usually discovered?",
+  "a": [
+   "Incidentally, on tests done for another reason, because it causes no symptoms",
+   "Through severe right-upper-abdominal pain",
+   "Through jaundice",
+   "Through sudden weight loss"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (cited in SCOPE Core Learning Path, module 3)"
+ },
+ {
+  "q": "What is the most common blood-test pattern in fatty liver?",
+  "a": [
+   "ALT higher than AST",
+   "AST higher than ALT",
+   "Raised bilirubin only",
+   "A rise in platelets"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (cited in SCOPE Core Learning Path, module 3)"
+ },
+ {
+  "q": "On average, how long does simple fatty liver without inflammation or fibrosis take to reach cirrhosis?",
+  "a": [
+   "About 57 years (very slowly)",
+   "About 2 years",
+   "About 10 years",
+   "About 6 months"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (cited in SCOPE Core Learning Path, module 3)"
+ },
+ {
+  "q": "Which test gives the definitive diagnosis of liver fat, inflammation and fibrosis?",
+  "a": [
+   "Liver biopsy",
+   "Abdominal X-ray",
+   "Blood typing",
+   "Electrocardiogram"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (cited in SCOPE Core Learning Path, module 3)"
  }
 ]
