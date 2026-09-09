@@ -113,9 +113,9 @@ const rewardScore=A.state.score;A.shot((lock.x+1)*640,(1-lock.y)*360);assert.equ
 assert.equal(A.world.rewards.at(-1).model.children[0].material.map.userData.key,'item_gcgr');
 A.start();assert.equal(A.world.rewards.length,0);assert.equal(A.world.deaths.length,0);
 console.log('PASS: 13 two-frame enemies, 3 bosses, real PNG alpha picking, tint/death cleanup, 12 weapons, lock reward and shared textures');
-assert.equal(A.bank.mix,70);assert.equal(A.bank.drug,false);
+assert.equal(A.bank.mix,30);assert.equal(A.bank.drug,false);
 let rows=Array.from({length:10},()=>A.bank.draw('mid'));
-assert.equal(rows.filter(q=>q.set==='masld').length,7);assert(rows.every(q=>q.drug!==true));assert.equal(new Set(rows.map(q=>q.id)).size,10);
+assert.equal(rows.filter(q=>q.set==="masld").length,3);assert(rows.every(q=>q.drug!==true));assert.equal(new Set(rows.map(q=>q.id)).size,10);
 const before=rows.map(q=>q.id);A.bank.reset();rows=Array.from({length:10},()=>A.bank.draw('mid'));assert(rows.every(q=>!before.includes(q.id)),'recent questions avoided');
 for(const mix of [0,30,50,70,100]){A.bank.configure(mix,false);const picks=Array.from({length:10},()=>A.bank.draw('easy'));assert.equal(picks.filter(q=>q.set==='masld').length,mix/10);assert(picks.every(q=>!q.drug));}
 A.bank.configure(100,true);assert(A.bank.visible('masld').some(q=>q.drug));A.bank.configure(70,false);
