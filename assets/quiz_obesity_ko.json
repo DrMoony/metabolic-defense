@@ -934,5 +934,305 @@
   "correct": 0,
   "diff": "mid",
   "src": "대한당뇨병학회 2023 당뇨병 진료지침"
+ },
+ {
+  "q": "하루하루 먹는 양과 활동량이 크게 달라도 성인의 체중이 오랫동안 안정적인 이유는 무엇일까요?",
+  "a": [
+   "시상하부를 중심으로 체중이 항상성 조절을 받기 때문",
+   "위의 크기가 고정되어 있기 때문",
+   "근육량이 평생 변하지 않기 때문",
+   "섭취 열량이 매일 같기 때문"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Pasquet P, Apfelbaum M. Am J Clin Nutr 1994 (SCOPE Core Learning Path 모듈 1 인용)"
+ },
+ {
+  "q": "렙틴은 어디에서 분비되고 어떤 역할을 할까요?",
+  "a": [
+   "지방세포에서 분비되어 식욕을 억제한다",
+   "위에서 분비되어 배고픔을 일으킨다",
+   "췌장에서 분비되어 혈당을 올린다",
+   "간에서 분비되어 지방을 저장한다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Zhang Y et al. Nature 1994; Considine RV et al. N Engl J Med 1996 (SCOPE Core Learning Path 모듈 1 인용)"
+ },
+ {
+  "q": "그렐린의 역할로 맞는 것은 무엇일까요?",
+  "a": [
+   "위에서 분비되어 배고픔을 자극한다",
+   "지방세포에서 분비되어 식욕을 억제한다",
+   "근육에서 분비되어 열 생산을 늘린다",
+   "신장에서 분비되어 수분을 조절한다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wren AM et al. Endocrinology 2000 (SCOPE Core Learning Path 모듈 1 인용)"
+ },
+ {
+  "q": "생활습관 중재로 체중을 줄인 뒤의 전형적인 경과는 무엇일까요?",
+  "a": [
+   "감량은 6~12개월에 최대가 되고, 5년이면 대다수가 원래 체중으로 돌아간다",
+   "감량이 계속 이어져 5년 뒤 더 빠져 있다",
+   "한 번 뺀 체중은 대부분 평생 유지된다",
+   "1개월 뒤 바로 전부 회복된다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "NHMRC Clinical Practice Guidelines for the Management of Overweight and Obesity 2013 (SCOPE Core Learning Path 모듈 1 인용)"
+ },
+ {
+  "q": "체중을 10% 줄인 뒤 에너지 소비는 어떻게 될까요?",
+  "a": [
+   "줄어든 체중으로 예상되는 것보다 더 낮아지고 오래 지속된다",
+   "변화가 없다",
+   "오히려 늘어난다",
+   "일주일 뒤 정상으로 돌아온다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rosenbaum M, Leibel RL. Obesity 2016; Fothergill E et al. Obesity 2016 (SCOPE Core Learning Path 모듈 1 인용)"
+ },
+ {
+  "q": "체중 감량 1년 뒤 허기(배고픔)는 감량 전과 비교해 어떨까요?",
+  "a": [
+   "여전히 감량 전보다 높다",
+   "감량 전과 같아진다",
+   "감량 전보다 낮아진다",
+   "완전히 사라진다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Sumithran P et al. N Engl J Med 2011 (SCOPE Core Learning Path 모듈 1 인용)"
+ },
+ {
+  "q": "일란성 쌍둥이 12쌍에게 100일간 하루 약 1,000 kcal를 더 먹인 실험에서 무엇이 관찰됐을까요?",
+  "a": [
+   "체중 증가 폭이 쌍둥이 쌍 안에서 서로 비슷했다(유전의 영향)",
+   "모두 정확히 같은 양이 늘었다",
+   "아무도 체중이 늘지 않았다",
+   "쌍둥이라도 증가 폭이 전혀 달랐다"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Bouchard C et al. N Engl J Med 1990 (SCOPE Core Learning Path 모듈 2 인용)"
+ },
+ {
+  "q": "덴마크 입양아 연구에서 성인 입양아의 체중은 누구와 관련이 있었을까요?",
+  "a": [
+   "생물학적 부모",
+   "양부모",
+   "형제자매의 배우자",
+   "아무와도 관련 없음"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Stunkard AJ et al. N Engl J Med 1986 (SCOPE Core Learning Path 모듈 2 인용)"
+ },
+ {
+  "q": "폐경기 체중 증가의 특징은 무엇일까요?",
+  "a": [
+   "내장지방이 늘어 복부(중심성)로 쌓인다",
+   "엉덩이와 허벅지에만 쌓인다",
+   "근육으로 바뀐다",
+   "체중이 오히려 줄어든다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lovejoy JC et al. Int J Obes 2008 (SCOPE Core Learning Path 모듈 2 인용)"
+ },
+ {
+  "q": "체중 증가를 일으키는 의학적 원인이 아닌 것은 무엇일까요?",
+  "a": [
+   "갑상샘기능항진증",
+   "쿠싱증후군",
+   "시상하부 손상",
+   "프라더윌리 증후군"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Nieman LK et al. J Clin Endocrinol Metab 2008 (SCOPE Core Learning Path 모듈 2 인용)"
+ },
+ {
+  "q": "대사증후군의 5가지 구성요소에 들어가지 않는 것은 무엇일까요?",
+  "a": [
+   "높은 BMI",
+   "허리둘레 증가",
+   "높은 중성지방",
+   "높은 혈당"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)"
+ },
+ {
+  "q": "대사증후군은 5가지 위험인자 중 몇 개 이상이면 진단할까요?",
+  "a": [
+   "3개 이상",
+   "1개 이상",
+   "5개 모두",
+   "2개 이상"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)"
+ },
+ {
+  "q": "다낭성난소증후군(PCOS) 여성 중 비만을 동반한 비율은 어느 정도일까요?",
+  "a": [
+   "약 50~80%",
+   "약 5%",
+   "약 20%",
+   "거의 100%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (SCOPE Core Learning Path 모듈 3 인용)"
+ },
+ {
+  "q": "PCOS와 대사 건강의 관계로 맞는 것은 무엇일까요?",
+  "a": [
+   "인슐린 저항성과 2형당뇨병 위험이 높아진다",
+   "혈당이 낮아진다",
+   "대사와는 관계가 없다",
+   "체중이 잘 늘지 않는다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Azziz R et al. J Clin Endocrinol Metab 2006 (SCOPE Core Learning Path 모듈 3 인용)"
+ },
+ {
+  "q": "폐쇄성 수면무호흡의 가장 강력한 예측인자는 무엇일까요?",
+  "a": [
+   "비만",
+   "나이",
+   "성별",
+   "고혈압"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Epstein LJ et al. (AASM Task Force) J Clin Sleep Med 2009 (SCOPE Core Learning Path 모듈 3 인용)"
+ },
+ {
+  "q": "수면무호흡 선별 도구 STOP-BANG에서 B는 무엇을 뜻할까요?",
+  "a": [
+   "BMI 35 초과",
+   "혈압(Blood pressure)",
+   "호흡(Breathing)",
+   "혈당(Blood sugar)"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Chung F et al. Anesthesiology 2008 (STOP-BANG) (SCOPE Core Learning Path 모듈 3 인용)"
+ },
+ {
+  "q": "\"BMI는 환자가 얼마나 큰지를 말할 뿐\"이라는 말의 뜻은 무엇일까요?",
+  "a": [
+   "얼마나 아픈지는 별도의 병기 평가(예: EOSS)가 필요하다",
+   "BMI가 높을수록 반드시 더 아프다",
+   "BMI는 쓸모가 없다",
+   "BMI로 수명을 정확히 예측할 수 있다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Sharma AM, Kushner RF. Int J Obes 2009 (Edmonton Obesity Staging System) (SCOPE Core Learning Path 모듈 4 인용)"
+ },
+ {
+  "q": "비만 환자의 생존을 더 잘 예측하는 것은 무엇일까요?",
+  "a": [
+   "장기 손상 정도를 반영한 병기(EOSS)",
+   "BMI 등급(1·2·3단계)",
+   "키",
+   "혈액형"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Padwal RS et al. CMAJ 2011 (EOSS and mortality) (SCOPE Core Learning Path 모듈 4 인용)"
+ },
+ {
+  "q": "비만 평가의 \"4M\"에 해당하지 않는 것은 무엇일까요?",
+  "a": [
+   "Mass(체중)",
+   "Mental(정신)",
+   "Mechanical(기계적)",
+   "Metabolic(대사)"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Sharma AM. Obes Rev 2010 (the 4Ms) (SCOPE Core Learning Path 모듈 4 인용)"
+ },
+ {
+  "q": "진료에서 체중 이야기를 꺼내는 올바른 순서는 무엇일까요?",
+  "a": [
+   "환자가 온 이유(주 호소)를 먼저 다루고, 가능하면 그것과 연결해 체중을 꺼낸다",
+   "잊지 않도록 첫마디에 체중부터 지적한다",
+   "주 호소는 미루고 체중만 이야기한다",
+   "체중은 환자가 먼저 말할 때까지 절대 언급하지 않는다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Vallis M et al. Can Fam Physician 2013 (5As of obesity management) (SCOPE Core Learning Path 모듈 4 인용)"
+ },
+ {
+  "q": "체지방 1kg은 대략 몇 kcal에 해당할까요?",
+  "a": [
+   "약 7,000 kcal",
+   "약 700 kcal",
+   "약 2,000 kcal",
+   "약 20,000 kcal"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wishnofsky M. Am J Clin Nutr 1958 (SCOPE Core Learning Path 모듈 6 인용)"
+ },
+ {
+  "q": "811명을 2년간 지방·단백질·탄수화물 비율이 다른 4가지 식단으로 나눈 연구의 결론은 무엇일까요?",
+  "a": [
+   "열량을 줄이면 어떤 비율이든 감량 폭은 비슷하다",
+   "고지방 식단만 효과가 있었다",
+   "고탄수화물 식단은 체중이 늘었다",
+   "식단과 무관하게 아무도 빠지지 않았다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Sacks FM et al. N Engl J Med 2009 (SCOPE Core Learning Path 모듈 6 인용)"
+ },
+ {
+  "q": "간헐적 열량 제한(예: 5:2)은 매일 제한하는 방식과 비교해 어땠을까요?",
+  "a": [
+   "감량 효과는 비슷하고, 생활에 맞으면 선택할 수 있다",
+   "두 배 더 빠졌다",
+   "오히려 체중이 늘었다",
+   "효과가 전혀 없었다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Harvie MN et al. Int J Obes 2011 (SCOPE Core Learning Path 모듈 6 인용)"
+ },
+ {
+  "q": "체중 관리에서 운동의 가장 큰 가치는 무엇일까요?",
+  "a": [
+   "감량 중 근육 손실을 막고 감량한 체중을 유지하는 것",
+   "식이조절 없이 큰 감량을 내는 것",
+   "식욕을 없애는 것",
+   "지방을 근육으로 바꾸는 것"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Donnelly JE et al. (ACSM position stand) Med Sci Sports Exerc 2009 (SCOPE Core Learning Path 모듈 6 인용)"
+ },
+ {
+  "q": "비만 치료에서 가장 어려운 부분은 무엇이라고 할까요?",
+  "a": [
+   "뺀 체중을 오래 유지하는 것 — 비만은 평생 관리가 필요한 만성질환",
+   "처음 1kg을 빼는 것",
+   "식단을 고르는 것",
+   "운동 종류를 정하는 것"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "NHMRC Clinical Practice Guidelines 2013 (SCOPE Core Learning Path 모듈 6 인용)"
  }
 ]

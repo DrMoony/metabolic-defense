@@ -610,5 +610,53 @@
   "correct": 0,
   "diff": "mid",
   "src": "대한간학회 2025 대사이상지방간질환 진료 가이드라인"
+ },
+ {
+  "q": "지방간은 보통 어떻게 발견될까요?",
+  "a": [
+   "증상이 없어 다른 이유로 한 검사에서 우연히 발견된다",
+   "심한 오른쪽 윗배 통증으로 발견된다",
+   "황달로 발견된다",
+   "체중이 갑자기 줄어 발견된다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (SCOPE Core Learning Path 모듈 3 인용)"
+ },
+ {
+  "q": "지방간에서 가장 흔한 혈액검사 소견은 무엇일까요?",
+  "a": [
+   "ALT가 AST보다 높다",
+   "AST가 ALT보다 높다",
+   "빌리루빈만 올라간다",
+   "혈소판이 늘어난다"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (SCOPE Core Learning Path 모듈 3 인용)"
+ },
+ {
+  "q": "염증·섬유화가 없는 단순 지방간이 간경변까지 진행하는 데 평균 얼마나 걸릴까요?",
+  "a": [
+   "약 57년(매우 느림)",
+   "약 2년",
+   "약 10년",
+   "약 6개월"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (SCOPE Core Learning Path 모듈 3 인용)"
+ },
+ {
+  "q": "간 지방·염증·섬유화를 확정 진단하는 검사는 무엇일까요?",
+  "a": [
+   "간 조직검사",
+   "복부 X선",
+   "혈액형 검사",
+   "심전도"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (SCOPE Core Learning Path 모듈 3 인용)"
  }
 ]

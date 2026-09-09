@@ -32,6 +32,9 @@
   .fact .src { color:rgba(255,255,255,.45); font-size:12px; margin-top:4px; }
   .fact .src b { color:#9fd6ff; font-weight:600; }
   .fact .tags { margin-top:4px; }
+  .refs { margin-top:5px; font-size:12px; color:rgba(255,255,255,.55); }
+  .refs summary { cursor:pointer; color:#9fd6ff; }
+  .refs ul { margin:4px 0 0 16px; }
   .tag { font-size:11px; padding:2px 7px; border-radius:6px; background:rgba(255,209,102,.14); color:#ffd166; margin-right:4px; cursor:pointer; }
   .diff { font-size:11px; font-weight:800; padding:2px 7px; border-radius:6px; margin-left:6px; }
   .easy { background:rgba(125,255,176,.16); color:#7dffb0; } .mid { background:rgba(255,209,102,.16); color:#ffd166; } .hard { background:rgba(255,93,115,.16); color:#ff8fa3; }
@@ -91,6 +94,7 @@ function factCard(f) {
   const q = KB.questions.find(x => x.fact === f.id);
   return `<div class="fact"><div class="s">${f.statement_ko}<span class="diff ${f.diff || 'mid'}">${(f.diff || '').toUpperCase()}</span></div>
     <div class="src">출처 <b>${f.source_family}</b> · ${f.source || ''}${q ? ` · 문항 ${q.id}` : ' · 문항 없음'}</div>
+    ${f.refs && f.refs.length ? `<details class="refs"><summary>1차 문헌 ${f.refs.length}</summary><ul>${f.refs.map(r => `<li>${r}</li>`).join('')}</ul></details>` : ''}
     <div class="tags">${f.concepts.map(c => byId[c] ? `<span class="tag" data-id="${c}">${byId[c].ko}</span>` : '').join('')}</div></div>`;
 }
 function show(id) {

@@ -1238,6 +1238,374 @@
   "question_index": 77
  },
  {
+  "id": "F-ob-079",
+  "set": "obesity",
+  "statement_ko": "하루하루 먹는 양과 활동량이 크게 달라도 성인의 체중이 오랫동안 안정적인 이유는 무엇일까요? → 시상하부를 중심으로 체중이 항상성 조절을 받기 때문",
+  "statement_en": "Why does adult body weight stay stable for years despite large daily swings in intake and activity? → Because body weight is homeostatically regulated, centred on the hypothalamus",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Pasquet P, Apfelbaum M. Am J Clin Nutr 1994 (SCOPE Core Learning Path 모듈 1 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 78
+ },
+ {
+  "id": "F-ob-080",
+  "set": "obesity",
+  "statement_ko": "렙틴은 어디에서 분비되고 어떤 역할을 할까요? → 지방세포에서 분비되어 식욕을 억제한다",
+  "statement_en": "Where is leptin produced and what does it do? → It is made by fat cells and suppresses appetite",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Zhang Y et al. Nature 1994; Considine RV et al. N Engl J Med 1996 (SCOPE Core Learning Path 모듈 1 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 79
+ },
+ {
+  "id": "F-ob-081",
+  "set": "obesity",
+  "statement_ko": "그렐린의 역할로 맞는 것은 무엇일까요? → 위에서 분비되어 배고픔을 자극한다",
+  "statement_en": "Which statement about ghrelin is correct? → It is released from the stomach and stimulates hunger",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Wren AM et al. Endocrinology 2000 (SCOPE Core Learning Path 모듈 1 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 80
+ },
+ {
+  "id": "F-ob-082",
+  "set": "obesity",
+  "statement_ko": "생활습관 중재로 체중을 줄인 뒤의 전형적인 경과는 무엇일까요? → 감량은 6~12개월에 최대가 되고, 5년이면 대다수가 원래 체중으로 돌아간다",
+  "statement_en": "What is the typical course after lifestyle-induced weight loss? → Loss peaks at 6–12 months and by 5 years most people are back at their starting weight",
+  "concepts": [
+   "obesity",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "NHMRC Clinical Practice Guidelines for the Management of Overweight and Obesity 2013 (SCOPE Core Learning Path 모듈 1 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 81
+ },
+ {
+  "id": "F-ob-083",
+  "set": "obesity",
+  "statement_ko": "체중을 10% 줄인 뒤 에너지 소비는 어떻게 될까요? → 줄어든 체중으로 예상되는 것보다 더 낮아지고 오래 지속된다",
+  "statement_en": "What happens to energy expenditure after a 10% weight loss? → It falls below what the new body size predicts and the drop persists",
+  "concepts": [
+   "obesity",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Rosenbaum M, Leibel RL. Obesity 2016; Fothergill E et al. Obesity 2016 (SCOPE Core Learning Path 모듈 1 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 82
+ },
+ {
+  "id": "F-ob-084",
+  "set": "obesity",
+  "statement_ko": "체중 감량 1년 뒤 허기(배고픔)는 감량 전과 비교해 어떨까요? → 여전히 감량 전보다 높다",
+  "statement_en": "One year after weight loss, how does hunger compare with before? → It is still higher than before the loss",
+  "concepts": [
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Sumithran P et al. N Engl J Med 2011 (SCOPE Core Learning Path 모듈 1 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 83
+ },
+ {
+  "id": "F-ob-085",
+  "set": "obesity",
+  "statement_ko": "일란성 쌍둥이 12쌍에게 100일간 하루 약 1,000 kcal를 더 먹인 실험에서 무엇이 관찰됐을까요? → 체중 증가 폭이 쌍둥이 쌍 안에서 서로 비슷했다(유전의 영향)",
+  "statement_en": "What did the study overfeeding 12 pairs of identical twins by about 1,000 kcal/day for 100 days show? → Weight gain was similar within each twin pair, pointing to genetic influence",
+  "concepts": [
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "Bouchard C et al. N Engl J Med 1990 (SCOPE Core Learning Path 모듈 2 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid",
+  "question_index": 84
+ },
+ {
+  "id": "F-ob-086",
+  "set": "obesity",
+  "statement_ko": "덴마크 입양아 연구에서 성인 입양아의 체중은 누구와 관련이 있었을까요? → 생물학적 부모",
+  "statement_en": "In the Danish adoption study, whose weight did adult adoptees resemble? → Their biological parents",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Stunkard AJ et al. N Engl J Med 1986 (SCOPE Core Learning Path 모듈 2 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 85
+ },
+ {
+  "id": "F-ob-087",
+  "set": "obesity",
+  "statement_ko": "폐경기 체중 증가의 특징은 무엇일까요? → 내장지방이 늘어 복부(중심성)로 쌓인다",
+  "statement_en": "What characterises weight gain at menopause? → Visceral fat rises and gain is central (abdominal)",
+  "concepts": [
+   "abdominal-obesity",
+   "menopause"
+  ],
+  "concepts_manual": false,
+  "source": "Lovejoy JC et al. Int J Obes 2008 (SCOPE Core Learning Path 모듈 2 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 86
+ },
+ {
+  "id": "F-ob-088",
+  "set": "obesity",
+  "statement_ko": "체중 증가를 일으키는 의학적 원인이 아닌 것은 무엇일까요? → 갑상샘기능항진증",
+  "statement_en": "Which of these is NOT a medical cause of weight gain? → Hyperthyroidism",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Nieman LK et al. J Clin Endocrinol Metab 2008 (SCOPE Core Learning Path 모듈 2 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 87
+ },
+ {
+  "id": "F-ob-089",
+  "set": "obesity",
+  "statement_ko": "대사증후군의 5가지 구성요소에 들어가지 않는 것은 무엇일까요? → 높은 BMI",
+  "statement_en": "Which of these is NOT one of the five components of the metabolic syndrome? → High BMI",
+  "concepts": [
+   "bmi",
+   "metabolic-syndrome",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 88
+ },
+ {
+  "id": "F-ob-090",
+  "set": "obesity",
+  "statement_ko": "대사증후군은 5가지 위험인자 중 몇 개 이상이면 진단할까요? → 3개 이상",
+  "statement_en": "How many of the five risk factors are needed to diagnose the metabolic syndrome? → Three or more",
+  "concepts": [
+   "metabolic-syndrome",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 89
+ },
+ {
+  "id": "F-ob-091",
+  "set": "obesity",
+  "statement_ko": "다낭성난소증후군(PCOS) 여성 중 비만을 동반한 비율은 어느 정도일까요? → 약 50~80%",
+  "statement_en": "What share of women with PCOS have obesity? → About 50–80%",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Azziz R et al. J Clin Endocrinol Metab 2006 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 90
+ },
+ {
+  "id": "F-ob-092",
+  "set": "obesity",
+  "statement_ko": "PCOS와 대사 건강의 관계로 맞는 것은 무엇일까요? → 인슐린 저항성과 2형당뇨병 위험이 높아진다",
+  "statement_en": "Which statement about PCOS and metabolic health is correct? → It is linked to insulin resistance and a higher risk of type 2 diabetes",
+  "concepts": [
+   "t2dm",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Azziz R et al. J Clin Endocrinol Metab 2006 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 91
+ },
+ {
+  "id": "F-ob-093",
+  "set": "obesity",
+  "statement_ko": "폐쇄성 수면무호흡의 가장 강력한 예측인자는 무엇일까요? → 비만",
+  "statement_en": "What is the strongest predictor of obstructive sleep apnoea? → Obesity",
+  "concepts": [
+   "obesity",
+   "osa"
+  ],
+  "concepts_manual": false,
+  "source": "Epstein LJ et al. (AASM Task Force) J Clin Sleep Med 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 92
+ },
+ {
+  "id": "F-ob-094",
+  "set": "obesity",
+  "statement_ko": "수면무호흡 선별 도구 STOP-BANG에서 B는 무엇을 뜻할까요? → BMI 35 초과",
+  "statement_en": "In the STOP-BANG sleep-apnoea screen, what does the B stand for? → BMI over 35",
+  "concepts": [
+   "severe-obesity",
+   "bmi",
+   "osa",
+   "screening"
+  ],
+  "concepts_manual": false,
+  "source": "Chung F et al. Anesthesiology 2008 (STOP-BANG) (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid",
+  "question_index": 93
+ },
+ {
+  "id": "F-ob-095",
+  "set": "obesity",
+  "statement_ko": "\"BMI는 환자가 얼마나 큰지를 말할 뿐\"이라는 말의 뜻은 무엇일까요? → 얼마나 아픈지는 별도의 병기 평가(예: EOSS)가 필요하다",
+  "statement_en": "What does \"BMI tells you how big your patient is\" imply? → How sick they are needs a separate staging tool such as EOSS",
+  "concepts": [
+   "obesity",
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "Sharma AM, Kushner RF. Int J Obes 2009 (Edmonton Obesity Staging System) (SCOPE Core Learning Path 모듈 4 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 94
+ },
+ {
+  "id": "F-ob-096",
+  "set": "obesity",
+  "statement_ko": "비만 환자의 생존을 더 잘 예측하는 것은 무엇일까요? → 장기 손상 정도를 반영한 병기(EOSS)",
+  "statement_en": "Which predicts survival better in people with obesity? → A staging system that reflects organ damage (EOSS)",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Padwal RS et al. CMAJ 2011 (EOSS and mortality) (SCOPE Core Learning Path 모듈 4 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 95
+ },
+ {
+  "id": "F-ob-097",
+  "set": "obesity",
+  "statement_ko": "비만 평가의 \"4M\"에 해당하지 않는 것은 무엇일까요? → Mass(체중)",
+  "statement_en": "Which is NOT one of the \"4Ms\" of obesity assessment? → Mass",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Sharma AM. Obes Rev 2010 (the 4Ms) (SCOPE Core Learning Path 모듈 4 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid",
+  "question_index": 96
+ },
+ {
+  "id": "F-ob-098",
+  "set": "obesity",
+  "statement_ko": "진료에서 체중 이야기를 꺼내는 올바른 순서는 무엇일까요? → 환자가 온 이유(주 호소)를 먼저 다루고, 가능하면 그것과 연결해 체중을 꺼낸다",
+  "statement_en": "What is the right way to raise weight during a consultation? → Deal with the presenting problem first, then raise weight, linked to it where possible",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Vallis M et al. Can Fam Physician 2013 (5As of obesity management) (SCOPE Core Learning Path 모듈 4 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 97
+ },
+ {
+  "id": "F-ob-099",
+  "set": "obesity",
+  "statement_ko": "체지방 1kg은 대략 몇 kcal에 해당할까요? → 약 7,000 kcal",
+  "statement_en": "Roughly how many kilocalories does 1 kg of body fat represent? → About 7,000 kcal",
+  "concepts": [
+   "body-fat",
+   "weight-loss-target",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "Wishnofsky M. Am J Clin Nutr 1958 (SCOPE Core Learning Path 모듈 6 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 98
+ },
+ {
+  "id": "F-ob-100",
+  "set": "obesity",
+  "statement_ko": "811명을 2년간 지방·단백질·탄수화물 비율이 다른 4가지 식단으로 나눈 연구의 결론은 무엇일까요? → 열량을 줄이면 어떤 비율이든 감량 폭은 비슷하다",
+  "statement_en": "What did the 2-year trial of 811 adults on four diets with different fat, protein and carbohydrate shares conclude? → With calories reduced, weight loss was similar whatever the macronutrient mix",
+  "concepts": [
+   "weight-loss-target",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "Sacks FM et al. N Engl J Med 2009 (SCOPE Core Learning Path 모듈 6 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 99
+ },
+ {
+  "id": "F-ob-101",
+  "set": "obesity",
+  "statement_ko": "간헐적 열량 제한(예: 5:2)은 매일 제한하는 방식과 비교해 어땠을까요? → 감량 효과는 비슷하고, 생활에 맞으면 선택할 수 있다",
+  "statement_en": "How did intermittent calorie restriction (e.g. 5:2) compare with daily restriction? → Similar weight loss; a matter of what suits the person",
+  "concepts": [
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Harvie MN et al. Int J Obes 2011 (SCOPE Core Learning Path 모듈 6 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 100
+ },
+ {
+  "id": "F-ob-102",
+  "set": "obesity",
+  "statement_ko": "체중 관리에서 운동의 가장 큰 가치는 무엇일까요? → 감량 중 근육 손실을 막고 감량한 체중을 유지하는 것",
+  "statement_en": "What is the main value of exercise in weight management? → Limiting muscle loss during weight loss and keeping the weight off",
+  "concepts": [
+   "weight-loss-target",
+   "exercise",
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "Donnelly JE et al. (ACSM position stand) Med Sci Sports Exerc 2009 (SCOPE Core Learning Path 모듈 6 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 101
+ },
+ {
+  "id": "F-ob-103",
+  "set": "obesity",
+  "statement_ko": "비만 치료에서 가장 어려운 부분은 무엇이라고 할까요? → 뺀 체중을 오래 유지하는 것 — 비만은 평생 관리가 필요한 만성질환",
+  "statement_en": "What is described as the hardest part of obesity treatment? → Keeping weight off long term — obesity is a chronic condition needing lifelong care",
+  "concepts": [
+   "obesity",
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "NHMRC Clinical Practice Guidelines 2013 (SCOPE Core Learning Path 모듈 6 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 102
+ },
+ {
   "id": "F-ma-001",
   "set": "masld",
   "statement_ko": "2023년 새 명명법에서 NAFLD를 대체한 이름은 무엇일까요? → MASLD(대사이상 지방간질환)",
@@ -2016,6 +2384,63 @@
   "question_index": 50
  },
  {
+  "id": "F-ma-052",
+  "set": "masld",
+  "statement_ko": "지방간은 보통 어떻게 발견될까요? → 증상이 없어 다른 이유로 한 검사에서 우연히 발견된다",
+  "statement_en": "How is fatty liver usually discovered? → Incidentally, on tests done for another reason, because it causes no symptoms",
+  "concepts": [
+   "masld"
+  ],
+  "concepts_manual": false,
+  "source": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 51
+ },
+ {
+  "id": "F-ma-053",
+  "set": "masld",
+  "statement_ko": "지방간에서 가장 흔한 혈액검사 소견은 무엇일까요? → ALT가 AST보다 높다",
+  "statement_en": "What is the most common blood-test pattern in fatty liver? → ALT higher than AST",
+  "concepts": [
+   "masld"
+  ],
+  "concepts_manual": false,
+  "source": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid",
+  "question_index": 52
+ },
+ {
+  "id": "F-ma-054",
+  "set": "masld",
+  "statement_ko": "염증·섬유화가 없는 단순 지방간이 간경변까지 진행하는 데 평균 얼마나 걸릴까요? → 약 57년(매우 느림)",
+  "statement_en": "On average, how long does simple fatty liver without inflammation or fibrosis take to reach cirrhosis? → About 57 years (very slowly)",
+  "concepts": [
+   "masld",
+   "fibrosis"
+  ],
+  "concepts_manual": false,
+  "source": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid",
+  "question_index": 53
+ },
+ {
+  "id": "F-ma-055",
+  "set": "masld",
+  "statement_ko": "간 지방·염증·섬유화를 확정 진단하는 검사는 무엇일까요? → 간 조직검사",
+  "statement_en": "Which test gives the definitive diagnosis of liver fat, inflammation and fibrosis? → Liver biopsy",
+  "concepts": [
+   "fibrosis"
+  ],
+  "concepts_manual": false,
+  "source": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 54
+ },
+ {
   "id": "F-src-001",
   "set": "source",
   "statement_ko": "Despite large day-to-day variation in food intake and activity, adult body weight stays remarkably",
@@ -2026,7 +2451,18 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Pasquet, Apfelbaum (1994)",
+   "Hahn et al. (1998); Zhang et al. (1994); Wren et al. (2000); Moran et al. (1998); Tang-Christensen et al. (1996)",
+   "Batterham et al. (2002); Schwartz et al. (1997); Montague et al. (1997); Considine et al. (1996)",
+   "Figure adapted from Proietto (2011)",
+   "UK Government Office for Science (2007); Stunkard et al. (1990, 1986) [Foresight / Obesity System Map]",
+   "National Health and Medical Research Council (2013)",
+   "1. Rosenbaum, Liebel (2016) 2. Rosenbaum et al. (2003) 3. Fothergill et al. (2016) [energy expenditure]",
+   "1. Wadden (1998) 2. Chearskul (2008) 3. Sumithran (2011) 4. Cummings (2002) 5. Weinsier (2000) 6. Adam (2006) [appetite hormones]",
+   "1. Sumithran (2011) 2. Rosenbaum (2005) 3. Purcell (2014) 4. Rosenbaum (2016) [hunger ratings]"
+  ]
  },
  {
   "id": "F-src-002",
@@ -2039,7 +2475,18 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Pasquet, Apfelbaum (1994)",
+   "Hahn et al. (1998); Zhang et al. (1994); Wren et al. (2000); Moran et al. (1998); Tang-Christensen et al. (1996)",
+   "Batterham et al. (2002); Schwartz et al. (1997); Montague et al. (1997); Considine et al. (1996)",
+   "Figure adapted from Proietto (2011)",
+   "UK Government Office for Science (2007); Stunkard et al. (1990, 1986) [Foresight / Obesity System Map]",
+   "National Health and Medical Research Council (2013)",
+   "1. Rosenbaum, Liebel (2016) 2. Rosenbaum et al. (2003) 3. Fothergill et al. (2016) [energy expenditure]",
+   "1. Wadden (1998) 2. Chearskul (2008) 3. Sumithran (2011) 4. Cummings (2002) 5. Weinsier (2000) 6. Adam (2006) [appetite hormones]",
+   "1. Sumithran (2011) 2. Rosenbaum (2005) 3. Purcell (2014) 4. Rosenbaum (2016) [hunger ratings]"
+  ]
  },
  {
   "id": "F-src-003",
@@ -2052,7 +2499,18 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Pasquet, Apfelbaum (1994)",
+   "Hahn et al. (1998); Zhang et al. (1994); Wren et al. (2000); Moran et al. (1998); Tang-Christensen et al. (1996)",
+   "Batterham et al. (2002); Schwartz et al. (1997); Montague et al. (1997); Considine et al. (1996)",
+   "Figure adapted from Proietto (2011)",
+   "UK Government Office for Science (2007); Stunkard et al. (1990, 1986) [Foresight / Obesity System Map]",
+   "National Health and Medical Research Council (2013)",
+   "1. Rosenbaum, Liebel (2016) 2. Rosenbaum et al. (2003) 3. Fothergill et al. (2016) [energy expenditure]",
+   "1. Wadden (1998) 2. Chearskul (2008) 3. Sumithran (2011) 4. Cummings (2002) 5. Weinsier (2000) 6. Adam (2006) [appetite hormones]",
+   "1. Sumithran (2011) 2. Rosenbaum (2005) 3. Purcell (2014) 4. Rosenbaum (2016) [hunger ratings]"
+  ]
  },
  {
   "id": "F-src-004",
@@ -2065,7 +2523,18 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Pasquet, Apfelbaum (1994)",
+   "Hahn et al. (1998); Zhang et al. (1994); Wren et al. (2000); Moran et al. (1998); Tang-Christensen et al. (1996)",
+   "Batterham et al. (2002); Schwartz et al. (1997); Montague et al. (1997); Considine et al. (1996)",
+   "Figure adapted from Proietto (2011)",
+   "UK Government Office for Science (2007); Stunkard et al. (1990, 1986) [Foresight / Obesity System Map]",
+   "National Health and Medical Research Council (2013)",
+   "1. Rosenbaum, Liebel (2016) 2. Rosenbaum et al. (2003) 3. Fothergill et al. (2016) [energy expenditure]",
+   "1. Wadden (1998) 2. Chearskul (2008) 3. Sumithran (2011) 4. Cummings (2002) 5. Weinsier (2000) 6. Adam (2006) [appetite hormones]",
+   "1. Sumithran (2011) 2. Rosenbaum (2005) 3. Purcell (2014) 4. Rosenbaum (2016) [hunger ratings]"
+  ]
  },
  {
   "id": "F-src-005",
@@ -2078,7 +2547,18 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Pasquet, Apfelbaum (1994)",
+   "Hahn et al. (1998); Zhang et al. (1994); Wren et al. (2000); Moran et al. (1998); Tang-Christensen et al. (1996)",
+   "Batterham et al. (2002); Schwartz et al. (1997); Montague et al. (1997); Considine et al. (1996)",
+   "Figure adapted from Proietto (2011)",
+   "UK Government Office for Science (2007); Stunkard et al. (1990, 1986) [Foresight / Obesity System Map]",
+   "National Health and Medical Research Council (2013)",
+   "1. Rosenbaum, Liebel (2016) 2. Rosenbaum et al. (2003) 3. Fothergill et al. (2016) [energy expenditure]",
+   "1. Wadden (1998) 2. Chearskul (2008) 3. Sumithran (2011) 4. Cummings (2002) 5. Weinsier (2000) 6. Adam (2006) [appetite hormones]",
+   "1. Sumithran (2011) 2. Rosenbaum (2005) 3. Purcell (2014) 4. Rosenbaum (2016) [hunger ratings]"
+  ]
  },
  {
   "id": "F-src-006",
@@ -2091,7 +2571,18 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Pasquet, Apfelbaum (1994)",
+   "Hahn et al. (1998); Zhang et al. (1994); Wren et al. (2000); Moran et al. (1998); Tang-Christensen et al. (1996)",
+   "Batterham et al. (2002); Schwartz et al. (1997); Montague et al. (1997); Considine et al. (1996)",
+   "Figure adapted from Proietto (2011)",
+   "UK Government Office for Science (2007); Stunkard et al. (1990, 1986) [Foresight / Obesity System Map]",
+   "National Health and Medical Research Council (2013)",
+   "1. Rosenbaum, Liebel (2016) 2. Rosenbaum et al. (2003) 3. Fothergill et al. (2016) [energy expenditure]",
+   "1. Wadden (1998) 2. Chearskul (2008) 3. Sumithran (2011) 4. Cummings (2002) 5. Weinsier (2000) 6. Adam (2006) [appetite hormones]",
+   "1. Sumithran (2011) 2. Rosenbaum (2005) 3. Purcell (2014) 4. Rosenbaum (2016) [hunger ratings]"
+  ]
  },
  {
   "id": "F-src-007",
@@ -2104,7 +2595,18 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Pasquet, Apfelbaum (1994)",
+   "Hahn et al. (1998); Zhang et al. (1994); Wren et al. (2000); Moran et al. (1998); Tang-Christensen et al. (1996)",
+   "Batterham et al. (2002); Schwartz et al. (1997); Montague et al. (1997); Considine et al. (1996)",
+   "Figure adapted from Proietto (2011)",
+   "UK Government Office for Science (2007); Stunkard et al. (1990, 1986) [Foresight / Obesity System Map]",
+   "National Health and Medical Research Council (2013)",
+   "1. Rosenbaum, Liebel (2016) 2. Rosenbaum et al. (2003) 3. Fothergill et al. (2016) [energy expenditure]",
+   "1. Wadden (1998) 2. Chearskul (2008) 3. Sumithran (2011) 4. Cummings (2002) 5. Weinsier (2000) 6. Adam (2006) [appetite hormones]",
+   "1. Sumithran (2011) 2. Rosenbaum (2005) 3. Purcell (2014) 4. Rosenbaum (2016) [hunger ratings]"
+  ]
  },
  {
   "id": "F-src-008",
@@ -2117,7 +2619,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-009",
@@ -2130,7 +2646,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-010",
@@ -2143,7 +2673,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-011",
@@ -2156,7 +2700,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-012",
@@ -2169,7 +2727,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-013",
@@ -2182,7 +2754,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-014",
@@ -2195,7 +2781,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-015",
@@ -2208,7 +2808,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-016",
@@ -2221,7 +2835,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-017",
@@ -2234,7 +2862,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-018",
@@ -2247,7 +2889,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-019",
@@ -2260,7 +2916,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-020",
@@ -2273,7 +2943,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-021",
@@ -2286,7 +2970,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Stunkard et al. (1990) [BMI intrapair correlations in twins]",
+   "Bouchard et al (1990) [100 days of overfeeding in 12 pairs of identical twins]",
+   "Stunkard et al. (1986) [An adoption study of human obesity]",
+   "Cameron et al. (2003) [Prevalence of obesity (BMI > 30 kg/m2) in Australia]",
+   "Rodenhiser, Mann (2006) [epigenetics]",
+   "Butler et al. (2001) [set point for weight]",
+   "Gluckman, P.D., Hanson, M.A. (2008). Developmental and epigenetic pathways to obesity: an evolutionary-developmental perspective. International Journal of Obesity, (32), S62-S71.",
+   "Mutch, D.M., Clement K. (2006). Unraveling the Genetics of Human Obesity. PLoS Genet 2, (12), e188.",
+   "Plagemann, A. et al. (2009). Hypothalamic proopiomelanocortin promoter methylation becomes altered by early overfeeding: an epigenetic model of obesity and the metabolic syndrome. Journal of Physiology, 587, pp. 4963-76.",
+   "Seki, Y. et al. (2012). Minireview: Epigenetic Programming of Diabetes and Obesity: Animal Models. Endocrinology, 153, pp. 1031-38.",
+   "Slomko, H. et al. (2012). Minireview: Epigenetics of Obesity and Diabetes in Humans. Endocrinology, 153, pp.1025-1030.",
+   "Godfrey, K.M. et al. (2011). Epigenetic Gene Promoter Methylation at Birth Is Associated With Child's Later Adiposity. Diabetes, 60, pp.1528-1534."
+  ]
  },
  {
   "id": "F-src-022",
@@ -2299,7 +2997,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-023",
@@ -2312,7 +3024,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-024",
@@ -2325,7 +3051,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-025",
@@ -2339,7 +3079,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-026",
@@ -2352,7 +3106,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-027",
@@ -2365,7 +3133,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-028",
@@ -2378,7 +3160,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-029",
@@ -2391,7 +3187,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-030",
@@ -2404,7 +3214,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-031",
@@ -2417,7 +3241,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-032",
@@ -2431,7 +3269,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-033",
@@ -2444,7 +3296,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-034",
@@ -2458,7 +3324,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-035",
@@ -2471,7 +3351,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-036",
@@ -2484,7 +3378,21 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Alberti et al. (2009) [metabolic syndrome harmonised criteria]",
+   "American Diabetes Association (2017) [cut-off thresholds for diabetes and prediabetes]",
+   "Azziz et al. (2006) [PCOS features and prevalence]",
+   "Dunaif et al. (1992) [1990 NIH PCOS criteria]",
+   "Human Reproduction (2004) [2003 Rotterdam PCOS criteria]",
+   "Azziz et al. (2009) [Androgen Excess and PCOS Society criteria]",
+   "Nieman et al. (2008) [Cushing's syndrome features and testing algorithm]",
+   "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine: Guidelines (2009)",
+   "Glen et al. (2016) [NAFLD spectrum and progression]",
+   "EASL-EASD-EASO Clinical Practice Guidelines (2016) [NAFLD biochemistry and fibrosis scores]",
+   "Shen, Lu (2016) [non-invasive imaging in NAFLD]",
+   "Morales et al. (2015) [testosterone deficiency]"
+  ]
  },
  {
   "id": "F-src-037",
@@ -2772,7 +3680,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-059",
@@ -2785,7 +3700,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-060",
@@ -2798,7 +3720,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-061",
@@ -2811,7 +3740,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-062",
@@ -2824,7 +3760,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-063",
@@ -2838,7 +3781,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-064",
@@ -2851,7 +3801,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-065",
@@ -2864,7 +3821,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-066",
@@ -2877,7 +3841,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-067",
@@ -2890,7 +3861,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-068",
@@ -2903,7 +3881,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-069",
@@ -2916,7 +3901,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-070",
@@ -2931,7 +3923,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-071",
@@ -2944,7 +3943,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-072",
@@ -2957,7 +3963,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-073",
@@ -2970,7 +3983,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-074",
@@ -2983,7 +4003,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-075",
@@ -2996,7 +4023,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-076",
@@ -3009,7 +4043,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-077",
@@ -3022,7 +4063,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-078",
@@ -3035,7 +4083,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-079",
@@ -3048,7 +4103,14 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Franz et al. [meta-analysis and systematic review of weight-loss trials with >=1 year follow-up]",
+   "Purcell et al. [randomised study of rapid vs gradual weight loss; 15% loss in 78%]",
+   "Sacks et al. [811 overweight adults, four macronutrient diets, 2 years]",
+   "Harvie et al. [intermittent vs continuous energy restriction]",
+   "Harris-Benedict equations [energy expenditure]"
+  ]
  },
  {
   "id": "F-src-080",
@@ -3062,7 +4124,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-081",
@@ -3075,7 +4146,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-082",
@@ -3088,7 +4168,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-083",
@@ -3102,7 +4191,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-084",
@@ -3115,7 +4213,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-085",
@@ -3128,7 +4235,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-086",
@@ -3141,7 +4257,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-087",
@@ -3154,7 +4279,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-088",
@@ -3167,7 +4301,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-089",
@@ -3181,7 +4324,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-090",
@@ -3194,7 +4346,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-091",
@@ -3207,7 +4368,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-092",
@@ -3220,7 +4390,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-093",
@@ -3233,7 +4412,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-094",
@@ -3246,7 +4434,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-095",
@@ -3259,7 +4456,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-096",
@@ -3272,7 +4478,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-097",
@@ -3285,7 +4500,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-098",
@@ -3298,7 +4522,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-099",
@@ -3311,7 +4544,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-100",
@@ -3324,7 +4566,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-101",
@@ -3339,7 +4590,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-102",
@@ -3352,7 +4612,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-103",
@@ -3366,7 +4635,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-104",
@@ -3381,7 +4659,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-105",
@@ -3395,7 +4682,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-106",
@@ -3408,7 +4704,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-107",
@@ -3423,7 +4728,16 @@
   "concepts_manual": false,
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Cochrane Review (2009), Interventions for treating obesity in children [subsequently split into six reviews]",
+   "Epstein, L. [family-based behavioural intervention, 7-12 year olds, five-year follow-up; and 8-12 year olds, physical activity vs sedentary behaviour targets]",
+   "Golan, M. et al. [Israel; \"parents as the agents of change\", one- and seven-year follow-up]",
+   "Wilfley, D. et al. [behavioural skills maintenance vs social facilitation maintenance]",
+   "O'Brien, P. et al., Journal of the American Medical Association (2010) [RCT of laparoscopic adjustable gastric banding vs lifestyle intervention in 50 adolescents — named in the narration only as \"published in JAMA in 2010\"]",
+   "Teen-LABS (Teen Longitudinal Assessment of Bariatric Surgery) [>240 adolescents, five US centres, three-year outcomes]",
+   "Cochrane Review (2016), Drug interventions for the treatment of obesity in children and adolescents"
+  ]
  },
  {
   "id": "F-src-108",
@@ -3436,7 +4750,13 @@
   "concepts_manual": false,
   "source": "SCOPE › Course: Lipids, the Metabolic Syndrome and Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Audio transcript: \"Lipids the Metabolic Syndrome and Obesity transcript.pdf\"",
+   "Charts and diagrams: \"Lipids the Metabolic Syndrome and Obesity charts.pdf\"",
+   "Bibliography: \"Lipids the Metabolic Syndrome and Obesity references.pdf\" (references and further reading — PDF not opened; full citation list not extracted individually)",
+   "Bio: Professor Anthony Wierzbicki (author), \"Anthony Wierzbicki.pdf\""
+  ]
  },
  {
   "id": "F-src-109",
@@ -3451,7 +4771,13 @@
   "concepts_manual": false,
   "source": "SCOPE › Course: Lipids, the Metabolic Syndrome and Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Audio transcript: \"Lipids the Metabolic Syndrome and Obesity transcript.pdf\"",
+   "Charts and diagrams: \"Lipids the Metabolic Syndrome and Obesity charts.pdf\"",
+   "Bibliography: \"Lipids the Metabolic Syndrome and Obesity references.pdf\" (references and further reading — PDF not opened; full citation list not extracted individually)",
+   "Bio: Professor Anthony Wierzbicki (author), \"Anthony Wierzbicki.pdf\""
+  ]
  },
  {
   "id": "F-src-110",
@@ -3466,7 +4792,13 @@
   "concepts_manual": false,
   "source": "SCOPE › Course: Lipids, the Metabolic Syndrome and Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Audio transcript: \"Lipids the Metabolic Syndrome and Obesity transcript.pdf\"",
+   "Charts and diagrams: \"Lipids the Metabolic Syndrome and Obesity charts.pdf\"",
+   "Bibliography: \"Lipids the Metabolic Syndrome and Obesity references.pdf\" (references and further reading — PDF not opened; full citation list not extracted individually)",
+   "Bio: Professor Anthony Wierzbicki (author), \"Anthony Wierzbicki.pdf\""
+  ]
  },
  {
   "id": "F-src-111",
@@ -3482,7 +4814,13 @@
   "concepts_manual": false,
   "source": "SCOPE › Course: Lipids, the Metabolic Syndrome and Obesity",
   "source_family": "SCOPE e-learning",
-  "diff": "mid"
+  "diff": "mid",
+  "refs": [
+   "Audio transcript: \"Lipids the Metabolic Syndrome and Obesity transcript.pdf\"",
+   "Charts and diagrams: \"Lipids the Metabolic Syndrome and Obesity charts.pdf\"",
+   "Bibliography: \"Lipids the Metabolic Syndrome and Obesity references.pdf\" (references and further reading — PDF not opened; full citation list not extracted individually)",
+   "Bio: Professor Anthony Wierzbicki (author), \"Anthony Wierzbicki.pdf\""
+  ]
  },
  {
   "id": "F-src-112",
