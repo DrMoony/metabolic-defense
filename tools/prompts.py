@@ -93,6 +93,13 @@ ASSETS = [
      f"visible darker nucleus, and small budding lobes ready to split off, {BOSS_FACE}. Imposing boss scale, clearly a boss enemy."),
     ("plaque", "보스", f"A hulking atherosclerotic plaque monster, dark crimson fibrous mass studded with sharp white "
      f"cholesterol crystal shards, {BOSS_FACE}. Imposing boss scale, built like a battering ram."),
+    ("pizzabox", "몬스터", f"A walking cardboard pizza delivery box standing upright, holding its own open greasy lid in front of it like a big shield, cheese drips at the corners, {FACE} peeking over the top of the shield lid."),
+    ("bubbletea", "몬스터", f"A tall plastic bubble tea cup with creamy milk tea, a fat purple straw, dark tapioca pearls bubbling and jumping inside, {FACE} on the cup."),
+    ("pearl", "몬스터", f"A single small round glossy dark-brown tapioca pearl creature with tiny stubby feet, chewy and bouncy, {FACE} filling most of its body."),
+    ("energycan", "몬스터", f"A slim tall energy drink can crackling with small lightning bolts, its pull-tab bent up like a mohawk, {FACE} on the can."),
+    ("mayo", "몬스터", f"A squeezed plastic mayonnaise tube with the cap flipped open, creamy mayonnaise oozing from the nozzle and dripping, {FACE} on the tube."),
+    ("popcorn", "몬스터", f"A red-and-white striped popcorn bucket overflowing with popcorn, kernels popping out mid-air, {FACE} on the bucket."),
+    ("cake", "몬스터", f"A thick slice of layered strawberry cream cake with a cherry on top, whipped cream squishing out between the layers, {FACE} on the front cream layer."),
     ("cancerlet", "몬스터", f"A small magenta cancer-cell fragment blob, a miniature version of a cancer cell with a lumpy membrane, {FACE}."),
 
     # ---- 장기(가디언/포탑) 2종 ----
