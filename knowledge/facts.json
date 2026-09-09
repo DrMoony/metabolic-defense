@@ -3424,5 +3424,341 @@
   "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
   "source_family": "SCOPE e-learning",
   "diff": "mid"
+ },
+ {
+  "id": "F-src-108",
+  "set": "source",
+  "statement_ko": "The strongest lipid relationship is with triglycerides and HDL-C.",
+  "statement_en": "The strongest lipid relationship is with triglycerides and HDL-C.",
+  "concepts": [
+   "dyslipidemia"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Lipids, the Metabolic Syndrome and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-109",
+  "set": "source",
+  "statement_ko": "A weaker, secondary relationship exists for total cholesterol, LDL-C and apoB, likely mediated via non-alcoholic fatty liver.",
+  "statement_en": "A weaker, secondary relationship exists for total cholesterol, LDL-C and apoB, likely mediated via non-alcoholic fatty liver.",
+  "concepts": [
+   "masld",
+   "dyslipidemia",
+   "alcohol"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Lipids, the Metabolic Syndrome and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-110",
+  "set": "source",
+  "statement_ko": "Exercise and weight loss are effective ways to improve the metabolic syndrome.",
+  "statement_en": "Exercise and weight loss are effective ways to improve the metabolic syndrome.",
+  "concepts": [
+   "metabolic-syndrome",
+   "weight-loss-target",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Lipids, the Metabolic Syndrome and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-111",
+  "set": "source",
+  "statement_ko": "Bariatric surgery is an option for: severe morbid obesity (BMI > 50 kg/m²), or cardiometabolic disease (incl. type 2 diabetes) with BMI > 35 kg/m².",
+  "statement_en": "Bariatric surgery is an option for: severe morbid obesity (BMI > 50 kg/m²), or cardiometabolic disease (incl. type 2 diabetes) with BMI > 35 kg/m².",
+  "concepts": [
+   "bmi",
+   "t2dm",
+   "weight-loss-target",
+   "bariatric"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Lipids, the Metabolic Syndrome and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-112",
+  "set": "source",
+  "statement_ko": "Obesity is complex, arising from the interaction of social factors, environment, and genetic factors.",
+  "statement_en": "Obesity is complex, arising from the interaction of social factors, environment, and genetic factors.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Genetics and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-113",
+  "set": "source",
+  "statement_ko": "Severe obesity is strongly driven by genetic factors; genes regulate weight across the whole spectrum — thinness is also heritable.",
+  "statement_en": "Severe obesity is strongly driven by genetic factors; genes regulate weight across the whole spectrum — thinness is also heritable.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Genetics and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-114",
+  "set": "source",
+  "statement_ko": "The main driver of obesity is a failure of the central (brain) control of appetite, which is both an innate and a learned behaviour.",
+  "statement_en": "The main driver of obesity is a failure of the central (brain) control of appetite, which is both an innate and a learned behaviour.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Genetics and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-115",
+  "set": "source",
+  "statement_ko": "The number and prevalence of diagnosed genetic obesity syndromes is expected to rise as genetic testing becomes more accessible.",
+  "statement_en": "The number and prevalence of diagnosed genetic obesity syndromes is expected to rise as genetic testing becomes more accessible.",
+  "concepts": [
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Genetics and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-116",
+  "set": "source",
+  "statement_ko": "Specialist clinical services for people with genetic obesity syndromes are needed, particularly as new therapies emerge.",
+  "statement_en": "Specialist clinical services for people with genetic obesity syndromes are needed, particularly as new therapies emerge.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Genetics and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-117",
+  "set": "source",
+  "statement_ko": "A significant proportion of the heritability of BMI is still unexplained.",
+  "statement_en": "A significant proportion of the heritability of BMI is still unexplained.",
+  "concepts": [
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Genetics and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-118",
+  "set": "source",
+  "statement_ko": "Additional genes — both common and rare variants — that contribute to obesity are likely still to be identified.",
+  "statement_en": "Additional genes — both common and rare variants — that contribute to obesity are likely still to be identified.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Genetics and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-119",
+  "set": "source",
+  "statement_ko": "Beyond direct clinical benefit, genetic discoveries also provide insight into disease mechanisms and help identify/validate new targets for weight-loss therapy.",
+  "statement_en": "Beyond direct clinical benefit, genetic discoveries also provide insight into disease mechanisms and help identify/validate new targets for weight-loss therapy.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Genetics and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-120",
+  "set": "source",
+  "statement_ko": "Lifestyle modification remains the cornerstone of MASLD/MASH management.",
+  "statement_en": "Lifestyle modification remains the cornerstone of MASLD/MASH management.",
+  "concepts": [
+   "masld",
+   "mash"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: NAFLD/NASH and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-121",
+  "set": "source",
+  "statement_ko": "Non-invasive tests should be used both to identify patients for treatment and to monitor their response to treatment.",
+  "statement_en": "Non-invasive tests should be used both to identify patients for treatment and to monitor their response to treatment.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: NAFLD/NASH and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-122",
+  "set": "source",
+  "statement_ko": "Metabolic and bariatric surgery should be considered for patients living with severe obesity.",
+  "statement_en": "Metabolic and bariatric surgery should be considered for patients living with severe obesity.",
+  "concepts": [
+   "bariatric"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: NAFLD/NASH and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-123",
+  "set": "source",
+  "statement_ko": "Alcohol use is often under-reported and should be carefully and routinely assessed in these patients.",
+  "statement_en": "Alcohol use is often under-reported and should be carefully and routinely assessed in these patients.",
+  "concepts": [
+   "alcohol"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: NAFLD/NASH and Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-124",
+  "set": "source",
+  "statement_ko": "Increased fat mass promotes kidney disease through both direct and indirect mechanisms.",
+  "statement_en": "Increased fat mass promotes kidney disease through both direct and indirect mechanisms.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Obesity and Chronic Kidney Disease",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-125",
+  "set": "source",
+  "statement_ko": "Major direct mechanisms: hypertension, diabetes and atherosclerosis.",
+  "statement_en": "Major direct mechanisms: hypertension, diabetes and atherosclerosis.",
+  "concepts": [
+   "t2dm",
+   "hypertension"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Obesity and Chronic Kidney Disease",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-126",
+  "set": "source",
+  "statement_ko": "Major indirect mechanisms: vasculotoxicity via aldosterone, renin–angiotensin–aldosterone system (RAAS) and sympathetic nervous system (SNS) activation, oxidative stress, inflammation, lower adiponectin and higher leptin.",
+  "statement_en": "Major indirect mechanisms: vasculotoxicity via aldosterone, renin–angiotensin–aldosterone system (RAAS) and sympathetic nervous system (SNS) activation, oxidative stress, inflammation, lower adiponectin and higher leptin.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Obesity and Chronic Kidney Disease",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-127",
+  "set": "source",
+  "statement_ko": "Increased central fat mass is associated with glomerular capillary hypertension, albuminuria and glomerulosclerosis.",
+  "statement_en": "Increased central fat mass is associated with glomerular capillary hypertension, albuminuria and glomerulosclerosis.",
+  "concepts": [
+   "hypertension"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Obesity and Chronic Kidney Disease",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-128",
+  "set": "source",
+  "statement_ko": "Lifestyle arm: keep weight loss within 3–5% of goal, keep a balanced calorie intake, continue increased physical activity, salt restriction.",
+  "statement_en": "Lifestyle arm: keep weight loss within 3–5% of goal, keep a balanced calorie intake, continue increased physical activity, salt restriction.",
+  "concepts": [
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Obesity and Chronic Kidney Disease",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-129",
+  "set": "source",
+  "statement_ko": "Adjunct therapies: ACE inhibitors/ARBs, heart-friendly diets, resistance exercise as tolerated, salt restriction.",
+  "statement_en": "Adjunct therapies: ACE inhibitors/ARBs, heart-friendly diets, resistance exercise as tolerated, salt restriction.",
+  "concepts": [
+   "diet",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Obesity and Chronic Kidney Disease",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-130",
+  "set": "source",
+  "statement_ko": "Evaluate for obstructive sleep apnoea.",
+  "statement_en": "Evaluate for obstructive sleep apnoea.",
+  "concepts": [
+   "osa"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Obesity and Chronic Kidney Disease",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-131",
+  "set": "source",
+  "statement_ko": "Control blood pressure with RAAS inhibition and mineralocorticoid receptor antagonists.",
+  "statement_en": "Control blood pressure with RAAS inhibition and mineralocorticoid receptor antagonists.",
+  "concepts": [
+   "hypertension"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Obesity and Chronic Kidney Disease",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-132",
+  "set": "source",
+  "statement_ko": "Treat type 2 diabetes and dyslipidaemia.",
+  "statement_en": "Treat type 2 diabetes and dyslipidaemia.",
+  "concepts": [
+   "t2dm",
+   "dyslipidemia"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE › Course: Obesity and Chronic Kidney Disease",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
  }
 ]
