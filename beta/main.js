@@ -70,7 +70,7 @@ const QUIZ_POOL = [];
 const QUIZ_SETS = { masld: [], obesity: [] };
 const SET_FILES = { masld: 'quiz_aasld', obesity: 'quiz_obesity' };
 function readMix() {
-  const v = parseInt(localStorage.getItem('xgb_quizmix') ?? '70', 10);
+  const v = parseInt(localStorage.getItem('xgb_quizmix') ?? '30', 10);
   return Number.isFinite(v) ? Math.max(0, Math.min(100, v)) : 70;   // MASLD 비중(%)
 }
 // 특정 약물(분자명·브랜드·약물시험) 문항은 기본 숨김 — 어드민에서만 켠다
