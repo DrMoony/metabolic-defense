@@ -1337,5 +1337,798 @@
   "diff": "easy",
   "src": "NHMRC Clinical Practice Guidelines 2013 (SCOPE Core Learning Path 모듈 6 인용)",
   "exp": "어떻게 빼느냐보다 오래 유지하기가 어려워서 비만은 평생 관리가 필요한 만성질환으로 봐요."
+ },
+ {
+  "q": "성인에서 BMI가 가장 낮게 나타나는 하루 수면 시간대는 어디일까요?",
+  "a": [
+   "약 7~8시간",
+   "약 4~5시간",
+   "약 5~6시간",
+   "약 10~11시간"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Taheri S et al. PLoS Medicine 2004 (SCOPE Core Learning Path 모듈 2 인용)",
+  "exp": "수면과 BMI는 U자 관계라서 7~8시간에서 가장 낮고, 더 짧아도 더 길어도 BMI가 올라가요."
+ },
+ {
+  "q": "다음 중 비만을 일으킬 수 있는 질환으로 묶인 것은 무엇일까요?",
+  "a": [
+   "쿠싱병·시상하부 손상·프래더-윌리 증후군",
+   "낭포성 섬유증·혈우병·철결핍빈혈",
+   "기관지천식·아토피피부염·건선",
+   "급성 충수염·담석증·요로결석"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Core Learning Path 모듈 2 (Causes of Obesity) 인용",
+  "exp": "쿠싱병, 두개인두종이나 외상 같은 시상하부 질환, 프래더-윌리 증후군은 체중 증가를 부르는 대표적인 질환이에요."
+ },
+ {
+  "q": "최근 수십 년의 비만 급증을 유전자 돌연변이만으로 설명할 수 없을 때 제시되는 기전은 무엇일까요?",
+  "a": [
+   "후성유전 — 환경 요인이 유전자를 켜고 끄는 변화",
+   "염색체 수 이상",
+   "체세포 돌연변이 누적",
+   "유전자 재조합 빈도 증가"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rodenhiser D, Mann M. Canadian Medical Association Journal 2006 (SCOPE Core Learning Path 모듈 2 인용)",
+  "exp": "후성유전은 프로모터 메틸화나 히스톤 변형으로 유전자 발현을 바꿔서, 유전자 서열이 그대로여도 수십 년 만에 표현형이 달라질 수 있어요."
+ },
+ {
+  "q": "임신 첫 3개월에 산모의 영양결핍을 겪은 태아가 성인이 됐을 때 나타난 결과는 무엇일까요?",
+  "a": [
+   "더 배고프고 연료를 아끼는 쪽으로 설정돼 비만이 늘었어요",
+   "성인기 저체중이 늘었어요",
+   "체중에 아무 영향이 없었어요",
+   "성인기 갑상선기능항진증이 늘었어요"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Ravelli GP, Stein ZA, Susser MW. New England Journal of Medicine 1976 (SCOPE Core Learning Path 모듈 2 인용)",
+  "exp": "1976년부터 알려진 결과로, 임신 초기 영양결핍 신호가 뇌를 더 배고프고 연료를 아끼는 쪽으로 설정해요."
+ },
+ {
+  "q": "소아·청소년에서 비만 범위로 판정하는 연령별 BMI 백분위수 기준은 무엇일까요?",
+  "a": [
+   "95백분위수 초과",
+   "50백분위수 초과",
+   "75백분위수 초과",
+   "99.9백분위수 초과"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Barlow SE and the Expert Committee. Pediatrics 2007 (SCOPE Core Learning Path 모듈 8 인용)",
+  "exp": "아이는 성인 BMI 기준값을 쓸 수 없어서 연령별 성장도표에 그려야 하고, 95백분위수를 넘으면 비만 범위예요."
+ },
+ {
+  "q": "아직 키가 자라는 아이에서 체중을 그대로 유지했을 때 BMI는 어떻게 될까요?",
+  "a": [
+   "키가 자라면서 BMI가 떨어져요",
+   "BMI가 그대로 유지돼요",
+   "BMI가 오히려 올라가요",
+   "BMI를 계산할 수 없어요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Barlow SE and the Expert Committee. Pediatrics 2007 (SCOPE Core Learning Path 모듈 8 인용)",
+  "exp": "사례의 여아는 6개월간 체중이 33 kg 그대로였는데 키가 3 cm 자라면서 BMI가 떨어졌고, 덜 심한 비만에서는 체중 유지가 목표가 될 수 있어요."
+ },
+ {
+  "q": "목 뒤 접히는 부위의 피부가 두꺼워지고 검게 변하는 흑색가시세포증이 시사하는 상태는 무엇일까요?",
+  "a": [
+   "인슐린 저항성",
+   "철결핍",
+   "비타민 D 결핍",
+   "갑상선기능저하증"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Baur LA, Hazelton B, Shrewsbury VA. Nature Reviews Gastroenterology & Hepatology 2011 (SCOPE Core Learning Path 모듈 8 인용)",
+  "exp": "흑색가시세포증은 특히 아동·청소년에서 인슐린 저항성의 특징이고, 치료가 잘 되면 옅어질 수 있어요."
+ },
+ {
+  "q": "당뇨병전단계(공복혈당장애 또는 내당능장애)에 해당하는 당화혈색소 범위는 무엇일까요?",
+  "a": [
+   "5.7~6.4%",
+   "4.0~4.6%",
+   "6.5~7.4%",
+   "7.5~8.4%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association. Diabetes Care 2017 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "5.7% 미만은 정상, 5.7~6.4%는 당뇨병전단계, 6.5% 이상은 2형당뇨병에 해당해요."
+ },
+ {
+  "q": "혈당 이상을 찾는 검사 중 금식이 필요 없어 편리한 것은 무엇일까요?",
+  "a": [
+   "당화혈색소",
+   "공복혈장혈당",
+   "경구당부하검사",
+   "공복 인슐린"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association. Diabetes Care 2017 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "당화혈색소는 금식 없이 잴 수 있어 편리하고, 공복혈당이 정상 범위여도 진단에 추가 정보를 줘요."
+ },
+ {
+  "q": "대사증후군에서 중성지방 상승으로 보는 기준값은 무엇일까요?",
+  "a": [
+   "1.7 mmol/L(150 mg/dl) 이상",
+   "1.0 mmol/L(89 mg/dl) 이상",
+   "2.5 mmol/L(220 mg/dl) 이상",
+   "3.4 mmol/L(300 mg/dl) 이상"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "통합 기준에서 중성지방은 1.7 mmol/L(150 mg/dl) 이상이거나 이에 대한 약물치료를 받는 경우를 상승으로 봐요."
+ },
+ {
+  "q": "대사증후군에서 HDL 콜레스테롤 저하로 보는 기준값은 무엇일까요?",
+  "a": [
+   "남성 1.0 mmol/L(40 mg/dl) 미만, 여성 1.3 mmol/L(50 mg/dl) 미만",
+   "남녀 모두 1.0 mmol/L 미만",
+   "남성 1.3, 여성 1.0 mmol/L 미만",
+   "남녀 모두 1.6 mmol/L 미만"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "HDL 기준은 성별에 따라 달라서 남성이 더 낮은 값을 쓰고, 저하에 대한 약물치료를 받는 경우도 포함해요."
+ },
+ {
+  "q": "대사증후군에서 혈압 상승으로 보는 기준값은 무엇일까요?",
+  "a": [
+   "수축기 130 이상 또는 이완기 85 mmHg 이상",
+   "수축기 140 이상 또는 이완기 90 mmHg 이상",
+   "수축기 120 이상 또는 이완기 80 mmHg 이상",
+   "수축기 160 이상 또는 이완기 100 mmHg 이상"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "대사증후군의 혈압 기준은 130/85 mmHg이고, 고혈압 병력이나 약물치료가 있어도 해당해요."
+ },
+ {
+  "q": "구인두를 살펴 폐쇄성 수면무호흡을 특히 의심하게 만드는 말람파티 등급은 무엇일까요?",
+  "a": [
+   "3등급 또는 4등급",
+   "1등급 또는 2등급",
+   "0등급",
+   "5등급 또는 6등급"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine. Journal of Clinical Sleep Medicine 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "1등급은 연구개·목젖·인두·구개궁이 다 보이는 상태이고, 3~4등급은 중등도나 중증 폐색과 연결돼요."
+ },
+ {
+  "q": "엡워스 졸음척도에서 과도한 주간 졸림에 해당해 추가 평가가 필요한 점수는 무엇일까요?",
+  "a": [
+   "10점 초과",
+   "3점 초과",
+   "20점 초과",
+   "30점 초과"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine. Journal of Clinical Sleep Medicine 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "엡워스 졸음척도는 여덟 가지 상황을 3점 척도로 물어 합산하고, 10점을 넘으면 추가 평가를 해요."
+ },
+ {
+  "q": "폐쇄성 수면무호흡을 확진하려면 무엇이 필요할까요?",
+  "a": [
+   "가정 수면검사나 수면검사실의 수면다원검사",
+   "혈중 산소포화도 1회 측정",
+   "흉부 X선",
+   "경부 초음파"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine. Journal of Clinical Sleep Medicine 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "설문은 선별용이고 확진에는 수면검사가 필요한데, 수면의학 클리닉 의뢰도 합리적인 대안이에요."
+ },
+ {
+  "q": "대사이상지방간질환(MASLD)의 임상 스펙트럼 순서로 맞는 것은 무엇일까요?",
+  "a": [
+   "지방증 → 지방간염 → 간경변 → 간세포암종",
+   "간경변 → 지방증 → 지방간염 → 간세포암종",
+   "지방간염 → 간세포암종 → 지방증 → 간경변",
+   "지방증 → 간세포암종 → 간경변 → 지방간염"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Glen J et al. British Medical Journal 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "간에 지방이 쌓이는 단계에서 염증이 더해지면 지방간염이 되고, 흉터가 쌓여 간경변으로, 나아가 간세포암종으로 이어져요."
+ },
+ {
+  "q": "비만이 있는 사람에서 간 지방증(지방간)이 발견되는 비율로 이 과정이 제시하는 값은 무엇일까요?",
+  "a": [
+   "3분의 2 이상, 고도비만에서는 90% 이상",
+   "약 10%, 고도비만에서는 20%",
+   "약 30%, 고도비만에서도 40% 정도",
+   "비만 여부와 무관하게 5% 정도"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Glen J et al. British Medical Journal 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "지방증은 비만 인구의 3분의 2 이상, 고도비만인 사람의 90% 이상에서 발견돼요."
+ },
+ {
+  "q": "지방간의 전형적인 복부 초음파 소견으로 맞는 것은 무엇일까요?",
+  "a": [
+   "간 크기 증가, 미만성 고에코 실질, 혈관 음영 둔화",
+   "간 크기 감소와 저에코 실질",
+   "담관 확장과 담낭 결석",
+   "간 표면의 다발성 낭종"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Shen FF, Lu LG. Journal of Digestive Diseases 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "지방증 단계가 높을수록 초음파 민감도가 올라가고, 초음파는 지방간의 1차 영상검사로 쓰여요."
+ },
+ {
+  "q": "성욕 감소와 발기부전을 호소하는 비만 남성에서 가장 먼저 확인할 검사는 무엇일까요?",
+  "a": [
+   "아침 총테스토스테론",
+   "야간 코르티솔",
+   "공복 인슐린",
+   "혈청 프로락틴 단독"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Morales A et al. Canadian Medical Association Journal 2015 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "아침 총테스토스테론이 낮으면 FSH, LH, 성호르몬결합글로불린, 프로락틴까지 재서 일차성인지 이차성인지 가려요."
+ },
+ {
+  "q": "비만 환자를 평가할 때 쿠싱증후군은 어떤 위치에 놓고 봐야 할까요?",
+  "a": [
+   "비만의 동반질환이 아니라 비만의 원인으로 평가해요",
+   "비만의 흔한 합병증으로 평가해요",
+   "비만과 무관한 우연 소견으로 넘겨요",
+   "비만이 오래된 결과로만 생겨요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Nieman LK et al. Journal of Clinical Endocrinology & Metabolism 2008 (SCOPE Core Learning Path 모듈 3 인용)",
+  "exp": "쿠싱증후군은 비만의 결과가 아니라 비교적 드문 원인이어서, 동반질환 목록이 아니라 원인 감별에 놓고 봐야 해요."
+ },
+ {
+  "q": "목이 두꺼운 비만 환자에서 갑상선종과 지방을 구분하는 방법은 무엇일까요?",
+  "a": [
+   "삼키게 하면 갑상선은 올라가고 지방은 올라가지 않아요",
+   "삼키게 하면 지방만 올라가요",
+   "누르면 갑상선만 통증이 있어요",
+   "고개를 젖히면 지방이 사라져요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Core Learning Path 모듈 5 (History Taking and Examination) 인용",
+  "exp": "검지와 엄지를 목에 가볍게 두르고 삼키게 하면 커진 갑상선은 목을 따라 뚜렷하게 올라가요."
+ },
+ {
+  "q": "여성에서 비만을 촉발한 사건으로 가장 흔하게 지목되는 것은 무엇일까요?",
+  "a": [
+   "임신",
+   "이직",
+   "이사",
+   "금연"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Core Learning Path 모듈 5 (History Taking and Examination) 인용",
+  "exp": "멜버른 클리닉에서는 여성의 30%에 가까운 수가 임신을 꼽았고, 다른 사건들은 각각 적은 수에 그쳤어요."
+ },
+ {
+  "q": "가족력에서 체형을 물을 때 사과 모양 체형이 뜻하는 것은 무엇일까요?",
+  "a": [
+   "남성형(안드로이드) 비만",
+   "여성형(가이노이드) 비만",
+   "근감소성 비만",
+   "전임상 비만"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Core Learning Path 모듈 5 (History Taking and Examination) 인용",
+  "exp": "배 모양은 엉덩이·허벅지에 지방이 붙는 여성형, 사과 모양은 배에 지방이 붙는 남성형이에요."
+ },
+ {
+  "q": "총에너지소비량을 이루는 세 요소로 맞게 묶인 것은 무엇일까요?",
+  "a": [
+   "기초대사율 + 식후 열발생 + 신체활동",
+   "기초대사율 + 수면 + 체온",
+   "신체활동 + 근육량 + 체지방률",
+   "식후 열발생 + 간 대사 + 신장 배설"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Harris JA, Benedict FG. Proceedings of the National Academy of Sciences 1918 (SCOPE Core Learning Path 모듈 6 인용)",
+  "exp": "세 요소를 합쳐 계산하는데, 체중이 일주일 넘게 그대로였다면 이 값이 곧 그 사람의 섭취량이에요."
+ },
+ {
+  "q": "첫 체중 감량 중재에서 합리적인 목표로 제시되는 감량 폭은 얼마일까요?",
+  "a": [
+   "기저 체중의 약 10%",
+   "기저 체중의 약 5%",
+   "기저 체중의 약 20%",
+   "기저 체중의 약 40%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "첫 감량 목표는 기저 체중의 약 10%이고 6개월 정도의 무리 없는 기간 안에 이루는 것을 권해요."
+ },
+ {
+  "q": "초저열량 식단은 하루 열량이 얼마 미만인 식단을 말할까요?",
+  "a": [
+   "800 kcal",
+   "1,200 kcal",
+   "1,500 kcal",
+   "500 kcal"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton et al. CMAJ 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "하루 800kcal 미만의 초저열량 식단은 제한된 상황에서만, 훈련받은 인력의 관리 아래 처방해요."
+ },
+ {
+  "q": "근거 기반 감량 식단에서 여성에게 권장되는 하루 에너지 섭취 범위는 어디일까요?",
+  "a": [
+   "1,200~1,500 kcal",
+   "800~1,000 kcal",
+   "1,800~2,000 kcal",
+   "2,000~2,200 kcal"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton et al. CMAJ 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "체중을 고려해 여성은 하루 1,200~1,500kcal, 남성은 1,500~1,800kcal로 잡아요."
+ },
+ {
+  "q": "감량을 6개월 넘게 이어갈 때 함께 가야 하는 것은 무엇일까요?",
+  "a": [
+   "기한을 두지 않는 체중 유지 전략",
+   "열량 제한의 단계적 강화",
+   "단식일 추가",
+   "단백질 보충제 상시 복용"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "6개월을 넘어서는 감량에는 기한을 두지 않는 체중 유지 전략이 반드시 따라붙어야 해요."
+ },
+ {
+  "q": "의학영양치료의 첫 단계는 무엇일까요?",
+  "a": [
+   "영양 평가",
+   "열량 처방",
+   "식단표 배포",
+   "체성분 검사 예약"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "의학영양치료는 영양 평가에서 출발하고 신체계측 기록도 이 단계에 들어가요."
+ },
+ {
+  "q": "지중해식에서 지방을 주로 어디에서 얻을까요?",
+  "a": [
+   "엑스트라버진 올리브유",
+   "버터",
+   "코코넛 오일",
+   "라드"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "지중해식은 지방 비중이 높은 편인데 그 지방을 주로 엑스트라버진 올리브유에서 얻어요."
+ },
+ {
+  "q": "올리브유와 견과처럼 지방이 많은 식품을 더한 지중해식은 체지방을 늘릴까요?",
+  "a": [
+   "아니요, 체지방을 늘리지 않아요",
+   "네, 지방 섭취만큼 체지방이 늘어요",
+   "네, 허리둘레만 늘어요",
+   "연구된 바가 없어요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Estruch et al. Lancet Diabetes Endocrinol 2019 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "지방 비중이 높은 지중해식은 올리브유나 견과를 더해도 체지방을 늘리지 않는다고 확인됐어요."
+ },
+ {
+  "q": "대규모 코호트에서 4년간 체중 증가와 가장 강하게 맞물린 식품은 무엇일까요?",
+  "a": [
+   "전분류와 정제 곡물, 가공식품",
+   "채소",
+   "견과",
+   "통곡물"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Mozaffarian et al. NEJM 2011 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "전분류와 정제 곡물, 가공식품이 4년간 체중 증가와 가장 뚜렷하게 맞물렸고 가당음료와 술, 100% 과일주스도 비슷했어요."
+ },
+ {
+  "q": "섭취를 늘렸을 때 체중이 덜 느는 것으로 나타난 식품은 무엇일까요?",
+  "a": [
+   "채소, 견과, 과일, 통곡물",
+   "감자튀김",
+   "가공육",
+   "단 디저트"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Mozaffarian et al. NEJM 2011 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "채소와 견과, 과일, 통곡물 섭취를 늘린 사람은 4년마다 체중이 덜 늘었어요."
+ },
+ {
+  "q": "가당음료를 하루 한 잔 이상 마시는 사람에서 BMI에 대한 유전적 영향의 합은 한 달에 한 잔도 안 마시는 사람에 비해 어떤가요?",
+  "a": [
+   "약 두 배로 커져요",
+   "거의 같아요",
+   "절반으로 줄어요",
+   "오히려 사라져요"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Qi et al. NEJM 2012 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "가당음료를 자주 마시는 사람에서 BMI와 비만 위험에 대한 유전적 영향은 약 두 배로 커져서 단 음료를 줄이는 일이 비만 위험을 낮출 수 있어요."
+ },
+ {
+  "q": "간헐적 단식을 임상에서 볼 때 가장 큰 한계는 무엇일까요?",
+  "a": [
+   "배고픔 때문에 유지가 어렵고 장기 효과 근거가 부족해요",
+   "체중이 오히려 늘어요",
+   "혈압을 크게 올려요",
+   "근육량을 반드시 늘려요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Welton et al. Can Fam Physician 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "간헐적 단식은 적용하기 쉽고 체중을 줄이는 데 도움이 되지만 배고픔으로 유지가 어렵고 장기 지속성과 건강 영향은 아직 잘 몰라요."
+ },
+ {
+  "q": "저탄수화물 식단에서 초기 감량이 유난히 커 보이는 이유로 설명되는 것은 무엇일까요?",
+  "a": [
+   "식욕이 크게 줄고 첫 1~2주에 수분이 빠지기 때문이에요",
+   "지방 산화가 영구적으로 두 배가 되기 때문이에요",
+   "기초대사량이 급격히 올라가기 때문이에요",
+   "장에서 열량 흡수가 차단되기 때문이에요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "저탄수화물 식단의 초기 감량에는 식욕 감소와 수분 손실, 단백질 대사에 드는 에너지가 함께 작용해요."
+ },
+ {
+  "q": "저탄수화물 식단을 길게 유지할 때 생길 수 있는 영양 문제는 무엇일까요?",
+  "a": [
+   "식이섬유와 무기질, 비타민, 미량원소 섭취 부족",
+   "단백질 섭취 부족",
+   "나트륨 과다 배설",
+   "수분 과잉 축적"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Barber et al. Nutrients 2021 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "저탄수화물 식단은 식이섬유와 미량영양소 섭취를 줄여서 이상지질혈증이나 뼈 건강 문제, 신결석으로 이어질 수 있어요."
+ },
+ {
+  "q": "폐경 여성에게 아주 심한 열량 제한을 적용할 때 특히 조심해야 하는 이유는 무엇일까요?",
+  "a": [
+   "제지방량과 고관절 골밀도가 더 많이 줄기 때문이에요",
+   "혈압이 지나치게 올라가기 때문이에요",
+   "간 수치가 반드시 오르기 때문이에요",
+   "체중이 전혀 줄지 않기 때문이에요"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Seimon et al. JAMA Netw Open 2019 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "심한 열량 제한은 중등도 제한보다 전신 제지방량과 고관절 골밀도를 더 많이 떨어뜨려서 골다공증과 취약골절 위험이 걱정돼요."
+ },
+ {
+  "q": "식사 중재만으로 체중 감량을 이루기에 충분할까요?",
+  "a": [
+   "대개 충분하지 않고 신체활동 같은 다른 생활습관 중재가 함께 가야 해요",
+   "충분해서 다른 중재는 필요 없어요",
+   "식사 중재는 오히려 방해가 돼요",
+   "약물치료 없이는 어떤 감량도 불가능해요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "exp": "식사 중재만으로는 대개 부족해서 신체활동을 늘리는 등 다른 생활습관 중재와 함께 가야 해요."
+ },
+ {
+  "q": "비만 관리에서 모두에게 맞는 하나의 식사 패턴이 있을까요?",
+  "a": [
+   "없어요, 가치관과 선호, 치료 목표에 맞춰 개별화해야 해요",
+   "있어요, 저지방 식단이 모두에게 최선이에요",
+   "있어요, 저탄수화물 식단이 모두에게 최선이에요",
+   "있어요, 채식이 모두에게 최선이에요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton et al. CMAJ 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "exp": "비만 관리에 모두에게 맞는 식사 패턴은 없어서 안전하고 효과적이며 문화적으로도 받아들여지는 방식으로 개별화해야 해요."
+ },
+ {
+  "q": "체중의 유전율, 곧 유전 요인으로 설명되는 체중 변이의 비율은 어느 정도일까요?",
+  "a": [
+   "40~70%",
+   "5~10%",
+   "10~20%",
+   "90~95%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "exp": "체중의 유전율은 40~70%이고 유전의 영향은 체중 스펙트럼 전체에 걸쳐 작용해요."
+ },
+ {
+  "q": "유전성 비만 증후군을 의심해 유전자 검사를 고려해야 하는 상황은 언제일까요?",
+  "a": [
+   "다섯 살 이전에 시작된 고도비만에 과식증이나 발달 지연이 있을 때",
+   "성인기에 서서히 늘어난 경도 비만일 때",
+   "가족력이 전혀 없는 과체중일 때",
+   "임신 중 체중이 늘었을 때"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "exp": "지침은 비만이 심하고 어린 나이에 시작됐으며 과식증이나 발달 지연, 내분비 특징, 가족력 같은 단서가 있을 때 유전자 검사를 권해요."
+ },
+ {
+  "q": "유전성 비만 증후군에서 핵심 단서가 되는 과식증(hyperphagia)은 무엇을 뜻할까요?",
+  "a": [
+   "배고픔이 계속되고 음식의 보상감이 크며 포만감이 잘 오지 않는 상태",
+   "밤에만 몰아 먹는 습관",
+   "특정 음식만 골라 먹는 편식",
+   "식사 후 구토를 반복하는 상태"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "exp": "과식증은 배고픔이 계속되고 음식이 유난히 보상적으로 느껴지며 포만감은 잘 오지 않는 상태예요."
+ },
+ {
+  "q": "유전성 비만 증후군 연구가 먹는 행동에 대해 알려 준 사실은 무엇일까요?",
+  "a": [
+   "먹는 행동에는 강한 생물학적 바탕이 있어 단순히 의지로만 조절되지 않아요",
+   "먹는 행동은 전적으로 학습된 습관이에요",
+   "먹는 행동은 의지로 완전히 조절할 수 있어요",
+   "먹는 행동은 유전과 무관해요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "exp": "유전성 비만 증후군 연구는 먹는 행동에 강한 생물학적 바탕이 있다는 점을 보여 줬고 이 사실은 체중 낙인을 줄이는 데도 도움이 돼요."
+ },
+ {
+  "q": "성인 320,252명을 본 Kaiser Permanente 코호트에서 말기신질환 오즈비가 뚜렷하게 올라가기 시작한 BMI 구간은 어디부터인가요?",
+  "a": [
+   "BMI 30 이상",
+   "BMI 22 이상",
+   "BMI 25 이상",
+   "BMI 40 이상"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Hsu et al. (2006) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "exp": "이 코호트에서 말기신질환 오즈비는 고전적 비만 정의인 BMI 30을 넘어서면서 확연히 가팔라져요."
+ },
+ {
+  "q": "2형당뇨병도 고혈압도 없던 사람이 20세에 과체중이었다면 만성콩팥병 위험이 몇 배로 올라갔나요?",
+  "a": [
+   "약 3배",
+   "약 1.2배",
+   "약 2배",
+   "약 10배"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Chertow, Hsu, Johansen (2006) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "exp": "대사 이상이 없어도 20세의 과체중 자체가 만성콩팥병 위험을 3배로 올렸어요. 생애 이른 시기의 체중이 콩팥 예후에 오래 남는다는 뜻이에요."
+ },
+ {
+  "q": "대사적으로 건강한 비만(metabolically healthy obesity)과 만성콩팥병의 관계로 옳은 것은 무엇인가요?",
+  "a": [
+   "대사 이상이 없어도 만성콩팥병 위험이 높아져요",
+   "대사 이상이 없으면 만성콩팥병 위험은 정상체중과 같아요",
+   "대사적으로 건강하면 오히려 만성콩팥병 위험이 낮아져요",
+   "관계가 확인된 적이 없어요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Vimaleswaran et al. (2013) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "exp": "대사적으로 건강한 비만이든 건강하지 않은 비만이든 모두 만성콩팥병의 위험인자예요. 대사 지표가 정상이라고 안심할 수 없어요."
+ },
+ {
+  "q": "사람은 태어날 때 사구체 필터를 몇 개 정도 가지고 있나요?",
+  "a": [
+   "약 80만~100만 개",
+   "약 8만~10만 개",
+   "약 800만~1,000만 개",
+   "약 8,000~1만 개"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Obesity and Chronic Kidney Disease 모듈 (원저 미기재)",
+  "exp": "태어날 때 가진 80만~100만 개가 평생의 예비량이에요. 사구체가 지나치게 커지면 라플라스 법칙에 따라 벽 장력이 올라가 손상이 시작돼요."
+ },
+ {
+  "q": "비만에서 콩팥 손상과 관련해 '줄어드는' 아디포카인은 무엇인가요?",
+  "a": [
+   "아디포넥틴",
+   "렙틴",
+   "인터루킨-6",
+   "종양괴사인자-알파"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Obesity and Chronic Kidney Disease 모듈 (원저 미기재)",
+  "exp": "아디포넥틴은 줄고 렙틴은 늘어나는 불균형이 핵심이에요. 아디포넥틴은 알부민뇨와 반비례하고 발세포를 보호하는 쪽으로 작용해요."
+ },
+ {
+  "q": "지방량 증가가 콩팥병으로 이어지는 주요 '직접' 기전 세 가지는 무엇인가요?",
+  "a": [
+   "고혈압·당뇨병·죽상경화",
+   "고혈압·빈혈·골질환",
+   "당뇨병·통풍·요로결석",
+   "죽상경화·빈혈·감염"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Obesity and Chronic Kidney Disease 모듈 (원저 미기재)",
+  "exp": "직접 기전은 고혈압·당뇨병·죽상경화이고, 간접 기전은 알도스테론을 통한 혈관 독성, RAAS와 교감신경계 활성, 산화 스트레스, 염증, 아디포카인 불균형이에요."
+ },
+ {
+  "q": "앉아서 지내는 생활습관과 만성콩팥병의 관계로 제시된 것은 무엇인가요?",
+  "a": [
+   "만성콩팥병 유병과 연관돼요",
+   "만성콩팥병과 무관해요",
+   "투석 환자에게만 해당돼요",
+   "오히려 콩팥을 보호해요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Ricardo et al. (2013) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "exp": "좌식 생활은 만성콩팥병 유병과 연관되고, 반대로 건강한 생활습관을 지키면 만성콩팥병 환자의 모든 원인 사망률이 낮아져요."
+ },
+ {
+  "q": "소아 BMI 곡선에서 6세 무렵에 나타나는 가장 낮은 지점을 무엇이라 부르나요?",
+  "a": [
+   "지방 재증가(adiposity rebound)",
+   "성장 급등(growth spurt)",
+   "사춘기 전 저점(prepubertal nadir)",
+   "체지방 전환점(fat switch)"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "BMI 곡선은 영아기에 오르다가 6세 무렵 최저점을 찍고 다시 올라가는데, 이 최저점이 지방 재증가예요."
+ },
+ {
+  "q": "지방 재증가가 이르게 나타난 아이의 예후로 옳은 것은 무엇인가요?",
+  "a": [
+   "성인기까지 과체중·비만 범위에 머무는 경향이 있어요",
+   "청소년기에 자연히 평균 BMI로 돌아와요",
+   "성인 비만 위험과는 관계가 없어요",
+   "저신장 위험만 높아져요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "이른 지방 재증가는 성인 비만의 조기 위험지표예요. 반대로 재증가가 늦은 아이는 청소년 후기에 평균 BMI로 돌아오는 경향을 보여요."
+ },
+ {
+  "q": "임상 현장에서 소아 성장 평가에 쓰도록 제안된 성장곡선은 무엇인가요?",
+  "a": [
+   "WHO 성장곡선",
+   "IOTF 곡선",
+   "CDC 곡선",
+   "Sempe 곡선"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "De Onis, M. ECOG eBook 2015 (SCOPE Childhood Obesity: From Diagnosis to Treatment 인용)",
+  "exp": "WHO 성장곡선은 무료로 접근할 수 있고 전 세계 모든 아이에게 적용돼 임상 평가에 가장 적절한 도구로 제시돼요. CDC 곡선은 미국 인구의 성장 양상을 반영해요."
+ },
+ {
+  "q": "소아에서 체중 속도는 빨라지는데 신장(키) 속도가 느려질 때 취해야 할 조치는 무엇인가요?",
+  "a": [
+   "긴급한 정밀검사가 필요해요",
+   "6개월 뒤 재평가하면 돼요",
+   "식사 상담만 하면 돼요",
+   "정상 변이이므로 관찰만 하면 돼요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "체중은 늘면서 키 성장이 느려지는 조합은 갑상선기능저하증이나 성장호르몬 결핍 같은 내분비 원인을 시사하므로 곧바로 검사해야 해요."
+ },
+ {
+  "q": "비만이 있는 아이 가운데 체중 증가의 바탕에 내분비나 유전 원인이 있는 비율은 얼마인가요?",
+  "a": [
+   "5% 미만",
+   "약 15%",
+   "약 30%",
+   "약 50%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Kumar, S., Kelly, A. S. Mayo Clinic Proceedings 2017 (SCOPE Childhood Obesity: From Diagnosis to Treatment 인용)",
+  "exp": "대부분은 일차성(단순) 비만이고 성장과 신체 발달이 정상이거나 오히려 빨라요. 선형 성장이 느려질 때만 내분비 검사를 파고들면 돼요."
+ },
+ {
+  "q": "WHO 권고에서 5~18세 소아청소년의 하루 중등도-고강도 신체활동 최소 시간은 얼마인가요?",
+  "a": [
+   "최소 60분",
+   "최소 30분",
+   "최소 90분",
+   "최소 120분"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "하루 최소 60분이고, 여기에 근육과 뼈를 강화하는 고강도 활동을 주 3회 이상 더해요. 중등도 강도는 놀거나 운동하면서 말하기가 힘들어지는 지점으로 판단해요."
+ },
+ {
+  "q": "WHO 권고에서 6세 미만 아이가 하루에 채워야 할 활동적 놀이·신체활동 시간은 얼마인가요?",
+  "a": [
+   "180분",
+   "60분",
+   "90분",
+   "240분"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "6세 미만은 하루 180분을 발달 단계에 맞고 재미있는 형태로 채워야 해요. 이를 채우지 못한 아이는 체력 발달이 나빠질 가능성이 커요."
+ },
+ {
+  "q": "WHO 권고에서 5세 미만 아이의 하루 화면 시간 상한은 얼마인가요?",
+  "a": [
+   "최대 1시간",
+   "최대 2시간",
+   "최대 30분",
+   "제한 없음"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "5세 미만은 하루 최대 1시간이에요. 다만 화면 시간 연구는 아직 초기 단계라, 우선순위는 활동을 늘리는 쪽에 둬요."
+ },
+ {
+  "q": "WHO 권고에서 소아청소년의 하루 화면 시간 상한은 얼마인가요?",
+  "a": [
+   "2시간을 넘지 않기",
+   "4시간을 넘지 않기",
+   "1시간을 넘지 않기",
+   "학습용은 무제한"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "exp": "휴대전화·태블릿·TV·컴퓨터를 모두 합쳐 하루 2시간을 넘지 않아야 해요."
+ },
+ {
+  "q": "소아 대사증후군의 IDF 정의에서 과잉 지방(복부비만) 기준은 무엇인가요?",
+  "a": [
+   "허리둘레 90 백분위수 이상",
+   "허리둘레 75 백분위수 이상",
+   "BMI 95 백분위수 이상",
+   "체지방률 30% 이상"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Zimmet, P. et al. Lancet 2007 (SCOPE Childhood Obesity: From Diagnosis to Treatment 인용)",
+  "exp": "소아에서는 성인처럼 고정된 cm 기준을 쓰지 않고 허리둘레 90 백분위수를 씁니다. 성장과 사춘기 때문에 연령별 기준값이 필요하기 때문이에요."
  }
 ]

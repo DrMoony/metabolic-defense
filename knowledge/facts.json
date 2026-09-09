@@ -1635,6 +1635,967 @@
   "question_index": 102
  },
  {
+  "id": "F-ob-104",
+  "set": "obesity",
+  "statement_ko": "성인에서 BMI가 가장 낮게 나타나는 하루 수면 시간대는 어디일까요? → 약 7~8시간",
+  "statement_en": "At roughly what nightly sleep duration is BMI lowest in adults? → About 7-8 hours",
+  "concepts": [
+   "bmi",
+   "environment"
+  ],
+  "concepts_manual": false,
+  "source": "Taheri S et al. PLoS Medicine 2004 (SCOPE Core Learning Path 모듈 2 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 103
+ },
+ {
+  "id": "F-ob-105",
+  "set": "obesity",
+  "statement_ko": "다음 중 비만을 일으킬 수 있는 질환으로 묶인 것은 무엇일까요? → 쿠싱병·시상하부 손상·프래더-윌리 증후군",
+  "statement_en": "Which group lists conditions that can cause obesity? → Cushing's disease, hypothalamic damage and Prader-Willi syndrome",
+  "concepts": [
+   "obesity",
+   "energy-balance",
+   "syndromic-obesity",
+   "secondary-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path 모듈 2 (Causes of Obesity) 인용",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 104
+ },
+ {
+  "id": "F-ob-106",
+  "set": "obesity",
+  "statement_ko": "최근 수십 년의 비만 급증을 유전자 돌연변이만으로 설명할 수 없을 때 제시되는 기전은 무엇일까요? → 후성유전 — 환경 요인이 유전자를 켜고 끄는 변화",
+  "statement_en": "What mechanism is proposed when gene mutation alone cannot explain the recent rise in obesity? → Epigenetics - environmental factors switching genes on and off",
+  "concepts": [
+   "obesity",
+   "genetics-of-obesity",
+   "environment"
+  ],
+  "concepts_manual": false,
+  "source": "Rodenhiser D, Mann M. Canadian Medical Association Journal 2006 (SCOPE Core Learning Path 모듈 2 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 105
+ },
+ {
+  "id": "F-ob-107",
+  "set": "obesity",
+  "statement_ko": "임신 첫 3개월에 산모의 영양결핍을 겪은 태아가 성인이 됐을 때 나타난 결과는 무엇일까요? → 더 배고프고 연료를 아끼는 쪽으로 설정돼 비만이 늘었어요",
+  "statement_en": "What happened in adulthood to fetuses that experienced maternal malnourishment in the first trimester? → They were wired to be hungrier and more fuel-efficient and had more obesity",
+  "concepts": [
+   "obesity",
+   "pregnancy"
+  ],
+  "concepts_manual": false,
+  "source": "Ravelli GP, Stein ZA, Susser MW. New England Journal of Medicine 1976 (SCOPE Core Learning Path 모듈 2 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid",
+  "question_index": 106
+ },
+ {
+  "id": "F-ob-108",
+  "set": "obesity",
+  "statement_ko": "소아·청소년에서 비만 범위로 판정하는 연령별 BMI 백분위수 기준은 무엇일까요? → 95백분위수 초과",
+  "statement_en": "Which BMI-for-age centile marks the obesity range in children and adolescents? → Above the 95th centile",
+  "concepts": [
+   "childhood-obesity",
+   "bmi",
+   "childhood-assessment"
+  ],
+  "concepts_manual": false,
+  "source": "Barlow SE and the Expert Committee. Pediatrics 2007 (SCOPE Core Learning Path 모듈 8 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 107
+ },
+ {
+  "id": "F-ob-109",
+  "set": "obesity",
+  "statement_ko": "아직 키가 자라는 아이에서 체중을 그대로 유지했을 때 BMI는 어떻게 될까요? → 키가 자라면서 BMI가 떨어져요",
+  "statement_en": "What happens to BMI in a still-growing child whose weight is held steady? → BMI falls as height increases",
+  "concepts": [
+   "childhood-obesity",
+   "bmi",
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "Barlow SE and the Expert Committee. Pediatrics 2007 (SCOPE Core Learning Path 모듈 8 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 108
+ },
+ {
+  "id": "F-ob-110",
+  "set": "obesity",
+  "statement_ko": "목 뒤 접히는 부위의 피부가 두꺼워지고 검게 변하는 흑색가시세포증이 시사하는 상태는 무엇일까요? → 인슐린 저항성",
+  "statement_en": "Thickened, darkened skin in the flexures at the base of the neck (acanthosis nigricans) is characteristic of what? → Insulin resistance",
+  "concepts": [
+   "exercise",
+   "assessment-history-exam",
+   "insulin-resistance"
+  ],
+  "concepts_manual": false,
+  "source": "Baur LA, Hazelton B, Shrewsbury VA. Nature Reviews Gastroenterology & Hepatology 2011 (SCOPE Core Learning Path 모듈 8 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 109
+ },
+ {
+  "id": "F-ob-111",
+  "set": "obesity",
+  "statement_ko": "당뇨병전단계(공복혈당장애 또는 내당능장애)에 해당하는 당화혈색소 범위는 무엇일까요? → 5.7~6.4%",
+  "statement_en": "Which HbA1c range indicates prediabetes (impaired fasting glucose or impaired glucose tolerance)? → 5.7-6.4%",
+  "concepts": [
+   "t2dm",
+   "prediabetes",
+   "medical-nutrition-therapy"
+  ],
+  "concepts_manual": false,
+  "source": "American Diabetes Association. Diabetes Care 2017 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 110
+ },
+ {
+  "id": "F-ob-112",
+  "set": "obesity",
+  "statement_ko": "혈당 이상을 찾는 검사 중 금식이 필요 없어 편리한 것은 무엇일까요? → 당화혈색소",
+  "statement_en": "Which test for glucose abnormalities does not require fasting? → HbA1c",
+  "concepts": [
+   "t2dm",
+   "medical-nutrition-therapy"
+  ],
+  "concepts_manual": false,
+  "source": "American Diabetes Association. Diabetes Care 2017 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 111
+ },
+ {
+  "id": "F-ob-113",
+  "set": "obesity",
+  "statement_ko": "대사증후군에서 중성지방 상승으로 보는 기준값은 무엇일까요? → 1.7 mmol/L(150 mg/dl) 이상",
+  "statement_en": "What is the metabolic syndrome cut-point for elevated triglycerides? → At least 1.7 mmol/L (150 mg/dl)",
+  "concepts": [
+   "dyslipidemia",
+   "metabolic-syndrome",
+   "weight-loss-target",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 112
+ },
+ {
+  "id": "F-ob-114",
+  "set": "obesity",
+  "statement_ko": "대사증후군에서 HDL 콜레스테롤 저하로 보는 기준값은 무엇일까요? → 남성 1.0 mmol/L(40 mg/dl) 미만, 여성 1.3 mmol/L(50 mg/dl) 미만",
+  "statement_en": "What is the metabolic syndrome cut-point for reduced HDL cholesterol? → Below 1.0 mmol/L (40 mg/dl) in males and below 1.3 mmol/L (50 mg/dl) in females",
+  "concepts": [
+   "dyslipidemia",
+   "metabolic-syndrome",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 113
+ },
+ {
+  "id": "F-ob-115",
+  "set": "obesity",
+  "statement_ko": "대사증후군에서 혈압 상승으로 보는 기준값은 무엇일까요? → 수축기 130 이상 또는 이완기 85 mmHg 이상",
+  "statement_en": "What is the metabolic syndrome cut-point for elevated blood pressure? → Systolic at least 130 and/or diastolic at least 85 mmHg",
+  "concepts": [
+   "hypertension",
+   "metabolic-syndrome",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Alberti KG et al. Circulation 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 114
+ },
+ {
+  "id": "F-ob-116",
+  "set": "obesity",
+  "statement_ko": "구인두를 살펴 폐쇄성 수면무호흡을 특히 의심하게 만드는 말람파티 등급은 무엇일까요? → 3등급 또는 4등급",
+  "statement_en": "Which Mallampati class on oropharyngeal examination should particularly raise suspicion for obstructive sleep apnoea? → Class III or Class IV",
+  "concepts": [
+   "severe-obesity",
+   "osa",
+   "environment",
+   "assessment-history-exam"
+  ],
+  "concepts_manual": false,
+  "source": "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine. Journal of Clinical Sleep Medicine 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 115
+ },
+ {
+  "id": "F-ob-117",
+  "set": "obesity",
+  "statement_ko": "엡워스 졸음척도에서 과도한 주간 졸림에 해당해 추가 평가가 필요한 점수는 무엇일까요? → 10점 초과",
+  "statement_en": "What Epworth Sleepiness Scale score is consistent with excessive daytime sleepiness and should prompt further evaluation? → More than 10",
+  "concepts": [
+   "osa",
+   "cv-risk"
+  ],
+  "concepts_manual": false,
+  "source": "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine. Journal of Clinical Sleep Medicine 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 116
+ },
+ {
+  "id": "F-ob-118",
+  "set": "obesity",
+  "statement_ko": "폐쇄성 수면무호흡을 확진하려면 무엇이 필요할까요? → 가정 수면검사나 수면검사실의 수면다원검사",
+  "statement_en": "What is required for a definitive diagnosis of obstructive sleep apnoea? → A sleep study, either home testing or laboratory polysomnography",
+  "concepts": [
+   "osa",
+   "environment"
+  ],
+  "concepts_manual": false,
+  "source": "Adult Obstructive Sleep Apnea Task Force of the American Academy of Sleep Medicine. Journal of Clinical Sleep Medicine 2009 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 117
+ },
+ {
+  "id": "F-ob-119",
+  "set": "obesity",
+  "statement_ko": "대사이상지방간질환(MASLD)의 임상 스펙트럼 순서로 맞는 것은 무엇일까요? → 지방증 → 지방간염 → 간경변 → 간세포암종",
+  "statement_en": "What is the correct order of the clinical spectrum of MASLD? → Steatosis, then steatohepatitis, then cirrhosis, then hepatocellular carcinoma",
+  "concepts": [
+   "masld",
+   "mash",
+   "fibrosis",
+   "hcc",
+   "cancer"
+  ],
+  "concepts_manual": false,
+  "source": "Glen J et al. British Medical Journal 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 118
+ },
+ {
+  "id": "F-ob-120",
+  "set": "obesity",
+  "statement_ko": "비만이 있는 사람에서 간 지방증(지방간)이 발견되는 비율로 이 과정이 제시하는 값은 무엇일까요? → 3분의 2 이상, 고도비만에서는 90% 이상",
+  "statement_en": "How often is hepatic steatosis found in people with obesity according to the course? → In over two thirds, and in more than 90% of those with severe obesity",
+  "concepts": [
+   "severe-obesity",
+   "masld"
+  ],
+  "concepts_manual": false,
+  "source": "Glen J et al. British Medical Journal 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid",
+  "question_index": 119
+ },
+ {
+  "id": "F-ob-121",
+  "set": "obesity",
+  "statement_ko": "지방간의 전형적인 복부 초음파 소견으로 맞는 것은 무엇일까요? → 간 크기 증가, 미만성 고에코 실질, 혈관 음영 둔화",
+  "statement_en": "Which are the characteristic abdominal ultrasound findings in fatty liver? → Increased liver size, diffuse hyperechoic parenchyma and vascular blunting",
+  "concepts": [
+   "abdominal-obesity",
+   "masld",
+   "ultrasound"
+  ],
+  "concepts_manual": false,
+  "source": "Shen FF, Lu LG. Journal of Digestive Diseases 2016 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid",
+  "question_index": 120
+ },
+ {
+  "id": "F-ob-122",
+  "set": "obesity",
+  "statement_ko": "성욕 감소와 발기부전을 호소하는 비만 남성에서 가장 먼저 확인할 검사는 무엇일까요? → 아침 총테스토스테론",
+  "statement_en": "In a man with obesity reporting decreased libido and erectile dysfunction, which test comes first? → Morning total testosterone",
+  "concepts": [
+   "obesity",
+   "pcos",
+   "hypogonadism"
+  ],
+  "concepts_manual": false,
+  "source": "Morales A et al. Canadian Medical Association Journal 2015 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 121
+ },
+ {
+  "id": "F-ob-123",
+  "set": "obesity",
+  "statement_ko": "비만 환자를 평가할 때 쿠싱증후군은 어떤 위치에 놓고 봐야 할까요? → 비만의 동반질환이 아니라 비만의 원인으로 평가해요",
+  "statement_en": "How should Cushing's syndrome be positioned when evaluating a patient with obesity? → As a cause of obesity rather than a co-morbidity",
+  "concepts": [
+   "obesity",
+   "secondary-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Nieman LK et al. Journal of Clinical Endocrinology & Metabolism 2008 (SCOPE Core Learning Path 모듈 3 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 122
+ },
+ {
+  "id": "F-ob-124",
+  "set": "obesity",
+  "statement_ko": "목이 두꺼운 비만 환자에서 갑상선종과 지방을 구분하는 방법은 무엇일까요? → 삼키게 하면 갑상선은 올라가고 지방은 올라가지 않아요",
+  "statement_en": "How can a goitre be distinguished from neck fat in a patient with a thick neck? → On swallowing the thyroid moves up while fat does not",
+  "concepts": [
+   "obesity",
+   "secondary-obesity",
+   "assessment-history-exam"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path 모듈 5 (History Taking and Examination) 인용",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 123
+ },
+ {
+  "id": "F-ob-125",
+  "set": "obesity",
+  "statement_ko": "여성에서 비만을 촉발한 사건으로 가장 흔하게 지목되는 것은 무엇일까요? → 임신",
+  "statement_en": "What is the most common precipitating event for obesity in women? → Pregnancy",
+  "concepts": [
+   "obesity",
+   "pregnancy",
+   "assessment-history-exam"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path 모듈 5 (History Taking and Examination) 인용",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 124
+ },
+ {
+  "id": "F-ob-126",
+  "set": "obesity",
+  "statement_ko": "가족력에서 체형을 물을 때 사과 모양 체형이 뜻하는 것은 무엇일까요? → 남성형(안드로이드) 비만",
+  "statement_en": "In the family history, what does an apple-shaped body indicate? → Android obesity",
+  "concepts": [
+   "obesity",
+   "assessment-history-exam"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path 모듈 5 (History Taking and Examination) 인용",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 125
+ },
+ {
+  "id": "F-ob-127",
+  "set": "obesity",
+  "statement_ko": "총에너지소비량을 이루는 세 요소로 맞게 묶인 것은 무엇일까요? → 기초대사율 + 식후 열발생 + 신체활동",
+  "statement_en": "Which three components make up total energy expenditure? → Basal metabolic rate, post-prandial thermogenesis and physical activity",
+  "concepts": [
+   "energy-balance"
+  ],
+  "concepts_manual": false,
+  "source": "Harris JA, Benedict FG. Proceedings of the National Academy of Sciences 1918 (SCOPE Core Learning Path 모듈 6 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 126
+ },
+ {
+  "id": "F-ob-128",
+  "set": "obesity",
+  "statement_ko": "첫 체중 감량 중재에서 합리적인 목표로 제시되는 감량 폭은 얼마일까요? → 기저 체중의 약 10%",
+  "statement_en": "What is a reasonable target for an initial weight loss intervention? → About 10% of baseline weight",
+  "concepts": [
+   "obesity",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 127
+ },
+ {
+  "id": "F-ob-129",
+  "set": "obesity",
+  "statement_ko": "초저열량 식단은 하루 열량이 얼마 미만인 식단을 말할까요? → 800 kcal",
+  "statement_en": "A very low calorie diet is defined as fewer than how many kcal per day? → 800 kcal",
+  "concepts": [
+   "obesity",
+   "diet",
+   "medical-nutrition-therapy"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton et al. CMAJ 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 128
+ },
+ {
+  "id": "F-ob-130",
+  "set": "obesity",
+  "statement_ko": "근거 기반 감량 식단에서 여성에게 권장되는 하루 에너지 섭취 범위는 어디일까요? → 1,200~1,500 kcal",
+  "statement_en": "In an evidence-based weight-loss prescription, what daily energy intake is recommended for women? → 1,200-1,500 kcal",
+  "concepts": [
+   "obesity",
+   "weight-loss-target",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton et al. CMAJ 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 129
+ },
+ {
+  "id": "F-ob-131",
+  "set": "obesity",
+  "statement_ko": "감량을 6개월 넘게 이어갈 때 함께 가야 하는 것은 무엇일까요? → 기한을 두지 않는 체중 유지 전략",
+  "statement_en": "What must usually accompany weight loss beyond six months? → Weight loss maintenance strategies, continued indefinitely",
+  "concepts": [
+   "obesity",
+   "weight-loss-target",
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 130
+ },
+ {
+  "id": "F-ob-132",
+  "set": "obesity",
+  "statement_ko": "의학영양치료의 첫 단계는 무엇일까요? → 영양 평가",
+  "statement_en": "What is the first step of medical nutrition therapy? → The nutritional assessment",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 131
+ },
+ {
+  "id": "F-ob-133",
+  "set": "obesity",
+  "statement_ko": "지중해식에서 지방을 주로 어디에서 얻을까요? → 엑스트라버진 올리브유",
+  "statement_en": "In the Mediterranean dietary pattern, where does most dietary fat come from? → Extra virgin olive oil",
+  "concepts": [
+   "obesity",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 132
+ },
+ {
+  "id": "F-ob-134",
+  "set": "obesity",
+  "statement_ko": "올리브유와 견과처럼 지방이 많은 식품을 더한 지중해식은 체지방을 늘릴까요? → 아니요, 체지방을 늘리지 않아요",
+  "statement_en": "Does a high-fat Mediterranean diet enriched with olive oil and nuts promote adiposity? → No, it does not promote adiposity",
+  "concepts": [
+   "clinical-obesity",
+   "t2dm",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "Estruch et al. Lancet Diabetes Endocrinol 2019 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 133
+ },
+ {
+  "id": "F-ob-135",
+  "set": "obesity",
+  "statement_ko": "대규모 코호트에서 4년간 체중 증가와 가장 강하게 맞물린 식품은 무엇일까요? → 전분류와 정제 곡물, 가공식품",
+  "statement_en": "In large cohorts, which foods showed the strongest positive association with four-year weight gain? → Starches, refined grains and processed foods",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Mozaffarian et al. NEJM 2011 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 134
+ },
+ {
+  "id": "F-ob-136",
+  "set": "obesity",
+  "statement_ko": "섭취를 늘렸을 때 체중이 덜 느는 것으로 나타난 식품은 무엇일까요? → 채소, 견과, 과일, 통곡물",
+  "statement_en": "Increased intake of which foods was associated with less weight gain? → Vegetables, nuts, fruits and whole grains",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Mozaffarian et al. NEJM 2011 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 135
+ },
+ {
+  "id": "F-ob-137",
+  "set": "obesity",
+  "statement_ko": "가당음료를 하루 한 잔 이상 마시는 사람에서 BMI에 대한 유전적 영향의 합은 한 달에 한 잔도 안 마시는 사람에 비해 어떤가요? → 약 두 배로 커져요",
+  "statement_en": "Among people drinking one or more sugary drinks a day, how large are the combined genetic effects on BMI compared with those drinking less than one a month? → About twice as large",
+  "concepts": [
+   "obesity",
+   "bmi",
+   "alcohol",
+   "genetics-of-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Qi et al. NEJM 2012 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid",
+  "question_index": 136
+ },
+ {
+  "id": "F-ob-138",
+  "set": "obesity",
+  "statement_ko": "간헐적 단식을 임상에서 볼 때 가장 큰 한계는 무엇일까요? → 배고픔 때문에 유지가 어렵고 장기 효과 근거가 부족해요",
+  "statement_en": "What is the main limitation of intermittent fasting in practice? → Hunger makes maintenance difficult and long-term evidence is scarce",
+  "concepts": [
+   "obesity",
+   "weight-maintenance",
+   "medical-nutrition-therapy"
+  ],
+  "concepts_manual": false,
+  "source": "Welton et al. Can Fam Physician 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 137
+ },
+ {
+  "id": "F-ob-139",
+  "set": "obesity",
+  "statement_ko": "저탄수화물 식단에서 초기 감량이 유난히 커 보이는 이유로 설명되는 것은 무엇일까요? → 식욕이 크게 줄고 첫 1~2주에 수분이 빠지기 때문이에요",
+  "statement_en": "Why does early weight loss look especially large on a low-carbohydrate diet? → Appetite falls sharply and significant water is lost in the first week or two",
+  "concepts": [
+   "obesity",
+   "weight-loss-target",
+   "diet",
+   "medical-nutrition-therapy",
+   "eating-behaviour"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 138
+ },
+ {
+  "id": "F-ob-140",
+  "set": "obesity",
+  "statement_ko": "저탄수화물 식단을 길게 유지할 때 생길 수 있는 영양 문제는 무엇일까요? → 식이섬유와 무기질, 비타민, 미량원소 섭취 부족",
+  "statement_en": "What nutritional problem can arise from a prolonged low-carbohydrate diet? → Reduced intake of fibre, minerals, vitamins and trace elements",
+  "concepts": [
+   "obesity",
+   "diet",
+   "weight-maintenance",
+   "medical-nutrition-therapy"
+  ],
+  "concepts_manual": false,
+  "source": "Barber et al. Nutrients 2021 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 139
+ },
+ {
+  "id": "F-ob-141",
+  "set": "obesity",
+  "statement_ko": "폐경 여성에게 아주 심한 열량 제한을 적용할 때 특히 조심해야 하는 이유는 무엇일까요? → 제지방량과 고관절 골밀도가 더 많이 줄기 때문이에요",
+  "statement_en": "Why is severe energy restriction a particular concern in postmenopausal women? → It causes greater loss of lean mass and total hip bone mineral density",
+  "concepts": [
+   "obesity",
+   "osteoarthritis",
+   "menopause",
+   "lean-masld"
+  ],
+  "concepts_manual": false,
+  "source": "Seimon et al. JAMA Netw Open 2019 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid",
+  "question_index": 140
+ },
+ {
+  "id": "F-ob-142",
+  "set": "obesity",
+  "statement_ko": "식사 중재만으로 체중 감량을 이루기에 충분할까요? → 대개 충분하지 않고 신체활동 같은 다른 생활습관 중재가 함께 가야 해요",
+  "statement_en": "Is dietary intervention alone typically enough to achieve weight loss? → No, it usually needs to be combined with other lifestyle interventions such as increased physical activity",
+  "concepts": [
+   "obesity",
+   "weight-loss-target",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Medical Nutrition Therapy for Obesity 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 141
+ },
+ {
+  "id": "F-ob-143",
+  "set": "obesity",
+  "statement_ko": "비만 관리에서 모두에게 맞는 하나의 식사 패턴이 있을까요? → 없어요, 가치관과 선호, 치료 목표에 맞춰 개별화해야 해요",
+  "statement_en": "Is there a one-size-fits-all eating pattern for obesity management? → No, recommendations must be personalised to values, preferences and treatment goals",
+  "concepts": [
+   "obesity",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton et al. CMAJ 2020 (SCOPE Medical Nutrition Therapy for Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 142
+ },
+ {
+  "id": "F-ob-144",
+  "set": "obesity",
+  "statement_ko": "체중의 유전율, 곧 유전 요인으로 설명되는 체중 변이의 비율은 어느 정도일까요? → 40~70%",
+  "statement_en": "What proportion of variation in body weight is explained by genetic factors? → 40-70%",
+  "concepts": [
+   "obesity",
+   "genetics-of-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 143
+ },
+ {
+  "id": "F-ob-145",
+  "set": "obesity",
+  "statement_ko": "유전성 비만 증후군을 의심해 유전자 검사를 고려해야 하는 상황은 언제일까요? → 다섯 살 이전에 시작된 고도비만에 과식증이나 발달 지연이 있을 때",
+  "statement_en": "When should genetic testing be considered for a suspected genetic obesity syndrome? → Severe obesity of onset before age five with hyperphagia or developmental delay",
+  "concepts": [
+   "severe-obesity",
+   "genetics-of-obesity",
+   "monogenic-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 144
+ },
+ {
+  "id": "F-ob-146",
+  "set": "obesity",
+  "statement_ko": "유전성 비만 증후군에서 핵심 단서가 되는 과식증(hyperphagia)은 무엇을 뜻할까요? → 배고픔이 계속되고 음식의 보상감이 크며 포만감이 잘 오지 않는 상태",
+  "statement_en": "What does hyperphagia, the key clue in genetic obesity syndromes, mean? → Persistent hunger with food being very rewarding and satiety impaired",
+  "concepts": [
+   "obesity",
+   "genetics-of-obesity",
+   "monogenic-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 145
+ },
+ {
+  "id": "F-ob-147",
+  "set": "obesity",
+  "statement_ko": "유전성 비만 증후군 연구가 먹는 행동에 대해 알려 준 사실은 무엇일까요? → 먹는 행동에는 강한 생물학적 바탕이 있어 단순히 의지로만 조절되지 않아요",
+  "statement_en": "What have genetic obesity syndromes taught us about eating behaviour? → It has a strong biological basis and is not simply under voluntary control",
+  "concepts": [
+   "obesity",
+   "genetics-of-obesity",
+   "eating-behaviour"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Genetics and Obesity 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 146
+ },
+ {
+  "id": "F-ob-148",
+  "set": "obesity",
+  "statement_ko": "성인 320,252명을 본 Kaiser Permanente 코호트에서 말기신질환 오즈비가 뚜렷하게 올라가기 시작한 BMI 구간은 어디부터인가요? → BMI 30 이상",
+  "statement_en": "In the Kaiser Permanente cohort of 320,252 adults, from which BMI does the odds ratio for end-stage renal disease rise substantially? → BMI 30 and above",
+  "concepts": [
+   "obesity",
+   "bmi",
+   "ckd"
+  ],
+  "concepts_manual": false,
+  "source": "Hsu et al. (2006) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 147
+ },
+ {
+  "id": "F-ob-149",
+  "set": "obesity",
+  "statement_ko": "2형당뇨병도 고혈압도 없던 사람이 20세에 과체중이었다면 만성콩팥병 위험이 몇 배로 올라갔나요? → 약 3배",
+  "statement_en": "In people without type 2 diabetes or hypertension, how much did the risk of chronic kidney disease increase if they were overweight at age 20? → About threefold",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "hypertension",
+   "ckd"
+  ],
+  "concepts_manual": false,
+  "source": "Chertow, Hsu, Johansen (2006) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 148
+ },
+ {
+  "id": "F-ob-150",
+  "set": "obesity",
+  "statement_ko": "대사적으로 건강한 비만(metabolically healthy obesity)과 만성콩팥병의 관계로 옳은 것은 무엇인가요? → 대사 이상이 없어도 만성콩팥병 위험이 높아져요",
+  "statement_en": "Which statement about metabolically healthy obesity and chronic kidney disease is correct? → The risk of chronic kidney disease is raised even without metabolic abnormalities",
+  "concepts": [
+   "obesity",
+   "ckd"
+  ],
+  "concepts_manual": false,
+  "source": "Vimaleswaran et al. (2013) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 149
+ },
+ {
+  "id": "F-ob-151",
+  "set": "obesity",
+  "statement_ko": "사람은 태어날 때 사구체 필터를 몇 개 정도 가지고 있나요? → 약 80만~100만 개",
+  "statement_en": "How many glomerular filters are humans born with? → Between 800,000 and 1,000,000",
+  "concepts": [
+   "obesity",
+   "ckd"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Obesity and Chronic Kidney Disease 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 150
+ },
+ {
+  "id": "F-ob-152",
+  "set": "obesity",
+  "statement_ko": "비만에서 콩팥 손상과 관련해 '줄어드는' 아디포카인은 무엇인가요? → 아디포넥틴",
+  "statement_en": "Which adipokine DECREASES in obesity in relation to kidney injury? → Adiponectin",
+  "concepts": [
+   "obesity",
+   "ckd"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Obesity and Chronic Kidney Disease 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 151
+ },
+ {
+  "id": "F-ob-153",
+  "set": "obesity",
+  "statement_ko": "지방량 증가가 콩팥병으로 이어지는 주요 '직접' 기전 세 가지는 무엇인가요? → 고혈압·당뇨병·죽상경화",
+  "statement_en": "What are the three major DIRECT mechanisms linking increased fat mass to kidney disease? → Hypertension, diabetes and atherosclerosis",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "hypertension",
+   "ckd"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Obesity and Chronic Kidney Disease 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 152
+ },
+ {
+  "id": "F-ob-154",
+  "set": "obesity",
+  "statement_ko": "앉아서 지내는 생활습관과 만성콩팥병의 관계로 제시된 것은 무엇인가요? → 만성콩팥병 유병과 연관돼요",
+  "statement_en": "What relationship between a sedentary lifestyle and chronic kidney disease is presented? → It is associated with prevalent chronic kidney disease",
+  "concepts": [
+   "obesity",
+   "ckd",
+   "physical-activity-guidance"
+  ],
+  "concepts_manual": false,
+  "source": "Ricardo et al. (2013) (SCOPE Obesity and Chronic Kidney Disease 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 153
+ },
+ {
+  "id": "F-ob-155",
+  "set": "obesity",
+  "statement_ko": "소아 BMI 곡선에서 6세 무렵에 나타나는 가장 낮은 지점을 무엇이라 부르나요? → 지방 재증가(adiposity rebound)",
+  "statement_en": "What is the lowest point of the BMI curve, occurring at about six years of age, called? → The adiposity rebound",
+  "concepts": [
+   "childhood-obesity",
+   "bmi",
+   "early-life"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 154
+ },
+ {
+  "id": "F-ob-156",
+  "set": "obesity",
+  "statement_ko": "지방 재증가가 이르게 나타난 아이의 예후로 옳은 것은 무엇인가요? → 성인기까지 과체중·비만 범위에 머무는 경향이 있어요",
+  "statement_en": "What is the prognosis for a child with an early adiposity rebound? → They tend to stay in the overweight or obesity range into adulthood",
+  "concepts": [
+   "childhood-obesity",
+   "early-life"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 155
+ },
+ {
+  "id": "F-ob-157",
+  "set": "obesity",
+  "statement_ko": "임상 현장에서 소아 성장 평가에 쓰도록 제안된 성장곡선은 무엇인가요? → WHO 성장곡선",
+  "statement_en": "Which growth charts are proposed for use in clinical settings? → The WHO growth charts",
+  "concepts": [
+   "childhood-obesity",
+   "childhood-assessment"
+  ],
+  "concepts_manual": false,
+  "source": "De Onis, M. ECOG eBook 2015 (SCOPE Childhood Obesity: From Diagnosis to Treatment 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 156
+ },
+ {
+  "id": "F-ob-158",
+  "set": "obesity",
+  "statement_ko": "소아에서 체중 속도는 빨라지는데 신장(키) 속도가 느려질 때 취해야 할 조치는 무엇인가요? → 긴급한 정밀검사가 필요해요",
+  "statement_en": "What should be done when a child shows increased weight velocity together with low height velocity? → It is an indication for urgent investigation",
+  "concepts": [
+   "childhood-obesity",
+   "ckd"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 157
+ },
+ {
+  "id": "F-ob-159",
+  "set": "obesity",
+  "statement_ko": "비만이 있는 아이 가운데 체중 증가의 바탕에 내분비나 유전 원인이 있는 비율은 얼마인가요? → 5% 미만",
+  "statement_en": "What proportion of children with obesity have an underlying endocrine or genetic cause for their weight gain? → Less than 5%",
+  "concepts": [
+   "childhood-obesity",
+   "weight-loss-target",
+   "genetics-of-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Kumar, S., Kelly, A. S. Mayo Clinic Proceedings 2017 (SCOPE Childhood Obesity: From Diagnosis to Treatment 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 158
+ },
+ {
+  "id": "F-ob-160",
+  "set": "obesity",
+  "statement_ko": "WHO 권고에서 5~18세 소아청소년의 하루 중등도-고강도 신체활동 최소 시간은 얼마인가요? → 최소 60분",
+  "statement_en": "In the WHO recommendations, what is the minimum daily moderate-to-vigorous physical activity for children and adolescents aged five to 18? → At least 60 minutes",
+  "concepts": [
+   "childhood-obesity",
+   "physical-activity-guidance"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 159
+ },
+ {
+  "id": "F-ob-161",
+  "set": "obesity",
+  "statement_ko": "WHO 권고에서 6세 미만 아이가 하루에 채워야 할 활동적 놀이·신체활동 시간은 얼마인가요? → 180분",
+  "statement_en": "In the WHO recommendations, how many minutes per day of active play or physical activity should children younger than six accumulate? → 180 minutes",
+  "concepts": [
+   "childhood-obesity",
+   "young-adult"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 160
+ },
+ {
+  "id": "F-ob-162",
+  "set": "obesity",
+  "statement_ko": "WHO 권고에서 5세 미만 아이의 하루 화면 시간 상한은 얼마인가요? → 최대 1시간",
+  "statement_en": "In the WHO recommendations, what is the maximum daily screen time for children under five years? → A maximum of one hour",
+  "concepts": [
+   "childhood-obesity",
+   "physical-activity-guidance"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 161
+ },
+ {
+  "id": "F-ob-163",
+  "set": "obesity",
+  "statement_ko": "WHO 권고에서 소아청소년의 하루 화면 시간 상한은 얼마인가요? → 2시간을 넘지 않기",
+  "statement_en": "In the WHO recommendations, what is the daily screen time limit for children and adolescents? → It should not exceed two hours",
+  "concepts": [
+   "childhood-obesity",
+   "physical-activity-guidance"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Childhood Obesity: From Diagnosis to Treatment 모듈 (원저 미기재)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 162
+ },
+ {
+  "id": "F-ob-164",
+  "set": "obesity",
+  "statement_ko": "소아 대사증후군의 IDF 정의에서 과잉 지방(복부비만) 기준은 무엇인가요? → 허리둘레 90 백분위수 이상",
+  "statement_en": "In the IDF definition of paediatric metabolic syndrome, what is the excess adiposity criterion? → Waist circumference at or above the 90th percentile",
+  "concepts": [
+   "clinical-obesity",
+   "abdominal-obesity",
+   "childhood-obesity",
+   "waist",
+   "metabolic-syndrome",
+   "childhood-assessment"
+  ],
+  "concepts_manual": false,
+  "source": "Zimmet, P. et al. Lancet 2007 (SCOPE Childhood Obesity: From Diagnosis to Treatment 인용)",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 163
+ },
+ {
   "id": "F-ma-001",
   "set": "masld",
   "statement_ko": "2023년 새 명명법에서 NAFLD를 대체한 이름은 무엇일까요? → MASLD(대사이상 지방간질환)",
@@ -2481,6 +3442,378 @@
   "source_family": "SCOPE e-learning",
   "diff": "easy",
   "question_index": 54
+ },
+ {
+  "id": "F-ma-056",
+  "set": "masld",
+  "statement_ko": "MASLD로 진단하려면 간 실질의 몇 %를 넘는 부분에 지방증이 있어야 하나요? → 5% 초과",
+  "statement_en": "MASLD is diagnosed when steatosis affects more than what proportion of the liver parenchyma? → More than 5%",
+  "concepts": [
+   "clinical-obesity",
+   "masld",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Hagstrom H et al. Lancet Gastroenterol Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 55
+ },
+ {
+  "id": "F-ma-057",
+  "set": "masld",
+  "statement_ko": "MASH의 조직학적 정의에서 지방증과 반드시 함께 있어야 하는 소견은 무엇인가요? → 염증과 간세포 팽윤",
+  "statement_en": "In the histological definition of MASH, which findings must accompany steatosis? → Inflammation and hepatocellular ballooning",
+  "concepts": [
+   "clinical-obesity",
+   "masld",
+   "mash",
+   "hcc"
+  ],
+  "concepts_manual": false,
+  "source": "Hagstrom H et al. Lancet Gastroenterol Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 56
+ },
+ {
+  "id": "F-ma-058",
+  "set": "masld",
+  "statement_ko": "전 세계 성인의 MASLD 유병률은 어느 정도로 추정되나요? → 33% 초과",
+  "statement_en": "What is the estimated global prevalence of MASLD among adults? → More than 33%",
+  "concepts": [
+   "clinical-obesity",
+   "masld",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Riazi K et al. Lancet Gastroenterol Hepatol 2022 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 57
+ },
+ {
+  "id": "F-ma-059",
+  "set": "masld",
+  "statement_ko": "비만을 가진 사람에서 MASLD 유병률은 어느 범위인가요? → 58~74%",
+  "statement_en": "What is the prevalence range of MASLD in individuals living with obesity? → 58-74%",
+  "concepts": [
+   "obesity",
+   "masld",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Huang DQ et al. Nat Rev Dis Primers 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 58
+ },
+ {
+  "id": "F-ma-060",
+  "set": "masld",
+  "statement_ko": "2형당뇨병을 가진 사람에서 MASLD 유병률은 얼마인가요? → 65%",
+  "statement_en": "What is the prevalence of MASLD in people living with type 2 diabetes? → 65%",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld",
+   "weight-loss-target",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "En Li Cho E et al. Gut 2023 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 59
+ },
+ {
+  "id": "F-ma-061",
+  "set": "masld",
+  "statement_ko": "2형당뇨병을 가진 사람 가운데 진행성 간섬유화를 가진 비율은 얼마인가요? → 15%",
+  "statement_en": "What proportion of people living with type 2 diabetes have advanced liver fibrosis? → 15%",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld",
+   "fibrosis",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "En Li Cho E et al. Gut 2023 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 60
+ },
+ {
+  "id": "F-ma-062",
+  "set": "masld",
+  "statement_ko": "MASLD 진행 위험을 높이는 인자로 옳은 것은 무엇인가요? → 남성",
+  "statement_en": "Which of the following increases the risk of MASLD progression? → Male sex",
+  "concepts": [
+   "obesity",
+   "masld"
+  ],
+  "concepts_manual": false,
+  "source": "Schulz M, Tacke F. Hepatic Medicine 2020 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 61
+ },
+ {
+  "id": "F-ma-063",
+  "set": "masld",
+  "statement_ko": "MASLD·MASH를 가진 사람에서 간경변이나 간세포암종으로 진행하는 독립 위험인자는 무엇인가요? → 당뇨병",
+  "statement_en": "Which is an independent risk factor for progression to cirrhosis or hepatocellular carcinoma in people with MASLD and MASH? → Diabetes",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld",
+   "mash",
+   "fibrosis",
+   "hcc",
+   "cancer"
+  ],
+  "concepts_manual": false,
+  "source": "Schulz M, Tacke F. Hepatic Medicine 2020 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 62
+ },
+ {
+  "id": "F-ma-064",
+  "set": "masld",
+  "statement_ko": "MASLD가 있는 사람에게 꼭 함께 시행해야 할 선별검사는 무엇인가요? → 혈당, 당화혈색소 또는 경구당부하검사",
+  "statement_en": "Which screening test is crucial in a person found to have MASLD? → Blood glucose, HbA1c or a glucose tolerance test",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld",
+   "screening",
+   "physical-activity-guidance"
+  ],
+  "concepts_manual": false,
+  "source": "Schulz M, Tacke F. Hepatic Medicine 2020 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 63
+ },
+ {
+  "id": "F-ma-065",
+  "set": "masld",
+  "statement_ko": "MASLD를 가진 사람의 ALT 수치에 대한 설명으로 옳은 것은 무엇인가요? → 절반 넘는 사람에서 정상일 수 있어요",
+  "statement_en": "Which statement about ALT in people living with MASLD is correct? → Over half can have a normal ALT level",
+  "concepts": [
+   "obesity",
+   "masld",
+   "liver-blood-tests"
+  ],
+  "concepts_manual": false,
+  "source": "Newsome PN et al. Gut 2018 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 64
+ },
+ {
+  "id": "F-ma-066",
+  "set": "masld",
+  "statement_ko": "비만이나 2형당뇨병을 가진 사람에게 권고되는 간섬유화 검사 주기는 어떻게 되나요? → 해마다",
+  "statement_en": "How often is liver fibrosis testing recommended for people living with obesity and/or type 2 diabetes? → Annually",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld",
+   "fibrosis"
+  ],
+  "concepts_manual": false,
+  "source": "EASL-EASD-EASO. J Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 65
+ },
+ {
+  "id": "F-ma-067",
+  "set": "masld",
+  "statement_ko": "과당에 대한 설명으로 옳은 것은 무엇인가요? → 거의 전부 간에서 대사되어 새로운 지방생성의 기질이 돼요",
+  "statement_en": "Which statement about fructose is correct? → Almost all consumed fructose is metabolised in the liver and is a substrate for de novo lipogenesis",
+  "concepts": [
+   "obesity",
+   "masld"
+  ],
+  "concepts_manual": false,
+  "source": "Vos MB, Lavine JE. Hepatology 2013 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 66
+ },
+ {
+  "id": "F-ma-068",
+  "set": "masld",
+  "statement_ko": "MASLD 환자에게 줄이라고 권하는 '과당'은 주로 무엇을 뜻하나요? → 청량음료와 고과당 옥수수시럽에 든 과당",
+  "statement_en": "When patients with MASLD are told to reduce 'fructose', what does this mainly refer to? → The fructose in soft drinks and high-fructose corn syrup",
+  "concepts": [
+   "obesity",
+   "masld",
+   "alcohol"
+  ],
+  "concepts_manual": false,
+  "source": "Vos MB, Lavine JE. Hepatology 2013 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 67
+ },
+ {
+  "id": "F-ma-069",
+  "set": "masld",
+  "statement_ko": "MASLD를 가진 사람에게 권할 운동 종류는 무엇인가요? → 유산소운동과 근력운동 모두",
+  "statement_en": "Which type of exercise is beneficial for people living with MASLD? → Both aerobic and resistance exercise",
+  "concepts": [
+   "obesity",
+   "masld",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Hashida R et al. J Hepatol 2017 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 68
+ },
+ {
+  "id": "F-ma-070",
+  "set": "masld",
+  "statement_ko": "운동이 간에 미치는 효과로 옳은 것은 무엇인가요? → 간내 중성지방과 염증, ALT가 줄어요",
+  "statement_en": "Which is a hepatic effect of exercise? → Reduced intrahepatic triglycerides, inflammation and ALT",
+  "concepts": [
+   "obesity",
+   "masld",
+   "dyslipidemia",
+   "exercise",
+   "liver-blood-tests"
+  ],
+  "concepts_manual": false,
+  "source": "Razzak I et al. Liver Int 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 69
+ },
+ {
+  "id": "F-ma-071",
+  "set": "masld",
+  "statement_ko": "정상 체중인 MASLD 환자에게 알맞은 조언은 무엇인가요? → 건강한 생활습관만으로도 간이 좋아지니 감량 폭에 매달릴 필요는 없어요",
+  "statement_en": "What is appropriate advice for a patient who has MASLD at a normal body weight? → A healthy lifestyle still improves the liver, so there is no need to focus on the degree of weight reduction",
+  "concepts": [
+   "obesity",
+   "masld",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "EASL-EASD-EASO. J Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 70
+ },
+ {
+  "id": "F-ma-072",
+  "set": "masld",
+  "statement_ko": "MASLD 환자의 식사에서 특히 피하라고 강조하는 것은 무엇인가요? → 가당음료와 가공·초가공식품",
+  "statement_en": "What is particularly emphasised for people living with MASLD to avoid? → Sugar-sweetened beverages and processed or ultra-processed foods",
+  "concepts": [
+   "obesity",
+   "masld",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "Pekarska K et al. Frontline Gastroenterol 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 71
+ },
+ {
+  "id": "F-ma-073",
+  "set": "masld",
+  "statement_ko": "지방간이 확인된 사람에게 시행할 최소한의 대사 검사 항목은 무엇인가요? → 고혈당, 이상지질혈증, 고혈압, 비만 평가",
+  "statement_en": "What is the minimum metabolic work-up for someone found to have hepatic steatosis? → Assessment of hyperglycaemia, dyslipidaemia, hypertension and obesity",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld",
+   "hypertension",
+   "dyslipidemia"
+  ],
+  "concepts_manual": false,
+  "source": "Huang DQ et al. Nat Rev Dis Primers 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 72
+ },
+ {
+  "id": "F-ma-074",
+  "set": "masld",
+  "statement_ko": "대사증후군을 평가할 때 성별과 인종에 따라 다른 기준을 반드시 써야 하는 항목은 무엇인가요? → 허리둘레",
+  "statement_en": "For which measurement must gender- and ethnicity-specific cut-offs be used when assessing the metabolic syndrome? → Waist circumference",
+  "concepts": [
+   "clinical-obesity",
+   "abdominal-obesity",
+   "waist",
+   "dyslipidemia",
+   "metabolic-syndrome",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Alberti KG et al. Lancet 2005 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 73
+ },
+ {
+  "id": "F-ma-075",
+  "set": "masld",
+  "statement_ko": "내장지방을 가늠하는 방법에 대한 설명으로 옳은 것은 무엇인가요? → '살 한 줌 집어보기'는 피하지방을 재고, 기준 표준은 CT나 MRI예요",
+  "statement_en": "Which statement about assessing visceral fat is correct? → 'Pinch an inch' measures subcutaneous fat, and the reference standard is CT or MRI",
+  "concepts": [
+   "abdominal-obesity",
+   "dyslipidemia",
+   "metabolic-syndrome",
+   "mri-pdff"
+  ],
+  "concepts_manual": false,
+  "source": "Wajchenberg BL. Endocr Rev 2000 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 74
+ },
+ {
+  "id": "F-ma-076",
+  "set": "masld",
+  "statement_ko": "대사증후군 위험인자가 없던 사람이 네다섯 개를 갖게 되면 2형당뇨병 위험은 얼마나 올라가나요? → 약 25배",
+  "statement_en": "How much does the risk of type 2 diabetes rise when a man goes from zero to four or five metabolic syndrome risk factors? → About 25-fold",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "dyslipidemia",
+   "metabolic-syndrome"
+  ],
+  "concepts_manual": false,
+  "source": "Sattar N et al. Circulation 2003 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
+  "source_family": "SCOPE e-learning",
+  "diff": "easy",
+  "question_index": 75
+ },
+ {
+  "id": "F-ma-077",
+  "set": "masld",
+  "statement_ko": "다음 가운데 대사증후군의 국제 합의 정의에 들어가지 않는 항목은 무엇인가요? → LDL 콜레스테롤",
+  "statement_en": "Which of the following is NOT a feature of the International Consensus Definition of the metabolic syndrome? → LDL cholesterol",
+  "concepts": [
+   "clinical-obesity",
+   "dyslipidemia",
+   "metabolic-syndrome",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Alberti KG et al. Lancet 2005 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 76
  },
  {
   "id": "F-src-001",
