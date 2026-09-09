@@ -2014,5 +2014,1415 @@
   "source_family": "KASL 가이드라인 2025",
   "diff": "mid",
   "question_index": 50
+ },
+ {
+  "id": "F-src-001",
+  "set": "source",
+  "statement_ko": "Despite large day-to-day variation in food intake and activity, adult body weight stays remarkably",
+  "statement_en": "Despite large day-to-day variation in food intake and activity, adult body weight stays remarkably",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-002",
+  "set": "source",
+  "statement_ko": "The homeostatic system taught here runs through the **hypothalamus**, with peripheral signals including",
+  "statement_en": "The homeostatic system taught here runs through the **hypothalamus**, with peripheral signals including",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-003",
+  "set": "source",
+  "statement_ko": "Weight-loss durability: quoted Australian NHMRC statement — weight regain is common after lifestyle-induced",
+  "statement_en": "Weight-loss durability: quoted Australian NHMRC statement — weight regain is common after lifestyle-induced",
+  "concepts": [
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-004",
+  "set": "source",
+  "statement_ko": "Energy expenditure after weight loss: a **10% weight loss** lowers total energy expenditure **below what",
+  "statement_en": "Energy expenditure after weight loss: a **10% weight loss** lowers total energy expenditure **below what",
+  "concepts": [
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-005",
+  "set": "source",
+  "statement_ko": "Appetite hormones after weight loss: compensatory changes occur across many appetite-regulating hormones",
+  "statement_en": "Appetite hormones after weight loss: compensatory changes occur across many appetite-regulating hormones",
+  "concepts": [
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-006",
+  "set": "source",
+  "statement_ko": "Hunger ratings: mean fasting and postprandial ratings of hunger and desire to eat were measured at",
+  "statement_en": "Hunger ratings: mean fasting and postprandial ratings of hunger and desire to eat were measured at",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-007",
+  "set": "source",
+  "statement_ko": "Module summary: body weight (adiposity) is homeostatically regulated, and physiological adaptations",
+  "statement_en": "Module summary: body weight (adiposity) is homeostatically regulated, and physiological adaptations",
+  "concepts": [
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 1 — Obesity and the Regulation of Body Weight",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-008",
+  "set": "source",
+  "statement_ko": "Twin concordance: identical twins are very similar in weight — if one has obesity both usually do.",
+  "statement_en": "Twin concordance: identical twins are very similar in weight — if one has obesity both usually do.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-009",
+  "set": "source",
+  "statement_ko": "Overfeeding experiment: 12 pairs of identical twins were overfed by about **1,000 kcal/day for 100 days**;",
+  "statement_en": "Overfeeding experiment: 12 pairs of identical twins were overfed by about **1,000 kcal/day for 100 days**;",
+  "concepts": [
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-010",
+  "set": "source",
+  "statement_ko": "Danish adoption study: **540 adult adoptees** selected from a population of **3,580**, split into four",
+  "statement_en": "Danish adoption study: **540 adult adoptees** selected from a population of **3,580**, split into four",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-011",
+  "set": "source",
+  "statement_ko": "Australian obesity prevalence rose from **7.1% (1980) to 18.4% (2000)** — a 20-year jump far faster than",
+  "statement_en": "Australian obesity prevalence rose from **7.1% (1980) to 18.4% (2000)** — a 20-year jump far faster than",
+  "concepts": [
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-012",
+  "set": "source",
+  "statement_ko": "Leptin/\"set point\": leptin is made in fat cells and inhibits hunger + raises energy expenditure. A",
+  "statement_en": "Leptin/\"set point\": leptin is made in fat cells and inhibits hunger + raises energy expenditure. A",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-013",
+  "set": "source",
+  "statement_ko": "The \"5-litre vs 50-litre pot in the rain\" analogy: the same environment (rain) fills both, but the bigger",
+  "statement_en": "The \"5-litre vs 50-litre pot in the rain\" analogy: the same environment (rain) fills both, but the bigger",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-014",
+  "set": "source",
+  "statement_ko": "Other weight-modifying factors listed: built environment, medical conditions, gut microbiota, viruses,",
+  "statement_en": "Other weight-modifying factors listed: built environment, medical conditions, gut microbiota, viruses,",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-015",
+  "set": "source",
+  "statement_ko": "Medical causes of weight gain: Cushing's disease; hypothalamic disorders (craniopharyngioma, surgery or",
+  "statement_en": "Medical causes of weight gain: Cushing's disease; hypothalamic disorders (craniopharyngioma, surgery or",
+  "concepts": [
+   "bariatric"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-016",
+  "set": "source",
+  "statement_ko": "Gut microbiota: people with obesity have **fewer Bacteroidetes and more Firmicutes** than lean subjects;",
+  "statement_en": "Gut microbiota: people with obesity have **fewer Bacteroidetes and more Firmicutes** than lean subjects;",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-017",
+  "set": "source",
+  "statement_ko": "Viruses: **five animal and three human viruses** shown to influence body weight; they stimulate enzymes",
+  "statement_en": "Viruses: **five animal and three human viruses** shown to influence body weight; they stimulate enzymes",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-018",
+  "set": "source",
+  "statement_ko": "Stress: rat data — intracerebroventricular leptin (3 µg bolus) caused only modest falls in weight and",
+  "statement_en": "Stress: rat data — intracerebroventricular leptin (3 µg bolus) caused only modest falls in weight and",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-019",
+  "set": "source",
+  "statement_ko": "Menopause: most women gain some weight at menopause, and **weight gain at menopause is always central**",
+  "statement_en": "Menopause: most women gain some weight at menopause, and **weight gain at menopause is always central**",
+  "concepts": [
+   "menopause"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-020",
+  "set": "source",
+  "statement_ko": "Environmental toxins: rat study of plastics-derived endocrine disruptors (BPA, DEHP, DBP) given to",
+  "statement_en": "Environmental toxins: rat study of plastics-derived endocrine disruptors (BPA, DEHP, DBP) given to",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-021",
+  "set": "source",
+  "statement_ko": "Module summary: the predominant drivers of obesity are genetic predisposition — classical genetic",
+  "statement_en": "Module summary: the predominant drivers of obesity are genetic predisposition — classical genetic",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 2 — Causes of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-022",
+  "set": "source",
+  "statement_ko": "Routine medical evaluation of obesity = comprehensive history + physical examination + selected",
+  "statement_en": "Routine medical evaluation of obesity = comprehensive history + physical examination + selected",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-023",
+  "set": "source",
+  "statement_ko": "The module organises obesity comorbidities across **nine organ systems**, presented as five systems in",
+  "statement_en": "The module organises obesity comorbidities across **nine organ systems**, presented as five systems in",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-024",
+  "set": "source",
+  "statement_ko": "**Metabolic syndrome**: diagnosed on **three or more of five** risk factors. Guidelines recommend a",
+  "statement_en": "**Metabolic syndrome**: diagnosed on **three or more of five** risk factors. Guidelines recommend a",
+  "concepts": [
+   "metabolic-syndrome"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-025",
+  "set": "source",
+  "statement_ko": "**Prediabetes / type 2 diabetes**: identification is important for everyone with overweight or obesity;",
+  "statement_en": "**Prediabetes / type 2 diabetes**: identification is important for everyone with overweight or obesity;",
+  "concepts": [
+   "t2dm",
+   "prediabetes"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-026",
+  "set": "source",
+  "statement_ko": "**PCOS**: **50-80% of women with PCOS have obesity**. Three key features with frequencies:",
+  "statement_en": "**PCOS**: **50-80% of women with PCOS have obesity**. Three key features with frequencies:",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-027",
+  "set": "source",
+  "statement_ko": "**PCOS diagnosis** is not straightforward — three published criteria sets: **1990 NIH**, **2003 Rotterdam**,",
+  "statement_en": "**PCOS diagnosis** is not straightforward — three published criteria sets: **1990 NIH**, **2003 Rotterdam**,",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-028",
+  "set": "source",
+  "statement_ko": "**Cushing's syndrome**: hypercortisolism from endogenous glucocorticoid excess; more likely when a feature",
+  "statement_en": "**Cushing's syndrome**: hypercortisolism from endogenous glucocorticoid excess; more likely when a feature",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-029",
+  "set": "source",
+  "statement_ko": "**OSA — who to evaluate**: obesity with **BMI > 35**, congestive heart failure, atrial fibrillation,",
+  "statement_en": "**OSA — who to evaluate**: obesity with **BMI > 35**, congestive heart failure, atrial fibrillation,",
+  "concepts": [
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-030",
+  "set": "source",
+  "statement_ko": "**OSA — airway examination**: Mallampati classes I-IV (I soft palate, uvula, fauces, pillars visible / no",
+  "statement_en": "**OSA — airway examination**: Mallampati classes I-IV (I soft palate, uvula, fauces, pillars visible / no",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-031",
+  "set": "source",
+  "statement_ko": "**OSA — screening**: Epworth Sleepiness Scale (ESS) or **STOP-BANG**; then home sleep test with portable",
+  "statement_en": "**OSA — screening**: Epworth Sleepiness Scale (ESS) or **STOP-BANG**; then home sleep test with portable",
+  "concepts": [
+   "screening"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-032",
+  "set": "source",
+  "statement_ko": "**NAFLD (now MASLD) — spectrum**: (1) fat accumulation in the liver once excessive alcohol is ruled out;",
+  "statement_en": "**NAFLD (now MASLD) — spectrum**: (1) fat accumulation in the liver once excessive alcohol is ruled out;",
+  "concepts": [
+   "masld",
+   "alcohol"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-033",
+  "set": "source",
+  "statement_ko": "**NAFLD — how patients present**: usually picked up incidentally when liver function tests or imaging done",
+  "statement_en": "**NAFLD — how patients present**: usually picked up incidentally when liver function tests or imaging done",
+  "concepts": [
+   "masld"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-034",
+  "set": "source",
+  "statement_ko": "**NAFLD — workup order**: biochemistry (ALT, AST, lipid panel, glucose; **an elevated ALT/AST ratio is the",
+  "statement_en": "**NAFLD — workup order**: biochemistry (ALT, AST, lipid panel, glucose; **an elevated ALT/AST ratio is the",
+  "concepts": [
+   "masld",
+   "dyslipidemia"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-035",
+  "set": "source",
+  "statement_ko": "**Male hypogonadism / testosterone deficiency**: signs and symptoms are decreased libido, erectile",
+  "statement_en": "**Male hypogonadism / testosterone deficiency**: signs and symptoms are decreased libido, erectile",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-036",
+  "set": "source",
+  "statement_ko": "Module summary: comorbidity identification is a core part of obesity evaluation; test selection should",
+  "statement_en": "Module summary: comorbidity identification is a core part of obesity evaluation; test selection should",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 3 — Complications of Obesity",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-037",
+  "set": "source",
+  "statement_ko": "Structure of the module mirrors the **Ask - Assess** framing of the 5As of obesity management:",
+  "statement_en": "Structure of the module mirrors the **Ask - Assess** framing of the 5As of obesity management:",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 4 — Starting the Patient Dialogue",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-038",
+  "set": "source",
+  "statement_ko": "**BMI tells you how big your patient is, not how sick they are** — a second tool is needed to stage the",
+  "statement_en": "**BMI tells you how big your patient is, not how sick they are** — a second tool is needed to stage the",
+  "concepts": [
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 4 — Starting the Patient Dialogue",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-039",
+  "set": "source",
+  "statement_ko": "**The \"4Ms\" of obesity** = **Mental, Mechanical, Monetary, Metabolic** — the drivers, complications and",
+  "statement_en": "**The \"4Ms\" of obesity** = **Mental, Mechanical, Monetary, Metabolic** — the drivers, complications and",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 4 — Starting the Patient Dialogue",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-040",
+  "set": "source",
+  "statement_ko": "How to raise the topic: address the **presenting problem first**, then introduce obesity, and where possible",
+  "statement_en": "How to raise the topic: address the **presenting problem first**, then introduce obesity, and where possible",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 4 — Starting the Patient Dialogue",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-041",
+  "set": "source",
+  "statement_ko": "Even when obesity is causing a lot of ill health, the presenting complaint must **not** be set aside to",
+  "statement_en": "Even when obesity is causing a lot of ill health, the presenting complaint must **not** be set aside to",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 4 — Starting the Patient Dialogue",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-042",
+  "set": "source",
+  "statement_ko": "Knowing the patient's **previous weight-loss attempts** matters before raising the weight issue.",
+  "statement_en": "Knowing the patient's **previous weight-loss attempts** matters before raising the weight issue.",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 4 — Starting the Patient Dialogue",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-043",
+  "set": "source",
+  "statement_ko": "The module also contains a free-text reflection (\"what was wrong with the doctor's approach?\") after the",
+  "statement_en": "The module also contains a free-text reflection (\"what was wrong with the doctor's approach?\") after the",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 4 — Starting the Patient Dialogue",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-044",
+  "set": "source",
+  "statement_ko": "**Obesity history questions**: was obesity present in early childhood? if not, when did it start and did it",
+  "statement_en": "**Obesity history questions**: was obesity present in early childhood? if not, when did it start and did it",
+  "concepts": [
+   "childhood-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-045",
+  "set": "source",
+  "statement_ko": "**Family history**: ask about overweight in the extended family (grandparents, uncles, aunts, not just",
+  "statement_en": "**Family history**: ask about overweight in the extended family (grandparents, uncles, aunts, not just",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-046",
+  "set": "source",
+  "statement_ko": "**Systems review** prompts, by system — cardiovascular (exertional chest pain, exertional breathlessness,",
+  "statement_en": "**Systems review** prompts, by system — cardiovascular (exertional chest pain, exertional breathlessness,",
+  "concepts": [
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-047",
+  "set": "source",
+  "statement_ko": "**Medications**: always ask what the patient takes; the module singles out **antidepressants** as",
+  "statement_en": "**Medications**: always ask what the patient takes; the module singles out **antidepressants** as",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-048",
+  "set": "source",
+  "statement_ko": "**Social review**: who they live with and who cooks (control over diet); work and unusual hours;",
+  "statement_en": "**Social review**: who they live with and who cooks (control over diet); work and unusual hours;",
+  "concepts": [
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-049",
+  "set": "source",
+  "statement_ko": "**Measurements to take**: weight, height, **waist circumference** and **hip circumference** — height and",
+  "statement_en": "**Measurements to take**: weight, height, **waist circumference** and **hip circumference** — height and",
+  "concepts": [
+   "abdominal-obesity",
+   "waist"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-050",
+  "set": "source",
+  "statement_ko": "**How to measure waist circumference (exact technique taught)**: place the tape around the waist",
+  "statement_en": "**How to measure waist circumference (exact technique taught)**: place the tape around the waist",
+  "concepts": [
+   "abdominal-obesity",
+   "waist"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-051",
+  "set": "source",
+  "statement_ko": "**Hands**: palmar crease pallor; **darkening of the knuckles** (possible **acanthosis nigricans** — then also",
+  "statement_en": "**Hands**: palmar crease pallor; **darkening of the knuckles** (possible **acanthosis nigricans** — then also",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-052",
+  "set": "source",
+  "statement_ko": "**Eyes**: conjunctival pallor; **scleral icterus** (may suggest jaundice).",
+  "statement_en": "**Eyes**: conjunctival pallor; **scleral icterus** (may suggest jaundice).",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-053",
+  "set": "source",
+  "statement_ko": "**Neck**: distinguish goitre from fat — place index finger and thumb gently around the neck and ask the",
+  "statement_en": "**Neck**: distinguish goitre from fat — place index finger and thumb gently around the neck and ask the",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-054",
+  "set": "source",
+  "statement_ko": "**Lungs, abdomen, legs**: sit the patient up to auscultate the lungs; lie them flat to palpate the abdomen",
+  "statement_en": "**Lungs, abdomen, legs**: sit the patient up to auscultate the lungs; lie them flat to palpate the abdomen",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-055",
+  "set": "source",
+  "statement_ko": "**Investigations to request**: fasting glucose, lipids, **liver function tests**, electrolytes and urea,",
+  "statement_en": "**Investigations to request**: fasting glucose, lipids, **liver function tests**, electrolytes and urea,",
+  "concepts": [
+   "dyslipidemia"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-056",
+  "set": "source",
+  "statement_ko": "**What to explain before discussing weight loss** (the chronic-disease framing): there is a strong genetic",
+  "statement_en": "**What to explain before discussing weight loss** (the chronic-disease framing): there is a strong genetic",
+  "concepts": [
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-057",
+  "set": "source",
+  "statement_ko": "**Weight-loss strategies presented, in order**: (1) a gentle reduction in energy intake — explicitly flagged",
+  "statement_en": "**Weight-loss strategies presented, in order**: (1) a gentle reduction in energy intake — explicitly flagged",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 5 — History Taking and Examination",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-058",
+  "set": "source",
+  "statement_ko": "**Edmonton Obesity Staging System (EOSS)** — Stage 0: no apparent risk factors. Stage 1: obesity-related",
+  "statement_en": "**Edmonton Obesity Staging System (EOSS)** — Stage 0: no apparent risk factors. Stage 1: obesity-related",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-059",
+  "set": "source",
+  "statement_ko": "**EOSS vs BMI class for predicting mortality**: BMI class (Class I / II / III obesity) does **not** predict",
+  "statement_en": "**EOSS vs BMI class for predicting mortality**: BMI class (Class I / II / III obesity) does **not** predict",
+  "concepts": [
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-060",
+  "set": "source",
+  "statement_ko": "Weight-loss options presented: very low energy diets, reduced energy diets, low carbohydrate diets,",
+  "statement_en": "Weight-loss options presented: very low energy diets, reduced energy diets, low carbohydrate diets,",
+  "concepts": [
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-061",
+  "set": "source",
+  "statement_ko": "**Energy expenditure** = basal metabolic rate + post-prandial thermogenesis + activity. Estimate it with the",
+  "statement_en": "**Energy expenditure** = basal metabolic rate + post-prandial thermogenesis + activity. Estimate it with the",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-062",
+  "set": "source",
+  "statement_ko": "**Activity factors taught**: **1.2** confined to bed; **1.3** light activity (most people in modern city life);",
+  "statement_en": "**Activity factors taught**: **1.2** confined to bed; **1.3** light activity (most people in modern city life);",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-063",
+  "set": "source",
+  "statement_ko": "**1 kg of fat = 30,800 kJ = 7,000 kcal** — used with the prescribed diet's energy value to predict the",
+  "statement_en": "**1 kg of fat = 30,800 kJ = 7,000 kcal** — used with the prescribed diet's energy value to predict the",
+  "concepts": [
+   "weight-loss-target",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-064",
+  "set": "source",
+  "statement_ko": "**Worked case**: a 40-year-old woman, **140 kg, 1.65 m**, sedentary job, walks the dog daily (factor 1.3)",
+  "statement_en": "**Worked case**: a 40-year-old woman, **140 kg, 1.65 m**, sedentary job, walks the dog daily (factor 1.3)",
+  "concepts": [
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-065",
+  "set": "source",
+  "statement_ko": "**Why a VLED is needed for that target**: an ordinary restricted diet cannot go below about",
+  "statement_en": "**Why a VLED is needed for that target**: an ordinary restricted diet cannot go below about",
+  "concepts": [
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-066",
+  "set": "source",
+  "statement_ko": "**Comparative efficacy**: in the Franz et al. meta-analysis and systematic review of weight-loss trials with",
+  "statement_en": "**Comparative efficacy**: in the Franz et al. meta-analysis and systematic review of weight-loss trials with",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-067",
+  "set": "source",
+  "statement_ko": "**VLED results**: Purcell and colleagues achieved **15% weight loss in 78% of volunteers** in a randomised",
+  "statement_en": "**VLED results**: Purcell and colleagues achieved **15% weight loss in 78% of volunteers** in a randomised",
+  "concepts": [
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-068",
+  "set": "source",
+  "statement_ko": "**Practical VLED protocol taught**: replace **two meals** (usually breakfast and lunch) with VLED shakes or",
+  "statement_en": "**Practical VLED protocol taught**: replace **two meals** (usually breakfast and lunch) with VLED shakes or",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-069",
+  "set": "source",
+  "statement_ko": "**Protein portion rule**: palm-sized for **BMI 30-40**, whole-hand-sized for **BMI over 40**.",
+  "statement_en": "**Protein portion rule**: palm-sized for **BMI 30-40**, whole-hand-sized for **BMI over 40**.",
+  "concepts": [
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-070",
+  "set": "source",
+  "statement_ko": "**Very large patients**: for **BMI < 45 kg/m2** use two VLED products per day (with dinner, about 800 kcal);",
+  "statement_en": "**Very large patients**: for **BMI < 45 kg/m2** use two VLED products per day (with dinner, about 800 kcal);",
+  "concepts": [
+   "bmi",
+   "weight-loss-target",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-071",
+  "set": "source",
+  "statement_ko": "**VLED cautions / contraindications**: use with caution and supervise in specialised clinics if the patient",
+  "statement_en": "**VLED cautions / contraindications**: use with caution and supervise in specialised clinics if the patient",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-072",
+  "set": "source",
+  "statement_ko": "**Reduced energy diets**: prescribe about **2,500 kJ (600 kcal) below** estimated usual intake, which if",
+  "statement_en": "**Reduced energy diets**: prescribe about **2,500 kJ (600 kcal) below** estimated usual intake, which if",
+  "concepts": [
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-073",
+  "set": "source",
+  "statement_ko": "**Macronutrient composition does not matter**: Sacks et al. randomised **811 overweight adults** to four",
+  "statement_en": "**Macronutrient composition does not matter**: Sacks et al. randomised **811 overweight adults** to four",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-074",
+  "set": "source",
+  "statement_ko": "**Low carbohydrate diets**: advantage is **mild ketosis, which suppresses hunger**. One study found a",
+  "statement_en": "**Low carbohydrate diets**: advantage is **mild ketosis, which suppresses hunger**. One study found a",
+  "concepts": [
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-075",
+  "set": "source",
+  "statement_ko": "**Intermittent diets (e.g. 5:2)**: Harvie et al. showed **no advantage over continuous restriction**, though",
+  "statement_en": "**Intermittent diets (e.g. 5:2)**: Harvie et al. showed **no advantage over continuous restriction**, though",
+  "concepts": [
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-076",
+  "set": "source",
+  "statement_ko": "**Exercise arithmetic** (very quiz-friendly): BMR is about **368 kJ/hour = 8,832 kJ/day**; jogging burns up",
+  "statement_en": "**Exercise arithmetic** (very quiz-friendly): BMR is about **368 kJ/hour = 8,832 kJ/day**; jogging burns up",
+  "concepts": [
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-077",
+  "set": "source",
+  "statement_ko": "**Why lifestyle alone plateaus at 5-6 kg**: as patients lose weight, hormone changes increase hunger —",
+  "statement_en": "**Why lifestyle alone plateaus at 5-6 kg**: as patients lose weight, hormone changes increase hunger —",
+  "concepts": [
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-078",
+  "set": "source",
+  "statement_ko": "**Bariatric surgery** currently gives the **best long-term outcomes**. Three procedures: **adjustable gastric",
+  "statement_en": "**Bariatric surgery** currently gives the **best long-term outcomes**. Three procedures: **adjustable gastric",
+  "concepts": [
+   "bariatric"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-079",
+  "set": "source",
+  "statement_ko": "Module summary: the hard part is **keeping weight off long term** and it does not really matter how the",
+  "statement_en": "Module summary: the hard part is **keeping weight off long term** and it does not really matter how the",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 6 — Global Management of Obesity in Adults",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-080",
+  "set": "source",
+  "statement_ko": "Children and young people with overweight — and especially obesity — **present to clinical services more",
+  "statement_en": "Children and young people with overweight — and especially obesity — **present to clinical services more",
+  "concepts": [
+   "childhood-obesity",
+   "young-adult"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-081",
+  "set": "source",
+  "statement_ko": "**You cannot judge obesity by eye** — the module shows three 3-4 year olds where the boy on the left is",
+  "statement_en": "**You cannot judge obesity by eye** — the module shows three 3-4 year olds where the boy on the left is",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-082",
+  "set": "source",
+  "statement_ko": "**Paediatric BMI must be read on a BMI-for-age chart, never against adult cut-points.** Worked example: a",
+  "statement_en": "**Paediatric BMI must be read on a BMI-for-age chart, never against adult cut-points.** Worked example: a",
+  "concepts": [
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-083",
+  "set": "source",
+  "statement_ko": "**Weight maintenance alone can be the goal in a still-growing child**: in the same girl, after a",
+  "statement_en": "**Weight maintenance alone can be the goal in a still-growing child**: in the same girl, after a",
+  "concepts": [
+   "childhood-obesity",
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-084",
+  "set": "source",
+  "statement_ko": "**Central adiposity in children**: central fat distribution raises cardio-metabolic risk in children and",
+  "statement_en": "**Central adiposity in children**: central fat distribution raises cardio-metabolic risk in children and",
+  "concepts": [
+   "childhood-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-085",
+  "set": "source",
+  "statement_ko": "**History**: general history (pregnancy, medical history, medications, ethnicity); complications — the",
+  "statement_en": "**History**: general history (pregnancy, medical history, medications, ethnicity); complications — the",
+  "concepts": [
+   "pregnancy"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-086",
+  "set": "source",
+  "statement_ko": "**Lifestyle history has four domains**: physical activity (including active transport to school, incidental",
+  "statement_en": "**Lifestyle history has four domains**: physical activity (including active transport to school, incidental",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-087",
+  "set": "source",
+  "statement_ko": "**Acanthosis nigricans** — thickened, pigmented skin in the flexures at the base of the neck — is",
+  "statement_en": "**Acanthosis nigricans** — thickened, pigmented skin in the flexures at the base of the neck — is",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-088",
+  "set": "source",
+  "statement_ko": "**Red flags suggesting a secondary or syndromic cause**: **short stature** (hypercortisolism,",
+  "statement_en": "**Red flags suggesting a secondary or syndromic cause**: **short stature** (hypercortisolism,",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-089",
+  "set": "source",
+  "statement_ko": "**When to investigate**: older age, more severe obesity, high-risk family history (type 2 diabetes,",
+  "statement_en": "**When to investigate**: older age, more severe obesity, high-risk family history (type 2 diabetes,",
+  "concepts": [
+   "t2dm",
+   "elderly"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-090",
+  "set": "source",
+  "statement_ko": "**What to investigate**: initial fasting bloods — **fasting glucose, liver function tests, lipid profile**;",
+  "statement_en": "**What to investigate**: initial fasting bloods — **fasting glucose, liver function tests, lipid profile**;",
+  "concepts": [
+   "dyslipidemia"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-091",
+  "set": "source",
+  "statement_ko": "**Evidence for lifestyle intervention**: the **2009 Cochrane Review** found family-based lifestyle",
+  "statement_en": "**Evidence for lifestyle intervention**: the **2009 Cochrane Review** found family-based lifestyle",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-092",
+  "set": "source",
+  "statement_ko": "**Effect sizes from the updated Cochrane meta-analyses**: behavioural intervention vs control gives a",
+  "statement_en": "**Effect sizes from the updated Cochrane meta-analyses**: behavioural intervention vs control gives a",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-093",
+  "set": "source",
+  "statement_ko": "**Parents matter more than the child**: in Epstein's classic study (8-month intervention in 7-12 year olds,",
+  "statement_en": "**Parents matter more than the child**: in Epstein's classic study (8-month intervention in 7-12 year olds,",
+  "concepts": [
+   "childhood-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-094",
+  "set": "source",
+  "statement_ko": "**Target sedentary behaviour, not just activity**: in another Epstein study (8-12 year olds, six-month",
+  "statement_en": "**Target sedentary behaviour, not just activity**: in another Epstein study (8-12 year olds, six-month",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-095",
+  "set": "source",
+  "statement_ko": "**Maintenance-targeted therapy**: Wilfley and colleagues gave all families a five-month family-based",
+  "statement_en": "**Maintenance-targeted therapy**: Wilfley and colleagues gave all families a five-month family-based",
+  "concepts": [
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-096",
+  "set": "source",
+  "statement_ko": "**Dietary recommendations**: follow national nutrition guidelines; regular meals, eating together as a",
+  "statement_en": "**Dietary recommendations**: follow national nutrition guidelines; regular meals, eating together as a",
+  "concepts": [
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-097",
+  "set": "source",
+  "statement_ko": "**Screen time**: several countries recommend **less than two hours per day of discretionary screen time for",
+  "statement_en": "**Screen time**: several countries recommend **less than two hours per day of discretionary screen time for",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-098",
+  "set": "source",
+  "statement_ko": "**Sleep**: cross-sectional and longitudinal studies link **short sleep duration** with the development of",
+  "statement_en": "**Sleep**: cross-sectional and longitudinal studies link **short sleep duration** with the development of",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-099",
+  "set": "source",
+  "statement_ko": "**Behaviour-change techniques taught**: **goal setting** (target behaviours rather than weight, with very",
+  "statement_en": "**Behaviour-change techniques taught**: **goal setting** (target behaviours rather than weight, with very",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-100",
+  "set": "source",
+  "statement_ko": "**Severe obesity in young people** is effectively \"a new disease\": health systems barely recognise it, most",
+  "statement_en": "**Severe obesity in young people** is effectively \"a new disease\": health systems barely recognise it, most",
+  "concepts": [
+   "young-adult"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-101",
+  "set": "source",
+  "statement_ko": "**Intensive dietary interventions**: very low energy diets can produce safe weight loss in adolescents —",
+  "statement_en": "**Intensive dietary interventions**: very low energy diets can produce safe weight loss in adolescents —",
+  "concepts": [
+   "childhood-obesity",
+   "weight-loss-target",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-102",
+  "set": "source",
+  "statement_ko": "**Laparoscopic banding vs lifestyle RCT (JAMA 2010)**: **50 adolescents** with obesity randomised to a",
+  "statement_en": "**Laparoscopic banding vs lifestyle RCT (JAMA 2010)**: **50 adolescents** with obesity randomised to a",
+  "concepts": [
+   "childhood-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-103",
+  "set": "source",
+  "statement_ko": "**Teen-LABS**: prospective enrolment of **over 240 adolescents** having bariatric surgery at **five US",
+  "statement_en": "**Teen-LABS**: prospective enrolment of **over 240 adolescents** having bariatric surgery at **five US",
+  "concepts": [
+   "childhood-obesity",
+   "bariatric"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-104",
+  "set": "source",
+  "statement_ko": "**Common elements of adolescent bariatric surgery guidance**: severe obesity (for example **BMI greater than",
+  "statement_en": "**Common elements of adolescent bariatric surgery guidance**: severe obesity (for example **BMI greater than",
+  "concepts": [
+   "childhood-obesity",
+   "bmi",
+   "bariatric"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-105",
+  "set": "source",
+  "statement_ko": "**Adolescent-specific considerations**: management relies more on the young person's active participation",
+  "statement_en": "**Adolescent-specific considerations**: management relies more on the young person's active participation",
+  "concepts": [
+   "childhood-obesity",
+   "young-adult"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-106",
+  "set": "source",
+  "statement_ko": "**Barriers to treatment and how to adapt**: poverty → low-cost food and activity alternatives; culturally and",
+  "statement_en": "**Barriers to treatment and how to adapt**: poverty → low-cost food and activity alternatives; culturally and",
+  "concepts": [
+   "obesity"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
+ },
+ {
+  "id": "F-src-107",
+  "set": "source",
+  "statement_ko": "**Module summary**: routinely use **BMI-for-age charts**; **waist-to-height ratio** is a useful measure of",
+  "statement_en": "**Module summary**: routinely use **BMI-for-age charts**; **waist-to-height ratio** is a useful measure of",
+  "concepts": [
+   "abdominal-obesity",
+   "bmi",
+   "whtr"
+  ],
+  "concepts_manual": false,
+  "source": "SCOPE Core Learning Path › Module 8 — Management of Obesity in Children and Adolescents",
+  "source_family": "SCOPE e-learning",
+  "diff": "mid"
  }
 ]
