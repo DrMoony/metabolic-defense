@@ -8,9 +8,12 @@
    "SLD (steatotic liver disease, the umbrella term)"
   ],
   "correct": 0,
-  "src": "slide 9-11",
+  "src": "Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520",
   "diff": "easy",
-  "exp": "A 2023 multi-society Delphi consensus renamed NAFLD to MASLD to emphasise metabolic dysfunction."
+  "exp": "A 2023 multi-society Delphi consensus renamed NAFLD to MASLD to emphasise metabolic dysfunction.",
+  "refs": [
+   "rinella2023"
+  ]
  },
  {
   "q": "What is the new umbrella term for all liver disease with >5% hepatic fat?",
@@ -21,9 +24,12 @@
    "MASH (metabolic dysfunction-associated steatohepatitis)"
   ],
   "correct": 0,
-  "src": "slide 9",
+  "src": "Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520",
   "diff": "easy",
-  "exp": "SLD (steatotic liver disease) is the umbrella term covering MASLD, MetALD and ALD."
+  "exp": "SLD (steatotic liver disease) is the umbrella term covering MASLD, MetALD and ALD.",
+  "refs": [
+   "rinella2023"
+  ]
  },
  {
   "q": "What was one reason for retiring the name NAFLD?",
@@ -34,9 +40,12 @@
    "No biopsy criteria existed"
   ],
   "correct": 0,
-  "src": "slide 9",
+  "src": "Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520",
   "diff": "easy",
-  "exp": "The exclusionary \"non-alcoholic\" label and the stigma of \"fatty\" prompted a name that reflects the pathophysiology."
+  "exp": "The exclusionary \"non-alcoholic\" label and the stigma of \"fatty\" prompted a name that reflects the pathophysiology.",
+  "refs": [
+   "rinella2023"
+  ]
  },
  {
   "q": "What does MASH describe?",
@@ -47,9 +56,12 @@
    "The end stage after cirrhosis"
   ],
   "correct": 0,
-  "src": "slide 11",
+  "src": "Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520",
   "diff": "easy",
-  "exp": "MASH adds inflammation and hepatocyte injury to fat and carries a higher risk of progressing to fibrosis."
+  "exp": "MASH adds inflammation and hepatocyte injury to fat and carries a higher risk of progressing to fibrosis.",
+  "refs": [
+   "rinella2023"
+  ]
  },
  {
   "q": "MASH can be diagnosed even at F0. What defines 'at-risk MASH'?",
@@ -60,9 +72,13 @@
    "Coexisting type 2 diabetes"
   ],
   "correct": 0,
-  "src": "slide 11, 17",
+  "src": "Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "mid",
-  "exp": "MASH with fibrosis stage F2 or higher has clearly higher liver-event and mortality risk, so it is classed as at-risk MASH."
+  "exp": "MASH with fibrosis stage F2 or higher has clearly higher liver-event and mortality risk, so it is classed as at-risk MASH.",
+  "refs": [
+   "rinella2023",
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "Why is MASLD commonly underdiagnosed?",
@@ -73,9 +89,12 @@
    "It is rare in people under 50 years of age"
   ],
   "correct": 0,
-  "src": "slide 19",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "easy",
-  "exp": "Most patients have no symptoms and often normal liver enzymes, so it is found incidentally."
+  "exp": "Most patients have no symptoms and often normal liver enzymes, so it is found incidentally.",
+  "refs": [
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "Compared with the general population, overall mortality in MASLD is:",
@@ -86,9 +105,12 @@
    "No difference"
   ],
   "correct": 0,
-  "src": "slide 15",
+  "src": "Simon, T. G., Roelstraete, B., Khalili, H., Hagström, H., & Ludvigsson, J. F. (2021). Mortality in biopsy-confirmed nonalcoholic fatty liver disease: Results from a nationwide cohort. Gut, 70(7), 1375–1382. https://doi.org/10.1136/gutjnl-2020-322786",
   "diff": "easy",
-  "exp": "All-cause mortality in MASLD is about twice that of the general population and rises with fibrosis, not fat."
+  "exp": "All-cause mortality in MASLD is about twice that of the general population and rises with fibrosis, not fat.",
+  "refs": [
+   "simon2021"
+  ]
  },
  {
   "q": "Which factor most strongly drives prognosis in MASLD?",
@@ -99,9 +121,13 @@
    "The BMI at diagnosis"
   ],
   "correct": 0,
-  "src": "slide 15, 17",
+  "src": "Simon, T. G., Roelstraete, B., Khalili, H., Hagström, H., & Ludvigsson, J. F. (2021). Mortality in biopsy-confirmed nonalcoholic fatty liver disease: Results from a nationwide cohort. Gut, 70(7), 1375–1382. https://doi.org/10.1136/gutjnl-2020-322786 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "easy",
-  "exp": "Prognosis is set by the fibrosis stage, not by the amount of fat."
+  "exp": "Prognosis is set by the fibrosis stage, not by the amount of fat.",
+  "refs": [
+   "simon2021",
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "On average, MASH fibrosis progresses by one stage every:",
@@ -112,9 +138,12 @@
    "About 15 years"
   ],
   "correct": 0,
-  "src": "slide 17",
+  "src": "Singh, S., Allen, A. M., Wang, Z., Prokop, L. J., Murad, M. H., & Loomba, R. (2015). Fibrosis progression in nonalcoholic fatty liver vs nonalcoholic steatohepatitis: A systematic review and meta-analysis of paired-biopsy studies. Clinical Gastroenterology and Hepatology, 13(4), 643–654. https://doi.org/10.1016/j.cgh.2014.04.014",
   "diff": "mid",
-  "exp": "MASH fibrosis advances about one stage every 7 years, accelerating to about 2 years from F3 to cirrhosis."
+  "exp": "MASH fibrosis advances about one stage every 7 years, accelerating to about 2 years from F3 to cirrhosis.",
+  "refs": [
+   "singh2015"
+  ]
  },
  {
   "q": "What is the initial non-invasive index for fibrosis screening in primary care?",
@@ -125,9 +154,13 @@
    "MR elastography (MRE)"
   ],
   "correct": 0,
-  "src": "slide 27",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323 / Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
   "diff": "mid",
-  "exp": "FIB-4 is calculated from age, AST, ALT and platelets, making it a first-line screen usable in primary care."
+  "exp": "FIB-4 is calculated from age, AST, ALT and platelets, making it a first-line screen usable in primary care.",
+  "refs": [
+   "rinellaGuide2023",
+   "kasl2025"
+  ]
  },
  {
   "q": "What is the FIB-4 low-risk cutoff for ages 35-65?",
@@ -138,9 +171,12 @@
    "Below 2.67"
   ],
   "correct": 0,
-  "src": "slide 27",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "mid",
-  "exp": "At ages 35–65 a FIB-4 below 1.3 is low risk and rules out advanced fibrosis."
+  "exp": "At ages 35–65 a FIB-4 below 1.3 is low risk and rules out advanced fibrosis.",
+  "refs": [
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "If FIB-4 is 1.3 or higher, what comes next?",
@@ -151,9 +187,12 @@
    "A contrast-enhanced liver CT scan"
   ],
   "correct": 0,
-  "src": "slide 33",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "mid",
-  "exp": "A FIB-4 of 1.3 or more leads to a second step: an ELF blood test or transient elastography (VCTE)."
+  "exp": "A FIB-4 of 1.3 or more leads to a second step: an ELF blood test or transient elastography (VCTE).",
+  "refs": [
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "What does VCTE (transient elastography) measure?",
@@ -164,9 +203,12 @@
    "Degree of bile-duct obstruction"
   ],
   "correct": 0,
-  "src": "slide 36",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "mid",
-  "exp": "VCTE measures liver stiffness in kPa as a gauge of fibrosis."
+  "exp": "VCTE measures liver stiffness in kPa as a gauge of fibrosis.",
+  "refs": [
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "AASLD recommends MASLD screening in which patients?",
@@ -177,9 +219,12 @@
    "Hepatitis B carriers"
   ],
   "correct": 0,
-  "src": "slide 24",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "easy",
-  "exp": "People with type 2 diabetes or obesity have a high MASLD prevalence and are the screening targets."
+  "exp": "People with type 2 diabetes or obesity have a high MASLD prevalence and are the screening targets.",
+  "refs": [
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "A 5-7% weight loss is expected to bring:",
@@ -190,9 +235,12 @@
    "No change"
   ],
   "correct": 0,
-  "src": "slide 42",
+  "src": "Vilar-Gomez, E., Martinez-Perez, Y., Calzadilla-Bertot, L., Torres-Gonzalez, A., Gra-Oramas, B., Gonzalez-Fabian, L., Friedman, S. L., Diago, M., & Romero-Gomez, M. (2015). Weight loss through lifestyle modification significantly reduces features of nonalcoholic steatohepatitis. Gastroenterology, 149(2), 367–378. https://doi.org/10.1053/j.gastro.2015.04.005",
   "diff": "easy",
-  "exp": "Liver inflammation starts to improve with a 5–7% weight loss."
+  "exp": "Liver inflammation starts to improve with a 5–7% weight loss.",
+  "refs": [
+   "vilar2015"
+  ]
  },
  {
   "q": "A 7-10% weight loss can additionally bring:",
@@ -203,9 +251,12 @@
    "No change"
   ],
   "correct": 0,
-  "src": "slide 42",
+  "src": "Vilar-Gomez, E., Martinez-Perez, Y., Calzadilla-Bertot, L., Torres-Gonzalez, A., Gra-Oramas, B., Gonzalez-Fabian, L., Friedman, S. L., Diago, M., & Romero-Gomez, M. (2015). Weight loss through lifestyle modification significantly reduces features of nonalcoholic steatohepatitis. Gastroenterology, 149(2), 367–378. https://doi.org/10.1053/j.gastro.2015.04.005",
   "diff": "easy",
-  "exp": "With a 7–10% loss, fibrosis can improve as well."
+  "exp": "With a 7–10% loss, fibrosis can improve as well.",
+  "refs": [
+   "vilar2015"
+  ]
  },
  {
   "q": "Which diet has the strongest evidence in MASLD?",
@@ -216,9 +267,13 @@
    "A ketogenic diet"
   ],
   "correct": 0,
-  "src": "slide 43-44",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "easy",
-  "exp": "The Mediterranean diet has the strongest evidence for reducing liver fat, even independent of weight loss."
+  "exp": "The Mediterranean diet has the strongest evidence for reducing liver fat, even independent of weight loss.",
+  "refs": [
+   "easl2024",
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "An exercise prescription that improved MASLD parameters was:",
@@ -229,22 +284,12 @@
    "Start exercise only after weight loss"
   ],
   "correct": 0,
-  "src": "slide 43",
+  "src": "Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023",
   "diff": "easy",
-  "exp": "Three 40-minute aerobic or resistance sessions a week improve liver fat and ALT within 12 weeks."
- },
- {
-  "q": "Which blood biomarker helps overcome underreported alcohol intake?",
-  "a": [
-   "PEth (phosphatidylethanol)",
-   "Gamma-GT",
-   "AST/ALT ratio",
-   "MCV (mean corpuscular volume)"
-  ],
-  "correct": 0,
-  "src": "slide 13",
-  "diff": "mid",
-  "exp": "PEth reflects alcohol intake over the past 1–4 weeks and complements self-report."
+  "exp": "Three 40-minute aerobic or resistance sessions a week improve liver fat and ALT within 12 weeks.",
+  "refs": [
+   "hashida2017"
+  ]
  },
  {
   "q": "In MASLD, even low-level alcohol intake is:",
@@ -255,9 +300,12 @@
    "Men can safely have two drinks a day"
   ],
   "correct": 0,
-  "src": "slide 53",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
   "diff": "easy",
-  "exp": "Even low alcohol intake can harm the liver in MASLD, so restraint is advised."
+  "exp": "Even low alcohol intake can harm the liver in MASLD, so restraint is advised.",
+  "refs": [
+   "easl2024"
+  ]
  },
  {
   "q": "In fibrosis staging, what does F4 mean?",
@@ -268,9 +316,12 @@
    "Bridging fibrosis"
   ],
   "correct": 0,
-  "src": "slide 18, 21",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "easy",
-  "exp": "F0 is normal, F1–F3 progressive fibrosis and F4 cirrhosis."
+  "exp": "F0 is normal, F1–F3 progressive fibrosis and F4 cirrhosis.",
+  "refs": [
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "What does MetALD describe?",
@@ -281,74 +332,12 @@
    "MASLD with two or more metabolic risk factors"
   ],
   "correct": 0,
-  "src": "slide 11",
+  "src": "Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520",
   "diff": "mid",
-  "exp": "MetALD is steatosis with metabolic risk factors plus alcohol intake above the MASLD limit."
- },
- {
-  "q": "What is the female alcohol threshold within the MASLD definition?",
-  "a": [
-   "Under about 1.5 drinks (20 g) a day",
-   "Under about 2 drinks (30 g) a day",
-   "Under about 1 drink (10 g) a day",
-   "At most once a week"
-  ],
-  "correct": 0,
-  "src": "slide 11",
-  "diff": "mid",
-  "exp": "MASLD allows under 20 g a day (about 1.5 drinks) for women and under 30 g for men."
- },
- {
-  "q": "Which item is NOT part of the FIB-4 formula?",
-  "a": [
-   "Blood pressure",
-   "Age",
-   "AST and ALT",
-   "Platelet count"
-  ],
-  "correct": 0,
-  "src": "slide 27",
-  "diff": "mid",
-  "exp": "FIB-4 uses age, AST, ALT and platelets; blood pressure is not part of it."
- },
- {
-  "q": "What is the FIB-4 low-risk cutoff for patients 65 or older?",
-  "a": [
-   "Below 2.0",
-   "Below 1.3",
-   "Below 1.5",
-   "Below 2.67"
-  ],
-  "correct": 0,
-  "src": "slide 28",
-  "diff": "hard",
-  "exp": "Because age is in the formula, the low-risk cut-off is raised to below 2.0 at 65 and older."
- },
- {
-  "q": "VCTE readings can be unreliable in patients with:",
-  "a": [
-   "Severe obesity, ascites or heart failure",
-   "Normal weight and younger age",
-   "The fasting state before the scan",
-   "Absence of type 2 diabetes"
-  ],
-  "correct": 0,
-  "src": "slide 37",
-  "diff": "mid",
-  "exp": "VCTE can be unreliable in severe obesity, ascites or heart failure."
- },
- {
-  "q": "The CAP score from VCTE reflects:",
-  "a": [
-   "The amount of liver fat (steatosis)",
-   "The degree of liver fibrosis",
-   "Inflammatory activity in the liver",
-   "Portal venous pressure"
-  ],
-  "correct": 0,
-  "src": "slide 37",
-  "diff": "mid",
-  "exp": "CAP reflects liver fat, while LSM reflects fibrosis."
+  "exp": "MetALD is steatosis with metabolic risk factors plus alcohol intake above the MASLD limit.",
+  "refs": [
+   "rinella2023"
+  ]
  },
  {
   "q": "FIB-4 of 1.3 or more plus liver stiffness above 8 kPa calls for:",
@@ -359,22 +348,12 @@
    "Immediate transplant evaluation"
   ],
   "correct": 0,
-  "src": "slide 39",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "mid",
-  "exp": "A FIB-4 of 1.3 or more with stiffness above 8 kPa warrants referral to hepatology."
- },
- {
-  "q": "Progression from F3 fibrosis to cirrhosis takes on average:",
-  "a": [
-   "About 2 years",
-   "About 7 years",
-   "About 5 years",
-   "About 10 years"
-  ],
-  "correct": 0,
-  "src": "slide 17",
-  "diff": "mid",
-  "exp": "From F3 to cirrhosis takes about 2 years on average, much faster than the early stages."
+  "exp": "A FIB-4 of 1.3 or more with stiffness above 8 kPa warrants referral to hepatology.",
+  "refs": [
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "The intensive lifestyle trial that improved MASLD prescribed:",
@@ -385,22 +364,12 @@
    "No calorie limit, 150 minutes of walking a week"
   ],
   "correct": 0,
-  "src": "slide 42",
+  "src": "Vilar-Gomez, E., Martinez-Perez, Y., Calzadilla-Bertot, L., Torres-Gonzalez, A., Gra-Oramas, B., Gonzalez-Fabian, L., Friedman, S. L., Diago, M., & Romero-Gomez, M. (2015). Weight loss through lifestyle modification significantly reduces features of nonalcoholic steatohepatitis. Gastroenterology, 149(2), 367–378. https://doi.org/10.1053/j.gastro.2015.04.005",
   "diff": "mid",
-  "exp": "A 750 kcal daily deficit plus 200 minutes of walking a week that achieved 5–10% loss improved inflammation and fibrosis."
- },
- {
-  "q": "Which brief alcohol screening tool is used in primary care?",
-  "a": [
-   "AUDIT-C",
-   "PHQ-9",
-   "FIB-4",
-   "A PEth blood test"
-  ],
-  "correct": 0,
-  "src": "slide 53",
-  "diff": "mid",
-  "exp": "AUDIT-C is a simple three-item alcohol screening tool."
+  "exp": "A 750 kcal daily deficit plus 200 minutes of walking a week that achieved 5–10% loss improved inflammation and fibrosis.",
+  "refs": [
+   "vilar2015"
+  ]
  },
  {
   "q": "In the Mediterranean diet, what should be kept low?",
@@ -411,9 +380,13 @@
    "Whole grains and legumes"
   ],
   "correct": 0,
-  "src": "slide 44",
+  "src": "Estruch, R., Martínez-González, M. A., Corella, D., Salas-Salvadó, J., Fitó, M., Chiva-Blanch, G., Fiol, M., Gómez-Gracia, E., Arós, F., Lapetra, J., Serra-Majem, L., Pintó, X., Buil-Cosiales, P., Sorlí, J. V., Muñoz, M. A., Basora-Gallisá, J., Lamuela-Raventós, R. M., Serra-Mir, M., Macías-Peña, C. E., … PREDIMED Study Investigators. (2019). Effect of a high-fat Mediterranean diet on bodyweight and waist circumference: A prespecified secondary outcomes analysis of the PREDIMED randomised controlled trial. The Lancet Diabetes & Endocrinology, 7(5), e6–e17. https://doi.org/10.1016/S2213-8587(19)30074-9 / European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
   "diff": "easy",
-  "exp": "The Mediterranean diet cuts processed meat and added sugar while adding vegetables, whole grains, olive oil and fish."
+  "exp": "The Mediterranean diet cuts processed meat and added sugar while adding vegetables, whole grains, olive oil and fish.",
+  "refs": [
+   "estruch2019",
+   "easl2024"
+  ]
  },
  {
   "q": "Which Korean-language name did KASL adopt for MASLD?",
@@ -425,8 +398,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — nomenclature",
-  "exp": "KASL adopted 대사이상지방간질환 as the official Korean name for MASLD."
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "exp": "KASL adopted 대사이상지방간질환 as the official Korean name for MASLD.",
+  "refs": [
+   "kasl2025"
+  ]
  },
  {
   "q": "What are the KASL 2025 diagnostic criteria for MASLD?",
@@ -438,8 +414,12 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — definition",
-  "exp": "MASLD is diagnosed by hepatic fat plus at least one cardiometabolic risk factor and no significant alcohol intake."
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org / Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520",
+  "exp": "MASLD is diagnosed by hepatic fat plus at least one cardiometabolic risk factor and no significant alcohol intake.",
+  "refs": [
+   "kasl2025",
+   "rinella2023"
+  ]
  },
  {
   "q": "Which waist-circumference cut-offs did KASL adopt as the cardiometabolic criterion for Koreans?",
@@ -451,8 +431,11 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — Korean waist cut-offs",
-  "exp": "Given average Korean waist sizes, the domestic cut-offs are 90 cm for men and 85 cm for women."
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "exp": "Given average Korean waist sizes, the domestic cut-offs are 90 cm for men and 85 cm for women.",
+  "refs": [
+   "kasl2025"
+  ]
  },
  {
   "q": "What BMI threshold defines overweight/obesity as a cardiometabolic criterion for Asians in MASLD?",
@@ -464,8 +447,12 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — Asian BMI cut-off",
-  "exp": "For Asians a BMI of 23 or more counts as a cardiometabolic risk factor."
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org / World Health Organization Western Pacific Region, International Association for the Study of Obesity, & International Obesity Task Force. (2000). The Asia-Pacific perspective: Redefining obesity and its treatment. Health Communications Australia.",
+  "exp": "For Asians a BMI of 23 or more counts as a cardiometabolic risk factor.",
+  "refs": [
+   "kasl2025",
+   "whoAsia2000"
+  ]
  },
  {
   "q": "What is the daily alcohol limit allowed within the MASLD definition?",
@@ -477,21 +464,12 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — alcohol threshold",
-  "exp": "Under 30 g a day for men and 20 g for women is the alcohol limit allowed in MASLD."
- },
- {
-  "q": "How closely does the MASLD-defined population overlap with the former NAFLD population?",
-  "a": [
-   "More than 95% concordance",
-   "About 50% concordance",
-   "About 70% concordance",
-   "About 85% concordance"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — >95% concordance with NAFLD",
-  "exp": "The MASLD population overlaps the former NAFLD population by more than 95%, so earlier evidence still applies."
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org / Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520",
+  "exp": "Under 30 g a day for men and 20 g for women is the alcohol limit allowed in MASLD.",
+  "refs": [
+   "kasl2025",
+   "rinella2023"
+  ]
  },
  {
   "q": "Roughly how common is MASLD among Korean adults?",
@@ -503,8 +481,11 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — Korean prevalence 27.5–33.5% (men > women)",
-  "exp": "Korean studies put MASLD prevalence at 27–34%, one in three or four adults, more often men."
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "exp": "Korean studies put MASLD prevalence at 27–34%, one in three or four adults, more often men.",
+  "refs": [
+   "kasl2025"
+  ]
  },
  {
   "q": "What does the guideline identify as the leading cause of death in MASLD?",
@@ -516,8 +497,12 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — prognosis",
-  "exp": "The leading cause of death in MASLD is cardiovascular disease rather than liver disease."
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org / Simon, T. G., Roelstraete, B., Khalili, H., Hagström, H., & Ludvigsson, J. F. (2021). Mortality in biopsy-confirmed nonalcoholic fatty liver disease: Results from a nationwide cohort. Gut, 70(7), 1375–1382. https://doi.org/10.1136/gutjnl-2020-322786",
+  "exp": "The leading cause of death in MASLD is cardiovascular disease rather than liver disease.",
+  "refs": [
+   "kasl2025",
+   "simon2021"
+  ]
  },
  {
   "q": "Which MASLD patients should undergo hepatocellular carcinoma surveillance?",
@@ -529,8 +514,11 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — HCC ≥1.5%/yr in cirrhosis",
-  "exp": "With cirrhosis, hepatocellular carcinoma develops at 1.5% or more per year, so surveillance is recommended."
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "exp": "With cirrhosis, hepatocellular carcinoma develops at 1.5% or more per year, so surveillance is recommended.",
+  "refs": [
+   "kasl2025"
+  ]
  },
  {
   "q": "Per the KDA fatty liver statistics, what share of adults with type 2 diabetes had fatty liver (FLI ≥60)?",
@@ -542,8 +530,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KDA Fatty Liver & Diabetes Statistics in Korea (2009–2017) — 29.6% in 2017",
-  "exp": "One in three adults with type 2 diabetes has fatty liver by a fatty liver index of 60 or more."
+  "src": "Korean Diabetes Association Fatty Liver Research Group. (2023). Fatty liver & diabetes statistics in Korea: Nationwide data 2009 to 2017. Diabetes & Metabolism Journal, 47(3), 347–355. https://doi.org/10.4093/dmj.2022.0444",
+  "exp": "One in three adults with type 2 diabetes has fatty liver by a fatty liver index of 60 or more.",
+  "refs": [
+   "kdaFattyLiver"
+  ]
  },
  {
   "q": "Among young adults (20–39) with type 2 diabetes, what share had fatty liver (FLI ≥60) in 2017?",
@@ -555,21 +546,11 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KDA Fatty Liver & Diabetes Statistics in Korea (2009–2017) — ages 20–39: 42.2%→60.1%",
-  "exp": "Among young adults with type 2 diabetes, fatty liver rose from 42% in 2009 to 60% in 2017."
- },
- {
-  "q": "What is specifically emphasised when diagnosing MASLD in children and adolescents?",
-  "a": [
-   "Other causes of hepatic fat (such as inborn errors of metabolism) must also be reviewed",
-   "A liver biopsy is mandatory to confirm the diagnosis, unlike in adults",
-   "A BMI cut-off of 30 is applied instead of the adult criteria",
-   "Only the alcohol history needs checking; no further review"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — paediatrics",
-  "exp": "In children, other causes of hepatic fat such as inborn errors of metabolism must also be reviewed."
+  "src": "Korean Diabetes Association Fatty Liver Research Group. (2023). Fatty liver & diabetes statistics in Korea: Nationwide data 2009 to 2017. Diabetes & Metabolism Journal, 47(3), 347–355. https://doi.org/10.4093/dmj.2022.0444",
+  "exp": "Among young adults with type 2 diabetes, fatty liver rose from 42% in 2009 to 60% in 2017.",
+  "refs": [
+   "kdaFattyLiver"
+  ]
  },
  {
   "q": "Which factors does the guideline name as raising extrahepatic cancer risk in MASLD?",
@@ -581,8 +562,11 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline — extrahepatic cancer risk",
-  "exp": "Obesity and type 2 diabetes are the main factors raising extrahepatic cancer risk in MASLD."
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "exp": "Obesity and type 2 diabetes are the main factors raising extrahepatic cancer risk in MASLD.",
+  "refs": [
+   "kasl2025"
+  ]
  },
  {
   "q": "Which first-line imaging test is most commonly used to detect fatty liver?",
@@ -594,8 +578,12 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline",
-  "exp": "Abdominal ultrasound is the most common first-line imaging test for fatty liver."
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031 / Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "exp": "Abdominal ultrasound is the most common first-line imaging test for fatty liver.",
+  "refs": [
+   "easl2024",
+   "kasl2025"
+  ]
  },
  {
   "q": "Which of the following is NOT a cardiometabolic risk factor used to diagnose MASLD?",
@@ -607,8 +595,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline",
-  "exp": "The five cardiometabolic factors are weight/waist, glucose, blood pressure, triglycerides and HDL; smoking is not one."
+  "src": "Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520",
+  "exp": "The five cardiometabolic factors are weight/waist, glucose, blood pressure, triglycerides and HDL; smoking is not one.",
+  "refs": [
+   "rinella2023"
+  ]
  },
  {
   "q": "What is the foundation of treatment for MASLD?",
@@ -620,60 +611,12 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline",
-  "exp": "Lifestyle change for weight loss through diet and exercise is the foundation of MASLD treatment."
- },
- {
-  "q": "Which index is used first to gauge fibrosis risk in a person with diabetes and fatty liver?",
-  "a": [
-   "FIB-4 (from age, AST, ALT and platelets)",
-   "Fasting glucose",
-   "Body temperature",
-   "Blood type"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline",
-  "exp": "FIB-4, from age, AST, ALT and platelets, is the first index used to gauge fibrosis risk."
- },
- {
-  "q": "Why does abdominal (visceral) fat matter in fatty liver?",
-  "a": [
-   "Fatty acids released from visceral fat flow through the portal vein straight into the liver",
-   "Subcutaneous fat compresses the liver",
-   "A larger waist shrinks the liver",
-   "Visceral fat protects the liver"
-  ],
-  "correct": 0,
-  "diff": "easy",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline",
-  "exp": "Fatty acids from visceral fat reach the liver directly through the portal vein and drive steatosis."
- },
- {
-  "q": "What most strongly determines prognosis in MASLD?",
-  "a": [
-   "The stage of liver fibrosis",
-   "The amount of fat in the liver",
-   "Age",
-   "Height"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "KASL 2025 MASLD Clinical Practice Guideline",
-  "exp": "The fibrosis stage determines prognosis in MASLD."
- },
- {
-  "q": "How is fatty liver usually discovered?",
-  "a": [
-   "Incidentally, on tests done for another reason, because it causes no symptoms",
-   "Through severe right-upper-abdominal pain",
-   "Through jaundice",
-   "Through sudden weight loss"
-  ],
-  "correct": 0,
-  "diff": "easy",
-  "src": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (cited in SCOPE Core Learning Path, module 3)",
-  "exp": "Fatty liver rarely causes symptoms, so it is usually an incidental finding on tests done for other reasons."
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031 / Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "exp": "Lifestyle change for weight loss through diet and exercise is the foundation of MASLD treatment.",
+  "refs": [
+   "easl2024",
+   "kasl2025"
+  ]
  },
  {
   "q": "What is the most common blood-test pattern in fatty liver?",
@@ -685,21 +628,11 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (cited in SCOPE Core Learning Path, module 3)",
-  "exp": "ALT higher than AST is the most common blood-test pattern in fatty liver."
- },
- {
-  "q": "On average, how long does simple fatty liver without inflammation or fibrosis take to reach cirrhosis?",
-  "a": [
-   "About 57 years (very slowly)",
-   "About 2 years",
-   "About 10 years",
-   "About 6 months"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "Glen J et al. BMJ 2016 (NICE NAFLD guideline) (cited in SCOPE Core Learning Path, module 3)",
-  "exp": "Simple steatosis without inflammation or fibrosis progresses slowly, about 57 years to cirrhosis, but far faster once inflammation appears."
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2016). EASL–EASD–EASO clinical practice guidelines for the management of non-alcoholic fatty liver disease. Journal of Hepatology, 64(6), 1388–1402. https://doi.org/10.1016/j.jhep.2015.11.004",
+  "exp": "ALT higher than AST is the most common blood-test pattern in fatty liver.",
+  "refs": [
+   "easl2016"
+  ]
  },
  {
   "q": "Which test gives the definitive diagnosis of liver fat, inflammation and fibrosis?",
@@ -711,8 +644,12 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "EASL–EASD–EASO Clinical Practice Guidelines. J Hepatol 2016 (cited in SCOPE Core Learning Path, module 3)",
-  "exp": "Liver biopsy is the reference test that confirms fat, inflammation and fibrosis."
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2016). EASL–EASD–EASO clinical practice guidelines for the management of non-alcoholic fatty liver disease. Journal of Hepatology, 64(6), 1388–1402. https://doi.org/10.1016/j.jhep.2015.11.004 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
+  "exp": "Liver biopsy is the reference test that confirms fat, inflammation and fibrosis.",
+  "refs": [
+   "easl2016",
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "MASLD is diagnosed when steatosis affects more than what proportion of the liver parenchyma?",
@@ -724,8 +661,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Hagstrom H et al. Lancet Gastroenterol Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "MASLD is defined when more than 5% of liver parenchyma is affected by steatosis with no or only minor inflammation; 33% is the global adult prevalence figure."
+  "src": "Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520",
+  "exp": "MASLD is defined when more than 5% of liver parenchyma is affected by steatosis with no or only minor inflammation; 33% is the global adult prevalence figure.",
+  "refs": [
+   "rinella2023"
+  ]
  },
  {
   "q": "In the histological definition of MASH, which findings must accompany steatosis?",
@@ -737,8 +677,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Hagstrom H et al. Lancet Gastroenterol Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "MASH is hepatic steatosis combined with inflammation and hepatocellular ballooning, with or without fibrosis."
+  "src": "Rinella, M. E., Lazarus, J. V., Ratziu, V., Francque, S. M., Sanyal, A. J., Kanwal, F., Romero, D., Abdelmalek, M. F., Anstee, Q. M., Arab, J. P., Arrese, M., Bataller, R., Beuers, U., Boursier, J., Bugianesi, E., Byrne, C. D., Castro Narro, G. E., Chowdhury, A., Cortez-Pinto, H., … Newsome, P. N. (2023). A multisociety Delphi consensus statement on new fatty liver disease nomenclature. Hepatology, 78(6), 1966–1986. https://doi.org/10.1097/HEP.0000000000000520",
+  "exp": "MASH is hepatic steatosis combined with inflammation and hepatocellular ballooning, with or without fibrosis.",
+  "refs": [
+   "rinella2023"
+  ]
  },
  {
   "q": "What is the estimated global prevalence of MASLD among adults?",
@@ -750,8 +693,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Riazi K et al. Lancet Gastroenterol Hepatol 2022 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "MASLD is estimated to affect more than 33% of adults globally - more than one in three."
+  "src": "Younossi, Z. M., Golabi, P., Paik, J. M., Henry, A., Van Dongen, C., & Henry, L. (2023). The global epidemiology of nonalcoholic fatty liver disease (NAFLD) and nonalcoholic steatohepatitis (NASH): A systematic review. Hepatology, 77(4), 1335–1347. https://doi.org/10.1097/HEP.0000000000000004",
+  "exp": "MASLD is estimated to affect more than 33% of adults globally - more than one in three.",
+  "refs": [
+   "younossi2023"
+  ]
  },
  {
   "q": "What is the prevalence range of MASLD in individuals living with obesity?",
@@ -763,8 +709,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Huang DQ et al. Nat Rev Dis Primers 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "MASLD prevalence in people living with obesity is 58-74%, which is why obesity care should include the liver."
+  "src": "Younossi, Z. M., Golabi, P., Paik, J. M., Henry, A., Van Dongen, C., & Henry, L. (2023). The global epidemiology of nonalcoholic fatty liver disease (NAFLD) and nonalcoholic steatohepatitis (NASH): A systematic review. Hepatology, 77(4), 1335–1347. https://doi.org/10.1097/HEP.0000000000000004",
+  "exp": "MASLD prevalence in people living with obesity is 58-74%, which is why obesity care should include the liver.",
+  "refs": [
+   "younossi2023"
+  ]
  },
  {
   "q": "What is the prevalence of MASLD in people living with type 2 diabetes?",
@@ -776,8 +725,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "En Li Cho E et al. Gut 2023 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "A meta-analysis found MASLD in 65% of people with type 2 diabetes, MASH in 32% and advanced fibrosis in 15%."
+  "src": "Younossi, Z. M., Golabi, P., de Avila, L., Paik, J. M., Srishord, M., Fukui, N., Qiu, Y., Burns, L., Afendy, A., & Nader, F. (2019). The global epidemiology of NAFLD and NASH in patients with type 2 diabetes: A systematic review and meta-analysis. Journal of Hepatology, 71(4), 793–801. https://doi.org/10.1016/j.jhep.2019.06.021",
+  "exp": "A meta-analysis found MASLD in 65% of people with type 2 diabetes, MASH in 32% and advanced fibrosis in 15%.",
+  "refs": [
+   "younossi2019"
+  ]
  },
  {
   "q": "What proportion of people living with type 2 diabetes have advanced liver fibrosis?",
@@ -789,21 +741,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "En Li Cho E et al. Gut 2023 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "15% of people with type 2 diabetes have advanced liver fibrosis, which is why fibrosis assessment belongs in diabetes care."
- },
- {
-  "q": "Which of the following increases the risk of MASLD progression?",
-  "a": [
-   "Male sex",
-   "Female sex",
-   "Younger age",
-   "Low body weight"
-  ],
-  "correct": 0,
-  "diff": "easy",
-  "src": "Schulz M, Tacke F. Hepatic Medicine 2020 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "Genetic risk factors, older age and male sex increase progression risk; being female is not a risk factor."
+  "src": "Ajmera, V., Cepin, S., Tesfai, K., Hofflich, H., Cadman, K., Lopez, S., Madamba, E., Bettencourt, R., Richards, L., Behling, C., Sirlin, C. B., & Loomba, R. (2023). A prospective study on the prevalence of NAFLD, advanced fibrosis, cirrhosis and hepatocellular carcinoma in people with type 2 diabetes. Journal of Hepatology, 78(3), 471–478. https://doi.org/10.1016/j.jhep.2022.11.010",
+  "exp": "15% of people with type 2 diabetes have advanced liver fibrosis, which is why fibrosis assessment belongs in diabetes care.",
+  "refs": [
+   "ajmera2023"
+  ]
  },
  {
   "q": "Which is an independent risk factor for progression to cirrhosis or hepatocellular carcinoma in people with MASLD and MASH?",
@@ -815,8 +757,12 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Schulz M, Tacke F. Hepatic Medicine 2020 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "Diabetes is an independent risk factor for progression to cirrhosis or HCC; it is iron overload, not deficiency, that predisposes to liver cancer."
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323 / Simon, T. G., Roelstraete, B., Khalili, H., Hagström, H., & Ludvigsson, J. F. (2021). Mortality in biopsy-confirmed nonalcoholic fatty liver disease: Results from a nationwide cohort. Gut, 70(7), 1375–1382. https://doi.org/10.1136/gutjnl-2020-322786",
+  "exp": "Diabetes is an independent risk factor for progression to cirrhosis or HCC; it is iron overload, not deficiency, that predisposes to liver cancer.",
+  "refs": [
+   "rinellaGuide2023",
+   "simon2021"
+  ]
  },
  {
   "q": "Which screening test is crucial in a person found to have MASLD?",
@@ -828,8 +774,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Schulz M, Tacke F. Hepatic Medicine 2020 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "Screening for diabetes with blood glucose, HbA1c or a glucose tolerance test is crucial in people with MASLD."
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "exp": "Screening for diabetes with blood glucose, HbA1c or a glucose tolerance test is crucial in people with MASLD.",
+  "refs": [
+   "easl2024"
+  ]
  },
  {
   "q": "Which statement about ALT in people living with MASLD is correct?",
@@ -841,8 +790,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Newsome PN et al. Gut 2018 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "Over half of people with MASLD can have a normal ALT, and ALT correlates poorly with disease severity."
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
+  "exp": "Over half of people with MASLD can have a normal ALT, and ALT correlates poorly with disease severity.",
+  "refs": [
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "How often is liver fibrosis testing recommended for people living with obesity and/or type 2 diabetes?",
@@ -854,8 +806,12 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "EASL-EASD-EASO. J Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "Annual fibrosis testing is recommended for people living with indicator conditions such as obesity and/or type 2 diabetes."
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
+  "exp": "Annual fibrosis testing is recommended for people living with indicator conditions such as obesity and/or type 2 diabetes.",
+  "refs": [
+   "easl2024",
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "Which statement about fructose is correct?",
@@ -867,8 +823,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Vos MB, Lavine JE. Hepatology 2013 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "Almost all consumed fructose is metabolised in the liver as a substrate for de novo lipogenesis, leading directly to steatosis, and unlike glucose its metabolism is not insulin-controlled."
+  "src": "Softic, S., Cohen, D. E., & Kahn, C. R. (2016). Role of dietary fructose and hepatic de novo lipogenesis in fatty liver disease. Digestive Diseases and Sciences, 61(5), 1282–1293. https://doi.org/10.1007/s10620-016-4054-0",
+  "exp": "Almost all consumed fructose is metabolised in the liver as a substrate for de novo lipogenesis, leading directly to steatosis, and unlike glucose its metabolism is not insulin-controlled.",
+  "refs": [
+   "softic2016"
+  ]
  },
  {
   "q": "When patients with MASLD are told to reduce 'fructose', what does this mainly refer to?",
@@ -880,8 +839,12 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Vos MB, Lavine JE. Hepatology 2013 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "The advice targets the very high fructose content of soft drinks and high-fructose corn syrup, not the consumption of fruit."
+  "src": "Softic, S., Cohen, D. E., & Kahn, C. R. (2016). Role of dietary fructose and hepatic de novo lipogenesis in fatty liver disease. Digestive Diseases and Sciences, 61(5), 1282–1293. https://doi.org/10.1007/s10620-016-4054-0 / European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "exp": "The advice targets the very high fructose content of soft drinks and high-fructose corn syrup, not the consumption of fruit.",
+  "refs": [
+   "softic2016",
+   "easl2024"
+  ]
  },
  {
   "q": "Which type of exercise is beneficial for people living with MASLD?",
@@ -893,8 +856,12 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Hashida R et al. J Hepatol 2017 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "Both aerobic and resistance exercise benefit MASLD, so resistance work can be offered to people limited by joint pain."
+  "src": "Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023 / European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "exp": "Both aerobic and resistance exercise benefit MASLD, so resistance work can be offered to people limited by joint pain.",
+  "refs": [
+   "hashida2017",
+   "easl2024"
+  ]
  },
  {
   "q": "Which is a hepatic effect of exercise?",
@@ -906,8 +873,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Razzak I et al. Liver Int 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "In the liver, exercise raises insulin sensitivity and glucose uptake while lowering intrahepatic triglycerides, inflammation, ALT, disease progression and liver-related mortality."
+  "src": "Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023",
+  "exp": "In the liver, exercise raises insulin sensitivity and glucose uptake while lowering intrahepatic triglycerides, inflammation, ALT, disease progression and liver-related mortality.",
+  "refs": [
+   "hashida2017"
+  ]
  },
  {
   "q": "What is appropriate advice for a patient who has MASLD at a normal body weight?",
@@ -919,8 +889,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "EASL-EASD-EASO. J Hepatol 2024 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "In patients with MASLD and normal body weight a healthy lifestyle still improves the liver condition, so the degree of weight reduction need not be the focus."
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "exp": "In patients with MASLD and normal body weight a healthy lifestyle still improves the liver condition, so the degree of weight reduction need not be the focus.",
+  "refs": [
+   "easl2024"
+  ]
  },
  {
   "q": "What is particularly emphasised for people living with MASLD to avoid?",
@@ -932,8 +905,11 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Pekarska K et al. Frontline Gastroenterol 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "People with MASLD are urged to avoid sugar-sweetened beverages and processed or ultra-processed foods, while legumes, olive oil and nuts are encouraged."
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "exp": "People with MASLD are urged to avoid sugar-sweetened beverages and processed or ultra-processed foods, while legumes, olive oil and nuts are encouraged.",
+  "refs": [
+   "easl2024"
+  ]
  },
  {
   "q": "What is the minimum metabolic work-up for someone found to have hepatic steatosis?",
@@ -945,47 +921,12 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Huang DQ et al. Nat Rev Dis Primers 2025 (SCOPE NAFLD/NASH and Obesity 인용)",
-  "exp": "The minimum metabolic work-up in a person with hepatic steatosis covers hyperglycaemia, dyslipidaemia, hypertension and obesity."
- },
- {
-  "q": "For which measurement must gender- and ethnicity-specific cut-offs be used when assessing the metabolic syndrome?",
-  "a": [
-   "Waist circumference",
-   "Blood pressure",
-   "Triglycerides",
-   "Fasting glucose"
-  ],
-  "correct": 0,
-  "diff": "easy",
-  "src": "Alberti KG et al. Lancet 2005 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
-  "exp": "Waist circumference needs gender- and ethnicity-specific cut-offs, and the International Consensus Definition lists separate USA, Europe and Asia thresholds."
- },
- {
-  "q": "Which statement about assessing visceral fat is correct?",
-  "a": [
-   "'Pinch an inch' measures subcutaneous fat, and the reference standard is CT or MRI",
-   "'Pinch an inch' measures visceral fat",
-   "Body weight best reflects visceral fat",
-   "BMI is the reference standard for visceral fat"
-  ],
-  "correct": 0,
-  "diff": "easy",
-  "src": "Wajchenberg BL. Endocr Rev 2000 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
-  "exp": "'Pinch an inch' measures subcutaneous tissue; the reference standard for visceral fat is CT or MRI, with waist circumference the easily available clinic tool."
- },
- {
-  "q": "How much does the risk of type 2 diabetes rise when a man goes from zero to four or five metabolic syndrome risk factors?",
-  "a": [
-   "About 25-fold",
-   "About 2-fold",
-   "About 5-fold",
-   "About 10-fold"
-  ],
-  "correct": 0,
-  "diff": "easy",
-  "src": "Sattar N et al. Circulation 2003 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
-  "exp": "In a cohort of middle-aged Scottish men, going from zero to four or five factors gave a 25-fold increase in type 2 diabetes risk."
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
+  "exp": "The minimum metabolic work-up in a person with hepatic steatosis covers hyperglycaemia, dyslipidaemia, hypertension and obesity.",
+  "refs": [
+   "easl2024",
+   "rinellaGuide2023"
+  ]
  },
  {
   "q": "Which of the following is NOT a feature of the International Consensus Definition of the metabolic syndrome?",
@@ -997,7 +938,10 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Alberti KG et al. Lancet 2005 (SCOPE Lipids, the Metabolic Syndrome and Obesity 인용)",
-  "exp": "LDL cholesterol is not a feature of the consensus definition; the lipid components are high triglycerides paired with low HDL."
+  "src": "Alberti, K. G. M. M., Eckel, R. H., Grundy, S. M., Zimmet, P. Z., Cleeman, J. I., Donato, K. A., Fruchart, J.-C., James, W. P. T., Loria, C. M., & Smith, S. C., Jr. (2009). Harmonizing the metabolic syndrome: A joint interim statement. Circulation, 120(16), 1640–1645. https://doi.org/10.1161/CIRCULATIONAHA.109.192644",
+  "exp": "LDL cholesterol is not a feature of the consensus definition; the lipid components are high triglycerides paired with low HDL.",
+  "refs": [
+   "alberti2009"
+  ]
  }
 ]
