@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a47';
-import { RouteEditor } from './route-editor.js?v=a47';
-import { World, THREE } from './world.js?v=a47';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a47';
+import { healthColor, weaponColor } from './feedback.js?v=a48';
+import { RouteEditor } from './route-editor.js?v=a48';
+import { World, THREE } from './world.js?v=a48';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a48';
 
-import { MAPS, getMap } from './maps/index.js?v=a47';
+import { MAPS, getMap } from './maps/index.js?v=a48';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -577,7 +577,8 @@ function answerQuiz(){
   }else{
     $('feedback').textContent=text(`정답: ${state.quiz.a[state.quiz.correct]}`,`Correct answer: ${state.quiz.a[state.quiz.correct]}`);if(!sample('quiz_no',.7))sound(150,.2,'sine');
   }
-  $('source').textContent=state.quiz.src?`${text('출처','Source')}: ${state.quiz.src}`:'';
+  // 화면에는 APA 전문을 보이되 DOI 링크는 뺀다(MI 리뷰용 전체 서지는 quiz-review.html). 여러 건이면 줄바꿈.
+  $('source').textContent=state.quiz.src?`${text('출처','Source')}: ${state.quiz.src.replace(/\s*https?:\/\/doi\.org\/\S+/g,'').split(' / ').join('\n')}`:'';
   if(state.quiz.exp){$('explain').replaceChildren(Object.assign(document.createElement('b'),{textContent:text('해설','Why')}),Object.assign(document.createElement('span'),{textContent:state.quiz.exp}));show('explain',true);}
   show('submit',false);show('quiz-next',!!state.quiz.exp);updateHUD();
 }
