@@ -43,6 +43,7 @@
   <button onclick="window.print()">인쇄 / PDF</button>
   <span id="count" style="margin-left:auto;color:#666;font-size:12.5px"></span>
 </div>
+<details id="byref" style="margin-bottom:14px"><summary style="cursor:pointer;font-weight:700">근거 문헌별 문항 집계</summary><div id="byref-body" style="font-size:12.5px;margin-top:8px"></div></details>
 <table><thead><tr><th>#</th><th>난이도</th><th>문항</th><th>보기 (정답 굵게)</th><th>해설</th><th>참고문헌 (APA)</th><th>원문 근거 구문</th></tr></thead><tbody id="rows"></tbody></table>
 <script>
 const $ = id => document.getElementById(id);
@@ -73,6 +74,10 @@ async function render() {
     });
   }
   $('rows').innerHTML = html; $('count').textContent = `${n}문항`;
+  // 문헌별 집계 (현재 세트·언어 기준, 필터 무관)
+  const tally = {};
+  for (const s of sets) (await loadSet(s)).forEach((r, i) => { const k = (r.evidence && r.evidence.ref) || (r.refs || ['?'])[0]; (tally[k] ||= { n: 0, ids: [], apa: (r.src || '').split(' / ')[0], access: r.evidence && r.evidence.access }).n++; tally[k].ids.push((s === 'quiz_obesity' ? 'OB' : 'MA') + '-' + String(i + 1).padStart(3, '0')); });
+  $('byref-body').innerHTML = `<table style="font-size:12px"><thead><tr><th style="width:44%">근거 문헌</th><th>접근</th><th>문항 수</th><th>문항 ID</th></tr></thead><tbody>${Object.entries(tally).sort((a, b) => b[1].n - a[1].n).map(([k, v]) => `<tr><td>${v.apa.replace(/\s*https?:\/\/doi\.org\/\S+/, '')}</td><td>${v.access === 'fulltext' ? '전문' : '초록'}</td><td>${v.n}</td><td>${v.ids.join(', ')}</td></tr>`).join('')}</tbody></table>`;
 }
 $('csv').addEventListener('click', async () => {
   const sets = $('set').value === 'all' ? ['quiz_obesity', 'quiz_aasld'] : [$('set').value];

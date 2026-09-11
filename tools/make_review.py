@@ -56,7 +56,23 @@ for key,(name,ko,en) in sets.items():
             for pp in c.paragraphs:
                 for run in pp.runs: run.font.size=Pt(8)
     doc.add_paragraph()
-doc.add_heading('부록 — 참고문헌 (APA 7판, 사용된 문헌만; [전문]/[초록] = 근거 확인 범위)',1)
+# ---- 문헌별 문항 집계 ----
+from collections import defaultdict
+byref=defaultdict(list)
+for key,(name,ko,en) in sets.items():
+    for i,r in enumerate(ko):
+        byref[(r.get('evidence') or {}).get('ref') or (r.get('refs') or ['?'])[0]].append(f'{key}-{i+1:03d}')
+doc.add_heading('부록 A — 근거 문헌별 문항 집계',1)
+t2=doc.add_table(rows=1, cols=4); t2.style='Table Grid'
+for i,h in enumerate(['근거 문헌 (APA 앞부분)','접근','문항 수','문항 ID']):
+    c=t2.rows[0].cells[i]; c.text=h; c.paragraphs[0].runs[0].bold=True
+for k,ids in sorted(byref.items(), key=lambda x:-len(x[1])):
+    row=t2.add_row().cells; row[0].text=refs.get(k,k)[:90]+('…' if len(refs.get(k,k))>90 else ''); row[1].text='전문' if acc.get(k)=='fulltext' else '초록'; row[2].text=str(len(ids)); row[3].text=', '.join(ids)
+    for c in row:
+        for pp in c.paragraphs:
+            for run in pp.runs: run.font.size=Pt(8)
+doc.add_paragraph()
+doc.add_heading('부록 B — 참고문헌 (APA 7판, 사용된 문헌만; [전문]/[초록] = 근거 확인 범위)',1)
 for k in sorted(used, key=lambda x: refs[x].lower()): doc.add_paragraph(f"[{'전문' if acc.get(k)=='fulltext' else '초록'}] {refs[k]}")
 docx_path=f'{D}/[{today}]_MI리뷰_메타볼릭디펜스_문제은행_{ver}.docx'; doc.save(docx_path)
 wb=Workbook(); ws0=wb.active; ws0.title='안내'
@@ -72,6 +88,12 @@ for key,(name,ko,en) in sets.items():
     for col,w in zip('ABCDEFGHIJKLMNOPQR',[9,7,40,22,22,22,22,7,40,34,22,34,56,60,22,9,36,30]): ws.column_dimensions[col].width=w
     for row in ws.iter_rows(min_row=2):
         for c in row: c.alignment=Alignment(wrap_text=True,vertical='top')
+wb2=wb.create_sheet('ByReference'); wb2.append(['근거 문헌 키','접근','문항 수','문항 ID','APA'])
+for c in wb2[1]: c.font=Font(bold=True); c.fill=PatternFill('solid',fgColor='DDEBF7')
+for k,ids in sorted(byref.items(), key=lambda x:-len(x[1])): wb2.append([k,'전문' if acc.get(k)=='fulltext' else '초록',len(ids),', '.join(ids),refs.get(k,k)])
+for col,w in zip('ABCDE',[18,8,8,60,120]): wb2.column_dimensions[col].width=w
+for row in wb2.iter_rows(min_row=2):
+    for c in row: c.alignment=Alignment(wrap_text=True,vertical='top')
 wr=wb.create_sheet('References'); wr.append(['키','접근','APA'])
 for k in sorted(used, key=lambda x: refs[x].lower()): wr.append([k,'전문' if acc.get(k)=='fulltext' else '초록',refs[k]])
 wr.column_dimensions['A'].width=18; wr.column_dimensions['C'].width=140

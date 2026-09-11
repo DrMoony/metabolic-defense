@@ -3315,5 +3315,419 @@
    "support": "direct",
    "access": "fulltext"
   }
+ },
+ {
+  "q": "Which two roles of obesity did the Commission want its reframing to capture?",
+  "a": [
+   "Both a risk factor for other diseases and a direct cause of illness",
+   "Both an infectious and a genetic disease",
+   "Only a risk factor, never an illness",
+   "Both a cosmetic and a lifestyle issue"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Obesity raises the risk of other diseases and can also directly cause illness, so both aspects must be explained.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "A reframing of the clinical effect of obesity is warranted, to explain how obesity can be both a risk factor for other diseases and a direct cause of illness.",
+   "locator": "Reframing obesity and its clinical characterisation",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How many diagnostic criteria for clinical obesity are listed for children and adolescents?",
+  "a": [
+   "13",
+   "8",
+   "18",
+   "23"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Adults have 18 criteria and children and adolescents have 13, the last one being limitations of day-to-day activities.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "12 Musculoskeletal (femoral) Acute and/or recurrent/chronic pain or limitation of mobility or tripping/falling due to slipped femoral capital epiphysis U, 100% 13 Limitations of day-to-day activities Significant, age-adjusted limitations of mobility and/or other basic Activities of Daily Living (ADL=bathing, dressing, toileting, continence, eating)",
+   "locator": "Table 2: diagnostic criteria for clinical obesity (children and adolescents)",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What directly drives sleep apnoea in obesity, according to the Commission?",
+  "a": [
+   "Increased fat mass, particularly in the neck, directly impairs airway function",
+   "Damage to the brain's respiratory centre",
+   "Fat filling the alveoli and blocking gas exchange",
+   "Thickened nasal mucosa narrowing the nasal cavity"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Fat around the neck directly narrows airway function, causing repeated apnoeas that worsen when chest wall compliance falls.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "Increased fat mass, particularly in the neck, directly affects airway function, leading to repeated apnoeic episodes during sleep, which can be exacerbated by reduced chest wall lung compliance that leads to increased work of breathing.",
+   "locator": "Clinical manifestations of organ dysfunction in adults — Upper airways",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How does obesity cause breathlessness in the Commission's account?",
+  "a": [
+   "Intra-abdominal and central fat reduce diaphragmatic compliance and lung function",
+   "Fat deposits inside the bronchi block the airway",
+   "Low haemoglobin reduces oxygen transport",
+   "Narrowing of a heart valve"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Central and abdominal fat limit diaphragm movement and lung function, so breathlessness appears during exertion or respiratory infection.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "The physical effects of increased intra-abdominal and central adiposity on diaphragmatic compliance and lung function can also contribute to breathlessness, especially during periods of increased oxygen requirements such as physical activity, or during respiratory infection (including COVID-19).",
+   "locator": "Clinical manifestations of organ dysfunction in adults — Respiratory",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What is the urinary criterion for clinical obesity in adults?",
+  "a": [
+   "Recurrent or chronic urinary incontinence",
+   "Foamy urine",
+   "A single episode of cystitis",
+   "Darker urine colour"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Raised intra-abdominal pressure plus pelvic floor dysfunction makes incontinence recurrent in women with obesity, which meets the criterion.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "13 Urinary Recurrent/chronic urinary incontinence U, 100% 14 Reproductive (female) Anovulation, oligo-menorrhea and PCOS U, 100% 15 Reproductive (male) Male hypogonadism A, 96%",
+   "locator": "Table 2: diagnostic criteria for clinical obesity (adults), criteria 13-15",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What is the musculoskeletal criterion for clinical obesity in adults?",
+  "a": [
+   "Chronic, severe knee or hip pain with joint stiffness and reduced range of motion",
+   "Occasional ankle sprains",
+   "Morning stiffness of the finger joints",
+   "Lumbar disc herniation"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Chronic severe pain in weight-bearing knee or hip joints with stiffness and restricted motion meets the criterion.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "16 Musculoskeletal Chronic, severe knee or hip pain associated with joint stiffness and reduced range of joint motion U, 100%",
+   "locator": "Table 2: diagnostic criteria for clinical obesity (adults), criterion 16",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How does lower limb lymphoedema develop in obesity?",
+  "a": [
+   "Mechanical compression of lymphatic vessels reduces drainage",
+   "A thrombus blocks the lymphatic vessels",
+   "Dietary protein intake is too low",
+   "The kidneys excrete too much sodium"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Compressed lymphatic vessels drain poorly, so the legs swell and become painful with reduced range of motion.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "Lymphoedema of the lower limbs is strongly associated with severe obesity, particularly in women, which develops due to mechanical compression of lymphatic vessels and reduced drainage, with feelings of pain, tightness, or both, resulting in decreased range of motion.",
+   "locator": "Clinical manifestations of organ dysfunction in adults — Lymphatic",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What is the renal criterion for clinical obesity in adults?",
+  "a": [
+   "Microalbuminuria with reduced eGFR",
+   "Visible haematuria",
+   "Recurrent urinary stones",
+   "Frequent nocturia"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Microalbuminuria together with a fallen eGFR meets the renal criterion.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "11 Liver NAFLD with hepatic fibrosis U, 100% 12 Renal Microalbuminuria with reduced eGFR A, 96%",
+   "locator": "Table 2: diagnostic criteria for clinical obesity (adults), criteria 11-12",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What risks rise once MASLD progresses to steatohepatitis with fibrosis?",
+  "a": [
+   "Cirrhosis, liver failure and hepatocellular carcinoma",
+   "Gallstones and cholecystitis",
+   "Acute pancreatitis",
+   "Gastro-oesophageal reflux"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Beyond simple steatosis, inflammation and fibrosis substantially raise the risk of cirrhosis, liver failure and liver cancer.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "Once MASLD progresses beyond steatosis to steatohepatitis with fibrosis, there is substantial risk of cirrhosis, liver failure, and hepatocellular carcinoma.",
+   "locator": "Clinical manifestations of organ dysfunction in adults — Liver",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which direct body fat measurements did the Commission give as examples?",
+  "a": [
+   "DEXA or bioimpedance",
+   "ECG and chest X-ray",
+   "Fasting glucose and HbA1c",
+   "Temperature and pulse"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Add at least one more anthropometric measure, or measure fat mass directly by DEXA or bioimpedance where available.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "we recommend that obesity status should be verified by at least one additional anthropometric measure (eg, waist circumference, waist-to-hip ratio, or waist-to-height ratio), or, where available, direct fat mass measurement (eg, by DEXA or bioimpedance; table 1).",
+   "locator": "Clinical assessment of obesity status",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What principle did the Commission set for using anthropometric measures?",
+  "a": [
+   "Use validated methods and cutoffs appropriate to age, sex and ethnicity or country",
+   "Use a single global cutoff for everyone",
+   "Judge by BMI alone",
+   "Use self-reported weight instead of measurement"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "The same waist measurement means different things by age, sex and ethnicity, so validated population-specific cutoffs are required.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "For all anthropometric measures, as for BMI, we recommend use of validated methods and cutoff points appropriate to age, sex, and ethnicity or country",
+   "locator": "Clinical assessment of obesity status",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which belief underlies weight stigma, according to the Commission?",
+  "a": [
+   "That obesity is personal responsibility and reversing it is always a matter of choice",
+   "That obesity is contagious",
+   "That obesity is determined only by genes",
+   "That obesity is a natural result of ageing"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "The belief that obesity is purely a matter of willpower fuels stigma, which in turn delays care.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "Individuals with obesity face a pervasive form of social stigma. Such stigma reflects widespread beliefs favouring personal responsibility as the major determinant of obesity and a naive idea that reversing obesity, no matter how severe, is always a matter of choice.",
+   "locator": "Patients' perspectives and the impact of weight bias",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which values mark impaired glycaemic status in the Asian criteria?",
+  "a": [
+   "Fasting glucose 100 mg/dL or above, or HbA1c 5.7% or above",
+   "Fasting glucose 126 mg/dL or above, or HbA1c 6.5% or above",
+   "Fasting glucose 110 mg/dL or above, or HbA1c 6.0% or above",
+   "Fasting glucose 90 mg/dL or above, or HbA1c 5.0% or above"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "The threshold sits well before diabetes: fasting glucose 100 or HbA1c 5.7%, with triglycerides 150 and HDL below 40 in men or 50 in women marking dyslipidaemia.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Impaired glycaemic status is indicated by fasting levels of glucose ≥100 mg/dL, HbA1c ≥5.7%, or use of glucose-lowering medication; dyslipidaemia by triglycerides ≥150 mg/dL with low levels of HDL cholesterol (<40 mg/dL in men and <50 mg/dL in women);",
+   "locator": "Diagnostic biomarkers and metabolic clusters",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What pancreatic feature is described in Korean people with obesity?",
+  "a": [
+   "Reduced beta-cell mass with increased pancreatic adipose tissue",
+   "Enlarged beta cells causing persistent insulin excess",
+   "Increased pancreatic enzyme secretion speeding digestion",
+   "An enlarged pancreas that lowers blood glucose"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "Koreans have a smaller beta-cell reserve plus pancreatic fat infiltration, so insulin secretion fails earlier at the same weight.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "and both East Asian and South Asian people show increased hepatic and pancreatic adipose tissue accumulation relative to waist circumference9–15. Korean people, in particular, demonstrate reduced β-cell mass and increased pancreatic adipose tissue",
+   "locator": "Clinical phenotypes of obesity in Asian populations",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "At what BMI do South Asian people start developing type 2 diabetes and cardiovascular disease?",
+  "a": [
+   "Often below 25 kg/m2",
+   "Only above 30 kg/m2",
+   "Only above 35 kg/m2",
+   "BMI is unrelated"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "In UK cohorts South Asian people developed diabetes and cardiovascular disease below BMI 25, with risks matching much heavier Europeans.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "that South Asian people develop T2DM and CVD at substantially lower BMI values, often below 25 kg/m², with cardiometabolic risks similar to European people with much higher BMI",
+   "locator": "Studies showing the need for a new definition of clinical obesity in Asian people",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What MASLD prevalence is reported across Asian populations?",
+  "a": [
+   "About 30-34%",
+   "About 5-10%",
+   "About 15-18%",
+   "About 50-55%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "East, South and Southeast Asia all report about 30-34%, similar to or higher than Western countries.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "is highly prevalent in Asian populations, with meta-analyses reporting rates of approximately 30–34% across East Asia, South Asia and Southeast Asia",
+   "locator": "Clinical phenotypes of obesity in Asian populations",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which body fat percentage thresholds mark excess adiposity in DXA studies?",
+  "a": [
+   "25% or more in men and 35% or more in women",
+   "20% in men and 30% in women",
+   "30% in men and 40% in women",
+   "15% in men and 25% in women"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "In both European and Asian cohorts, above 25% in men and 35% in women raised cardiometabolic risk even at normal BMI.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Across multiple population-based studies using DXA in European and Asian cohorts, excess adiposity has been consistently identified at approximately ≥25% adipose tissue in men and ≥35% in women; these thresholds are associated with cardiometabolic risk even among individuals with BMI in the normal range",
+   "locator": "Pitfalls of using BMI alone — body composition thresholds",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which simple anthropometric measures help detect metabolic obesity at normal BMI?",
+  "a": [
+   "Waist-to-hip ratio, waist-to-height ratio, neck circumference and skinfold thickness",
+   "Blood pressure and pulse",
+   "Grip strength and gait speed",
+   "Height and sitting height"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "Waist-to-hip and waist-to-height ratios, neck circumference and skinfold thickness catch metabolic obesity that BMI misses.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "including waist-to-hip ratio, waist-to-height ratio (WHtR), neck circumference and skinfold thickness, can enhance identification of metabolic obesity in people with BMI in the normal range",
+   "locator": "Pitfalls of using BMI alone — simple anthropometric measures",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
  }
 ]
