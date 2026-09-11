@@ -2122,6 +2122,198 @@
   "question_index": 126
  },
  {
+  "id": "F-ob-128",
+  "set": "obesity",
+  "statement_ko": "이 논문이 정리한 아시아인 비만 표현형의 특징은 무엇일까요? → 내장·이소성 지방이 많고 β세포 예비능이 적으며 근감소성 비만이 흔해 더 낮은 BMI에서도 위험이 높아요",
+  "statement_en": "What features make up the distinctive Asian obesity phenotype described in this Perspective? → Excess visceral and ectopic fat, reduced β-cell reserve, sarcopenic obesity, and higher cardiometabolic risk at lower BMI",
+  "concepts": [
+   "clinical-obesity",
+   "abdominal-obesity",
+   "sarcopenic-obesity",
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "easy",
+  "question_index": 127
+ },
+ {
+  "id": "F-ob-129",
+  "set": "obesity",
+  "statement_ko": "같은 BMI일 때 아시아인의 지방 분포는 어떻게 다를까요? → 내장지방이 더 많고 간과 췌장의 지방도 많으며 아디포넥틴은 더 낮아요",
+  "statement_en": "At a given BMI, how does fat distribution differ in Asian people? → More visceral fat, more hepatic and pancreatic fat, and lower adiponectin levels",
+  "concepts": [
+   "clinical-obesity",
+   "abdominal-obesity",
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "easy",
+  "question_index": 128
+ },
+ {
+  "id": "F-ob-130",
+  "set": "obesity",
+  "statement_ko": "아시아인에게 BMI만으로 비만을 판단할 때 생기는 가장 큰 문제는 무엇일까요? → BMI가 정상이거나 조금만 높아도 과잉 지방과 대사 이상이 있는 사람이 많아 놓치게 돼요",
+  "statement_en": "What is the main problem with relying on BMI alone in Asian people? → Many people with normal or only mildly raised BMI already have excess adiposity and metabolic dysfunction, so they are missed",
+  "concepts": [
+   "clinical-obesity",
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "easy",
+  "question_index": 129
+ },
+ {
+  "id": "F-ob-131",
+  "set": "obesity",
+  "statement_ko": "한국 인구 기반 연구에서 BMI 18.5~22.9 kg/m²인 사람 가운데 대사증후군 위험과 연관된 체지방 기준을 넘은 비율은 얼마였을까요? → 32%",
+  "statement_en": "In a Korean population-based study, what share of people with a BMI of 18.5–22.9 kg/m² exceeded adiposity thresholds linked to metabolic syndrome risk? → 32%",
+  "concepts": [
+   "clinical-obesity",
+   "bmi",
+   "metabolic-syndrome",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "mid",
+  "question_index": 130
+ },
+ {
+  "id": "F-ob-132",
+  "set": "obesity",
+  "statement_ko": "같은 BMI에서 일본인의 간 지방량은 비히스패닉 백인과 비교해 어느 정도일까요? → 2~3배 많아요",
+  "statement_en": "At the same BMI, how much liver fat do Japanese individuals have compared with non-Hispanic white individuals? → Twofold to threefold more",
+  "concepts": [
+   "clinical-obesity",
+   "bmi"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "mid",
+  "question_index": 131
+ },
+ {
+  "id": "F-ob-133",
+  "set": "obesity",
+  "statement_ko": "근감소성 비만(sarcopenic obesity)은 어떤 상태를 말할까요? → 근육량은 적은데 지방은 많은 상태예요",
+  "statement_en": "What does sarcopenic obesity mean? → Low muscle mass together with excess adiposity",
+  "concepts": [
+   "clinical-obesity",
+   "sarcopenic-obesity"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "easy",
+  "question_index": 132
+ },
+ {
+  "id": "F-ob-134",
+  "set": "obesity",
+  "statement_ko": "아시아인의 비만 진단과 위험 평가에서 BMI보다 앞세우라고 한 지표는 무엇일까요? → 허리둘레와 내장지방",
+  "statement_en": "Which measures should take precedence over BMI for diagnosis and risk stratification in Asian people? → Waist circumference and visceral adipose tissue",
+  "concepts": [
+   "clinical-obesity",
+   "abdominal-obesity",
+   "bmi",
+   "waist"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "easy",
+  "question_index": 133
+ },
+ {
+  "id": "F-ob-135",
+  "set": "obesity",
+  "statement_ko": "심혈관대사 위험이 뚜렷하게 올라가는 기준으로 제시된 내장지방 면적은 얼마일까요? → 100 cm² 이상",
+  "statement_en": "Which visceral adipose tissue area was identified as the critical threshold above which cardiometabolic risk increases? → ≥100 cm²",
+  "concepts": [
+   "clinical-obesity",
+   "abdominal-obesity",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "mid",
+  "question_index": 134
+ },
+ {
+  "id": "F-ob-136",
+  "set": "obesity",
+  "statement_ko": "허리키비(waist-to-height ratio)에서 심혈관대사 위험을 예측하는 값으로 제시된 기준은 무엇일까요? → 0.5 초과",
+  "statement_en": "Which waist-to-height ratio threshold is highlighted as predictive of cardiometabolic risk? → Greater than 0.5",
+  "concepts": [
+   "clinical-obesity",
+   "abdominal-obesity",
+   "whtr",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "easy",
+  "question_index": 135
+ },
+ {
+  "id": "F-ob-137",
+  "set": "obesity",
+  "statement_ko": "BMI가 정상인 아시아 노인 가운데 체지방이 과잉인 비율은 어느 정도일까요? → 남성은 20% 이상, 여성은 40%",
+  "statement_en": "Among older Asian adults with a normal BMI, what proportion have excess body fat? → More than 20% of men and 40% of women",
+  "concepts": [
+   "clinical-obesity",
+   "bmi",
+   "body-fat",
+   "elderly"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "mid",
+  "question_index": 136
+ },
+ {
+  "id": "F-ob-138",
+  "set": "obesity",
+  "statement_ko": "Lancet 위원회가 제2형 당뇨병을 임상적 비만의 진단 기준에 넣지 않은 이유는 무엇일까요? → 다른 질환을 진단 기준으로 쓰면 질환끼리 구분이 안 되고 감별진단이 흐려지기 때문이에요",
+  "statement_en": "Why did the Lancet Commission exclude type 2 diabetes from the diagnostic criteria for clinical obesity? → Using one disease as a criterion for another would blur differential diagnosis and make diseases indistinguishable",
+  "concepts": [
+   "clinical-obesity",
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "source_family": "Lancet Commission 2025",
+  "diff": "mid",
+  "question_index": 137
+ },
+ {
+  "id": "F-ob-139",
+  "set": "obesity",
+  "statement_ko": "임상적 비만의 관해(remission)에 대해 위원회가 강조한 점은 무엇일까요? → 임상 징후가 해소된 상태를 뜻하고 완치와 같지는 않아요",
+  "statement_en": "What did the Commission emphasise about remission of clinical obesity? → It means resolution of the clinical manifestations, and it does not equate with cure",
+  "concepts": [
+   "clinical-obesity",
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 138
+ },
+ {
   "id": "F-ma-001",
   "set": "masld",
   "statement_ko": "2023년 새 명명법에서 NAFLD를 대체한 이름은 무엇일까요? → MASLD(대사이상 지방간질환)",

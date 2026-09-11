@@ -15,11 +15,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "We define clinical obesity as a chronic, systemic illness characterised by alterations in the function of tissues, organs, the entire individual, or a combination thereof, due to excess adiposity. … We define preclinical obesity as a state of excess adiposity with preserved function of other tissues and organs and a varying, but generally increased, risk of developing clinical obesity",
-   "locator": "Abstract (Commission summary)",
+   "quote": "We therefore pragmatically distinguish clinical obesity from preclinical obesity, on the basis of the presence or absence, respectively, of symptomatic alterations in organ function or impairment of an individual’s ability to conduct daily activities.",
+   "locator": "Commission recommendations — Definitions of clinical and preclinical obesity",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -38,11 +38,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "The diagnosis of clinical obesity requires one or both of the following main criteria: evidence of reduced organ or tissue function due to obesity (ie, signs, symptoms, or diagnostic tests showing abnormalities in the function of one or more tissue or organ system); or substantial, age-adjusted limitations of daily activities reflecting the specific effect of obesity on mobility, other basic activities of daily living (eg, bathing, dressing, toileting, continence, and eating), or both.",
-   "locator": "Abstract — diagnostic criteria",
+   "quote": "The definition of clinical obesity implies the combination of an obesity phenotype with objective and specific evidence of ongoing illness due to obesity (table 1). Accordingly, the diagnosis of clinical obesity requires confirmation of obesity status through fulfilment of anthropometric criteria (an anthropometric component) plus signs or symptoms of abnormalities in the function of one or more tissue or organ systems",
+   "locator": "Principles for the diagnosis of clinical obesity",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -61,11 +61,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "We define preclinical obesity as a state of excess adiposity with preserved function of other tissues and organs and a varying, but generally increased, risk of developing clinical obesity and several other non-communicable diseases (eg, type 2 diabetes, cardiovascular disease, certain types of cancer, and mental disorders).",
-   "locator": "Abstract (Commission summary)",
+   "quote": "Preclinical obesity is essentially a physical phenotype, characterised by excess adiposity and absence of major signs and symptoms of organ dysfunctions due to obesity.",
+   "locator": "Panel 6: Definition of preclinical obesity",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -84,12 +84,12 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "Current BMI-based measures of obesity can both underestimate and overestimate adiposity and provide inadequate information about health at the individual level, which undermines medically-sound approaches to health care and policy.",
-   "locator": "Abstract, opening sentence",
+   "quote": "In addition to potentially misclassifying excess adiposity itself, BMI provides no information about the functional status of tissues and organs, or the ability of an individual to conduct normal daily activities, which are two fundamental criteria for assessment of a person’s health. Thus, the current BMI-based definition of obesity can either underestimate or overestimate both adiposity and illness",
+   "locator": "Limitations of the current framing of obesity — The BMI issue",
    "ref": "rubino2025",
    "support": "direct",
    "note": "정답이 주장하던 '지방 분포를 반영하지 못한다'는 내용은 초록에 없어요. 초록이 실제로 말하는 과소·과대평가와 개인 수준 정보 부족으로 정답을 교체했어요.",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -108,11 +108,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "Excess adiposity should be confirmed by either direct measurement of body fat, where available, or at least one anthropometric criterion (eg, waist circumference, waist-to-hip ratio, or waist-to-height ratio) in addition to BMI, using validated methods and cutoff points appropriate to age, gender, and ethnicity.",
-   "locator": "Abstract — confirmation of excess adiposity",
+   "quote": "we recommend that obesity status should be verified by at least one additional anthropometric measure (eg, waist circumference, waist-to-hip ratio, or waist-to-height ratio), or, where available, direct fat mass measurement (eg, by DEXA or bioimpedance; table 1)",
+   "locator": "Clinical assessment of obesity status",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -204,12 +204,12 @@
    "rubino2020"
   ],
   "evidence": {
-   "quote": "We define clinical obesity as a chronic, systemic illness characterised by alterations in the function of tissues, organs, the entire individual, or a combination thereof, due to excess adiposity.",
-   "locator": "Abstract — definition of clinical obesity",
+   "quote": "Clinical obesity is a chronic illness that results from alterations in the function of organs or the whole organism, directly induced by excess adiposity, independent of the presence of other adiposity-related diseases. It can lead to life-altering or life-threatening complications.",
+   "locator": "Panel 5: Definition and diagnosis of clinical obesity",
    "ref": "rubino2025",
    "support": "direct",
    "note": "어떤 코퍼스 자료도 비만을 '재발이 흔한(relapsing)' 질환이라고 명시하지 않아요. 초록이 직접 내리는 정의(만성 전신 질환)로 문항을 다시 세우고, 전임상 비만을 오답 보기로 살렸어요.",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -827,11 +827,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "We recommend that BMI should be used only as a surrogate measure of health risk at a population level, for epidemiological studies, or for screening purposes, rather than as an individual measure of health. Excess adiposity should be confirmed by either direct measurement of body fat, where available, or at least one anthropometric criterion",
-   "locator": "Abstract — recommendation on BMI use",
+   "quote": "There was strong agreement among commissioners (98%) that the use of BMI should be restricted to the screening of patients with potential obesity (table 1), whereas additional measures of adiposity are essential to confirm obesity status (ie, excess adiposity) at the clinical level.",
+   "locator": "Limitations of the current framing of obesity — The BMI issue",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -850,11 +850,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "In people with very high BMI (ie, >40 kg/m2), however, excess adiposity can pragmatically be assumed, and no further confirmation is required.",
-   "locator": "Abstract — confirmation of excess adiposity",
+   "quote": "Although the risk of misclassification of obesity is less relevant in people with very high BMI (eg, >40 kg/m2), it is difficult, with current knowledge, to recommend specific BMI thresholds for verification of excess adiposity across individuals of different ages, ethnicities, or fitness levels. Obesity status, however, can be reasonably assumed in people with very high BMI, pragmatically obviating the need for time-consuming assessment of multiple anthropometric measures.",
+   "locator": "Clinical assessment of obesity status",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -873,12 +873,12 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "The diagnosis of clinical obesity requires one or both of the following main criteria: evidence of reduced organ or tissue function due to obesity (ie, signs, symptoms, or diagnostic tests showing abnormalities in the function of one or more tissue or organ system); or substantial, age-adjusted limitations of daily activities reflecting the specific effect of obesity on mobility, other basic activities of daily living (eg, bathing, dressing, toileting, continence, and eating), or both.",
-   "locator": "Abstract — main diagnostic criteria",
+   "quote": "The diagnosis of Clinical Obesity requires: a. Clinical confirmation of obesity status by anthropometric criteria or by direct body fat measurement, Plus one or both of the following criteria: b. Evidence of reduced organ/tissue function due to obesity (ie, signs, symptoms and/or diagnostic tests showing abnormalities in the function of one or more tissue/organ system)",
+   "locator": "Table 1: Consensus statements — statement 16",
    "ref": "rubino2025",
    "support": "direct",
    "note": "지방간·수면무호흡·무릎 같은 장기별 예시는 본문 Panel에 있고 코퍼스의 초록에는 없어요. 초록이 명시한 두 가지 주요 기준을 그대로 묻는 문항으로 바꿨어요.",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -897,11 +897,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "or substantial, age-adjusted limitations of daily activities reflecting the specific effect of obesity on mobility, other basic activities of daily living (eg, bathing, dressing, toileting, continence, and eating), or both.",
-   "locator": "Abstract — main criterion 2",
+   "quote": "Limitations of daily activities should reflect the specific effect of obesity on mobility, other basic activities of daily living (eg, bathing, dressing, toileting, continence, and eating), or both. Age-adjusted limitations of activities of daily living require a process of differential diagnosis, by assessing the relative role of obesity and other causes, including age itself.",
+   "locator": "Principles for the diagnosis of clinical obesity",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -920,11 +920,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "People with preclinical obesity should undergo evidence-based health counselling, monitoring of their health status over time, and, when applicable, appropriate intervention to reduce risk of developing clinical obesity and other obesity-related diseases, as appropriate for the level of individual health risk.",
-   "locator": "Abstract — management recommendations",
+   "quote": "Preclinical obesity identifies people with a variable level of health risk but with substantially preserved health at present. Therefore, the approach to care of preclinical obesity should be to aim for risk reduction (ie, prophylactic intent)",
+   "locator": "Management of preclinical obesity",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -943,11 +943,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "People with clinical obesity should receive timely, evidence-based treatment, with the aim to induce improvement (or remission, when possible) of clinical manifestations of obesity and prevent progression to end-organ damage.",
-   "locator": "Abstract — management recommendations",
+   "quote": "The goal of therapy in clinical obesity should be improvement (or remission when possible) of the clinical manifestations of obesity and prevention of progression to further complications or end-organ damage.",
+   "locator": "Goals for treatment of clinical obesity",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -966,11 +966,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "We define clinical obesity as a chronic, systemic illness characterised by alterations in the function of tissues, organs, the entire individual, or a combination thereof, due to excess adiposity. Clinical obesity can lead to severe end-organ damage, causing life-altering and potentially life-threatening complications (eg, heart attack, stroke, and renal failure).",
-   "locator": "Abstract (Commission summary)",
+   "quote": "Our definition of clinical obesity as a systemic, chronic illness directly and specifically caused by excess adiposity provides a more coherent explanation of why obesity can fulfil the generally accepted criteria of a disease state in certain circumstances, but not always.",
+   "locator": "Panel 2: The Commission’s recommendations in context — Obesity as a disease",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -990,11 +990,11 @@
    "rubino2020"
   ],
   "evidence": {
-   "quote": "Weight-based bias and stigma are major obstacles in efforts to effectively prevent and treat obesity; health-care professionals and policy makers should receive proper training to address this important issue of obesity.",
-   "locator": "Abstract — stigma recommendation",
+   "quote": "Education of health-care and public health professionals about weight bias and modern science of obesity should be a key priority",
+   "locator": "Panel 8: Recommendations for health-care policy and medical education",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -1013,11 +1013,11 @@
    "rubino2025"
   ],
   "evidence": {
-   "quote": "We define preclinical obesity as a state of excess adiposity with preserved function of other tissues and organs … The diagnosis of clinical obesity requires one or both of the following main criteria: evidence of reduced organ or tissue function due to obesity (ie, signs, symptoms, or diagnostic tests showing abnormalities in the function of one or more tissue or organ system)",
-   "locator": "Abstract — definitions and diagnostic criteria",
+   "quote": "Although obesity should be biologically conceived of as a continuum, health and illness are typically (and necessarily) defined as distinct, dichotomous conditions at the clinical level. We therefore pragmatically distinguish clinical obesity from preclinical obesity, on the basis of the presence or absence, respectively, of objective clinical manifestations (ie, signs and symptoms) of altered organ function or impairment of an individual’s ability to conduct daily activities.",
+   "locator": "Panel 2: The Commission’s recommendations in context — Our new diagnostic model for obesity",
    "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext"
   }
  },
  {
@@ -3036,6 +3036,282 @@
    "quote": "The framework identifies high-risk individuals missed by BMI alone and supports a shift toward more functional, ethnically tailored obesity definitions for risk stratification and intervention.",
    "locator": "Abstract › Conclusion",
    "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "이 논문이 정리한 아시아인 비만 표현형의 특징은 무엇일까요?",
+  "a": [
+   "내장·이소성 지방이 많고 β세포 예비능이 적으며 근감소성 비만이 흔해 더 낮은 BMI에서도 위험이 높아요",
+   "피하지방 위주로 쌓이고 β세포 기능은 잘 보존되는 편이에요",
+   "서구인보다 더 높은 BMI에 이르러야 대사 위험이 나타나요",
+   "체지방률은 낮고 근육량이 많아 BMI가 높게 나와요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "같은 체중이라도 아시아인은 내장지방과 간·췌장의 이소성 지방이 많고 β세포 여력이 적어서, 서구인보다 낮은 BMI에서도 심혈관대사 위험이 올라가요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Asian populations exhibit a distinctive obesity phenotype, characterized by excess visceral and ectopic adipose tissue accumulation, reduced β-cell reserve, sarcopenic obesity and heightened cardiometabolic risk at lower BMI thresholds than for white European and North American populations, leading to systematic under-recognition of obesity-related disease when conventional criteria are applied.",
+   "locator": "Abstract",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "같은 BMI일 때 아시아인의 지방 분포는 어떻게 다를까요?",
+  "a": [
+   "내장지방이 더 많고 간과 췌장의 지방도 많으며 아디포넥틴은 더 낮아요",
+   "피하지방만 많고 내장지방은 오히려 적어요",
+   "지방 분포는 거의 같고 근육량만 적어요",
+   "간 지방은 적은 대신 팔다리 지방이 많아요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "동아시아·남아시아·동남아시아 사람 모두 같은 BMI에서 내장지방과 간·췌장 지방이 더 많고 아디포넥틴은 낮아서, 인슐린 저항성이 더 쉽게 생겨요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "At a given BMI, Asian people, including East Asian, South Asian and Southeast Asian people, exhibit greater visceral adiposity, increased hepatic and pancreatic adipose tissue mass and lower levels of adiponectin than people of certain other ethnicities; these differences collectively contribute to heightened insulin resistance",
+   "locator": "Clinical phenotypes of obesity in Asian populations",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "아시아인에게 BMI만으로 비만을 판단할 때 생기는 가장 큰 문제는 무엇일까요?",
+  "a": [
+   "BMI가 정상이거나 조금만 높아도 과잉 지방과 대사 이상이 있는 사람이 많아 놓치게 돼요",
+   "BMI가 높은 사람에게만 대사 이상이 생겨 판단이 쉬워요",
+   "BMI가 체지방을 실제보다 항상 높게 보여 과잉 진단만 생겨요",
+   "BMI는 아시아인에게 측정 자체가 어려워요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "아시아인은 BMI가 정상 범위여도 내장지방과 대사 이상을 가진 경우가 많아서, BMI 하나만 보면 치료가 필요한 사람을 놓치기 쉬워요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "These diagnostic shortcomings are particularly problematic in Asian populations, in which many individuals with normal or mildly elevated BMI exhibit excess adiposity and metabolic dysfunction",
+   "locator": "Pitfalls of using BMI alone to identify obesity-related risk in Asian people",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "한국 인구 기반 연구에서 BMI 18.5~22.9 kg/m²인 사람 가운데 대사증후군 위험과 연관된 체지방 기준을 넘은 비율은 얼마였을까요?",
+  "a": [
+   "32%",
+   "8%",
+   "16%",
+   "52%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "BMI가 정상 범위인 한국인 셋 중 한 명꼴로 이미 대사증후군 위험과 연결되는 체지방 수준을 넘고 있어서, 체중계 숫자만으로는 안심하기 어려워요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "In Korea, a population-based study reported that 32% of individuals with a BMI of 18.5–22.9 kg/m² exceeded adiposity thresholds associated with metabolic syndrome risk, adding to the evidence for substantial metabolic vulnerability among certain individuals with a BMI within the normal range",
+   "locator": "Studies showing the need for a new definition of clinical obesity in Asian people",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "같은 BMI에서 일본인의 간 지방량은 비히스패닉 백인과 비교해 어느 정도일까요?",
+  "a": [
+   "2~3배 많아요",
+   "거의 같아요",
+   "절반 수준이에요",
+   "10배 이상 많아요"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "같은 BMI여도 간에 쌓이는 지방의 양이 두세 배까지 차이가 나기 때문에, 아시아인에게는 체중보다 지방간 여부를 함께 살펴보는 편이 좋아요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Japanese individuals exhibit twofold to threefold higher liver adipose tissue mass than non-Hispanic white individuals at the same BMI",
+   "locator": "Clinical phenotypes of obesity in Asian populations",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "근감소성 비만(sarcopenic obesity)은 어떤 상태를 말할까요?",
+  "a": [
+   "근육량은 적은데 지방은 많은 상태예요",
+   "근육량과 지방이 모두 적은 상태예요",
+   "근육량이 많아 BMI만 높게 나오는 상태예요",
+   "지방은 정상이고 근육만 많은 상태예요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "고령화가 빠른 아시아 인구에서 흔하게 보이고, 인슐린 저항성과 심혈관 위험을 함께 높이기 때문에 체중이 그대로여도 눈여겨봐야 해요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Sarcopenic obesity, which is characterized by low muscle mass with excess adiposity, is common in ageing Asian populations and is associated with insulin resistance and increased cardiovascular risk",
+   "locator": "Clinical phenotypes of obesity in Asian populations",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "아시아인의 비만 진단과 위험 평가에서 BMI보다 앞세우라고 한 지표는 무엇일까요?",
+  "a": [
+   "허리둘레와 내장지방",
+   "엉덩이둘레",
+   "키 대비 체중의 변화 속도",
+   "위팔둘레"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "아시아인에게는 복부비만이 심혈관대사 위험을 더 잘 예측하기 때문에, 허리둘레와 내장지방을 먼저 확인하라고 권해요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Given that abdominal obesity is a stronger predictor of cardiometabolic risk in Asian people, waist circumference and visceral adipose tissue should take precedence over BMI for diagnosis and risk stratification",
+   "locator": "Application of the new definition of clinical obesity to Asian people",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "심혈관대사 위험이 뚜렷하게 올라가는 기준으로 제시된 내장지방 면적은 얼마일까요?",
+  "a": [
+   "100 cm² 이상",
+   "50 cm² 이상",
+   "150 cm² 이상",
+   "250 cm² 이상"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "CT로 잰 내장지방 면적이 남녀 모두 100 cm²를 넘으면 위험이 뚜렷하게 올라가고, 일본의 허리둘레 기준도 이 값에서 나왔어요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Visceral adipose tissue area ≥100 cm² in both sexes was identified as a critical threshold above which cardiometabolic risk increased.",
+   "locator": "Application of the new definition of clinical obesity to Asian people",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "허리키비(waist-to-height ratio)에서 심혈관대사 위험을 예측하는 값으로 제시된 기준은 무엇일까요?",
+  "a": [
+   "0.5 초과",
+   "0.3 초과",
+   "0.7 초과",
+   "0.9 초과"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "허리둘레가 키의 절반을 넘는지 보는 간단한 지표인데, 인종에 덜 좌우된다는 장점이 있는 대신 아시아 코호트의 근거는 아직 넉넉하지 않아요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "WHtR has emerged as a promising and ethnicity-independent marker of cardiometabolic risk, with a threshold of >0.5 demonstrating predictive value. However, evidence for WHtR use remains fairly limited in Asian cohorts.",
+   "locator": "Diagnostic adjustments for Asian populations",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "BMI가 정상인 아시아 노인 가운데 체지방이 과잉인 비율은 어느 정도일까요?",
+  "a": [
+   "남성은 20% 이상, 여성은 40%",
+   "남성과 여성 모두 5% 미만",
+   "남성 40%, 여성 20%",
+   "남성과 여성 모두 70% 이상"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "정상 BMI라도 노인 남성 다섯 중 한 명, 여성은 다섯 중 두 명이 이미 체지방 과잉이라서, 나이 든 환자일수록 체성분을 함께 보는 편이 좋아요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Notably, studies show that more than 20% of older Asian men and 40% of older Asian women with normal BMI have excess adipose tissue mass",
+   "locator": "Diagnostic adjustments for Asian populations",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Lancet 위원회가 제2형 당뇨병을 임상적 비만의 진단 기준에 넣지 않은 이유는 무엇일까요?",
+  "a": [
+   "다른 질환을 진단 기준으로 쓰면 질환끼리 구분이 안 되고 감별진단이 흐려지기 때문이에요",
+   "비만한 사람에게 당뇨병이 드물기 때문이에요",
+   "혈당은 검사로 확인하기 어렵기 때문이에요",
+   "당뇨병은 비만과 관련이 없다고 보기 때문이에요"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "위원회는 고유한 병태생리를 가진 질환 대신 장기 기능의 변화만을 기준으로 삼았고, 그래서 당뇨병 자체가 아니라 고혈당을 포함한 대사 이상 묶음을 진단 기준으로 넣었어요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "Hence, using a disease state as a diagnostic criterion for another disease would be contradictory on logical grounds, and would also undermine differential diagnosis, as it would make diseases indistinguishable from one another.",
+   "locator": "Diagnostic criteria for clinical obesity",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "임상적 비만의 관해(remission)에 대해 위원회가 강조한 점은 무엇일까요?",
+  "a": [
+   "임상 징후가 해소된 상태를 뜻하고 완치와 같지는 않아요",
+   "체중이 정상 범위로 돌아온 상태를 뜻해요",
+   "치료를 중단해도 된다는 신호예요",
+   "BMI가 25 미만이 된 상태를 뜻해요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "당뇨병의 관해와 마찬가지로 장기 기능이 회복됐다는 뜻이지 병이 사라졌다는 뜻은 아니어서, 관해 뒤에도 추적 관찰은 이어가야 해요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "It is important to note that, as for type 2 diabetes and other chronic illnesses, remission of clinical obesity does not equate with cure.",
+   "locator": "Remission of clinical obesity",
+   "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
   }
