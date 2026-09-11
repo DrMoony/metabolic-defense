@@ -3315,5 +3315,419 @@
    "support": "direct",
    "access": "fulltext"
   }
+ },
+ {
+  "q": "위원회가 비만을 다시 규정하며 함께 담으려 한 두 가지 성격은 무엇일까요?",
+  "a": [
+   "다른 질환의 위험인자이면서 동시에 병을 직접 일으키는 원인",
+   "감염병이면서 유전병",
+   "위험인자일 뿐 결코 질병은 아님",
+   "미용 문제이면서 생활습관 문제"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "비만은 다른 병의 위험을 높이기도 하지만 그 자체로 장기 기능을 무너뜨려 병을 일으키기도 해서, 두 얼굴을 함께 설명해야 한다고 봤어요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "A reframing of the clinical effect of obesity is warranted, to explain how obesity can be both a risk factor for other diseases and a direct cause of illness.",
+   "locator": "Reframing obesity and its clinical characterisation",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "소아·청소년의 임상적 비만 진단기준은 표에서 모두 몇 개일까요?",
+  "a": [
+   "13개",
+   "8개",
+   "18개",
+   "23개"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "성인은 18개, 소아·청소년은 13개 항목으로 정리돼 있고, 마지막 13번은 일상생활 활동 제한이에요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "12 Musculoskeletal (femoral) Acute and/or recurrent/chronic pain or limitation of mobility or tripping/falling due to slipped femoral capital epiphysis U, 100% 13 Limitations of day-to-day activities Significant, age-adjusted limitations of mobility and/or other basic Activities of Daily Living (ADL=bathing, dressing, toileting, continence, eating)",
+   "locator": "Table 2: diagnostic criteria for clinical obesity (children and adolescents)",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만에서 수면 중 무호흡이 생기는 직접적인 이유로 설명된 것은 무엇일까요?",
+  "a": [
+   "특히 목 부위 지방이 늘어 기도 기능을 곧바로 방해해서",
+   "뇌의 호흡중추가 손상돼서",
+   "폐포에 지방이 쌓여 산소 교환이 막혀서",
+   "코 점막이 두꺼워져 비강이 좁아져서"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "목 주변에 지방이 늘면 기도 기능이 직접 눌리면서 자는 동안 무호흡이 반복되고, 흉벽 순응도까지 떨어지면 숨쉬는 일이 더 힘들어져요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "Increased fat mass, particularly in the neck, directly affects airway function, leading to repeated apnoeic episodes during sleep, which can be exacerbated by reduced chest wall lung compliance that leads to increased work of breathing.",
+   "locator": "Clinical manifestations of organ dysfunction in adults — Upper airways",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만에서 숨이 차는 증상이 생기는 기전으로 설명된 것은 무엇일까요?",
+  "a": [
+   "복부·중심부 지방이 횡격막 순응도와 폐 기능을 떨어뜨려서",
+   "기관지 안에 지방이 쌓여 기도가 막혀서",
+   "혈색소가 줄어 산소 운반이 떨어져서",
+   "심장 판막이 좁아져서"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "배와 몸통 가운데 쌓인 지방이 횡격막을 눌러 폐가 펴지기 어려워지면서, 특히 활동할 때나 호흡기 감염이 겹칠 때 숨이 차요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "The physical effects of increased intra-abdominal and central adiposity on diaphragmatic compliance and lung function can also contribute to breathlessness, especially during periods of increased oxygen requirements such as physical activity, or during respiratory infection (including COVID-19).",
+   "locator": "Clinical manifestations of organ dysfunction in adults — Respiratory",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "성인 진단기준에서 비뇨기 항목은 어떤 상태를 말할까요?",
+  "a": [
+   "반복되거나 만성으로 이어지는 요실금",
+   "소변에 거품이 보이는 상태",
+   "방광염이 한 번 생긴 상태",
+   "소변 색이 진해진 상태"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "비만 여성은 배 안 압력이 늘 높은 데다 골반저 기능까지 떨어져서 요실금이 반복되기 쉬운데, 이렇게 반복·만성으로 이어지면 진단기준에 해당해요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "13 Urinary Recurrent/chronic urinary incontinence U, 100% 14 Reproductive (female) Anovulation, oligo-menorrhea and PCOS U, 100% 15 Reproductive (male) Male hypogonadism A, 96%",
+   "locator": "Table 2: diagnostic criteria for clinical obesity (adults), criteria 13-15",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "성인 진단기준에서 근골격계 항목은 어떤 상태를 말할까요?",
+  "a": [
+   "관절 뻣뻣함과 운동범위 감소를 동반한 만성·심한 무릎 또는 고관절 통증",
+   "가끔 생기는 발목 염좌",
+   "손가락 관절의 아침 강직",
+   "허리 디스크 탈출증"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "체중이 실리는 무릎과 엉덩관절이 만성적으로 아프면서 뻣뻣하고 잘 안 움직이면 임상적 비만 기준에 해당해요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "16 Musculoskeletal Chronic, severe knee or hip pain associated with joint stiffness and reduced range of joint motion U, 100%",
+   "locator": "Table 2: diagnostic criteria for clinical obesity (adults), criterion 16",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만에서 하지 림프부종이 생기는 기전은 무엇일까요?",
+  "a": [
+   "지방이 림프관을 기계적으로 눌러 배액이 줄어서",
+   "혈전이 림프관을 막아서",
+   "단백질 섭취가 부족해서",
+   "신장에서 나트륨을 과하게 배출해서"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "지방 덩어리가 림프관을 눌러 배액이 막히면 다리가 붓고 아프면서 움직임 범위까지 줄어요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "Lymphoedema of the lower limbs is strongly associated with severe obesity, particularly in women, which develops due to mechanical compression of lymphatic vessels and reduced drainage, with feelings of pain, tightness, or both, resulting in decreased range of motion.",
+   "locator": "Clinical manifestations of organ dysfunction in adults — Lymphatic",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "성인 진단기준에서 신장(renal) 항목은 무엇을 말할까요?",
+  "a": [
+   "미세알부민뇨와 함께 eGFR이 감소한 상태",
+   "혈뇨가 보이는 상태",
+   "요로결석이 반복되는 상태",
+   "야간뇨가 잦은 상태"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "소변에서 미세알부민이 새어 나오면서 사구체여과율까지 떨어져 있으면 신장 기준을 충족해요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "11 Liver NAFLD with hepatic fibrosis U, 100% 12 Renal Microalbuminuria with reduced eGFR A, 96%",
+   "locator": "Table 2: diagnostic criteria for clinical obesity (adults), criteria 11-12",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "지방간이 섬유화를 동반한 지방간염으로 진행하면 어떤 위험이 커질까요?",
+  "a": [
+   "간경변, 간부전, 간세포암",
+   "담석과 담낭염",
+   "급성 췌장염",
+   "위식도 역류"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "단순 지방 침착을 넘어 염증과 섬유화가 붙으면 간경변과 간부전, 간세포암 위험이 뚜렷하게 올라가요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "Once MASLD progresses beyond steatosis to steatohepatitis with fibrosis, there is substantial risk of cirrhosis, liver failure, and hepatocellular carcinoma.",
+   "locator": "Clinical manifestations of organ dysfunction in adults — Liver",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "BMI 외에 과잉 지방을 직접 확인하는 방법으로 위원회가 든 예는 무엇일까요?",
+  "a": [
+   "이중에너지 X선 흡수계측(DEXA)이나 생체전기저항 측정",
+   "심전도와 흉부 X선",
+   "공복 혈당과 당화혈색소",
+   "체온과 맥박"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "허리둘레 같은 계측을 하나 더 보태거나, 가능하면 DEXA나 생체전기저항으로 지방량을 직접 재서 비만 상태를 확인하라고 권했어요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "we recommend that obesity status should be verified by at least one additional anthropometric measure (eg, waist circumference, waist-to-hip ratio, or waist-to-height ratio), or, where available, direct fat mass measurement (eg, by DEXA or bioimpedance; table 1).",
+   "locator": "Clinical assessment of obesity status",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "허리둘레 같은 인체계측 지표를 쓸 때 위원회가 지켜 달라고 한 원칙은 무엇일까요?",
+  "a": [
+   "연령·성별·인종(국가)에 맞는 검증된 기준값을 쓰기",
+   "전 세계 공통 기준 하나만 쓰기",
+   "BMI 하나만으로 판단하기",
+   "측정 대신 본인이 말한 체중 쓰기"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "같은 허리둘레라도 나이와 성별, 인종에 따라 의미가 달라서 검증된 집단별 기준값을 쓰라고 했어요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "For all anthropometric measures, as for BMI, we recommend use of validated methods and cutoff points appropriate to age, sex, and ethnicity or country",
+   "locator": "Clinical assessment of obesity status",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "위원회가 짚은 비만 낙인의 밑바탕에는 어떤 통념이 깔려 있을까요?",
+  "a": [
+   "비만은 개인 책임이고 마음만 먹으면 언제든 되돌릴 수 있다는 생각",
+   "비만이 사람 사이에 전염된다는 생각",
+   "비만은 유전으로만 정해진다는 생각",
+   "비만은 노화의 자연스러운 결과라는 생각"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "비만이 전적으로 개인 의지의 문제라는 통념이 낙인을 키우고, 그 낙인이 다시 치료를 늦춰요.",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "Individuals with obesity face a pervasive form of social stigma. Such stigma reflects widespread beliefs favouring personal responsibility as the major determinant of obesity and a naive idea that reversing obesity, no matter how severe, is always a matter of choice.",
+   "locator": "Patients' perspectives and the impact of weight bias",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "아시아인 평가에서 '혈당 이상'으로 보는 기준은 무엇일까요?",
+  "a": [
+   "공복혈당 100 mg/dL 이상 또는 당화혈색소 5.7% 이상",
+   "공복혈당 126 mg/dL 이상 또는 당화혈색소 6.5% 이상",
+   "공복혈당 110 mg/dL 이상 또는 당화혈색소 6.0% 이상",
+   "공복혈당 90 mg/dL 이상 또는 당화혈색소 5.0% 이상"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "당뇨 진단 기준보다 훨씬 앞선 공복혈당 100, 당화혈색소 5.7%부터 이상으로 보고, 중성지방 150 이상에 HDL이 남자 40·여자 50 미만이면 이상지질혈증으로 봐요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Impaired glycaemic status is indicated by fasting levels of glucose ≥100 mg/dL, HbA1c ≥5.7%, or use of glucose-lowering medication; dyslipidaemia by triglycerides ≥150 mg/dL with low levels of HDL cholesterol (<40 mg/dL in men and <50 mg/dL in women);",
+   "locator": "Diagnostic biomarkers and metabolic clusters",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "한국인 비만에서 췌장에 나타나는 특징으로 제시된 것은 무엇일까요?",
+  "a": [
+   "베타세포 양이 줄어 있고 췌장에 지방이 끼어 있어요",
+   "베타세포가 커져 인슐린이 계속 과다 분비돼요",
+   "췌장 효소 분비가 늘어 소화가 빨라져요",
+   "췌장이 커지면서 혈당이 오히려 낮아져요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "한국인은 베타세포 예비능이 적은 데다 췌장에 지방까지 끼어서, 같은 체중이라도 인슐린 분비가 먼저 무너지기 쉬워요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "and both East Asian and South Asian people show increased hepatic and pancreatic adipose tissue accumulation relative to waist circumference9–15. Korean people, in particular, demonstrate reduced β-cell mass and increased pancreatic adipose tissue",
+   "locator": "Clinical phenotypes of obesity in Asian populations",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "남아시아인에서 제2형 당뇨병과 심혈관질환이 생기기 시작하는 BMI는 어느 정도일까요?",
+  "a": [
+   "25 kg/m²에 못 미치는 낮은 값에서도 생겨요",
+   "30 kg/m² 이상에서만 생겨요",
+   "35 kg/m² 이상에서만 생겨요",
+   "BMI와는 상관이 없어요"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "영국 코호트 연구에서 남아시아인은 BMI 25가 안 되는데도 당뇨와 심혈관질환이 생겼고, 위험 수준은 훨씬 뚱뚱한 유럽인과 비슷했어요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "that South Asian people develop T2DM and CVD at substantially lower BMI values, often below 25 kg/m², with cardiometabolic risks similar to European people with much higher BMI",
+   "locator": "Studies showing the need for a new definition of clinical obesity in Asian people",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "아시아 지역의 대사이상 지방간질환(MASLD) 유병률은 대략 어느 정도로 보고됐을까요?",
+  "a": [
+   "약 30~34%",
+   "약 5~10%",
+   "약 15~18%",
+   "약 50~55%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "동아시아·남아시아·동남아시아 모두 30~34% 수준이라 서구와 비슷하거나 오히려 더 높아요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "is highly prevalent in Asian populations, with meta-analyses reporting rates of approximately 30–34% across East Asia, South Asia and Southeast Asia",
+   "locator": "Clinical phenotypes of obesity in Asian populations",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "DXA 연구에서 과잉 지방으로 보는 체지방률 기준은 남녀 각각 얼마일까요?",
+  "a": [
+   "남자 25% 이상, 여자 35% 이상",
+   "남자 20% 이상, 여자 30% 이상",
+   "남자 30% 이상, 여자 40% 이상",
+   "남자 15% 이상, 여자 25% 이상"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "유럽과 아시아 코호트 모두에서 남자 25%, 여자 35%를 넘으면 BMI가 정상이어도 심혈관대사 위험이 올라갔어요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Across multiple population-based studies using DXA in European and Asian cohorts, excess adiposity has been consistently identified at approximately ≥25% adipose tissue in men and ≥35% in women; these thresholds are associated with cardiometabolic risk even among individuals with BMI in the normal range",
+   "locator": "Pitfalls of using BMI alone — body composition thresholds",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "BMI가 정상인데도 대사적 비만을 찾아내는 데 도움이 되는 간단한 계측으로 든 것은 무엇일까요?",
+  "a": [
+   "허리엉덩이비, 허리키비, 목둘레, 피부주름두께",
+   "혈압과 맥박",
+   "악력과 보행속도",
+   "키와 앉은키"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "exp": "줄자 하나로 재는 허리엉덩이비와 허리키비, 목둘레, 피부주름두께가 BMI가 놓치는 대사적 비만을 잡아내요.",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "including waist-to-hip ratio, waist-to-height ratio (WHtR), neck circumference and skinfold thickness, can enhance identification of metabolic obesity in people with BMI in the normal range",
+   "locator": "Pitfalls of using BMI alone — simple anthropometric measures",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  }
  }
 ]
