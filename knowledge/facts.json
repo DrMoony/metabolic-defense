@@ -54,7 +54,6 @@
   "concepts": [
    "clinical-obesity",
    "bmi",
-   "body-fat",
    "t2dm"
   ],
   "concepts_manual": false,
@@ -175,14 +174,17 @@
   "statement_ko": "비만은 어떤 성격의 질환으로 보아야 할까요? → 재발이 흔한 만성질환",
   "statement_en": "How should obesity be regarded? → A chronic disease with frequent relapse",
   "concepts": [
-   "abdominal-obesity",
+   "obesity",
    "masld",
+   "dyslipidemia",
    "metabolic-syndrome",
-   "alcohol"
+   "alcohol",
+   "weight-loss-target",
+   "diet"
   ],
   "concepts_manual": false,
-  "source": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016 / Donnelly, K. L., Smith, C. I., Schwarzenberg, S. J., Jessurun, J., Boldt, M. D., & Parks, E. J. (2005). Sources of fatty acids stored in liver and secreted via lipoproteins in patients with nonalcoholic fatty liver disease. Journal of Clinical Investigation, 115(5), 1343–1351. https://doi.org/10.1172/JCI23621",
-  "source_family": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016 / Donnelly, K. L., Smith, C. I., Schwarzenberg, S. J., Jessurun, J., Boldt, M. D., & Parks, E. J. (2005). Sources of fatty acids stored in liver and secreted via lipoproteins in patients with nonalcoholic fatty liver disease. Journal of Clinical Investigation, 115(5), 1343–1351. https://doi.org/10.1172/JCI23621",
+  "source": "Donnelly, K. L., Smith, C. I., Schwarzenberg, S. J., Jessurun, J., Boldt, M. D., & Parks, E. J. (2005). Sources of fatty acids stored in liver and secreted via lipoproteins in patients with nonalcoholic fatty liver disease. Journal of Clinical Investigation, 115(5), 1343–1351. https://doi.org/10.1172/JCI23621 / Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
+  "source_family": "Donnelly, K. L., Smith, C. I., Schwarzenberg, S. J., Jessurun, J., Boldt, M. D., & Parks, E. J. (2005). Sources of fatty acids stored in liver and secreted via lipoproteins in patients with nonalcoholic fatty liver disease. Journal of Clinical Investigation, 115(5), 1343–1351. https://doi.org/10.1172/JCI23621 / Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
   "diff": "mid",
   "question_index": 10
  },
@@ -246,7 +248,11 @@
   "concepts": [
    "obesity",
    "body-fat",
+   "t2dm",
+   "hypertension",
+   "dyslipidemia",
    "cancer",
+   "ckm",
    "metabolic-syndrome"
   ],
   "concepts_manual": false,
@@ -332,8 +338,10 @@
   "statement_en": "What should clinicians avoid when caring for patients with obesity? → Stigmatising language that blames willpower",
   "concepts": [
    "obesity",
+   "osa",
    "osteoarthritis",
-   "metabolic-syndrome"
+   "metabolic-syndrome",
+   "environment"
   ],
   "concepts_manual": false,
   "source": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
@@ -365,9 +373,6 @@
   "statement_en": "Which joint problem commonly accompanies obesity? → Knee osteoarthritis",
   "concepts": [
    "obesity",
-   "t2dm",
-   "hypertension",
-   "dyslipidemia",
    "ckm",
    "metabolic-syndrome",
    "ckd"
@@ -619,11 +624,7 @@
   "statement_en": "What share of people with diabetes also had obesity (BMI ≥25)? → About 54%",
   "concepts": [
    "clinical-obesity",
-   "t2dm",
-   "masld",
-   "osa",
-   "osteoarthritis",
-   "environment"
+   "t2dm"
   ],
   "concepts_manual": false,
   "source": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
@@ -800,8 +801,6 @@
    "obesity",
    "metabolic-syndrome",
    "weight-loss-target",
-   "diet",
-   "exercise",
    "weight-maintenance"
   ],
   "concepts_manual": false,
@@ -1018,8 +1017,11 @@
   "statement_en": "How much weight loss does the KDA 2023 guideline recommend for overweight or obese adults with diabetes? → At least 5%, then maintain it",
   "concepts": [
    "abdominal-obesity",
+   "bmi",
+   "waist",
    "metabolic-syndrome",
    "weight-loss-target",
+   "diet",
    "exercise",
    "weight-maintenance"
   ],
@@ -1122,7 +1124,6 @@
   "concepts": [
    "sarcopenic-obesity",
    "metabolic-syndrome",
-   "diet",
    "elderly"
   ],
   "concepts_manual": false,
@@ -1156,8 +1157,6 @@
   "concepts": [
    "obesity",
    "t2dm",
-   "hypertension",
-   "dyslipidemia",
    "epidemiology"
   ],
   "concepts_manual": false,
@@ -1186,8 +1185,9 @@
   "statement_ko": "지방간과 2형당뇨병의 관계로 맞는 것은 무엇일까요? → 서로의 위험을 높이는 양방향 관계다",
   "statement_en": "Which statement about fatty liver and type 2 diabetes is correct? → They raise each other's risk in both directions",
   "concepts": [
+   "body-fat",
    "energy-balance",
-   "eating-behaviour"
+   "genetics-of-obesity"
   ],
   "concepts_manual": false,
   "source": "Zhang, Y., Proenca, R., Maffei, M., Barone, M., Leopold, L., & Friedman, J. M. (1994). Positional cloning of the mouse obese gene and its human homologue. Nature, 372(6505), 425–432. https://doi.org/10.1038/372425a0 / Schwartz, M. W., Woods, S. C., Porte, D., Jr., Seeley, R. J., & Baskin, D. G. (2000). Central nervous system control of food intake. Nature, 404(6778), 661–671. https://doi.org/10.1038/35007534",
@@ -1216,7 +1216,8 @@
   "statement_en": "How does body-fat distribution change after menopause? → Visceral fat increases and abdominal obesity becomes more common",
   "concepts": [
    "childhood-obesity",
-   "weight-loss-target"
+   "weight-loss-target",
+   "diet"
   ],
   "concepts_manual": false,
   "source": "Jensen, M. D., Ryan, D. H., Apovian, C. M., Ard, J. D., Comuzzie, A. G., Donato, K. A., Hu, F. B., Hubbard, V. S., Jakicic, J. M., Kushner, R. F., Loria, C. M., Millen, B. E., Nonas, C. A., Pi-Sunyer, F. X., Stevens, J., Stevens, V. J., Wadden, T. A., Wolfe, B. M., & Yanovski, S. Z. (2014). 2013 AHA/ACC/TOS guideline for the management of overweight and obesity in adults. Circulation, 129(25 Suppl 2), S102–S138. https://doi.org/10.1161/01.cir.0000437739.71477.ee / National Health and Medical Research Council. (2013). Clinical practice guidelines for the management of overweight and obesity in adults, adolescents and children in Australia. NHMRC.",
@@ -1248,7 +1249,8 @@
   "statement_en": "What needs special attention when managing obesity in older adults? → Preventing sarcopenic obesity by combining resistance exercise with adequate protein",
   "concepts": [
    "weight-loss-target",
-   "weight-maintenance"
+   "weight-maintenance",
+   "eating-behaviour"
   ],
   "concepts_manual": false,
   "source": "Sumithran, P., Prendergast, L. A., Delbridge, E., Purcell, K., Shulkes, A., Kriketos, A., & Proietto, J. (2011). Long-term persistence of hormonal adaptations to weight loss. New England Journal of Medicine, 365(17), 1597–1604. https://doi.org/10.1056/NEJMoa1105816",
@@ -1295,11 +1297,13 @@
   "concepts": [
    "obesity",
    "metabolic-syndrome",
-   "secondary-obesity"
+   "energy-balance",
+   "secondary-obesity",
+   "pcos"
   ],
   "concepts_manual": false,
-  "source": "Nieman, L. K., Biller, B. M. K., Findling, J. W., Newell-Price, J., Savage, M. O., Stewart, P. M., & Montori, V. M. (2008). The diagnosis of Cushing's syndrome: An Endocrine Society clinical practice guideline. Journal of Clinical Endocrinology & Metabolism, 93(5), 1526–1540. https://doi.org/10.1210/jc.2008-0125 / Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
-  "source_family": "Nieman, L. K., Biller, B. M. K., Findling, J. W., Newell-Price, J., Savage, M. O., Stewart, P. M., & Montori, V. M. (2008). The diagnosis of Cushing's syndrome: An Endocrine Society clinical practice guideline. Journal of Clinical Endocrinology & Metabolism, 93(5), 1526–1540. https://doi.org/10.1210/jc.2008-0125 / Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
+  "source": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016 / Nieman, L. K., Biller, B. M. K., Findling, J. W., Newell-Price, J., Savage, M. O., Stewart, P. M., & Montori, V. M. (2008). The diagnosis of Cushing's syndrome: An Endocrine Society clinical practice guideline. Journal of Clinical Endocrinology & Metabolism, 93(5), 1526–1540. https://doi.org/10.1210/jc.2008-0125",
+  "source_family": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016 / Nieman, L. K., Biller, B. M. K., Findling, J. W., Newell-Price, J., Savage, M. O., Stewart, P. M., & Montori, V. M. (2008). The diagnosis of Cushing's syndrome: An Endocrine Society clinical practice guideline. Journal of Clinical Endocrinology & Metabolism, 93(5), 1526–1540. https://doi.org/10.1210/jc.2008-0125",
   "diff": "easy",
   "question_index": 77
  },
@@ -1454,6 +1458,7 @@
    "clinical-obesity",
    "childhood-obesity",
    "t2dm",
+   "weight-loss-target",
    "weight-maintenance"
   ],
   "concepts_manual": false,
@@ -1571,6 +1576,7 @@
   "statement_ko": "\"BMI는 환자가 얼마나 큰지를 말할 뿐\"이라는 말의 뜻은 무엇일까요? → 얼마나 아픈지는 별도의 병기 평가(예: EOSS)가 필요하다",
   "statement_en": "What does \"BMI tells you how big your patient is\" imply? → How sick they are needs a separate staging tool such as EOSS",
   "concepts": [
+   "obesity",
    "masld",
    "osa",
    "alcohol",
@@ -1613,7 +1619,8 @@
    "obesity",
    "masld",
    "mash",
-   "alcohol"
+   "alcohol",
+   "epidemiology"
   ],
   "concepts_manual": false,
   "source": "Bellentani, S., Scaglioni, F., Marino, M., & Bedogni, G. (2010). Epidemiology of non-alcoholic fatty liver disease. Digestive Diseases, 28(1), 155–161. https://doi.org/10.1159/000282080 / Younossi, Z. M., Golabi, P., Paik, J. M., Henry, A., Van Dongen, C., & Henry, L. (2023). The global epidemiology of nonalcoholic fatty liver disease (NAFLD) and nonalcoholic steatohepatitis (NASH): A systematic review. Hepatology, 77(4), 1335–1347. https://doi.org/10.1097/HEP.0000000000000004",
@@ -1628,6 +1635,7 @@
   "statement_en": "What is the right way to raise weight during a consultation? → Deal with the presenting problem first, then raise weight, linked to it where possible",
   "concepts": [
    "childhood-obesity",
+   "alcohol",
    "pregnancy"
   ],
   "concepts_manual": false,
@@ -1774,7 +1782,6 @@
   "statement_ko": "임신 첫 3개월에 산모의 영양결핍을 겪은 태아가 성인이 됐을 때 나타난 결과는 무엇일까요? → 더 배고프고 연료를 아끼는 쪽으로 설정돼 비만이 늘었어요",
   "statement_en": "What happened in adulthood to fetuses that experienced maternal malnourishment in the first trimester? → They were wired to be hungrier and more fuel-efficient and had more obesity",
   "concepts": [
-   "weight-loss-target",
    "diet",
    "medical-nutrition-therapy",
    "eating-behaviour"
@@ -1841,6 +1848,7 @@
   "statement_ko": "당뇨병전단계(공복혈당장애 또는 내당능장애)에 해당하는 당화혈색소 범위는 무엇일까요? → 5.7~6.4%",
   "statement_en": "Which HbA1c range indicates prediabetes (impaired fasting glucose or impaired glucose tolerance)? → 5.7-6.4%",
   "concepts": [
+   "bmi",
    "genetics-of-obesity"
   ],
   "concepts_manual": false,
@@ -1916,8 +1924,7 @@
   "statement_ko": "구인두를 살펴 폐쇄성 수면무호흡을 특히 의심하게 만드는 말람파티 등급은 무엇일까요? → 3등급 또는 4등급",
   "statement_en": "Which Mallampati class on oropharyngeal examination should particularly raise suspicion for obstructive sleep apnoea? → Class III or Class IV",
   "concepts": [
-   "childhood-obesity",
-   "ckd"
+   "childhood-obesity"
   ],
   "concepts_manual": false,
   "source": "Styne, D. M., Arslanian, S. A., Connor, E. L., Farooqi, I. S., Murad, M. H., Silverstein, J. H., & Yanovski, J. A. (2017). Pediatric obesity—Assessment, treatment, and prevention: An Endocrine Society clinical practice guideline. Journal of Clinical Endocrinology & Metabolism, 102(3), 709–757. https://doi.org/10.1210/jc.2016-2573",
@@ -1932,7 +1939,10 @@
   "statement_en": "What Epworth Sleepiness Scale score is consistent with excessive daytime sleepiness and should prompt further evaluation? → More than 10",
   "concepts": [
    "childhood-obesity",
-   "genetics-of-obesity"
+   "screening",
+   "genetics-of-obesity",
+   "physical-activity-guidance",
+   "assessment-history-exam"
   ],
   "concepts_manual": false,
   "source": "Styne, D. M., Arslanian, S. A., Connor, E. L., Farooqi, I. S., Murad, M. H., Silverstein, J. H., & Yanovski, J. A. (2017). Pediatric obesity—Assessment, treatment, and prevention: An Endocrine Society clinical practice guideline. Journal of Clinical Endocrinology & Metabolism, 102(3), 709–757. https://doi.org/10.1210/jc.2016-2573",
@@ -2319,10 +2329,12 @@
   "statement_en": "What does MetALD describe? → Steatosis with alcohol intake above the MASLD limit",
   "concepts": [
    "masld",
+   "fibrosis",
    "fib4",
    "vcte",
+   "elf",
    "alcohol",
-   "models-of-care"
+   "mri-pdff"
   ],
   "concepts_manual": false,
   "source": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
@@ -2341,7 +2353,6 @@
    "waist",
    "t2dm",
    "masld",
-   "alcohol",
    "diet",
    "secondary-obesity"
   ],
@@ -2736,8 +2747,7 @@
   "statement_en": "Which first-line imaging test is most commonly used to detect fatty liver? → Abdominal ultrasound",
   "concepts": [
    "masld",
-   "alcohol",
-   "liver-blood-tests"
+   "alcohol"
   ],
   "concepts_manual": false,
   "source": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
@@ -2825,8 +2835,8 @@
    "exercise"
   ],
   "concepts_manual": false,
-  "source": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323 / Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023",
-  "source_family": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323 / Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023",
+  "source": "Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
+  "source_family": "Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "easy",
   "question_index": 50
  },

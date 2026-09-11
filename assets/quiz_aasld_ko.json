@@ -18,7 +18,8 @@
    "quote": "The name chosen to replace NAFLD was metabolic dysfunction–associated steatotic liver disease. There was consensus to change the definition to include the presence of at least 1 of 5 cardiometabolic risk factors.",
    "locator": "Abstract (Results)",
    "ref": "rinella2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -40,7 +41,8 @@
    "quote": "Steatotic liver disease was chosen as an overarching term to encompass the various aetiologies of steatosis. The term steatohepatitis was felt to be an important pathophysiological concept that should be retained.",
    "locator": "Abstract (Results)",
    "ref": "rinella2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -62,7 +64,8 @@
    "quote": "Seventy-four percent of respondents felt that the current nomenclature was sufficiently flawed to consider a name change. The terms “nonalcoholic” and “fatty” were felt to be stigmatising by 61% and 66% of respondents, respectively.",
    "locator": "Abstract (Results)",
    "ref": "rinella2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -85,7 +88,8 @@
    "quote": "The term MASLD comprises different conditions, including isolated liver steatosis (metabolic dysfunction-associated steatotic liver, MASL), metabolic dysfunction-associated steatohepatitis (MASH), as well as fibrosis and cirrhosis. MASH is characterised by histological features of hepatocellular ballooning and lobular inflammation.",
    "locator": "Introduction (definitions)",
    "ref": "easl2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -108,7 +112,8 @@
    "quote": "Nevertheless, patients with NASH and at least stage 2 fibrosis (F2), referred to as “at-risk” NASH, have a demonstrably higher risk of liver-related morbidity and mortality. … Patients with “at-risk” NASH (NASH with at least stage 2 fibrosis) are at increased risk of developing cirrhosis and liver-related complications.",
    "locator": "Epidemiology and natural history; Key points",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -130,7 +135,8 @@
    "quote": "In most patients, NAFLD is asymptomatic or associated with vague symptoms, often leaving patients undiagnosed. … Serum AST levels are often used clinically to identify patients with liver disease but can be normal in patients with diabetes, NASH, and advanced hepatic fibrosis.",
    "locator": "How should NAFLD be managed in primary care and endocrinology practice settings?",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -152,7 +158,8 @@
    "quote": "Compared with controls, NAFLD patients had significantly increased overall mortality (16.9 vs 28.6/1000 PY; difference=11.7/1000 PY; aHR=1.93, 95% CI=1.86 to 2.00)",
    "locator": "Abstract (Results)",
    "ref": "simon2021",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -175,7 +182,8 @@
    "quote": "Data from meta-analyses and pooled studies demonstrate that fibrosis and the presence of steatohepatitis are the primary predictors of disease progression. … Although fibrosis stage is the best predictor of long-term outcome in multivariable analyses,",
    "locator": "Disease progression; Role of histology",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -197,7 +205,8 @@
    "quote": "These findings correspond to 1 stage of progression over 14.3 years for patients with NAFL (95% CI, 9.1-50.0 y) and 7.1 years for patients with NASH (95% CI, 4.8-14.3 y)",
    "locator": "Abstract (Results)",
    "ref": "singh2015",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -220,7 +229,8 @@
    "quote": "When the fibrosis-4 index (FIB-4) is <1.3, patients can be followed in the primary care setting and reassessed periodically. … Several have been developed (eg, FIB-4, NAFLD Fibrosis Score, AST Platelet Ratio Index); however, FIB-4 is the most validated. FIB-4 is calculated using a simple algorithm based upon age, ALT, AST, and platelet count",
    "locator": "Figure 2 legend; Clinical and laboratory-based fibrosis biomarkers",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -242,7 +252,8 @@
    "quote": "The objective of this primary risk assessment is to identify patients who are not likely to have advanced fibrosis [low risk, eg, fibrosis-4 index (FIB-4) <1.3]. … In patients older than age 65, a FIB-4 cutoff of > 2.0 should be used. FIB-4 has low accuracy in those under age 35",
    "locator": "Primary risk assessment; Figure 2 legend",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -264,7 +275,8 @@
    "quote": "In patients with FIB4 ≥ 1.3, a secondary assessment should be done [preferentially vibration-controlled elastography (VCTE) or Enhanced Liver Fibrosis (ELF) initially] or the patient referred for further risk stratification (if being seen in a nongastroenterology/hepatology setting).",
    "locator": "Figure 2 legend",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -286,7 +298,8 @@
    "quote": "Liver stiffness is a physical characteristic of the liver that increases with fibrosis severity as well as other processes such as passive congestion, marked inflammation, and infiltrative diseases. VCTE (eg, FibroScan ® ) is the most commonly used method to assess liver stiffness and can be used to exclude significant hepatic fibrosis.",
    "locator": "Elastography",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -308,7 +321,8 @@
    "quote": "General population-based screening for NAFLD is not advised • High-risk individuals, such as those with T2DM, medically complicated obesity, family history of cirrhosis, or more than mild alcohol consumption, should be screened for advanced fibrosis",
    "locator": "Table 7. Summary of key concepts to guide clinical practice",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -332,7 +346,8 @@
    "locator": "Lifestyle: weight loss recommendation",
    "ref": "easl2024",
    "support": "direct",
-   "note": "EASL 2024 ties >=5% to liver-fat reduction and 7-10% (not 5-7%) to improvement in liver inflammation; the quiz band is shifted by ~2 percentage points."
+   "note": "EASL 2024 ties >=5% to liver-fat reduction and 7-10% (not 5-7%) to improvement in liver inflammation; the quiz band is shifted by ~2 percentage points.",
+   "access": "fulltext"
   }
  },
  {
@@ -356,7 +371,8 @@
    "locator": "Lifestyle: weight loss recommendation",
    "ref": "easl2024",
    "support": "direct",
-   "note": "EASL 2024 assigns 7-10% to improvement in liver inflammation and >=10% to improvement in fibrosis; AASLD 2023 likewise says '>10% is generally required to improve NASH and fibrosis'."
+   "note": "EASL 2024 assigns 7-10% to improvement in liver inflammation and >=10% to improvement in fibrosis; AASLD 2023 likewise says '>10% is generally required to improve NASH and fibrosis'.",
+   "access": "fulltext"
   }
  },
  {
@@ -379,7 +395,8 @@
    "quote": "In adults with MASLD, improving diet quality (similar to the Mediterranean dietary pattern), limiting the consumption of ultra-processed food (rich in sugars and saturated fat) and avoiding sugar-sweetened beverages should be recommended to improve histologically or non-invasively assessed liver injury ( LoE 2, strong recommendation, strong consensus ).",
    "locator": "Lifestyle: diet quality recommendation",
    "ref": "easl2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -401,7 +418,8 @@
    "quote": "For aerobic exercise, the median effective protocol was 4.8 metabolic equivalents (METs) for 40min/session, 3times/week for 12weeks. For resistance exercise, the median effective protocol was 3.5 METs for 45min/session, 3times/week for 12weeks. Aerobic and resistance exercise improved hepatic steatosis.",
    "locator": "Abstract (Results)",
    "ref": "hashida2017",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -423,7 +441,8 @@
    "quote": "The presumed beneficial health effects of moderate alcohol consumption are inconsistent across studies, and emerging evidence does not support a protective effect of light to moderate amounts of alcohol, particularly in individuals with cardiometabolic risk factors ( LoE 3, strong consensus ). … Individuals with SLD, particularly those with moderate or high alcohol intake, should be discouraged from consuming alcohol",
    "locator": "Alcohol consumption: statements and recommendations",
    "ref": "easl2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -445,7 +464,8 @@
    "quote": "This is supported by the projected rise in NAFLD prevalence by 2030, when patients with advanced hepatic fibrosis, defined as bridging fibrosis (F3) or compensated cirrhosis (F4), will increase disproportionately, mirroring the projected doubling of NASH.",
    "locator": "Update on epidemiology and natural history",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -467,54 +487,57 @@
    "quote": "A new category, outside pure metabolic dysfunction–associated steatotic liver disease, termed metabolic and alcohol related/associated liver disease (MetALD), was selected to describe those with metabolic dysfunction–associated steatotic liver disease, who consume greater amounts of alcohol per week (140–350 g/wk and 210–420 g/wk for females and males, respectively).",
    "locator": "Abstract (Results)",
    "ref": "rinella2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
-  "q": "FIB-4가 1.3 이상이고 간 탄성도가 8kPa를 넘으면 어떻게 해야 할까요?",
+  "q": "FIB-4가 1.3 이상으로 나왔을 때 다음 단계는 무엇일까요?",
   "a": [
-   "간 전문 진료로 의뢰",
-   "1차 진료에서 6개월 후 재검",
-   "생활습관 교정만으로 충분",
-   "즉시 간 이식 평가"
+   "VCTE·MRE·ELF 같은 2차 검사로 진행섬유화를 배제해요",
+   "추가 검사 없이 6개월 뒤 재검해요",
+   "생활습관 교정만 하고 더 볼 필요 없어요",
+   "바로 간 이식 평가를 의뢰해요"
   ],
   "correct": 0,
   "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
   "diff": "mid",
-  "exp": "FIB-4 1.3 이상에 탄성도 8kPa 초과이면 간 전문 진료로 의뢰해요.",
+  "exp": "FIB-4가 1.3 이상이면 진행섬유화를 배제하기 위해 간 탄성도(VCTE)나 MRE, ELF 같은 2차 검사를 이어서 해요.",
   "refs": [
    "rinellaGuide2023"
   ],
   "evidence": {
-   "quote": "In patients with FIB4 ≥ 1.3, a secondary assessment should be done [preferentially vibration-controlled elastography (VCTE) or Enhanced Liver Fibrosis (ELF) initially] or the patient referred for further risk stratification (if being seen in a nongastroenterology/hepatology setting). … LSMs by VCTE between 8 and 12 kPa may be associated with fibrotic NASH, and LSM > 12 kPa is associated with a high likelihood of advanced fibrosis",
-   "locator": "Figure 2 legend; Elastography",
+   "quote": "If FIB-4 is ≥ 1.3, VCTE, MRE, or ELF may be used to exclude advanced fibrosis.",
+   "locator": "Guidance statement 8 — noninvasive assessment of fibrosis",
    "ref": "rinellaGuide2023",
-   "support": "partial",
-   "note": "AASLD uses VCTE <8 kPa to rule out advanced fibrosis and refers patients with suspected advanced NASH or discordant NITs to a specialist, but never states the exact composite rule 'FIB-4 >=1.3 plus LSM >8 kPa -> refer to hepatology'."
+   "support": "direct",
+   "note": "'FIB-4 1.3 이상 + 탄성도 8 kPa 초과 → 간 전문 진료 의뢰'라는 복합 규칙은 지침에 없어요. 지침이 명시한 2차 검사 단계로 바꿨어요.",
+   "access": "fulltext"
   }
  },
  {
-  "q": "지중해식 식단에서 줄여야 하는 것은 무엇일까요?",
+  "q": "MASLD가 있는 성인의 식사에서 줄이라고 권고되는 것은 무엇일까요?",
   "a": [
-   "첨가당과 가당음료, 초가공식품",
-   "올리브오일",
-   "생선",
-   "통곡물"
+   "당과 포화지방이 많은 초가공식품과 가당음료",
+   "올리브유와 견과류",
+   "생선과 해산물",
+   "통곡물과 콩류"
   ],
   "correct": 0,
   "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031 / Estruch, R., Martínez-González, M. A., Corella, D., Salas-Salvadó, J., Fitó, M., Chiva-Blanch, G., Fiol, M., Gómez-Gracia, E., Arós, F., Lapetra, J., Serra-Majem, L., Pintó, X., Buil-Cosiales, P., Sorlí, J. V., Muñoz, M. A., Basora-Gallisá, J., Lamuela-Raventós, R. M., Serra-Mir, M., Macías-Peña, C. E., … PREDIMED Study Investigators. (2019). Effect of a high-fat Mediterranean diet on bodyweight and waist circumference: A prespecified secondary outcomes analysis of the PREDIMED randomised controlled trial. The Lancet Diabetes & Endocrinology, 7(5), e6–e17. https://doi.org/10.1016/S2213-8587(19)30074-9",
   "diff": "easy",
-  "exp": "지중해식은 가공육과 첨가당을 줄이고 채소·통곡물·올리브오일·생선을 늘려요.",
+  "exp": "지중해식에 가깝게 식사의 질을 올리면서, 당과 포화지방이 많은 초가공식품을 줄이고 가당음료는 피하도록 권고해요. 조직검사로든 비침습 검사로든 간 손상이 좋아진다는 근거가 있어요.",
   "refs": [
    "easl2024",
    "estruch2019"
   ],
   "evidence": {
    "quote": "In adults with MASLD, improving diet quality (similar to the Mediterranean dietary pattern), limiting the consumption of ultra-processed food (rich in sugars and saturated fat) and avoiding sugar-sweetened beverages should be recommended to improve histologically or non-invasively assessed liver injury ( LoE 2, strong recommendation, strong consensus ).",
-   "locator": "Lifestyle: diet quality recommendation",
+   "locator": "Lifestyle — diet quality recommendation",
    "ref": "easl2024",
-   "support": "partial",
-   "note": "Supports cutting added sugar (ultra-processed food rich in sugars, sugar-sweetened beverages), but no file in this corpus names processed meat as something the Mediterranean pattern limits."
+   "support": "direct",
+   "note": "'가공육을 줄인다'는 내용은 코퍼스 어느 자료에도 없어요. 권고문이 명시한 초가공식품·가당음료로 정답과 해설을 맞췄어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -536,7 +559,8 @@
    "quote": "따라서, 여러 차례의 광범위한 논의와 설문조사 결과 등을 고려하여\n개정위원회는 비록 영문 명칭은 서로 다르지만 ‘steatotic liver disease (SLD)’의\n한글 명칭을 기존의 ‘fatty liver disease (FLD)’와 동일하게 ‘지방간질환’으로\n명명하기로 결정하였다. 이에 따라 자연스럽게 ‘metabolic dysfunction-associated\nfatty liver disease (MAFLD)’와 ‘metabolic dysfunction-associated steatotic\nliver disease (MASLD)’의 두 가지 질환의 한글 명칭도 동일하게 명명하기로 하였다.\n개정위원회는 상기 내용을 고려하여 ‘대사이상지방간질환’이 가장 적절한 한글\n용어로 판단하였다.",
    "locator": "명명법 > 대사이상지방간질환의 한글 용어 정립 (p. 14-15)",
    "ref": "kasl2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -559,7 +583,8 @@
    "quote": "대사이상지방간질환(MASLD)은 영상 또는 조직학적 진단으로 이루어지며, 한 개\n이상의 심장대사 위험인자가 있을 때 진단할 수 있다. 유의한 알코올 섭취가 없어야\n하고(남성 30 g/일, 여성 20 g/일 미만), 다른 지방간질환의 원인이 배제되어야\n한다는 점에서 MAFLD와 차이가 있다.",
    "locator": "정의 및 진단 > 질환별 정의 및 진단 기준 비교 (p. 21)",
    "ref": "kasl2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -581,7 +606,8 @@
    "quote": "남성 허리둘레 ≥90 cm, 여성 ≥80 cm로 제시하고 있으나, 대한민국 성인의\n평균 허리둘레를 고려하여 국내에서는 남성 ≥90 cm, 여성 ≥85 cm를\n복부비만 기준으로 사용하고 있다. 국가별 및 인종별로 복부비만 진단 기준이\n상이하기 때문에, 이러한 차이를 고려하여 적절히 적용할 필요가 있다.",
    "locator": "정의 및 진단 > 대사이상지방간질환(MASLD) (p. 18)",
    "ref": "kasl2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -604,7 +630,8 @@
    "quote": "심장대사 위험인자는 다음의 5가지 중 1가지 이상 가지고 있는 경우\n해당한다: (1) 체질량지수: ≥23 kg/m2 (한국), ≥23 kg/m2 (아시아), ≥25 kg/m2\n(서구) 또는 허리둘레 ≥90 cm (남) ≥85 cm (여) (한국), ≥94 cm (남) ≥80 cm (여)\n(세계보건기구의 유럽인 기준)",
    "locator": "정의 및 진단 > 대사이상지방간질환(MASLD) (p. 17-18)",
    "ref": "kasl2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -627,7 +654,8 @@
    "quote": "대사이상지방간질환(MASLD)은 영상 또는 조직학적 진단으로 이루어지며, 한 개\n이상의 심장대사 위험인자가 있을 때 진단할 수 있다. 유의한 알코올 섭취가 없어야\n하고(남성 30 g/일, 여성 20 g/일 미만)",
    "locator": "정의 및 진단 > 질환별 정의 및 진단 기준 비교 (p. 21)",
    "ref": "kasl2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -649,7 +677,8 @@
    "quote": "복부초음파검사로 진단한 대사이상지방간질환(MASLD)의\n유병률은 국내 건강검진 수진자 7,918명에서 33.5%로 확인되었다. … 2009년 건강검진 수진자 9,775,066명을\n대상으로 지방간을 fatty liver index (FLI) 30 이상으로 정의한 경우, 대사이상\n지방간질환(MASLD)의 유병률은 27.5%로 보고되었고, 남성 35.9%, 여성 17.4%\n였으며",
    "locator": "역학 > 유병률 (p. 24-25)",
    "ref": "kasl2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -672,7 +701,8 @@
    "quote": "• 대사이상지방간질환(MASLD) 환자에서 심혈관질환의 발생 위험은 증가하며 이는\n    사망의 주요 원인이다. … 심혈관 질환은 비알코올지방간질환의 가장 흔한 사망 원인이므로 심혈관질환\n위험인자의 교정은 중요하다.",
    "locator": "임상양상 및 예후 > 심혈관질환 요약 (p. 29) / 지방간염 약제 치료 > 기타 약제",
    "ref": "kasl2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -694,7 +724,8 @@
    "quote": "비알코올지방간질환 환자의 경우 진행성 간섬유화가 동반되지 않는 경우(F0-\n2)에는 간세포암종 발생률은 매우 낮다.66 그러나 비알코올지방간질환 관련 간경변증\n환자에서 간세포암종의 발생률이 연간 1.5% 이상이므로, 임상적으로 간경변증이\n의심되면 간세포암종 감시검사를 권장한다.",
    "locator": "임상양상 및 예후 > 간세포암종 (p. 29-30)",
    "ref": "kasl2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -716,7 +747,8 @@
    "quote": "In 2017, less than one-third of T2DM individuals (29.6%) had severe fatty liver disease, and less than another one-third of T2DM patients (32.2%, FLI ≥30 to <60) were at risk of fatty liver disease.",
    "locator": "Discussion",
    "ref": "kdaFattyLiver",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -738,7 +770,8 @@
    "quote": "The prevalence of fatty liver disease had statistically increased in individuals with T2DM and prediabetes ( P for trend <0.001). Its prevalence increased more steeply in the young-aged population with T2DM, from 42.2% in 2009 to 60.1% in 2017.",
    "locator": "Abstract (Results)",
    "ref": "kdaFattyLiver",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -760,7 +793,8 @@
    "quote": "위험인자로 언급되는 인자는 복부비만, 높은 체질량지수, 2형당뇨병, 복수의 대사이상\n위험인자 등이 있다. … • 대사이상지방간질환(MASLD) 환자에서 간외 암종의 발생 위험이 높아지며,\n    위험인자로는 비만과 2형당뇨병 등이 있다.",
    "locator": "임상양상 및 예후 > 간외 암종 (p. 32-33, 요약)",
    "ref": "kasl2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -785,7 +819,8 @@
    "locator": "Diagnosis - Recommendations box (steatosis)",
    "ref": "easl2016",
    "support": "direct",
-   "note": "The EASL 2016 PDF is typeset in two columns, so the recommendation line is interrupted by column-2 text; the quote is stitched from the two verbatim line fragments of the recommendation box."
+   "note": "The EASL 2016 PDF is typeset in two columns, so the recommendation line is interrupted by column-2 text; the quote is stitched from the two verbatim line fragments of the recommendation box.",
+   "access": "fulltext"
   }
  },
  {
@@ -808,7 +843,8 @@
    "quote": "심장대사 위험인자는 다음의 5가지 중 1가지 이상 가지고 있는 경우\n해당한다: (1) 체질량지수: ≥23 kg/m2 (한국), ≥23 kg/m2 (아시아), ≥25 kg/m2\n(서구) 또는 허리둘레 ≥90 cm (남) ≥85 cm (여) (한국), … (2) 공복혈당 ≥100 mg/dL 또는 식후 2시간 혈당\n≥140 mg/dL 또는 당화혈색소 ≥5.7 % 또는 2형당뇨병 진단 또는 약물복용,\n3) 혈압 ≥130/85 mmHg 또는 약물복용, 4) 중성지방 ≥150 mg/dL 또는\n약물복용, 5) 고밀도지단백질콜레스테롤 ≤40 mg/dL (남), ≤50 mg/dL (여)\n또는 약물복용.",
    "locator": "명명법 - 대사이상지방간질환(MASLD) 정의",
    "ref": "kasl2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -832,7 +868,8 @@
    "locator": "Abstract",
    "ref": "easl2024",
    "support": "direct",
-   "note": "Quote re-synced verbatim against the new full-text easl2024 corpus file (em dashes; 'type 2 diabetes' spelled out). Ref and support unchanged from the first pass."
+   "note": "Quote re-synced verbatim against the new full-text easl2024 corpus file (em dashes; 'type 2 diabetes' spelled out). Ref and support unchanged from the first pass.",
+   "access": "fulltext"
   }
  },
  {
@@ -855,7 +892,8 @@
    "quote": "Although liver biopsy assessment remains the reference standard for the grading and staging of NASH, it has important limitations related to risk, cost, and resource utilization. … Biopsy remains the best method for providing information on the architectural distortion and the complex anatomic interrelationships of cellular injury, inflammation, and fibrosis.",
    "locator": "Biomarkers/NITs for the diagnosis and assessment of NAFLD; Role of histology",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -878,7 +916,8 @@
    "quote": "NAFLD is an overarching term that includes all disease grades and stages and refers to a population in which ≥ 5% of hepatocytes display macrovesicular steatosis in the absence of a readily identified alternative cause of steatosis (eg, medications, starvation, monogenic disorders) in individuals who drink little or no alcohol",
    "locator": "Definitions",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -901,7 +940,8 @@
    "quote": "The spectrum of disease includes NAFL, characterized by macrovesicular hepatic steatosis that may be accompanied by mild inflammation, and NASH, which is additionally characterized by the presence of inflammation and cellular injury (ballooning), with or without fibrosis",
    "locator": "Definitions",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -924,7 +964,8 @@
    "locator": "Abstract (Results); Results - Prevalence of NAFLD during the 1990-2019 survey year",
    "ref": "younossi2023",
    "support": "direct",
-   "note": "The paper's headline figure is 'about one-third'; the pooled estimate is 30.05%, and only the 2016-2019 subgroup (38.2%) exceeds 33%."
+   "note": "The paper's headline figure is 'about one-third'; the pooled estimate is 30.05%, and only the 2016-2019 subgroup (38.2%) exceeds 33%.",
+   "access": "fulltext"
   }
  },
  {
@@ -948,7 +989,8 @@
    "locator": "Abstract (Methods, Results)",
    "ref": "ajmera2023",
    "support": "direct",
-   "note": "The 65% figure belongs to Ajmera 2023 (prospective T2DM cohort, MRI-PDFF-defined NAFLD), not Younossi 2019, which reports 55.5% NAFLD / 37.3% NASH / 17.0% advanced fibrosis in T2DM."
+   "note": "The 65% figure belongs to Ajmera 2023 (prospective T2DM cohort, MRI-PDFF-defined NAFLD), not Younossi 2019, which reports 55.5% NAFLD / 37.3% NASH / 17.0% advanced fibrosis in T2DM.",
+   "access": "abstract"
   }
  },
  {
@@ -971,7 +1013,8 @@
    "locator": "Abstract (Results; Impact and implications)",
    "ref": "ajmera2023",
    "support": "direct",
-   "note": "Source value is 14%, not 15%."
+   "note": "Source value is 14%, not 15%.",
+   "access": "abstract"
   }
  },
  {
@@ -995,7 +1038,8 @@
    "quote": "Type 2 diabetes and obesity (particularly abdominal obesity) are the metabolic diseases with the strongest impact on the natural history of MASLD, including progression to MASLD/MASH-related advanced fibrosis, cirrhosis and hepatocellular carcinoma ( LoE 2, strong consensus ).",
    "locator": "Natural history: which risk factors have the greatest impact",
    "ref": "easl2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -1018,30 +1062,32 @@
    "quote": "The presence of NAFLD is associated with a 2- to 5-fold risk of incident diabetes, … and therefore, patients with NAFLD should be screened for the presence of T2DM ( Table 1 ). … Laboratory tests Hepatic panel, CBC with platelets, fasting plasma glucose and glycated hemoglobin (A1c), fasting lipid profile",
    "locator": "Type 2 diabetes mellitus (T2DM); Table 1. Initial evaluation of a patient with NAFLD",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
-  "q": "MASLD를 가진 사람의 ALT 수치에 대한 설명으로 옳은 것은 무엇인가요?",
+  "q": "지방간질환이 있는 사람의 아미노전이효소(간효소) 수치에 대한 설명으로 옳은 것은 무엇일까요?",
   "a": [
-   "흔히 정상일 수 있어요",
+   "진행된 간질환이 있어도 흔히 정상이라, 이 수치만으로 배제하면 안 돼요",
    "거의 모든 환자에서 정상 상한의 3배를 넘어요",
-   "질환의 중증도에 비례해 올라가요",
-   "정상이면 MASLD를 배제할 수 있어요"
+   "질환 중증도에 정확히 비례해 올라가요",
+   "정상이면 지방간염을 배제할 수 있어요"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
-  "exp": "MASLD를 가진 사람의 절반 넘게는 ALT가 정상일 수 있고, ALT는 질환 중증도와 잘 맞아떨어지지 않아요.",
+  "exp": "NASH로 진행된 간질환이 있어도 아미노전이효소는 흔히 정상이에요. 그래서 이 수치만 보고 임상적으로 의미 있는 섬유화가 동반된 지방간염을 배제하면 안 돼요.",
   "refs": [
    "rinellaGuide2023"
   ],
   "evidence": {
-   "quote": "Aminotransferase levels are frequently normal in patients with advanced liver disease due to NASH and should not be used in isolation to exclude the presence of NASH with clinically significant fibrosis … Normative values for ALT reported by most laboratories exceed what is considered a true normal. As a general rule, ALT > 30 U/ L should be considered abnormal",
-   "locator": "Table 7 - Pearls for the assessment of NAFLD",
+   "quote": "Aminotransferase levels are frequently normal in patients with advanced liver disease due to NASH and should not be used in isolation to exclude the presence of NASH with clinically significant fibrosis",
+   "locator": "Table 7 — Pearls for the assessment of NAFLD",
    "ref": "rinellaGuide2023",
-   "support": "partial",
-   "note": "The guidance says aminotransferases are 'frequently normal' and should not be used in isolation, but gives no 'more than half of patients' proportion; that specific figure is not in any corpus file."
+   "support": "direct",
+   "note": "'절반 넘게 정상'이라는 비율은 어떤 코퍼스 자료에도 없어요. 지침이 쓴 표현('frequently normal', 단독 배제 금지)으로 정답과 해설을 맞췄어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1065,7 +1111,8 @@
    "locator": "Guidance statement 9; Table 7",
    "ref": "rinellaGuide2023",
    "support": "direct",
-   "note": "AASLD specifies every 1-2 years, not annually; no corpus file recommends a strictly annual interval."
+   "note": "AASLD specifies every 1-2 years, not annually; no corpus file recommends a strictly annual interval.",
+   "access": "fulltext"
   }
  },
  {
@@ -1087,7 +1134,8 @@
    "quote": "Fructose is absorbed via portal vein and delivered to the liver in much higher concentrations as compared to other tissues. Fructose increases protein levels of all DNL enzymes during its conversion into triglycerides. Additionally, fructose supports lipogenesis in the setting of insulin resistance as fructose does not require insulin for its metabolism, and it directly stimulates SREBP1c, a major transcriptional regulator of DNL.",
    "locator": "Abstract",
    "ref": "softic2016",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -1110,7 +1158,8 @@
    "quote": "Overconsumption of high-fat diet (HFD) and increased intake of sugar-sweetened beverages are major risk factors for development of NAFLD. Today the most commonly consumed sugar is high fructose corn syrup.",
    "locator": "Abstract",
    "ref": "softic2016",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -1133,31 +1182,33 @@
    "quote": "Both aerobic and resistance exercise reduce hepatic steatosis in non-alcoholic fatty liver disease (NAFLD) with similar frequency, duration, and period of exercise (40-45min/session 3times/week for 12weeks); however, the two forms of exercise have different characteristics.",
    "locator": "Lay summary",
    "ref": "hashida2017",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
-  "q": "운동이 간에 미치는 효과로 옳은 것은 무엇인가요?",
+  "q": "지방간질환에서 운동이 간에 미치는 효과로 옳은 것은 무엇일까요?",
   "a": [
-   "간 지방과 염증이 줄어요",
-   "간내 중성지방이 늘어요",
-   "간의 인슐린 감수성이 떨어져요",
-   "간 관련 사망이 늘어요"
+   "유산소운동과 근력운동 모두 간 지방증을 줄여요",
+   "유산소운동만 효과가 있고 근력운동은 효과가 없어요",
+   "운동을 하면 간내 지방이 오히려 늘어요",
+   "운동은 심장에만 좋고 간에는 영향이 없어요"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323 / Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023",
-  "exp": "간에서 운동은 인슐린 감수성과 포도당 흡수를 올리고 간내 중성지방과 염증, ALT, 간질환 진행, 간 관련 사망을 낮춰요.",
+  "src": "Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
+  "exp": "유산소운동과 근력운동 모두 주 3회, 회당 40~45분, 12주 정도의 비슷한 조건에서 간 지방증을 줄였어요. 다만 근력운동은 에너지 소비가 더 적어서 심폐체력이 낮은 분에게 더 해 볼 만해요.",
   "refs": [
-   "rinellaGuide2023",
-   "hashida2017"
+   "hashida2017",
+   "rinellaGuide2023"
   ],
   "evidence": {
-   "quote": "Exercise, independent of weight loss, has hepatic and cardiometabolic benefit and should be routinely recommended and tailored to the patient’s preferences and physical abilities. … Others suggest that more vigorous exercise is needed to improve NASH histology, with even higher intensity exercise needed to reduce fibrosis.",
-   "locator": "Impact of exercise",
-   "ref": "rinellaGuide2023",
-   "support": "partial",
-   "note": "Covers reduction of liver fat and improvement of NASH histology (inflammation) independent of weight loss, but no corpus file reports exercise lowering ALT, liver-disease progression or liver-related mortality as outcomes."
+   "quote": "Both aerobic and resistance exercise reduce hepatic steatosis in non-alcoholic fatty liver disease (NAFLD) with similar frequency, duration, and period of exercise (40-45min/session 3times/week for 12weeks); however, the two forms of exercise have different characteristics.",
+   "locator": "Abstract — Lay summary",
+   "ref": "hashida2017",
+   "support": "direct",
+   "note": "rinellaGuide2023에는 운동이 ALT·질환 진행·간 관련 사망을 낮춘다는 결과가 없어요. 같은 문항 refs에 이미 들어 있던 hashida2017로 근거를 바꿔, 유산소·근력 모두 간 지방증을 줄인다는 검증 가능한 결론으로 맞췄어요.",
+   "access": "abstract"
   }
  },
  {
@@ -1180,7 +1231,8 @@
    "quote": "Management of NAFLD in patients without obesity can be clinically challenging. Recommending weight loss may not be appropriate for lean patients with NAFLD, but dietary modifications and exercise in this group may be beneficial.",
    "locator": "NAFLD in lean individuals",
    "ref": "rinellaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -1202,7 +1254,8 @@
    "quote": "In adults with MASLD, improving diet quality (similar to the Mediterranean dietary pattern), limiting the consumption of ultra-processed food (rich in sugars and saturated fat) and avoiding sugar-sweetened beverages should be recommended to improve histologically or non-invasively assessed liver injury ( LoE 2, strong recommendation, strong consensus ).",
    "locator": "Lifestyle: diet quality recommendation",
    "ref": "easl2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -1225,7 +1278,8 @@
    "quote": "Clinicians should assess associated comorbidities (e.g. type 2 diabetes, dyslipidaemia, hypertension, kidney disease, sleep apnoea, polycystic ovary syndrome) and cardiovascular risk in adults with MASLD ( LoE 2, strong recommendation, strong consensus ). At initial diagnosis of MASLD and at regular follow-up intervals, laboratory tests and physical examinations for related comorbidities are recommended",
    "locator": "Comorbidity assessment recommendations",
    "ref": "easl2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -1247,7 +1301,8 @@
    "quote": "The risk factors include raised blood pressure, dyslipidemia (raised triglycerides and lowered high-density lipoprotein cholesterol), raised fasting glucose, and central obesity. … Three abnormal findings out of 5 would qualify a person for the metabolic syndrome.",
    "locator": "Abstract",
    "ref": "alberti2009",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  }
 ]
