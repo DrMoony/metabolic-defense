@@ -1966,6 +1966,162 @@
   "question_index": 117
  },
  {
+  "id": "F-ob-119",
+  "set": "obesity",
+  "statement_ko": "국민건강영양조사(2014~2023) 성인 5만 7천여 명에 Lancet 임상적 비만 기준을 적용했을 때, 한국 성인의 임상적 비만 유병률은 얼마였을까요? → 31.2%",
+  "statement_en": "Applying the Lancet clinical-obesity framework to 57,863 Korean adults in KNHANES 2014–2023, what was the prevalence of clinical obesity? → 31.2%",
+  "concepts": [
+   "clinical-obesity",
+   "preclinical-obesity",
+   "t2dm",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "source_family": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "diff": "easy",
+  "question_index": 118
+ },
+ {
+  "id": "F-ob-120",
+  "set": "obesity",
+  "statement_ko": "같은 연구에서 과잉 지방은 있지만 합병증이 없는 전임상 비만의 유병률은 얼마였을까요? → 8.1%",
+  "statement_en": "In the same study, what was the prevalence of preclinical obesity (excess adiposity without complications)? → 8.1%",
+  "concepts": [
+   "clinical-obesity",
+   "preclinical-obesity",
+   "t2dm",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "source_family": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "diff": "easy",
+  "question_index": 119
+ },
+ {
+  "id": "F-ob-121",
+  "set": "obesity",
+  "statement_ko": "BMI 25 이상으로 비만에 해당하는 한국 성인 중 합병증이 하나도 없는 비율은 얼마였을까요? → 20.1%(5명 중 1명)",
+  "statement_en": "Among Korean adults with BMI-defined obesity (≥25 kg/m²), what share had no complications? → 20.1% (one in five)",
+  "concepts": [
+   "clinical-obesity",
+   "preclinical-obesity",
+   "bmi",
+   "t2dm",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "source_family": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "diff": "easy",
+  "question_index": 120
+ },
+ {
+  "id": "F-ob-122",
+  "set": "obesity",
+  "statement_ko": "반대로 BMI 23~24.9의 과체중(비만 전단계) 한국 성인 중 임상적 비만 기준을 충족한 비율은 얼마였을까요? → 19.4%",
+  "statement_en": "Conversely, what share of overweight Korean adults (BMI 23.0–24.9 kg/m²) met the criteria for clinical obesity? → 19.4%",
+  "concepts": [
+   "clinical-obesity",
+   "preclinical-obesity",
+   "bmi",
+   "t2dm",
+   "prediabetes",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "source_family": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "diff": "easy",
+  "question_index": 121
+ },
+ {
+  "id": "F-ob-123",
+  "set": "obesity",
+  "statement_ko": "한국 자료에 서구식 허리둘레 기준을 적용하면 임상적 비만 유병률 추정치는 어떻게 됐을까요? → 13.1%로 크게 줄었다",
+  "statement_en": "What happened to the estimated prevalence of clinical obesity when Western waist-circumference cut-offs were applied to the Korean data? → It fell sharply to 13.1%",
+  "concepts": [
+   "clinical-obesity",
+   "preclinical-obesity",
+   "abdominal-obesity",
+   "waist",
+   "t2dm",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "source_family": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "diff": "mid",
+  "question_index": 122
+ },
+ {
+  "id": "F-ob-124",
+  "set": "obesity",
+  "statement_ko": "나이가 들수록 한국 성인의 임상적 비만은 어떻게 변했을까요? → BMI는 안정적이어도 대사·기능 저하로 임상적 비만이 늘었다",
+  "statement_en": "How did clinical obesity change with age among Korean adults? → It rose with age despite stable BMI, driven by metabolic and functional decline",
+  "concepts": [
+   "clinical-obesity",
+   "preclinical-obesity",
+   "bmi",
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "source_family": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "diff": "easy",
+  "question_index": 123
+ },
+ {
+  "id": "F-ob-125",
+  "set": "obesity",
+  "statement_ko": "이 연구에서 임상적 비만은 어떻게 정의했을까요? → 과잉 지방에 비만 관련 합병증 1개 이상 또는 기능 제한이 있는 경우",
+  "statement_en": "How did the study define clinical obesity? → Excess adiposity with at least one obesity-related complication or functional limitation",
+  "concepts": [
+   "clinical-obesity",
+   "preclinical-obesity",
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "source_family": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "diff": "easy",
+  "question_index": 124
+ },
+ {
+  "id": "F-ob-126",
+  "set": "obesity",
+  "statement_ko": "한국 성인 임상적 비만 사례의 83.6%를 특징짓는 것은 무엇이었을까요? → 대사 이상(metabolic impairment)",
+  "statement_en": "What characterised 83.6% of clinical-obesity cases among Korean adults? → Metabolic impairment",
+  "concepts": [
+   "clinical-obesity",
+   "preclinical-obesity",
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "source_family": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "diff": "mid",
+  "question_index": 125
+ },
+ {
+  "id": "F-ob-127",
+  "set": "obesity",
+  "statement_ko": "이 연구가 강조한 임상적 비만 틀의 의의는 무엇일까요? → BMI만으로는 놓치는 고위험군을 찾아내고, 인종에 맞춘 기능 중심 정의를 지지한다",
+  "statement_en": "What did the study conclude about the clinical-obesity framework? → It identifies high-risk people missed by BMI alone and supports functional, ethnically tailored definitions",
+  "concepts": [
+   "clinical-obesity",
+   "preclinical-obesity",
+   "bmi",
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "source_family": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "diff": "easy",
+  "question_index": 126
+ },
+ {
   "id": "F-ma-001",
   "set": "masld",
   "statement_ko": "2023년 새 명명법에서 NAFLD를 대체한 이름은 무엇일까요? → MASLD(대사이상 지방간질환)",

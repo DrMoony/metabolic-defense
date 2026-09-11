@@ -2832,5 +2832,212 @@
    "support": "direct",
    "access": "fulltext"
   }
+ },
+ {
+  "q": "국민건강영양조사(2014~2023) 성인 5만 7천여 명에 Lancet 임상적 비만 기준을 적용했을 때, 한국 성인의 임상적 비만 유병률은 얼마였을까요?",
+  "a": [
+   "31.2%",
+   "8.1%",
+   "13.1%",
+   "50.3%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "한국 성인의 임상적 비만 유병률은 31.2%, 전임상 비만은 8.1%였어요. 성인 10명 중 3명이 과잉 지방으로 이미 장기 기능 이상이나 기능 제한을 갖고 있다는 뜻이에요.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "The prevalence of clinical obesity and preclinical obesity was 31.2% and 8.1%, respectively.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "같은 연구에서 과잉 지방은 있지만 합병증이 없는 전임상 비만의 유병률은 얼마였을까요?",
+  "a": [
+   "8.1%",
+   "31.2%",
+   "19.4%",
+   "20.1%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "전임상 비만은 8.1%로 임상적 비만(31.2%)보다 훨씬 적었어요. 한국 성인에서는 과잉 지방이 있으면 대개 이미 합병증이 동반돼 있다는 뜻이에요.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "The prevalence of clinical obesity and preclinical obesity was 31.2% and 8.1%, respectively.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "BMI 25 이상으로 비만에 해당하는 한국 성인 중 합병증이 하나도 없는 비율은 얼마였을까요?",
+  "a": [
+   "20.1%(5명 중 1명)",
+   "2%",
+   "50%",
+   "80%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "BMI로 비만인 사람 5명 중 1명(20.1%)은 합병증이 없었어요. BMI만으로는 누가 아픈지 가려내지 못한다는 근거예요.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "Among those with BMI-defined obesity (≥25.0 kg/m²), 20.1% had no complications, while 19.4% of overweight individuals (BMI 23.0–24.9 kg/m²) met clinical obesity criteria.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "반대로 BMI 23~24.9의 과체중(비만 전단계) 한국 성인 중 임상적 비만 기준을 충족한 비율은 얼마였을까요?",
+  "a": [
+   "19.4%",
+   "1.9%",
+   "49.4%",
+   "79.4%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "과체중 5명 중 1명(19.4%)은 BMI로는 비만이 아니지만 이미 임상적 비만 기준을 충족했어요. BMI 컷오프 아래에서도 놓치면 안 되는 고위험군이에요.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "19.4% of overweight individuals (BMI 23.0–24.9 kg/m²) met clinical obesity criteria.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "한국 자료에 서구식 허리둘레 기준을 적용하면 임상적 비만 유병률 추정치는 어떻게 됐을까요?",
+  "a": [
+   "13.1%로 크게 줄었다",
+   "31.2%로 같았다",
+   "50% 넘게 늘었다",
+   "변화가 없었다"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "서구 허리둘레 기준을 쓰면 임상적 비만이 31.2%에서 13.1%로 반 넘게 줄어요. 한국인에게는 한국 기준(남 90·여 85cm)을 써야 고위험군을 놓치지 않아요.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "Applying Western waist circumference cutoffs drastically reduced the estimated prevalence of clinical obesity to 13.1%.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "나이가 들수록 한국 성인의 임상적 비만은 어떻게 변했을까요?",
+  "a": [
+   "BMI는 안정적이어도 대사·기능 저하로 임상적 비만이 늘었다",
+   "BMI와 함께 줄었다",
+   "변화가 없었다",
+   "젊은 층에서만 늘었다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "나이가 들면 BMI는 그대로여도 대사 이상과 기능 저하가 쌓여 임상적 비만이 늘어요. 노년층에서는 체중 숫자보다 기능을 봐야 하는 이유예요.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "Clinical obesity increased with age despite stable BMI, driven by metabolic and functional decline.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "이 연구에서 임상적 비만은 어떻게 정의했을까요?",
+  "a": [
+   "과잉 지방에 비만 관련 합병증 1개 이상 또는 기능 제한이 있는 경우",
+   "BMI 30 이상인 경우",
+   "체중이 100kg을 넘는 경우",
+   "허리둘레만 기준을 넘는 경우"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "Lancet 위원회 틀대로 과잉 지방에 합병증 1개 이상이나 기능 제한이 있으면 임상적 비만, 합병증이 없으면 전임상 비만으로 정의했어요.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "Clinical obesity was defined as excess adiposity with ≥1 obesity-related complication or functional limitation; preclinical obesity was defined as excess adiposity without complications.",
+   "locator": "Abstract › Methods",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "한국 성인 임상적 비만 사례의 83.6%를 특징짓는 것은 무엇이었을까요?",
+  "a": [
+   "대사 이상(metabolic impairment)",
+   "관절 기능 제한",
+   "수면무호흡",
+   "암"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "임상적 비만 사례 10명 중 8명 이상(83.6%)이 혈당·혈압·지질 같은 대사 이상을 갖고 있었어요. 한국인 임상적 비만의 핵심은 대사 합병증이에요.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "Metabolic impairment characterized 83.6% of clinical obesity cases.",
+   "locator": "Highlights",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "이 연구가 강조한 임상적 비만 틀의 의의는 무엇일까요?",
+  "a": [
+   "BMI만으로는 놓치는 고위험군을 찾아내고, 인종에 맞춘 기능 중심 정의를 지지한다",
+   "BMI 기준을 30으로 올려야 한다",
+   "허리둘레 측정은 불필요하다",
+   "비만은 젊은 층만의 문제다"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "아시아인에게 임상적 비만 틀을 적용한 첫 대규모 연구로, BMI만으로 놓치는 고위험군을 찾아내고 기능 중심·인종 맞춤 정의로 가야 한다고 결론지었어요.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "The framework identifies high-risk individuals missed by BMI alone and supports a shift toward more functional, ethnically tailored obesity definitions for risk stratification and intervention.",
+   "locator": "Abstract › Conclusion",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
  }
 ]

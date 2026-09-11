@@ -2832,5 +2832,212 @@
    "support": "direct",
    "access": "fulltext"
   }
+ },
+ {
+  "q": "Applying the Lancet clinical-obesity framework to 57,863 Korean adults in KNHANES 2014–2023, what was the prevalence of clinical obesity?",
+  "a": [
+   "31.2%",
+   "8.1%",
+   "13.1%",
+   "50.3%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "Clinical obesity affected 31.2% of Korean adults and preclinical obesity 8.1%, meaning three in ten adults already have complications or functional limitation from excess adiposity.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "The prevalence of clinical obesity and preclinical obesity was 31.2% and 8.1%, respectively.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "In the same study, what was the prevalence of preclinical obesity (excess adiposity without complications)?",
+  "a": [
+   "8.1%",
+   "31.2%",
+   "19.4%",
+   "20.1%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "Preclinical obesity was only 8.1%, far less than clinical obesity (31.2%): in Korean adults excess adiposity is usually already accompanied by complications.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "The prevalence of clinical obesity and preclinical obesity was 31.2% and 8.1%, respectively.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Among Korean adults with BMI-defined obesity (≥25 kg/m²), what share had no complications?",
+  "a": [
+   "20.1% (one in five)",
+   "2%",
+   "50%",
+   "80%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "One in five adults with BMI-defined obesity (20.1%) had no complications, showing that BMI alone cannot tell who is ill.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "Among those with BMI-defined obesity (≥25.0 kg/m²), 20.1% had no complications, while 19.4% of overweight individuals (BMI 23.0–24.9 kg/m²) met clinical obesity criteria.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Conversely, what share of overweight Korean adults (BMI 23.0–24.9 kg/m²) met the criteria for clinical obesity?",
+  "a": [
+   "19.4%",
+   "1.9%",
+   "49.4%",
+   "79.4%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "One in five overweight adults (19.4%) already met clinical-obesity criteria despite a BMI below the obesity cut-off, a high-risk group that BMI alone misses.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "19.4% of overweight individuals (BMI 23.0–24.9 kg/m²) met clinical obesity criteria.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What happened to the estimated prevalence of clinical obesity when Western waist-circumference cut-offs were applied to the Korean data?",
+  "a": [
+   "It fell sharply to 13.1%",
+   "It stayed at 31.2%",
+   "It rose above 50%",
+   "No change"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "With Western waist cut-offs the estimate dropped from 31.2% to 13.1%, so Korean cut-offs (90/85 cm) are needed to avoid missing high-risk people.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "Applying Western waist circumference cutoffs drastically reduced the estimated prevalence of clinical obesity to 13.1%.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How did clinical obesity change with age among Korean adults?",
+  "a": [
+   "It rose with age despite stable BMI, driven by metabolic and functional decline",
+   "It fell together with BMI",
+   "It did not change",
+   "It rose only in the young"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "Clinical obesity rises with age even when BMI is stable, as metabolic and functional decline accumulate, which is why function matters more than the weight number in older adults.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "Clinical obesity increased with age despite stable BMI, driven by metabolic and functional decline.",
+   "locator": "Abstract › Results",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How did the study define clinical obesity?",
+  "a": [
+   "Excess adiposity with at least one obesity-related complication or functional limitation",
+   "BMI of 30 or more",
+   "Body weight above 100 kg",
+   "An elevated waist circumference alone"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "Following the Lancet framework, clinical obesity was excess adiposity with at least one complication or functional limitation; preclinical obesity was excess adiposity without complications.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "Clinical obesity was defined as excess adiposity with ≥1 obesity-related complication or functional limitation; preclinical obesity was defined as excess adiposity without complications.",
+   "locator": "Abstract › Methods",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What characterised 83.6% of clinical-obesity cases among Korean adults?",
+  "a": [
+   "Metabolic impairment",
+   "Joint functional limitation",
+   "Sleep apnoea",
+   "Cancer"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "More than eight in ten clinical-obesity cases (83.6%) had metabolic impairment such as glucose, blood-pressure or lipid abnormalities, the core complication in Koreans.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "Metabolic impairment characterized 83.6% of clinical obesity cases.",
+   "locator": "Highlights",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What did the study conclude about the clinical-obesity framework?",
+  "a": [
+   "It identifies high-risk people missed by BMI alone and supports functional, ethnically tailored definitions",
+   "BMI cut-off should be raised to 30",
+   "Waist measurement is unnecessary",
+   "Obesity is only a problem of the young"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Choe, H. J., Després, J.-P., Wilding, J. P. H., Ryan, D. H., & Lim, S. (2026). Clinical and preclinical obesity in Korean adults from 2014 to 2023. Diabetes & Metabolism Journal, 50(1), 127–138. https://doi.org/10.4093/dmj.2025.0697",
+  "exp": "As the first large Asian application of the framework, it concluded that the framework finds high-risk people missed by BMI and supports functional, ethnically tailored definitions.",
+  "refs": [
+   "choe2025"
+  ],
+  "evidence": {
+   "quote": "The framework identifies high-risk individuals missed by BMI alone and supports a shift toward more functional, ethnically tailored obesity definitions for risk stratification and intervention.",
+   "locator": "Abstract › Conclusion",
+   "ref": "choe2025",
+   "support": "direct",
+   "access": "fulltext"
+  }
  }
 ]
