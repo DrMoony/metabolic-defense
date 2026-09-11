@@ -33,7 +33,7 @@
 </head>
 <body>
 <h1>문제은행 리뷰본 (Medical Review용)</h1>
-<div class="sub">각 문항의 보기·정답(굵게)·해설·APA 참고문헌(DOI 포함)·<b>원문에서 그대로 가져온 근거 구문</b>(직접/부분 표시)을 한 표로 정리했어요. 인쇄(Ctrl/Cmd+P)하면 표만 나오고, CSV로도 내려받을 수 있어요. 게임 화면에는 같은 출처가 DOI 없이 표시돼요.</div>
+<div class="sub">각 문항의 보기·정답(굵게)·해설·APA 참고문헌(DOI 포함)·<b>원문에서 그대로 가져온 근거 구문</b>(직접/부분, 전문/초록만 표시)을 한 표로 정리했어요. 인쇄(Ctrl/Cmd+P)하면 표만 나오고, CSV로도 내려받을 수 있어요. 게임 화면에는 같은 출처가 DOI 없이 표시돼요.</div>
 <div class="bar">
   <select id="set"><option value="quiz_obesity">Clinical Obesity</option><option value="quiz_aasld">MASLD / MASH</option><option value="all">전체</option></select>
   <select id="lang"><option value="ko">한국어</option><option value="en">English</option></select>
@@ -69,15 +69,15 @@ async function render() {
         <td class="a"><ol>${r.a.map((a, k) => `<li class="${k === r.correct ? 'ok' : ''}">${a}${k === r.correct ? ' ✓' : ''}</li>`).join('')}</ol></td>
         <td class="e">${r.exp || '<i style="color:#a00">해설 없음</i>'}</td>
         <td class="s">${(r.src || '<i style="color:#a00">출처 없음</i>').split(' / ').map(x => `<div style="margin-bottom:6px">${linkify(x)}</div>`).join('')}</td>
-        <td class="v">${r.evidence && r.evidence.quote ? `<span class="tag ${r.evidence.support === 'direct' ? 'easy' : 'mid'}">${r.evidence.support === 'direct' ? '직접' : '부분'}</span> <small>${r.evidence.locator || ''}</small><blockquote>${r.evidence.quote}</blockquote>${r.evidence.quote2 ? `<blockquote>${r.evidence.quote2}</blockquote>` : ''}${r.evidence.note ? `<div class="note">※ ${r.evidence.note}</div>` : ''}` : '<i style="color:#a00">원문 구문 없음</i>'}</td></tr>`;
+        <td class="v">${r.evidence && r.evidence.quote ? `<span class="tag ${r.evidence.support === 'direct' ? 'easy' : 'mid'}">${r.evidence.support === 'direct' ? '직접' : '부분'}</span> <span class="tag ${r.evidence.access === 'fulltext' ? 'easy' : 'hard'}" title="근거를 확인한 범위">${r.evidence.access === 'fulltext' ? '전문' : '초록만'}</span> <small>${r.evidence.locator || ''}</small><blockquote>${r.evidence.quote}</blockquote>${r.evidence.quote2 ? `<blockquote>${r.evidence.quote2}</blockquote>` : ''}${r.evidence.note ? `<div class="note">※ ${r.evidence.note}</div>` : ''}` : '<i style="color:#a00">원문 구문 없음</i>'}</td></tr>`;
     });
   }
   $('rows').innerHTML = html; $('count').textContent = `${n}문항`;
 }
 $('csv').addEventListener('click', async () => {
   const sets = $('set').value === 'all' ? ['quiz_obesity', 'quiz_aasld'] : [$('set').value];
-  const lines = [['ID', '난이도', '문항', '보기1', '보기2', '보기3', '보기4', '정답번호', '해설', '참고문헌(APA)', '근거 구문', '근거 위치', '근거 수준', '비고']];
-  for (const s of sets) (await loadSet(s)).forEach((r, i) => lines.push([(s === 'quiz_obesity' ? 'OB' : 'MA') + '-' + String(i + 1).padStart(3, '0'), r.diff, r.q, ...r.a, r.correct + 1, r.exp || '', r.src || '', (r.evidence || {}).quote || '', (r.evidence || {}).locator || '', (r.evidence || {}).support || '', (r.evidence || {}).note || '']));
+  const lines = [['ID', '난이도', '문항', '보기1', '보기2', '보기3', '보기4', '정답번호', '해설', '참고문헌(APA)', '근거 구문', '근거 위치', '근거 수준', '근거 접근(전문/초록)', '비고']];
+  for (const s of sets) (await loadSet(s)).forEach((r, i) => lines.push([(s === 'quiz_obesity' ? 'OB' : 'MA') + '-' + String(i + 1).padStart(3, '0'), r.diff, r.q, ...r.a, r.correct + 1, r.exp || '', r.src || '', (r.evidence || {}).quote || '', (r.evidence || {}).locator || '', (r.evidence || {}).support || '', (r.evidence || {}).access === 'fulltext' ? '전문' : '초록', (r.evidence || {}).note || '']));
   const csv = '﻿' + lines.map(l => l.map(v => `"${String(v).replace(/"/g, '""')}"`).join(',')).join('\n');
   const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv' })); a.download = `metabolic-defense_quiz_${$('lang').value}.csv`; a.click();
 });

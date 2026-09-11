@@ -18,7 +18,8 @@
    "quote": "We define clinical obesity as a chronic, systemic illness characterised by alterations in the function of tissues, organs, the entire individual, or a combination thereof, due to excess adiposity. … We define preclinical obesity as a state of excess adiposity with preserved function of other tissues and organs and a varying, but generally increased, risk of developing clinical obesity",
    "locator": "Abstract (Commission summary)",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -40,7 +41,8 @@
    "quote": "The diagnosis of clinical obesity requires one or both of the following main criteria: evidence of reduced organ or tissue function due to obesity (ie, signs, symptoms, or diagnostic tests showing abnormalities in the function of one or more tissue or organ system); or substantial, age-adjusted limitations of daily activities reflecting the specific effect of obesity on mobility, other basic activities of daily living (eg, bathing, dressing, toileting, continence, and eating), or both.",
    "locator": "Abstract — diagnostic criteria",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -62,13 +64,14 @@
    "quote": "We define preclinical obesity as a state of excess adiposity with preserved function of other tissues and organs and a varying, but generally increased, risk of developing clinical obesity and several other non-communicable diseases (eg, type 2 diabetes, cardiovascular disease, certain types of cancer, and mental disorders).",
    "locator": "Abstract (Commission summary)",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
-  "q": "Why did the Commission say BMI alone should not diagnose obesity?",
+  "q": "Why did the Commission say BMI should not be used as an individual measure of health?",
   "a": [
-   "BMI does not directly capture the amount or distribution of body fat",
+   "BMI can both underestimate and overestimate adiposity and gives inadequate information about health at the individual level",
    "The BMI formula has to be recalculated for each ethnic group",
    "BMI cannot be adjusted for age or sex in adults",
    "BMI needs body-composition equipment to calculate"
@@ -76,7 +79,7 @@
   "correct": 0,
   "diff": "mid",
   "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
-  "exp": "BMI shows neither how much fat there is nor where it sits, so it cannot separate a muscular person from one with visceral fat.",
+  "exp": "BMI can under- or overestimate adiposity and provides inadequate information about an individual's health, so the Commission recommends using it only as a population-level surrogate or screening measure rather than as an individual measure of health.",
   "refs": [
    "rubino2025"
   ],
@@ -84,8 +87,9 @@
    "quote": "Current BMI-based measures of obesity can both underestimate and overestimate adiposity and provide inadequate information about health at the individual level, which undermines medically-sound approaches to health care and policy.",
    "locator": "Abstract, opening sentence",
    "ref": "rubino2025",
-   "support": "partial",
-   "note": "The abstract states BMI can under- and overestimate adiposity and gives inadequate individual-level information; it does not explicitly say BMI fails to capture fat DISTRIBUTION. The distribution argument is made in the full Commission text (Section on anthropometric criteria), not in the abstract held in corpus."
+   "support": "direct",
+   "note": "정답이 주장하던 '지방 분포를 반영하지 못한다'는 내용은 초록에 없어요. 초록이 실제로 말하는 과소·과대평가와 개인 수준 정보 부족으로 정답을 교체했어요.",
+   "access": "abstract"
   }
  },
  {
@@ -107,7 +111,8 @@
    "quote": "Excess adiposity should be confirmed by either direct measurement of body fat, where available, or at least one anthropometric criterion (eg, waist circumference, waist-to-hip ratio, or waist-to-height ratio) in addition to BMI, using validated methods and cutoff points appropriate to age, gender, and ethnicity.",
    "locator": "Abstract — confirmation of excess adiposity",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -131,7 +136,8 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 2. 비만 치료 전 평가, \"비만의 평가\" 박스",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "The Korean summary PDF appended to this corpus file now carries the cut-offs that the PMC tables stripped. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "The Korean summary PDF appended to this corpus file now carries the cut-offs that the PMC tables stripped. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -154,7 +160,8 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 2. 비만 치료 전 평가, \"비만의 평가\" 박스",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "Pre-obesity (overweight) at BMI >=23 kg/m2 is stated explicitly in the appended Korean summary. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "Pre-obesity (overweight) at BMI >=23 kg/m2 is stated explicitly in the appended Korean summary. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -176,31 +183,33 @@
    "quote": "Obesity in adults is divided into class 1, class 2, and class 3 obesity (extreme obesity) (BMI 35.0 kg/m 2 or higher) in Korea (IIa, B).",
    "locator": "DIAGNOSTIC CRITERIA FOR OBESITY, ABDOMINAL OBESITY, AND METABOLIC SYNDROME",
    "ref": "kssoGuide2022",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
-  "q": "How should obesity be regarded?",
+  "q": "How does the Commission define clinical obesity?",
   "a": [
-   "A chronic disease with frequent relapse",
-   "An acute condition cured by lifestyle change",
-   "A congenital disorder determined only by genes",
-   "A condition that does not recur after weight loss"
+   "A chronic, systemic illness in which excess adiposity alters the function of tissues, organs or the whole individual",
+   "Excess adiposity with preserved function of other tissues and organs",
+   "Any body mass index of 30 or above",
+   "An acute condition cured by lifestyle change"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4 / Rubino, F., Puhl, R. M., Cummings, D. E., Eckel, R. H., Ryan, D. H., Mechanick, J. I., Nadglowski, J., Ramos Salas, X., Schauer, P. R., Twenefour, D., Apovian, C. M., Aronne, L. J., Batterham, R. L., Berthoud, H.-R., Boza, C., Busetto, L., Dicker, D., De Groot, M., Eisenberg, D., … Dixon, J. B. (2020). Joint international consensus statement for ending stigma of obesity. Nature Medicine, 26(4), 485–497. https://doi.org/10.1038/s41591-020-0803-x",
-  "exp": "Obesity is a chronic, relapsing disease rather than a matter of willpower, so it needs long-term care.",
+  "exp": "Clinical obesity is a chronic, systemic illness in which excess adiposity has actually altered the function of tissues and organs; when the function of other tissues and organs is preserved, the Commission classifies it as preclinical obesity instead.",
   "refs": [
    "rubino2025",
    "rubino2020"
   ],
   "evidence": {
    "quote": "We define clinical obesity as a chronic, systemic illness characterised by alterations in the function of tissues, organs, the entire individual, or a combination thereof, due to excess adiposity.",
-   "locator": "Abstract (Commission summary)",
+   "locator": "Abstract — definition of clinical obesity",
    "ref": "rubino2025",
-   "support": "partial",
-   "note": "Supports \"chronic, systemic illness\" but neither cited source states that obesity is RELAPSING/recurrent. For the relapse element a source such as the World Obesity Federation position statement (Bray et al., 2017, \"obesity: a chronic relapsing progressive disease process\") is needed; in rubino2020 that phrase appears only inside a reference-list title."
+   "support": "direct",
+   "note": "어떤 코퍼스 자료도 비만을 '재발이 흔한(relapsing)' 질환이라고 명시하지 않아요. 초록이 직접 내리는 정의(만성 전신 질환)로 문항을 다시 세우고, 전임상 비만을 오답 보기로 살렸어요.",
+   "access": "abstract"
   }
  },
  {
@@ -223,31 +232,33 @@
    "quote": "Although sustained weight loss of as little as 3%–5% of body weight may lead to clinically meaningful reductions in some cardiovascular risk factors, larger weight losses produce greater benefits. The Expert Panel recommends as an initial goal the loss of 5%–10% of baseline weight within 6 months.",
    "locator": "Box 9: Determine Weight Loss and Health Goals and Intervention Strategies",
    "ref": "jensen2014",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
-  "q": "Why is visceral (central) adiposity especially harmful?",
+  "q": "Where does the triacylglycerol stored in the liver come from in NAFLD?",
   "a": [
-   "Free fatty acids drain through the portal vein into the liver and drive metabolic dysfunction",
-   "Its fat cells are smaller and store less lipid than subcutaneous fat cells",
-   "It secretes more leptin, which suppresses appetite and lowers intake",
-   "It accumulates around muscle and directly reduces muscle strength"
+   "About 59% from circulating non-esterified fatty acids, 26% from de novo lipogenesis and 15% from the diet",
+   "Almost all of it from dietary fat",
+   "Almost all of it from de novo lipogenesis in the liver",
+   "Mostly from muscle protein converted into fat"
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016 / Donnelly, K. L., Smith, C. I., Schwarzenberg, S. J., Jessurun, J., Boldt, M. D., & Parks, E. J. (2005). Sources of fatty acids stored in liver and secreted via lipoproteins in patients with nonalcoholic fatty liver disease. Journal of Clinical Investigation, 115(5), 1343–1351. https://doi.org/10.1172/JCI23621",
-  "exp": "Free fatty acids from visceral fat drain through the portal vein straight into the liver, driving insulin resistance and fatty liver.",
+  "src": "Donnelly, K. L., Smith, C. I., Schwarzenberg, S. J., Jessurun, J., Boldt, M. D., & Parks, E. J. (2005). Sources of fatty acids stored in liver and secreted via lipoproteins in patients with nonalcoholic fatty liver disease. Journal of Clinical Investigation, 115(5), 1343–1351. https://doi.org/10.1172/JCI23621 / Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
+  "exp": "Four days of stable-isotope tracing showed that 59% of liver triacylglycerol came from circulating non-esterified fatty acids, 26% from de novo lipogenesis and 15% from the diet, so adipose-derived fatty acids are the largest single contributor.",
   "refs": [
-   "kssoGuide2022",
-   "donnelly2005"
+   "donnelly2005",
+   "kssoGuide2022"
   ],
   "evidence": {
-   "quote": "These quantitative metabolic data document that both elevated peripheral fatty acids and DNL contribute to the accumulation of hepatic and lipoprotein fat in NAFLD.",
-   "locator": "Abstract — Results/Conclusion",
+   "quote": "Of the TAG accounted for in liver, 59.0% +/- 9.9% of TAG arose from NEFAs; 26.1% +/- 6.7%, from DNL; and 14.9% +/- 7.0%, from the diet.",
+   "locator": "Abstract — Results",
    "ref": "donnelly2005",
-   "support": "partial",
-   "note": "donnelly2005 shows that peripheral (adipose-derived) non-esterified fatty acids supply ~59% of liver triacylglycerol in NAFLD, but it does not describe portal-vein delivery from VISCERAL fat. kssoGuide2022 in corpus contains no visceral-fat mechanism text (\"visceral\" appears only in the reference list). A physiology source (e.g. Item on portal free fatty acid flux) would be needed."
+   "support": "direct",
+   "note": "'내장지방 → 문맥 → 간'이라는 기전은 코퍼스 어느 자료에도 없어요. donnelly2005가 실제로 정량한 간 지방의 공급원 비율을 묻는 문항으로 바꿨어요.",
+   "access": "abstract"
   }
  },
  {
@@ -271,7 +282,8 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 3. 식사치료 표 1(고단백식) 및 8. 노인 비만 지침 4",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "The appended Korean summary names preventing loss of body protein (체단백) under energy restriction as the reason for adequate/high protein intake, which is the component the answer says must be protected. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "The appended Korean summary names preventing loss of body protein (체단백) under energy restriction as the reason for adequate/high protein intake, which is the component the answer says must be protected. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -294,7 +306,8 @@
    "quote": "Diet, exercise, and behavioral therapy that induce lifestyle improvements are the mainstays of obesity treatment. General principles in this field remain unchanged from the previous edition of the guidelines.",
    "locator": "LIFESTYLE-RELATED THERAPY, opening",
    "ref": "kssoGuide2022",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -318,31 +331,33 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 7. 수술치료 지침 1",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "Switched from eisenberg2022 (corpus file holds only the title line) to the KSSO 2022 Korean summary, which is also a cited ref for this item and states the BMI 35 / BMI 30-with-comorbidity indication verbatim. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "Switched from eisenberg2022 (corpus file holds only the title line) to the KSSO 2022 Korean summary, which is also a cited ref for this item and states the BMI 35 / BMI 30-with-comorbidity indication verbatim. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
-  "q": "Which cancer is NOT among those linked to obesity?",
+  "q": "Which comorbidities stemming from metabolic abnormalities does the guideline list for people with obesity?",
   "a": [
-   "Cutaneous melanoma",
-   "Colorectal cancer",
-   "Postmenopausal breast cancer",
-   "Endometrial cancer"
+   "Hypertension, cardiovascular disease, type 2 diabetes, dyslipidaemia, metabolic syndrome, gallbladder disease, gout and some types of cancer",
+   "Rheumatoid arthritis, systemic lupus erythematosus and psoriasis",
+   "Asthma, allergic rhinitis and atopic dermatitis",
+   "Iron-deficiency anaemia, hyperthyroidism and osteomalacia"
   ],
   "correct": 0,
   "diff": "mid",
   "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016 / Lauby-Secretan, B., Scoccianti, C., Loomis, D., Grosse, Y., Bianchini, F., & Straif, K. (2016). Body fatness and cancer—Viewpoint of the IARC Working Group. New England Journal of Medicine, 375(8), 794–798. https://doi.org/10.1056/NEJMsr1606602",
-  "exp": "Obesity raises the risk of colorectal, postmenopausal breast, endometrial and other cancers, but melanoma is not on that list.",
+  "exp": "The guideline groups hypertension, cardiovascular disease, type 2 diabetes, dyslipidaemia, metabolic syndrome, gallbladder disease, gout and some cancers as the comorbidities that stem from the metabolic abnormalities of obesity.",
   "refs": [
    "kssoGuide2022",
    "lauby2016"
   ],
   "evidence": {
-   "quote": "종양 식도암, 위암, 결장직장암, 간암, … 췌장암, 담낭암, 신장암, 백혈병, … 다발성골수암, 림프종 … 남자: 전립선암 … 자궁내막암, 난소암, 자궁경부암",
-   "locator": "부록: 비만 진료지침 2022 요약본 — 표 2. 비만 동반 질환 평가 시 필요한 검사의 종류(종양)",
+   "quote": "People with obesity are at an increased risk for comorbidities stemming from metabolic abnormalities, such as hypertension, cardiovascular disease, type 2 diabetes, dyslipidemia, metabolic syndrome, gallbladder disease, gout, and some types of cancer.",
+   "locator": "PMC full text — EVALUATING OBESITY STATUS AND RELATED COMORBIDITIES",
    "ref": "kssoGuide2022",
-   "support": "partial",
-   "note": "lauby2016 has no corpus file. The KSSO 2022 Korean table lists the obesity-related cancers to screen for and cutaneous melanoma is not among them, so the answer is supported only by omission, not by an explicit statement that melanoma is unrelated. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "support": "direct",
+   "note": "'피부 흑색종은 목록에 없다'는 누락 기반 정답이었고 lauby2016은 코퍼스에 파일이 없어요. 지침이 직접 나열한 대사성 동반질환을 그대로 묻는 문항으로 바꿨어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -366,7 +381,8 @@
    "locator": "PMC full text — EVALUATING OBESITY STATUS AND RELATED COMORBIDITIES",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "epstein2009 (abstract only) never mentions obesity. The KSSO 2022 guideline names obstructive sleep apnea as a weight-related condition; the Korean appendix also lists 수면무호흡증 under 호흡기계 in Table 2."
+   "note": "epstein2009 (abstract only) never mentions obesity. The KSSO 2022 guideline names obstructive sleep apnea as a weight-related condition; the Korean appendix also lists 수면무호흡증 under 호흡기계 in Table 2.",
+   "access": "fulltext"
   }
  },
  {
@@ -390,7 +406,8 @@
    "locator": "Executive summary — recommendation on lifestyle/weight loss",
    "ref": "easl2024",
    "support": "direct",
-   "note": "The newly added EASL-EASD-EASO 2024 full text states the dose-response explicitly, but with different thresholds from the answer: >=5% for liver fat, 7-10% for inflammation, >=10% for fibrosis."
+   "note": "The newly added EASL-EASD-EASO 2024 full text states the dose-response explicitly, but with different thresholds from the answer: >=5% for liver fat, 7-10% for inflammation, >=10% for fibrosis.",
+   "access": "fulltext"
   }
  },
  {
@@ -412,7 +429,8 @@
    "quote": "To refrain from using stereotypical language, images, and narratives that unfairly and inaccurately depict individuals with overweight and obesity as lazy, gluttonous, and lacking willpower or self-discipline.",
    "locator": "Box 1: Pledge to eliminate weight bias and stigma of obesity",
    "ref": "rubino2020",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -437,21 +455,22 @@
    "ref": "sumithran2011",
    "support": "direct",
    "quote2": "Following initial weight loss (10%), resting (REE) and non-resting (NREE) EE were significantly below those predicted on the basis of the amount and composition of weight lost.",
-   "ref2": "rosenbaum2016"
+   "ref2": "rosenbaum2016",
+   "access": "abstract"
   }
  },
  {
-  "q": "Which joint problem commonly accompanies obesity?",
+  "q": "Which weight-related conditions does the guideline say people with obesity are at higher risk of than normal-weight individuals?",
   "a": [
-   "Knee osteoarthritis",
-   "Rheumatoid arthritis",
-   "Ankylosing spondylitis",
-   "Distal finger-joint arthritis"
+   "Arthritis, low back pain and obstructive sleep apnoea",
+   "Rheumatoid arthritis, ankylosing spondylitis and lupus",
+   "Osteoporosis, osteomalacia and rickets",
+   "Carpal tunnel syndrome, frozen shoulder and plantar fasciitis"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
-  "exp": "Load on the knee cartilage makes knee osteoarthritis the most common joint problem.",
+  "exp": "Rather than singling out a joint such as the knee, the guideline groups arthritis, low back pain and obstructive sleep apnoea together as weight-related conditions.",
   "refs": [
    "kssoGuide2022"
   ],
@@ -459,8 +478,9 @@
    "quote": "They also are at higher risk of developing weight-related conditions such as arthritis, low back pain, and obstructive sleep apnea compared to normal weight individuals.",
    "locator": "PMC full text — EVALUATING OBESITY STATUS AND RELATED COMORBIDITIES",
    "ref": "kssoGuide2022",
-   "support": "partial",
-   "note": "The guideline names arthritis among weight-related conditions and the Korean appendix lists 골관절염 under 근골격계, but neither singles out the knee. Needed for \"knee\" specifically: KSSO Fig. 1 or an OA epidemiology source."
+   "support": "direct",
+   "note": "원 정답 '무릎 골관절염'은 출처보다 좁아요. 지침 문장의 범위 그대로 '관절염·요통·폐쇄성 수면무호흡'으로 맞췄어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -484,31 +504,33 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 3. 식사치료 표 1. 식사종류별 특성 요약(저열량식)",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "The appended Korean summary gives the 0.5-1.0 kg per week figure that the PMC tables had stripped. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "The appended Korean summary gives the 0.5-1.0 kg per week figure that the PMC tables had stripped. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
-  "q": "How should cardiovascular risk in obesity be reduced?",
+  "q": "What two elements does the guideline prescribe for managing metabolic syndrome?",
   "a": [
-   "Manage weight together with blood pressure, lipids and glucose",
-   "Weight loss alone is enough",
-   "Treat blood pressure first and leave weight for later",
-   "No further management if a cardiac work-up is normal"
+   "Lifestyle modification, plus component-by-component drug treatment where needed",
+   "Weight loss alone",
+   "Blood pressure control alone",
+   "Periodic check-ups alone"
   ],
   "correct": 0,
   "diff": "mid",
   "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016 / Ndumele, C. E., Rangaswami, J., Chow, S. L., Neeland, I. J., Tuttle, K. R., Khan, S. S., Coresh, J., Mathew, R. O., Baker-Smith, C. M., Carnethon, M. R., Despres, J.-P., Ho, J. E., Joseph, J. J., Kernan, W. N., Khera, A., Kosiborod, M. N., Lekavich, C. L., Lewis, E. F., Lo, K. B., … American Heart Association. (2023). Cardiovascular-kidney-metabolic health: A presidential advisory from the American Heart Association. Circulation, 148(20), 1606–1635. https://doi.org/10.1161/CIR.0000000000001184",
-  "exp": "Weight loss alone is not enough; blood pressure, lipids and glucose must be managed together to lower cardiovascular risk.",
+  "exp": "Metabolic syndrome is managed with lifestyle modification as the base, adding drug treatment component by component where it is needed.",
   "refs": [
    "kssoGuide2022",
    "ndumele2023"
   ],
   "evidence": {
-   "quote": "한국 성인에서 다음 중 3가지 이상에 해당하면 대사증후군으로 진단한다. (A) … 대사증후군의 관리를 위해 생활습관 교정과 필요한 경우 구성 요소별 약물 … 중재의 시행을 권고한다. (A, Class I)",
-   "locator": "부록: 비만 진료지침 2022 요약본 — 13. 대사증후군 지침 1~2",
+   "quote": "대사증후군의 관리를 위해 생활습관 교정과 필요한 경우 구성 요소별 약물",
+   "locator": "부록: 비만 진료지침 2022 요약본 — 13. 대사증후군, 지침 2",
    "ref": "kssoGuide2022",
-   "support": "partial",
-   "note": "Switched from ndumele2023 (abstract, no such statement). The KSSO criteria list waist, blood pressure, fasting glucose, triglycerides and HDL, and the guideline asks for lifestyle correction plus component-by-component drug intervention — close to the answer but framed as metabolic-syndrome management rather than \"weight plus BP, lipids and glucose\". 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "support": "direct",
+   "note": "ndumele2023 초록에는 해당 진술이 없고, 원 정답의 '체중+혈압+지질+혈당 통합 관리'라는 표현도 지침 문장 그대로가 아니에요. 지침이 쓴 표현(생활습관 교정 + 구성 요소별 약물)으로 맞췄어요. 요약본 PDF가 2단 조판이라 이어지는 '중재의 시행을 권고한다'는 다른 단 글자와 섞여 있어 연속된 부분까지만 인용했어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -530,7 +552,8 @@
    "quote": "Cross-sectional and prospective studies indicate that after weight loss, weight maintenance is improved with PA >250 min wk(-1). However, no evidence from well-designed randomized controlled trials exists to judge the effectiveness of PA for prevention of weight regain after weight loss. Resistance training does not enhance weight loss but may increase fat-free mass and increase loss of fat mass and is associated with reductions in health risk.",
    "locator": "Abstract — evidence statements (ACSM Position Stand)",
    "ref": "donnelly2009",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -552,7 +575,8 @@
    "quote": "From 2014 to 2023, the overall prevalence of obesity increased by 1.23-fold, from 31.1% to 38.4% ( Fig. 1A ). The prevalence of obesity showed a steady rise from 2014 and has remained stable at around 38.4% for the past 3 years.",
    "locator": "RESULTS — Prevalence of obesity and abdominal obesity by age and gender",
    "ref": "kssoFS2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -574,7 +598,8 @@
    "quote": "Among male, the prevalence continued to increase, reaching 49.8% in 2023, whereas among female, it remained relatively unchanged, from 27.8% in 2021 to 27.5% in 2023.",
    "locator": "RESULTS — Prevalence of obesity and abdominal obesity by age and gender",
    "ref": "kssoFS2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -596,7 +621,8 @@
    "quote": "In 2023, the prevalence of obesity and abdominal obesity was 38.4% (male 49.8%, female 27.5%) and 24.3% (male 31.3%, female 17.7%), respectively.",
    "locator": "Abstract — Results",
    "ref": "kssoFS2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -618,7 +644,8 @@
    "quote": "The prevalence of abdominal obesity in the overall population increased from 20.2% in 2014 to 24.3% in 2023 ( Fig. 1B ), but it has remained relatively stable during the past 3 years. In male, the prevalence reached 31.3% in 2023, whereas in female, it peaked at 19.0% in 2019 and subsequently declined to 17.7% in 2023.",
    "locator": "RESULTS — Prevalence of obesity and abdominal obesity by age and gender",
    "ref": "kssoFS2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -641,7 +668,8 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 1. 비만의 진단 지침 4",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "The 90 cm / 85 cm cut-offs, previously lost with the stripped PMC tables, are stated in the appended Korean summary."
+   "note": "The 90 cm / 85 cm cut-offs, previously lost with the stripped PMC tables, are stated in the appended Korean summary.",
+   "access": "fulltext"
   }
  },
  {
@@ -663,7 +691,8 @@
    "quote": "Among Korean adults aged ≥30 years, approximately 5.3 million individuals or 15.5% (18.1% in men and 13.0% in women) had diabetes mellitus in 2021 to 2022 ( Table 1 ).",
    "locator": "RESULTS — Prevalence of diabetes mellitus",
    "ref": "kdaDFS2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -685,7 +714,8 @@
    "quote": "The estimated prevalence among adults aged ≥19 and ≥65 years was 13.1% (15.2% in men and 11.0% in women) and 29.3% (30.4% in men and 28.5% in women), respectively, indicating an increasing prevalence with age.",
    "locator": "RESULTS — Prevalence of diabetes mellitus",
    "ref": "kdaDFS2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -707,7 +737,8 @@
    "quote": "Among adults aged ≥30 years, approximately 14.09 million, or 41.1% (43.8% in men and 38.5% in women), had prediabetes during the same period.",
    "locator": "RESULTS — Prevalence of diabetes mellitus",
    "ref": "kdaDFS2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -729,7 +760,8 @@
    "quote": "The prevalence of obesity among adults with diabetes mellitus was 53.8% (56.0% in men and 50.9% in women), with class I obesity accounting for 42.2% ( Table 2 ).",
    "locator": "RESULTS — comorbidities and health behaviors (Table 2)",
    "ref": "kdaDFS2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -751,7 +783,8 @@
    "quote": "The overweight prevalence was 19.7%, and abdominal obesity was reported in 61.2%, with slightly higher percentages in women (62.4%) than in men (60.3%).",
    "locator": "RESULTS — comorbidities and health behaviors (Table 2)",
    "ref": "kdaDFS2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -774,7 +807,8 @@
    "quote": "In analyses using the KNHANES database, diabetes mellitus was defined as fasting plasma glucose (FPG) ≥126 mg/dL, glycosylated hemoglobin (HbA1c) ≥6.5%, a previous diagnosis of diabetes mellitus, or current use of antidiabetic medications. [ 16 ]. Prediabetes was defined as an FPG of 100–125 mg/dL or HbA1c of 5.7%–6.4% [ 11 ].",
    "locator": "METHODS — Definition of diabetes mellitus and comorbidities",
    "ref": "kdaDFS2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -796,7 +830,8 @@
    "quote": "We recommend that BMI should be used only as a surrogate measure of health risk at a population level, for epidemiological studies, or for screening purposes, rather than as an individual measure of health. Excess adiposity should be confirmed by either direct measurement of body fat, where available, or at least one anthropometric criterion",
    "locator": "Abstract — recommendation on BMI use",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -818,30 +853,32 @@
    "quote": "In people with very high BMI (ie, >40 kg/m2), however, excess adiposity can pragmatically be assumed, and no further confirmation is required.",
    "locator": "Abstract — confirmation of excess adiposity",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
-  "q": "Which of these are examples of organ dysfunction that count toward clinical obesity?",
+  "q": "What are the main criteria for diagnosing clinical obesity?",
   "a": [
-   "Fatty liver, sleep apnoea, knee pain with reduced function",
-   "Migraine, myopia, dental caries",
-   "Hypothyroidism, iron-deficiency anaemia",
-   "Allergic rhinitis, eczema"
+   "One or both of: evidence of reduced organ or tissue function due to obesity, or substantial limitation of activities of daily living",
+   "A body mass index of 30 or above",
+   "A waist circumference above the cut-off",
+   "Raised inflammatory markers on blood tests"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
-  "exp": "Findings such as fatty liver, sleep apnoea and impaired knee function show that excess fat has altered organ function.",
+  "exp": "Either criterion is enough: evidence that obesity has reduced the function of an organ or tissue (signs, symptoms or abnormal tests), or substantial age-adjusted limitation of daily activities such as mobility, bathing or dressing.",
   "refs": [
    "rubino2025"
   ],
   "evidence": {
-   "quote": "The diagnosis of clinical obesity requires one or both of the following main criteria: evidence of reduced organ or tissue function due to obesity (ie, signs, symptoms, or diagnostic tests showing abnormalities in the function of one or more tissue or organ system)",
-   "locator": "Abstract — main criterion 1",
+   "quote": "The diagnosis of clinical obesity requires one or both of the following main criteria: evidence of reduced organ or tissue function due to obesity (ie, signs, symptoms, or diagnostic tests showing abnormalities in the function of one or more tissue or organ system); or substantial, age-adjusted limitations of daily activities reflecting the specific effect of obesity on mobility, other basic activities of daily living (eg, bathing, dressing, toileting, continence, and eating), or both.",
+   "locator": "Abstract — main diagnostic criteria",
    "ref": "rubino2025",
-   "support": "partial",
-   "note": "The abstract states the criterion generically (\"abnormalities in the function of one or more tissue or organ system\") and exemplifies only end-organ damage (heart attack, stroke, renal failure). The organ-specific examples in the answer (fatty liver, sleep apnoea, knee pain/function) are listed in Panel/Table of diagnostic criteria in the full Commission text, which is not in the corpus (abstract-only access)."
+   "support": "direct",
+   "note": "지방간·수면무호흡·무릎 같은 장기별 예시는 본문 Panel에 있고 코퍼스의 초록에는 없어요. 초록이 명시한 두 가지 주요 기준을 그대로 묻는 문항으로 바꿨어요.",
+   "access": "abstract"
   }
  },
  {
@@ -863,7 +900,8 @@
    "quote": "or substantial, age-adjusted limitations of daily activities reflecting the specific effect of obesity on mobility, other basic activities of daily living (eg, bathing, dressing, toileting, continence, and eating), or both.",
    "locator": "Abstract — main criterion 2",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -885,7 +923,8 @@
    "quote": "People with preclinical obesity should undergo evidence-based health counselling, monitoring of their health status over time, and, when applicable, appropriate intervention to reduce risk of developing clinical obesity and other obesity-related diseases, as appropriate for the level of individual health risk.",
    "locator": "Abstract — management recommendations",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -907,7 +946,8 @@
    "quote": "People with clinical obesity should receive timely, evidence-based treatment, with the aim to induce improvement (or remission, when possible) of clinical manifestations of obesity and prevent progression to end-organ damage.",
    "locator": "Abstract — management recommendations",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -929,7 +969,8 @@
    "quote": "We define clinical obesity as a chronic, systemic illness characterised by alterations in the function of tissues, organs, the entire individual, or a combination thereof, due to excess adiposity. Clinical obesity can lead to severe end-organ damage, causing life-altering and potentially life-threatening complications (eg, heart attack, stroke, and renal failure).",
    "locator": "Abstract (Commission summary)",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -952,7 +993,8 @@
    "quote": "Weight-based bias and stigma are major obstacles in efforts to effectively prevent and treat obesity; health-care professionals and policy makers should receive proper training to address this important issue of obesity.",
    "locator": "Abstract — stigma recommendation",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -974,7 +1016,8 @@
    "quote": "We define preclinical obesity as a state of excess adiposity with preserved function of other tissues and organs … The diagnosis of clinical obesity requires one or both of the following main criteria: evidence of reduced organ or tissue function due to obesity (ie, signs, symptoms, or diagnostic tests showing abnormalities in the function of one or more tissue or organ system)",
    "locator": "Abstract — definitions and diagnostic criteria",
    "ref": "rubino2025",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -996,7 +1039,8 @@
    "quote": "The goal of obesity treatment is not exclusively centered on achieving weight loss, but rather a reduction in the risk of obesity-related diseases and an increase in overall health. A weight loss of 5% to 10%, along with improvements in lifestyle, have been shown to have clinically significant benefits. We recommend losing 5% to 10% of initial body weight within 6 months (I, A).",
    "locator": "EVALUATING OBESITY STATUS ... AND SETTING TREATMENT GOALS",
    "ref": "kssoGuide2022",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -1019,7 +1063,8 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 1. 비만의 진단 지침 1 및 2. 비만 치료 전 평가",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "The \"measure BMI at least once a year in all adults\" recommendation is present in the appended Korean summary. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "The \"measure BMI at least once a year in all adults\" recommendation is present in the appended Korean summary. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1042,7 +1087,8 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 3. 식사치료 표 1. 식사종류별 특성 요약(저열량식)",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "The 500-1,000 kcal/day deficit and the 0.5-1.0 kg/week and 6-month plateau all appear here. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "The 500-1,000 kcal/day deficit and the 0.5-1.0 kg/week and 6-month plateau all appear here. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1064,30 +1110,32 @@
    "quote": "This edition of the guidelines recommends aerobic exercise for at least 150 minutes per week, 3 to 5 times a week, and resistance exercise using large muscle groups 2 to 3 times per week for weight loss. Furthermore, increasing aerobic exercise to 250 to 300 minutes per week is suggested for more meaningful weight loss.",
    "locator": "LIFESTYLE-RELATED THERAPY — exercise therapy",
    "ref": "kssoGuide2022",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
-  "q": "What does the guideline recommend to keep weight off after loss?",
+  "q": "How long does the guideline recommend behavioural therapy be continued to maintain lost weight?",
   "a": [
-   "Combine diet, exercise and cognitive behavioural therapy and keep it up for at least a year",
-   "Lift all dietary limits after losing weight",
-   "Exercise only, with unrestricted eating",
-   "Put the scale away and go by feel"
+   "At least one year, delivered by a trained therapist",
+   "Two weeks is enough",
+   "One month is enough",
+   "Three months is enough"
   ],
   "correct": 0,
   "diff": "mid",
   "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
-  "exp": "A high-protein, low-fat diet with continued exercise, regular weigh-ins and professional feedback keeps the weight off.",
+  "exp": "Keeping weight off is harder than losing it, so the guideline recommends that a trained therapist deliver behavioural therapy for at least a year to maintain the loss.",
   "refs": [
    "kssoGuide2022"
   ],
   "evidence": {
-   "quote": "비만 동반 질환의 예방 및 관리를 위해 체중 감량 후 1년 이상의 장기적인 … 유지를 권고한다. (A, Class I) … 체중 감량 후 유지를 위하여 식사치료, 운동치료 및 인지행동치료를 병행할 … 것을 권고한다. (A, Class I)",
-   "locator": "부록: 비만 진료지침 2022 요약본 — 12. 체중 감량 후 유지 지침 1~2",
+   "quote": "감량된 체중의 효과적인 유지를 위해 훈련된 치료자가 행동치료를 1년 이상",
+   "locator": "부록: 비만 진료지침 2022 요약본 — 5. 행동치료, 지침 3",
    "ref": "kssoGuide2022",
-   "support": "partial",
-   "note": "The guideline prescribes diet plus exercise plus cognitive-behavioural therapy maintained for at least a year; it does not specify a high-protein, low-fat diet (its Table 1 maintenance column prescribes a reduced-calorie diet with fat <=30% and protein 15-25%) nor regular self-weighing in this section. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "support": "direct",
+   "note": "원 해설의 '고단백·저지방 식이', '정기적 체중 점검'은 지침의 유지 단원에 없는 내용이에요. 지침이 명시한 '훈련된 치료자의 행동치료 1년 이상'으로 초점을 좁혔어요. 요약본 PDF 2단 조판 탓에 이어지는 '시행하는 것을 권고한다'가 다른 단 글자와 섞여 있어 연속 구간까지만 인용했어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1110,7 +1158,8 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 2. 비만 치료 전 평가, \"비만의 평가\" 박스 2",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "Confirms that waist circumference is read together with BMI and that abdominal obesity raises the comorbidity-risk category. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "Confirms that waist circumference is read together with BMI and that abdominal obesity raises the comorbidity-risk category. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1133,7 +1182,8 @@
    "quote": "However, in some cases, secondary causes such as genetic and congenital disorders, medications, neurological and endocrine diseases, or psychiatric illnesses may be present ( Table 3 ). Accurately identifying and addressing these underlying causes can lead to more effective weight loss. Therefore, prior to initiating obesity treatment, a medical interview and screening tests should be considered to identify secondary obesity and its causes (IIa, B).",
    "locator": "EVALUATING OBESITY STATUS AND RELATED COMORBIDITIES ...",
    "ref": "kssoGuide2022",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -1155,7 +1205,8 @@
    "quote": "Annual screening (Expert opinion, General) for diabetes should be conducted for adults aged ≥35 and adults aged ≥19 with risk factors (Others, General) using fasting plasma glucose, HbA1c, and 2-hour plasma glucose during a 75 g oral glucose tolerance test (NRS, General).",
    "locator": "SCREENING FOR DIABETES MELLITUS",
    "ref": "kdaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -1177,7 +1228,8 @@
    "quote": "The risk factors of T2DM are shown in Table 1 , and abdominal obesity (waist circumference ≥90 cm for men, ≥85 cm for women) has been added compared to the previous guidelines.",
    "locator": "SCREENING FOR DIABETES MELLITUS",
    "ref": "kdaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -1200,7 +1252,8 @@
    "locator": "부록: 2023 당뇨병 진료지침 개정방향 — 본론 3. 의학영양요법",
    "ref": "kdaGuide2023",
    "support": "direct",
-   "note": "The appended Korean revision-direction article carries the >=5%-and-maintain recommendation that the English DMJ summary lacked. The source PDF is two-column, so the fragments are joined with \" … \"."
+   "note": "The appended Korean revision-direction article carries the >=5%-and-maintain recommendation that the English DMJ summary lacked. The source PDF is two-column, so the fragments are joined with \" … \".",
+   "access": "fulltext"
   }
  },
  {
@@ -1223,7 +1276,8 @@
    "locator": "부록: 2023 당뇨병 진료지침 개정방향 — 본론 4. 운동요법",
    "ref": "kdaGuide2023",
    "support": "direct",
-   "note": "Aerobic >=150 min/week plus resistance exercise >=2 times/week is stated in the appended Korean article. Two-column PDF, fragments joined with \" … \"."
+   "note": "Aerobic >=150 min/week plus resistance exercise >=2 times/week is stated in the appended Korean article. Two-column PDF, fragments joined with \" … \".",
+   "access": "fulltext"
   }
  },
  {
@@ -1246,7 +1300,8 @@
    "quote": "We randomly assigned 3234 nondiabetic persons with elevated fasting and post-load plasma glucose concentrations to placebo, metformin (850 mg twice daily), or a lifestyle-modification program with the goals of at least a 7 percent weight loss and at least 150 minutes of physical activity per week.",
    "locator": "Abstract — Methods",
    "ref": "dpp2002",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -1268,7 +1323,8 @@
    "quote": "The recommended optimal HbA1c target is <6.5% for patients with T2DM and <7.0% for those with T1DM (RCT, General) through lifestyle modifications and glucose-lowering agents, especially in recently diagnosed or young people without severe complications or hypoglycemia.",
    "locator": "GLUCOSE MONITORING AND GLYCEMIC TARGET",
    "ref": "kdaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -1293,7 +1349,8 @@
    "locator": "부록: Diabetes Fact Sheet in Korea 2024 — 당뇨병 및 당뇨병전단계 정의",
    "ref": "kdaDFS2024",
    "support": "direct",
-   "note": "Switched from kdaGuide2023/ada2024 (neither carries diagnostic thresholds) to the Korean fact sheet appended to kdaDFS2024: fasting glucose 110 mg/dL falls inside the 100-125 mg/dL prediabetes band, so it is excluded from the diagnostic criteria. The 2-h OGTT >=200 mg/dL criterion is not listed here."
+   "note": "Switched from kdaGuide2023/ada2024 (neither carries diagnostic thresholds) to the Korean fact sheet appended to kdaDFS2024: fasting glucose 110 mg/dL falls inside the 100-125 mg/dL prediabetes band, so it is excluded from the diagnostic criteria. The 2-h OGTT >=200 mg/dL criterion is not listed here.",
+   "access": "fulltext"
   }
  },
  {
@@ -1317,44 +1374,46 @@
    "quote": "All adults with T2DM should be evaluated for the presence of NAFLD (Expert opinion, General). Alanine aminotransferase or abdominal ultrasonography should be performed as primary screening to evaluate NAFLD and exclude secondary causes (Expert opinion, General) [ 119 - 122 ]. If NAFLD is confirmed, the evaluation of liver fibrosis is necessary.",
    "locator": "NON-ALCOHOLIC FATTY LIVER DISEASE IN PATIENTS WITH T2DM",
    "ref": "kdaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
-  "q": "What is the simplest way to identify abdominal obesity?",
+  "q": "What waist circumference defines abdominal obesity in Korea?",
   "a": [
-   "Measuring waist circumference with a tape",
-   "Measuring body weight only",
-   "Measuring blood pressure",
-   "Measuring height"
+   "90 cm or more in men, 85 cm or more in women",
+   "85 cm or more in men, 90 cm or more in women",
+   "100 cm or more in both sexes",
+   "80 cm or more in both sexes"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
-  "exp": "A tape measure around the waist is the simplest validated way to identify abdominal obesity.",
+  "exp": "Measure the waist with a tape: 90 cm or more in men and 85 cm or more in women is diagnosed as abdominal obesity.",
   "refs": [
    "kssoGuide2022"
   ],
   "evidence": {
-   "quote": "허리둘레를 측정하여 남자에서 90 cm 이상, 여자에서 85 cm 이상일 경우 복부비만으로 … 진단하고 복부비만이 있는 경우 비만 동반 질환 위험도를 상향하여 관리한다.",
-   "locator": "부록: 비만 진료지침 2022 요약본 — 2. 비만 치료 전 평가, \"비만의 평가\" 박스 2",
+   "quote": "허리둘레를 측정하여 남자에서 90 cm 이상, 여자에서 85 cm 이상일 경우 복부비만으로",
+   "locator": "부록: 비만 진료지침 2022 요약본 — 2. 비만 치료 전 평가, '비만의 평가' 2",
    "ref": "kssoGuide2022",
-   "support": "partial",
-   "note": "The guideline does make waist-circumference measurement the way abdominal obesity is diagnosed, but no corpus source says a tape measure is the simplest or most practical method. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "support": "direct",
+   "note": "'가장 간단한 방법'이라는 비교 주장은 어떤 자료에도 없어요. 지침이 명시한 진단 기준 수치를 묻는 문항으로 바꿨어요.",
+   "access": "fulltext"
   }
  },
  {
-  "q": "Where and how should waist circumference be measured?",
+  "q": "Where should waist circumference be measured?",
   "a": [
-   "Midway between the lowest rib and the top of the hip bone, after breathing out",
-   "At the narrowest point while breathing in",
-   "5 cm below the navel over clothing",
+   "At the midaxillary line, halfway between the lowest rib and the top of the iliac crest",
+   "At the narrowest point of the torso",
+   "5 cm below the navel",
    "At the widest part of the hips"
   ],
   "correct": 0,
   "diff": "mid",
   "src": "Seimon, R. V., Wild-Taylor, A. L., Keating, S. E., McClintock, S., Harper, C., Gibson, A. A., Johnson, N. A., Fernando, H. A., Markovic, T. P., Center, J. R., Franklin, J., Liu, P. Y., Grieve, S. M., Lagopoulos, J., Caterson, I. D., Byrne, N. M., & Sainsbury, A. (2019). Effect of weight loss via severe vs moderate energy restriction on lean mass and body composition among postmenopausal women with obesity: The TEMPO diet randomized clinical trial. JAMA Network Open, 2(10), e1913733. https://doi.org/10.1001/jamanetworkopen.2019.13733 / Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
-  "exp": "Measure horizontally midway between the lowest rib and the top of the hip bone after breathing out.",
+  "exp": "Measure at the midaxillary line, halfway between the bony landmarks of the lowest rib and the top of the iliac crest; hip circumference is taken at the greatest protuberance of the buttocks seen from the side.",
   "refs": [
    "seimon2019",
    "kssoGuide2022"
@@ -1363,32 +1422,34 @@
    "quote": "Waist circumference was measured at the midaxillary line (ie, at the halfway point between the bony landmarks of the lowest rib and the top of the iliac crest), while the hip circumference measurement was taken at the point of greatest protuberance of the participant’s buttocks when viewed from the side.",
    "locator": "Methods — anthropometry",
    "ref": "seimon2019",
-   "support": "partial",
-   "note": "Switched from kssoGuide2022, which nowhere describes the technique. seimon2019 gives the landmark (midpoint between the lowest rib and the iliac crest) but not the \"at the end of expiration\" part of the answer."
+   "support": "direct",
+   "note": "'숨을 내쉰 뒤'라는 조건은 코퍼스 어느 자료에도 없어 정답에서 뺐고, 측정 지점만 출처 표현 그대로 남겼어요.",
+   "access": "fulltext"
   }
  },
  {
-  "q": "What is the most effective way to reduce visceral fat?",
+  "q": "Which approach improves body weight, BMI and waist circumference more?",
   "a": [
-   "Calorie restriction with regular aerobic and resistance exercise",
-   "Daily sit-ups only",
+   "Combining exercise therapy with dietary therapy rather than exercise alone",
+   "Repeating spot exercises for one body area",
    "Sweating in a sauna",
-   "Fasting one meal a day"
+   "Skipping one meal a day"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016 / Donnelly, J. E., Blair, S. N., Jakicic, J. M., Manore, M. M., Rankin, J. W., & Smith, B. K. (2009). Appropriate physical activity intervention strategies for weight loss and prevention of weight regain for adults (ACSM position stand). Medicine & Science in Sports & Exercise, 41(2), 459–471. https://doi.org/10.1249/MSS.0b013e3181949333",
-  "exp": "Visceral fat responds best to calorie restriction with aerobic and resistance exercise; spot exercises do not remove it.",
+  "exp": "Body weight, BMI and waist circumference all improved more when exercise therapy was combined with dietary therapy than with exercise therapy alone.",
   "refs": [
    "kssoGuide2022",
    "donnelly2009"
   ],
   "evidence": {
    "quote": "Compared to exercise therapy alone, it has been shown that body weight, BMI, and WC are more improved when exercise therapy is combined with dietary therapy.",
-   "locator": "LIFESTYLE-RELATED THERAPY — exercise therapy",
+   "locator": "PMC full text — LIFESTYLE-RELATED THERAPY (exercise therapy)",
    "ref": "kssoGuide2022",
-   "support": "partial",
-   "note": "The guideline shows that diet plus exercise improves body weight, BMI and waist circumference more than exercise alone - waist circumference is only a surrogate for visceral fat, and neither cited file states that visceral fat specifically responds best to calorie restriction plus aerobic/resistance training (donnelly2009 abstract does not mention visceral/abdominal fat at all)."
+   "support": "direct",
+   "note": "'내장지방에 가장 효과적'이라는 주장은 출처 범위를 넘어요. 지침이 실제로 보고한 지표(체중·BMI·허리둘레)와 비교 대상(운동 단독 vs 식사 병행)으로 문항을 맞췄어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1413,7 +1474,8 @@
    "locator": "Evidence statement ES3, 3.1.1 Weight loss and glycemia",
    "ref": "jensen2014",
    "support": "direct",
-   "note": "Switched from lean2018 (DiRECT, >=15 kg remission) to the AHA/ACC/TOS guideline, which quantifies exactly the 5%-10% band. The source reports HbA1c and medication need, not insulin sensitivity."
+   "note": "Switched from lean2018 (DiRECT, >=15 kg remission) to the AHA/ACC/TOS guideline, which quantifies exactly the 5%-10% band. The source reports HbA1c and medication need, not insulin sensitivity.",
+   "access": "fulltext"
   }
  },
  {
@@ -1438,7 +1500,8 @@
    "locator": "Clinical implications — NAFLD and type 2 diabetes",
    "ref": "rinellaGuide2023",
    "support": "direct",
-   "note": "The AASLD 2023 full text (new to the corpus) states the bidirectional relationship outright and quantifies the forward direction."
+   "note": "The AASLD 2023 full text (new to the corpus) states the bidirectional relationship outright and quantifies the forward direction.",
+   "access": "fulltext"
   }
  },
  {
@@ -1462,7 +1525,8 @@
    "locator": "Risk stratification — primary risk assessment (Figure 2) and T2DM screening",
    "ref": "rinellaGuide2023",
    "support": "direct",
-   "note": "rinellaGuide2023 now has a full text in the corpus and sets the FIB-4-first fibrosis pathway specifically for patients with type 2 diabetes."
+   "note": "rinellaGuide2023 now has a full text in the corpus and sets the FIB-4-first fibrosis pathway specifically for patients with type 2 diabetes.",
+   "access": "fulltext"
   }
  },
  {
@@ -1484,7 +1548,8 @@
    "quote": "All women gained SAT over time; however, only those who became postmenopausal had a significant increase in VAT. The postmenopausal group also exhibited a significant decrease in serum estradiol.",
    "locator": "Abstract — Results",
    "ref": "lovejoy2008",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -1507,30 +1572,32 @@
    "quote": "연령대별로 보면, 2022년 단면적인 비만 유병률은 30, 40대 남성에서 각각 55.8%, 54.9%로 가장 높지만, 증가세는 20대 남성에서 가장 두드러져, 2013년 32.2%였는데 2022년에는 45%로 10년간 1.4배의 증가가 있어서 젊은 남성에서의 비만 증가세가 심각하다는 것을 알 수 있다.",
    "locator": "비만 유병률의 지속적 증가 (JKMA 2026;69(1):4-8 요약 기사)",
    "ref": "kssoFS2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
-  "q": "What needs special attention when managing obesity in older adults?",
+  "q": "What is important to prevent sarcopenic obesity when treating obesity in older adults?",
   "a": [
-   "Combine a protein-rich diet with more physical activity to prevent sarcopenic obesity",
+   "Adequate protein intake",
+   "Restricting protein as much as possible",
    "Losing as much weight as fast as possible",
-   "Avoiding resistance exercise as dangerous",
-   "Restricting protein"
+   "Reducing fluid intake"
   ],
   "correct": 0,
   "diff": "mid",
   "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
-  "exp": "Older adults lose muscle easily during weight loss, so resistance training and adequate protein prevent sarcopenic obesity.",
+  "exp": "Older adults readily lose muscle while losing weight, so the guideline treats adequate protein intake as important for preventing sarcopenic obesity.",
   "refs": [
    "kssoGuide2022"
   ],
   "evidence": {
-   "quote": "노인 비만 치료를 위해 우선적으로 단백질이 풍부한 저열량 식사와 활동량 … 증가를 권고한다. (A, Class I) … 노인 비만 관리 시 골다공증 및 근감소증에 대한 평가를 고려할 수 있다.",
-   "locator": "부록: 비만 진료지침 2022 요약본 — 8. 노인 비만 지침 3~4",
+   "quote": "Adequate protein intake is important to prevent sarcopenic obesity in the treatment of elderly obesity.",
+   "locator": "PMC full text — LIFESTYLE-RELATED THERAPY (diet therapy)",
    "ref": "kssoGuide2022",
-   "support": "partial",
-   "note": "The guideline pairs protein-rich low-energy meals with increased activity and adds sarcopenia/osteoporosis assessment, but it prescribes \"활동량 증가\" rather than resistance exercise specifically for elderly sarcopenic obesity. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "support": "direct",
+   "note": "지침은 '활동량 증가'라고만 쓰고 근력운동을 노인 근감소성 비만 대책으로 처방하지 않아요. 출처가 명시한 단백질 섭취로 정답을 좁혔어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1552,31 +1619,33 @@
    "quote": "Most young adults with diabetes were obese, with obesity and abdominal obesity rates of 87.1% and 84.0%, respectively. Among older adults with diabetes, the percentages of obesity and abdominal obesity were 43.5% and 62.9%, respectively ( Fig. 4A and Supplementary Table 3 ). Among young adults with diabetes, 43.3% were aware of their condition, 34.6% were treated with antidiabetic drugs, and 29.6% achieved HbA1c levels <6.5%.",
    "locator": "Results — 'Characterisctics of young and older adults with diabetes'",
    "ref": "kdaDFS2024",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
-  "q": "Why does obesity matter so much in adults with diabetes?",
+  "q": "What proportion of Korean adults with diabetes also have obesity?",
   "a": [
-   "More than half of people with diabetes have obesity, and it makes glucose, blood pressure and lipid control harder",
-   "Obesity is rare in people with diabetes",
-   "Obesity lowers glucose",
-   "Obesity increases insulin secretion"
+   "About 53.8%",
+   "About 20%",
+   "About 35%",
+   "About 75%"
   ],
   "correct": 0,
   "diff": "mid",
   "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24–33. https://doi.org/10.4093/dmj.2024.0818 / Choi, J. H., Lee, K. A., Moon, J. H., Chon, S., Kim, D. J., Kim, H. J., Kim, N. H., Seo, J. A., Kim, M. K., Lim, J. H., Song, Y., Yang, Y. S., Kim, J. H., Lee, Y.-B., Noh, J., Hur, K. Y., Park, J. S., Rhee, S. Y., Kim, H. J., … Moon, M. K. (2023). 2023 Clinical practice guidelines for diabetes mellitus of the Korean Diabetes Association. Diabetes & Metabolism Journal, 47(5), 575–594. https://doi.org/10.4093/dmj.2023.0282",
-  "exp": "More than half of people with diabetes have obesity, which makes glucose, blood pressure and lipid control all harder.",
+  "exp": "53.8% of Korean adults with diabetes have obesity and 61.2% have abdominal obesity, with a further 19.7% in the overweight range.",
   "refs": [
    "kdaDFS2024",
    "kdaGuide2023"
   ],
   "evidence": {
    "quote": "The prevalence of obesity among adults with diabetes mellitus was 53.8% (56.0% in men and 50.9% in women), with class I obesity accounting for 42.2% ( Table 2 ). The overweight prevalence was 19.7%, and abdominal obesity was reported in 61.2%, with slightly higher percentages in women (62.4%) than in men (60.3%).",
-   "locator": "Results — prevalence of comorbidities/obesity in adults with diabetes (Table 2)",
+   "locator": "Results — prevalence of obesity in adults with diabetes (Table 2)",
    "ref": "kdaDFS2024",
-   "support": "partial",
-   "note": "Supports the first half of the answer (more than half — 53.8% — of Korean adults with diabetes have obesity). Neither cited file states that obesity makes glucose, blood pressure and lipid control harder; kdaGuide2023 mentions obesity only as a T2DM risk factor and in the NAFLD/bariatric-surgery sections."
+   "support": "direct",
+   "note": "'비만이 혈당·혈압·지질 조절을 모두 어렵게 한다'는 진술은 인용 자료 어디에도 없어요. 팩트시트가 보고한 유병률 수치만 묻는 문항으로 바꿨어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1598,21 +1667,22 @@
    "quote": "New information regarding neuronal circuits that control food intake and their hormonal regulation has extended our understanding of energy homeostasis, the process whereby energy intake is matched to energy expenditure over time. … each new signalling pathway discovered in the hypothalamus is a potential target for drug development in the treatment of obesity",
    "locator": "Abstract",
    "ref": "schwartz2000",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
-  "q": "Where is leptin produced and what does it do?",
+  "q": "What was the ob gene product (leptin) shown to do?",
   "a": [
-   "It is made by fat cells and suppresses appetite",
-   "It is made by the stomach and triggers hunger",
-   "It is made by the pancreas and raises glucose",
-   "It is made by the liver and stores fat"
+   "It acts as part of a signalling pathway from adipose tissue that regulates the size of the body fat depot",
+   "It comes from the stomach and regulates gastric acid",
+   "It comes from the pancreas and raises blood glucose",
+   "It comes from the liver and regulates bile secretion"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Zhang, Y., Proenca, R., Maffei, M., Barone, M., Leopold, L., & Friedman, J. M. (1994). Positional cloning of the mouse obese gene and its human homologue. Nature, 372(6505), 425–432. https://doi.org/10.1038/372425a0 / Schwartz, M. W., Woods, S. C., Porte, D., Jr., Seeley, R. J., & Baskin, D. G. (2000). Central nervous system control of food intake. Nature, 404(6778), 661–671. https://doi.org/10.1038/35007534",
-  "exp": "Leptin from fat cells tells the hypothalamus the body is well fed and suppresses appetite.",
+  "exp": "Mutation of ob causes profound obesity and type II diabetes in a syndrome resembling human morbid obesity, and its product acts as part of a signalling pathway from adipose tissue that regulates the size of the body fat depot.",
   "refs": [
    "zhang1994",
    "schwartz2000"
@@ -1621,57 +1691,58 @@
    "quote": "Mutation of ob results in profound obesity and type II diabetes as part of a syndrome that resembles morbid obesity in humans. The ob gene product may function as part of a signalling pathway from adipose tissue that acts to regulate the size of the body fat depot.",
    "locator": "Abstract",
    "ref": "zhang1994",
-   "support": "partial",
-   "quote2": "The profound obesity that results in rodents (and in the rare human case as well) from mutation of key signalling molecules involved in this regulatory system highlights its importance to human health.",
-   "ref2": "schwartz2000",
-   "note": "Supports that the ob gene product (leptin) is an adipose-tissue signal regulating body fat. The abstract does not state that it acts on the hypothalamus to suppress appetite; the schwartz2000 abstract (the second ref) does not mention leptin by name. Appetite suppression would need Halaas 1995 or the full text of Schwartz 2000."
+   "support": "direct",
+   "note": "시상하부에 작용해 식욕을 억제한다는 내용은 zhang1994에도 schwartz2000 초록에도 없어요. 이 논문이 실제로 말한 '지방조직에서 나와 체지방량을 조절하는 신호'로 정답을 맞췄어요.",
+   "access": "abstract"
   }
  },
  {
-  "q": "Which statement about ghrelin is correct?",
+  "q": "Where was ghrelin purified from and what does it do?",
   "a": [
-   "It is released from the stomach and stimulates hunger",
-   "It is released from fat cells and suppresses appetite",
-   "It is released from muscle and raises heat production",
-   "It is released from the kidney and regulates water"
+   "It is an acylated peptide purified from the stomach that releases growth hormone in vivo and in vitro",
+   "It comes from fat cells and regulates body fat stores",
+   "It comes from pancreatic beta cells and lowers blood glucose",
+   "It comes from the kidney and stimulates red cell production"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Kojima, M., Hosoda, H., Date, Y., Nakazato, M., Matsuo, H., & Kangawa, K. (1999). Ghrelin is a growth-hormone-releasing acylated peptide from stomach. Nature, 402(6762), 656–660. https://doi.org/10.1038/45230",
-  "exp": "Ghrelin is the hunger hormone from the stomach that rises before meals.",
+  "exp": "Ghrelin is a 28-amino-acid peptide purified from rat stomach whose serine 3 must be n-octanoylated to work; the acylated peptide releases growth hormone both in vivo and in vitro.",
   "refs": [
    "kojima1999"
   ],
   "evidence": {
-   "quote": "We now report the purification and identification in rat stomach of an endogenous ligand specific for GHS-R. The purified ligand is a peptide of 28 amino acids, in which the serine 3 residue is n-octanoylated.",
+   "quote": "We now report the purification and identification in rat stomach of an endogenous ligand specific for GHS-R. The purified ligand is a peptide of 28 amino acids, in which the serine 3 residue is n-octanoylated. The acylated peptide specifically releases GH both in vivo and in vitro, and O-n-octanoylation at serine 3 is essential for the activity.",
    "locator": "Abstract",
    "ref": "kojima1999",
-   "support": "partial",
-   "note": "Directly supports the gastric origin of ghrelin. This paper characterises ghrelin as a growth-hormone-releasing peptide and says nothing about hunger or appetite; the orexigenic role would need Wren 2001 or Cummings 2001."
+   "support": "direct",
+   "note": "'배고픔을 자극한다'는 내용은 kojima1999에 없어요(Wren 2001·Cummings 2001의 결과). 위 기원과 성장호르몬 분비라는 이 논문의 결과로 정답을 바꿨어요.",
+   "access": "abstract"
   }
  },
  {
-  "q": "What is the typical course after lifestyle-induced weight loss?",
+  "q": "What is the typical course after diet-induced weight loss?",
   "a": [
-   "Loss peaks at about 6 months and then slowly reverses, leaving only 3-4 kg at 2 years",
-   "Loss continues and people are lighter at 5 years",
+   "Loss is maximal at 6 months, then slowly reverses, leaving 4-10 kg at 1 year and 3-4 kg at 2 years",
+   "Loss keeps going, so people are lighter at 2 years",
    "Once lost, weight is mostly kept for life",
    "Everything is regained within a month"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Jensen, M. D., Ryan, D. H., Apovian, C. M., Ard, J. D., Comuzzie, A. G., Donato, K. A., Hu, F. B., Hubbard, V. S., Jakicic, J. M., Kushner, R. F., Loria, C. M., Millen, B. E., Nonas, C. A., Pi-Sunyer, F. X., Stevens, J., Stevens, V. J., Wadden, T. A., Wolfe, B. M., & Yanovski, S. Z. (2014). 2013 AHA/ACC/TOS guideline for the management of overweight and obesity in adults. Circulation, 129(25 Suppl 2), S102–S138. https://doi.org/10.1161/01.cir.0000437739.71477.ee / National Health and Medical Research Council. (2013). Clinical practice guidelines for the management of overweight and obesity in adults, adolescents and children in Australia. NHMRC.",
-  "exp": "Loss peaks at 6–12 months, most is regained within 2 years and most people are back at baseline by 5 years, so maintenance is key.",
+  "exp": "Weight loss from dietary intervention peaks at 6 months (4-12 kg), then slow regain follows as treatment and follow-up taper, leaving 4-10 kg at 1 year and 3-4 kg at 2 years.",
   "refs": [
    "jensen2014",
    "nhmrc2013"
   ],
   "evidence": {
-   "quote": "With dietary intervention in overweight and obese adults, average weight loss is maximal at 6 months, with smaller losses maintained for up to 2 years, while treatment and follow-up tapers. … Thereafter, slow weight regain is observed, with total weight loss at 1 year of 4 kg to 10 kg and at 2 years of 3 kg to 4 kg.",
-   "locator": "Evidence statement, 3.3 Dietary approaches",
+   "quote": "With dietary intervention in overweight and obese adults, average weight loss is maximal at 6 months, with smaller losses maintained for up to 2 years, while treatment and follow-up tapers. Weight loss achieved by dietary techniques aimed at reducing daily energy intake ranges from 4 kg to 12 kg at 6-month follow-up. Thereafter, slow weight regain is observed, with total weight loss at 1 year of 4 kg to 10 kg and at 2 years of 3 kg to 4 kg.",
+   "locator": "Evidence statement ES3, 3.3.2 Pattern of weight loss over time with dietary intervention",
    "ref": "jensen2014",
-   "support": "partial",
-   "note": "nhmrc2013 has no corpus file. jensen2014 documents the 6-month nadir and the slow regain, but follows people only to 2 years, so the \"back to starting weight by 5 years\" half of the answer is still unsupported."
+   "support": "direct",
+   "note": "nhmrc2013은 코퍼스에 파일이 없고, '5년이면 대다수가 원래 체중'이라는 부분은 2년까지만 추적한 jensen2014로 뒷받침되지 않아요. 근거가 있는 2년 시점까지의 숫자로 정답과 해설을 맞췄어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1696,21 +1767,22 @@
    "ref": "rosenbaum2016",
    "support": "direct",
    "quote2": "Metabolic adaptation was defined as the residual RMR after adjusting for changes in body composition and age. … Conclusions Metabolic adaptation persists over time and is likely a proportional, but incomplete, response to contemporaneous efforts to reduce body weight.",
-   "ref2": "fothergill2016"
+   "ref2": "fothergill2016",
+   "access": "abstract"
   }
  },
  {
-  "q": "One year after weight loss, how does hunger compare with before?",
+  "q": "One year after weight loss, what happens to the circulating mediators of appetite?",
   "a": [
-   "It is still higher than before the loss",
-   "It returns to the pre-loss level",
-   "It is lower than before",
-   "It disappears completely"
+   "They do not return to pre-weight-loss levels and keep encouraging weight regain",
+   "They return fully to pre-loss levels",
+   "They shift towards suppressing appetite more than before",
+   "They become undetectable"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Sumithran, P., Prendergast, L. A., Delbridge, E., Purcell, K., Shulkes, A., Kriketos, A., & Proietto, J. (2011). Long-term persistence of hormonal adaptations to weight loss. New England Journal of Medicine, 365(17), 1597–1604. https://doi.org/10.1056/NEJMoa1105816",
-  "exp": "A year after weight loss, hunger and appetite hormones remain higher than before the loss.",
+  "exp": "A year after initial weight reduction, the circulating mediators of appetite that encourage regain have still not reverted to their pre-weight-loss levels.",
   "refs": [
    "sumithran2011"
   ],
@@ -1718,8 +1790,9 @@
    "quote": "One year after initial weight reduction, levels of the circulating mediators of appetite that encourage weight regain after diet-induced weight loss do not revert to the levels recorded before weight loss.",
    "locator": "Abstract — Conclusions",
    "ref": "sumithran2011",
-   "support": "partial",
-   "note": "The abstract states that the hormonal mediators of appetite have not returned to pre-weight-loss levels at one year, and that subjective ratings of appetite were measured, but it does not report the finding that subjective hunger itself remained higher than baseline. That figure is in the full text (Figure 2 / Table 2) of the NEJM paper."
+   "support": "direct",
+   "note": "주관적 허기 점수가 기저치보다 높게 남았다는 결과는 본문 그림·표에 있고 초록에는 없어요. 초록이 결론으로 명시한 '순환 매개물질'로 문항을 맞췄어요.",
+   "access": "abstract"
   }
  },
  {
@@ -1741,7 +1814,8 @@
    "quote": "There was a strong relation between the weight class of the adoptees and the body-mass index of their biologic parents - for the mothers, P less than 0.0001; for the fathers, P less than 0.02. There was no relation between the weight class of the adoptees and the body-mass index of their adoptive parents.",
    "locator": "Abstract — Results",
    "ref": "stunkard1986",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -1763,31 +1837,33 @@
    "quote": "All women gained SAT over time; however, only those who became postmenopausal had a significant increase in VAT. … Middle-aged women gained SAT with age, whereas menopause per se was associated with an increase in total body fat and VAT.",
    "locator": "Abstract — Results/Conclusion",
    "ref": "lovejoy2008",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
-  "q": "Which of these is NOT a medical cause of weight gain?",
+  "q": "Which neurological and endocrine causes of secondary obesity does the guideline table list?",
   "a": [
-   "Hyperthyroidism",
-   "Cushing syndrome",
-   "Hypothalamic injury",
-   "Prader–Willi syndrome"
+   "Hypothalamic obesity, Cushing syndrome, insulinoma, polycystic ovary syndrome, adult growth hormone deficiency and hypothyroidism",
+   "Hyperthyroidism, Addison disease and type 1 diabetes",
+   "Acromegaly, phaeochromocytoma and diabetes insipidus",
+   "Hyperparathyroidism, hypercalcaemia and hypoglycaemia"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Nieman, L. K., Biller, B. M. K., Findling, J. W., Newell-Price, J., Savage, M. O., Stewart, P. M., & Montori, V. M. (2008). The diagnosis of Cushing's syndrome: An Endocrine Society clinical practice guideline. Journal of Clinical Endocrinology & Metabolism, 93(5), 1526–1540. https://doi.org/10.1210/jc.2008-0125 / Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
-  "exp": "Hyperthyroidism causes weight loss; Cushing syndrome, hypothalamic injury and Prader–Willi syndrome cause gain.",
+  "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016 / Nieman, L. K., Biller, B. M. K., Findling, J. W., Newell-Price, J., Savage, M. O., Stewart, P. M., & Montori, V. M. (2008). The diagnosis of Cushing's syndrome: An Endocrine Society clinical practice guideline. Journal of Clinical Endocrinology & Metabolism, 93(5), 1526–1540. https://doi.org/10.1210/jc.2008-0125",
+  "exp": "The table lists hypothalamic obesity (from trauma, tumour, infection, surgery or raised intracranial pressure), Cushing syndrome, insulinoma, polycystic ovary syndrome, adult growth hormone deficiency and hypothyroidism; the thyroid condition on the list is hypothyroidism.",
   "refs": [
-   "nieman2008",
-   "kssoGuide2022"
+   "kssoGuide2022",
+   "nieman2008"
   ],
   "evidence": {
-   "quote": "신경 및 내분비계 • 시상하부성 비만: 외상, 종양, 감염성 질환, 수술, 뇌압 상승 … 질환 • 쿠싱 증후군(Cushing syndrome) … • 인슐린종(Insulinoma) … • 다낭성난소증후군(Polycystic ovary syndrome) … • 성인 성장호르몬 결핍증 … • 갑상선기능저하증",
+   "quote": "신경 및 내분비계 • 시상하부성 비만: 외상, 종양, 감염성 질환, 수술, 뇌압 상승\n 질환 • 쿠싱 증후군(Cushing syndrome)\n • 인슐린종(Insulinoma)\n • 다낭성난소증후군(Polycystic ovary syndrome)\n • 성인 성장호르몬 결핍증\n • 갑상선기능저하증",
    "locator": "부록: 비만 진료지침 2022 요약본 — 표 1. 이차성 비만의 원인(신경 및 내분비계 질환)",
    "ref": "kssoGuide2022",
-   "support": "partial",
-   "note": "The Korean appendix now carries the secondary-obesity table the PMC extraction had stripped. It lists hypothyroidism (갑상선기능저하증) and not hyperthyroidism, so the answer holds by omission rather than by an explicit statement that hyperthyroidism causes weight loss. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "support": "direct",
+   "note": "'갑상샘기능항진증은 아니다'는 목록에 없다는 사실(누락)로만 성립했어요. 표에 실제로 적힌 원인 목록을 그대로 묻는 문항으로 바꿔 누락 기반 정답을 없앴어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1809,7 +1885,8 @@
    "quote": "The risk factors include raised blood pressure, dyslipidemia (raised triglycerides and lowered high-density lipoprotein cholesterol), raised fasting glucose, and central obesity. … Three abnormal findings out of 5 would qualify a person for the metabolic syndrome.",
    "locator": "Abstract",
    "ref": "alberti2009",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -1831,7 +1908,8 @@
    "quote": "It was agreed that there should not be an obligatory component, but that waist measurement would continue to be a useful preliminary screening tool. Three abnormal findings out of 5 would qualify a person for the metabolic syndrome.",
    "locator": "Abstract",
    "ref": "alberti2009",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -1854,31 +1932,33 @@
    "locator": "Recommendations — Assessment and management of metabolic features (glycemic status)",
    "ref": "teede2018",
    "support": "direct",
-   "note": "The re-extracted teede2018 text now contains the metabolic-screening recommendations, which state the increased type 2 diabetes risk explicitly; insulin resistance as a core PCOS feature is supported elsewhere in the same document."
+   "note": "The re-extracted teede2018 text now contains the metabolic-screening recommendations, which state the increased type 2 diabetes risk explicitly; insulin resistance as a core PCOS feature is supported elsewhere in the same document.",
+   "access": "fulltext"
   }
  },
  {
-  "q": "What is the strongest predictor of obstructive sleep apnoea?",
+  "q": "How much more common is obstructive sleep apnoea in people with obesity?",
   "a": [
-   "Obesity",
-   "Age",
-   "Sex",
-   "Hypertension"
+   "About 4.5-fold more prevalent in the group with obesity",
+   "About 1.2-fold, so little difference",
+   "No difference by obesity status",
+   "Less common in the group with obesity"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094 / Epstein, L. J., Kristo, D., Strollo, P. J., Jr., Friedman, N., Malhotra, A., Patil, S. P., Ramar, K., Rogers, R., Schwab, R. J., Weaver, E. M., & Weinstein, M. D. (2009). Clinical guideline for the evaluation, management and long-term care of obstructive sleep apnea in adults. Journal of Clinical Sleep Medicine, 5(3), 263–276.",
-  "exp": "Obesity is the strongest predictor of sleep apnoea, ahead of age, sex or hypertension.",
+  "exp": "The fact sheet found OSA 4.5-fold more prevalent in the group with obesity, with the gap staying large across all age groups; central obesity and upper-airway adiposity are named as key contributors to OSA severity.",
   "refs": [
    "kssoFS2025",
    "epstein2009"
   ],
   "evidence": {
-   "quote": "This is in line with existing evidence that central obesity and upper-airway adiposity are key contributors to OSA severity.",
+   "quote": "OSA was strikingly more prevalent in the obese group (4.5-fold overall), and the difference remained large across all age groups. This is in line with existing evidence that central obesity and upper-airway adiposity are key contributors to OSA severity.",
    "locator": "2025 Obesity Fact Sheet — obesity and obstructive sleep apnea",
    "ref": "kssoFS2025",
-   "support": "partial",
-   "note": "epstein2009 never mentions obesity. The KSSO 2025 fact sheet names central obesity and upper-airway adiposity as key contributors to OSA severity, but does not rank obesity as the single strongest predictor above age, sex or hypertension."
+   "support": "direct",
+   "note": "'나이·성별·고혈압보다 강력한 예측인자'라는 순위 주장은 어떤 자료에도 없어요. 팩트시트가 보고한 유병 배수와 기여인자 서술로 문항을 바꿨어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -1900,7 +1980,8 @@
    "quote": "Current classifications of obesity based on body mass index, waist circumference and other anthropometric measures, although useful for population studies, have important limitations when applied to individuals in clinical practice. Thus, these measures do not provide information on presence or extent of comorbidities or functional limitations that would guide decision making in individuals.",
    "locator": "Abstract",
    "ref": "sharma2009",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -1908,22 +1989,23 @@
   "a": [
    "Ask permission to discuss weight first, then explore readiness for change without judgement",
    "Point out the weight in the first sentence so it is not forgotten",
-   "Set the presenting complaint aside and talk only about weight",
-   "Never mention weight until the patient does"
+   "Never mention weight until the patient does",
+   "Leave weight talk to doctors and avoid it as a nurse"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Vallis, M., Piccinini-Vallis, H., Sharma, A. M., & Freedhoff, Y. (2013). Modified 5 As: Minimal intervention for obesity counseling in primary care. Canadian Family Physician, 59(1), 27–31.",
-  "exp": "Handle the presenting problem first and link weight to it where possible so the conversation stays open.",
+  "exp": "Start by asking permission to discuss weight and exploring readiness for change without judgement, then assess BMI, waist circumference and obesity stage while exploring the drivers and complications of excess weight.",
   "refs": [
    "vallis2013"
   ],
   "evidence": {
    "quote": "Ask permission to discuss weight; be nonjudgmental and explore the patient's readiness for change. Assess body mass index, waist circumference, and obesity stage; explore drivers and complications of excess weight.",
-   "locator": "Main message — the 5 As (ask, assess)",
+   "locator": "Main message — the 5 As (Ask, Assess)",
    "ref": "vallis2013",
-   "support": "partial",
-   "note": "The 5 As paper gives the opening move as asking permission and being non-judgemental; it never states the sequencing rule in the answer (handle the presenting complaint first, then link weight to it)."
+   "support": "direct",
+   "note": "정답은 출처의 5A(Ask·Assess)와 그대로 맞아 유지했고, '주 호소를 먼저 다루고 체중과 연결한다'는 순서 규칙이 출처에 없어 해설만 5A 내용으로 교체했어요. 오답 보기 하나도 정답과 겹치지 않게 바꿨어요.",
+   "access": "abstract"
   }
  },
  {
@@ -1945,7 +2027,8 @@
    "quote": "The diets improved lipid-related risk factors and fasting insulin levels. Conclusions Reduced-calorie diets result in clinically meaningful weight loss regardless of which macronutrients they emphasize.",
    "locator": "Abstract — Results/Conclusions (the trial randomised 811 overweight adults to four diets for 2 years)",
    "ref": "sacks2009",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -1967,7 +2050,8 @@
    "quote": "Conclusion IER is as effective as CER with regard to weight loss, insulin sensitivity and other health biomarkers, and may be offered as an alternative equivalent to CER for weight loss and reducing disease risk.",
    "locator": "Abstract — Conclusion (IER = ~2710 kJ/day for 2 days/week, i.e. the 5:2 pattern)",
    "ref": "harvie2011",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -1989,32 +2073,34 @@
    "quote": "Cross-sectional and prospective studies indicate that after weight loss, weight maintenance is improved with PA >250 min wk(-1). However, no evidence from well-designed randomized controlled trials exists to judge the effectiveness of PA for prevention of weight regain after weight loss. Resistance training does not enhance weight loss but may increase fat-free mass and increase loss of fat mass and is associated with reductions in health risk.",
    "locator": "Abstract — evidence summary (ACSM Position Stand)",
    "ref": "donnelly2009",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
-  "q": "What is described as the hardest part of obesity treatment?",
+  "q": "Which statement about weight regain after initial loss is correct?",
   "a": [
-   "Keeping weight off long term — obesity is a chronic condition needing lifelong care",
-   "Losing the first kilogram",
-   "Choosing a diet",
-   "Choosing a type of exercise"
+   "Some regain is expected on average and grows over time, but continuing a comprehensive maintenance programme reduces it",
+   "Regain hardly ever happens",
+   "Maintenance programmes make no difference to regain",
+   "All the regain happens within a month of the loss"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Jensen, M. D., Ryan, D. H., Apovian, C. M., Ard, J. D., Comuzzie, A. G., Donato, K. A., Hu, F. B., Hubbard, V. S., Jakicic, J. M., Kushner, R. F., Loria, C. M., Millen, B. E., Nonas, C. A., Pi-Sunyer, F. X., Stevens, J., Stevens, V. J., Wadden, T. A., Wolfe, B. M., & Yanovski, S. Z. (2014). 2013 AHA/ACC/TOS guideline for the management of overweight and obesity in adults. Circulation, 129(25 Suppl 2), S102–S138. https://doi.org/10.1161/01.cir.0000437739.71477.ee / National Health and Medical Research Council. (2013). Clinical practice guidelines for the management of overweight and obesity in adults, adolescents and children in Australia. NHMRC. / Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
-  "exp": "Keeping weight off long term is the hard part, which is why obesity is treated as a chronic condition needing lifelong care.",
+  "exp": "Some regain is expected on average and grows over longer periods, but continuing a comprehensive maintenance programme (on site or by telephone) for up to 2.5 years reduces regain compared with minimal intervention; the optimal duration is still undetermined.",
   "refs": [
    "jensen2014",
    "nhmrc2013",
    "rubino2025"
   ],
   "evidence": {
-   "quote": "After initial weight loss, some weight regain can be expected, on average, with greater regain observed over longer periods of time. … The optimal duration of weight loss maintenance programs has not been determined.",
+   "quote": "After initial weight loss, some weight regain can be expected, on average, with greater regain observed over longer periods of time. Continued provision of a comprehensive weight loss maintenance program (on site or by telephone) for periods of up to 2.5 years after initial weight loss reduces weight regain, as compared with the provision of minimal intervention (ie, usual care). The optimal duration of weight loss maintenance programs has not been determined.",
    "locator": "Evidence statement ES8a, 3.4.8 Maintaining lost weight",
    "ref": "jensen2014",
-   "support": "partial",
-   "note": "nhmrc2013 has no corpus file. jensen2014 documents that regain is expected and that the maintenance question is unsettled, which supports the \"keeping it off is the hard part\" claim indirectly; the \"lifelong chronic disease\" framing rests on rubino2025."
+   "support": "direct",
+   "note": "'가장 어려운 부분'·'평생 관리가 필요한 만성질환'이라는 표현은 jensen2014에 없고 nhmrc2013은 코퍼스에 파일이 없어요. ES8a가 실제로 말하는 재증가 양상과 유지 프로그램 효과를 묻는 문항으로 바꿨어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -2039,7 +2125,8 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 표 1. 이차성 비만의 원인",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "farooqi2007 has no corpus file and nieman2008 is a Cushing diagnostic guideline. The KSSO 2022 secondary-obesity table, newly available in the Korean appendix, lists all three of Prader-Willi syndrome, hypothalamic obesity (trauma, tumour, infection, surgery, raised ICP) and Cushing syndrome. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "farooqi2007 has no corpus file and nieman2008 is a Cushing diagnostic guideline. The KSSO 2022 secondary-obesity table, newly available in the Korean appendix, lists all three of Prader-Willi syndrome, hypothalamic obesity (trauma, tumour, infection, surgery, raised ICP) and Cushing syndrome. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -2064,7 +2151,8 @@
    "locator": "PMC full text — DIAGNOSTIC CRITERIA FOR OBESITY, ABDOMINAL OBESITY, AND METABOLIC SYNDROME",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "styne2017 and cnc2007 are abstracts without the percentile cut-offs. KSSO 2022 states the 95th-percentile obesity threshold explicitly (and again in the Korean appendix, 9. 소아청소년 비만 지침 2)."
+   "note": "styne2017 and cnc2007 are abstracts without the percentile cut-offs. KSSO 2022 states the 95th-percentile obesity threshold explicitly (and again in the Korean appendix, 9. 소아청소년 비만 지침 2).",
+   "access": "fulltext"
   }
  },
  {
@@ -2088,7 +2176,8 @@
    "locator": "Table — clinical assessment, physical examination",
    "ref": "rinellaGuide2023",
    "support": "direct",
-   "note": "higgins2008 has no corpus file. The AASLD 2023 practice guidance, new to the corpus, lists acanthosis nigricans as a physical sign of insulin resistance."
+   "note": "higgins2008 has no corpus file. The AASLD 2023 practice guidance, new to the corpus, lists acanthosis nigricans as a physical sign of insulin resistance.",
+   "access": "fulltext"
   }
  },
  {
@@ -2111,7 +2200,8 @@
    "quote": "Moreover, 44.3% of adults over 30 years of age have prediabetes with impaired fasting glucose or glycosylated hemoglobin (HbA1c) levels of 5.7% to 6.4%",
    "locator": "Summary of revisions (introductory epidemiology paragraph)",
    "ref": "kdaGuide2023",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -2135,7 +2225,8 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 13. 대사증후군 지침 1",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "alberti2009 is unusable (the .txt is abstract-only and the .html is a Cloudflare challenge page). The KSSO 2022 Korean criteria give the triglyceride threshold as 150 mg/dL or on lipid-lowering treatment; the 1.7 mmol/L equivalent is not stated in this source. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "alberti2009 is unusable (the .txt is abstract-only and the .html is a Cloudflare challenge page). The KSSO 2022 Korean criteria give the triglyceride threshold as 150 mg/dL or on lipid-lowering treatment; the 1.7 mmol/L equivalent is not stated in this source. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -2159,13 +2250,14 @@
    "locator": "부록: 비만 진료지침 2022 요약본 — 13. 대사증후군 지침 1",
    "ref": "kssoGuide2022",
    "support": "direct",
-   "note": "The 130/85 mmHg threshold (or on antihypertensive treatment) is stated verbatim in the Korean appendix. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "note": "The 130/85 mmHg threshold (or on antihypertensive treatment) is stated verbatim in the Korean appendix. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
+   "access": "fulltext"
   }
  },
  {
-  "q": "What is required for a definitive diagnosis of obstructive sleep apnoea?",
+  "q": "What should be considered for a patient with fatty liver disease who is overweight or obese and at high risk of sleep apnoea?",
   "a": [
-   "A sleep study, either home testing or laboratory polysomnography",
+   "Polysomnography or another sleep study",
    "A single blood oxygen saturation reading",
    "A chest X-ray",
    "Neck ultrasound"
@@ -2173,7 +2265,7 @@
   "correct": 0,
   "diff": "easy",
   "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323 / Epstein, L. J., Kristo, D., Strollo, P. J., Jr., Friedman, N., Malhotra, A., Patil, S. P., Ramar, K., Rogers, R., Schwab, R. J., Weaver, E. M., & Weinstein, M. D. (2009). Clinical guideline for the evaluation, management and long-term care of obstructive sleep apnea in adults. Journal of Clinical Sleep Medicine, 5(3), 263–276.",
-  "exp": "Questionnaires are for screening; a sleep study is needed for diagnosis, and referral to a sleep medicine clinic is a reasonable alternative.",
+  "exp": "Because of the strong association between fatty liver disease and OSA, patients who are overweight or obese should be screened for OSA, and polysomnography or other sleep studies considered for those at high risk.",
   "refs": [
    "rinellaGuide2023",
    "epstein2009"
@@ -2182,8 +2274,9 @@
    "quote": "Given the strong association between NAFLD and OSA, patients with NAFLD who are overweight or obese should be screened for OSA, and polysomnography or other sleep studies should be considered for those at high risk.",
    "locator": "Extrahepatic comorbidities — obstructive sleep apnea",
    "ref": "rinellaGuide2023",
-   "support": "partial",
-   "note": "epstein2009 (abstract) asks only for \"objective testing\". rinellaGuide2023 names polysomnography or other sleep studies, but home sleep apnea testing is not named and the statement sits in a MASLD context. The KSSO 2022 Korean appendix likewise lists 수면다원검사 among the tests for suspected sleep apnea."
+   "support": "direct",
+   "note": "'가정 수면검사'는 어떤 코퍼스 자료도 명시하지 않아요. 지침 문장의 맥락(지방간질환·과체중/비만·고위험)과 표현(수면다원검사 등 수면검사)에 그대로 맞췄어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -2208,45 +2301,47 @@
    "locator": "Executive summary — abstract",
    "ref": "easl2024",
    "support": "direct",
-   "note": "The full EASL-EASD-EASO 2024 text gives the whole sequence including the cirrhosis-to-HCC end that singh2015 and rinella2023 lacked."
+   "note": "The full EASL-EASD-EASO 2024 text gives the whole sequence including the cirrhosis-to-HCC end that singh2015 and rinella2023 lacked.",
+   "access": "fulltext"
   }
  },
  {
-  "q": "How often is hepatic steatosis found in people with obesity according to the course?",
+  "q": "What is the prevalence of NAFLD in adults with obesity?",
   "a": [
-   "In 80-90% of adults with obesity",
-   "In about 10%, and 20% of those with severe obesity",
-   "In about 30%, and about 40% of those with severe obesity",
-   "In about 5% regardless of obesity"
+   "80-90%",
+   "30-50%",
+   "20-30%",
+   "3-10%"
   ],
   "correct": 0,
   "diff": "mid",
   "src": "Bellentani, S., Scaglioni, F., Marino, M., & Bedogni, G. (2010). Epidemiology of non-alcoholic fatty liver disease. Digestive Diseases, 28(1), 155–161. https://doi.org/10.1159/000282080 / Younossi, Z. M., Golabi, P., Paik, J. M., Henry, A., Van Dongen, C., & Henry, L. (2023). The global epidemiology of nonalcoholic fatty liver disease (NAFLD) and nonalcoholic steatohepatitis (NASH): A systematic review. Hepatology, 77(4), 1335–1347. https://doi.org/10.1097/HEP.0000000000000004",
-  "exp": "Steatosis is found in over two thirds of the population with obesity and in more than 90% of people with severe obesity.",
+  "exp": "NAFLD is present in 80-90% of adults with obesity, 30-50% of people with diabetes and up to 90% of those with hyperlipidaemia.",
   "refs": [
    "bellentani2010",
    "younossi2023"
   ],
   "evidence": {
-   "quote": "The prevalence of NAFLD is 80-90% in obese adults, 30-50% in patients with diabetes and up to 90% in patients with hyperlipidemia. … The prevalence of NAFLD among children is 3-10%, rising up to 40-70% among obese children.",
+   "quote": "The prevalence of NAFLD is 80-90% in obese adults, 30-50% in patients with diabetes and up to 90% in patients with hyperlipidemia.",
    "locator": "Abstract — prevalence by risk group",
    "ref": "bellentani2010",
-   "support": "partial",
-   "note": "The source gives 80-90% in obese adults, which is consistent with \"more than two thirds\", but its \"up to 90%\" refers to hyperlipidaemia, not severe obesity, so the \">90% in severe obesity\" half of the answer remains unsupported."
+   "support": "direct",
+   "note": "'고도비만에서 90% 이상'이라는 부분은 출처에서 고지혈증 환자 수치를 잘못 옮긴 것이었어요. 초록의 수치를 그대로 묻는 문항으로 바꿨어요.",
+   "access": "abstract"
   }
  },
  {
-  "q": "What is the most common precipitating event for obesity in women?",
+  "q": "What affects long-term postpartum weight retention and the development of obesity in women of reproductive age?",
   "a": [
-   "Pregnancy",
-   "Changing jobs",
-   "Moving house",
-   "Stopping smoking"
+   "Primiparity and maternal body size before pregnancy",
+   "Changing jobs and moving house",
+   "Stopping smoking",
+   "Seasonal change"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Gunderson, E. P. (2009). Childbearing and obesity in women: Weight before, during, and after pregnancy. Obstetrics and Gynecology Clinics of North America, 36(2), 317–332. https://doi.org/10.1016/j.ogc.2009.04.001",
-  "exp": "Pregnancy and childbirth are the classic trigger for lasting weight gain in women; pre-pregnancy weight and first birth shape long-term postpartum weight retention.",
+  "exp": "Primiparity and pre-pregnancy body size shape long-term postpartum weight retention and the development of obesity; as a modifiable risk factor, body weight in the preconception, prenatal and postpartum periods offers critical windows for intervention.",
   "refs": [
    "gunderson2009"
   ],
@@ -2254,8 +2349,9 @@
    "quote": "Primiparity and maternal body size before pregnancy affect long-term postpartum weight retention and the development of obesity among women of reproductive age. As a modifiable risk factor, body weight during the preconception, prenatal, and postpartum periods may present critical windows to implement interventions to prevent weight retention and the development of overweight and obesity in women of childbearing age.",
    "locator": "Abstract",
    "ref": "gunderson2009",
-   "support": "partial",
-   "note": "Childbearing as a driver of obesity in women is supported, but the corpus file is an abstract and carries no clinic-series figure such as \"close to 30% of women named pregnancy\"."
+   "support": "direct",
+   "note": "'가장 흔하게 지목되는 촉발 사건'이라는 순위 주장은 초록에 없어요. 초록이 명시한 요인(초산·임신 전 체격)을 묻는 문항으로 바꿨어요.",
+   "access": "abstract"
   }
  },
  {
@@ -2279,7 +2375,8 @@
    "locator": "Recommendations — weight loss goals",
    "ref": "jensen2014",
    "support": "direct",
-   "note": "Both cited guidelines set the initial goal as 5%-10% within 6 months (KSSO 2022 Korean appendix: \"치료 전 체중의 5~10%를 6개월 내에 감량\"), so the answer's \"about 10%\" should become the full range."
+   "note": "Both cited guidelines set the initial goal as 5%-10% within 6 months (KSSO 2022 Korean appendix: \"치료 전 체중의 5~10%를 6개월 내에 감량\"), so the answer's \"about 10%\" should become the full range.",
+   "access": "fulltext"
   }
  },
  {
@@ -2301,7 +2398,8 @@
    "quote": "In comprehensive lifestyle interventions, overweight/obese individuals typically are prescribed a diet designed to induce an energy deficit of ≥500 kcal/d. This deficit often is sought by prescribing 1200 to 1500 kcal/d for women and 1500 to 1800 kcal/d for men.",
    "locator": "Section 4 (CQ4) — 'Reduced-calorie diet' component of comprehensive lifestyle intervention",
    "ref": "jensen2014",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -2325,21 +2423,22 @@
    "locator": "Box 15 — weight loss maintenance",
    "ref": "jensen2014",
    "support": "direct",
-   "note": "The AHA/ACC/TOS guideline specifies a maintenance programme of at least one year, and the KSSO 2022 Korean appendix says the same (\"체중 감량 후 1년 이상의 장기적인 유지를 권고\"). The \"indefinitely\" wording belongs to NHMRC 2013, which has no corpus file."
+   "note": "The AHA/ACC/TOS guideline specifies a maintenance programme of at least one year, and the KSSO 2022 Korean appendix says the same (\"체중 감량 후 1년 이상의 장기적인 유지를 권고\"). The \"indefinitely\" wording belongs to NHMRC 2013, which has no corpus file.",
+   "access": "fulltext"
   }
  },
  {
-  "q": "In the Mediterranean dietary pattern, where does most dietary fat come from?",
+  "q": "What was supplemented to the Mediterranean diet arms in the PREDIMED trial?",
   "a": [
-   "Extra virgin olive oil",
-   "Butter",
-   "Coconut oil",
-   "Lard"
+   "Extra-virgin olive oil or nuts",
+   "Butter or lard",
+   "Coconut oil or palm oil",
+   "Low-fat milk or margarine"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Estruch, R., Martínez-González, M. A., Corella, D., Salas-Salvadó, J., Fitó, M., Chiva-Blanch, G., Fiol, M., Gómez-Gracia, E., Arós, F., Lapetra, J., Serra-Majem, L., Pintó, X., Buil-Cosiales, P., Sorlí, J. V., Muñoz, M. A., Basora-Gallisá, J., Lamuela-Raventós, R. M., Serra-Mir, M., Macías-Peña, C. E., … PREDIMED Study Investigators. (2019). Effect of a high-fat Mediterranean diet on bodyweight and waist circumference: A prespecified secondary outcomes analysis of the PREDIMED randomised controlled trial. The Lancet Diabetes & Endocrinology, 7(5), e6–e17. https://doi.org/10.1016/S2213-8587(19)30074-9",
-  "exp": "The Mediterranean pattern has a high fat intake, mostly as extra virgin olive oil.",
+  "exp": "PREDIMED randomised 7,447 participants to a Mediterranean diet supplemented with extra-virgin olive oil, a Mediterranean diet supplemented with nuts, or a control diet advising reduced dietary fat.",
   "refs": [
    "estruch2019"
   ],
@@ -2347,8 +2446,9 @@
    "quote": "7447 asymptomatic men (aged 55-80 years) and women (aged 60-80 years) who had type 2 diabetes or three or more cardiovascular risk factors were randomly assigned (1:1:1) with a computer-generated number sequence to one of three interventions: Mediterranean diet supplemented with extra-virgin olive oil (n=2543); Mediterranean diet supplemented with nuts (n=2454); or a control diet (advice to reduce dietary fat; n=2450).",
    "locator": "Abstract — Methods",
    "ref": "estruch2019",
-   "support": "partial",
-   "note": "The trial's Mediterranean arm was supplemented with extra-virgin olive oil and is described as 'high-fat, high-vegetable-fat', which is consistent with olive oil being the principal fat source, but the abstract never states that the diet's fat comes mainly from extra-virgin olive oil. That description would need the PREDIMED protocol or the 2013 NEJM primary paper."
+   "support": "direct",
+   "note": "'지중해식의 지방을 주로 올리브유에서 얻는다'는 서술은 초록에 없어요. 초록이 기술한 시험 설계(중재군에 보충된 식품)를 묻는 문항으로 바꿨어요.",
+   "access": "abstract"
   }
  },
  {
@@ -2370,7 +2470,8 @@
    "quote": "Interpretation A long-term intervention with an unrestricted-calorie, high-vegetable-fat Mediterranean diet was associated with no significant difference in bodyweight and some evidence of less gain in central adiposity compared with a control diet. These results lend support to advice not restricting intake of healthy fats for bodyweight maintenance.",
    "locator": "Abstract — Interpretation",
    "ref": "estruch2019",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -2393,7 +2494,8 @@
    "locator": "Abstract — results",
    "ref": "mozaffarian2011",
    "support": "direct",
-   "note": "The abstract names the five foods most strongly associated with 4-year weight gain. Refined grains, alcohol and 100% fruit juice - which the current answer and explanation add - are not in this file."
+   "note": "The abstract names the five foods most strongly associated with 4-year weight gain. Refined grains, alcohol and 100% fruit juice - which the current answer and explanation add - are not in this file.",
+   "access": "abstract"
   }
  },
  {
@@ -2415,46 +2517,48 @@
    "quote": "and was inversely associated with the intake of vegetables (-0.22 lb), whole grains (-0.37 lb), fruits (-0.49 lb), nuts (-0.57 lb), and yogurt (-0.82 lb) (P≤0.005 for each comparison). Aggregate dietary changes were associated with substantial differences in weight change (3.93 lb across quintiles of dietary change).",
    "locator": "Abstract — Results",
    "ref": "mozaffarian2011",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
-  "q": "What is the main limitation of intermittent fasting in practice?",
+  "q": "How does the guideline assess intermittent fasting and time-restricted eating?",
   "a": [
-   "It adds little over continuous energy restriction and long-term evidence is lacking",
+   "No significant difference from continuous energy restriction in weight loss, or only a small one, and limited evidence for including it as a long-term dietary treatment",
+   "Far greater weight loss than continuous energy restriction",
    "It increases body weight instead",
-   "It markedly raises blood pressure",
    "It always increases muscle mass"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016 / Harvie, M. N., Pegington, M., Mattson, M. P., Frystyk, J., Dillon, B., Evans, G., Cuzick, J., Jebb, S. A., Martin, B., Cutler, R. G., Son, T. G., Maudsley, S., Carlson, O. D., Egan, J. M., Flyvbjerg, A., & Howell, A. (2011). The effects of intermittent or continuous energy restriction on weight loss and metabolic disease risk markers. International Journal of Obesity, 35(5), 714–727. https://doi.org/10.1038/ijo.2010.171 / Barber, T. M., Hanson, P., Kabisch, S., Pfeiffer, A. F. H., & Weickert, M. O. (2021). The low-carbohydrate diet: Short-term metabolic efficacy versus longer-term limitations. Nutrients, 13(4), 1187. https://doi.org/10.3390/nu13041187",
-  "exp": "Intermittent fasting promotes weight loss and is easy to apply, but hunger makes maintenance difficult and long-term effects are unclear.",
+  "exp": "The guideline finds no significant difference in weight loss from continuous energy restriction, or only a small one, and considers the evidence too limited to include it as a long-term dietary treatment for obesity.",
   "refs": [
    "kssoGuide2022",
    "harvie2011",
    "barber2021"
   ],
   "evidence": {
-   "quote": "지속적인 에너지 제한방법에 비해 체중 감량 정도에 유의적인 … 차이가 없거나, 있어도 정도가 크지 않음 … 장기간 비만 식사치료의 한 방법으로 포함시키기에는 근거가 … 제한적임",
+   "quote": "지속적인 에너지 제한방법에 비해 체중 감량 정도에 유의적인\n 차이가 없거나, 있어도 정도가 크지 않음\n • •장기간 비만 식사치료의 한 방법으로 포함시키기에는 근거가\n 제한적임",
    "locator": "부록: 비만 진료지침 2022 요약본 — 3. 식사치료 표 1(간헐적 단식/시간제한다이어트)",
    "ref": "kssoGuide2022",
-   "support": "partial",
-   "note": "The KSSO 2022 Korean table states plainly that intermittent fasting adds little over continuous restriction and that the evidence for it as a long-term treatment is limited; it does not attribute the difficulty to hunger. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요."
+   "support": "direct",
+   "note": "원 해설의 '배고픔 때문에 유지가 어렵다'는 지침에 없는 내용이에요. 표가 쓴 두 문장(차이 없음·근거 제한)만 남겼어요. 인용문 중간의 제어문자(\\u0007)는 PDF 글머리표가 추출된 것이라 원문 그대로 두었어요.",
+   "access": "fulltext"
   }
  },
  {
-  "q": "Why does early weight loss look especially large on a low-carbohydrate diet?",
+  "q": "What physiological changes does this review attribute to a low-carbohydrate diet?",
   "a": [
-   "Appetite falls sharply and significant water is lost in the first week or two",
-   "Fat oxidation permanently doubles",
-   "Basal metabolic rate rises sharply",
-   "The gut stops absorbing calories"
+   "Lower plasma insulin with favourable effects on appetite and metabolic rate",
+   "A sharp fall in basal metabolic rate",
+   "Blocked calorie absorption in the gut",
+   "A permanent doubling of fat oxidation"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Barber, T. M., Hanson, P., Kabisch, S., Pfeiffer, A. F. H., & Weickert, M. O. (2021). The low-carbohydrate diet: Short-term metabolic efficacy versus longer-term limitations. Nutrients, 13(4), 1187. https://doi.org/10.3390/nu13041187",
-  "exp": "Reduced appetite, significant water loss and the energy cost of metabolising higher protein all contribute to early loss.",
+  "exp": "Reducing carbohydrate lowers plasma insulin and promotes oxidation of ingested calories in lean tissue with less storage as fat, alongside favourable effects on appetite and metabolic rate.",
   "refs": [
    "barber2021"
   ],
@@ -2462,8 +2566,9 @@
    "quote": "Based on these physiological insights, adoption of the LCD would reduce levels of plasma insulin, and promote the oxidation of ingested calories within lean tissues, with reduced storage as fat and favourable effects on appetite and metabolic rate.",
    "locator": "Section 3 — metabolic effects of the low-carbohydrate diet",
    "ref": "barber2021",
-   "support": "partial",
-   "note": "Supports the appetite half of the answer (favourable effects on appetite with reduced plasma insulin). The review contains no discussion of early water/glycogen-associated fluid loss in the first one to two weeks; its glycogen passages concern fatigue and hypoglycaemia risk, not initial weight loss. That mechanism would need e.g. Kreitzman 1992 or Yang & Van Itallie 1976."
+   "support": "direct",
+   "note": "'첫 1~2주 수분 손실'은 이 리뷰에 없는 기전이에요. 리뷰가 실제로 제시한 인슐린·산화·식욕·대사율로 정답을 맞췄어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -2485,7 +2590,8 @@
    "quote": "the longer-term adoption of the LCD (usually following at least 3-months) can result in dietary deficiencies of minerals, vitamins and trace elements … A relative paucity of dietary fibre intake in the LCD (from the predominance of animal-based high fat and high protein foods, and relative lack of plant-based foods that contain carbohydrates in the form of dietary fibre) may cause constipation and other health problems",
    "locator": "Section 5 — 'Nutritional Deficiencies' (safety concerns of the LCD, Table 1)",
    "ref": "barber2021",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -2508,7 +2614,8 @@
    "quote": "The principal components of an effective high-intensity, on-site comprehensive lifestyle intervention include 1) prescription of a moderately reduced-calorie diet, 2) a program of increased physical activity, and 3) the use of behavioral strategies to facilitate adherence to diet and activity recommendations. All 3 components should be included",
    "locator": "Section 4 (CQ4) — Evidence Statement 1",
    "ref": "jensen2014",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  },
  {
@@ -2533,31 +2640,33 @@
    "ref": "kssoGuide2022",
    "support": "direct",
    "quote2": "An energy deficit of ≥500 kcal/d typically may be achieved with dietary intake of 1200–1500 kcal/d for women and 1500–1800 kcal/d for men. The choice of calorie-restricted diet can be individualized to the patient's preferences and health status (CQ3).",
-   "ref2": "jensen2014"
+   "ref2": "jensen2014",
+   "access": "fulltext"
   }
  },
  {
-  "q": "What proportion of variation in body weight is explained by genetic factors?",
+  "q": "What heritability estimates for BMI are reported by study design?",
   "a": [
-   "About 50-90%",
-   "5-10%",
-   "10-20%",
-   "90-95%"
+   "0.47-0.90 from twin studies and 0.24-0.81 from family studies",
+   "0.05-0.10 from twin studies and 0.02-0.08 from family studies",
+   "0.10-0.20 from twin studies and 0.05-0.15 from family studies",
+   "0.90-0.99 from twin studies and 0.85-0.95 from family studies"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Elks, C. E., den Hoed, M., Zhao, J. H., Sharp, S. J., Wareham, N. J., Loos, R. J. F., & Ong, K. K. (2012). Variability in the heritability of body mass index: A systematic review and meta-regression. Frontiers in Endocrinology, 3, 29. https://doi.org/10.3389/fendo.2012.00029 / Stunkard, A. J., Harris, J. R., Pedersen, N. L., & McClearn, G. E. (1990). The body-mass index of twins who have been reared apart. New England Journal of Medicine, 322(21), 1483–1487. https://doi.org/10.1056/NEJM199005243222102",
-  "exp": "The heritability of body weight is 40% to 70%, and genetic influences act across the whole weight spectrum.",
+  "exp": "BMI heritability is 0.47-0.90 in twin studies (median 0.75) and 0.24-0.81 in family studies (median 0.46), with twin estimates generally higher.",
   "refs": [
    "elks2012",
    "stunkard1990"
   ],
   "evidence": {
    "quote": "BMI heritability estimates from twin studies ranged from 0.47 to 0.90 (5th/50th/95th centiles: 0.58/0.75/0.87) and were generally higher than those from family studies (range: 0.24–0.81; 5th/50th/95th centiles: 0.25/0.46/0.68).",
-   "locator": "Abstract — results",
+   "locator": "Abstract — Results",
    "ref": "elks2012",
-   "support": "partial",
-   "note": "The meta-regression reports 0.47-0.90 from twin studies and 0.24-0.81 from family studies; the answer's 40-70% is a textbook simplification matching neither."
+   "support": "direct",
+   "note": "'50~90%' 정답과 '40~70%' 해설 모두 메타회귀가 보고한 범위와 달라요. 쌍둥이·가족 연구별 실제 범위로 바꿨어요.",
+   "access": "fulltext"
   }
  },
  {
@@ -2579,7 +2688,8 @@
    "quote": "Compared with persons who had normal weight (BMI, 18.5 to 24.9 kg/m2), the adjusted relative risk for ESRD was 1.87 (95% CI, 1.64 to 2.14) for those who were overweight (BMI, 25.0 to 29.9 kg/m2), 3.57 (CI, 3.05 to 4.18) for those with class I obesity (BMI, 30.0 to 34.9 kg/m2), 6.12 (CI, 4.97 to 7.54) for those with class II obesity (BMI, 35.0 to 39.9 kg/m2)",
    "locator": "Abstract — Results (cohort of 320,252 Kaiser Permanente members)",
    "ref": "hsu2006",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -2601,7 +2711,8 @@
    "quote": "Conclusion Overweight and obesity are associated with an increased incidence of CKD in metabolically healthy young and middle-aged participants. These findings show that metabolically healthy obesity is not a harmless condition and that the obese phenotype, regardless of metabolic abnormalities, can adversely affect renal function.",
    "locator": "Abstract — Conclusion",
    "ref": "chang2016",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
@@ -2623,76 +2734,80 @@
    "quote": "Adiposity increases during the 1st yr and then decreases. A renewed rise, termed here the adiposity rebound, occurs at about 6 yr.",
    "locator": "Abstract",
    "ref": "rolland1984",
-   "support": "direct"
+   "support": "direct",
+   "access": "abstract"
   }
  },
  {
-  "q": "What is the prognosis for a child with an early adiposity rebound?",
+  "q": "What is the outcome for a child with an early adiposity rebound?",
   "a": [
-   "They tend to end growth with a higher level of adiposity",
-   "They naturally return to average BMI in adolescence",
-   "There is no relation to adult obesity risk",
-   "Only the risk of short stature increases"
+   "A significantly higher final adiposity level than a later rebound",
+   "A natural return to average in adolescence",
+   "No relation to final adiposity",
+   "Only an increased risk of short stature"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Rolland-Cachera, M. F., Deheeger, M., Bellisle, F., Sempé, M., Guilloud-Bataille, M., & Patois, E. (1984). Adiposity rebound in children: A simple indicator for predicting obesity. American Journal of Clinical Nutrition, 39(1), 129–135. https://doi.org/10.1093/ajcn/39.1.129",
-  "exp": "Early adiposity rebound is an early indicator of adult obesity, whereas children with a late rebound tend to return to average BMI in late adolescence.",
+  "exp": "Children whose rebound came before 5.5 years reached a significantly higher final adiposity level than those rebounding after 7 years, regardless of their adiposity at 1 year.",
   "refs": [
    "rolland1984"
   ],
   "evidence": {
    "quote": "The present study shows a relationship between the age at adiposity rebound and final adiposity. An early rebound (before 5.5 yr) is followed by a significantly higher adiposity level than a later rebound (after 7 yr). This phenomenon is observed whatever the subject's adiposity at 1 yr.",
-   "locator": "Abstract — results",
+   "locator": "Abstract — Results",
    "ref": "rolland1984",
-   "support": "partial",
-   "note": "The cohort ran from 1 month to 16 years, so \"final adiposity\" means adiposity at the end of growth, not measured adult weight status; the adulthood persistence in the answer goes beyond this paper."
+   "support": "direct",
+   "note": "코호트는 생후 1개월~16세 추적이라 '성인 비만의 조기 위험지표', '늦은 재증가군은 평균으로 복귀' 같은 해설은 범위를 넘어요. 논문이 말한 최종 지방량 비교로 좁혔어요.",
+   "access": "abstract"
   }
  },
  {
-  "q": "What should be done when a child shows increased weight velocity together with low height velocity?",
+  "q": "What finding suggests an endocrine cause in a child with obesity?",
   "a": [
-   "It is an indication for urgent investigation",
-   "Re-evaluate in six months",
-   "Only dietary counselling is needed",
-   "It is a normal variant needing observation only"
+   "An attenuated (slowed) linear growth pattern",
+   "Being taller than peers",
+   "A family history of obesity",
+   "Frequent snacking"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Styne, D. M., Arslanian, S. A., Connor, E. L., Farooqi, I. S., Murad, M. H., Silverstein, J. H., & Yanovski, J. A. (2017). Pediatric obesity—Assessment, treatment, and prevention: An Endocrine Society clinical practice guideline. Journal of Clinical Endocrinology & Metabolism, 102(3), 709–757. https://doi.org/10.1210/jc.2016-2573",
-  "exp": "Rising weight with slowing height growth suggests an endocrine cause such as hypothyroidism or growth hormone deficiency and calls for immediate investigation.",
+  "exp": "Endocrine causes of paediatric obesity are rare and usually accompanied by attenuated growth patterns, so a slowing of linear growth is the clue to look for.",
   "refs": [
    "styne2017"
   ],
   "evidence": {
-   "quote": "Pediatric obesity has its basis in genetic susceptibilities influenced by a permissive environment starting in utero and extending through childhood and adolescence. Endocrine etiologies for obesity are rare and usually are accompanied by attenuated growth patterns.",
+   "quote": "Endocrine etiologies for obesity are rare and usually are accompanied by attenuated growth patterns.",
    "locator": "Abstract — Conclusion",
    "ref": "styne2017",
-   "support": "partial",
-   "note": "The abstract links endocrine causes of obesity to attenuated (slowed) linear growth, which is the rationale behind the answer, but it does not say that this combination is an indication for urgent investigation. The explicit recommendation is in the guideline body (recommendation on evaluating children with obesity and short stature/decreased growth velocity)."
+   "support": "direct",
+   "note": "'긴급한 정밀검사가 필요하다'는 권고 문구는 초록에 없어요(본문 권고). 초록이 명시한 소견(성장 둔화)을 묻는 문항으로 바꿨어요.",
+   "access": "abstract"
   }
  },
  {
-  "q": "What proportion of children with obesity have an underlying endocrine or genetic cause for their weight gain?",
+  "q": "When is genetic screening for rare syndromes indicated in paediatric obesity?",
   "a": [
-   "Rare - most cases are primary (simple) obesity",
-   "About 15%",
-   "About 30%",
-   "About 50%"
+   "Only in the presence of specific historical or physical features",
+   "In every child with obesity",
+   "In every child above the 95th BMI percentile",
+   "In every child with a family history of obesity"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Styne, D. M., Arslanian, S. A., Connor, E. L., Farooqi, I. S., Murad, M. H., Silverstein, J. H., & Yanovski, J. A. (2017). Pediatric obesity—Assessment, treatment, and prevention: An Endocrine Society clinical practice guideline. Journal of Clinical Endocrinology & Metabolism, 102(3), 709–757. https://doi.org/10.1210/jc.2016-2573",
-  "exp": "Most have primary or simple obesity with normal or rapid growth; endocrine work-up is warranted mainly when linear growth slows.",
+  "exp": "Genetic screening for rare syndromes is indicated only when specific historical or physical features are present, not for every child with obesity.",
   "refs": [
    "styne2017"
   ],
   "evidence": {
-   "quote": "Pediatric obesity has its basis in genetic susceptibilities influenced by a permissive environment starting in utero and extending through childhood and adolescence. Endocrine etiologies for obesity are rare and usually are accompanied by attenuated growth patterns. Pediatric comorbidities are common and long-term health complications often result",
-   "locator": "Abstract — conclusion",
+   "quote": "Genetic screening for rare syndromes is indicated only in the presence of specific historical or physical features.",
+   "locator": "Abstract — Conclusion",
    "ref": "styne2017",
-   "support": "partial",
-   "note": "The abstract says endocrine causes are \"rare\" and tie them to attenuated growth, but gives no numeric proportion, so the \"<5%\" figure cannot be verified from any corpus file."
+   "support": "direct",
+   "note": "'약 5% 미만' 같은 수치는 어떤 코퍼스 자료에도 없고, 성장 둔화 내용은 OB-116과 겹쳐요. 초록이 명시한 유전자 검사 적응증을 묻는 문항으로 바꿨어요.",
+   "access": "abstract"
   }
  },
  {
@@ -2714,7 +2829,8 @@
    "quote": "Recommendations for children and adolescents (5–17 years) The evidence affirmed that physical activity in children and adolescents is associated with improved physical, mental and cognitive health outcomes. Many of the benefits of physical activity are observed with an average of 60 min of moderate-to-vigorous physical activity (MVPA) daily, although physical activity beyond 60 min of MVPA daily provide additional health benefits.",
    "locator": "Results — 'Recommendations for children and adolescents (5-17 years)'",
    "ref": "bull2020",
-   "support": "direct"
+   "support": "direct",
+   "access": "fulltext"
   }
  }
 ]
