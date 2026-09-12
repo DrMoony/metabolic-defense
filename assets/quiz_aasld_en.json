@@ -155,11 +155,12 @@
    "simon2021"
   ],
   "evidence": {
-   "quote": "Compared with controls, NAFLD patients had significantly increased overall mortality (16.9 vs 28.6/1000 PY; difference=11.7/1000 PY; aHR=1.93, 95% CI=1.86 to 2.00)",
-   "locator": "Abstract (Results)",
+   "quote": "In this population-based cohort of 10,568 adults with biopsy-confirmed NAFLD and 49,925 matched general population comparators, NAFLD was associated with a 93% higher relative risk of overall mortality, and a 20-year absolute excess risk of 15.3%.",
+   "locator": "Discussion — first paragraph",
    "ref": "simon2021",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "simon2021 is now PMC full text; Discussion restates the ~2-fold (93% higher) all-cause mortality."
   }
  },
  {
@@ -202,11 +203,12 @@
    "singh2015"
   ],
   "evidence": {
-   "quote": "These findings correspond to 1 stage of progression over 14.3 years for patients with NAFL (95% CI, 9.1-50.0 y) and 7.1 years for patients with NASH (95% CI, 4.8-14.3 y)",
-   "locator": "Abstract (Results)",
+   "quote": "annual fibrosis progression rate (FPR) in patients with NAFL versus NASH, with baseline stage 0 fibrosis, was 0.07 stages versus 0.14 stages, respectively, corresponding to an average progression by 1 stage over 14.3 versus 7.1 years, respectively",
+   "locator": "Discussion — first paragraph",
    "ref": "singh2015",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "singh2015 is now PMC full text; Discussion gives the 7.1-year-per-stage NASH figure."
   }
  },
  {
@@ -400,26 +402,28 @@
   }
  },
  {
-  "q": "An exercise prescription that improved MASLD parameters was:",
+  "q": "An exercise prescription shown to improve MASLD is:",
   "a": [
-   "40-minute aerobic or resistance sessions three times a week",
+   "Moderate exercise at least 5 times a week, totalling 150 minutes per week",
    "One two-hour high-intensity session a week",
    "Ten minutes of stretching daily",
    "Start exercise only after weight loss"
   ],
   "correct": 0,
-  "src": "Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323 / Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023",
   "diff": "easy",
-  "exp": "Three 40-minute aerobic or resistance sessions a week improve liver fat and ALT within 12 weeks.",
+  "exp": "Regular moderate exercise at least five times a week totalling 150 minutes, or raising activity by more than 60 minutes a week, can prevent or improve fatty liver disease.",
   "refs": [
+   "rinellaGuide2023",
    "hashida2017"
   ],
   "evidence": {
-   "quote": "For aerobic exercise, the median effective protocol was 4.8 metabolic equivalents (METs) for 40min/session, 3times/week for 12weeks. For resistance exercise, the median effective protocol was 3.5 METs for 45min/session, 3times/week for 12weeks. Aerobic and resistance exercise improved hepatic steatosis.",
-   "locator": "Abstract (Results)",
-   "ref": "hashida2017",
+   "quote": "Some studies demonstrate that regular moderate exercise at least 5 times per week for a total of 150 minutes per week or an increase in activity level by more than 60 minutes per week can prevent or improve NAFLD.",
+   "locator": "Body — Impact of exercise (AASLD practice guidance)",
+   "ref": "rinellaGuide2023",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "hashida2017 is still abstract-only; the AASLD practice guidance gives an exercise dose that prevents or improves NAFLD, so the prescription in the options is swapped to the guidance's figures."
   }
  },
  {
@@ -985,12 +989,12 @@
    "younossi2019"
   ],
   "evidence": {
-   "quote": "This prospective study enrolled adults aged ≥50 years with T2DM, recruited from primary care or endocrinology clinics. … The prevalence of NAFLD, advanced fibrosis and cirrhosis was 65%, 14% and 6%, respectively.",
-   "locator": "Abstract (Methods, Results)",
+   "quote": "Multiple studies have demonstrated that the prevalence of NAFLD among patients with T2DM is 2–3-fold higher than that in the general population or between 60–70%,28 which was consistent with this study demonstrating a prevalence of 65% using the most accurate, MRI-based assessment of liver fat.",
+   "locator": "Discussion",
    "ref": "ajmera2023",
    "support": "direct",
-   "note": "The 65% figure belongs to Ajmera 2023 (prospective T2DM cohort, MRI-PDFF-defined NAFLD), not Younossi 2019, which reports 55.5% NAFLD / 37.3% NASH / 17.0% advanced fibrosis in T2DM.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "ajmera2023 is now PMC full text (PMC9975077); the Discussion restates the 65% prevalence, so the question stands unchanged."
   }
  },
  {
@@ -1009,12 +1013,12 @@
    "ajmera2023"
   ],
   "evidence": {
-   "quote": "The prevalence of NAFLD, advanced fibrosis and cirrhosis was 65%, 14% and 6%, respectively. … We show that 14% of older adults with T2DM have advanced fibrosis and 6% have cirrhosis, which places them at risk for liver failure and liver cancer.",
-   "locator": "Abstract (Results; Impact and implications)",
+   "quote": "Recent studies utilizing VCTE as a biomarker of liver fibrosis demonstrate a rate of advanced fibrosis of 9–15%.30,31 Given the lower specificity of VCTE compared to MRE and the potential for lower diagnostic accuracy among the morbidly obese,32 this study utilizing MRE confirms the high rate (14%) of advanced fibrosis in older adults with T2DM.",
+   "locator": "Discussion",
    "ref": "ajmera2023",
    "support": "direct",
-   "note": "Source value is 14%, not 15%.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "ajmera2023 full text; the Discussion confirms the 14% advanced-fibrosis rate, so the question stands unchanged."
   }
  },
  {
@@ -1131,11 +1135,12 @@
    "softic2016"
   ],
   "evidence": {
-   "quote": "Fructose is absorbed via portal vein and delivered to the liver in much higher concentrations as compared to other tissues. Fructose increases protein levels of all DNL enzymes during its conversion into triglycerides. Additionally, fructose supports lipogenesis in the setting of insulin resistance as fructose does not require insulin for its metabolism, and it directly stimulates SREBP1c, a major transcriptional regulator of DNL.",
-   "locator": "Abstract",
+   "quote": "Dietary carbohydrates are absorbed from the intestine via portal vein and directly reach the liver. More than 90% of fructose is metabolized by the liver via first pass metabolism. Fructose may directly upregulate transcriptional factors regulating de novo lipogenesis or may do so indirectly by inducing ER stress, insulin resistance and decreased mitochondrial metabolism leading to the production of uric acid and reactive oxygen species.",
+   "locator": "Body — Fructose is a more potent stimulator of DNL than HFD (Fig. 3)",
    "ref": "softic2016",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "softic2016 is now PMC full text; body text states >90% first-pass hepatic metabolism and DNL stimulation."
   }
  },
  {
@@ -1155,60 +1160,64 @@
    "easl2024"
   ],
   "evidence": {
-   "quote": "Overconsumption of high-fat diet (HFD) and increased intake of sugar-sweetened beverages are major risk factors for development of NAFLD. Today the most commonly consumed sugar is high fructose corn syrup.",
-   "locator": "Abstract",
+   "quote": "Today the most commonly consumed sugar in the United States is high fructose corn syrup ( 83 ). In research studies, consumption of fructose, but not glucose sweetened drinks, has been associated with increased visceral adiposity, insulin resistance and increased hepatic de novo lipogenesis ( 84 – 86 ).",
+   "locator": "Body — Dietary fructose and NAFLD",
    "ref": "softic2016",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "softic2016 full text; body text ties the harm to high-fructose corn syrup and fructose-sweetened drinks rather than fruit."
   }
  },
  {
-  "q": "Which type of exercise is beneficial for people living with MASLD?",
+  "q": "How should exercise be chosen for someone living with MASLD?",
   "a": [
-   "Both aerobic and resistance exercise",
-   "Aerobic exercise only",
-   "Resistance exercise only",
+   "Tailored to the patient’s preferences and physical abilities",
+   "Only aerobic exercise should be prescribed",
+   "Only resistance exercise should be prescribed",
    "Exercise does not help the liver"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023 / European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
-  "exp": "Both aerobic and resistance exercise benefit MASLD, so resistance work can be offered to people limited by joint pain.",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323 / Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023 / European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "exp": "Exercise benefits the liver and cardiometabolic health independent of weight loss, so it should be routinely recommended — but tailored to the patient's preferences and physical abilities.",
   "refs": [
+   "rinellaGuide2023",
    "hashida2017",
    "easl2024"
   ],
   "evidence": {
-   "quote": "Both aerobic and resistance exercise reduce hepatic steatosis in non-alcoholic fatty liver disease (NAFLD) with similar frequency, duration, and period of exercise (40-45min/session 3times/week for 12weeks); however, the two forms of exercise have different characteristics.",
-   "locator": "Lay summary",
-   "ref": "hashida2017",
+   "quote": "Exercise, independent of weight loss, has hepatic and cardiometabolic benefit and should be routinely recommended and tailored to the patient’s preferences and physical abilities.",
+   "locator": "Body — Impact of exercise (AASLD practice guidance)",
+   "ref": "rinellaGuide2023",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "hashida2017 is still abstract-only; the AASLD practice guidance says the type of exercise should be tailored to the patient's preferences and physical abilities, which carries the same clinical message as 'both aerobic and resistance work'."
   }
  },
  {
   "q": "Which hepatic effect of exercise is correct in fatty liver disease?",
   "a": [
-   "Both aerobic and resistance exercise reduce hepatic steatosis",
-   "Only aerobic exercise works; resistance exercise does not",
+   "Exercise reduces hepatic steatosis",
    "Exercise increases intrahepatic fat instead",
-   "Exercise benefits the heart only, not the liver"
+   "Exercise benefits the heart only, not the liver",
+   "Exercise only helps once cirrhosis has developed"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
-  "exp": "Both aerobic and resistance exercise reduce hepatic steatosis with a similar schedule (40-45 min per session, three times a week for 12 weeks); resistance exercise uses less energy, so it may be more feasible for patients with poor cardiorespiratory fitness.",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031 / Hashida, R., Kawaguchi, T., Bekki, M., Omoto, M., Matsuse, H., Nago, T., Takano, Y., Ueno, T., Koga, H., George, J., Shiba, N., & Torimura, T. (2017). Aerobic vs. resistance exercise in non-alcoholic fatty liver disease: A systematic review. Journal of Hepatology, 66(1), 142–152. https://doi.org/10.1016/j.jhep.2016.08.023 / Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
+  "exp": "In adults with MASLD, physical activity and exercise are recommended to reduce steatosis — preferably more than 150 min/week of moderate or 75 min/week of vigorous intensity, tailored to preference and ability.",
   "refs": [
+   "easl2024",
    "hashida2017",
    "rinellaGuide2023"
   ],
   "evidence": {
-   "quote": "Both aerobic and resistance exercise reduce hepatic steatosis in non-alcoholic fatty liver disease (NAFLD) with similar frequency, duration, and period of exercise (40-45min/session 3times/week for 12weeks); however, the two forms of exercise have different characteristics.",
-   "locator": "Abstract — Lay summary",
-   "ref": "hashida2017",
+   "quote": "In adults with MASLD, physical activity and exercise should be recommended to reduce steatosis, tailored to the individual’s preference and ability (preferably >150 min/week of moderate- or 75 min/week of vigorous-intensity physical activity) ( LoE 1, strong recommendation, strong consensus ).",
+   "locator": "Recommendation — Physical activity and exercise in MASLD (EASL–EASD–EASO CPG)",
+   "ref": "easl2024",
    "support": "direct",
-   "note": "rinellaGuide2023에는 운동이 ALT·질환 진행·간 관련 사망을 낮춘다는 결과가 없어요. 같은 문항 refs에 이미 들어 있던 hashida2017로 근거를 바꿔, 유산소·근력 모두 간 지방증을 줄인다는 검증 가능한 결론으로 맞췄어요.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "hashida2017 is still abstract-only; the EASL–EASD–EASO guideline states that exercise reduces steatosis, so the option is reworded from 'both aerobic and resistance reduce steatosis' to the guideline's statement."
   }
  },
  {
@@ -1283,7 +1292,7 @@
   }
  },
  {
-  "q": "Which of the following is NOT a feature of the International Consensus Definition of the metabolic syndrome?",
+  "q": "Which of the following is NOT one of the criteria for clinical diagnosis of the metabolic syndrome?",
   "a": [
    "LDL cholesterol",
    "HDL cholesterol",
@@ -1298,11 +1307,12 @@
    "alberti2009"
   ],
   "evidence": {
-   "quote": "The risk factors include raised blood pressure, dyslipidemia (raised triglycerides and lowered high-density lipoprotein cholesterol), raised fasting glucose, and central obesity. … Three abnormal findings out of 5 would qualify a person for the metabolic syndrome.",
-   "locator": "Abstract",
+   "quote": "Elevated waist circumference* — Population- and country-specific definitions Elevated triglycerides (drug treatment for elevated triglycerides is an alternate indicator) — >=150 mg/dL (1.7 mmol/L) Reduced HDL-C (drug treatment for reduced HDL-C is an alternate indicator) — <40 mg/dL (1.0 mmol/L) in males; <50 mg/dL (1.3 mmol/L) in females",
+   "locator": "Table 1 — Criteria for Clinical Diagnosis of the Metabolic Syndrome",
    "ref": "alberti2009",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "alberti2009 full text; Table 1 lists waist, triglycerides and HDL-C as the criteria — LDL cholesterol is not among them."
   }
  }
 ]
