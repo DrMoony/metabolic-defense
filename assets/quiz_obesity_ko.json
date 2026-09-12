@@ -3729,5 +3729,925 @@
    "support": "direct",
    "access": "fulltext"
   }
+ },
+ {
+  "q": "비만이 있는 사람을 부를 때 권고되는 표현 방식은 무엇일까요?",
+  "a": [
+   "'비만인 사람'처럼 사람을 앞에 두는 표현을 써요",
+   "'비만 환자군'처럼 상태로 묶어 부르는 표현을 써요",
+   "체중 이야기를 아예 꺼내지 않는 것이 원칙이에요",
+   "친근하게 '살이 좀 있으신 분'이라고 불러요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "사람을 질환보다 앞에 두는 표현이 협력적인 대화의 출발점이 되어요. '비만인 사람'처럼 부르면 그 사람을 상태로 규정하지 않게 되어요.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Use person-centered, nonjudgmental language that fosters collaboration between individuals and health care professionals, including person-first language (e.g., “person with obesity” rather than “obese person” and “person with diabetes” rather than “diabetic person",
+   "locator": "Recommendation 8.1 (Assessment and Monitoring)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "적극적으로 체중을 관리하는 동안에는 신체 계측을 최소 얼마마다 다시 하도록 권고할까요?",
+  "a": [
+   "최소 3개월마다",
+   "최소 6개월마다",
+   "최소 1년마다",
+   "증상이 있을 때만"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "평소에는 최소 1년에 한 번 재고, 치료가 한창일 때는 최소 3개월마다 다시 재면서 반응을 확인해요.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Monitor obesity-related anthropometric measurements at least annually to inform treatment considerations. During active weight management treatment, increase monitoring to at least every 3 months",
+   "locator": "Recommendation 8.2b (Assessment and Monitoring)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "과체중이나 비만을 동반한 2형당뇨병 성인에서 체중 관리는 어떤 위치일까요?",
+  "a": [
+   "혈당 관리와 나란히 놓이는 일차 치료 목표예요",
+   "혈당이 목표에 닿은 뒤에 시작하는 부수적 목표예요",
+   "미용을 위한 선택 사항이에요",
+   "약물치료가 실패했을 때만 고려하는 마지막 수단이에요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "체중 관리는 혈당 관리 뒤에 오는 것이 아니라 함께 가는 일차 목표예요. 두 목표를 같이 잡아야 사람 전체를 돌보는 치료가 되어요.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "In people with type 2 diabetes and overweight or obesity, weight management should represent a primary goal of treatment along with glycemic management",
+   "locator": "Recommendation 8.4 (Assessment and Monitoring)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "기저 체중의 3~7%를 줄이면 무엇이 좋아진다고 했을까요?",
+  "a": [
+   "혈당과 중간 단계 심혈관 위험인자가 좋아져요",
+   "10%를 넘기기 전에는 어떤 지표도 달라지지 않아요",
+   "골밀도만 좋아지고 혈당은 그대로예요",
+   "대부분에서 당뇨병 관해가 일어나요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "3~7%만 줄여도 혈당과 심혈관 위험인자가 함께 좋아지니, 작은 폭이라도 시작할 가치가 충분해요.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Provide weight management treatment, aiming for any magnitude of weight loss. Weight loss of 3–7% of baseline weight improves glycemia and other intermediate cardiovascular risk factors",
+   "locator": "Recommendation 8.5 (Assessment and Monitoring)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "체중의 10%를 넘게 줄여 오래 유지하면 추가로 무엇을 기대할 수 있을까요?",
+  "a": [
+   "질병 경과를 바꾸는 효과와 2형당뇨병 관해 가능성이 생겨요",
+   "혈압만 조금 내려가고 다른 변화는 없어요",
+   "다시 찌지 않는 것이 보장되어요",
+   "합병증 검사를 더 이상 하지 않아도 되어요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "10%를 넘겨 유지하면 질병의 흐름 자체를 바꾸고 2형당뇨병 관해까지 기대할 수 있어요. 장기 심혈관 결과와 사망률에도 도움이 될 수 있어요.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Sustained loss of >10% of body weight usually confers greater benefits, including disease-modifying effects and possible remission of type 2 diabetes, and may improve long-term cardiovascular outcomes and mortality",
+   "locator": "Recommendation 8.5 (Assessment and Monitoring)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "감량한 체중을 1년 이상 지키는 프로그램이 갖춰야 할 요소로 맞는 것은 무엇일까요?",
+  "a": [
+   "매달 접촉과 주 1회 이상 체중 자가측정, 주 200~300분 신체활동",
+   "분기마다 접촉과 월 1회 체중 측정, 주 75분 신체활동",
+   "연 1회 접촉과 체중 측정 없이 식사일기만",
+   "매일 방문 상담과 주 60분 신체활동"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "유지기에는 매달 이어지는 접촉과 잦은 자가측정, 그리고 주 200~300분의 신체활동이 함께 가야 해요.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Effective long-term (≥1 year) weight maintenance programs provide monthly contact and support, include frequent self-monitoring of body weight (weekly or more frequently) and other self-monitoring strategies (e.g., food diaries or wearables), and encourage regular physical activity (200–300 min/week)",
+   "locator": "Recommendation 8.11 (Nutrition, Physical Activity, and Behavioral Therapy)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "체중 감량을 내세우는 영양보충제는 어떻게 평가되고 있을까요?",
+  "a": [
+   "효과 근거가 분명하지 않아 권고되지 않아요",
+   "1차 치료로 먼저 권고되어요",
+   "단기간 쓰면 효과가 확실해요",
+   "비타민 제제만은 감량 효과가 입증되었어요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "허브·비타민·아미노산 같은 보충제가 감량에 효과가 있다는 분명한 근거는 없어요. 결핍이 확인된 경우의 보충과는 다른 이야기예요.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Despite widespread marketing and exorbitant claims, there is no clear evidence that nutrition supplements (e.g., herbs, vitamins and minerals, amino acids, enzymes, and antioxidants) are effective for obesity management or weight loss",
+   "locator": "Recommendation 8.13 / Behavioral Interventions",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만과 당뇨병을 함께 관리해야 하는 이유로 맞는 설명은 무엇일까요?",
+  "a": [
+   "서로를 악화시키는 악순환을 이루어 합병증 진행으로 이어지기 때문이에요",
+   "두 질환은 서로 영향을 주지 않아 편의상 함께 볼 뿐이에요",
+   "비만은 당뇨병이 생긴 뒤에만 문제가 되기 때문이에요",
+   "혈당이 좋아지면 비만은 저절로 해결되기 때문이에요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "비만이 고혈당을 키우고 당뇨병이 다시 비만을 키우는 악순환이 돌아가요. 그래서 혈당과 체중 목표를 함께 세워야 사람 전체에 도움이 되어요.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "obesity can exacerbate hyperglycemia and diabetes, thereby setting up a vicious cycle that contributes to disease progression and occurrence of microvascular and macrovascular complications. As such, treatment goals for both glycemia and weight are recommended in people with diabetes to address both hyperglycemia and its underlying pathophysiologic driver (obesity) and therefore benefit the person holistically",
+   "locator": "Assessment and Monitoring of the Individual With Overweight or Obesity (narrative)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "2형당뇨병을 가진 많은 사람에게 일차 관리 목표로 제안된 체중 감량 폭은 어느 정도일까요?",
+  "a": [
+   "5~15%",
+   "1~3%",
+   "20~25%",
+   "30% 이상"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "체중 감량을 혈당을 위한 곁가지가 아니라 5~15%를 노리는 일차 목표로 올려 잡자는 제안이에요.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "it was recently suggested that weight loss of 5–15% should be a primary target of management for many people living with type 2 diabetes ( 50 ). A higher magnitude of weight loss confers better outcomes",
+   "locator": "Weight Reduction as a Targeted Intervention",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "당뇨병 '관해(remission)'는 어떻게 정의되었을까요?",
+  "a": [
+   "약물치료 없이 정상 혈당이 3개월 이상 유지되는 상태",
+   "약을 먹으면서 당화혈색소가 6.5% 미만인 상태",
+   "식사요법만으로 6주간 공복혈당이 정상인 상태",
+   "완치되어 다시는 재발하지 않는 상태"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "관해는 약을 쓰지 않는 상태에서 정상 혈당이 3개월 이상 이어지는 것을 말해요. 완치와는 다르니 추적은 계속 이어가야 해요.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "Weight loss of 5–10% confers metabolic improvement; weight loss of 10–15% or more can have a disease-modifying effect and lead to remission of diabetes ( 50 ), defined as normal blood glucose levels for 3 months or more in the absence of pharmacological therapy in a 2021 consensus report",
+   "locator": "Weight Reduction as a Targeted Intervention",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "당뇨병을 가진 사람과 이야기할 때 피해야 할 표현은 무엇일까요?",
+  "a": [
+   "'당뇨 환자'로 사람을 질환에 가두거나 '비협조적'이라며 탓하는 말",
+   "검사 결과를 함께 들여다보자는 말",
+   "어떤 점이 어려운지 묻는 말",
+   "다음 목표를 같이 정하자는 말"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "말은 중립적이고 낙인이 없어야 하고, 잘되고 있는 점을 먼저 짚는 강점 기반이어야 해요. 사람을 질환 이름으로 부르거나 탓하지 않아요.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "Language in diabetes care should be neutral, free of stigma, and based on facts; be strength-based (focus on what is working), respectful, and inclusive; encourage collaboration; and be person-centered ( 18 ). People living with diabetes should not be referred to as “diabetics” or described as “noncompliant” or blamed for their health condition",
+   "locator": "Language Matters",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "2형당뇨병을 가진 사람 가운데 폐쇄성 수면무호흡은 얼마나 흔할까요?",
+  "a": [
+   "절반이 넘어요",
+   "약 10%예요",
+   "약 25%예요",
+   "거의 없어요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "2형당뇨병을 가진 사람의 절반이 넘게 폐쇄성 수면무호흡을 가지고 있고, 심할수록 혈당과도 맞물려요.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "Additionally, obstructive sleep apnea affects over half of people with type 2 diabetes, and its severity is associated with blood glucose levels",
+   "locator": "Physical Activity Behaviors, Including Sleep - Sleep",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "수면 시간과 비만·혈당의 관계를 가장 잘 설명한 것은 무엇일까요?",
+  "a": [
+   "너무 짧아도(6시간 미만) 너무 길어도(8시간 초과) 나빠지는 U자 관계예요",
+   "짧게 잘수록만 나빠지고 길게 자는 것은 늘 좋아요",
+   "길게 잘수록만 나빠지고 짧은 잠은 문제가 없어요",
+   "수면 시간과는 아무 관련이 없어요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "잠은 짧아도, 길어도 비만과 혈당에 좋지 않은 U자 모양의 관계를 보여요. 그래서 '적당한 시간'을 함께 찾아 드리는 게 중요해요.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "The quantity of sleep is known to be associated (in a U-shaped manner) with health outcomes (e.g., obesity and HbA 1c ), with both long (>8 h) and short (<6 h) sleep durations having negative impacts",
+   "locator": "Physical Activity Behaviors, Including Sleep - Sleep",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "평일에 부족했던 잠을 주말에 몰아서 자면 만회가 될까요?",
+  "a": [
+   "주말 보충 수면만으로는 부족한 잠의 영향을 되돌리지 못해요",
+   "주말에 몰아 자면 완전히 회복되어요",
+   "주말 수면은 오히려 평일 수면보다 효과가 커요",
+   "부족한 잠은 애초에 대사에 영향을 주지 않아요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "짧게 자는 분의 수면 시간을 늘려 주면 대사에 도움이 되지만, 주말에 몰아 자는 것만으로는 되돌려지지 않아요.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "By extending the sleep duration of short sleepers, it is possible to improve insulin sensitivity and reduce energy intake ( 117 , 125 ). However, “catch-up” weekend sleep alone is not enough to reverse the impact of insufficient sleep",
+   "locator": "Physical Activity Behaviors, Including Sleep - Sleep",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "유산소 운동의 혈당 개선 효과를 가장 크게 끌어올리는 방법은 무엇일까요?",
+  "a": [
+   "식후 시간대에, 45분 이상 이어서 해요",
+   "새벽 공복에 10분씩 나눠서 해요",
+   "잠들기 직전에 짧게 해요",
+   "주말에 한 번 2시간씩 몰아서 해요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "같은 운동이라도 식후에, 45분 이상 이어서 하면 혈당에 주는 효과가 더 커져요.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "These glycemic effects can be maximized by undertaking activity during the postprandial period and engaging in activities for ≥45 min",
+   "locator": "Physical Activity Behaviors, Including Sleep",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "6개월이 넘는 연구에서 저지방 식단과 비교한 지중해식 식단의 결과는 어땠을까요?",
+  "a": [
+   "체중과 당화혈색소를 더 많이 줄이고 심혈관 건강에도 이로웠어요",
+   "체중만 더 줄고 혈당은 오히려 나빠졌어요",
+   "두 식단 사이에 아무 차이가 없었어요",
+   "저지방 식단이 모든 지표에서 앞섰어요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "6개월이 넘는 연구들에서 지중해식은 저지방식보다 체중과 당화혈색소를 더 낮췄고 심혈관 건강에도 도움이 됐어요.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "compared with a low-fat diet, the Mediterranean diet demonstrated greater reductions in body weight and HbA 1c levels, delayed the requirement for diabetes medication, and provided benefits for cardiovascular health",
+   "locator": "Dietary Quality and Eating Patterns",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "유럽비만학회 2024 틀은 비만이라는 병의 성격을 어떻게 요약했을까요?",
+  "a": [
+   "여러 요인이 얽힌 만성·재발성 비전염성 질환이에요",
+   "생활습관을 고치면 끝나는 일시적인 상태예요",
+   "사람 사이에 옮는 전염성 질환이에요",
+   "나이가 들면 누구에게나 오는 자연스러운 변화예요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "비만은 여러 요인이 얽힌 만성·재발성 질환이고, 다른 여러 질환으로 들어가는 관문 역할을 해요.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "Obesity is a multifactorial, chronic, relapsing, non-communicable disease marked by an abnormal and/or excessive accumulation of body fat that presents a risk to health. It is well established that obesity acts as a gateway to a range of other non-communicable and communicable diseases",
+   "locator": "Opening paragraph",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "새 틀에서 비만을 진단할 때 지방 축적 외에 반드시 함께 봐야 하는 것은 무엇일까요?",
+  "a": [
+   "그 지방이 건강에 미치는 현재와 앞으로의 영향(임상 요소)",
+   "체중이 얼마나 빨리 늘었는지의 속도",
+   "가족 중 비만인 사람의 수",
+   "하루 섭취 열량의 정확한 계산값"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "지방이 얼마나 쌓였는지(인체계측)만으로는 부족하고, 그 지방이 건강에 어떤 영향을 주고 있는지(임상)를 함께 따져야 진단이 되어요.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "Based on current clinical evidence, the diagnosis of obesity should not be based solely on the presence of an abnormal and/or excessive fat accumulation (anthropometric component). The diagnosis of obesity should instead include a careful analysis of the present and potential effects that dysfunctional and/or excessive fat accumulation may have on health (clinical component) (statement 1)",
+   "locator": "A chronic progressive disease (statement 1)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "진단 과정에 허리둘레 대신 허리-키 비율을 넣은 이유는 무엇일까요?",
+  "a": [
+   "심장대사 질환 위험 지표로서 더 우수하기 때문이에요",
+   "허리둘레는 옷 위로 재도 되기 때문이에요",
+   "키가 큰 사람은 위험이 없기 때문이에요",
+   "체중을 재지 않아도 되기 때문이에요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "허리-키 비율은 같은 허리둘레라도 키를 함께 반영해서, 심장대사 위험을 가리키는 지표로 더 나은 것으로 보았어요.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "The choice of introducing waist-to-height ratio, instead of waist circumference, in the diagnostic process is due to its superiority as a cardiometabolic disease risk marker",
+   "locator": "Abdominal fat accumulation",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "새 틀이 BMI 25~30인 사람도 비만 정의 안으로 들인 조건은 무엇일까요?",
+  "a": [
+   "복부 지방이 늘어 있고 의학적·기능적·심리적 손상이나 합병증이 있을 때",
+   "가족 중에 비만인 사람이 있을 때",
+   "나이가 65세를 넘었을 때",
+   "1년 사이 체중이 3kg 늘었을 때"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "BMI가 30에 못 미쳐도 복부 지방이 많고 손상이나 합병증이 있으면 비만으로 보아요. 이 구간이 치료에서 밀려나지 않게 하려는 장치예요.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "the new framework includes people with lower BMI (≥25–30 kg/m 2 ) but increased abdominal fat accumulation and the presence of any medical, functional or psychological impairments of complications in the definition of obesity, hence reducing the risk of undertreatment in this particular group of patients in comparison to the current BMI-based definition of obesity",
+   "locator": "Abdominal fat accumulation (statement 4)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "전문가들이 합의한 비만 병기 설정의 기준은 무엇일까요?",
+  "a": [
+   "임상 증상과 합병증의 중증도에 따라 단계를 나눠요",
+   "BMI 수치만으로 네 단계로 나눠요",
+   "체중 감량 목표를 얼마나 달성했는지로 나눠요",
+   "비만을 앓은 기간이 몇 년인지로 나눠요"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "만성·재발성 질환인 비만도 다른 만성질환처럼 증상과 합병증의 중증도에 따라 단계를 나눠 보자는 합의예요.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "the experts agreed on the importance of staging obesity as a chronic, relapsing disease, according to the severity of its clinical manifestations and complications (statement 14), as proposed by previous guidelines",
+   "locator": "Diagnostics and staging (statement 14)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만 관리의 주춧돌로 합의된 행동 수정 요소에 해당하는 것은 무엇일까요?",
+  "a": [
+   "영양요법·신체활동·스트레스 감소·수면 개선",
+   "영양요법과 수술 준비 교육",
+   "절식과 매일 체중 측정",
+   "체중 목표 설정과 보충제 복용"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "먹는 것과 움직이는 것만이 아니라 스트레스와 잠까지 함께 다뤄야 비만 관리의 주춧돌이 갖춰져요.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "Behavioral modifications, including nutritional therapy, physical activity, stress reduction and sleep improvement, were agreed as main cornerstones of obesity management",
+   "locator": "Obesity management (statements 15-21)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만 관리의 목표가 체중 감량을 넘어 담아야 할 것으로 전원 합의된 내용은 무엇일까요?",
+  "a": [
+   "합병증의 예방·해소, 삶의 질과 정신적 안녕, 신체·사회적 기능의 향상",
+   "정해진 목표 BMI에 도달하는 것",
+   "가능한 한 빠른 감량 속도를 내는 것",
+   "체지방률을 한 자리 수로 떨어뜨리는 것"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "체중 숫자만 좇지 말고 합병증과 삶의 질, 기능까지 함께 좋아지는지를 목표로 삼자는 데 전문가 전원이 동의했어요.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "the management of obesity should move beyond weight loss alone, and should include the prevention, resolution or improvement of obesity-related complications, a better quality of life and mental wellbeing, and improvement of physical and social functioning and fitness (statement 22)",
+   "locator": "Obesity management (statement 22)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만이 있는 사람에게 정기적으로 시행하도록 문장에 포함된 선별검사는 무엇일까요?",
+  "a": [
+   "비만과 관련된 암에 대한 선별검사",
+   "매년 골밀도 검사",
+   "매년 폐기능 검사",
+   "3개월마다 갑상선 초음파"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "비만과 여러 암 사이의 연관이 강해서, 비만이 있는 사람에게는 관련 암 선별검사를 정기적으로 하자는 문장이 들어갔어요.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "considering the strong association between obesity and several types of cancer, a statement calling for regular screening for obesity-related cancers in any person with obesity was included (statement 12)",
+   "locator": "Diagnostics and staging (statement 12)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "치료 수준을 정하고 높여 갈 때 피하라고 한 것은 무엇일까요?",
+  "a": [
+   "효과가 부족한 개입을 되풀이하는 무의미한 순환과 치료 관성",
+   "환자의 선호를 반영하는 일",
+   "장기 치료 계획을 세우는 일",
+   "여러 직종이 함께 보는 일"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "같은 수준의 개입을 효과 없이 되풀이하는 순환과, 올려야 할 때 올리지 않는 치료 관성을 함께 경계하라고 했어요.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "The concept of obesity as a chronic disease and the discussion of therapeutic targets should also inform the choice of the initial level of intervention and eventual intensification of therapy (statements 26–28), avoiding the same repetitive and futile cycles of intervention that are not effective enough to achieve patient benefit, and preventing therapeutic inertia",
+   "locator": "Obesity management (statements 26-28)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만이 있는 사람이 겪는 편견과 낙인은 건강에 어떤 영향을 줄까요?",
+  "a": [
+   "체중이나 체질량지수와 무관하게 이환율과 사망률을 높여요",
+   "감량 동기를 높여 오히려 도움이 되어요",
+   "건강에는 아무 영향이 없어요",
+   "체중이 아주 많이 나갈 때만 영향을 주어요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "편견과 낙인 자체가 체중이나 BMI와 상관없이 이환율과 사망률을 높여요. 말 한마디가 치료의 일부라는 뜻이에요.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "People living with obesity face substantial bias and stigma, which contribute to increased morbidity and mortality independent of weight or body mass index",
+   "locator": "KEY POINTS",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "캐나다 지침이 비만 진료에서 넘어서야 한다고 짚은 단순한 접근은 무엇일까요?",
+  "a": [
+   "'덜 먹고 더 움직여라'라는 단순한 접근",
+   "만성질환 관리 원칙에 따른 접근",
+   "환자의 삶의 경험을 인정하는 접근",
+   "근본 원인을 함께 찾아가는 접근"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "비만 진료는 '덜 먹고 더 움직여라'에서 벗어나, 만성질환 관리 원칙 위에서 환자의 경험을 인정하고 근본 원인을 다뤄야 해요.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Obesity care should be based on evidence-based principles of chronic disease management, must validate patients’ lived experiences, move beyond simplistic approaches of “eat less, move more,” and address the root drivers of obesity",
+   "locator": "KEY POINTS",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "에드먼턴 비만 병기체계(EOSS)의 특징으로 맞는 것은 무엇일까요?",
+  "a": [
+   "대사·신체·심리 지표를 함께 보는 5단계이고, BMI나 허리둘레 단독보다 전체 사망을 더 잘 예측해요",
+   "BMI 수치만 네 단계로 나눈 분류예요",
+   "체지방률만으로 세 단계를 매기는 방식이에요",
+   "감량 목표 달성도를 점수로 매기는 도구예요"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "EOSS는 대사·신체·심리 지표를 함께 보는 5단계 분류라서, BMI나 허리둘레만 보는 것보다 예후를 더 잘 짚어 줘요.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "This 5-stage system of obesity classification considers metabolic, physical and psychological parameters to determine the optimal obesity treatment. In population studies, it has been shown to be a better predictor of all-cause mortality when compared with BMI or waist circumference measurements alone",
+   "locator": "Introduction (Edmonton obesity staging system)",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만 관리에서 '성공'을 무엇으로 설명하라고 했을까요?",
+  "a": [
+   "달성 가능한 행동 목표로 얻는 건강·기능·삶의 질의 향상",
+   "줄인 체중의 킬로그램 수",
+   "목표 BMI에 도달했는지 여부",
+   "감량을 얼마나 빨리 해냈는지"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "성공은 줄인 체중의 양이 아니라, 이룰 수 있는 행동 목표를 통해 건강과 기능, 삶의 질이 나아지는 것으로 설명해요.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Health care providers should ask people living with obesity for permission to educate them that success in obesity management is related to improved health, function and quality of life resulting from achievable behavioural goals and not on the amount of weight loss",
+   "locator": "Table 1, Recommendation 34 (psychological and behavioural interventions)",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "환자 여정 5단계 가운데 '평가' 단계에서 확인해야 할 것은 무엇일까요?",
+  "a": [
+   "적절한 계측과 함께 근본 원인, 합병증, 치료를 가로막는 장벽",
+   "목표 체중과 감량 마감 기한",
+   "식단 순응도 점수와 운동 일지 제출 여부",
+   "가족들의 체중과 체형"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "평가 단계에서는 계측만 하는 게 아니라 체중이 늘어난 근본 원인과 합병증, 치료를 막는 장벽까지 함께 짚어요.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Assessment of an individual living with obesity, using appropriate measurements, and identifying the root causes, complications and barriers to obesity treatment",
+   "locator": "Recommendations - the 5 steps in the patient arc (Step 2)",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "허리둘레를 함께 재도록 권고한 체질량지수 구간은 어디일까요?",
+  "a": [
+   "BMI 25~35",
+   "BMI 30 이상에서만",
+   "BMI 40 이상에서만",
+   "BMI 18.5 미만에서만"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "키와 체중은 모든 성인에서 재고, 허리둘레는 BMI 25~35 구간에서 함께 재어 내장지방과 관련된 위험을 놓치지 않도록 해요.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Health care providers can measure height, weight and calculate the BMI in all adults (level 2a, grade B), and measure waist circumference in individuals with a BMI 25–35 kg/m 2 (level 2b, grade B)",
+   "locator": "Table 1, Recommendation 11 (Assessment)",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "건강 행동의 변화만으로 보통 이루게 되는 감량 폭은 어느 정도일까요?",
+  "a": [
+   "체중의 3~5%",
+   "체중의 10~15%",
+   "체중의 20% 이상",
+   "체중의 1% 미만"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "행동 변화만으로는 보통 3~5% 정도가 줄고, 그 폭도 사람마다 크게 달라요. 노력의 문제가 아니라 생물학과 심리·사회 요인의 문제예요.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "The weight loss achieved with health behavioural changes is usually 3%–5% of body weight, which can result in meaningful improvement in obesity-related comorbidities. 60 The amount of weight loss varies substantially among individuals, depending on biological and psychosocial factors and not simply on individual effort",
+   "locator": "Step 3: Discussion of treatment options - Nutrition and exercise",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "'최선의 체중(best weight)'은 무엇을 뜻할까요?",
+  "a": [
+   "건강한 행동을 이어갈 때 몸이 안정되는 체중으로, BMI상의 '이상 체중'과 다를 수 있어요",
+   "BMI 22에 맞춰 계산한 목표 체중이에요",
+   "스무 살 무렵의 체중을 말해요",
+   "표준체중의 90%에 해당하는 값이에요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "건강한 행동을 이어갈 때 몸이 자연스럽게 머무는 체중이 '최선의 체중'이에요. BMI가 말하는 '이상 체중'에 닿지 않아도 괜찮아요.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "The weight at which the body stabilizes when engaging in healthy behaviours can be referred to as the “best weight”; this may not be an “ideal” weight on the BMI scale. Achieving an “ideal” BMI may be very difficult",
+   "locator": "Step 3: Discussion of treatment options - Nutrition and exercise",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만과 2형당뇨병을 함께 가진 성인에게 집중 생활습관 중재가 겨냥하는 감량 폭은 어느 정도일까요?",
+  "a": [
+   "7~15%",
+   "1~2%",
+   "20~25%",
+   "30% 이상"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "7~15%를 겨냥하면 2형당뇨병 관해가 늘고 신장병증, 폐쇄성 수면무호흡, 우울 발생도 줄어드는 것으로 보았어요.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Adults living with obesity and type 2 diabetes should consider intensive lifestyle interventions that target a 7%–15% weight loss, to increase the remission of type 2 diabetes and reduce the incidence of nephropathy, obstructive sleep apnea and depression",
+   "locator": "Table 1, Recommendation 25 (Medical nutrition therapy)",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "이 성명이 비만이 직접 키운다고 정리한 심혈관 위험인자 묶음은 무엇일까요?",
+  "a": [
+   "이상지질혈증·2형당뇨병·고혈압·수면장애",
+   "빈혈·골다공증·갑상선기능저하증",
+   "천식·아토피피부염·알레르기비염",
+   "백내장·난청·치주질환"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "비만은 이상지질혈증·2형당뇨병·고혈압·수면장애를 직접 키우고, 다른 위험인자와 무관하게 심혈관질환과 사망으로도 이어져요.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Obesity contributes directly to incident cardiovascular risk factors, including dyslipidemia, type 2 diabetes, hypertension, and sleep disorders. Obesity also leads to the development of cardiovascular disease and cardiovascular disease mortality independently of other cardiovascular risk factors",
+   "locator": "Abstract",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "체질량지수가 같아도 심혈관 위험이 가장 높은 집단은 누구일까요?",
+  "a": [
+   "내장지방이 과도하게 쌓인 사람들이에요",
+   "피하지방이 많은 사람들이에요",
+   "근육량이 많은 사람들이에요",
+   "체중이 최근에 늘지 않은 사람들이에요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "같은 BMI라도 내장지방이 많은 쪽이 심혈관 위험이 가장 높은 집단이에요. 그래서 체중 숫자만으로는 위험을 다 읽어 낼 수 없어요.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "When those with metabolically healthy obesity are compared with patients with excess VAT those with excess VAT represent a subgroup of individuals at highest CVD risk regardless of BMI",
+   "locator": "Visceral Adiposity, Liver Fat, and CVD Risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "내장지방을 줄이는 데 필요한 신체활동량으로 제시된 것은 어느 정도일까요?",
+  "a": [
+   "현재 권고인 주 150분으로도 충분할 수 있어요",
+   "주 400분을 넘겨야 비로소 줄어들어요",
+   "신체활동으로는 내장지방이 줄지 않아요",
+   "주 30분이면 최대 효과가 나요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "주 150분이라는 기본 권고만 지켜도 내장지방이 줄 수 있고, 그보다 더 늘려도 추가 감소는 뚜렷하지 않았어요.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Meeting the current recommendations for physical activity of 150 min/wk may be sufficient to reduce VAT, with no further reductions with additional activity",
+   "locator": "Impact of Lifestyle Interventions on Ectopic/Pericardial Fat",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만은 심방세동 사례의 어느 정도를 설명하는 것으로 추정될까요?",
+  "a": [
+   "약 5분의 1",
+   "약 50분의 1",
+   "절반이 넘어요",
+   "거의 설명하지 못해요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "비만은 심방세동 사례의 약 5분의 1을 설명하고, BMI가 5 오를 때마다 새로 생길 위험이 약 29% 높아져요.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Estimates suggest that obesity may account for one-fifth of AF cases and 60% of recently documented population increases. 286 – 288 Weight gain and a higher midlife BMI are strongly correlated with incident AF in later life. 289 , 290 Every 5-unit increment in BMI confers an ≈29% greater risk of incident AF",
+   "locator": "Obesity and AF",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "비만은 어떤 형태의 심부전과 더 강하게 연결되는 것으로 나타났을까요?",
+  "a": [
+   "박출률이 보존된 심부전(HFpEF)",
+   "박출률이 감소한 심부전(HFrEF)에만 연결돼요",
+   "판막질환에 의한 심부전에만 연결돼요",
+   "어떤 형태와도 연결되지 않아요"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "과체중은 38%, 1단계 비만은 56% 더 높은 HFpEF 위험과 이어졌고, 이는 다른 심혈관 위험인자와 무관했어요.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "demonstrated a greater association between higher BMI and risk of HFpEF, with participants with overweight and class 1 obesity having 38% and 56% higher risk of HFpEF, respectively, independently of other cardiovascular risk factors",
+   "locator": "Obesity and HF",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "생활습관 교정과 그에 따른 체중 감량이 좋아지게 하는 것으로 정리된 것은 무엇일까요?",
+  "a": [
+   "대사증후군의 진단 요소와 전신 염증·혈관내피 기능이상",
+   "이미 생긴 관상동맥 협착 자체",
+   "심전도의 파형 모양만",
+   "아무것도 달라지지 않아요"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "생활습관을 바꾸고 체중이 줄면 대사증후군 구성 요소뿐 아니라 전신 염증과 혈관내피 기능이상까지 함께 좋아져요.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Lifestyle modification, with associated weight loss, improves both the diagnostic components of metabolic syndrome and associated pathophysiologic abnormalities such as systemic inflammation and endothelial dysfunction",
+   "locator": "Weight Loss and CAD Risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
  }
 ]

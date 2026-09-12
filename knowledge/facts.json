@@ -2611,6 +2611,649 @@
   "question_index": 156
  },
  {
+  "id": "F-ob-158",
+  "set": "obesity",
+  "statement_ko": "비만이 있는 사람을 부를 때 권고되는 표현 방식은 무엇일까요? → '비만인 사람'처럼 사람을 앞에 두는 표현을 써요",
+  "statement_en": "What kind of wording is recommended when referring to a person who has obesity? → Person-first language such as \"person with obesity\"",
+  "concepts": [
+   "obesity",
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "source_family": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "diff": "easy",
+  "question_index": 157
+ },
+ {
+  "id": "F-ob-159",
+  "set": "obesity",
+  "statement_ko": "적극적으로 체중을 관리하는 동안에는 신체 계측을 최소 얼마마다 다시 하도록 권고할까요? → 최소 3개월마다",
+  "statement_en": "During active weight management treatment, how often should anthropometric measurements be repeated? → At least every 3 months",
+  "concepts": [
+   "obesity",
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "source_family": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "diff": "easy",
+  "question_index": 158
+ },
+ {
+  "id": "F-ob-160",
+  "set": "obesity",
+  "statement_ko": "과체중이나 비만을 동반한 2형당뇨병 성인에서 체중 관리는 어떤 위치일까요? → 혈당 관리와 나란히 놓이는 일차 치료 목표예요",
+  "statement_en": "In people with type 2 diabetes and overweight or obesity, where does weight management sit? → It is a primary treatment goal alongside glycemic management",
+  "concepts": [
+   "obesity",
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "source_family": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "diff": "easy",
+  "question_index": 159
+ },
+ {
+  "id": "F-ob-161",
+  "set": "obesity",
+  "statement_ko": "기저 체중의 3~7%를 줄이면 무엇이 좋아진다고 했을까요? → 혈당과 중간 단계 심혈관 위험인자가 좋아져요",
+  "statement_en": "What does a 3-7% loss of baseline body weight improve? → Glycemia and other intermediate cardiovascular risk factors",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "ckm",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "source_family": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "diff": "easy",
+  "question_index": 160
+ },
+ {
+  "id": "F-ob-162",
+  "set": "obesity",
+  "statement_ko": "체중의 10%를 넘게 줄여 오래 유지하면 추가로 무엇을 기대할 수 있을까요? → 질병 경과를 바꾸는 효과와 2형당뇨병 관해 가능성이 생겨요",
+  "statement_en": "What additional benefits follow a sustained loss of more than 10% of body weight? → Disease-modifying effects and possible remission of type 2 diabetes",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "weight-loss-target",
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "source_family": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "diff": "easy",
+  "question_index": 161
+ },
+ {
+  "id": "F-ob-163",
+  "set": "obesity",
+  "statement_ko": "감량한 체중을 1년 이상 지키는 프로그램이 갖춰야 할 요소로 맞는 것은 무엇일까요? → 매달 접촉과 주 1회 이상 체중 자가측정, 주 200~300분 신체활동",
+  "statement_en": "What do effective long-term (>=1 year) weight maintenance programs provide? → Monthly contact, weekly or more frequent self-weighing, and 200-300 min/week of physical activity",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "weight-loss-target",
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "source_family": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "diff": "mid",
+  "question_index": 162
+ },
+ {
+  "id": "F-ob-164",
+  "set": "obesity",
+  "statement_ko": "체중 감량을 내세우는 영양보충제는 어떻게 평가되고 있을까요? → 효과 근거가 분명하지 않아 권고되지 않아요",
+  "statement_en": "How are nutrition supplements marketed for weight loss evaluated? → There is no clear evidence of effectiveness, so they are not recommended",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "source_family": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "diff": "easy",
+  "question_index": 163
+ },
+ {
+  "id": "F-ob-165",
+  "set": "obesity",
+  "statement_ko": "비만과 당뇨병을 함께 관리해야 하는 이유로 맞는 설명은 무엇일까요? → 서로를 악화시키는 악순환을 이루어 합병증 진행으로 이어지기 때문이에요",
+  "statement_en": "Why are obesity and diabetes managed together? → They aggravate each other in a vicious cycle that drives complications",
+  "concepts": [
+   "obesity",
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "source_family": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "diff": "easy",
+  "question_index": 164
+ },
+ {
+  "id": "F-ob-166",
+  "set": "obesity",
+  "statement_ko": "2형당뇨병을 가진 많은 사람에게 일차 관리 목표로 제안된 체중 감량 폭은 어느 정도일까요? → 5~15%",
+  "statement_en": "What magnitude of weight loss was proposed as a primary management target for many people with type 2 diabetes? → 5-15%",
+  "concepts": [
+   "t2dm",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "source_family": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "diff": "easy",
+  "question_index": 165
+ },
+ {
+  "id": "F-ob-167",
+  "set": "obesity",
+  "statement_ko": "당뇨병 '관해(remission)'는 어떻게 정의되었을까요? → 약물치료 없이 정상 혈당이 3개월 이상 유지되는 상태",
+  "statement_en": "How is remission of diabetes defined? → Normal blood glucose levels for 3 months or more without pharmacological therapy",
+  "concepts": [
+   "t2dm",
+   "pharmacotherapy-criteria",
+   "weight-maintenance"
+  ],
+  "concepts_manual": false,
+  "source": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "source_family": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "diff": "mid",
+  "question_index": 166
+ },
+ {
+  "id": "F-ob-168",
+  "set": "obesity",
+  "statement_ko": "당뇨병을 가진 사람과 이야기할 때 피해야 할 표현은 무엇일까요? → '당뇨 환자'로 사람을 질환에 가두거나 '비협조적'이라며 탓하는 말",
+  "statement_en": "Which wording should be avoided when talking with a person living with diabetes? → Calling them \"diabetics\" or \"noncompliant\", or blaming them for their condition",
+  "concepts": [
+   "t2dm"
+  ],
+  "concepts_manual": false,
+  "source": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "source_family": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "diff": "easy",
+  "question_index": 167
+ },
+ {
+  "id": "F-ob-169",
+  "set": "obesity",
+  "statement_ko": "2형당뇨병을 가진 사람 가운데 폐쇄성 수면무호흡은 얼마나 흔할까요? → 절반이 넘어요",
+  "statement_en": "How common is obstructive sleep apnea among people with type 2 diabetes? → More than half",
+  "concepts": [
+   "t2dm",
+   "osa",
+   "environment"
+  ],
+  "concepts_manual": false,
+  "source": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "source_family": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "diff": "easy",
+  "question_index": 168
+ },
+ {
+  "id": "F-ob-170",
+  "set": "obesity",
+  "statement_ko": "수면 시간과 비만·혈당의 관계를 가장 잘 설명한 것은 무엇일까요? → 너무 짧아도(6시간 미만) 너무 길어도(8시간 초과) 나빠지는 U자 관계예요",
+  "statement_en": "How is sleep duration related to obesity and HbA1c? → A U-shaped relationship: both short (<6 h) and long (>8 h) sleep are harmful",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "environment"
+  ],
+  "concepts_manual": false,
+  "source": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "source_family": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "diff": "easy",
+  "question_index": 169
+ },
+ {
+  "id": "F-ob-171",
+  "set": "obesity",
+  "statement_ko": "평일에 부족했던 잠을 주말에 몰아서 자면 만회가 될까요? → 주말 보충 수면만으로는 부족한 잠의 영향을 되돌리지 못해요",
+  "statement_en": "Can weekend catch-up sleep make up for insufficient weekday sleep? → No - catch-up weekend sleep alone is not enough to reverse the impact",
+  "concepts": [
+   "t2dm",
+   "environment"
+  ],
+  "concepts_manual": false,
+  "source": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "source_family": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "diff": "easy",
+  "question_index": 170
+ },
+ {
+  "id": "F-ob-172",
+  "set": "obesity",
+  "statement_ko": "유산소 운동의 혈당 개선 효과를 가장 크게 끌어올리는 방법은 무엇일까요? → 식후 시간대에, 45분 이상 이어서 해요",
+  "statement_en": "How are the glycemic effects of aerobic exercise maximized? → By exercising in the postprandial period for 45 minutes or more",
+  "concepts": [
+   "t2dm",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "source_family": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "diff": "easy",
+  "question_index": 171
+ },
+ {
+  "id": "F-ob-173",
+  "set": "obesity",
+  "statement_ko": "6개월이 넘는 연구에서 저지방 식단과 비교한 지중해식 식단의 결과는 어땠을까요? → 체중과 당화혈색소를 더 많이 줄이고 심혈관 건강에도 이로웠어요",
+  "statement_en": "In trials longer than 6 months, how did a Mediterranean diet compare with a low-fat diet? → Greater reductions in body weight and HbA1c, with cardiovascular benefits",
+  "concepts": [
+   "t2dm",
+   "ckm",
+   "diet"
+  ],
+  "concepts_manual": false,
+  "source": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "source_family": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "diff": "easy",
+  "question_index": 172
+ },
+ {
+  "id": "F-ob-174",
+  "set": "obesity",
+  "statement_ko": "유럽비만학회 2024 틀은 비만이라는 병의 성격을 어떻게 요약했을까요? → 여러 요인이 얽힌 만성·재발성 비전염성 질환이에요",
+  "statement_en": "How does the EASO 2024 framework define obesity? → A multifactorial, chronic, relapsing, non-communicable disease",
+  "concepts": [
+   "obesity",
+   "eoss"
+  ],
+  "concepts_manual": false,
+  "source": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "source_family": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "diff": "easy",
+  "question_index": 173
+ },
+ {
+  "id": "F-ob-175",
+  "set": "obesity",
+  "statement_ko": "새 틀에서 비만을 진단할 때 지방 축적 외에 반드시 함께 봐야 하는 것은 무엇일까요? → 그 지방이 건강에 미치는 현재와 앞으로의 영향(임상 요소)",
+  "statement_en": "Besides fat accumulation, what must a diagnosis of obesity include in the new framework? → A careful analysis of present and potential effects on health (clinical component)",
+  "concepts": [
+   "obesity",
+   "eoss"
+  ],
+  "concepts_manual": false,
+  "source": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "source_family": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "diff": "easy",
+  "question_index": 174
+ },
+ {
+  "id": "F-ob-176",
+  "set": "obesity",
+  "statement_ko": "진단 과정에 허리둘레 대신 허리-키 비율을 넣은 이유는 무엇일까요? → 심장대사 질환 위험 지표로서 더 우수하기 때문이에요",
+  "statement_en": "Why was waist-to-height ratio introduced instead of waist circumference? → Because it is superior as a cardiometabolic disease risk marker",
+  "concepts": [
+   "abdominal-obesity",
+   "waist",
+   "whtr",
+   "ckm",
+   "eoss"
+  ],
+  "concepts_manual": false,
+  "source": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "source_family": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "diff": "easy",
+  "question_index": 175
+ },
+ {
+  "id": "F-ob-177",
+  "set": "obesity",
+  "statement_ko": "새 틀이 BMI 25~30인 사람도 비만 정의 안으로 들인 조건은 무엇일까요? → 복부 지방이 늘어 있고 의학적·기능적·심리적 손상이나 합병증이 있을 때",
+  "statement_en": "Under what condition does the new framework include people with BMI 25-30 in the definition of obesity? → Increased abdominal fat plus medical, functional or psychological impairments or complications",
+  "concepts": [
+   "abdominal-obesity",
+   "bmi",
+   "eoss"
+  ],
+  "concepts_manual": false,
+  "source": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "source_family": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "diff": "easy",
+  "question_index": 176
+ },
+ {
+  "id": "F-ob-178",
+  "set": "obesity",
+  "statement_ko": "전문가들이 합의한 비만 병기 설정의 기준은 무엇일까요? → 임상 증상과 합병증의 중증도에 따라 단계를 나눠요",
+  "statement_en": "What did the experts agree obesity staging should be based on? → The severity of clinical manifestations and complications",
+  "concepts": [
+   "obesity",
+   "eoss"
+  ],
+  "concepts_manual": false,
+  "source": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "source_family": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "diff": "mid",
+  "question_index": 177
+ },
+ {
+  "id": "F-ob-179",
+  "set": "obesity",
+  "statement_ko": "비만 관리의 주춧돌로 합의된 행동 수정 요소에 해당하는 것은 무엇일까요? → 영양요법·신체활동·스트레스 감소·수면 개선",
+  "statement_en": "Which behavioral modifications were agreed as the main cornerstones of obesity management? → Nutritional therapy, physical activity, stress reduction and sleep improvement",
+  "concepts": [
+   "obesity",
+   "environment",
+   "eoss"
+  ],
+  "concepts_manual": false,
+  "source": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "source_family": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "diff": "easy",
+  "question_index": 178
+ },
+ {
+  "id": "F-ob-180",
+  "set": "obesity",
+  "statement_ko": "비만 관리의 목표가 체중 감량을 넘어 담아야 할 것으로 전원 합의된 내용은 무엇일까요? → 합병증의 예방·해소, 삶의 질과 정신적 안녕, 신체·사회적 기능의 향상",
+  "statement_en": "What did the experts fully agree obesity management should include beyond weight loss? → Prevention or improvement of complications, quality of life and mental wellbeing, physical and social functioning",
+  "concepts": [
+   "obesity",
+   "weight-loss-target",
+   "eoss",
+   "psychosocial"
+  ],
+  "concepts_manual": false,
+  "source": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "source_family": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "diff": "easy",
+  "question_index": 179
+ },
+ {
+  "id": "F-ob-181",
+  "set": "obesity",
+  "statement_ko": "비만이 있는 사람에게 정기적으로 시행하도록 문장에 포함된 선별검사는 무엇일까요? → 비만과 관련된 암에 대한 선별검사",
+  "statement_en": "Which regular screening was included for any person with obesity? → Screening for obesity-related cancers",
+  "concepts": [
+   "obesity",
+   "cancer",
+   "screening",
+   "eoss",
+   "physical-activity-guidance"
+  ],
+  "concepts_manual": false,
+  "source": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "source_family": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "diff": "easy",
+  "question_index": 180
+ },
+ {
+  "id": "F-ob-182",
+  "set": "obesity",
+  "statement_ko": "치료 수준을 정하고 높여 갈 때 피하라고 한 것은 무엇일까요? → 효과가 부족한 개입을 되풀이하는 무의미한 순환과 치료 관성",
+  "statement_en": "What should be avoided when choosing and intensifying the level of intervention? → Repetitive, futile cycles of ineffective intervention and therapeutic inertia",
+  "concepts": [
+   "obesity",
+   "eoss"
+  ],
+  "concepts_manual": false,
+  "source": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "source_family": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "diff": "mid",
+  "question_index": 181
+ },
+ {
+  "id": "F-ob-183",
+  "set": "obesity",
+  "statement_ko": "비만이 있는 사람이 겪는 편견과 낙인은 건강에 어떤 영향을 줄까요? → 체중이나 체질량지수와 무관하게 이환율과 사망률을 높여요",
+  "statement_en": "How do bias and stigma affect people living with obesity? → They increase morbidity and mortality independent of weight or BMI",
+  "concepts": [
+   "obesity",
+   "bmi",
+   "exercise",
+   "stigma"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "easy",
+  "question_index": 182
+ },
+ {
+  "id": "F-ob-184",
+  "set": "obesity",
+  "statement_ko": "캐나다 지침이 비만 진료에서 넘어서야 한다고 짚은 단순한 접근은 무엇일까요? → '덜 먹고 더 움직여라'라는 단순한 접근",
+  "statement_en": "Which simplistic approach does the Canadian guideline say obesity care must move beyond? → \"Eat less, move more\"",
+  "concepts": [
+   "obesity",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "easy",
+  "question_index": 183
+ },
+ {
+  "id": "F-ob-185",
+  "set": "obesity",
+  "statement_ko": "에드먼턴 비만 병기체계(EOSS)의 특징으로 맞는 것은 무엇일까요? → 대사·신체·심리 지표를 함께 보는 5단계이고, BMI나 허리둘레 단독보다 전체 사망을 더 잘 예측해요",
+  "statement_en": "What characterises the Edmonton Obesity Staging System? → A 5-stage system using metabolic, physical and psychological parameters that predicts all-cause mortality better than BMI or waist circumference alone",
+  "concepts": [
+   "abdominal-obesity",
+   "bmi",
+   "waist",
+   "exercise",
+   "eoss"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "mid",
+  "question_index": 184
+ },
+ {
+  "id": "F-ob-186",
+  "set": "obesity",
+  "statement_ko": "비만 관리에서 '성공'을 무엇으로 설명하라고 했을까요? → 달성 가능한 행동 목표로 얻는 건강·기능·삶의 질의 향상",
+  "statement_en": "How should success in obesity management be explained? → As improved health, function and quality of life from achievable behavioural goals",
+  "concepts": [
+   "obesity",
+   "exercise",
+   "psychosocial"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "easy",
+  "question_index": 185
+ },
+ {
+  "id": "F-ob-187",
+  "set": "obesity",
+  "statement_ko": "환자 여정 5단계 가운데 '평가' 단계에서 확인해야 할 것은 무엇일까요? → 적절한 계측과 함께 근본 원인, 합병증, 치료를 가로막는 장벽",
+  "statement_en": "In the 5-step patient arc, what does the assessment step identify? → Appropriate measurements plus root causes, complications and barriers to treatment",
+  "concepts": [
+   "obesity",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "easy",
+  "question_index": 186
+ },
+ {
+  "id": "F-ob-188",
+  "set": "obesity",
+  "statement_ko": "허리둘레를 함께 재도록 권고한 체질량지수 구간은 어디일까요? → BMI 25~35",
+  "statement_en": "For which BMI range does the guideline recommend also measuring waist circumference? → BMI 25-35",
+  "concepts": [
+   "abdominal-obesity",
+   "bmi",
+   "waist",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "easy",
+  "question_index": 187
+ },
+ {
+  "id": "F-ob-189",
+  "set": "obesity",
+  "statement_ko": "건강 행동의 변화만으로 보통 이루게 되는 감량 폭은 어느 정도일까요? → 체중의 3~5%",
+  "statement_en": "How much weight loss is usually achieved with health behaviour changes alone? → 3-5% of body weight",
+  "concepts": [
+   "obesity",
+   "weight-loss-target",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "easy",
+  "question_index": 188
+ },
+ {
+  "id": "F-ob-190",
+  "set": "obesity",
+  "statement_ko": "'최선의 체중(best weight)'은 무엇을 뜻할까요? → 건강한 행동을 이어갈 때 몸이 안정되는 체중으로, BMI상의 '이상 체중'과 다를 수 있어요",
+  "statement_en": "What does \"best weight\" mean? → The weight at which the body stabilizes with healthy behaviours, which may differ from an \"ideal\" BMI",
+  "concepts": [
+   "obesity",
+   "bmi",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "easy",
+  "question_index": 189
+ },
+ {
+  "id": "F-ob-191",
+  "set": "obesity",
+  "statement_ko": "비만과 2형당뇨병을 함께 가진 성인에게 집중 생활습관 중재가 겨냥하는 감량 폭은 어느 정도일까요? → 7~15%",
+  "statement_en": "What weight loss do intensive lifestyle interventions target in adults with obesity and type 2 diabetes? → 7-15%",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "weight-loss-target",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "mid",
+  "question_index": 190
+ },
+ {
+  "id": "F-ob-192",
+  "set": "obesity",
+  "statement_ko": "이 성명이 비만이 직접 키운다고 정리한 심혈관 위험인자 묶음은 무엇일까요? → 이상지질혈증·2형당뇨병·고혈압·수면장애",
+  "statement_en": "Which cardiovascular risk factors does obesity contribute to directly? → Dyslipidemia, type 2 diabetes, hypertension and sleep disorders",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "hypertension",
+   "dyslipidemia",
+   "ckm",
+   "environment"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 191
+ },
+ {
+  "id": "F-ob-193",
+  "set": "obesity",
+  "statement_ko": "체질량지수가 같아도 심혈관 위험이 가장 높은 집단은 누구일까요? → 내장지방이 과도하게 쌓인 사람들이에요",
+  "statement_en": "At any given BMI, which group is at the highest cardiovascular risk? → Those with excess visceral adipose tissue",
+  "concepts": [
+   "abdominal-obesity",
+   "bmi",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 192
+ },
+ {
+  "id": "F-ob-194",
+  "set": "obesity",
+  "statement_ko": "내장지방을 줄이는 데 필요한 신체활동량으로 제시된 것은 어느 정도일까요? → 현재 권고인 주 150분으로도 충분할 수 있어요",
+  "statement_en": "How much physical activity may be sufficient to reduce visceral fat? → The current recommendation of 150 min/week may be sufficient",
+  "concepts": [
+   "abdominal-obesity",
+   "ckm",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 193
+ },
+ {
+  "id": "F-ob-195",
+  "set": "obesity",
+  "statement_ko": "비만은 심방세동 사례의 어느 정도를 설명하는 것으로 추정될까요? → 약 5분의 1",
+  "statement_en": "What proportion of atrial fibrillation cases is obesity estimated to account for? → About one-fifth",
+  "concepts": [
+   "obesity",
+   "ckm",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 194
+ },
+ {
+  "id": "F-ob-196",
+  "set": "obesity",
+  "statement_ko": "비만은 어떤 형태의 심부전과 더 강하게 연결되는 것으로 나타났을까요? → 박출률이 보존된 심부전(HFpEF)",
+  "statement_en": "Which type of heart failure is more strongly associated with higher BMI? → Heart failure with preserved ejection fraction (HFpEF)",
+  "concepts": [
+   "obesity",
+   "bmi",
+   "ckm",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "mid",
+  "question_index": 195
+ },
+ {
+  "id": "F-ob-197",
+  "set": "obesity",
+  "statement_ko": "생활습관 교정과 그에 따른 체중 감량이 좋아지게 하는 것으로 정리된 것은 무엇일까요? → 대사증후군의 진단 요소와 전신 염증·혈관내피 기능이상",
+  "statement_en": "What does lifestyle modification with weight loss improve? → The diagnostic components of metabolic syndrome and associated systemic inflammation and endothelial dysfunction",
+  "concepts": [
+   "obesity",
+   "ckm",
+   "metabolic-syndrome",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 196
+ },
+ {
   "id": "F-ma-001",
   "set": "masld",
   "statement_ko": "2023년 새 명명법에서 NAFLD를 대체한 이름은 무엇일까요? → MASLD(대사이상 지방간질환)",
