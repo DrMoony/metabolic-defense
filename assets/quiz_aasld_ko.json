@@ -1832,5 +1832,429 @@
    "kasl"
   ],
   "fit": "core"
+ },
+ {
+  "q": "인슐린저항성이 오랫동안 이어지면 결국 어떤 모습으로 드러날까요?",
+  "a": [
+   "당뇨병 전단계, 이상지질혈증, 고혈압, 대사증후군, 지방간",
+   "빈혈과 갑상선기능저하증",
+   "골다공증과 근감소증",
+   "천식과 알레르기"
+  ],
+  "exp": "인슐린저항성은 오랫동안 겉으로 드러나지 않다가 당뇨병 전단계와 이상지질혈증, 고혈압, 대사증후군, 지방간으로 모습을 보이고, 그 끝에 2형당뇨병과 심혈관질환이 기다리고 있어요.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "For someone with insulin resistance, the effects can be subclinical over much of their lifespan, but eventually give rise to clinical manifestations such as prediabetes, dyslipidaemia, hypertension, metabolic syndrome, and hepatic steatosis, contributing to the development of type 2 diabetes, cardiovascular disease, and metabolic dysfunction-associated steatotic liver disease (MASLD).",
+   "locator": "Pathophysiology — insulin resistance",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "diabetes_link",
+   "masld"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "대사이상지방간질환의 진단에 쓰는 심장대사 위험인자 다섯 가지는 어떤 기준으로 골랐을까요?",
+  "a": [
+   "인슐린저항성과 관련이 있고 심혈관질환 맥락에서도 검증된 인자",
+   "유전자 검사로 확인되는 인자",
+   "간 조직검사에서만 보이는 인자",
+   "간 효소 수치와 비례하는 인자"
+  ],
+  "exp": "다섯 가지 심장대사 위험인자는 인슐린저항성과 맞닿아 있으면서 심혈관질환 연구에서도 검증된 것들로 골랐고, 소아청소년에게도 같은 인자를 쓰고 있어요.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "심장대사 위험인자 중 인슐린저항성과 관련이 있으며, 심혈관질환의 맥락에서도 검증이 된 다섯 가지 인자를 진단 기준으로 삼았고",
+   "locator": "소아청소년 — 심장대사 위험인자의 선정",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "영상 연구에서 내장비만과 자주 함께 나타나는 것은 무엇일까요?",
+  "a": [
+   "간에 지방이 쌓이는 것",
+   "담석",
+   "신장 낭종",
+   "비장 비대"
+  ],
+  "exp": "내장비만이 있으면 간에도 지방이 함께 쌓이는 경우가 많고, 간 지방이 늘면 내장비만과 똑같은 방향으로 심혈관 위험인자가 나빠져요.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Imaging studies have shown that a frequent partner of visceral obesity is higher liver fat accumulation, 54 , 55 for which nonalcoholic fatty liver disease is a clinical manifestation. 56 Overall excess liver fat has generally been associated with the same alterations in cardiovascular risk factors as visceral obesity.",
+   "locator": "Visceral adiposity, liver fat, and CVD risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "masld"
+  ],
+  "societies": [
+   "ksso",
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "간섬유화를 동반한 대사이상지방간질환을 반드시 찾아봐야 하는 대상으로 꼽힌 사람은 누구일까요?",
+  "a": [
+   "2형당뇨병이 있는 사람, 복부비만에 대사 위험인자가 하나 이상 더 있는 사람, 간기능검사가 이상한 사람",
+   "60세가 넘은 모든 사람",
+   "음주를 많이 하는 사람만",
+   "가족력이 있는 사람만"
+  ],
+  "exp": "2형당뇨병이 있거나, 복부비만에 대사 위험인자가 하나 이상 더 있거나, 간기능검사가 이상한 사람이라면 섬유화를 동반한 대사이상지방간질환을 적극적으로 찾아보라고 권고해요.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "Healthcare providers should look for MASLD with liver fibrosis either in individuals with (1) type 2 diabetes; (2) abdominal obesity and ≥1 additional metabolic risk factor(s) (ESM Table 3 ); or (3) abnormal liver function tests",
+   "locator": "Screening, case-finding, diagnosis and monitoring — recommendations",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "diabetes_link",
+   "visceral_fat"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "대사이상지방간질환이 있는 성인에게 커피는 어떻게 정리돼 있을까요?",
+  "a": [
+   "관찰연구에서 간손상 개선, 간질환 관련 결과 감소와 연관됐어요",
+   "간에 해로우니 끊어야 해요",
+   "무작위 연구에서 치료제로 입증됐어요",
+   "언급된 바가 없어요"
+  ],
+  "exp": "커피는 관찰연구에서 간손상이 덜하고 간질환 관련 결과가 적은 것과 연관됐다고 정리돼 있는데, 근거 수준은 낮아서 치료제처럼 권하는 것은 아니에요.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "In adults with MASLD, coffee consumption has been associated with improvements in liver damage and reduced liver-related clinical outcomes in observational studies",
+   "locator": "Lifestyle management — statement on coffee",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "진행성 섬유화나 간경변이 있는 지방간질환 환자에게 음주는 어떻게 권고될까요?",
+  "a": [
+   "완전히, 그리고 영구히 끊어야 해요",
+   "주말에만 허용돼요",
+   "하루 한 잔은 괜찮아요",
+   "맥주만 허용돼요"
+  ],
+  "exp": "지방간질환이 있으면 음주를 줄이도록 권하고, 진행성 섬유화나 간경변까지 왔다면 완전히 그리고 영구히 끊어야 해요.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "Individuals with SLD, particularly those with moderate or high alcohol intake, should be discouraged from consuming alcohol ( LoE 3, strong recommendation, consensus ). All alcohol consumption should be stopped completely and permanently in individuals with advanced fibrosis or cirrhosis",
+   "locator": "Alcohol consumption in MASLD — recommendations",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "대사이상지방간질환이 있는 성인에게 간 지방을 줄이려고 권고하는 운동량은 어느 정도일까요?",
+  "a": [
+   "주 150분 이상 중강도 또는 주 75분 고강도",
+   "주 30분 중강도",
+   "주 500분 고강도",
+   "정해진 권고량이 없어요"
+  ],
+  "exp": "간 지방을 줄이기 위해 주 150분 넘는 중강도 운동이나 주 75분 고강도 운동을 권하되, 본인이 좋아하고 할 수 있는 방식에 맞춰 정하라고 했어요.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "In adults with MASLD, physical activity and exercise should be recommended to reduce steatosis, tailored to the individual’s preference and ability (preferably >150 min/week of moderate- or 75 min/week of vigorous-intensity physical activity",
+   "locator": "Lifestyle management — physical activity recommendation",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "체중이 정상인 대사이상지방간질환 환자에게는 어떤 권고가 주어질까요?",
+  "a": [
+   "식사와 운동 중재로 간 지방을 줄이도록 권해요",
+   "생활습관 중재는 필요 없어요",
+   "체중을 늘리도록 권해요",
+   "약물치료부터 시작해요"
+  ],
+  "exp": "체중이 정상이어도 대사이상지방간질환이 있다면 식사와 운동으로 간 지방을 줄이도록 권하니, 마른 체형이라고 안심할 일은 아니에요.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "In normal-weight adults with MASLD, diet and exercise interventions should be recommended to reduce liver fat",
+   "locator": "Lifestyle management — normal-weight MASLD",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "대사이상지방간질환 치료에서 건강기능식품이나 생약 제제는 어떻게 정리돼 있을까요?",
+  "a": [
+   "효과와 안전성 근거가 충분하지 않아 권고할 수 없어요",
+   "1차 치료로 권고돼요",
+   "간경변 환자에게만 권고돼요",
+   "체중 감량과 함께 권고돼요"
+  ],
+  "exp": "건강기능식품이나 생약 제제는 간 손상과 섬유화를 줄인다는 근거도, 안전하다는 근거도 부족해서 권고할 수 없다고 정리돼 있어요.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "In adults with MASLD, nutraceuticals cannot be recommended since there is insufficient evidence of their effectiveness in reducing histologically/non-invasively assessed liver damage/fibrosis and liver-related outcomes in MASLD, nor of their safety",
+   "locator": "Treatment of MASLD — nutraceuticals",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "대사이상지방간질환(MASLD) 기준으로 분류한 환자군은 기존 비알코올지방간질환 환자군과 얼마나 겹칠까요?",
+  "a": [
+   "95% 이상 일치해요",
+   "절반 정도만 겹쳐요",
+   "거의 겹치지 않아요",
+   "70% 정도 겹쳐요"
+  ],
+  "exp": "이름이 바뀌었어도 실제로 분류되는 환자는 거의 같아서 기존 비알코올지방간질환 환자군과 95% 넘게 일치하니, 그동안 쌓인 연구 결과를 그대로 이어서 쓸 수 있어요.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "대사이상지방간질환(MASLD)이 있는 환자의 94.5% (704/745명)가 비알코올지방간질환으로 분류되었다. 비알코올지방간질환 환자의 95.8% (704/735명)가 대사이상지방간질환(MASLD)으로 분류되었고, 일치하지 않은 31명의 환자는 모두 원인 불명의 지방간질환(cryptogenic SLD)으로 확인되었다.32 요약 • 대사이상지방간질환(MASLD)은 영상검사 또는 간 조직검사에서 간내 지방 축적이 • 확인되고, 한 가지 이상의 심장대사 위험인자가 있으면서 유의한 알코올 섭취가 없는 경우 진단한다. • 대사이상지방간질환(MASLD)의 진단 기준을 적용한 환자군은 비알코올지방간질환 (NAFLD) 환자군과 95% 이상의 높은 일치율을 보인다.",
+   "locator": "정의 및 진단 — 진단 기준 간 일치율 및 요약",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "조직검사로 진단한 대사이상지방간질환 환자에서 2형당뇨병이 있으면 간섬유화가 한 단계 이상 진행할 위험은 얼마나 커졌을까요?",
+  "a": [
+   "1.69배",
+   "1.05배",
+   "3.20배",
+   "차이가 없었어요"
+  ],
+  "exp": "조직검사로 확인한 환자 447명 가운데 2형당뇨병이 있는 사람은 간섬유화가 한 단계 이상 진행할 위험이 1.69배였어요.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "447명의 대사이상지방간질환(MASLD) 환자에서 2형당뇨병이 있는 환자는 2형당뇨병이 없는 환자에 비해 1단계 이상의 간섬유화 진행의 위험도가 1.69배",
+   "locator": "임상양상 및 예후 — 간섬유화 진행의 위험인자",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "국내 연구에서 대사이상지방간질환 환자에게 2형당뇨병이 동반되면 전체사망률은 얼마나 높아졌을까요?",
+  "a": [
+   "1.85배",
+   "1.10배",
+   "3.50배",
+   "변화가 없었어요"
+  ],
+  "exp": "대사이상지방간질환에 2형당뇨병이 함께 있으면 전체사망률이 1.85배로 올라가서, 두 질환을 따로 보지 말고 함께 관리해야 해요.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "의하면 대사이상지방간질환(MASLD)에서 2형당뇨병이 있는 환자는 2형당뇨병이 없는 환자에 비해 전체사망률이 1.85배 높았다(HR, 1.85; 95% CI, 1.55- 2.21)",
+   "locator": "임상양상 및 예후 — 전체사망률",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "소아청소년에서 대사이상지방간질환은 어떻게 정의할까요?",
+  "a": [
+   "영상이나 조직검사에서 간내 지방이 확인되고 심장대사 위험인자가 하나 이상 있을 때",
+   "간 효소 수치만 높으면",
+   "비만이 있으면 모두",
+   "복통이 있을 때"
+  ],
+  "exp": "소아청소년도 성인과 같게 영상이나 조직검사에서 간내 지방이 확인되고 심장대사 위험인자가 하나 이상 있으면 대사이상지방간질환으로 봐요.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "소아청소년에서 영상검사 또는 간 조직검사에서 간내 지방 축적이 확인되고, 한 가지 이상의 심장대사 위험인자가 있을 때 대사이상지방간질환(MASLD)으로",
+   "locator": "요약 및 권고사항 — 소아청소년",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "pediatric"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  }
 ]

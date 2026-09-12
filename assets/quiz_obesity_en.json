@@ -6245,5 +6245,1550 @@
    "kda"
   ],
   "fit": "core"
+ },
+ {
+  "q": "In 2015, high BMI accounted for 4.0 million deaths. More than two-thirds of them were caused by what?",
+  "a": [
+   "Cardiovascular disease",
+   "Cancer",
+   "Chronic kidney disease",
+   "Chronic lung disease"
+  ],
+  "exp": "Of the 4.0 million deaths attributed to high BMI in 2015, more than two-thirds were due to cardiovascular disease, and CVD accounted for 41% of BMI-related deaths.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "the GBD investigators found an increase in the burden of elevated BMI, with high BMI accounting for 4.0 million deaths in 2015, more than two-thirds of which were caused by cardiovascular disease (CVD), 16 even after accounting for smoking and ill health. 18 Furthermore, a large proportion of both BMI-related deaths (41%) and BMI-related disability-adjusted life-years (34%) were caused by CVD among individuals with obesity.",
+   "locator": "Introduction — global burden of high BMI",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In a person with normal weight but a high waist circumference, what does that measurement reveal?",
+  "a": [
+   "Higher cardiovascular risk that BMI alone would miss",
+   "A weighing error",
+   "A sign of high muscle mass",
+   "Likely fluid retention"
+  ],
+  "exp": "Waist circumference indicates abdominal fat, so a high value can unmask higher CVD risk even in people whose BMI looks normal.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Thus, high waist circumference (WC) even in individuals with normal weight may unmask higher CVD risk because WC is an indicator of abdominal body fat, which is associated with cardiometabolic disease and CVD and is predictive of mortality.",
+   "locator": "Visceral adiposity, liver fat, and CVD risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "visceral_fat",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "At any given BMI, what happens as waist circumference and waist-to-hip ratio rise?",
+  "a": [
+   "Risk of coronary artery disease and cardiovascular death rises",
+   "Risk becomes similar across the group",
+   "Weight comes off faster",
+   "Risk actually falls"
+  ],
+  "exp": "At each BMI level, greater central adiposity was linked to higher CAD and cardiovascular mortality risk, including among people of normal weight.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Of clinical importance, at each level of BMI, higher measures of central adiposity, including WC and WHR, were associated with a greater risk of CAD and cardiovascular mortality, including among those with normal weight as assessed by BMI.",
+   "locator": "Incident coronary artery disease events",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "visceral_fat",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In a meta-analysis of 21 studies and 1.8 million people, about half of the association between overweight/obesity and CAD was explained by what?",
+  "a": [
+   "Blood pressure, cholesterol and glucose levels",
+   "Smoking and alcohol intake",
+   "Age and sex",
+   "Exercise and sleep hours"
+  ],
+  "exp": "About half of the overweight/obesity-CAD association was explained by blood pressure, cholesterol and glucose, leaving a substantial residual risk.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "A meta-analysis of 21 studies including 1.8 million individuals suggested that approximately half of the associations of overweight and obesity with CAD are explained by levels of blood pressure, cholesterol, and glucose.",
+   "locator": "Incident coronary artery disease events",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "metabolic_syndrome",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "By what mechanism does excess adiposity raise blood pressure, according to this statement?",
+  "a": [
+   "Activation of the renin-angiotensin-aldosterone and sympathetic nervous systems",
+   "Lower blood viscosity",
+   "Slower heart rate",
+   "Increased renal blood flow"
+  ],
+  "exp": "Excess adiposity raises blood pressure through activation of the renin-angiotensin-aldosterone and sympathetic nervous systems.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Excess adiposity also leads to higher blood pressure as a result of activation of the renin-angiotensin-aldosterone and sympathetic nervous systems.",
+   "locator": "Impact of obesity on heart function",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "When does the atherosclerotic process begin?",
+  "a": [
+   "It begins in childhood",
+   "After menopause",
+   "After age 60",
+   "Only after blood pressure rises"
+  ],
+  "exp": "Atherosclerosis starts in childhood, and obesity accelerates these early changes through insulin resistance and inflammation.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "The atherosclerotic process is initiated in childhood, with ingestion of cholesterol esters by macrophage foam cells and their deposition in vessel walls resulting in thickening of the arterial intima.",
+   "locator": "Atherosclerosis and coronary artery disease",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity",
+   "life_course"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In a cohort of 5,881 participants, how much did heart failure incidence rise per 1-unit increase in BMI?",
+  "a": [
+   "5% in men and 7% in women",
+   "1% in both sexes",
+   "15% in men and 20% in women",
+   "30% in both sexes"
+  ],
+  "exp": "Heart failure incidence rose 5% in men and 7% in women per 1-unit BMI increase, and risk rose across the entire BMI spectrum.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "In a study of 5881 Framingham Heart Study participants, HF incidence increased by 5% in men and 7% in women for every 1-unit BMI increase after adjustment for other risk factors, and the risk of HF increased across the entire spectrum of BMI.",
+   "locator": "Obesity and HF",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How is low cardiorespiratory fitness related to heart failure risk?",
+  "a": [
+   "It raises risk across all BMI categories and may explain close to half of BMI-related HF risk",
+   "It matters only at high BMI",
+   "It is unrelated to heart failure",
+   "It lowers risk"
+  ],
+  "exp": "Low fitness was linked to higher HF risk across all BMI categories and may explain close to 50% of the HF risk associated with BMI.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Low fitness has been associated with a significantly higher risk of HF across all BMI categories and may explain close to 50% of HF risk associated with BMI.",
+   "locator": "Obesity and HF",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How much does the risk of sudden cardiac death rise per 5-unit increase in BMI?",
+  "a": [
+   "16% higher",
+   "1% higher",
+   "50% higher",
+   "No change"
+  ],
+  "exp": "Every 5-unit rise in BMI confers a 16% higher risk of sudden cardiac death, and obesity is the most common nonischemic cause of SCD.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Every 5-unit increment in BMI confers a 16% higher risk of SCD, 260 and obesity has been identified as the most common nonischemic cause of SCD.",
+   "locator": "Obesity and SCD",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How much does the risk of incident atrial fibrillation rise per 5-unit increase in BMI?",
+  "a": [
+   "About 29% higher",
+   "About 3% higher",
+   "About 70% higher",
+   "No change"
+  ],
+  "exp": "Each 5-unit BMI increment confers about a 29% greater risk of incident AF, and midlife weight gain correlates strongly with later AF.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Weight gain and a higher midlife BMI are strongly correlated with incident AF in later life. 289 , 290 Every 5-unit increment in BMI confers an ≈29% greater risk of incident AF.",
+   "locator": "Obesity and AF",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How does this statement summarise the cardiovascular course in people with obesity?",
+  "a": [
+   "They develop CVD at an earlier age and have a shorter average life span",
+   "They develop CVD later",
+   "They live with CVD for less of their life",
+   "There is no difference in life span"
+  ],
+  "exp": "People with obesity develop CVD earlier, live with it for a greater proportion of their lifetime, and have a shorter average life span.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Obesity is a strong risk factor for the development of CVD because patients with obesity experience CVD events at an earlier age, live with CVD for a greater proportion of their lifetime, and have a shorter average life span than individuals with normal weight.",
+   "locator": "Clinical management and treatment of CAD in obesity — the obesity paradox",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What may explain the so-called obesity paradox?",
+  "a": [
+   "Lead-time bias from earlier diagnosis and differences in cardiorespiratory fitness",
+   "Measurement error",
+   "Less medication use",
+   "Proven cardioprotection from obesity"
+  ],
+  "exp": "The cause is unclear; proposed explanations include lead-time bias from earlier diagnosis and treatment, and differences in cardiorespiratory fitness.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "The underlying cause of the obesity paradox is unclear. The paradox may relate to potential lead time bias that occurs when patients with overweight or obesity develop CVD earlier in their lifetime or are tested earlier for CVD than patients with normal weight, resulting in earlier diagnoses and treatment and confounding differences in outcomes. In addition, differences in cardiorespiratory fitness may explain more favorable CVD outcomes regardless of BMI.",
+   "locator": "The obesity paradox",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In heart failure, the obesity paradox is seen more clearly in which type?",
+  "a": [
+   "Heart failure with reduced ejection fraction (HFrEF)",
+   "Heart failure with preserved ejection fraction (HFpEF)",
+   "Only acutely decompensated HF",
+   "Equally in both"
+  ],
+  "exp": "Patients with overweight or class 1 obesity had better outcomes than normal-weight patients with similar HF, and this was seen more for HFrEF than HFpEF.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Data support the presence of the obesity paradox in HF: Patients with overweight or class 1 obesity have better clinical outcomes than patients with normal weight and similar degrees of HF, and this is seen more for HFrEF than for HFpEF.",
+   "locator": "Obesity and HF outcomes",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In a randomised trial of 150 people with AF, what did intensive weight loss and risk-factor management achieve?",
+  "a": [
+   "Less cumulative AF time and symptom burden, plus beneficial cardiac remodelling",
+   "Symptom relief only, with no structural change",
+   "No difference",
+   "More AF"
+  ],
+  "exp": "Intensive weight loss plus cardiometabolic risk-factor management reduced cumulative AF time, symptom burden and severity, with beneficial cardiac remodelling at 15 months.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "A randomized controlled trial of 150 individuals demonstrated that an intense weight loss and cardiometabolic risk factor management program resulted in a greater reduction in cumulative time in AF, symptom burden, and severity scores and beneficial cardiac remodeling, as evidenced by a reduction in interventricular septal dimension and left atrial area, after 15 months of follow-up.",
+   "locator": "Obesity management and AF",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Alongside rate control, rhythm control and anticoagulation, what is called the fourth pillar of AF management?",
+  "a": [
+   "Cardiovascular risk-factor management",
+   "Routine ECG monitoring",
+   "Caffeine restriction",
+   "Longer sleep"
+  ],
+  "exp": "Cardiovascular risk-factor management now stands with rate control, rhythm control and anticoagulation as the fourth pillar of AF management.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Collectively, these studies prove the dynamic nature of the AF substrate and solidify the role of cardiovascular risk factor management, in addition to rate and rhythm control and appropriate anticoagulation to mitigate stroke risk, as the essential fourth pillar of AF management.",
+   "locator": "Obesity management and AF",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What haemodynamic changes follow excess adipose tissue accumulation?",
+  "a": [
+   "Higher blood volume and cardiac output with lower systemic vascular resistance",
+   "Lower blood volume and cardiac output",
+   "Only higher systemic vascular resistance",
+   "No change"
+  ],
+  "exp": "Excess adiposity raises blood volume and cardiac output while lowering systemic vascular resistance, increasing the long-term workload on the heart.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Excess adipose tissue accumulation leads to hemodynamic changes, including higher blood volume and cardiac output and a reduction in systemic vascular resistance.",
+   "locator": "Pathophysiology of HF and arrhythmias in obesity",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Obesity shows stronger links with which outcome?",
+  "a": [
+   "Incident heart failure",
+   "Atherosclerotic cardiovascular disease",
+   "Both equally",
+   "Neither"
+  ],
+  "exp": "Epidemiological, genetic and trial evidence support stronger links of obesity with incident heart failure than with atherosclerotic CVD, and weight loss rapidly improves HFpEF symptoms.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "However, epidemiological, genetic, and trial evidence support stronger links of obesity with incident heart failure than with atherosclerotic cardiovascular disease. Evidence in the past several years shows relatively rapid and sizeable improvements in major heart failure symptoms with drug-induced and lifestyle- induced weight loss among people with heart failure with preserved ejection fraction.",
+   "locator": "Organ-specific effects of obesity — cardiovascular system",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Through which established causal risk factors does long-term excess weight lead to myocardial infarction and stroke?",
+  "a": [
+   "Hypertension, dyslipidaemia and diabetes",
+   "Anaemia, hypothyroidism and hypokalaemia",
+   "Osteoporosis, sarcopenia and arthritis",
+   "Poor sleep, stress and smoking"
+  ],
+  "exp": "Aggregated exposure to excess weight leads to myocardial infarction, stroke and peripheral arterial disease via hypertension, dyslipidaemia and diabetes.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "aggregated exposure to excess weight can, over many years, lead to atherosclerotic cardiovascular disease (ie, myocardial infarction, stroke, and peripheral arterial disease) via the established causal risk factors of hypertension, dyslipidaemia, and diabetes.",
+   "locator": "Commission — cardiovascular system",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "obesity",
+   "diabetes_link"
+  ],
+  "societies": [
+   "ksso",
+   "ksc",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What weight-loss target is recommended for adults with obesity and prediabetes?",
+  "a": [
+   "5%–7%",
+   "1%–2%",
+   "15%–20%",
+   "Over 30%"
+  ],
+  "exp": "Adults with obesity and prediabetes should consider intensive behavioural interventions targeting 5%-7% weight loss to improve glycaemic control, blood pressure and lipid targets.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Adults living with obesity and impaired glucose tolerance (prediabetes) should consider intensive behavioural interventions that target a 5%–7% weight loss, to improve glycemic control, blood pressure and blood lipid targets (level 1a, grade A)",
+   "locator": "Recommendation 23 — behavioural interventions",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "lifestyle",
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Even without weight loss, what does regular physical activity improve?",
+  "a": [
+   "Hyperglycaemia and insulin sensitivity, high blood pressure and dyslipidaemia",
+   "Haemoglobin only",
+   "Bone density only",
+   "Lung capacity only"
+  ],
+  "exp": "Regular physical activity improves hyperglycaemia and insulin sensitivity, high blood pressure and dyslipidaemia, with or without weight loss.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Regular physical activity, with and without weight loss, can improve many cardiometabolic risk factors in adults who have overweight or obesity, including hyperglycemia and insulin sensitivity (level 2b, grade B), high blood pressure (level 1a, grade B) and dyslipidemia (level 2a, grade B).",
+   "locator": "Recommendation 29 — physical activity",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In the 2025 Korean obesity fact sheet, hypertension prevalence in people with obesity was how many times that of people without obesity?",
+  "a": [
+   "1.9 times",
+   "1.1 times",
+   "3.5 times",
+   "5.0 times"
+  ],
+  "exp": "Hypertension prevalence was 1.9 times higher in people with obesity, reaching 39.2% in men and 40.8% in women with obesity.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "refs": [
+   "kssoFS2025"
+  ],
+  "evidence": {
+   "quote": "고혈압 유병률은 비만인 경우 비만이 아닌 경우(비 비만군)보다 1.9배 높음. 당뇨병 유병률은 비만인 경우 비만이 아닌 경우(비 비만군)보다 2.1배 높음. 비만한 남자에서 39.2%, 비만한 여자에서 40.8%의 고혈압 유병률을 보임.",
+   "locator": "3. 비만에서 만성질환 유병률 — 고혈압 유병률",
+   "ref": "kssoFS2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "epidemiology_korea",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In the 2025 Korean obesity fact sheet, hypercholesterolaemia prevalence in people with obesity was how many times that of people without obesity?",
+  "a": [
+   "1.5 times",
+   "1.0 times",
+   "2.8 times",
+   "4.2 times"
+  ],
+  "exp": "Hypercholesterolaemia prevalence was 1.5 times higher in people with obesity, at 26.4% in men and 34.9% in women with obesity.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "refs": [
+   "kssoFS2025"
+  ],
+  "evidence": {
+   "quote": "고콜레스테롤혈증 유병률은 비만인 경우 비만이 아닌 경우(비 비만군)보다 1.5배 높음. 대사증후군 유병률은 비만인 경우 비만이 아닌 경우(비 비만군)보다 3.1배 높음. 비만한 남자에서 26.4%, 비만한 여자에서 34.9%의 고콜레스테롤혈증 유병률을 보임.",
+   "locator": "3. 비만에서 만성질환 유병률 — 고콜레스테롤혈증 유병률",
+   "ref": "kssoFS2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "epidemiology_korea",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In the fact sheet series, a larger waist circumference was linked to a higher incidence of which conditions?",
+  "a": [
+   "Diabetes, hypertension, myocardial infarction, ischaemic stroke and cancer",
+   "Anaemia, thyroid disease and cataract",
+   "Asthma, rhinitis and atopy",
+   "Osteoporosis, urolithiasis and periodontal disease"
+  ],
+  "exp": "A larger waist circumference was associated with higher incidence of diabetes, hypertension, myocardial infarction, ischaemic stroke and cancer, while all-cause mortality showed a U-shaped relationship.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "refs": [
+   "kssoFS2025"
+  ],
+  "evidence": {
+   "quote": "2018 허리둘레와 총사망 총사망률은 허리둘레와 U-자형 관계를 보임 허리둘레와 심뇌혈관질환 및 암 발생 허리둘레가 클수록 당뇨병, 고혈압, 심근경색, 허혈성뇌졸중, 암 발생률은 증가함",
+   "locator": "비만 팩트시트 10주년 연혁 — 2018년 주제",
+   "ref": "kssoFS2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "visceral_fat",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "ksc",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What are the most common causes of death in patients with fatty liver disease overall?",
+  "a": [
+   "Cardiovascular disease and nonhepatic malignancy",
+   "Liver failure",
+   "Hepatocellular carcinoma",
+   "Infection"
+  ],
+  "exp": "The most common causes of death in these patients are cardiovascular disease and nonhepatic malignancy, followed by liver disease.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
+  "refs": [
+   "rinellaGuide2023"
+  ],
+  "evidence": {
+   "quote": "The most common causes of death in patients with NAFLD overall are cardiovascular disease (CVD) and nonhepatic malignancy, followed by liver disease.",
+   "locator": "Natural history — association between disease stage and adverse outcomes",
+   "ref": "rinellaGuide2023",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In a Korean prospective cohort, how much did hypertension raise cardiovascular risk in people with MASLD?",
+  "a": [
+   "1.94 times",
+   "1.05 times",
+   "4.50 times",
+   "No difference"
+  ],
+  "exp": "In a Korean cohort, hypertension raised cardiovascular risk 1.94-fold in MASLD, and risk rose further as the number of cardiometabolic risk factors increased.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "관찰한 우리나라의 전향적 코호트연구에서 고혈압은 심혈관질환의 위험을 1.94배 증가시켰으며(adjusted HR, 1.94; 95% CI, 1.63-2.31), 심장대사 위험인자의 개수가 증가할수록 심혈관질환의 위험이 증가하였다.",
+   "locator": "임상양상 및 예후 — 심혈관질환",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "cardio_link",
+   "masld",
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "kasl",
+   "ksc",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In the 2025 Korean obesity fact sheet, metabolic syndrome prevalence in people with obesity was how many times that of people without obesity?",
+  "a": [
+   "3.1 times",
+   "1.2 times",
+   "1.9 times",
+   "6.0 times"
+  ],
+  "exp": "Metabolic syndrome prevalence was 3.1 times higher in people with obesity, one of the widest gaps among the chronic conditions compared.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "refs": [
+   "kssoFS2025"
+  ],
+  "evidence": {
+   "quote": "대사증후군 유병률은 비만인 경우 비만이 아닌 경우(비 비만군)보다 3.1배 높음. 비만한 남자에서 26.4%, 비만한 여자에서 34.9%의 고콜레스테롤혈증 유병률을 보임. 비만한 남자에서 57.4%, 비만한 여자에서 58.3%의 대사증후군 유병률을 보임.",
+   "locator": "3. 비만에서 만성질환 유병률 — 대사증후군 유병률",
+   "ref": "kssoFS2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "epidemiology_korea",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In the 2025 fact sheet, what was the prevalence of metabolic syndrome among Korean adults with obesity?",
+  "a": [
+   "57.4% in men and 58.3% in women",
+   "About 20% in both sexes",
+   "30.1% in men and 25.6% in women",
+   "Over 90% in both sexes"
+  ],
+  "exp": "Among Korean adults with obesity, 57.4% of men and 58.3% of women had metabolic syndrome, and the gap versus non-obese adults was wider at younger ages.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "refs": [
+   "kssoFS2025"
+  ],
+  "evidence": {
+   "quote": "비만한 남자에서 57.4%, 비만한 여자에서 58.3%의 대사증후군 유병률을 보임. 젊은 연령일수록 비 비만군에 비해 비만에서의 고콜레스테롤혈증 유병률이 뚜렷하게 높음. 젊은 연령일수록 비 비만군에 비해 비만에서의 대사증후군 유병률이 뚜렷하게 높음.",
+   "locator": "3. 비만에서 만성질환 유병률 — 대사증후군 유병률",
+   "ref": "kssoFS2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "epidemiology_korea",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In the 2025 fact sheet, hyperuricaemia prevalence in people with obesity was how many times that of people without obesity?",
+  "a": [
+   "2.4 times",
+   "1.1 times",
+   "5.2 times",
+   "0.8 times"
+  ],
+  "exp": "Hyperuricaemia prevalence was 2.4 times higher with obesity, at 31.8% in men and 14.8% in women with obesity.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "refs": [
+   "kssoFS2025"
+  ],
+  "evidence": {
+   "quote": "고요산혈증 유병률은 비만인 경우 비만이 아닌 경우(비 비만군)보다 2.4배 높음. 골관절염 유병률은 비만인 경우 비만이 아닌 경우(비 비만군)보다 1.5배 높음. 비만한 남자에서 31.8%, 비만한 여자에서 14.8%의 고요산혈증 유병률을 보임.",
+   "locator": "3. 비만에서 만성질환 유병률 — 고요산혈증 유병률",
+   "ref": "kssoFS2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "epidemiology_korea",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In the 2025 fact sheet, diabetes prevalence in people with obesity was how many times that of people without obesity?",
+  "a": [
+   "2.1 times",
+   "1.3 times",
+   "3.1 times",
+   "4.8 times"
+  ],
+  "exp": "Diabetes prevalence was 2.1 times higher with obesity, at 19.1% in men and 20.9% in women with obesity.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "refs": [
+   "kssoFS2025"
+  ],
+  "evidence": {
+   "quote": "당뇨병 유병률은 비만인 경우 비만이 아닌 경우(비 비만군)보다 2.1배 높음. 비만한 남자에서 39.2%, 비만한 여자에서 40.8%의 고혈압 유병률을 보임. 비만한 남자에서 19.1%, 비만한 여자에서 20.9%의 당뇨병 유병률을 보임.",
+   "locator": "3. 비만에서 만성질환 유병률 — 당뇨병 유병률",
+   "ref": "kssoFS2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "diabetes_link",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How did metabolic syndrome prevalence in Korean adults change over the past decade?",
+  "a": [
+   "It rose from 23.3% in 2013 to 28.6% in 2022",
+   "It fell from 28.6% to 23.3%",
+   "It stayed flat",
+   "It halved"
+  ],
+  "exp": "Metabolic syndrome prevalence in Korean adults rose 1.12-fold, from 23.3% in 2013 to 28.6% in 2022.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "refs": [
+   "kssoFS2025"
+  ],
+  "evidence": {
+   "quote": "최근 10년간 대사증후군 유병률 최근 10년간 전체 성인의 대사증후군 유병률은 2013년 23.3%에서 2022년 28.6%로 1.12배 증가",
+   "locator": "비만 팩트시트 10주년 연혁 — 최근 10년간 대사증후군 유병률",
+   "ref": "kssoFS2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Among the five metabolic syndrome criteria in the Korean guideline, which one is measured directly on the body?",
+  "a": [
+   "Waist circumference",
+   "Body mass index",
+   "Body fat percentage",
+   "Neck circumference"
+  ],
+  "exp": "Waist circumference is the only anthropometric item among the five criteria, so a tape measure is the starting point of the diagnosis.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
+  "refs": [
+   "kssoGuide2022"
+  ],
+  "evidence": {
+   "quote": "① 허리둘레: 남자 90 cm 이상, 여자 85 cm 이상 ② 혈압: 130/85 mmHg 이상(혹은 고혈압 치료제 사용 중)",
+   "locator": "13. 대사증후군 — 진단 기준",
+   "ref": "kssoGuide2022",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What adds coronary risk beyond routinely measured risk factors in people with metabolic syndrome?",
+  "a": [
+   "Adipocytokine production, oxidative stress and a prothrombotic state",
+   "Lower haemoglobin",
+   "Higher body temperature",
+   "Greater heart rate variability"
+  ],
+  "exp": "Adipocytokine production, oxidative stress and a prothrombotic state may add coronary risk beyond routinely measured cardiovascular risk factors.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Production of adipocytokines, oxidative stress, and a prothrombotic state in individuals with metabolic syndrome may contribute to CAD risk beyond that explained by routinely measured cardiovascular risk factors.",
+   "locator": "Incident coronary artery disease events",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "ksc",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What lipid pattern accompanies insulin resistance?",
+  "a": [
+   "High triglycerides, low HDL cholesterol and small dense LDL particles",
+   "An isolated rise in LDL",
+   "A fall in total cholesterol only",
+   "No lipid change"
+  ],
+  "exp": "Insulin resistance is associated with high triglycerides, low HDL and small dense LDL particles, which together with abdominal obesity and elevated blood pressure form metabolic syndrome and drive atherosclerosis.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Insulin resistance is associated with dyslipidemia (high triglycerides; low high-density lipoprotein cholesterol; small, dense low-density lipoprotein particles) and metabolic syndrome (multiplex CVD risk factor including abdominal obesity, atherogenic dyslipidemia, elevated blood pressure, insulin resistance with or without glucose intolerance, and proinflammatory and prothrombotic states), which are linked to atherosclerosis.",
+   "locator": "Atherosclerosis and coronary artery disease",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What dyslipidaemia pattern is common in Asian people with obesity?",
+  "a": [
+   "High triglycerides with low HDL cholesterol",
+   "Low total cholesterol only",
+   "High HDL only",
+   "The same lipids as in Western populations"
+  ],
+  "exp": "High triglycerides with low HDL cholesterol is common in Asian people with obesity, compounded by chronic low-grade inflammation, gut dysbiosis and a reduced incretin effect.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Dyslipidaemia, marked by high levels of triglycerides and low levels of HDL cholesterol, is common. Chronic low-grade inflammation, ethnicity-specific gut dysbiosis and reduced incretin effect further worsen metabolic health.",
+   "locator": "Fig. 1 — Clinical features of Asian people with obesity",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In the 2025 fact sheet, chronic kidney disease prevalence in people with obesity was how many times that of people without obesity?",
+  "a": [
+   "1.4 times",
+   "1.0 times",
+   "3.0 times",
+   "5.2 times"
+  ],
+  "exp": "Chronic kidney disease prevalence was 1.4 times higher with obesity overall, and 2.1 times higher in women with obesity.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "refs": [
+   "kssoFS2025"
+  ],
+  "evidence": {
+   "quote": "만성콩팥병 유병률은 비만인 경우 비만이 아닌 경우(비 비만군)보다 1.4배 높음. 비만한 남자에서 27.7%, 비만한 여자에서 2.5%의 폐쇄성 수면무호흡증 유병률을 보임. 비만한 여자에서 비 비만군에 비해 만성콩팥병의 유병률이 2.1배 높음. 40대 이상에서 비만인 경우 비 비만군에 비해 만성콩팥병의 유병률이 높음.",
+   "locator": "3. 비만에서 만성질환 유병률 — 만성콩팥병 유병률",
+   "ref": "kssoFS2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "kidney",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What is an ectopic fat depot?",
+  "a": [
+   "Lipid deposited where it is not normally stored, such as liver, pancreas, heart and skeletal muscle",
+   "Fat just under the skin",
+   "Fat on the hips and thighs",
+   "Brown adipose tissue"
+  ],
+  "exp": "An ectopic fat depot is a lipid deposit in tissues where fat is not physiologically stored, such as the liver, pancreas, heart and skeletal muscle.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "An ectopic fat depot is generally considered a lipid deposit that is not physiologically stored in adipose tissues such as in the liver, the pancreas, the heart, and skeletal muscle.",
+   "locator": "Visceral adiposity, liver fat, and CVD risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Among people with similar total or subcutaneous adiposity, how much can visceral fat differ?",
+  "a": [
+   "Up to 2- to 3-fold",
+   "Almost identical",
+   "Within 10%",
+   "Up to 100-fold"
+  ],
+  "exp": "There may be a 2- to 3-fold variation in visceral adipose tissue at any level of total or subcutaneous adiposity.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "However, at any BMI or total adiposity level, there is considerable individual variation in the amount of subcutaneous versus intra-abdominal or visceral adipose tissue (VAT) in the abdominal cavity. 42 , 45 , 46 There may be a 2- to 3-fold variation in the amount of VAT at any level of total or subcutaneous adiposity.",
+   "locator": "Visceral adiposity, liver fat, and CVD risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What happens to visceral fat with exercise even when body weight does not change?",
+  "a": [
+   "Visceral fat still decreases",
+   "It stays the same",
+   "It increases",
+   "Only subcutaneous fat decreases"
+  ],
+  "exp": "Exercise reduces visceral adipose tissue even without weight loss, with a meta-analysis reporting a 6.1% loss of VAT in the absence of weight change.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Well-controlled studies have demonstrated that exercise can reduce VAT even in the absence of weight loss, 77 – 79 and a meta-analysis reported exercise to result in a 6.1% loss of VAT in the absence of weight loss.",
+   "locator": "Impact of lifestyle interventions on ectopic/pericardial fat",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which type of exercise appears most beneficial for reducing visceral fat?",
+  "a": [
+   "Aerobic exercise",
+   "Resistance training alone",
+   "Stretching",
+   "Breathing exercises"
+  ],
+  "exp": "The most beneficial interventions for reducing VAT appear to be aerobic; evidence for resistance training alone is equivocal.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "The most beneficial exercise interventions appear to be aerobic in nature; data on the reductions of VAT by only resistance training are equivocal.",
+   "locator": "Impact of lifestyle interventions on ectopic/pericardial fat",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What does waist-to-hip ratio tell us?",
+  "a": [
+   "It predicts cardiovascular mortality independently of BMI",
+   "It reflects muscle mass",
+   "It reflects hydration status",
+   "It reflects basal metabolic rate"
+  ],
+  "exp": "Waist-to-hip ratio predicts cardiovascular mortality independently of BMI; at the same BMI, those with central obesity had higher risk.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Moreover, waist-to-hip ratio (WHR) has been shown to predict cardiovascular mortality independently of BMI. According to data from the National Health and Nutrition Examination Survey, those in the US population with a WHR indicative of central obesity had a higher risk of cardiovascular mortality compared with those with the same BMI but without central adiposity.",
+   "locator": "Other adiposity and body composition measures",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Where is epicardial adipose tissue located?",
+  "a": [
+   "Visceral fat between the outer myocardial wall and the visceral layer of the pericardium",
+   "Fat on the inner wall of the heart",
+   "Fat inside the aorta",
+   "Fat on the lung surface"
+  ],
+  "exp": "Epicardial adipose tissue is visceral fat between the outer myocardial wall and the visceral pericardium, releasing cytokines and chemokines into the vasculature.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Epicardial adipose tissue represents visceral fat between the outer wall of the myocardium and the visceral layer of the pericardium. This adipose tissue originates from embryonic brown adipose tissue and releases cytokines and chemokines into the vasculature.",
+   "locator": "Ectopic fat depots and CVD risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What do recent data suggest about metabolically healthy obesity?",
+  "a": [
+   "It may be a transient phenotype for most people",
+   "It is a stable lifelong state",
+   "It does not exist",
+   "It describes people with high visceral fat"
+  ],
+  "exp": "Individuals with low VAT have a more favourable CVD risk profile, but recent data suggest metabolically healthy obesity may be a transient phenotype for most people.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Within overweight and obese categories individuals with low levels of VAT are characterized by a more favorable CVD risk profile sometimes referred to as metabolically healthy obesity. 48 , 49 Recent data suggest that metabolically healthy obesity may be a transient phenotype for the majority of the population with the duration of metabolically healthy obesity differing by race/ethnicity and sex.",
+   "locator": "Visceral adiposity, liver fat, and CVD risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "obesity",
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What do CT and MRI make possible in body composition research?",
+  "a": [
+   "Quantifying areas or volumes of adipose and ectopic fat depots from cross-sectional images",
+   "Counting fat cells",
+   "Genotyping fat tissue",
+   "Replacing blood lipid measurement"
+  ],
+  "exp": "CT and MRI allow cross-sectional images at any level, quantifying the areas or volumes of adipose tissue and ectopic fat depots.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "With these methods, cross-sectional images of the body at any level allow the quantification of areas or volumes of various adipose tissue and ectopic fat depots.",
+   "locator": "Visceral adiposity, liver fat, and CVD risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How do the Japanese waist circumference cut-offs differ from the Korean ones?",
+  "a": [
+   "85 cm in men and 90 cm in women, so the cut-off is higher for women",
+   "They are identical to the Korean cut-offs",
+   "100 cm in men and 95 cm in women",
+   "Japan does not use waist cut-offs"
+  ],
+  "exp": "Japan uses cut-offs of 85 cm in men and 90 cm in women, derived from empirical data linking waist circumference to visceral adipose tissue area.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "the JASSO has established waist circumference cut-offs of ≥85 cm for men and ≥90 cm for women based on empirical data linking waist circumference to visceral adipose tissue area",
+   "locator": "Ethnicity-specific diagnostic criteria — waist circumference cut-offs",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In a Japanese CT cohort, which fat depot was linked to the number of cardiovascular risk factors?",
+  "a": [
+   "Visceral adipose tissue",
+   "Subcutaneous adipose tissue",
+   "Both equally",
+   "Neither"
+  ],
+  "exp": "Visceral adipose tissue area was strongly associated with the number of cardiovascular risk factors, whereas subcutaneous adipose tissue showed no such link.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "CT-based analyses consistently show that visceral adiposity poses a considerably higher risk of metabolic disease and CVD than subcu- taneous adipose tissue8. In a Japanese cohort, visceral adipose tissue area was strongly associated with the number of cardiovascular risk factors, whereas subcutaneous adipose tissue showed no such link",
+   "locator": "Asian obesity phenotype — visceral versus subcutaneous adiposity",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In Korean CT studies, what predicted coronary artery disease even after adjusting for BMI and visceral adiposity?",
+  "a": [
+   "Pericardial adipose tissue and myosteatosis",
+   "Subcutaneous fat thickness",
+   "Total body water",
+   "Bone density"
+  ],
+  "exp": "Korean CT studies showed that pericardial adipose tissue and myosteatosis independently predicted coronary artery disease and vascular events, even after adjustment for BMI and visceral adiposity.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "refs": [
+   "lim2026"
+  ],
+  "evidence": {
+   "quote": "Korean CT studies showed that pericardial adipose tissue and myosteatosis independently predicted coronary artery disease and vascular events, even after adjustment for BMI and",
+   "locator": "Studies showing the need for a new definition of clinical obesity in Asian people",
+   "ref": "lim2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "cardio_link",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "ksc",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which comorbidities should clinicians assess in adults with MASLD?",
+  "a": [
+   "Type 2 diabetes, dyslipidaemia, hypertension, kidney disease, sleep apnoea and polycystic ovary syndrome",
+   "Anaemia and thyroid disease",
+   "Osteoporosis and arthritis",
+   "Asthma and rhinitis"
+  ],
+  "exp": "Clinicians should assess type 2 diabetes, dyslipidaemia, hypertension, kidney disease, sleep apnoea and polycystic ovary syndrome, along with cardiovascular risk.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "Clinicians should assess associated comorbidities (e.g. type 2 diabetes, dyslipidaemia, hypertension, kidney disease, sleep apnoea, polycystic ovary syndrome) and cardiovascular risk in adults with MASLD",
+   "locator": "Diagnosis and monitoring — comorbidity assessment",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "cardio_link",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
  }
 ]
