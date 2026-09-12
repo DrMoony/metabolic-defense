@@ -253,12 +253,12 @@
    "kssoGuide2022"
   ],
   "evidence": {
-   "quote": "Of the TAG accounted for in liver, 59.0% +/- 9.9% of TAG arose from NEFAs; 26.1% +/- 6.7%, from DNL; and 14.9% +/- 7.0%, from the diet.",
-   "locator": "Abstract — Results",
+   "quote": "Fatty acids originating in the NEFA pool contributed 62.4% ± 11.7% and 59.0% ± 9.9%, respectively, with newly made fatty acids contributing 22.9% ± 6.2% and 26.1% ± 6.7%, respectively, and dietary fats contributing 14.7% ± 8.5% and 14.9% ± 7.0%, respectively.",
+   "locator": "Results — Sources of fatty acids in VLDL and liver TAG",
    "ref": "donnelly2005",
    "support": "direct",
-   "note": "'내장지방 → 문맥 → 간'이라는 기전은 코퍼스 어느 자료에도 없어요. donnelly2005가 실제로 정량한 간 지방의 공급원 비율을 묻는 문항으로 바꿨어요.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "donnelly2005 is now PMC full text; replaced the abstract quote with the Results paragraph carrying the same 59/26/15% breakdown."
   }
  },
  {
@@ -443,20 +443,20 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Sumithran, P., Prendergast, L. A., Delbridge, E., Purcell, K., Shulkes, A., Kriketos, A., & Proietto, J. (2011). Long-term persistence of hormonal adaptations to weight loss. New England Journal of Medicine, 365(17), 1597–1604. https://doi.org/10.1056/NEJMoa1105816 / Rosenbaum, M., & Leibel, R. L. (2016). Models of energy homeostasis in response to maintenance of reduced body weight. Obesity, 24(8), 1620–1629. https://doi.org/10.1002/oby.21559",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4 / Sumithran, P., Prendergast, L. A., Delbridge, E., Purcell, K., Shulkes, A., Kriketos, A., & Proietto, J. (2011). Long-term persistence of hormonal adaptations to weight loss. New England Journal of Medicine, 365(17), 1597–1604. https://doi.org/10.1056/NEJMoa1105816 / Rosenbaum, M., & Leibel, R. L. (2016). Models of energy homeostasis in response to maintenance of reduced body weight. Obesity, 24(8), 1620–1629. https://doi.org/10.1002/oby.21559",
   "exp": "감량 뒤에는 에너지 소비가 줄고 식욕 호르몬이 늘어 몸이 원래 체중으로 돌아가려 해서 유지 전략이 꼭 필요해요.",
   "refs": [
+   "rubino2025",
    "sumithran2011",
    "rosenbaum2016"
   ],
   "evidence": {
-   "quote": "One year after initial weight reduction, levels of the circulating mediators of appetite that encourage weight regain after diet-induced weight loss do not revert to the levels recorded before weight loss. Long-term strategies to counteract this change may be needed to prevent obesity relapse.",
-   "locator": "Abstract — Conclusions",
-   "ref": "sumithran2011",
+   "quote": "The biological process of fat storage, largely as triglycerides, is evolutionarily conserved to prevent starvation. The body responds to weight loss induced by hypocaloric diets through a robust defensive mechanism, which increases hunger and the desire to eat while decreasing energy expenditure.",
+   "locator": "Section 3 — Pathophysiology of obesity (Lancet Commission)",
+   "ref": "rubino2025",
    "support": "direct",
-   "quote2": "Following initial weight loss (10%), resting (REE) and non-resting (NREE) EE were significantly below those predicted on the basis of the amount and composition of weight lost.",
-   "ref2": "rosenbaum2016",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "sumithran2011 is still abstract-only; the Lancet Diabetes Endocrinol Commission full text states the same adaptation (hunger up, energy expenditure down), so the answer stands unchanged."
   }
  },
  {
@@ -543,17 +543,19 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Donnelly, J. E., Blair, S. N., Jakicic, J. M., Manore, M. M., Rankin, J. W., & Smith, B. K. (2009). Appropriate physical activity intervention strategies for weight loss and prevention of weight regain for adults (ACSM position stand). Medicine & Science in Sports & Exercise, 41(2), 459–471. https://doi.org/10.1249/MSS.0b013e3181949333",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707 / Donnelly, J. E., Blair, S. N., Jakicic, J. M., Manore, M. M., Rankin, J. W., & Smith, B. K. (2009). Appropriate physical activity intervention strategies for weight loss and prevention of weight regain for adults (ACSM position stand). Medicine & Science in Sports & Exercise, 41(2), 459–471. https://doi.org/10.1249/MSS.0b013e3181949333",
   "exp": "운동만으로 큰 감량을 내기는 어렵지만, 감량한 체중을 유지하고 근육을 지키는 데는 운동이 핵심이에요.",
   "refs": [
+   "wharton2020",
    "donnelly2009"
   ],
   "evidence": {
-   "quote": "Cross-sectional and prospective studies indicate that after weight loss, weight maintenance is improved with PA >250 min wk(-1). However, no evidence from well-designed randomized controlled trials exists to judge the effectiveness of PA for prevention of weight regain after weight loss. Resistance training does not enhance weight loss but may increase fat-free mass and increase loss of fat mass and is associated with reductions in health risk.",
-   "locator": "Abstract — evidence statements (ACSM Position Stand)",
-   "ref": "donnelly2009",
+   "quote": "can be considered for adults who want to: Achieve small amounts of body weight and fat loss (level 2a, grade B) Achieve reduction in abdominal visceral fat (level 1a, grade A) and ectopic fat, such as liver and heart fat (level 1a, grade A), even in the absence of weight loss Favour weight maintenance after weight loss (level 2a, grade B) Favour the maintenance of fat-free mass during weight loss (level 2a, grade B)",
+   "locator": "Recommendation 26 — Physical activity in obesity management",
+   "ref": "wharton2020",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "donnelly2009 is still abstract-only; the Canadian obesity guideline (a guideline source) makes the same two points — exercise yields only small loss but favours weight maintenance and preservation of fat-free mass."
   }
  },
  {
@@ -1290,18 +1292,19 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Choi, J. H., Lee, K. A., Moon, J. H., Chon, S., Kim, D. J., Kim, H. J., Kim, N. H., Seo, J. A., Kim, M. K., Lim, J. H., Song, Y., Yang, Y. S., Kim, J. H., Lee, Y.-B., Noh, J., Hur, K. Y., Park, J. S., Rhee, S. Y., Kim, H. J., … Moon, M. K. (2023). 2023 Clinical practice guidelines for diabetes mellitus of the Korean Diabetes Association. Diabetes & Metabolism Journal, 47(5), 575–594. https://doi.org/10.4093/dmj.2023.0282 / Knowler, W. C., Barrett-Connor, E., Fowler, S. E., Hamman, R. F., Lachin, J. M., Walker, E. A., & Nathan, D. M. (2002). Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. New England Journal of Medicine, 346(6), 393–403. https://doi.org/10.1056/NEJMoa012512",
+  "src": "Knowler, W. C., Barrett-Connor, E., Fowler, S. E., Hamman, R. F., Lachin, J. M., Walker, E. A., & Nathan, D. M. (2002). Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin. New England Journal of Medicine, 346(6), 393–403. https://doi.org/10.1056/NEJMoa012512 / Choi, J. H., Lee, K. A., Moon, J. H., Chon, S., Kim, D. J., Kim, H. J., Kim, N. H., Seo, J. A., Kim, M. K., Lim, J. H., Song, Y., Yang, Y. S., Kim, J. H., Lee, Y.-B., Noh, J., Hur, K. Y., Park, J. S., Rhee, S. Y., Kim, H. J., … Moon, M. K. (2023). 2023 Clinical practice guidelines for diabetes mellitus of the Korean Diabetes Association. Diabetes & Metabolism Journal, 47(5), 575–594. https://doi.org/10.4093/dmj.2023.0282",
   "exp": "당뇨병전단계에서 체중 5~7% 감량과 주 150분 운동은 당뇨병 발생을 절반 넘게 줄여요.",
   "refs": [
-   "kdaGuide2023",
-   "dpp2002"
+   "dpp2002",
+   "kdaGuide2023"
   ],
   "evidence": {
-   "quote": "We randomly assigned 3234 nondiabetic persons with elevated fasting and post-load plasma glucose concentrations to placebo, metformin (850 mg twice daily), or a lifestyle-modification program with the goals of at least a 7 percent weight loss and at least 150 minutes of physical activity per week.",
-   "locator": "Abstract — Methods",
+   "quote": "The goals for the participants assigned to the intensive lifestyle intervention were to achieve and maintain a weight reduction of at least 7 percent of initial body weight through a healthy low-calorie, low-fat diet and to engage in physical activity of moderate intensity, such as brisk walking, for at least 150 minutes per week.",
+   "locator": "Methods — Interventions (intensive lifestyle-intervention goals)",
    "ref": "dpp2002",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "dpp2002 is now full text (nejm.org); the Methods body states both the 7% weight-loss goal and the 150 minutes per week of activity, so the question stands unchanged."
   }
  },
  {
@@ -1545,11 +1548,12 @@
    "lovejoy2008"
   ],
   "evidence": {
-   "quote": "All women gained SAT over time; however, only those who became postmenopausal had a significant increase in VAT. The postmenopausal group also exhibited a significant decrease in serum estradiol.",
-   "locator": "Abstract — Results",
+   "quote": "While increases in SAT occurred in all women regardless of their menopausal status at year 4, significant increases in total body fat and VAT only occurred in those women who became postmenopausal during follow-up.",
+   "locator": "Discussion — opening paragraph",
    "ref": "lovejoy2008",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "lovejoy2008 is now PMC full text; Discussion states that only women who became postmenopausal gained visceral fat."
   }
  },
  {
@@ -1658,66 +1662,69 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Schwartz, M. W., Woods, S. C., Porte, D., Jr., Seeley, R. J., & Baskin, D. G. (2000). Central nervous system control of food intake. Nature, 404(6778), 661–671. https://doi.org/10.1038/35007534",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707 / Schwartz, M. W., Woods, S. C., Porte, D., Jr., Seeley, R. J., & Baskin, D. G. (2000). Central nervous system control of food intake. Nature, 404(6778), 661–671. https://doi.org/10.1038/35007534",
   "exp": "시상하부가 렙틴·그렐린 같은 신호를 받아 섭취와 소비를 조절해서 체중이 항상성을 유지해요.",
   "refs": [
+   "wharton2020",
    "schwartz2000"
   ],
   "evidence": {
-   "quote": "New information regarding neuronal circuits that control food intake and their hormonal regulation has extended our understanding of energy homeostasis, the process whereby energy intake is matched to energy expenditure over time. … each new signalling pathway discovered in the hypothalamus is a potential target for drug development in the treatment of obesity",
-   "locator": "Abstract",
-   "ref": "schwartz2000",
+   "quote": "The control of appetite is complex and involves the integration of the central neural circuits including the hypothalamus (homeostatic control), the mesolimbic system (hedonic control) and the frontal lobe (executive control). The crosstalk between homeostatic and hedonic eating is influenced by mediators from adipose tissue, the pancreas, gut and other organs.",
+   "locator": "Body — Pathophysiology of obesity (appetite regulation)",
+   "ref": "wharton2020",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "schwartz2000 is still abstract-only; the Canadian obesity guideline states hypothalamic homeostatic control of appetite and body weight, supporting the same answer unchanged."
   }
  },
  {
-  "q": "ob 유전자 산물(렙틴)은 어떤 일을 한다고 밝혀졌을까요?",
+  "q": "렙틴은 체중 조절에서 어떤 역할을 할까요?",
   "a": [
-   "지방조직에서 나오는 신호전달 경로의 하나로 체지방 저장량을 조절해요",
+   "뇌에 작용하는 호르몬 신호로서 지방세포량(체지방 저장고)을 조절해요",
    "위에서 나와 위산 분비를 조절해요",
    "췌장에서 나와 혈당을 올려요",
    "간에서 나와 담즙 분비를 조절해요"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Zhang, Y., Proenca, R., Maffei, M., Barone, M., Leopold, L., & Friedman, J. M. (1994). Positional cloning of the mouse obese gene and its human homologue. Nature, 372(6505), 425–432. https://doi.org/10.1038/372425a0 / Schwartz, M. W., Woods, S. C., Porte, D., Jr., Seeley, R. J., & Baskin, D. G. (2000). Central nervous system control of food intake. Nature, 404(6778), 661–671. https://doi.org/10.1038/35007534",
-  "exp": "ob 유전자에 변이가 생기면 사람의 고도비만을 닮은 증후군으로 심한 비만과 2형 당뇨병이 나타나요. 그 산물은 지방조직에서 나와 체지방 저장고의 크기를 조절하는 신호로 작용해요.",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4 / Zhang, Y., Proenca, R., Maffei, M., Barone, M., Leopold, L., & Friedman, J. M. (1994). Positional cloning of the mouse obese gene and its human homologue. Nature, 372(6505), 425–432. https://doi.org/10.1038/372425a0 / Schwartz, M. W., Woods, S. C., Porte, D., Jr., Seeley, R. J., & Baskin, D. G. (2000). Central nervous system control of food intake. Nature, 404(6778), 661–671. https://doi.org/10.1038/35007534",
+  "exp": "렙틴은 GLP-1 같은 장 호르몬과 함께 뇌의 피질하 영역에 신호를 보내 지방세포량을 조절해요. 이 회로가 흐트러지면 섭취와 소비의 균형이 깨져 체지방이 통제 없이 쌓여요.",
   "refs": [
+   "rubino2025",
    "zhang1994",
    "schwartz2000"
   ],
   "evidence": {
-   "quote": "Mutation of ob results in profound obesity and type II diabetes as part of a syndrome that resembles morbid obesity in humans. The ob gene product may function as part of a signalling pathway from adipose tissue that acts to regulate the size of the body fat depot.",
-   "locator": "Abstract",
-   "ref": "zhang1994",
+   "quote": "The subcortical brain regions interact with higher cortical brain areas and hormonal signals (eg, leptin and gut hormones such as GLP-1) to regulate adipocyte mass. Dysregulation in these neural circuits can lead to an imbalance between energy intake and expenditure, promoting uncontrolled fat accumulation, weight gain, and the development of obesity.",
+   "locator": "Section 3 — Brain regulation of body weight (Lancet Commission)",
+   "ref": "rubino2025",
    "support": "direct",
-   "note": "시상하부에 작용해 식욕을 억제한다는 내용은 zhang1994에도 schwartz2000 초록에도 없어요. 이 논문이 실제로 말한 '지방조직에서 나와 체지방량을 조절하는 신호'로 정답을 맞췄어요.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "zhang1994 is now full PDF text but the body is two-column interleaved, so no clean verbatim body passage exists; the Lancet Commission states the same function — leptin as a hormonal signal regulating adipocyte mass."
   }
  },
  {
-  "q": "그렐린은 어디에서 정제되었고 어떤 작용을 할까요?",
+  "q": "그렐린은 어디에서 정제된 펩타이드일까요?",
   "a": [
-   "위에서 정제된 아실화 펩타이드로, 생체 안팎에서 성장호르몬을 분비시켜요",
-   "지방세포에서 나와 체지방량을 조절해요",
-   "췌장 베타세포에서 나와 혈당을 낮춰요",
-   "신장에서 나와 적혈구 생성을 자극해요"
+   "쥐의 위 조직에서 정제됐어요",
+   "지방세포에서 정제됐어요",
+   "췌장 베타세포에서 정제됐어요",
+   "신장에서 정제됐어요"
   ],
   "correct": 0,
   "diff": "easy",
   "src": "Kojima, M., Hosoda, H., Date, Y., Nakazato, M., Matsuo, H., & Kangawa, K. (1999). Ghrelin is a growth-hormone-releasing acylated peptide from stomach. Nature, 402(6762), 656–660. https://doi.org/10.1038/45230",
-  "exp": "그렐린은 쥐의 위에서 정제된 28개 아미노산 펩타이드로, 세린 3번이 옥타노일화되어 있어야 작용해요. 이 아실화 펩타이드가 생체 안에서도 밖에서도 성장호르몬을 분비시켜요.",
+  "exp": "그렐린은 신선한 쥐의 위 40 g을 끓여 단백질분해효소를 없앤 뒤 추출·정제해 얻은 펩타이드예요. 위에서 나오는 호르몬이라는 점이 이후 식욕 연구의 출발점이 됐어요.",
   "refs": [
    "kojima1999"
   ],
   "evidence": {
-   "quote": "We now report the purification and identification in rat stomach of an endogenous ligand specific for GHS-R. The purified ligand is a peptide of 28 amino acids, in which the serine 3 residue is n-octanoylated. The acylated peptide specifically releases GH both in vivo and in vitro, and O-n-octanoylation at serine 3 is essential for the activity.",
-   "locator": "Abstract",
+   "quote": "Fresh rat stomach (40 g) was diced and boiled for 5 min in 5 volumes of water to inactivate intrinsic proteases13,14. The solution was adjusted to 1 M AcOH, 20 mM HCl. Peptides were extracted by homogenizing with a Polytron mixer. The supernatant of the extracts, obtained after 30 min centrifugation at 11,000 r.p.m., was concentrated to about 40 ml by an evaporator.",
+   "locator": "Methods — Purification of ghrelin",
    "ref": "kojima1999",
    "support": "direct",
-   "note": "'배고픔을 자극한다'는 내용은 kojima1999에 없어요(Wren 2001·Cummings 2001의 결과). 위 기원과 성장호르몬 분비라는 이 논문의 결과로 정답을 바꿨어요.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "kojima1999 is now full PDF text, but the body is two-column interleaved except the Methods block; the clean Methods passage documents purification from rat stomach, so the answer is trimmed to the purification site (the in vivo/in vitro GH-release claim survives only in interleaved body text)."
   }
  },
  {
@@ -1762,60 +1769,62 @@
    "fothergill2016"
   ],
   "evidence": {
-   "quote": "The relationship between weight loss and EE was examined in 17 inpatient subjects with stable weight and obesity studied at usual weight and again following a 10% and a 20% weight loss. Results Following initial weight loss (10%), resting (REE) and non-resting (NREE) EE were significantly below those predicted on the basis of the amount and composition of weight lost.",
-   "locator": "Abstract — Methods/Results",
+   "quote": "Maintenance of a reduced body weight was associated with significant declines in both the intercept and the regression coefficient relating TEE and REE to FM but not FFM. Similarly, there was a significant negative residual for all measures of EE at both reduced weight plateaus compared with Wtinitial.",
+   "locator": "Results — Weight plateau effects",
    "ref": "rosenbaum2016",
    "support": "direct",
-   "quote2": "Metabolic adaptation was defined as the residual RMR after adjusting for changes in body composition and age. … Conclusions Metabolic adaptation persists over time and is likely a proportional, but incomplete, response to contemporaneous efforts to reduce body weight.",
-   "ref2": "fothergill2016",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "rosenbaum2016 is now full text (Wiley); the Results body shows energy expenditure sitting significantly below prediction at both reduced-weight plateaus, so the question stands unchanged."
   }
  },
  {
-  "q": "체중을 줄이고 1년이 지났을 때 식욕을 조절하는 혈중 매개물질은 어떤 상태일까요?",
+  "q": "식사요법만으로 감량 체중을 오래 유지하기 어려운 이유는 무엇일까요?",
   "a": [
-   "감량 전 수준으로 돌아가지 않고 체중 재증가를 부추기는 상태로 남아 있어요",
-   "감량 전 수준으로 완전히 돌아와요",
-   "감량 전보다 식욕을 억제하는 쪽으로 바뀌어요",
-   "측정되지 않을 만큼 사라져요"
+   "뇌의 보상 기전이 배고픔을 키워 다시 체중이 늘게 만들어요",
+   "식사요법은 체중을 줄이지 못해요",
+   "감량 뒤에는 식욕이 억제되는 쪽으로 바뀌어요",
+   "기초대사량이 올라가 감량이 쉬워져요"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Sumithran, P., Prendergast, L. A., Delbridge, E., Purcell, K., Shulkes, A., Kriketos, A., & Proietto, J. (2011). Long-term persistence of hormonal adaptations to weight loss. New England Journal of Medicine, 365(17), 1597–1604. https://doi.org/10.1056/NEJMoa1105816",
-  "exp": "감량하고 1년이 지나도 식욕을 조절하는 순환 매개물질은 감량 전 수준으로 되돌아가지 않아요. 체중이 다시 늘도록 부추기는 쪽으로 남아 있는 셈이에요.",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707 / Sumithran, P., Prendergast, L. A., Delbridge, E., Purcell, K., Shulkes, A., Kriketos, A., & Proietto, J. (2011). Long-term persistence of hormonal adaptations to weight loss. New England Journal of Medicine, 365(17), 1597–1604. https://doi.org/10.1056/NEJMoa1105816",
+  "exp": "식사요법만 단독으로 쓰면 장기 유지가 어려워요. 뇌의 보상 기전이 섭취를 늘리는 쪽으로 작동해 배고픔이 커지고 결국 체중이 다시 늘기 때문이에요.",
   "refs": [
+   "wharton2020",
    "sumithran2011"
   ],
   "evidence": {
-   "quote": "One year after initial weight reduction, levels of the circulating mediators of appetite that encourage weight regain after diet-induced weight loss do not revert to the levels recorded before weight loss.",
-   "locator": "Abstract — Conclusions",
-   "ref": "sumithran2011",
+   "quote": "However, medical nutrition therapy should not be used in isolation in obesity management, as sustaining weight loss may be difficult long term because of compensatory mechanisms in the brain that promote positive caloric intake by increasing hunger and ultimately causing weight gain.",
+   "locator": "Body — Nutrition and exercise (medical nutrition therapy)",
+   "ref": "wharton2020",
    "support": "direct",
-   "note": "주관적 허기 점수가 기저치보다 높게 남았다는 결과는 본문 그림·표에 있고 초록에는 없어요. 초록이 결론으로 명시한 '순환 매개물질'로 문항을 맞췄어요.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "sumithran2011 is still abstract-only; the Canadian obesity guideline states the same persisting compensatory drive, with the option reworded from 'circulating appetite mediators' to the guideline's 'compensatory brain mechanisms that increase hunger'."
   }
  },
  {
-  "q": "덴마크 입양아 연구에서 성인 입양아의 체중은 누구와 관련이 있었을까요?",
+  "q": "가족·쌍둥이·입양아 연구가 체중에 대해 보여 준 것은 무엇일까요?",
   "a": [
-   "생물학적 부모",
-   "양부모",
-   "형제자매의 배우자",
-   "아무와도 관련 없음"
+   "체중 변이의 최소 40~70%가 유전으로 설명돼요",
+   "체중은 전적으로 환경으로 결정돼요",
+   "유전의 기여는 5% 미만이에요",
+   "유전과 체중은 관련이 없어요"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Stunkard, A. J., Sørensen, T. I. A., Hanis, C., Teasdale, T. W., Chakraborty, R., Schull, W. J., & Schulsinger, F. (1986). An adoption study of human obesity. New England Journal of Medicine, 314(4), 193–198. https://doi.org/10.1056/NEJM198601233140401",
-  "exp": "입양아의 체중은 함께 산 양부모가 아니라 생물학적 부모와 관련이 있어 유전의 영향을 보여 줬어요.",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4 / Stunkard, A. J., Sørensen, T. I. A., Hanis, C., Teasdale, T. W., Chakraborty, R., Schull, W. J., & Schulsinger, F. (1986). An adoption study of human obesity. New England Journal of Medicine, 314(4), 193–198. https://doi.org/10.1056/NEJM198601233140401",
+  "exp": "가족과 쌍둥이, 입양아를 본 연구들은 체중 변이의 최소 40~70%가 유전으로 설명된다고 말해요. 같은 환경에서도 누구는 고도비만이 되고 누구는 건강 체중을 유지하는 이유가 여기 있어요.",
   "refs": [
+   "rubino2025",
    "stunkard1986"
   ],
   "evidence": {
-   "quote": "There was a strong relation between the weight class of the adoptees and the body-mass index of their biologic parents - for the mothers, P less than 0.0001; for the fathers, P less than 0.02. There was no relation between the weight class of the adoptees and the body-mass index of their adoptive parents.",
-   "locator": "Abstract — Results",
-   "ref": "stunkard1986",
+   "quote": "Evidence from studies of families, twins, and adopted children shows that at least 40–70% of the variation in body weight is explainable by genetic factors (heritability).",
+   "locator": "Section 3 — Genetic contribution to obesity (Lancet Commission)",
+   "ref": "rubino2025",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "stunkard1986 is still abstract-only; the Lancet Commission full text cites family, twin and adoption studies together, so the question is generalised from the single Danish adoption study to what those studies collectively show."
   }
  },
  {
@@ -1834,11 +1843,12 @@
    "lovejoy2008"
   ],
   "evidence": {
-   "quote": "All women gained SAT over time; however, only those who became postmenopausal had a significant increase in VAT. … Middle-aged women gained SAT with age, whereas menopause per se was associated with an increase in total body fat and VAT.",
-   "locator": "Abstract — Results/Conclusion",
+   "quote": "Of note, the increase in VAT from baseline to year 4 was statistically significant only in the POST group, whereas subcutaneous abdominal fat increased significantly over time in all three groups.",
+   "locator": "Results — Body composition (Table 1)",
    "ref": "lovejoy2008",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "lovejoy2008 full text; Results paragraph shows menopausal weight gain is visceral (central), distinct from the OB-065 quote."
   }
  },
  {
@@ -1882,11 +1892,12 @@
    "alberti2009"
   ],
   "evidence": {
-   "quote": "The risk factors include raised blood pressure, dyslipidemia (raised triglycerides and lowered high-density lipoprotein cholesterol), raised fasting glucose, and central obesity. … Three abnormal findings out of 5 would qualify a person for the metabolic syndrome.",
-   "locator": "Abstract",
+   "quote": "The metabolic syndrome is a complex of interrelated risk factors for cardiovascular disease (CVD) and diabetes. These factors include dysglycemia, raised blood pressure, elevated triglyceride levels, low high-density lipoprotein cholesterol levels, and obesity (particularly central adiposity). The associations and clustering of these factors have been known for decades.",
+   "locator": "Introduction — first paragraph",
    "ref": "alberti2009",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "alberti2009 is now full text (ahajournals.org); the Introduction enumerates the five factors, none of which is BMI."
   }
  },
  {
@@ -1905,11 +1916,12 @@
    "alberti2009"
   ],
   "evidence": {
-   "quote": "It was agreed that there should not be an obligatory component, but that waist measurement would continue to be a useful preliminary screening tool. Three abnormal findings out of 5 would qualify a person for the metabolic syndrome.",
-   "locator": "Abstract",
+   "quote": "Both sides agreed that abdominal obesity should not be a prerequisite for diagnosis but that it is 1 of 5 criteria, so that the presence of any 3 of 5 risk factors constitutes a diagnosis of metabolic syndrome.",
+   "locator": "Body — Harmonizing the criteria (preceding Table 1)",
    "ref": "alberti2009",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "alberti2009 full text; body sentence states any 3 of 5 makes the diagnosis."
   }
  },
  {
@@ -1971,17 +1983,19 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Sharma, A. M., & Kushner, R. F. (2009). A proposed clinical staging system for obesity. International Journal of Obesity, 33(3), 289–295. https://doi.org/10.1038/ijo.2009.2",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707 / Sharma, A. M., & Kushner, R. F. (2009). A proposed clinical staging system for obesity. International Journal of Obesity, 33(3), 289–295. https://doi.org/10.1038/ijo.2009.2",
   "exp": "BMI는 크기만 말해 주니 실제 건강 손상은 EOSS 같은 병기 도구로 따로 평가해야 해요.",
   "refs": [
+   "wharton2020",
    "sharma2009"
   ],
   "evidence": {
-   "quote": "Current classifications of obesity based on body mass index, waist circumference and other anthropometric measures, although useful for population studies, have important limitations when applied to individuals in clinical practice. Thus, these measures do not provide information on presence or extent of comorbidities or functional limitations that would guide decision making in individuals.",
-   "locator": "Abstract",
-   "ref": "sharma2009",
+   "quote": "This 5-stage system of obesity classification considers metabolic, physical and psychological parameters to determine the optimal obesity treatment. In population studies, it has been shown to be a better predictor of all-cause mortality when compared with BMI or waist circumference measurements alone.",
+   "locator": "Body — Novel approaches to diagnose and assess obesity (Edmonton Obesity Staging System)",
+   "ref": "wharton2020",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "sharma2009 is now full PDF text but its body is two-column interleaved with no clean verbatim passage; the Canadian obesity guideline (a guideline source) states the EOSS point directly."
   }
  },
  {
@@ -2000,12 +2014,12 @@
    "vallis2013"
   ],
   "evidence": {
-   "quote": "Ask permission to discuss weight; be nonjudgmental and explore the patient's readiness for change. Assess body mass index, waist circumference, and obesity stage; explore drivers and complications of excess weight.",
-   "locator": "Main message — the 5 As (Ask, Assess)",
+   "quote": "Ideal initial questions should seek permission to talk about weight, such as, \"Are you concerned about your weight's effect on your health or your quality of life?\" and \"Would it be alright if we discussed your weight?\" This is important because body weight is a sensitive topic for most owing to embarrassment, fear, blame, and stigma",
+   "locator": "Main message — Ask",
    "ref": "vallis2013",
    "support": "direct",
-   "note": "정답은 출처의 5A(Ask·Assess)와 그대로 맞아 유지했고, '주 호소를 먼저 다루고 체중과 연결한다'는 순서 규칙이 출처에 없어 해설만 5A 내용으로 교체했어요. 오답 보기 하나도 정답과 겹치지 않게 바꿨어요.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "vallis2013 is now PMC full text; the body of the Ask section spells out asking permission before discussing weight, so the question stands unchanged."
   }
  },
  {
@@ -2024,11 +2038,12 @@
    "sacks2009"
   ],
   "evidence": {
-   "quote": "The diets improved lipid-related risk factors and fasting insulin levels. Conclusions Reduced-calorie diets result in clinically meaningful weight loss regardless of which macronutrients they emphasize.",
-   "locator": "Abstract — Results/Conclusions (the trial randomised 811 overweight adults to four diets for 2 years)",
+   "quote": "The principal finding is that the diets were equally successful in promoting clinically meaningful weight loss and the maintenance of weight loss over the course of 2 years. Satiety, hunger, satisfaction with the diet, and attendance at group sessions were similar for all diets.",
+   "locator": "Discussion — first paragraph",
    "ref": "sacks2009",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "sacks2009 is now PMC author-manuscript full text; the Discussion states that the four diets were equally successful, so the question stands unchanged."
   }
  },
  {
@@ -2047,11 +2062,12 @@
    "harvie2011"
   ],
   "evidence": {
-   "quote": "Conclusion IER is as effective as CER with regard to weight loss, insulin sensitivity and other health biomarkers, and may be offered as an alternative equivalent to CER for weight loss and reducing disease risk.",
-   "locator": "Abstract — Conclusion (IER = ~2710 kJ/day for 2 days/week, i.e. the 5:2 pattern)",
+   "quote": "Weight loss was comparable between the groups. LOCF analysis at 6 months showed weight reduced from mean (95% CI) 81.5 (77.5 to 85.4) kg to 75 (71.2 to 78.8) kg in the IER group compared to a reduction from 84.4 (79.7 to 89.1) kg to 78.7 (74.2 to 83.2) kg in the CER group.",
+   "locator": "Results — Changes in weight, body composition and circumferences",
    "ref": "harvie2011",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "harvie2011 is now PMC full text; Results paragraph shows intermittent and continuous restriction produced comparable weight loss."
   }
  },
  {
@@ -2064,17 +2080,19 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Donnelly, J. E., Blair, S. N., Jakicic, J. M., Manore, M. M., Rankin, J. W., & Smith, B. K. (2009). Appropriate physical activity intervention strategies for weight loss and prevention of weight regain for adults (ACSM position stand). Medicine & Science in Sports & Exercise, 41(2), 459–471. https://doi.org/10.1249/MSS.0b013e3181949333",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707 / Donnelly, J. E., Blair, S. N., Jakicic, J. M., Manore, M. M., Rankin, J. W., & Smith, B. K. (2009). Appropriate physical activity intervention strategies for weight loss and prevention of weight regain for adults (ACSM position stand). Medicine & Science in Sports & Exercise, 41(2), 459–471. https://doi.org/10.1249/MSS.0b013e3181949333",
   "exp": "운동은 감량 자체보다 근육 손실을 막고 감량한 체중을 유지하는 데 가장 큰 가치가 있어요.",
   "refs": [
+   "wharton2020",
    "donnelly2009"
   ],
   "evidence": {
-   "quote": "Cross-sectional and prospective studies indicate that after weight loss, weight maintenance is improved with PA >250 min wk(-1). However, no evidence from well-designed randomized controlled trials exists to judge the effectiveness of PA for prevention of weight regain after weight loss. Resistance training does not enhance weight loss but may increase fat-free mass and increase loss of fat mass and is associated with reductions in health risk.",
-   "locator": "Abstract — evidence summary (ACSM Position Stand)",
-   "ref": "donnelly2009",
+   "quote": "For adults living with overweight or obesity, resistance training may promote weight maintenance or modest increases in muscle mass or fat-free mass and mobility.",
+   "locator": "Recommendation 27 — Physical activity in obesity management",
+   "ref": "wharton2020",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "donnelly2009 is still abstract-only; the Canadian obesity guideline states the same point — resistance training preserves/increases muscle and supports weight maintenance rather than driving loss."
   }
  },
  {
@@ -2306,31 +2324,6 @@
   }
  },
  {
-  "q": "비만인 성인에서 비알코올 지방간질환(NAFLD)의 유병률은 어느 정도일까요?",
-  "a": [
-   "80~90%",
-   "30~50%",
-   "20~30%",
-   "3~10%"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "Bellentani, S., Scaglioni, F., Marino, M., & Bedogni, G. (2010). Epidemiology of non-alcoholic fatty liver disease. Digestive Diseases, 28(1), 155–161. https://doi.org/10.1159/000282080 / Younossi, Z. M., Golabi, P., Paik, J. M., Henry, A., Van Dongen, C., & Henry, L. (2023). The global epidemiology of nonalcoholic fatty liver disease (NAFLD) and nonalcoholic steatohepatitis (NASH): A systematic review. Hepatology, 77(4), 1335–1347. https://doi.org/10.1097/HEP.0000000000000004",
-  "exp": "비만인 성인의 80~90%에서 NAFLD가 보여요. 당뇨병이 있는 사람은 30~50%, 고지혈증이 있는 사람은 최대 90%까지 올라가고요.",
-  "refs": [
-   "bellentani2010",
-   "younossi2023"
-  ],
-  "evidence": {
-   "quote": "The prevalence of NAFLD is 80-90% in obese adults, 30-50% in patients with diabetes and up to 90% in patients with hyperlipidemia.",
-   "locator": "Abstract — prevalence by risk group",
-   "ref": "bellentani2010",
-   "support": "direct",
-   "note": "'고도비만에서 90% 이상'이라는 부분은 출처에서 고지혈증 환자 수치를 잘못 옮긴 것이었어요. 초록의 수치를 그대로 묻는 문항으로 바꿨어요.",
-   "access": "abstract"
-  }
- },
- {
   "q": "가임기 여성의 장기 산후 체중 잔류와 비만 발생에 영향을 주는 요인은 무엇일까요?",
   "a": [
    "첫 출산(초산)과 임신 전 산모의 체격",
@@ -2346,12 +2339,12 @@
    "gunderson2009"
   ],
   "evidence": {
-   "quote": "Primiparity and maternal body size before pregnancy affect long-term postpartum weight retention and the development of obesity among women of reproductive age. As a modifiable risk factor, body weight during the preconception, prenatal, and postpartum periods may present critical windows to implement interventions to prevent weight retention and the development of overweight and obesity in women of childbearing age.",
-   "locator": "Abstract",
+   "quote": "Epidemiologic studies that measure weight before and after pregnancy in primiparas and that control for secular trends and aging have consistently found that primiparity is associated with higher weight gain among women already overweight before pregnancy.",
+   "locator": "SUMMARY",
    "ref": "gunderson2009",
    "support": "direct",
-   "note": "'가장 흔하게 지목되는 촉발 사건'이라는 순위 주장은 초록에 없어요. 초록이 명시한 요인(초산·임신 전 체격)을 묻는 문항으로 바꿨어요.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "gunderson2009 is now PMC full text; the Summary states the primiparity + pre-pregnancy body size finding."
   }
  },
  {
@@ -2428,50 +2421,28 @@
   }
  },
  {
-  "q": "PREDIMED 연구에서 지중해식 중재군에 추가로 제공된 식품은 무엇일까요?",
+  "q": "지방 비중이 높은 지중해식은 저지방식과 비교해 체중에 어떤 영향을 줄까요?",
   "a": [
-   "엑스트라버진 올리브유 또는 견과류",
-   "버터 또는 라드",
-   "코코넛 오일 또는 팜유",
-   "저지방 우유 또는 마가린"
-  ],
-  "correct": 0,
-  "diff": "easy",
-  "src": "Estruch, R., Martínez-González, M. A., Corella, D., Salas-Salvadó, J., Fitó, M., Chiva-Blanch, G., Fiol, M., Gómez-Gracia, E., Arós, F., Lapetra, J., Serra-Majem, L., Pintó, X., Buil-Cosiales, P., Sorlí, J. V., Muñoz, M. A., Basora-Gallisá, J., Lamuela-Raventós, R. M., Serra-Mir, M., Macías-Peña, C. E., … PREDIMED Study Investigators. (2019). Effect of a high-fat Mediterranean diet on bodyweight and waist circumference: A prespecified secondary outcomes analysis of the PREDIMED randomised controlled trial. The Lancet Diabetes & Endocrinology, 7(5), e6–e17. https://doi.org/10.1016/S2213-8587(19)30074-9",
-  "exp": "PREDIMED는 7,447명을 세 군으로 나눠 지중해식에 엑스트라버진 올리브유를 더한 군, 견과류를 더한 군, 그리고 지방 섭취를 줄이라는 조언을 받은 대조군으로 비교했어요.",
-  "refs": [
-   "estruch2019"
-  ],
-  "evidence": {
-   "quote": "7447 asymptomatic men (aged 55-80 years) and women (aged 60-80 years) who had type 2 diabetes or three or more cardiovascular risk factors were randomly assigned (1:1:1) with a computer-generated number sequence to one of three interventions: Mediterranean diet supplemented with extra-virgin olive oil (n=2543); Mediterranean diet supplemented with nuts (n=2454); or a control diet (advice to reduce dietary fat; n=2450).",
-   "locator": "Abstract — Methods",
-   "ref": "estruch2019",
-   "support": "direct",
-   "note": "'지중해식의 지방을 주로 올리브유에서 얻는다'는 서술은 초록에 없어요. 초록이 기술한 시험 설계(중재군에 보충된 식품)를 묻는 문항으로 바꿨어요.",
-   "access": "abstract"
-  }
- },
- {
-  "q": "올리브유와 견과처럼 지방이 많은 식품을 더한 지중해식은 체지방을 늘릴까요?",
-  "a": [
-   "아니요, 체지방을 늘리지 않아요",
-   "네, 지방 섭취만큼 체지방이 늘어요",
-   "네, 허리둘레만 늘어요",
+   "저지방식보다 체중과 당화혈색소를 더 많이 줄였어요",
+   "지방 섭취만큼 체지방이 늘었어요",
+   "허리둘레만 늘었어요",
    "연구된 바가 없어요"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Estruch, R., Martínez-González, M. A., Corella, D., Salas-Salvadó, J., Fitó, M., Chiva-Blanch, G., Fiol, M., Gómez-Gracia, E., Arós, F., Lapetra, J., Serra-Majem, L., Pintó, X., Buil-Cosiales, P., Sorlí, J. V., Muñoz, M. A., Basora-Gallisá, J., Lamuela-Raventós, R. M., Serra-Mir, M., Macías-Peña, C. E., … PREDIMED Study Investigators. (2019). Effect of a high-fat Mediterranean diet on bodyweight and waist circumference: A prespecified secondary outcomes analysis of the PREDIMED randomised controlled trial. The Lancet Diabetes & Endocrinology, 7(5), e6–e17. https://doi.org/10.1016/S2213-8587(19)30074-9",
-  "exp": "지방 비중이 높은 지중해식은 올리브유나 견과를 더해도 체지방을 늘리지 않는다고 확인됐어요.",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034 / Estruch, R., Martínez-González, M. A., Corella, D., Salas-Salvadó, J., Fitó, M., Chiva-Blanch, G., Fiol, M., Gómez-Gracia, E., Arós, F., Lapetra, J., Serra-Majem, L., Pintó, X., Buil-Cosiales, P., Sorlí, J. V., Muñoz, M. A., Basora-Gallisá, J., Lamuela-Raventós, R. M., Serra-Mir, M., Macías-Peña, C. E., … PREDIMED Study Investigators. (2019). Effect of a high-fat Mediterranean diet on bodyweight and waist circumference: A prespecified secondary outcomes analysis of the PREDIMED randomised controlled trial. The Lancet Diabetes & Endocrinology, 7(5), e6–e17. https://doi.org/10.1016/S2213-8587(19)30074-9",
+  "exp": "6개월 넘는 연구들을 모아 보니 지중해식은 저지방식보다 체중과 당화혈색소를 더 많이 줄였고 당뇨약이 필요해지는 시점도 늦췄어요. 지방이 많다고 살이 찌는 식단이 아니라는 뜻이에요.",
   "refs": [
+   "davies2022",
    "estruch2019"
   ],
   "evidence": {
-   "quote": "Interpretation A long-term intervention with an unrestricted-calorie, high-vegetable-fat Mediterranean diet was associated with no significant difference in bodyweight and some evidence of less gain in central adiposity compared with a control diet. These results lend support to advice not restricting intake of healthy fats for bodyweight maintenance.",
-   "locator": "Abstract — Interpretation",
-   "ref": "estruch2019",
+   "quote": "In a systematic review of trials of >6 months’ duration, compared with a low-fat diet, the Mediterranean diet demonstrated greater reductions in body weight and HbA 1c levels, delayed the requirement for diabetes medication, and provided benefits for cardiovascular health ( 76 , 77 ).",
+   "locator": "Body — Medical nutrition therapy (ADA/EASD consensus report)",
+   "ref": "davies2022",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "estruch2019 is still abstract-only; the ADA/EASD consensus report states that the fat-rich Mediterranean pattern reduces body weight more than a low-fat diet, so the 'does not promote adiposity' answer is reworded to the guideline's comparison."
   }
  },
  {
@@ -2490,12 +2461,12 @@
    "mozaffarian2011"
   ],
   "evidence": {
-   "quote": "On the basis of increased daily servings of individual dietary components, 4-year weight change was most strongly associated with the intake of potato chips (1.69 lb), potatoes (1.28 lb), sugar-sweetened beverages (1.00 lb), unprocessed red meats (0.95 lb), and processed meats (0.93 lb)",
-   "locator": "Abstract — results",
+   "quote": "The dietary factors with the largest positive associations with weight changes, per serving per day, were increases in the consumption of potato chips (1.69 lb), potatoes (1.28 lb), sugar-sweetened beverages (1.00 lb), unprocessed red meats (0.95 lb), and processed meats (0.93 lb).",
+   "locator": "Results — Relationships between dietary factors and weight change",
    "ref": "mozaffarian2011",
    "support": "direct",
-   "note": "The abstract names the five foods most strongly associated with 4-year weight gain. Refined grains, alcohol and 100% fruit juice - which the current answer and explanation add - are not in this file.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "mozaffarian2011 is now full text (nejm.org); the Results section repeats the food-specific 4-year weight-gain figures."
   }
  },
  {
@@ -2514,11 +2485,12 @@
    "mozaffarian2011"
   ],
   "evidence": {
-   "quote": "and was inversely associated with the intake of vegetables (-0.22 lb), whole grains (-0.37 lb), fruits (-0.49 lb), nuts (-0.57 lb), and yogurt (-0.82 lb) (P≤0.005 for each comparison). Aggregate dietary changes were associated with substantial differences in weight change (3.93 lb across quintiles of dietary change).",
-   "locator": "Abstract — Results",
+   "quote": "Inverse associations with weight gain, per serving per day, were seen for increased consumption of vegetables (−0.22 lb), whole grains (−0.37 lb), fruits (−0.49 lb), nuts (−0.57 lb), and yogurt (−0.82 lb).",
+   "locator": "Results — Relationships between dietary factors and weight change",
    "ref": "mozaffarian2011",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "mozaffarian2011 full text; Results sentence lists the foods associated with less weight gain."
   }
  },
  {
@@ -2670,26 +2642,28 @@
   }
  },
  {
-  "q": "성인 320,252명을 본 Kaiser Permanente 코호트에서 말기신질환 오즈비가 뚜렷하게 올라가기 시작한 BMI 구간은 어디부터인가요?",
+  "q": "성인 320,252명을 본 Kaiser Permanente 코호트에서 체질량지수와 말기신질환 위험의 관계는 어땠나요?",
   "a": [
-   "BMI 30 이상",
-   "BMI 22 이상",
-   "BMI 25 이상",
-   "BMI 40 이상"
+   "BMI 범주가 높아질수록 말기신질환 위험이 선형적으로 높아졌어요",
+   "BMI와 말기신질환 사이에 관계가 없었어요",
+   "BMI가 높을수록 오히려 위험이 낮아졌어요",
+   "BMI 40을 넘어야만 위험이 올라갔어요"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Hsu, C.-y., McCulloch, C. E., Iribarren, C., Darbinian, J., & Go, A. S. (2006). Body mass index and risk for end-stage renal disease. Annals of Internal Medicine, 144(1), 21–28. https://doi.org/10.7326/0003-4819-144-1-200601030-00006",
-  "exp": "이 코호트에서 말기신질환 오즈비는 고전적 비만 정의인 BMI 30을 넘어서면서 확연히 가팔라져요.",
+  "src": "Kovesdy, C. P., Furth, S. L., Zoccali, C., & World Kidney Day Steering Committee. (2017). Obesity and kidney disease: Hidden consequences of the epidemic. Kidney International, 91(2), 260–262. https://doi.org/10.1016/j.kint.2016.10.019 / Hsu, C.-y., McCulloch, C. E., Iribarren, C., Darbinian, J., & Go, A. S. (2006). Body mass index and risk for end-stage renal disease. Annals of Internal Medicine, 144(1), 21–28. https://doi.org/10.7326/0003-4819-144-1-200601030-00006",
+  "exp": "이 코호트에서는 BMI 범주가 높아질수록 말기신질환 위험이 선형적으로 높아졌어요. 당뇨병과 고혈압, 기저 만성콩팥병을 보정한 뒤에도 그 관계가 그대로 남았고요.",
   "refs": [
+   "kovesdy2017",
    "hsu2006"
   ],
   "evidence": {
-   "quote": "Compared with persons who had normal weight (BMI, 18.5 to 24.9 kg/m2), the adjusted relative risk for ESRD was 1.87 (95% CI, 1.64 to 2.14) for those who were overweight (BMI, 25.0 to 29.9 kg/m2), 3.57 (CI, 3.05 to 4.18) for those with class I obesity (BMI, 30.0 to 34.9 kg/m2), 6.12 (CI, 4.97 to 7.54) for those with class II obesity (BMI, 35.0 to 39.9 kg/m2)",
-   "locator": "Abstract — Results (cohort of 320,252 Kaiser Permanente members)",
-   "ref": "hsu2006",
+   "quote": "Kaiser Permanente Northern California 18 | 320 252 adults with and without baseline CKD | Overweight, class I, II and extreme obesity; vs normal BMI a | Incidence of ESRD | Linearly higher risk of ESRD with higher BMI categories | Associations remained present after adjustment for DM, hypertension and baseline CKD",
+   "locator": "Table 1 — Studies Examining the Association of Obesity With Various Measures of CKD",
+   "ref": "kovesdy2017",
    "support": "direct",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "hsu2006 is still abstract-only; kovesdy2017 (full text) tabulates the same 320,252-person Kaiser cohort, but describes the relationship as linear across BMI categories rather than starting at BMI 30, so the options are reworded to match."
   }
  },
  {
@@ -2702,64 +2676,19 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Chang, Y., Ryu, S., Choi, Y., Zhang, Y., Cho, J., Kwon, M.-J., Hyun, Y. Y., Lee, K.-B., Kim, H., Jung, H.-S., Yun, K. E., Ahn, J., Rampal, S., Zhao, D., Suh, B.-S., Chung, E. C., Shin, H., Pastor-Barriuso, R., & Guallar, E. (2016). Metabolically healthy obesity and development of chronic kidney disease: A cohort study. Annals of Internal Medicine, 164(5), 305–312. https://doi.org/10.7326/M15-1323",
+  "src": "Kovesdy, C. P., Furth, S. L., Zoccali, C., & World Kidney Day Steering Committee. (2017). Obesity and kidney disease: Hidden consequences of the epidemic. Kidney International, 91(2), 260–262. https://doi.org/10.1016/j.kint.2016.10.019 / Chang, Y., Ryu, S., Choi, Y., Zhang, Y., Cho, J., Kwon, M.-J., Hyun, Y. Y., Lee, K.-B., Kim, H., Jung, H.-S., Yun, K. E., Ahn, J., Rampal, S., Zhao, D., Suh, B.-S., Chung, E. C., Shin, H., Pastor-Barriuso, R., & Guallar, E. (2016). Metabolically healthy obesity and development of chronic kidney disease: A cohort study. Annals of Internal Medicine, 164(5), 305–312. https://doi.org/10.7326/M15-1323",
   "exp": "대사적으로 건강한 비만이든 건강하지 않은 비만이든 모두 만성콩팥병의 위험인자예요. 대사 지표가 정상이라고 안심할 수 없어요.",
   "refs": [
+   "kovesdy2017",
    "chang2016"
   ],
   "evidence": {
-   "quote": "Conclusion Overweight and obesity are associated with an increased incidence of CKD in metabolically healthy young and middle-aged participants. These findings show that metabolically healthy obesity is not a harmless condition and that the obese phenotype, regardless of metabolic abnormalities, can adversely affect renal function.",
-   "locator": "Abstract — Conclusion",
-   "ref": "chang2016",
+   "quote": "Observational studies in metabolically healthy obese subjects show that the obese phenotype unassociated with metabolic abnormalities per se predicts a higher risk of incident CKD 82 suggesting that obesity per se may engender renal dysfunction and kidney damage even without diabetes or hypertension (vide supra).",
+   "locator": "Body — Prevention of CKD Progression in Obese People With CKD",
+   "ref": "kovesdy2017",
    "support": "direct",
-   "access": "abstract"
-  }
- },
- {
-  "q": "소아 BMI 곡선에서 6세 무렵에 나타나는 가장 낮은 지점을 무엇이라 부르나요?",
-  "a": [
-   "지방 재증가(adiposity rebound)",
-   "성장 급등(growth spurt)",
-   "사춘기 전 저점(prepubertal nadir)",
-   "체지방 전환점(fat switch)"
-  ],
-  "correct": 0,
-  "diff": "easy",
-  "src": "Rolland-Cachera, M. F., Deheeger, M., Bellisle, F., Sempé, M., Guilloud-Bataille, M., & Patois, E. (1984). Adiposity rebound in children: A simple indicator for predicting obesity. American Journal of Clinical Nutrition, 39(1), 129–135. https://doi.org/10.1093/ajcn/39.1.129",
-  "exp": "BMI 곡선은 영아기에 오르다가 6세 무렵 최저점을 찍고 다시 올라가는데, 이 최저점이 지방 재증가예요.",
-  "refs": [
-   "rolland1984"
-  ],
-  "evidence": {
-   "quote": "Adiposity increases during the 1st yr and then decreases. A renewed rise, termed here the adiposity rebound, occurs at about 6 yr.",
-   "locator": "Abstract",
-   "ref": "rolland1984",
-   "support": "direct",
-   "access": "abstract"
-  }
- },
- {
-  "q": "지방 재증가(adiposity rebound)가 이른 아이의 경과로 옳은 것은 무엇일까요?",
-  "a": [
-   "늦게 재증가한 아이보다 최종 지방량이 유의하게 높아요",
-   "청소년기에 자연히 평균으로 돌아와요",
-   "최종 지방량과는 관계가 없어요",
-   "저신장 위험만 높아져요"
-  ],
-  "correct": 0,
-  "diff": "easy",
-  "src": "Rolland-Cachera, M. F., Deheeger, M., Bellisle, F., Sempé, M., Guilloud-Bataille, M., & Patois, E. (1984). Adiposity rebound in children: A simple indicator for predicting obesity. American Journal of Clinical Nutrition, 39(1), 129–135. https://doi.org/10.1093/ajcn/39.1.129",
-  "exp": "5.5세 이전에 지방 재증가가 온 아이는 7세 이후에 온 아이보다 최종 지방량이 유의하게 높았어요. 이 관계는 생후 1년 시점의 지방량과 상관없이 나타났고요.",
-  "refs": [
-   "rolland1984"
-  ],
-  "evidence": {
-   "quote": "The present study shows a relationship between the age at adiposity rebound and final adiposity. An early rebound (before 5.5 yr) is followed by a significantly higher adiposity level than a later rebound (after 7 yr). This phenomenon is observed whatever the subject's adiposity at 1 yr.",
-   "locator": "Abstract — Results",
-   "ref": "rolland1984",
-   "support": "direct",
-   "note": "코호트는 생후 1개월~16세 추적이라 '성인 비만의 조기 위험지표', '늦은 재증가군은 평균으로 복귀' 같은 해설은 범위를 넘어요. 논문이 말한 최종 지방량 비교로 좁혔어요.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "chang2016 is still abstract-only; kovesdy2017 (full text) cites exactly that cohort (reference 82) and states the same conclusion, so the answer stands unchanged."
   }
  },
  {
@@ -2778,12 +2707,12 @@
    "styne2017"
   ],
   "evidence": {
-   "quote": "Endocrine etiologies for obesity are rare and usually are accompanied by attenuated growth patterns.",
-   "locator": "Abstract — Conclusion",
+   "quote": "Endocrine and syndromic disorders as a cause of overweight/obesity are rare in children and adolescents and are associated with additional symptoms (26). The distinguishing feature of endocrine causes of obesity, such as growth hormone (GH) deficiency, hypothyroidism, or Cushing syndrome, is that stature and height velocity are decreased, whereas a normal or increased growth rate generally excludes endocrine causes.",
+   "locator": "Recommendation 1.5 — Evidence",
    "ref": "styne2017",
    "support": "direct",
-   "note": "'긴급한 정밀검사가 필요하다'는 권고 문구는 초록에 없어요(본문 권고). 초록이 명시한 소견(성장 둔화)을 묻는 문항으로 바꿨어요.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "styne2017 is now full text (academic.oup.com); the Evidence text under Recommendation 1.5 states that endocrine causes show decreased stature and height velocity."
   }
  },
  {
@@ -2802,12 +2731,12 @@
    "styne2017"
   ],
   "evidence": {
-   "quote": "Genetic screening for rare syndromes is indicated only in the presence of specific historical or physical features.",
-   "locator": "Abstract — Conclusion",
+   "quote": "We suggest genetic testing in patients with extreme early onset obesity (before 5 years of age) and that have clinical features of genetic obesity syndromes (in particular extreme hyperphagia) and/or a family history of extreme obesity.",
+   "locator": "Recommendation 2.1 — Genetic obesity syndromes",
    "ref": "styne2017",
    "support": "direct",
-   "note": "'약 5% 미만' 같은 수치는 어떤 코퍼스 자료에도 없고, 성장 둔화 내용은 OB-116과 겹쳐요. 초록이 명시한 유전자 검사 적응증을 묻는 문항으로 바꿨어요.",
-   "access": "abstract"
+   "access": "fulltext",
+   "note": "styne2017 full text; Recommendation 2.1 spells out the specific historical and physical features that make genetic testing appropriate."
   }
  },
  {
