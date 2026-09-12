@@ -102,7 +102,7 @@ function render() {
     card.innerHTML = `
       <div class="qhead">
         <span class="idx">#${i + 1}</span>
-        <span class="tag ${d}" data-role="difftag">${d.toUpperCase()}</span>
+        <span class="tag ${d}" data-role="difftag">${d.toUpperCase()}</span><span class="hint">${(q.topics||[]).join(" · ")}${q.societies?" | "+q.societies.join(",").toUpperCase():""}</span>
         <select data-role="diff">
           <option value="easy">easy</option><option value="mid">mid</option><option value="hard">hard</option>
         </select>

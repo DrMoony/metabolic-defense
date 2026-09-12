@@ -20,7 +20,16 @@
    "ref": "rinella2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "간에 지방이 5% 넘게 쌓인 질환 전체를 아우르는 새 상위 용어는?",
@@ -43,7 +52,16 @@
    "ref": "rinella2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "NAFLD라는 이름을 바꾼 이유 중 하나는 무엇일까요?",
@@ -66,7 +84,16 @@
    "ref": "rinella2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "stigma_communication"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASH는 어떤 상태를 말할까요?",
@@ -90,7 +117,16 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASH는 섬유화가 없어도(F0) 진단될 수 있어요. 그럼 '고위험(at-risk) MASH'로 따로 분류하는 기준은 무엇일까요?",
@@ -114,7 +150,15 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD가 잘 진단되지 않는 이유는 무엇일까요?",
@@ -137,7 +181,16 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD 환자의 전체 사망률은 일반 인구 대비 어느 정도일까요?",
@@ -161,7 +214,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "simon2021 is now PMC full text; Discussion restates the ~2-fold (93% higher) all-cause mortality."
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD의 예후를 가장 크게 좌우하는 요소는 무엇일까요?",
@@ -185,7 +247,15 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASH의 섬유화는 평균 몇 년에 1단계씩 진행될까요?",
@@ -209,7 +279,14 @@
    "support": "direct",
    "access": "fulltext",
    "note": "singh2015 is now PMC full text; Discussion gives the 7.1-year-per-stage NASH figure."
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "1차 진료에서 간 섬유화 선별에 가장 먼저 쓰는 지표는?",
@@ -233,7 +310,16 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "FIB-4의 저위험 컷오프(35~65세)는 얼마일까요?",
@@ -256,7 +342,15 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "FIB-4가 1.3 이상이면 다음 단계는 무엇일까요?",
@@ -279,7 +373,15 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "VCTE(간탄성도 검사)가 측정하는 것은 무엇일까요?",
@@ -302,7 +404,15 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "AASLD가 MASLD 선별검사를 권고하는 대표 대상은?",
@@ -325,7 +435,18 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중을 5% 이상 줄이면 간에서 먼저 기대되는 변화는?",
@@ -350,7 +471,18 @@
    "support": "direct",
    "note": "EASL 2024 ties >=5% to liver-fat reduction and 7-10% (not 5-7%) to improvement in liver inflammation; the quiz band is shifted by ~2 percentage points.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중을 10% 이상 줄이면 추가로 기대되는 변화는?",
@@ -375,7 +507,18 @@
    "support": "direct",
    "note": "EASL 2024 assigns 7-10% to improvement in liver inflammation and >=10% to improvement in fibrosis; AASLD 2023 likewise says '>10% is generally required to improve NASH and fibrosis'.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD에 가장 근거가 강한 식단은 무엇일까요?",
@@ -399,7 +542,17 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD 개선에 도움이 되는 운동 처방의 예는?",
@@ -424,7 +577,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "hashida2017 is still abstract-only; the AASLD practice guidance gives an exercise dose that prevents or improves NAFLD, so the prescription in the options is swapped to the guidance's figures."
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD 환자에게 소량의 음주는 어떨까요?",
@@ -447,7 +610,15 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "간 섬유화 등급에서 F4가 의미하는 것은 무엇일까요?",
@@ -470,7 +641,14 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "MetALD는 어떤 상태를 말할까요?",
@@ -493,7 +671,14 @@
    "ref": "rinella2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "FIB-4가 1.3 이상으로 나왔을 때 다음 단계는 무엇일까요?",
@@ -517,7 +702,15 @@
    "support": "direct",
    "note": "'FIB-4 1.3 이상 + 탄성도 8 kPa 초과 → 간 전문 진료 의뢰'라는 복합 규칙은 지침에 없어요. 지침이 명시한 2차 검사 단계로 바꿨어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD가 있는 성인의 식사에서 줄이라고 권고되는 것은 무엇일까요?",
@@ -542,7 +735,17 @@
    "support": "direct",
    "note": "'가공육을 줄인다'는 내용은 코퍼스 어느 자료에도 없어요. 권고문이 명시한 초가공식품·가당음료로 정답과 해설을 맞췄어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "대한간학회가 정한 MASLD의 공식 한글 명칭은 무엇일까요?",
@@ -565,7 +768,14 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "대한간학회 2025 가이드라인의 MASLD 진단 기준은 무엇일까요?",
@@ -589,7 +799,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "대한간학회가 MASLD의 심장대사 위험인자로 채택한 한국인 허리둘레 기준은 무엇일까요?",
@@ -612,7 +832,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "visceral_fat"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD 심장대사 위험인자에서 아시아인의 과체중/비만 BMI 기준은 얼마일까요?",
@@ -636,7 +866,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD 진단에서 허용되는 하루 음주량 상한은 얼마일까요?",
@@ -660,7 +900,15 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "국내 성인에서 대사이상지방간질환(MASLD)은 대략 얼마나 흔할까요?",
@@ -683,7 +931,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD 환자에서 사망의 주요 원인으로 가이드라인이 지목한 것은 무엇일까요?",
@@ -707,7 +965,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "cardio_link"
+  ],
+  "societies": [
+   "kasl",
+   "ksc",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD 환자 중 간세포암종 감시검사가 권장되는 대상은 누구일까요?",
@@ -730,7 +998,14 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "ok"
  },
  {
   "q": "대한당뇨병학회 지방간 통계 기준, 2형당뇨병 성인 중 지방간(FLI 60 이상)을 가진 비율은 어느 정도일까요?",
@@ -753,7 +1028,17 @@
    "ref": "kdaFattyLiver",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "20~39세 청년 2형당뇨병 환자에서 지방간(FLI 60 이상) 비율은 2017년 어느 정도였을까요?",
@@ -776,7 +1061,18 @@
    "ref": "kdaFattyLiver",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link",
+   "life_course",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD 환자에서 간외 암종 발생 위험을 높이는 대표 인자로 가이드라인이 꼽은 것은 무엇일까요?",
@@ -799,7 +1095,18 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "지방간을 확인하는 데 가장 흔히 쓰는 1차 영상검사는 무엇일까요?",
@@ -825,7 +1132,16 @@
    "support": "direct",
    "note": "The EASL 2016 PDF is typeset in two columns, so the recommendation line is interrupted by column-2 text; the quote is stitched from the two verbatim line fragments of the recommendation box.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "대사이상지방간질환(MASLD) 진단에 쓰는 심장대사 위험인자가 아닌 것은 무엇일까요?",
@@ -849,7 +1165,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "대사이상지방간질환의 가장 기본이 되는 치료는 무엇일까요?",
@@ -874,7 +1200,18 @@
    "support": "direct",
    "note": "Quote re-synced verbatim against the new full-text easl2024 corpus file (em dashes; 'type 2 diabetes' spelled out). Ref and support unchanged from the first pass.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "간 지방·염증·섬유화를 확정 진단하는 검사는 무엇일까요?",
@@ -898,7 +1235,14 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD로 진단하려면 간 실질의 몇 %를 넘는 부분에 지방증이 있어야 하나요?",
@@ -922,7 +1266,14 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASH의 조직학적 정의에서 지방증과 반드시 함께 있어야 하는 소견은 무엇인가요?",
@@ -946,7 +1297,14 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "전 세계 성인의 MASLD 유병률은 어느 정도로 추정되나요?",
@@ -970,7 +1328,16 @@
    "support": "direct",
    "note": "The paper's headline figure is 'about one-third'; the pooled estimate is 30.05%, and only the 2016-2019 subgroup (38.2%) exceeds 33%.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "2형당뇨병을 가진 사람에서 MASLD 유병률은 얼마인가요?",
@@ -995,7 +1362,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "ajmera2023 is now PMC full text (PMC9975077); the Discussion restates the 65% prevalence, so the question stands unchanged."
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "2형당뇨병을 가진 사람 가운데 진행성 간섬유화를 가진 비율은 얼마인가요?",
@@ -1019,7 +1395,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "ajmera2023 full text; the Discussion confirms the 14% advanced-fibrosis rate, so the question stands unchanged."
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD·MASH를 가진 사람에서 간경변이나 간세포암종으로 진행하는 독립 위험인자는 무엇인가요?",
@@ -1044,7 +1429,16 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD가 있는 사람에게 꼭 함께 시행해야 할 선별검사는 무엇인가요?",
@@ -1068,7 +1462,17 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "지방간질환이 있는 사람의 아미노전이효소(간효소) 수치에 대한 설명으로 옳은 것은 무엇일까요?",
@@ -1092,7 +1496,16 @@
    "support": "direct",
    "note": "'절반 넘게 정상'이라는 비율은 어떤 코퍼스 자료에도 없어요. 지침이 쓴 표현('frequently normal', 단독 배제 금지)으로 정답과 해설을 맞췄어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만이나 2형당뇨병을 가진 사람에게 권고되는 간섬유화 검사 주기는 어떻게 되나요?",
@@ -1117,7 +1530,18 @@
    "support": "direct",
    "note": "AASLD specifies every 1-2 years, not annually; no corpus file recommends a strictly annual interval.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "과당에 대한 설명으로 옳은 것은 무엇인가요?",
@@ -1141,7 +1565,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "softic2016 is now PMC full text; body text states >90% first-pass hepatic metabolism and DNL stimulation."
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD 환자에게 줄이라고 권하는 '과당'은 주로 무엇을 뜻하나요?",
@@ -1166,7 +1599,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "softic2016 full text; body text ties the harm to high-fructose corn syrup and fructose-sweetened drinks rather than fruit."
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD를 가진 사람에게 운동을 권할 때 기준은 무엇일까요?",
@@ -1192,7 +1635,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "hashida2017 is still abstract-only; the AASLD practice guidance says the type of exercise should be tailored to the patient's preferences and physical abilities, which carries the same clinical message as 'both aerobic and resistance work'."
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "지방간질환에서 운동이 간에 미치는 효과로 옳은 것은 무엇일까요?",
@@ -1218,7 +1670,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "hashida2017 is still abstract-only; the EASL–EASD–EASO guideline states that exercise reduces steatosis, so the option is reworded from 'both aerobic and resistance reduce steatosis' to the guideline's statement."
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "정상 체중인 MASLD 환자에게 알맞은 조언은 무엇인가요?",
@@ -1242,7 +1704,16 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD 환자의 식사에서 특히 피하라고 강조하는 것은 무엇인가요?",
@@ -1265,7 +1736,17 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "지방간이 확인된 사람에게 시행할 최소한의 대사 검사 항목은 무엇인가요?",
@@ -1289,7 +1770,20 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "metabolic_syndrome",
+   "cardio_link",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "다음 가운데 대사증후군 진단기준(국제 공통 정의)에 들어가지 않는 항목은 무엇인가요?",
@@ -1313,6 +1807,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "alberti2009 full text; Table 1 lists waist, triglycerides and HDL-C as the criteria — LDL cholesterol is not among them."
-  }
+  },
+  "topics": [
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc",
+   "kasl"
+  ],
+  "fit": "core"
  }
 ]

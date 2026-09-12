@@ -20,7 +20,16 @@
    "ref": "rinella2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is the new umbrella term for all liver disease with >5% hepatic fat?",
@@ -43,7 +52,16 @@
    "ref": "rinella2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What was one reason for retiring the name NAFLD?",
@@ -66,7 +84,16 @@
    "ref": "rinella2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "stigma_communication"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "What does MASH describe?",
@@ -90,7 +117,16 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASH can be diagnosed even at F0. What defines 'at-risk MASH'?",
@@ -114,7 +150,15 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Why is MASLD commonly underdiagnosed?",
@@ -137,7 +181,16 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Compared with the general population, overall mortality in MASLD is:",
@@ -161,7 +214,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "simon2021 is now PMC full text; Discussion restates the ~2-fold (93% higher) all-cause mortality."
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which factor most strongly drives prognosis in MASLD?",
@@ -185,7 +247,15 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "On average, MASH fibrosis progresses by one stage every:",
@@ -209,7 +279,14 @@
    "support": "direct",
    "access": "fulltext",
    "note": "singh2015 is now PMC full text; Discussion gives the 7.1-year-per-stage NASH figure."
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is the initial non-invasive index for fibrosis screening in primary care?",
@@ -233,7 +310,16 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is the FIB-4 low-risk cutoff for ages 35-65?",
@@ -256,7 +342,15 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "If FIB-4 is 1.3 or higher, what comes next?",
@@ -279,7 +373,15 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What does VCTE (transient elastography) measure?",
@@ -302,7 +404,15 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "AASLD recommends MASLD screening in which patients?",
@@ -325,7 +435,18 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is the first liver change expected with a weight loss of 5% or more?",
@@ -350,7 +471,18 @@
    "support": "direct",
    "note": "EASL 2024 ties >=5% to liver-fat reduction and 7-10% (not 5-7%) to improvement in liver inflammation; the quiz band is shifted by ~2 percentage points.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What further change is expected with a weight loss of 10% or more?",
@@ -375,7 +507,18 @@
    "support": "direct",
    "note": "EASL 2024 assigns 7-10% to improvement in liver inflammation and >=10% to improvement in fibrosis; AASLD 2023 likewise says '>10% is generally required to improve NASH and fibrosis'.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which diet has the strongest evidence in MASLD?",
@@ -399,7 +542,17 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "An exercise prescription shown to improve MASLD is:",
@@ -424,7 +577,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "hashida2017 is still abstract-only; the AASLD practice guidance gives an exercise dose that prevents or improves NAFLD, so the prescription in the options is swapped to the guidance's figures."
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "In MASLD, even low-level alcohol intake is:",
@@ -447,7 +610,15 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "In fibrosis staging, what does F4 mean?",
@@ -470,7 +641,14 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "What does MetALD describe?",
@@ -493,7 +671,14 @@
    "ref": "rinella2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is the next step when FIB-4 is 1.3 or higher?",
@@ -517,7 +702,15 @@
    "support": "direct",
    "note": "'FIB-4 1.3 이상 + 탄성도 8 kPa 초과 → 간 전문 진료 의뢰'라는 복합 규칙은 지침에 없어요. 지침이 명시한 2차 검사 단계로 바꿨어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "In adults with MASLD, what should be kept low?",
@@ -542,7 +735,17 @@
    "support": "direct",
    "note": "'가공육을 줄인다'는 내용은 코퍼스 어느 자료에도 없어요. 권고문이 명시한 초가공식품·가당음료로 정답과 해설을 맞췄어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which Korean-language name did KASL adopt for MASLD?",
@@ -565,7 +768,14 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "What are the KASL 2025 diagnostic criteria for MASLD?",
@@ -589,7 +799,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which waist-circumference cut-offs did KASL adopt as the cardiometabolic criterion for Koreans?",
@@ -612,7 +832,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "visceral_fat"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What BMI threshold defines overweight/obesity as a cardiometabolic criterion for Asians in MASLD?",
@@ -636,7 +866,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is the daily alcohol limit allowed within the MASLD definition?",
@@ -660,7 +900,15 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "Roughly how common is MASLD among Korean adults?",
@@ -683,7 +931,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What does the guideline identify as the leading cause of death in MASLD?",
@@ -707,7 +965,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "cardio_link"
+  ],
+  "societies": [
+   "kasl",
+   "ksc",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which MASLD patients should undergo hepatocellular carcinoma surveillance?",
@@ -730,7 +998,14 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "ok"
  },
  {
   "q": "Per the KDA fatty liver statistics, what share of adults with type 2 diabetes had fatty liver (FLI ≥60)?",
@@ -753,7 +1028,17 @@
    "ref": "kdaFattyLiver",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "Among young adults (20–39) with type 2 diabetes, what share had fatty liver (FLI ≥60) in 2017?",
@@ -776,7 +1061,18 @@
    "ref": "kdaFattyLiver",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link",
+   "life_course",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which factors does the guideline name as raising extrahepatic cancer risk in MASLD?",
@@ -799,7 +1095,18 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which first-line imaging test is most commonly used to detect fatty liver?",
@@ -825,7 +1132,16 @@
    "support": "direct",
    "note": "The EASL 2016 PDF is typeset in two columns, so the recommendation line is interrupted by column-2 text; the quote is stitched from the two verbatim line fragments of the recommendation box.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which of the following is NOT a cardiometabolic risk factor used to diagnose MASLD?",
@@ -849,7 +1165,17 @@
    "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is the foundation of treatment for MASLD?",
@@ -874,7 +1200,18 @@
    "support": "direct",
    "note": "Quote re-synced verbatim against the new full-text easl2024 corpus file (em dashes; 'type 2 diabetes' spelled out). Ref and support unchanged from the first pass.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which test gives the definitive diagnosis of liver fat, inflammation and fibrosis?",
@@ -898,7 +1235,14 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "MASLD is diagnosed when steatosis affects more than what proportion of the liver parenchyma?",
@@ -922,7 +1266,14 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "In the histological definition of MASH, which findings must accompany steatosis?",
@@ -946,7 +1297,14 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is the estimated global prevalence of MASLD among adults?",
@@ -970,7 +1328,16 @@
    "support": "direct",
    "note": "The paper's headline figure is 'about one-third'; the pooled estimate is 30.05%, and only the 2016-2019 subgroup (38.2%) exceeds 33%.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is the prevalence of MASLD in people living with type 2 diabetes?",
@@ -995,7 +1362,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "ajmera2023 is now PMC full text (PMC9975077); the Discussion restates the 65% prevalence, so the question stands unchanged."
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What proportion of people living with type 2 diabetes have advanced liver fibrosis?",
@@ -1019,7 +1395,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "ajmera2023 full text; the Discussion confirms the 14% advanced-fibrosis rate, so the question stands unchanged."
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which is an independent risk factor for progression to cirrhosis or hepatocellular carcinoma in people with MASLD and MASH?",
@@ -1044,7 +1429,16 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which screening test is crucial in a person found to have MASLD?",
@@ -1068,7 +1462,17 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which statement about aminotransferases in fatty liver disease is correct?",
@@ -1092,7 +1496,16 @@
    "support": "direct",
    "note": "'절반 넘게 정상'이라는 비율은 어떤 코퍼스 자료에도 없어요. 지침이 쓴 표현('frequently normal', 단독 배제 금지)으로 정답과 해설을 맞췄어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "How often is liver fibrosis testing recommended for people living with obesity and/or type 2 diabetes?",
@@ -1117,7 +1530,18 @@
    "support": "direct",
    "note": "AASLD specifies every 1-2 years, not annually; no corpus file recommends a strictly annual interval.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which statement about fructose is correct?",
@@ -1141,7 +1565,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "softic2016 is now PMC full text; body text states >90% first-pass hepatic metabolism and DNL stimulation."
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "When patients with MASLD are told to reduce 'fructose', what does this mainly refer to?",
@@ -1166,7 +1599,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "softic2016 full text; body text ties the harm to high-fructose corn syrup and fructose-sweetened drinks rather than fruit."
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "How should exercise be chosen for someone living with MASLD?",
@@ -1192,7 +1635,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "hashida2017 is still abstract-only; the AASLD practice guidance says the type of exercise should be tailored to the patient's preferences and physical abilities, which carries the same clinical message as 'both aerobic and resistance work'."
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which hepatic effect of exercise is correct in fatty liver disease?",
@@ -1218,7 +1670,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "hashida2017 is still abstract-only; the EASL–EASD–EASO guideline states that exercise reduces steatosis, so the option is reworded from 'both aerobic and resistance reduce steatosis' to the guideline's statement."
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is appropriate advice for a patient who has MASLD at a normal body weight?",
@@ -1242,7 +1704,16 @@
    "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is particularly emphasised for people living with MASLD to avoid?",
@@ -1265,7 +1736,17 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "What is the minimum metabolic work-up for someone found to have hepatic steatosis?",
@@ -1289,7 +1770,20 @@
    "ref": "easl2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "metabolic_syndrome",
+   "cardio_link",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "Which of the following is NOT one of the criteria for clinical diagnosis of the metabolic syndrome?",
@@ -1313,6 +1807,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "alberti2009 full text; Table 1 lists waist, triglycerides and HDL-C as the criteria — LDL cholesterol is not among them."
-  }
+  },
+  "topics": [
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc",
+   "kasl"
+  ],
+  "fit": "core"
  }
 ]

@@ -20,7 +20,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "Lancet 위원회 기준에서 '임상적 비만(clinical obesity)'의 핵심 조건은 무엇일까요?",
@@ -43,7 +54,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "'전임상 비만(preclinical obesity)'은 어떤 상태일까요?",
@@ -66,7 +88,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "Lancet 위원회가 BMI를 개인의 건강 지표로 쓰지 말라고 한 이유는 무엇일까요?",
@@ -90,7 +123,18 @@
    "support": "direct",
    "note": "정답이 주장하던 '지방 분포를 반영하지 못한다'는 내용은 초록에 없어요. 초록이 실제로 말하는 과소·과대평가와 개인 수준 정보 부족으로 정답을 교체했어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "Lancet 위원회가 BMI에 더해 확인하라고 권고한 지표는 무엇일까요?",
@@ -113,7 +157,19 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "visceral_fat",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "대한비만학회 기준으로 한국인의 비만은 BMI 몇 이상일까요?",
@@ -138,7 +194,17 @@
    "support": "direct",
    "note": "The Korean summary PDF appended to this corpus file now carries the cut-offs that the PMC tables stripped. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "대한비만학회 기준에서 비만 전단계(과체중)는 BMI 몇부터일까요?",
@@ -162,7 +228,17 @@
    "support": "direct",
    "note": "Pre-obesity (overweight) at BMI >=23 kg/m2 is stated explicitly in the appended Korean summary. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "한국 기준 3단계 비만(고도비만)은 BMI 몇 이상일까요?",
@@ -185,7 +261,15 @@
    "ref": "kssoGuide2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Lancet 위원회가 정의한 '임상적 비만(clinical obesity)'은 어떤 상태일까요?",
@@ -210,7 +294,18 @@
    "support": "direct",
    "note": "어떤 코퍼스 자료도 비만을 '재발이 흔한(relapsing)' 질환이라고 명시하지 않아요. 초록이 직접 내리는 정의(만성 전신 질환)로 문항을 다시 세우고, 전임상 비만을 오답 보기로 살렸어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중을 5~10% 줄였을 때 가장 먼저 기대할 수 있는 변화는 무엇일까요?",
@@ -234,7 +329,19 @@
    "ref": "jensen2014",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "diabetes_link",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "비알코올 지방간(NAFLD)에서 간에 쌓인 중성지방은 주로 어디에서 올까요?",
@@ -259,7 +366,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "donnelly2005 is now PMC full text; replaced the abstract quote with the Results paragraph carrying the same 59/26/15% breakdown."
-  }
+  },
+  "topics": [
+   "masld",
+   "visceral_fat"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "체중 감량 중 특히 지켜야 할 신체 구성 요소는 무엇일까요?",
@@ -284,7 +400,16 @@
    "support": "direct",
    "note": "The appended Korean summary names preventing loss of body protein (체단백) under energy restriction as the reason for adequate/high protein intake, which is the component the answer says must be protected. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만 치료를 시작할 때 모든 치료의 기본이 되는 것은 무엇일까요?",
@@ -308,7 +433,18 @@
    "ref": "kssoGuide2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만 대사수술을 고려하는 일반적인 BMI 기준은 어느 정도일까요?",
@@ -333,7 +469,15 @@
    "support": "direct",
    "note": "Switched from eisenberg2022 (corpus file holds only the title line) to the KSSO 2022 Korean summary, which is also a cited ref for this item and states the BMI 35 / BMI 30-with-comorbidity indication verbatim. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "대사이상에서 비롯되는 비만 동반질환으로 진료지침이 든 것은 무엇일까요?",
@@ -358,7 +502,19 @@
    "support": "direct",
    "note": "'피부 흑색종은 목록에 없다'는 누락 기반 정답이었고 lauby2016은 코퍼스에 파일이 없어요. 지침이 직접 나열한 대사성 동반질환을 그대로 묻는 문항으로 바꿨어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "metabolic_syndrome",
+   "diabetes_link",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만과 함께 흔히 동반되는 수면 문제는 무엇일까요?",
@@ -383,7 +539,16 @@
    "support": "direct",
    "note": "epstein2009 (abstract only) never mentions obesity. The KSSO 2022 guideline names obstructive sleep apnea as a weight-related condition; the Korean appendix also lists 수면무호흡증 under 호흡기계 in Table 2.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중 감량이 지방간(MASLD)에 주는 영향은 무엇일까요?",
@@ -408,7 +573,18 @@
    "support": "direct",
    "note": "The newly added EASL-EASD-EASO 2024 full text states the dose-response explicitly, but with different thresholds from the answer: >=5% for liver fat, 7-10% for inflammation, >=10% for fibrosis.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만 환자 진료에서 피해야 할 태도는 무엇일까요?",
@@ -431,7 +607,18 @@
    "ref": "rubino2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "stigma_communication",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중이 줄어든 뒤 몸에서 일어나는 대사 적응은 무엇일까요?",
@@ -457,7 +644,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "Row asks what metabolic adaptation follows weight loss; sumithran2011 was already listed in refs but the primary evidence pointed at rubino2025 because the paper was abstract-only. The publisher PDF is now in corpus, and this Discussion sentence states the paper's own interpretation: the body defends an elevated set point and resists reduction below it, which is exactly the 'pushes weight back up' half of the answer. Caveat: Sumithran measured hormones and appetite, not energy expenditure (the 24-hour energy-expenditure decline is cited from refs 16/30 in its Discussion), and the corpus text is a two-column PDF extraction whose lines interleave the two columns, so the sentence that names leptin/ghrelin/peptide YY persistence cannot be quoted verbatim without pulling in the other column. This span is the longest clean, uncontaminated Discussion passage supporting the answer. Question and options unchanged."
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "정상체중인 사람과 비교해 비만인 사람에서 위험이 높아지는 '체중 관련' 질환으로 진료지침이 든 것은 무엇일까요?",
@@ -481,7 +677,15 @@
    "support": "direct",
    "note": "원 정답 '무릎 골관절염'은 출처보다 좁아요. 지침 문장의 범위 그대로 '관절염·요통·폐쇄성 수면무호흡'으로 맞췄어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "안전하고 지속 가능한 체중 감량 속도는 어느 정도일까요?",
@@ -506,7 +710,17 @@
    "support": "direct",
    "note": "The appended Korean summary gives the 0.5-1.0 kg per week figure that the PMC tables had stripped. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "대사증후군의 관리를 위해 진료지침이 제시한 두 축은 무엇일까요?",
@@ -531,7 +745,17 @@
    "support": "direct",
    "note": "ndumele2023 초록에는 해당 진술이 없고, 원 정답의 '체중+혈압+지질+혈당 통합 관리'라는 표현도 지침 문장 그대로가 아니에요. 지침이 쓴 표현(생활습관 교정 + 구성 요소별 약물)으로 맞췄어요. 요약본 PDF가 2단 조판이라 이어지는 '중재의 시행을 권고한다'는 다른 단 글자와 섞여 있어 연속된 부분까지만 인용했어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중 관리에서 운동의 가장 큰 역할은 무엇일까요?",
@@ -556,7 +780,18 @@
    "support": "direct",
    "access": "fulltext",
    "note": "donnelly2009 is still abstract-only; the Canadian obesity guideline (a guideline source) makes the same two points — exercise yields only small loss but favours weight maintenance and preservation of fat-free mass."
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "대한비만학회 2025 비만 팩트시트 기준, 2023년 우리나라 성인 비만(BMI 25 이상) 유병률은 어느 정도일까요?",
@@ -579,7 +814,18 @@
    "ref": "kssoFS2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "2025 팩트시트 기준, 2023년 성인 남성의 비만 유병률은 어느 정도일까요?",
@@ -602,7 +848,18 @@
    "ref": "kssoFS2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "2025 팩트시트 기준, 2023년 성인 여성의 비만 유병률은 어느 정도일까요?",
@@ -625,7 +882,18 @@
    "ref": "kssoFS2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "2025 팩트시트 기준, 2023년 성인 복부비만 유병률(허리둘레 남 90·여 85cm 이상)은 어느 정도일까요?",
@@ -648,7 +916,18 @@
    "ref": "kssoFS2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "대한비만학회가 정한 한국인 복부비만의 허리둘레 기준은 무엇일까요?",
@@ -672,7 +951,18 @@
    "support": "direct",
    "note": "The 90 cm / 85 cm cut-offs, previously lost with the stripped PMC tables, are stated in the appended Korean summary.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "당뇨병 팩트시트 2024 기준, 2022년 30세 이상 성인 당뇨병 유병률은 어느 정도일까요?",
@@ -695,7 +985,16 @@
    "ref": "kdaDFS2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "65세 이상 노인에서 당뇨병 유병률은 어느 정도일까요?",
@@ -718,7 +1017,17 @@
    "ref": "kdaDFS2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "diabetes_link",
+   "life_course"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "30세 이상 성인 중 당뇨병전단계(공복혈당 100~125 또는 당화혈색소 5.7~6.4%)에 해당하는 비율은 어느 정도일까요?",
@@ -741,7 +1050,16 @@
    "ref": "kdaDFS2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "당뇨병 유병자 중 비만(BMI 25 이상)을 동반한 비율은 어느 정도일까요?",
@@ -764,7 +1082,17 @@
    "ref": "kdaDFS2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "당뇨병 유병자 중 복부비만을 동반한 비율은 어느 정도일까요?",
@@ -787,7 +1115,17 @@
    "ref": "kdaDFS2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "diabetes_link",
+   "visceral_fat"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "당뇨병 팩트시트의 당뇨병 정의에 포함되지 않는 것은 무엇일까요?",
@@ -811,7 +1149,14 @@
    "ref": "kdaDFS2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "Lancet 위원회는 비만 진단에서 BMI를 어떤 용도로 쓰라고 했을까요?",
@@ -834,7 +1179,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "Lancet 위원회 기준에서 추가 측정 없이 과잉 지방을 인정할 수 있는 경우는 언제일까요?",
@@ -857,7 +1213,16 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "임상적 비만을 진단하는 주요 기준은 무엇일까요?",
@@ -881,7 +1246,17 @@
    "support": "direct",
    "note": "지방간·수면무호흡·무릎 같은 장기별 예시는 본문 Panel에 있고 코퍼스의 초록에는 없어요. 초록이 명시한 두 가지 주요 기준을 그대로 묻는 문항으로 바꿨어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "장기 검사 소견이 없어도 임상적 비만으로 진단할 수 있는 또 하나의 기준은 무엇일까요?",
@@ -904,7 +1279,15 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "전임상 비만(preclinical obesity)에 대해 위원회가 권고한 관리 방향은 무엇일까요?",
@@ -927,7 +1310,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "임상적 비만의 치료 목표를 위원회는 어떻게 정의했을까요?",
@@ -950,7 +1344,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "Lancet 위원회는 임상적 비만을 어떤 질환으로 규정했을까요?",
@@ -973,7 +1378,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중 낙인(weight stigma)과 관련해 위원회가 권고한 것은 무엇일까요?",
@@ -997,7 +1413,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "stigma_communication",
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "임상적 비만과 전임상 비만을 나누는 핵심은 무엇일까요?",
@@ -1020,7 +1447,17 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "대한비만학회가 권고하는 비만의 1차 치료 목표는 무엇일까요?",
@@ -1043,7 +1480,16 @@
    "ref": "kssoGuide2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "대한비만학회는 모든 성인이 체질량지수를 얼마나 자주 재도록 권고할까요?",
@@ -1067,7 +1513,15 @@
    "support": "direct",
    "note": "The \"measure BMI at least once a year in all adults\" recommendation is present in the appended Korean summary. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "저열량식으로 체중을 줄일 때 권고되는 하루 열량 감량 폭은 얼마일까요?",
@@ -1091,7 +1545,16 @@
    "support": "direct",
    "note": "The 500-1,000 kcal/day deficit and the 0.5-1.0 kg/week and 6-month plateau all appear here. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중 감량을 위한 운동 처방으로 권고되는 것은 무엇일까요?",
@@ -1114,7 +1577,18 @@
    "ref": "kssoGuide2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "감량한 체중을 효과적으로 유지하기 위해 진료지침이 권고하는 행동치료 기간은 어느 정도일까요?",
@@ -1138,7 +1612,16 @@
    "support": "direct",
    "note": "원 해설의 '고단백·저지방 식이', '정기적 체중 점검'은 지침의 유지 단원에 없는 내용이에요. 지침이 명시한 '훈련된 치료자의 행동치료 1년 이상'으로 초점을 좁혔어요. 요약본 PDF 2단 조판 탓에 이어지는 '시행하는 것을 권고한다'가 다른 단 글자와 섞여 있어 연속 구간까지만 인용했어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "대한비만학회의 동반질환 위험도 표에서 BMI와 함께 보는 지표는 무엇일까요?",
@@ -1162,7 +1645,16 @@
    "support": "direct",
    "note": "Confirms that waist circumference is read together with BMI and that abdominal obesity raises the comorbidity-risk category. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만 환자를 처음 평가할 때 2차성 비만을 가리기 위해 확인해야 할 것은 무엇일까요?",
@@ -1186,7 +1678,15 @@
    "ref": "kssoGuide2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "2023 당뇨병 진료지침이 권고하는 당뇨병 선별검사 시작 연령은 언제일까요?",
@@ -1209,7 +1709,15 @@
    "ref": "kdaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "2023 진료지침에서 당뇨병 선별의 위험인자 목록에 새로 추가된 항목은 무엇일까요?",
@@ -1232,7 +1740,16 @@
    "ref": "kdaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "visceral_fat"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "과체중·비만한 당뇨병 성인에게 2023 진료지침이 권고하는 체중 감량 폭은 얼마일까요?",
@@ -1256,7 +1773,17 @@
    "support": "direct",
    "note": "The appended Korean revision-direction article carries the >=5%-and-maintain recommendation that the English DMJ summary lacked. The source PDF is two-column, so the fragments are joined with \" … \".",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "당뇨병 환자에게 권고되는 운동량은 어느 정도일까요?",
@@ -1280,7 +1807,16 @@
    "support": "direct",
    "note": "Aerobic >=150 min/week plus resistance exercise >=2 times/week is stated in the appended Korean article. Two-column PDF, fragments joined with \" … \".",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "lifestyle"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "당뇨병전단계에서 2형당뇨병으로의 진행을 막기 위해 권고되는 생활습관 목표는 무엇일까요?",
@@ -1305,7 +1841,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "Row already named dpp2002 as its evidence ref, but the stored quote came from an earlier nejm.org rendering and is no longer a substring of the supplied publisher PDF text, so it needed re-anchoring. This Results passage states the DPP's 7% weight-loss goal verbatim, supporting the '5-7% weight loss' half of the answer (the 5% end comes from kdaGuide2023, which stays in refs). The matching '150 minutes per week' goal does appear in the paper (Methods, Interventions, and Results adherence), but every line carrying it is column-interleaved with the Statistical Analysis / Study Cohort column in this extraction, so no clean verbatim span covers both halves. Question and options unchanged."
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "2형당뇨병 성인의 일반적인 당화혈색소 조절 목표는 얼마일까요?",
@@ -1328,7 +1874,14 @@
    "ref": "kdaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "당뇨병 진단 기준에 해당하지 않는 것은 무엇일까요?",
@@ -1354,7 +1907,14 @@
    "support": "direct",
    "note": "Switched from kdaGuide2023/ada2024 (neither carries diagnostic thresholds) to the Korean fact sheet appended to kdaDFS2024: fasting glucose 110 mg/dL falls inside the 100-125 mg/dL prediabetes band, so it is excluded from the diagnostic criteria. The 2-h OGTT >=200 mg/dL criterion is not listed here.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "2형당뇨병 환자에서 지방간은 어떻게 보아야 할까요?",
@@ -1379,7 +1939,16 @@
    "ref": "kdaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "허리둘레로 복부비만을 진단하는 한국 기준은 무엇일까요?",
@@ -1403,7 +1972,18 @@
    "support": "direct",
    "note": "'가장 간단한 방법'이라는 비교 주장은 어떤 자료에도 없어요. 지침이 명시한 진단 기준 수치를 묻는 문항으로 바꿨어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "허리둘레는 어느 지점에서 재는 것이 맞을까요?",
@@ -1428,7 +2008,17 @@
    "support": "direct",
    "note": "'숨을 내쉰 뒤'라는 조건은 코퍼스 어느 자료에도 없어 정답에서 뺐고, 측정 지점만 출처 표현 그대로 남겼어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중과 체질량지수, 허리둘레를 줄이는 데 더 효과적인 방법은 무엇일까요?",
@@ -1453,7 +2043,17 @@
    "support": "direct",
    "note": "'내장지방에 가장 효과적'이라는 주장은 출처 범위를 넘어요. 지침이 실제로 보고한 지표(체중·BMI·허리둘레)와 비교 대상(운동 단독 vs 식사 병행)으로 문항을 맞췄어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity",
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만을 동반한 2형당뇨병 환자가 체중을 5~10% 줄이면 기대할 수 있는 것은 무엇일까요?",
@@ -1479,7 +2079,16 @@
    "support": "direct",
    "note": "Switched from lean2018 (DiRECT, >=15 kg remission) to the AHA/ACC/TOS guideline, which quantifies exactly the 5%-10% band. The source reports HbA1c and medication need, not insulin sensitivity.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "지방간과 2형당뇨병의 관계로 맞는 것은 무엇일까요?",
@@ -1505,7 +2114,17 @@
    "support": "direct",
    "note": "The AASLD 2023 full text (new to the corpus) states the bidirectional relationship outright and quantifies the forward direction.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "2형당뇨병 환자에게 지방간이 있을 때 특히 확인해야 할 것은 무엇일까요?",
@@ -1530,7 +2149,16 @@
    "support": "direct",
    "note": "rinellaGuide2023 now has a full text in the corpus and sets the FIB-4-first fibrosis pathway specifically for patients with type 2 diabetes.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "폐경 이후 여성의 체지방 분포는 어떻게 바뀔까요?",
@@ -1554,7 +2182,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "lovejoy2008 is now PMC full text; Discussion states that only women who became postmenopausal gained visceral fat."
-  }
+  },
+  "topics": [
+   "life_course",
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "최근 10년간 우리나라에서 비만이 가장 가파르게 늘어난 집단은 누구일까요?",
@@ -1578,7 +2216,17 @@
    "ref": "kssoFS2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "life_course",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "노인 비만을 치료할 때 근감소성 비만을 막으려면 무엇이 중요할까요?",
@@ -1602,7 +2250,17 @@
    "support": "direct",
    "note": "지침은 '활동량 증가'라고만 쓰고 근력운동을 노인 근감소성 비만 대책으로 처방하지 않아요. 출처가 명시한 단백질 섭취로 정답을 좁혔어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "life_course",
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "19~39세 청년 당뇨병의 특징으로 맞는 것은 무엇일까요?",
@@ -1625,7 +2283,18 @@
    "ref": "kdaDFS2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "life_course",
+   "diabetes_link",
+   "obesity",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "당뇨병이 있는 한국 성인 가운데 비만을 동반한 비율은 얼마일까요?",
@@ -1650,7 +2319,18 @@
    "support": "direct",
    "note": "'비만이 혈당·혈압·지질 조절을 모두 어렵게 한다'는 진술은 인용 자료 어디에도 없어요. 팩트시트가 보고한 유병률 수치만 묻는 문항으로 바꿨어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "diabetes_link",
+   "obesity",
+   "visceral_fat"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "하루하루 먹는 양과 활동량이 크게 달라도 성인의 체중이 오랫동안 안정적인 이유는 무엇일까요?",
@@ -1675,7 +2355,15 @@
    "support": "direct",
    "access": "fulltext",
    "note": "schwartz2000 is still abstract-only; the Canadian obesity guideline states hypothalamic homeostatic control of appetite and body weight, supporting the same answer unchanged."
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "렙틴은 체중 조절에서 어떤 역할을 할까요?",
@@ -1701,7 +2389,15 @@
    "support": "direct",
    "access": "fulltext",
    "note": "zhang1994 is now full PDF text but the body is two-column interleaved, so no clean verbatim body passage exists; the Lancet Commission states the same function — leptin as a hormonal signal regulating adipocyte mass."
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "그렐린은 어디에서 정제된 펩타이드일까요?",
@@ -1725,7 +2421,14 @@
    "support": "direct",
    "access": "fulltext",
    "note": "kojima1999 is now full PDF text, but the body is two-column interleaved except the Methods block; the clean Methods passage documents purification from rat stomach, so the answer is trimmed to the purification site (the in vivo/in vitro GH-release claim survives only in interleaved body text)."
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "off"
  },
  {
   "q": "식사 중재로 체중을 줄인 뒤의 전형적인 경과는 어떨까요?",
@@ -1750,7 +2453,16 @@
    "support": "direct",
    "note": "nhmrc2013은 코퍼스에 파일이 없고, '5년이면 대다수가 원래 체중'이라는 부분은 2년까지만 추적한 jensen2014로 뒷받침되지 않아요. 근거가 있는 2년 시점까지의 숫자로 정답과 해설을 맞췄어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중을 10% 줄인 뒤 에너지 소비는 어떻게 될까요?",
@@ -1775,7 +2487,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "rosenbaum2016 is now full text (Wiley); the Results body shows energy expenditure sitting significantly below prediction at both reduced-weight plateaus, so the question stands unchanged."
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "식사요법만으로 감량 체중을 오래 유지하기 어려운 이유는 무엇일까요?",
@@ -1800,7 +2521,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "Row asks why weight loss is hard to sustain with nutrition therapy alone; sumithran2011 was in refs but demoted to a wharton2020 quote while it was abstract-only. This is the paper's own conclusion sentence: the compensatory mechanisms encouraging weight regain persist for at least a year and must be overcome to maintain weight loss, which is precisely the claim in the correct option. The span starts at 'gain,' because the preceding words ('multiple compensatory mechanisms encouraging weight') sit on a line that also carries a figure axis tick ('40') in this two-column PDF extraction; the locator carries the full sentence. Question and options unchanged."
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "덴마크 입양아 연구는 입양아의 체중이 누구를 닮는다고 보여 줬을까요?",
@@ -1825,7 +2555,15 @@
    "support": "direct",
    "access": "fulltext",
    "note": "Text changed because the stored answer ('at least 40-70% of the variation in body weight is explained by genetic factors') is a rubino2025 Commission figure, not a stunkard1986 result; the 1986 adoption study reports no heritability percentage anywhere in its body, so restoring stunkard1986 as primary evidence required re-pointing the question at what the study actually found. The question now asks the adoption-study finding directly (adoptees track their biologic, not adoptive, parents) and the correct option stays at index 0. The quote is the opening sentence of the Discussion and contains no hyphenated line break; the same paragraph continues 'and that there was no relation between the body-mass index of adoptive parents and the weight class of adoptees, suggesting that childhood family environment alone has little or no effect', which the explanation paraphrases. rubino2025 should stay in refs as the secondary source for the 40-70% figure."
-  }
+  },
+  "topics": [
+   "genetics",
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "폐경기 체중 증가의 특징은 무엇일까요?",
@@ -1849,7 +2587,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "lovejoy2008 full text; Results paragraph shows menopausal weight gain is visceral (central), distinct from the OB-065 quote."
-  }
+  },
+  "topics": [
+   "life_course",
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "이차성 비만의 원인이 되는 신경·내분비계 질환으로 진료지침 표가 든 것은 무엇일까요?",
@@ -1874,7 +2622,15 @@
    "support": "direct",
    "note": "'갑상샘기능항진증은 아니다'는 목록에 없다는 사실(누락)로만 성립했어요. 표에 실제로 적힌 원인 목록을 그대로 묻는 문항으로 바꿔 누락 기반 정답을 없앴어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "대사증후군의 5가지 구성요소에 들어가지 않는 것은 무엇일까요?",
@@ -1898,7 +2654,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "alberti2009 is now full text (ahajournals.org); the Introduction enumerates the five factors, none of which is BMI."
-  }
+  },
+  "topics": [
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "대사증후군은 5가지 위험인자 중 몇 개 이상이면 진단할까요?",
@@ -1922,7 +2688,17 @@
    "support": "direct",
    "access": "fulltext",
    "note": "alberti2009 full text; body sentence states any 3 of 5 makes the diagnosis."
-  }
+  },
+  "topics": [
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "PCOS와 대사 건강의 관계로 맞는 것은 무엇일까요?",
@@ -1946,7 +2722,17 @@
    "support": "direct",
    "note": "The re-extracted teede2018 text now contains the metabolic-screening recommendations, which state the increased type 2 diabetes risk explicitly; insulin resistance as a core PCOS feature is supported elsewhere in the same document.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "life_course",
+   "diabetes_link",
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "비만인 사람에서 폐쇄성 수면무호흡(OSA)은 얼마나 더 흔할까요?",
@@ -1971,7 +2757,17 @@
    "support": "direct",
    "note": "'나이·성별·고혈압보다 강력한 예측인자'라는 순위 주장은 어떤 자료에도 없어요. 팩트시트가 보고한 유병 배수와 기여인자 서술로 문항을 바꿨어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "visceral_fat",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "\"BMI는 환자가 얼마나 큰지를 말할 뿐\"이라는 말의 뜻은 무엇일까요?",
@@ -1996,7 +2792,18 @@
    "support": "direct",
    "access": "fulltext",
    "note": "sharma2009 is now full PDF text but its body is two-column interleaved with no clean verbatim passage; the Canadian obesity guideline (a guideline source) states the EOSS point directly."
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "진료에서 체중 이야기를 꺼내는 올바른 방법은 무엇일까요?",
@@ -2020,7 +2827,18 @@
    "support": "direct",
    "access": "fulltext",
    "note": "vallis2013 is now PMC full text; the body of the Ask section spells out asking permission before discussing weight, so the question stands unchanged."
-  }
+  },
+  "topics": [
+   "stigma_communication",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "811명을 2년간 지방·단백질·탄수화물 비율이 다른 4가지 식단으로 나눈 연구의 결론은 무엇일까요?",
@@ -2044,7 +2862,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "Row already named sacks2009, but its stored quote came from the PMC author manuscript and is not a substring of the supplied publisher PDF, so it needed re-anchoring. This Results passage states the trial's core finding for the fat axis: 2-year weight loss was the same at 40% fat and at 20% fat (P = 0.94), which supports 'weight loss was similar whatever the macronutrient mix'. Artifact warning: the corpus text is a two-column PDF extraction that interleaves the two columns line by line, so the verbatim span carries one stray cross-reference, '(Table 1).', from the left column. The only alternative clean span ('40% fat and those assigned to a diet with 20% fat (3.3 kg, P = 0.94) and was similar among those who') drops the subject and no longer asserts equality, and the Discussion sentence 'The principal finding is that the diets were equally successful...' is column-split on every line. Question and options unchanged."
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "간헐적 열량 제한(예: 5:2)은 매일 제한하는 방식과 비교해 어땠을까요?",
@@ -2068,7 +2895,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "harvie2011 is now PMC full text; Results paragraph shows intermittent and continuous restriction produced comparable weight loss."
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중 관리에서 운동의 가장 큰 가치는 무엇일까요?",
@@ -2093,7 +2929,18 @@
    "support": "direct",
    "access": "fulltext",
    "note": "donnelly2009 is still abstract-only; the Canadian obesity guideline states the same point — resistance training preserves/increases muscle and supports weight maintenance rather than driving loss."
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "초기 감량 이후의 체중 재증가에 대해 옳은 것은 무엇일까요?",
@@ -2119,7 +2966,16 @@
    "support": "direct",
    "note": "'가장 어려운 부분'·'평생 관리가 필요한 만성질환'이라는 표현은 jensen2014에 없고 nhmrc2013은 코퍼스에 파일이 없어요. ES8a가 실제로 말하는 재증가 양상과 유지 프로그램 효과를 묻는 문항으로 바꿨어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "다음 중 비만을 일으킬 수 있는 질환으로 묶인 것은 무엇일까요?",
@@ -2145,7 +3001,15 @@
    "support": "direct",
    "note": "farooqi2007 has no corpus file and nieman2008 is a Cushing diagnostic guideline. The KSSO 2022 secondary-obesity table, newly available in the Korean appendix, lists all three of Prader-Willi syndrome, hypothalamic obesity (trauma, tumour, infection, surgery, raised ICP) and Cushing syndrome. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "genetics"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "소아·청소년에서 비만 범위로 판정하는 연령별 BMI 백분위수 기준은 무엇일까요?",
@@ -2171,7 +3035,15 @@
    "support": "direct",
    "note": "styne2017 and cnc2007 are abstracts without the percentile cut-offs. KSSO 2022 states the 95th-percentile obesity threshold explicitly (and again in the Korean appendix, 9. 소아청소년 비만 지침 2).",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "pediatric",
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "off"
  },
  {
   "q": "목 뒤 접히는 부위의 피부가 두꺼워지고 검게 변하는 흑색가시세포증이 시사하는 상태는 무엇일까요?",
@@ -2196,7 +3068,16 @@
    "support": "direct",
    "note": "higgins2008 has no corpus file. The AASLD 2023 practice guidance, new to the corpus, lists acanthosis nigricans as a physical sign of insulin resistance.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "당뇨병전단계(공복혈당장애 또는 내당능장애)에 해당하는 당화혈색소 범위는 무엇일까요?",
@@ -2220,7 +3101,15 @@
    "ref": "kdaGuide2023",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "대사증후군에서 중성지방 상승으로 보는 기준값은 무엇일까요?",
@@ -2245,7 +3134,16 @@
    "support": "direct",
    "note": "alberti2009 is unusable (the .txt is abstract-only and the .html is a Cloudflare challenge page). The KSSO 2022 Korean criteria give the triglyceride threshold as 150 mg/dL or on lipid-lowering treatment; the 1.7 mmol/L equivalent is not stated in this source. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "대사증후군에서 혈압 상승으로 보는 기준값은 무엇일까요?",
@@ -2270,7 +3168,17 @@
    "support": "direct",
    "note": "The 130/85 mmHg threshold (or on antihypertensive treatment) is stated verbatim in the Korean appendix. 부록 요약본 PDF의 2단 조판 때문에 각 조각 사이에 다른 단의 글자가 끼어 있어 \" … \"로 이어 붙였어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "과체중이나 비만이 있는 지방간질환 환자에서 수면무호흡 고위험이면 무엇을 고려할까요?",
@@ -2295,7 +3203,17 @@
    "support": "direct",
    "note": "'가정 수면검사'는 어떤 코퍼스 자료도 명시하지 않아요. 지침 문장의 맥락(지방간질환·과체중/비만·고위험)과 표현(수면다원검사 등 수면검사)에 그대로 맞췄어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "대사이상지방간질환(MASLD)의 임상 스펙트럼 순서로 맞는 것은 무엇일까요?",
@@ -2321,7 +3239,16 @@
    "support": "direct",
    "note": "The full EASL-EASD-EASO 2024 text gives the whole sequence including the cirrhosis-to-HCC end that singh2015 and rinella2023 lacked.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "가임기 여성의 장기 산후 체중 잔류와 비만 발생에 영향을 주는 요인은 무엇일까요?",
@@ -2345,7 +3272,15 @@
    "support": "direct",
    "access": "fulltext",
    "note": "gunderson2009 is now PMC full text; the Summary states the primiparity + pre-pregnancy body size finding."
-  }
+  },
+  "topics": [
+   "life_course",
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "첫 체중 감량 중재에서 합리적인 목표로 제시되는 감량 폭은 얼마일까요?",
@@ -2370,7 +3305,16 @@
    "support": "direct",
    "note": "Both cited guidelines set the initial goal as 5%-10% within 6 months (KSSO 2022 Korean appendix: \"치료 전 체중의 5~10%를 6개월 내에 감량\"), so the answer's \"about 10%\" should become the full range.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "근거 기반 감량 식단에서 여성에게 권장되는 하루 에너지 섭취 범위는 어디일까요?",
@@ -2393,7 +3337,16 @@
    "ref": "jensen2014",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "감량을 6개월 넘게 이어갈 때 함께 가야 하는 것은 무엇일까요?",
@@ -2418,7 +3371,16 @@
    "support": "direct",
    "note": "The AHA/ACC/TOS guideline specifies a maintenance programme of at least one year, and the KSSO 2022 Korean appendix says the same (\"체중 감량 후 1년 이상의 장기적인 유지를 권고\"). The \"indefinitely\" wording belongs to NHMRC 2013, which has no corpus file.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "지방 비중이 높은 지중해식은 저지방식과 비교해 체중에 어떤 영향을 줄까요?",
@@ -2443,7 +3405,18 @@
    "support": "direct",
    "access": "fulltext",
    "note": "estruch2019 is still abstract-only; the ADA/EASD consensus report states that the fat-rich Mediterranean pattern reduces body weight more than a low-fat diet, so the 'does not promote adiposity' answer is reworded to the guideline's comparison."
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "대규모 코호트에서 4년간 체중 증가와 가장 강하게 맞물린 식품은 무엇일까요?",
@@ -2467,7 +3440,18 @@
    "support": "direct",
    "access": "fulltext",
    "note": "mozaffarian2011 is now full text (nejm.org); the Results section repeats the food-specific 4-year weight-gain figures."
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "섭취를 늘렸을 때 체중이 덜 느는 것으로 나타난 식품은 무엇일까요?",
@@ -2491,7 +3475,18 @@
    "support": "direct",
    "access": "fulltext",
    "note": "mozaffarian2011 full text; Results sentence lists the foods associated with less weight gain."
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "간헐적 단식과 시간제한 다이어트를 진료지침은 어떻게 평가할까요?",
@@ -2517,7 +3512,16 @@
    "support": "direct",
    "note": "원 해설의 '배고픔 때문에 유지가 어렵다'는 지침에 없는 내용이에요. 표가 쓴 두 문장(차이 없음·근거 제한)만 남겼어요. 인용문 중간의 제어문자(\\u0007)는 PDF 글머리표가 추출된 것이라 원문 그대로 두었어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "저탄수화물 식단이 가져오는 생리적 변화로 이 리뷰가 제시한 것은 무엇일까요?",
@@ -2541,7 +3545,17 @@
    "support": "direct",
    "note": "'첫 1~2주 수분 손실'은 이 리뷰에 없는 기전이에요. 리뷰가 실제로 제시한 인슐린·산화·식욕·대사율로 정답을 맞췄어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity",
+   "diabetes_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "저탄수화물 식단을 길게 유지할 때 생길 수 있는 영양 문제는 무엇일까요?",
@@ -2564,7 +3578,15 @@
    "ref": "barber2021",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "식사 중재만으로 체중 감량을 이루기에 충분할까요?",
@@ -2588,7 +3610,18 @@
    "ref": "jensen2014",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만 관리에서 모두에게 맞는 하나의 식사 패턴이 있을까요?",
@@ -2614,7 +3647,18 @@
    "quote2": "An energy deficit of ≥500 kcal/d typically may be achieved with dietary intake of 1200–1500 kcal/d for women and 1500–1800 kcal/d for men. The choice of calorie-restricted diet can be individualized to the patient's preferences and health status (CQ3).",
    "ref2": "jensen2014",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "체질량지수의 유전율은 연구 설계에 따라 어느 정도로 보고될까요?",
@@ -2639,7 +3683,15 @@
    "support": "direct",
    "note": "'50~90%' 정답과 '40~70%' 해설 모두 메타회귀가 보고한 범위와 달라요. 쌍둥이·가족 연구별 실제 범위로 바꿨어요.",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "genetics",
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "off"
  },
  {
   "q": "성인 320,252명을 본 Kaiser Permanente 코호트에서 체질량지수와 말기신질환 위험의 관계는 어땠나요?",
@@ -2664,7 +3716,15 @@
    "support": "direct",
    "access": "fulltext",
    "note": "hsu2006 is still abstract-only; kovesdy2017 (full text) tabulates the same 320,252-person Kaiser cohort, but describes the relationship as linear across BMI categories rather than starting at BMI 30, so the options are reworded to match."
-  }
+  },
+  "topics": [
+   "kidney",
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "대사적으로 건강한 비만(metabolically healthy obesity)과 만성콩팥병의 관계로 옳은 것은 무엇인가요?",
@@ -2689,7 +3749,16 @@
    "support": "direct",
    "access": "fulltext",
    "note": "Row's answer (CKD risk is raised even without metabolic abnormalities) is exactly chang2016's finding, and the paper was listed in refs but carried a kovesdy2017 quote while it was abstract-only. The whole cohort was restricted to metabolically healthy participants with no kidney disease at baseline, so this Results sentence - cumulative incidence of CKD consistently higher at higher BMI across the entire follow-up - is direct support. Artifact warning: the corpus text is a two-column PDF extraction, and Figure 2 sits beside this paragraph, so the verbatim span carries the figure's x-axis label 'Follow-up, y'. No clean span states the association: the Discussion sentences ('MHO was associated with higher incident risk for CKD', 'In conclusion, being overweight or obese was associated with increased CKD incidence in metabolically healthy young and middle-aged participants') are column-interleaved with the results column and the reference list respectively. Question and options unchanged."
-  }
+  },
+  "topics": [
+   "kidney",
+   "obesity",
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "비만이 있는 아이에서 내분비 질환이 원인일 가능성을 시사하는 소견은 무엇일까요?",
@@ -2713,7 +3782,15 @@
    "support": "direct",
    "access": "fulltext",
    "note": "styne2017 is now full text (academic.oup.com); the Evidence text under Recommendation 1.5 states that endocrine causes show decreased stature and height velocity."
-  }
+  },
+  "topics": [
+   "pediatric",
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "off"
  },
  {
   "q": "소아 비만에서 드문 유전 증후군에 대한 유전자 검사는 언제 시행할까요?",
@@ -2737,7 +3814,15 @@
    "support": "direct",
    "access": "fulltext",
    "note": "styne2017 full text; Recommendation 2.1 spells out the specific historical and physical features that make genetic testing appropriate."
-  }
+  },
+  "topics": [
+   "pediatric",
+   "genetics"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "off"
  },
  {
   "q": "WHO 권고에서 5~18세 소아청소년의 하루 중등도-고강도 신체활동 최소 시간은 얼마인가요?",
@@ -2760,7 +3845,15 @@
    "ref": "bull2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "pediatric",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "off"
  },
  {
   "q": "국민건강영양조사(2014~2023) 성인 5만 7천여 명에 Lancet 임상적 비만 기준을 적용했을 때, 한국 성인의 임상적 비만 유병률은 얼마였을까요?",
@@ -2783,7 +3876,18 @@
    "ref": "choe2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "같은 연구에서 과잉 지방은 있지만 합병증이 없는 전임상 비만의 유병률은 얼마였을까요?",
@@ -2806,7 +3910,18 @@
    "ref": "choe2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "BMI 25 이상으로 비만에 해당하는 한국 성인 중 합병증이 하나도 없는 비율은 얼마였을까요?",
@@ -2829,7 +3944,17 @@
    "ref": "choe2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "epidemiology_korea",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "반대로 BMI 23~24.9의 과체중(비만 전단계) 한국 성인 중 임상적 비만 기준을 충족한 비율은 얼마였을까요?",
@@ -2852,7 +3977,17 @@
    "ref": "choe2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "epidemiology_korea",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "한국 자료에 서구식 허리둘레 기준을 적용하면 임상적 비만 유병률 추정치는 어떻게 됐을까요?",
@@ -2875,7 +4010,17 @@
    "ref": "choe2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "visceral_fat",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "나이가 들수록 한국 성인의 임상적 비만은 어떻게 변했을까요?",
@@ -2898,7 +4043,17 @@
    "ref": "choe2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "life_course",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "이 연구에서 임상적 비만은 어떻게 정의했을까요?",
@@ -2921,7 +4076,15 @@
    "ref": "choe2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "한국 성인 임상적 비만 사례의 83.6%를 특징짓는 것은 무엇이었을까요?",
@@ -2944,7 +4107,18 @@
    "ref": "choe2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "metabolic_syndrome",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "이 연구가 강조한 임상적 비만 틀의 의의는 무엇일까요?",
@@ -2967,7 +4141,18 @@
    "ref": "choe2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "이 논문이 정리한 아시아인 비만 표현형의 특징은 무엇일까요?",
@@ -2990,7 +4175,17 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "같은 BMI일 때 아시아인의 지방 분포는 어떻게 다를까요?",
@@ -3013,7 +4208,18 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "masld",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
  },
  {
   "q": "아시아인에게 BMI만으로 비만을 판단할 때 생기는 가장 큰 문제는 무엇일까요?",
@@ -3036,7 +4242,18 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "한국 인구 기반 연구에서 BMI 18.5~22.9 kg/m²인 사람 가운데 대사증후군 위험과 연관된 체지방 기준을 넘은 비율은 얼마였을까요?",
@@ -3059,7 +4276,17 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "epidemiology_korea",
+   "metabolic_syndrome",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "같은 BMI에서 일본인의 간 지방량은 비히스패닉 백인과 비교해 어느 정도일까요?",
@@ -3082,7 +4309,16 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld",
+   "visceral_fat"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "근감소성 비만(sarcopenic obesity)은 어떤 상태를 말할까요?",
@@ -3105,7 +4341,16 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "life_course"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "아시아인의 비만 진단과 위험 평가에서 BMI보다 앞세우라고 한 지표는 무엇일까요?",
@@ -3128,7 +4373,18 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "심혈관대사 위험이 뚜렷하게 올라가는 기준으로 제시된 내장지방 면적은 얼마일까요?",
@@ -3151,7 +4407,17 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "허리키비(waist-to-height ratio)에서 심혈관대사 위험을 예측하는 값으로 제시된 기준은 무엇일까요?",
@@ -3174,7 +4440,17 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "BMI가 정상인 아시아 노인 가운데 체지방이 과잉인 비율은 어느 정도일까요?",
@@ -3197,7 +4473,17 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "life_course",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "Lancet 위원회가 제2형 당뇨병을 임상적 비만의 진단 기준에 넣지 않은 이유는 무엇일까요?",
@@ -3220,7 +4506,16 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "diabetes_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "임상적 비만의 관해(remission)에 대해 위원회가 강조한 점은 무엇일까요?",
@@ -3243,7 +4538,15 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "위원회가 비만을 다시 규정하며 함께 담으려 한 두 가지 성격은 무엇일까요?",
@@ -3266,7 +4569,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "소아·청소년의 임상적 비만 진단기준은 표에서 모두 몇 개일까요?",
@@ -3289,7 +4603,15 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "pediatric"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "비만에서 수면 중 무호흡이 생기는 직접적인 이유로 설명된 것은 무엇일까요?",
@@ -3312,7 +4634,16 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만에서 숨이 차는 증상이 생기는 기전으로 설명된 것은 무엇일까요?",
@@ -3335,7 +4666,16 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "성인 진단기준에서 비뇨기 항목은 어떤 상태를 말할까요?",
@@ -3358,7 +4698,15 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "성인 진단기준에서 근골격계 항목은 어떤 상태를 말할까요?",
@@ -3381,7 +4729,15 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "비만에서 하지 림프부종이 생기는 기전은 무엇일까요?",
@@ -3404,7 +4760,15 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "성인 진단기준에서 신장(renal) 항목은 무엇을 말할까요?",
@@ -3427,7 +4791,15 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "kidney"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "지방간이 섬유화를 동반한 지방간염으로 진행하면 어떤 위험이 커질까요?",
@@ -3450,7 +4822,16 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "BMI 외에 과잉 지방을 직접 확인하는 방법으로 위원회가 든 예는 무엇일까요?",
@@ -3473,7 +4854,16 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "허리둘레 같은 인체계측 지표를 쓸 때 위원회가 지켜 달라고 한 원칙은 무엇일까요?",
@@ -3496,7 +4886,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "clinical_obesity",
+   "visceral_fat"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "위원회가 짚은 비만 낙인의 밑바탕에는 어떤 통념이 깔려 있을까요?",
@@ -3519,7 +4920,18 @@
    "ref": "rubino2025",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "stigma_communication",
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "아시아인 평가에서 '혈당 이상'으로 보는 기준은 무엇일까요?",
@@ -3542,7 +4954,17 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "diabetes_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "한국인 비만에서 췌장에 나타나는 특징으로 제시된 것은 무엇일까요?",
@@ -3565,7 +4987,17 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "visceral_fat",
+   "epidemiology_korea"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "남아시아인에서 제2형 당뇨병과 심혈관질환이 생기기 시작하는 BMI는 어느 정도일까요?",
@@ -3588,7 +5020,18 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "kda",
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "아시아 지역의 대사이상 지방간질환(MASLD) 유병률은 대략 어느 정도로 보고됐을까요?",
@@ -3611,7 +5054,16 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "DXA 연구에서 과잉 지방으로 보는 체지방률 기준은 남녀 각각 얼마일까요?",
@@ -3634,7 +5086,17 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "BMI가 정상인데도 대사적 비만을 찾아내는 데 도움이 되는 간단한 계측으로 든 것은 무엇일까요?",
@@ -3657,7 +5119,18 @@
    "ref": "lim2026",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "obesity",
+   "metabolic_syndrome"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만이 있는 사람을 부를 때 권고되는 표현 방식은 무엇일까요?",
@@ -3680,7 +5153,17 @@
    "ref": "ada2025obesity",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "stigma_communication"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "적극적으로 체중을 관리하는 동안에는 신체 계측을 최소 얼마마다 다시 하도록 권고할까요?",
@@ -3703,7 +5186,15 @@
    "ref": "ada2025obesity",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "과체중이나 비만을 동반한 2형당뇨병 성인에서 체중 관리는 어떤 위치일까요?",
@@ -3726,7 +5217,16 @@
    "ref": "ada2025obesity",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "기저 체중의 3~7%를 줄이면 무엇이 좋아진다고 했을까요?",
@@ -3749,7 +5249,18 @@
    "ref": "ada2025obesity",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "kda",
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중의 10%를 넘게 줄여 오래 유지하면 추가로 무엇을 기대할 수 있을까요?",
@@ -3772,7 +5283,16 @@
    "ref": "ada2025obesity",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "감량한 체중을 1년 이상 지키는 프로그램이 갖춰야 할 요소로 맞는 것은 무엇일까요?",
@@ -3795,7 +5315,16 @@
    "ref": "ada2025obesity",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "체중 감량을 내세우는 영양보충제는 어떻게 평가되고 있을까요?",
@@ -3818,7 +5347,16 @@
    "ref": "ada2025obesity",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "ok"
  },
  {
   "q": "비만과 당뇨병을 함께 관리해야 하는 이유로 맞는 설명은 무엇일까요?",
@@ -3841,7 +5379,16 @@
    "ref": "ada2025obesity",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "2형당뇨병을 가진 많은 사람에게 일차 관리 목표로 제안된 체중 감량 폭은 어느 정도일까요?",
@@ -3864,7 +5411,16 @@
    "ref": "davies2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "obesity"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "당뇨병 '관해(remission)'는 어떻게 정의되었을까요?",
@@ -3887,7 +5443,15 @@
    "ref": "davies2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "당뇨병을 가진 사람과 이야기할 때 피해야 할 표현은 무엇일까요?",
@@ -3910,7 +5474,16 @@
    "ref": "davies2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "stigma_communication",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "2형당뇨병을 가진 사람 가운데 폐쇄성 수면무호흡은 얼마나 흔할까요?",
@@ -3933,7 +5506,16 @@
    "ref": "davies2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "lifestyle"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "수면 시간과 비만·혈당의 관계를 가장 잘 설명한 것은 무엇일까요?",
@@ -3956,7 +5538,17 @@
    "ref": "davies2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity",
+   "diabetes_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "평일에 부족했던 잠을 주말에 몰아서 자면 만회가 될까요?",
@@ -3979,7 +5571,16 @@
    "ref": "davies2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "유산소 운동의 혈당 개선 효과를 가장 크게 끌어올리는 방법은 무엇일까요?",
@@ -4002,7 +5603,16 @@
    "ref": "davies2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "6개월이 넘는 연구에서 저지방 식단과 비교한 지중해식 식단의 결과는 어땠을까요?",
@@ -4025,7 +5635,18 @@
    "ref": "davies2022",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "diabetes_link",
+   "cardio_link"
+  ],
+  "societies": [
+   "kda",
+   "ksso",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "유럽비만학회 2024 틀은 비만이라는 병의 성격을 어떻게 요약했을까요?",
@@ -4048,7 +5669,18 @@
    "ref": "busetto2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "새 틀에서 비만을 진단할 때 지방 축적 외에 반드시 함께 봐야 하는 것은 무엇일까요?",
@@ -4071,7 +5703,18 @@
    "ref": "busetto2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "진단 과정에 허리둘레 대신 허리-키 비율을 넣은 이유는 무엇일까요?",
@@ -4094,7 +5737,17 @@
    "ref": "busetto2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "새 틀이 BMI 25~30인 사람도 비만 정의 안으로 들인 조건은 무엇일까요?",
@@ -4117,7 +5770,17 @@
    "ref": "busetto2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "visceral_fat",
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "전문가들이 합의한 비만 병기 설정의 기준은 무엇일까요?",
@@ -4140,7 +5803,16 @@
    "ref": "busetto2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만 관리의 주춧돌로 합의된 행동 수정 요소에 해당하는 것은 무엇일까요?",
@@ -4163,7 +5835,18 @@
    "ref": "busetto2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "lifestyle",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만 관리의 목표가 체중 감량을 넘어 담아야 할 것으로 전원 합의된 내용은 무엇일까요?",
@@ -4186,7 +5869,18 @@
    "ref": "busetto2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "stigma_communication"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만이 있는 사람에게 정기적으로 시행하도록 문장에 포함된 선별검사는 무엇일까요?",
@@ -4209,7 +5903,14 @@
    "ref": "busetto2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso"
+  ],
+  "fit": "ok"
  },
  {
   "q": "치료 수준을 정하고 높여 갈 때 피하라고 한 것은 무엇일까요?",
@@ -4232,7 +5933,15 @@
    "ref": "busetto2024",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만이 있는 사람이 겪는 편견과 낙인은 건강에 어떤 영향을 줄까요?",
@@ -4255,7 +5964,17 @@
    "ref": "wharton2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "stigma_communication"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "캐나다 지침이 비만 진료에서 넘어서야 한다고 짚은 단순한 접근은 무엇일까요?",
@@ -4278,7 +5997,18 @@
    "ref": "wharton2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "stigma_communication",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "에드먼턴 비만 병기체계(EOSS)의 특징으로 맞는 것은 무엇일까요?",
@@ -4301,7 +6031,16 @@
    "ref": "wharton2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "clinical_obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만 관리에서 '성공'을 무엇으로 설명하라고 했을까요?",
@@ -4324,7 +6063,18 @@
    "ref": "wharton2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "stigma_communication"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "환자 여정 5단계 가운데 '평가' 단계에서 확인해야 할 것은 무엇일까요?",
@@ -4347,7 +6097,16 @@
    "ref": "wharton2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "stigma_communication"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "허리둘레를 함께 재도록 권고한 체질량지수 구간은 어디일까요?",
@@ -4370,7 +6129,18 @@
    "ref": "wharton2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "obesity"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "건강 행동의 변화만으로 보통 이루게 되는 감량 폭은 어느 정도일까요?",
@@ -4393,7 +6163,17 @@
    "ref": "wharton2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "lifestyle",
+   "stigma_communication"
+  ],
+  "societies": [
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "'최선의 체중(best weight)'은 무엇을 뜻할까요?",
@@ -4416,7 +6196,18 @@
    "ref": "wharton2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "obesity",
+   "stigma_communication"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl",
+   "ksc"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만과 2형당뇨병을 함께 가진 성인에게 집중 생활습관 중재가 겨냥하는 감량 폭은 어느 정도일까요?",
@@ -4439,7 +6230,17 @@
    "ref": "wharton2020",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "diabetes_link",
+   "obesity",
+   "lifestyle"
+  ],
+  "societies": [
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "이 성명이 비만이 직접 키운다고 정리한 심혈관 위험인자 묶음은 무엇일까요?",
@@ -4462,7 +6263,18 @@
    "ref": "powellwiley2021",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "cardio_link",
+   "obesity",
+   "diabetes_link"
+  ],
+  "societies": [
+   "ksc",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "체질량지수가 같아도 심혈관 위험이 가장 높은 집단은 누구일까요?",
@@ -4485,7 +6297,17 @@
    "ref": "powellwiley2021",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksc",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "내장지방을 줄이는 데 필요한 신체활동량으로 제시된 것은 어느 정도일까요?",
@@ -4508,7 +6330,17 @@
    "ref": "powellwiley2021",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "visceral_fat",
+   "lifestyle"
+  ],
+  "societies": [
+   "ksc",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만은 심방세동 사례의 어느 정도를 설명하는 것으로 추정될까요?",
@@ -4531,7 +6363,16 @@
    "ref": "powellwiley2021",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksc",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "비만은 어떤 형태의 심부전과 더 강하게 연결되는 것으로 나타났을까요?",
@@ -4554,7 +6395,16 @@
    "ref": "powellwiley2021",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "cardio_link",
+   "obesity"
+  ],
+  "societies": [
+   "ksc",
+   "ksso"
+  ],
+  "fit": "core"
  },
  {
   "q": "생활습관 교정과 그에 따른 체중 감량이 좋아지게 하는 것으로 정리된 것은 무엇일까요?",
@@ -4577,6 +6427,17 @@
    "ref": "powellwiley2021",
    "support": "direct",
    "access": "fulltext"
-  }
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "lifestyle",
+   "cardio_link"
+  ],
+  "societies": [
+   "ksc",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  }
 ]

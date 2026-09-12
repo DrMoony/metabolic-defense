@@ -12,6 +12,8 @@ ver=sys.argv[1] if len(sys.argv)>1 else 'vX'
 D=os.path.expanduser("~/Library/CloudStorage/GoogleDrive-mftsky@gmail.com/내 드라이브/1_BI/Metabolic Defense")
 today=datetime.date.today().strftime('%Y%m%d')
 refs=json.load(open(f'{ROOT}/knowledge/references.json',encoding='utf-8'))
+import re as _re
+RYEAR={k:(_re.search(r'\((\d{4})\)',v).group(1) if _re.search(r'\((\d{4})\)',v) else '') for k,v in refs.items()}
 L=lambda n: json.load(open(f'{ROOT}/assets/{n}.json',encoding='utf-8'))
 sets={'OB':('Clinical Obesity',L('quiz_obesity_ko'),L('quiz_obesity_en')),'MA':('MASLD / MASH',L('quiz_aasld_ko'),L('quiz_aasld_en'))}
 used=sorted({k for v in sets.values() for r in v[1] for k in r.get('refs',[])})
@@ -23,7 +25,7 @@ n_ab=sum(1 for v in sets.values() for r in v[1] if (r.get('evidence') or {}).get
 def ev(r):
     e=r.get('evidence') or {}
     if not e.get('quote'): return '(원문 구문 없음)'
-    t=f"[{'직접' if e.get('support')=='direct' else '부분'} · {'전문' if e.get('access')=='fulltext' else '초록만 확인'}] {e.get('locator','')}\n“{e['quote'].strip()}”"
+    t=f"[{'직접' if e.get('support')=='direct' else '부분'} · {'전문' if e.get('access')=='fulltext' else '초록만 확인'} · {RYEAR.get(e.get('ref'),'')}] {e.get('locator','')}\n“{e['quote'].strip()}”"
     if e.get('quote2'): t+=f"\n“{e['quote2'].strip()}”"
     if e.get('note') and e.get('support')!='direct': t+=f"\n※ {e['note']}"
     return t
@@ -80,12 +82,12 @@ for line in [f'메타볼릭 디펜스 문제은행 {ver} — Medical Review 검�
     ws0.append([line])
 for key,(name,ko,en) in sets.items():
     ws=wb.create_sheet(key)
-    ws.append(['ID','난이도','문항(KO)','보기1','보기2','보기3','보기4','정답번호','해설(KO)','문항(EN)','정답(EN)','해설(EN)','참고문헌(APA)','근거 구문(원문)','근거 위치','근거 접근','비고','검토의견'])
+    ws.append(['ID','난이도','주제','학회','문항(KO)','보기1','보기2','보기3','보기4','정답번호','해설(KO)','문항(EN)','정답(EN)','해설(EN)','참고문헌(APA)','근거 구문(원문)','근거 위치','근거 접근','근거 연도','비고','검토의견'])
     for c in ws[1]: c.font=Font(bold=True); c.fill=PatternFill('solid',fgColor='DDEBF7')
     for i,(r,e) in enumerate(zip(ko,en)):
         v=r.get('evidence') or {}
-        ws.append([f'{key}-{i+1:03d}',r['diff'],r['q'],*r['a'],r['correct']+1,r.get('exp',''),e['q'],e['a'][e['correct']],e.get('exp',''),'\n'.join(r.get('src','').split(' / ')),(v.get('quote','')+('\n'+v['quote2'] if v.get('quote2') else '')).strip(),v.get('locator',''),'전문' if v.get('access')=='fulltext' else '초록만',v.get('note','') if v.get('support')!='direct' else '',''])
-    for col,w in zip('ABCDEFGHIJKLMNOPQR',[9,7,40,22,22,22,22,7,40,34,22,34,56,60,22,9,36,30]): ws.column_dimensions[col].width=w
+        ws.append([f'{key}-{i+1:03d}',r['diff'],', '.join(r.get('topics',[])),', '.join(r.get('societies',[])),r['q'],*r['a'],r['correct']+1,r.get('exp',''),e['q'],e['a'][e['correct']],e.get('exp',''),'\n'.join(r.get('src','').split(' / ')),(v.get('quote','')+('\n'+v['quote2'] if v.get('quote2') else '')).strip(),v.get('locator',''),'전문' if v.get('access')=='fulltext' else '초록만',RYEAR.get(v.get('ref'),''),v.get('note','') if v.get('support')!='direct' else '',''])
+    for col,w in zip('ABCDEFGHIJKLMNOPQRSTU',[9,7,22,14,40,22,22,22,22,7,40,34,22,34,56,60,22,9,8,36,30]): ws.column_dimensions[col].width=w
     for row in ws.iter_rows(min_row=2):
         for c in row: c.alignment=Alignment(wrap_text=True,vertical='top')
 wb2=wb.create_sheet('ByReference'); wb2.append(['근거 문헌 키','접근','문항 수','문항 ID','APA'])

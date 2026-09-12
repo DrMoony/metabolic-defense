@@ -17,11 +17,19 @@ export const storage = {
     catch { return false; }
   },
 };
+// 행사 프로필: 학회별 주제 가중치. 'none'이면 기존 세트 비율(mix) 방식.
+export const PROFILES = {
+  ksso: { obesity: 30, clinical_obesity: 20, visceral_fat: 15, metabolic_syndrome: 10, masld: 10, lifestyle: 10, stigma_communication: 5 },
+  kda:  { diabetes_link: 25, obesity: 20, masld: 20, visceral_fat: 10, metabolic_syndrome: 10, lifestyle: 10, clinical_obesity: 5 },
+  kasl: { masld: 55, visceral_fat: 15, obesity: 15, diabetes_link: 10, metabolic_syndrome: 5 },
+  ksc:  { cardio_link: 30, metabolic_syndrome: 20, visceral_fat: 20, obesity: 15, masld: 10, lifestyle: 5 },
+};
 export class QuizBank {
   constructor() {
     this.sets = { masld: [], obesity: [] };
     this.mix = [0, 30, 50, 70, 100].includes(storage.get('mix', 30)) ? storage.get('mix', 30) : 30;   // 기본 MASLD 30 : Clinical Obesity 70 (임상 비만 중심)
     this.drug = storage.get('drug', false) === true;
+    this.profile = PROFILES[storage.get('profile', 'none')] ? storage.get('profile', 'none') : 'none';
     const history = storage.get('recent', []);
     this.recent = Array.isArray(history) ? history.filter(id => typeof id === 'string').slice(-24) : [];
     this.schedule = [];
@@ -50,18 +58,44 @@ export class QuizBank {
     this.reset();
     return true;
   }
-  configure(mix, drug) {
+  configure(mix, drug, profile = 'none') {
     this.mix = [0, 30, 50, 70, 100].includes(Number(mix)) ? Number(mix) : 30;
     this.drug = drug === true;
+    this.profile = PROFILES[profile] ? profile : 'none';
     const savedMix = storage.set('mix', this.mix);
     const savedDrug = storage.set('drug', this.drug);
+    const savedProfile = storage.set('profile', this.profile);
     this.reset();
-    return savedMix && savedDrug;
+    return savedMix && savedDrug && savedProfile;
+  }
+  // 프로필이 켜져 있으면 두 세트를 합쳐 학회 태그로 거르고, 주제 가중치로 뽑는다.
+  drawByProfile(difficulty) {
+    const weights = PROFILES[this.profile];
+    const pool = [...this.visible('masld'), ...this.visible('obesity')].filter(row => row.fit !== 'off' && Array.isArray(row.societies) && row.societies.includes(this.profile));
+    if (!pool.length) return null;
+    const fresh = pool.filter(row => !this.recent.includes(row.id) && !this.used.has(row.id));
+    const base = fresh.length ? fresh : pool.filter(row => !this.used.has(row.id));
+    if (!base.length) { pool.forEach(row => this.used.delete(row.id)); return this.drawByProfile(difficulty); }
+    // 후보가 있는 주제만 가중 추첨
+    const topics = Object.entries(weights).filter(([t]) => base.some(row => (row.topics || []).includes(t)));
+    let pick = base;
+    if (topics.length) {
+      const total = topics.reduce((s, [, w]) => s + w, 0);
+      let r = Math.random() * total, chosen = topics[0][0];
+      for (const [t, w] of topics) { r -= w; if (r <= 0) { chosen = t; break; } }
+      pick = base.filter(row => (row.topics || []).includes(chosen));
+    }
+    const matching = pick.filter(row => row.diff === difficulty);
+    return shuffled(matching.length ? matching : pick)[0];
   }
   reset() { this.used.clear(); this.schedule = []; }
   visible(set) { return this.sets[set].filter(row => this.drug || row.drug !== true); }
   draw(difficulty) {
     if (!this.ready) throw new Error('Quiz bank is not ready');
+    if (this.profile !== 'none') {
+      const question = this.drawByProfile(difficulty);
+      if (question) { this.used.add(question.id); this.recent = [...this.recent.filter(id => id !== question.id), question.id].slice(-24); storage.set('recent', this.recent); return question; }
+    }
     // Exact ratios over every ten draws, including single-set 0/100 configurations.
     if (!this.schedule.length) this.schedule = shuffled(Array.from({ length: 10 }, (_, i) => i < this.mix / 10 ? 'masld' : 'obesity'));
     const set = this.schedule.pop();
