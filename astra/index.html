@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#07191c">
 <link rel="icon" href="data:,">
 <title>메타볼릭 디펜스 · Metabolic Defense</title>
-<link rel="stylesheet" href="./style.css?v=a56">
+<link rel="stylesheet" href="./style.css?v=a57">
 </head>
 <body>
 <main id="stage">
@@ -34,7 +34,7 @@
     <div class="home-bottom"><span>POINT. SHOOT. PROTECT.</span><span data-i18n="mouse">마우스 · 라이트건 전용 / 키보드 없이 플레이</span></div>
   </section>
   <section id="guide" class="screen veil hidden"><article class="panel cinematic-brief"><small class="eyebrow">MISSION BRIEFING / <span id="brief-location"></span></small><h2 id="brief-title"></h2><p id="brief-text"></p><div class="route-dossier"><small>APPROACH ROUTES</small><span id="route-summary"></span></div><p id="brief-fact"></p><div id="guide-cards" class="guide-grid"></div><div class="brief-actions"><button id="deploy" class="primary" data-i18n="deploy">방어선 진입 →</button><button id="guide-back">← 맵 선택 / Maps</button></div></article></section>
-  <section id="admin" class="screen veil hidden"><article class="panel"><small class="eyebrow">BOOTH CONTROL</small><h2 data-i18n="adminTitle">문제은행 운영 설정</h2><label for="mix" data-i18n="mix">MASLD : Clinical Obesity 비율</label><select id="mix"><option value="100">100 : 0</option><option value="70">70 : 30</option><option value="50">50 : 50</option><option value="30">30 : 70</option><option value="0">0 : 100</option></select><label class="check"><input type="checkbox" id="drug"><span data-i18n="drug">특정 약물 문항 포함 (기본: 숨김)</span></label><p data-i18n="drugNote">공정경쟁규약을 고려해 기본 출제에서 제외합니다. 이 설정은 이 기기에 저장됩니다.</p><p id="bank-info"></p><button id="admin-close" class="primary" data-i18n="save">저장하고 돌아가기</button></article></section>
+  <section id="admin" class="screen veil hidden"><article class="panel"><small class="eyebrow">BOOTH CONTROL</small><h2 data-i18n="adminTitle">문제은행 운영 설정</h2><label for="profile" data-i18n="profile">행사 프로필 (학회별 주제 가중치)</label><select id="profile"><option value="none">기본 (세트 비율)</option><option value="ksso">대한비만학회 — 임상 비만·내장지방·대사증후군</option><option value="kda">대한당뇨병학회 — 비만·당뇨 연결·MASLD</option><option value="kasl">대한간학회 — MASLD/MASH 중심</option><option value="ksc">대한심장학회 — 심혈관·대사증후군·내장지방</option></select><label for="mix" data-i18n="mix">MASLD : Clinical Obesity 비율</label><select id="mix"><option value="100">100 : 0</option><option value="70">70 : 30</option><option value="50">50 : 50</option><option value="30">30 : 70</option><option value="0">0 : 100</option></select><label class="check"><input type="checkbox" id="drug"><span data-i18n="drug">특정 약물 문항 포함 (기본: 숨김)</span></label><p data-i18n="drugNote">공정경쟁규약을 고려해 기본 출제에서 제외합니다. 이 설정은 이 기기에 저장됩니다.</p><p id="bank-info"></p><button id="admin-close" class="primary" data-i18n="save">저장하고 돌아가기</button></article></section>
   <section id="quiz-screen" class="screen veil hidden"><article class="panel quiz-panel"><div class="quiz-top"><small id="quiz-tag"></small><b id="quiz-seconds"></b></div><div class="track"><i id="quiz-time"></i></div><h2 id="question"></h2><p data-i18n="quizHint">정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!</p><div id="answers"></div><div id="explain" class="explain hidden"></div><div class="quiz-bottom"><p id="feedback" role="status"></p><button id="submit" class="primary" disabled data-i18n="submit">정답 제출 →</button><button id="quiz-next" class="primary hidden" data-i18n="continue">계속하기 →</button></div><small id="source"></small></article></section>
   <section id="paused" class="screen veil hidden"><article class="panel narrow"><small class="eyebrow">SYSTEM ON HOLD</small><h2 data-i18n="paused">방어선 대기 중</h2><p data-i18n="pauseNote">전투와 퀴즈 시간이 멈췄습니다.</p><button id="resume" class="primary" data-i18n="resume">계속 방어하기 →</button></article></section>
   <section id="result" class="screen veil hidden"><article class="panel"><small class="eyebrow">MISSION DEBRIEF</small><p id="result-map"></p><h2 id="result-title"></h2><strong id="result-score"></strong><div id="result-stats" class="guide-grid"></div><p id="result-note"></p><button id="restart" class="primary" data-i18n="restart">다시 도전하기 →</button></article></section>
@@ -52,6 +52,6 @@
     </aside>
   </section>
 </main>
-<script type="module" src="./main.js?v=a56"></script>
+<script type="module" src="./main.js?v=a57"></script>
 </body>
 </html>

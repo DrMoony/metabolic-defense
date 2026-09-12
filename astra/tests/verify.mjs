@@ -120,6 +120,9 @@ const before=rows.map(q=>q.id);A.bank.reset();rows=Array.from({length:10},()=>A.
 for(const mix of [0,30,50,70,100]){A.bank.configure(mix,false);const picks=Array.from({length:10},()=>A.bank.draw('easy'));assert.equal(picks.filter(q=>q.set==='masld').length,mix/10);assert(picks.every(q=>!q.drug));}
 // 약제 문항은 은행에서 전부 삭제됐다(2026-09-09). 포함 옵션을 켜도 은행에 약제 문항이 없어야 한다.
 A.bank.configure(100,true);assert(!A.bank.visible('masld').some(q=>q.drug)&&!A.bank.visible('obesity').some(q=>q.drug));A.bank.configure(30,false);
+// 행사 프로필: 학회 태그가 있는 문항만, 주제 가중치로 뽑힌다. 간학회는 MASLD가 과반.
+for(const profile of ['ksso','kda','kasl','ksc']){A.bank.configure(30,false,profile);const picks=Array.from({length:40},()=>A.bank.draw('easy'));assert(picks.every(q=>q.societies.includes(profile)&&q.fit!=='off'),`${profile}: society-tagged only`);if(profile==='kasl')assert(picks.filter(q=>q.topics.includes('masld')).length>=16,'kasl profile leans MASLD');}
+A.bank.configure(30,false,'none');
 await A.bank.load('en');assert(A.bank.sets.masld[0].q);await A.bank.load('ko');
 assert([...stored.keys()].every(k=>k.startsWith('astra_')));
 console.log('PASS: shared KO/EN banks, drug exclusion/admin opt-in, exact mix, recent history, storage isolation');

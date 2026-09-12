@@ -1,15 +1,15 @@
-import { healthColor, weaponColor } from './feedback.js?v=a56';
-import { RouteEditor } from './route-editor.js?v=a56';
-import { World, THREE } from './world.js?v=a56';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a56';
+import { healthColor, weaponColor } from './feedback.js?v=a57';
+import { RouteEditor } from './route-editor.js?v=a57';
+import { World, THREE } from './world.js?v=a57';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a57';
 
-import { MAPS, getMap } from './maps/index.js?v=a56';
+import { MAPS, getMap } from './maps/index.js?v=a57';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
 const text = (ko, en) => state.lang === 'ko' ? ko : en;
 const strings = {
-  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],liver:['간 가디언','Liver Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],mix:['MASLD : Clinical Obesity 비율','MASLD : Clinical Obesity ratio'],drug:['특정 약물 문항 포함 (기본: 숨김)','Include drug-specific questions (default: hidden)'],drugNote:['공정경쟁규약을 고려해 기본 출제에서 제외합니다. 이 설정은 이 기기에 저장됩니다.','Drug-specific questions are excluded by default for fair-competition compliance. Settings are saved on this device.'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],
+  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],liver:['간 가디언','Liver Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],mix:['MASLD : Clinical Obesity 비율 (프로필이 기본일 때만 적용)','MASLD : Clinical Obesity ratio (used when profile is default)'],profile:['행사 프로필 (학회별 주제 가중치)','Event profile (society-specific topic weights)'],drug:['특정 약물 문항 포함 (기본: 숨김)','Include drug-specific questions (default: hidden)'],drugNote:['공정경쟁규약을 고려해 기본 출제에서 제외합니다. 이 설정은 이 기기에 저장됩니다.','Drug-specific questions are excluded by default for fair-competition compliance. Settings are saved on this device.'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],
 };
 // Beta reference values are balance data; simulation, meshes and input are rebuilt.
 export const WEAPONS = [
@@ -777,11 +777,11 @@ function bindUI(){
   tap($('quiz-screen'),()=>{if(state.answered&&state.quiz?.exp&&state.feedbackTime<=13.4)continueQuiz();});
   tap($('restart'),()=>{world.clear();enemies.length=0;state.paused=false;world.selectMap(state.map);setPhase('home');updateLanguage();});
   tap($('admin-open'),()=>{
-    $('mix').value=bank.mix;$('drug').checked=bank.drug;
+    $('mix').value=bank.mix;$('drug').checked=bank.drug;$('profile').value=bank.profile;
     $('bank-info').textContent=text(`공유 문제은행: MASLD ${bank.sets.masld.length}문 · Obesity ${bank.sets.obesity.length}문 / 최근 24문항 중복 회피`,`Shared banks: MASLD ${bank.sets.masld.length} · Obesity ${bank.sets.obesity.length} / avoids the last 24 questions`);setPhase('admin');
   });
   tap($('admin-close'),()=>{
-    const saved=bank.configure(Number($('mix').value),$('drug').checked);setPhase('home');
+    const saved=bank.configure(Number($('mix').value),$('drug').checked,$('profile').value);setPhase('home');
     if(!saved)notice('저장 공간이 차단되어 이 페이지에서만 설정이 유지됩니다.','Storage is blocked; settings apply only to this page.');
   });
   // 라이트건은 화면 어디를 겨눠도 방아쇠가 들어온다. 조준·사격은 창 전체에서 받고, 실제 UI 위만 비켜준다.
