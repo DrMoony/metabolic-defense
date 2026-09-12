@@ -443,20 +443,20 @@
   ],
   "correct": 0,
   "diff": "mid",
-  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4 / Sumithran, P., Prendergast, L. A., Delbridge, E., Purcell, K., Shulkes, A., Kriketos, A., & Proietto, J. (2011). Long-term persistence of hormonal adaptations to weight loss. New England Journal of Medicine, 365(17), 1597–1604. https://doi.org/10.1056/NEJMoa1105816 / Rosenbaum, M., & Leibel, R. L. (2016). Models of energy homeostasis in response to maintenance of reduced body weight. Obesity, 24(8), 1620–1629. https://doi.org/10.1002/oby.21559",
+  "src": "Sumithran, P., Prendergast, L. A., Delbridge, E., Purcell, K., Shulkes, A., Kriketos, A., & Proietto, J. (2011). Long-term persistence of hormonal adaptations to weight loss. New England Journal of Medicine, 365(17), 1597–1604. https://doi.org/10.1056/NEJMoa1105816 / Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4 / Rosenbaum, M., & Leibel, R. L. (2016). Models of energy homeostasis in response to maintenance of reduced body weight. Obesity, 24(8), 1620–1629. https://doi.org/10.1002/oby.21559",
   "exp": "After loss, energy expenditure falls and appetite hormones rise, pushing the body back toward its old weight, so a maintenance plan is essential.",
   "refs": [
-   "rubino2025",
    "sumithran2011",
+   "rubino2025",
    "rosenbaum2016"
   ],
   "evidence": {
-   "quote": "The biological process of fat storage, largely as triglycerides, is evolutionarily conserved to prevent starvation. The body responds to weight loss induced by hypocaloric diets through a robust defensive mechanism, which increases hunger and the desire to eat while decreasing energy expenditure.",
-   "locator": "Section 3 — Pathophysiology of obesity (Lancet Commission)",
-   "ref": "rubino2025",
+   "quote": "there is an elevated body-weight set point in obese persons and that efforts to reduce weight below this point are vigorously resisted",
+   "locator": "Discussion — coordinated compensatory response and the elevated body-weight set point (p. 1602)",
+   "ref": "sumithran2011",
    "support": "direct",
    "access": "fulltext",
-   "note": "sumithran2011 is still abstract-only; the Lancet Diabetes Endocrinol Commission full text states the same adaptation (hunger up, energy expenditure down), so the answer stands unchanged."
+   "note": "Row asks what metabolic adaptation follows weight loss; sumithran2011 was already listed in refs but the primary evidence pointed at rubino2025 because the paper was abstract-only. The publisher PDF is now in corpus, and this Discussion sentence states the paper's own interpretation: the body defends an elevated set point and resists reduction below it, which is exactly the 'pushes weight back up' half of the answer. Caveat: Sumithran measured hormones and appetite, not energy expenditure (the 24-hour energy-expenditure decline is cited from refs 16/30 in its Discussion), and the corpus text is a two-column PDF extraction whose lines interleave the two columns, so the sentence that names leptin/ghrelin/peptide YY persistence cannot be quoted verbatim without pulling in the other column. This span is the longest clean, uncontaminated Discussion passage supporting the answer. Question and options unchanged."
   }
  },
  {
@@ -1299,12 +1299,12 @@
    "kdaGuide2023"
   ],
   "evidence": {
-   "quote": "The goals for the participants assigned to the intensive lifestyle intervention were to achieve and maintain a weight reduction of at least 7 percent of initial body weight through a healthy low-calorie, low-fat diet and to engage in physical activity of moderate intensity, such as brisk walking, for at least 150 minutes per week.",
-   "locator": "Methods — Interventions (intensive lifestyle-intervention goals)",
+   "quote": "intervention group had achieved the goal of weight loss of 7 percent or more by the end of the",
+   "locator": "Results — Adherence to Interventions (lifestyle group reaching the 7% weight-loss goal)",
    "ref": "dpp2002",
    "support": "direct",
    "access": "fulltext",
-   "note": "dpp2002 is now full text (nejm.org); the Methods body states both the 7% weight-loss goal and the 150 minutes per week of activity, so the question stands unchanged."
+   "note": "Row already named dpp2002 as its evidence ref, but the stored quote came from an earlier nejm.org rendering and is no longer a substring of the supplied publisher PDF text, so it needed re-anchoring. This Results passage states the DPP's 7% weight-loss goal verbatim, supporting the '5-7% weight loss' half of the answer (the 5% end comes from kdaGuide2023, which stays in refs). The matching '150 minutes per week' goal does appear in the paper (Methods, Interventions, and Results adherence), but every line carrying it is column-interleaved with the Statistical Analysis / Study Cohort column in this extraction, so no clean verbatim span covers both halves. Question and options unchanged."
   }
  },
  {
@@ -1787,44 +1787,44 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707 / Sumithran, P., Prendergast, L. A., Delbridge, E., Purcell, K., Shulkes, A., Kriketos, A., & Proietto, J. (2011). Long-term persistence of hormonal adaptations to weight loss. New England Journal of Medicine, 365(17), 1597–1604. https://doi.org/10.1056/NEJMoa1105816",
+  "src": "Sumithran, P., Prendergast, L. A., Delbridge, E., Purcell, K., Shulkes, A., Kriketos, A., & Proietto, J. (2011). Long-term persistence of hormonal adaptations to weight loss. New England Journal of Medicine, 365(17), 1597–1604. https://doi.org/10.1056/NEJMoa1105816 / Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
   "exp": "Medical nutrition therapy should not be used in isolation, because compensatory mechanisms in the brain promote positive caloric intake by increasing hunger and ultimately cause weight gain.",
   "refs": [
-   "wharton2020",
-   "sumithran2011"
+   "sumithran2011",
+   "wharton2020"
   ],
   "evidence": {
-   "quote": "However, medical nutrition therapy should not be used in isolation in obesity management, as sustaining weight loss may be difficult long term because of compensatory mechanisms in the brain that promote positive caloric intake by increasing hunger and ultimately causing weight gain.",
-   "locator": "Body — Nutrition and exercise (medical nutrition therapy)",
-   "ref": "wharton2020",
+   "quote": "gain, which persist for at least 1 year, must be overcome in order to maintain weight loss.",
+   "locator": "Discussion — 'multiple compensatory mechanisms encouraging weight gain' persisting at least 1 year (p. 1602)",
+   "ref": "sumithran2011",
    "support": "direct",
    "access": "fulltext",
-   "note": "sumithran2011 is still abstract-only; the Canadian obesity guideline states the same persisting compensatory drive, with the option reworded from 'circulating appetite mediators' to the guideline's 'compensatory brain mechanisms that increase hunger'."
+   "note": "Row asks why weight loss is hard to sustain with nutrition therapy alone; sumithran2011 was in refs but demoted to a wharton2020 quote while it was abstract-only. This is the paper's own conclusion sentence: the compensatory mechanisms encouraging weight regain persist for at least a year and must be overcome to maintain weight loss, which is precisely the claim in the correct option. The span starts at 'gain,' because the preceding words ('multiple compensatory mechanisms encouraging weight') sit on a line that also carries a figure axis tick ('40') in this two-column PDF extraction; the locator carries the full sentence. Question and options unchanged."
   }
  },
  {
-  "q": "What do family, twin and adoption studies show about body weight?",
+  "q": "What did the Danish adoption study show about whom adoptees' body weight resembles?",
   "a": [
-   "At least 40–70% of the variation in body weight is explained by genetic factors",
-   "Body weight is determined entirely by environment",
-   "Genes contribute less than 5%",
-   "Genes and body weight are unrelated"
+   "Their biologic parents, not their adoptive parents",
+   "Their adoptive parents, not their biologic parents",
+   "Both sets of parents about equally",
+   "Neither set of parents"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4 / Stunkard, A. J., Sørensen, T. I. A., Hanis, C., Teasdale, T. W., Chakraborty, R., Schull, W. J., & Schulsinger, F. (1986). An adoption study of human obesity. New England Journal of Medicine, 314(4), 193–198. https://doi.org/10.1056/NEJM198601233140401",
-  "exp": "Studies of families, twins and adopted children show that at least 40–70% of the variation in body weight is explained by genetic factors, which is why people in a shared environment diverge so widely.",
+  "src": "Stunkard, A. J., Sørensen, T. I. A., Hanis, C., Teasdale, T. W., Chakraborty, R., Schull, W. J., & Schulsinger, F. (1986). An adoption study of human obesity. New England Journal of Medicine, 314(4), 193–198. https://doi.org/10.1056/NEJM198601233140401 / Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "exp": "Adoptee weight class rose with the body-mass index of the biologic parents but showed no relation to that of the adoptive parents, pointing to genetic rather than childhood-environment influence.",
   "refs": [
-   "rubino2025",
-   "stunkard1986"
+   "stunkard1986",
+   "rubino2025"
   ],
   "evidence": {
-   "quote": "Evidence from studies of families, twins, and adopted children shows that at least 40–70% of the variation in body weight is explainable by genetic factors (heritability).",
-   "locator": "Section 3 — Genetic contribution to obesity (Lancet Commission)",
-   "ref": "rubino2025",
+   "quote": "The two major findings of this study were that there was a clear relation between the body-mass index of biologic parents and the weight class of adoptees, suggesting that genetic influences are important",
+   "locator": "Discussion — first paragraph, the two major findings (p. 196)",
+   "ref": "stunkard1986",
    "support": "direct",
    "access": "fulltext",
-   "note": "stunkard1986 is still abstract-only; the Lancet Commission full text cites family, twin and adoption studies together, so the question is generalised from the single Danish adoption study to what those studies collectively show."
+   "note": "Text changed because the stored answer ('at least 40-70% of the variation in body weight is explained by genetic factors') is a rubino2025 Commission figure, not a stunkard1986 result; the 1986 adoption study reports no heritability percentage anywhere in its body, so restoring stunkard1986 as primary evidence required re-pointing the question at what the study actually found. The question now asks the adoption-study finding directly (adoptees track their biologic, not adoptive, parents) and the correct option stays at index 0. The quote is the opening sentence of the Discussion and contains no hyphenated line break; the same paragraph continues 'and that there was no relation between the body-mass index of adoptive parents and the weight class of adoptees, suggesting that childhood family environment alone has little or no effect', which the explanation paraphrases. rubino2025 should stay in refs as the secondary source for the 40-70% figure."
   }
  },
  {
@@ -2038,12 +2038,12 @@
    "sacks2009"
   ],
   "evidence": {
-   "quote": "The principal finding is that the diets were equally successful in promoting clinically meaningful weight loss and the maintenance of weight loss over the course of 2 years. Satiety, hunger, satisfaction with the diet, and attendance at group sessions were similar for all diets.",
-   "locator": "Discussion — first paragraph",
+   "quote": "loss was the same in those assigned to a diet with (Table 1). 40% fat and those assigned to a diet with 20% fat (3.3 kg, P = 0.94) and was similar among those who",
+   "locator": "Results — Weight Loss (2-year weight loss by dietary fat content, 40% vs 20% fat)",
    "ref": "sacks2009",
    "support": "direct",
    "access": "fulltext",
-   "note": "sacks2009 is now PMC author-manuscript full text; the Discussion states that the four diets were equally successful, so the question stands unchanged."
+   "note": "Row already named sacks2009, but its stored quote came from the PMC author manuscript and is not a substring of the supplied publisher PDF, so it needed re-anchoring. This Results passage states the trial's core finding for the fat axis: 2-year weight loss was the same at 40% fat and at 20% fat (P = 0.94), which supports 'weight loss was similar whatever the macronutrient mix'. Artifact warning: the corpus text is a two-column PDF extraction that interleaves the two columns line by line, so the verbatim span carries one stray cross-reference, '(Table 1).', from the left column. The only alternative clean span ('40% fat and those assigned to a diet with 20% fat (3.3 kg, P = 0.94) and was similar among those who') drops the subject and no longer asserts equality, and the Discussion sentence 'The principal finding is that the diets were equally successful...' is column-split on every line. Question and options unchanged."
   }
  },
  {
@@ -2676,19 +2676,19 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Kovesdy, C. P., Furth, S. L., Zoccali, C., & World Kidney Day Steering Committee. (2017). Obesity and kidney disease: Hidden consequences of the epidemic. Kidney International, 91(2), 260–262. https://doi.org/10.1016/j.kint.2016.10.019 / Chang, Y., Ryu, S., Choi, Y., Zhang, Y., Cho, J., Kwon, M.-J., Hyun, Y. Y., Lee, K.-B., Kim, H., Jung, H.-S., Yun, K. E., Ahn, J., Rampal, S., Zhao, D., Suh, B.-S., Chung, E. C., Shin, H., Pastor-Barriuso, R., & Guallar, E. (2016). Metabolically healthy obesity and development of chronic kidney disease: A cohort study. Annals of Internal Medicine, 164(5), 305–312. https://doi.org/10.7326/M15-1323",
+  "src": "Chang, Y., Ryu, S., Choi, Y., Zhang, Y., Cho, J., Kwon, M.-J., Hyun, Y. Y., Lee, K.-B., Kim, H., Jung, H.-S., Yun, K. E., Ahn, J., Rampal, S., Zhao, D., Suh, B.-S., Chung, E. C., Shin, H., Pastor-Barriuso, R., & Guallar, E. (2016). Metabolically healthy obesity and development of chronic kidney disease: A cohort study. Annals of Internal Medicine, 164(5), 305–312. https://doi.org/10.7326/M15-1323 / Kovesdy, C. P., Furth, S. L., Zoccali, C., & World Kidney Day Steering Committee. (2017). Obesity and kidney disease: Hidden consequences of the epidemic. Kidney International, 91(2), 260–262. https://doi.org/10.1016/j.kint.2016.10.019",
   "exp": "Both metabolically healthy and metabolically unhealthy obesity are risk factors for chronic kidney disease, so normal metabolic markers are not reassuring.",
   "refs": [
-   "kovesdy2017",
-   "chang2016"
+   "chang2016",
+   "kovesdy2017"
   ],
   "evidence": {
-   "quote": "Observational studies in metabolically healthy obese subjects show that the obese phenotype unassociated with metabolic abnormalities per se predicts a higher risk of incident CKD 82 suggesting that obesity per se may engender renal dysfunction and kidney damage even without diabetes or hypertension (vide supra).",
-   "locator": "Body — Prevention of CKD Progression in Obese People With CKD",
-   "ref": "kovesdy2017",
+   "quote": "CKD was consistently higher in persons with higher BMI Follow-up, y over the entire follow-up (Figure 2).",
+   "locator": "Results — standardized cumulative incidence of CKD by baseline BMI category in the metabolically healthy cohort (Figure 2)",
+   "ref": "chang2016",
    "support": "direct",
    "access": "fulltext",
-   "note": "chang2016 is still abstract-only; kovesdy2017 (full text) cites exactly that cohort (reference 82) and states the same conclusion, so the answer stands unchanged."
+   "note": "Row's answer (CKD risk is raised even without metabolic abnormalities) is exactly chang2016's finding, and the paper was listed in refs but carried a kovesdy2017 quote while it was abstract-only. The whole cohort was restricted to metabolically healthy participants with no kidney disease at baseline, so this Results sentence - cumulative incidence of CKD consistently higher at higher BMI across the entire follow-up - is direct support. Artifact warning: the corpus text is a two-column PDF extraction, and Figure 2 sits beside this paragraph, so the verbatim span carries the figure's x-axis label 'Follow-up, y'. No clean span states the association: the Discussion sentences ('MHO was associated with higher incident risk for CKD', 'In conclusion, being overweight or obese was associated with increased CKD incidence in metabolically healthy young and middle-aged participants') are column-interleaved with the results column and the reference list respectively. Question and options unchanged."
   }
  },
  {
