@@ -266,19 +266,22 @@
    "약 15년"
   ],
   "correct": 0,
-  "src": "Singh, S., Allen, A. M., Wang, Z., Prokop, L. J., Murad, M. H., & Loomba, R. (2015). Fibrosis progression in nonalcoholic fatty liver vs nonalcoholic steatohepatitis: A systematic review and meta-analysis of paired-biopsy studies. Clinical Gastroenterology and Hepatology, 13(4), 643–654. https://doi.org/10.1016/j.cgh.2014.04.014",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org / Singh, S., Allen, A. M., Wang, Z., Prokop, L. J., Murad, M. H., & Loomba, R. (2015). Fibrosis progression in nonalcoholic fatty liver vs nonalcoholic steatohepatitis: A systematic review and meta-analysis of paired-biopsy studies. Clinical Gastroenterology and Hepatology, 13(4), 643–654. https://doi.org/10.1016/j.cgh.2014.04.014",
   "diff": "mid",
-  "exp": "MASH 섬유화는 평균 7년에 한 단계씩 진행하고, F3에서 간경변까지는 약 2년으로 빨라져요.",
+  "exp": "지방간염에서는 평균 7.1년, 단순 지방간에서는 14.3년에 섬유화가 한 단계씩 진행해요. 지방간염 쪽이 약 두 배 빠른 셈이고요.",
   "refs": [
+   "kasl2025",
    "singh2015"
   ],
   "evidence": {
-   "quote": "annual fibrosis progression rate (FPR) in patients with NAFL versus NASH, with baseline stage 0 fibrosis, was 0.07 stages versus 0.14 stages, respectively, corresponding to an average progression by 1 stage over 14.3 versus 7.1 years, respectively",
-   "locator": "Discussion — first paragraph",
-   "ref": "singh2015",
+   "quote": "411명의 조직검사로 진단된 비알코올지방간질환 환자 대상의 11개 코호트 연구를 메타분석한 연구에서는 간섬유화 진행 속도를 연간 0.13단계, 1단계 이상 진행하는 데 걸리는 시간을 비알코올지방간에서는 14.3년, 34 The Korean Association for the Study of the Liver 임상양상 및 예후 지방간염에서는 7.1년으로 비알코올지방간염에서 약 2배 빠른 진행 속도임을 보고하였다.",
+   "locator": "임상양상 및 예후 — 간섬유화 및 간경변증",
+   "ref": "kasl2025",
    "support": "direct",
    "access": "fulltext",
-   "note": "singh2015 is now PMC full text; Discussion gives the 7.1-year-per-stage NASH figure."
+   "note": "2015 메타분석 원문 대신 2025 대한간학회 MASLD 진료 가이드라인 전문이 같은 수치를 재진술한 문단을 1차 근거로 올렸어요. 해설의 'F3→간경변 약 2년'은 가이드라인 진술에 없어 빼고, 단순 지방간 14.3년과 견주는 쪽으로 바꿨고요.",
+   "quote2": "annual fibrosis progression rate (FPR) in patients with NAFL versus NASH, with baseline stage 0 fibrosis, was 0.07 stages versus 0.14 stages, respectively, corresponding to an average progression by 1 stage over 14.3 versus 7.1 years, respectively",
+   "ref2": "singh2015"
   },
   "topics": [
    "masld"
@@ -1109,7 +1112,7 @@
   "fit": "core"
  },
  {
-  "q": "지방간을 확인하는 데 가장 흔히 쓰는 1차 영상검사는 무엇일까요?",
+  "q": "지방간을 볼 때 진료 현장에서 가장 흔히 쓰이지만 가벼운 지방증에는 민감도가 떨어지는 검사는 무엇일까요?",
   "a": [
    "복부 초음파",
    "흉부 X선",
@@ -1118,20 +1121,23 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2016). EASL–EASD–EASO clinical practice guidelines for the management of non-alcoholic fatty liver disease. Journal of Hepatology, 64(6), 1388–1402. https://doi.org/10.1016/j.jhep.2015.11.004 / European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031 / Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
-  "exp": "복부 초음파가 지방간을 확인하는 가장 흔한 1차 영상검사예요.",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323 / European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2016). EASL–EASD–EASO clinical practice guidelines for the management of non-alcoholic fatty liver disease. Journal of Hepatology, 64(6), 1388–1402. https://doi.org/10.1016/j.jhep.2015.11.004 / European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031 / Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "exp": "복부 초음파는 지방간을 볼 때 진료 현장에서 가장 흔히 쓰는 검사예요. 다만 지방증이 가벼우면, 특히 비만이 함께 있으면 민감도가 떨어져서 양을 재야 할 때는 CAP이나 MRI-PDFF를 함께 봐요.",
   "refs": [
+   "rinellaGuide2023",
    "easl2016",
    "easl2024",
    "kasl2025"
   ],
   "evidence": {
-   "quote": "US is the preferred first-line diagnostic\n procedure for imaging of NAFLD, as it provides … additional diagnostic information (A1)",
-   "locator": "Diagnosis - Recommendations box (steatosis)",
-   "ref": "easl2016",
+   "quote": "Although commonly used in clinical practice, conventional B-mode ultrasound lacks sufficient sensitivity for lesser degrees of steatosis, particularly in those with concomitant obesity,",
+   "locator": "Noninvasive identification and quantification of hepatic steatosis",
+   "ref": "rinellaGuide2023",
    "support": "direct",
-   "note": "The EASL 2016 PDF is typeset in two columns, so the recommendation line is interrupted by column-2 text; the quote is stitched from the two verbatim line fragments of the recommendation box.",
-   "access": "fulltext"
+   "access": "fulltext",
+   "note": "2016 EASL 권고 대신 2023 AASLD practice guidance 전문을 1차 근거로 올렸어요. 최신 지침은 초음파를 '흔히 쓰지만 가벼운 지방증에는 민감도가 부족하다'고 적어서 문항도 '1차 영상검사'라는 옛 표현 대신 그 진술에 맞게 다듬었고요.",
+   "quote2": "US is the preferred first-line diagnostic procedure for imaging of NAFLD, as it provides prevalence rates and most of these studies have been conducted additional diagnostic information (A1)",
+   "ref2": "easl2016"
   },
   "topics": [
    "masld"
@@ -1544,27 +1550,30 @@
   "fit": "core"
  },
  {
-  "q": "과당에 대한 설명으로 옳은 것은 무엇인가요?",
+  "q": "식이 당(과당·설탕·포도당)이 간에서 하는 일로 옳은 것은 무엇인가요?",
   "a": [
-   "거의 전부 간에서 대사되어 새로운 지방생성의 기질이 돼요",
+   "새로운 지방생성의 재료가 되어 간에 지방이 쌓여요",
    "주로 골격근에서 대사돼요",
-   "인슐린이 대사를 엄격하게 조절해요",
+   "간에 지방이 쌓이는 것을 막아 줘요",
    "지방간 형성과는 관련이 없어요"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Softic, S., Cohen, D. E., & Kahn, C. R. (2016). Role of dietary fructose and hepatic de novo lipogenesis in fatty liver disease. Digestive Diseases and Sciences, 61(5), 1282–1293. https://doi.org/10.1007/s10620-016-4054-0",
-  "exp": "섭취한 과당은 거의 전부 간에서 대사되고 새로운 지방생성의 기질이 되어 곧바로 지방증으로 이어져요. 포도당과 달리 인슐린의 조절도 받지 않고요.",
+  "src": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323 / Softic, S., Cohen, D. E., & Kahn, C. R. (2016). Role of dietary fructose and hepatic de novo lipogenesis in fatty liver disease. Digestive Diseases and Sciences, 61(5), 1282–1293. https://doi.org/10.1007/s10620-016-4054-0",
+  "exp": "열량 섭취가 몸이 쓰고 처리할 수 있는 양을 넘어서면, 과당과 설탕, 포도당 같은 식이 당이 간에서 새로운 지방생성의 재료가 되어 간에 지방이 쌓여요.",
   "refs": [
+   "rinellaGuide2023",
    "softic2016"
   ],
   "evidence": {
-   "quote": "Dietary carbohydrates are absorbed from the intestine via portal vein and directly reach the liver. More than 90% of fructose is metabolized by the liver via first pass metabolism. Fructose may directly upregulate transcriptional factors regulating de novo lipogenesis or may do so indirectly by inducing ER stress, insulin resistance and decreased mitochondrial metabolism leading to the production of uric acid and reactive oxygen species.",
-   "locator": "Body — Fructose is a more potent stimulator of DNL than HFD (Fig. 3)",
-   "ref": "softic2016",
+   "quote": "When energy intake exceeds metabolic needs and disposal capacity, carbohydrates, in the form of dietary sugars (eg, fructose, sucrose, and glucose), drive the formation and accumulation of intrahepatic fat from de novo lipogenesis (DNL).",
+   "locator": "Pathogenesis — energy oversupply and de novo lipogenesis",
+   "ref": "rinellaGuide2023",
    "support": "direct",
    "access": "fulltext",
-   "note": "softic2016 is now PMC full text; body text states >90% first-pass hepatic metabolism and DNL stimulation."
+   "note": "2016 Softic 종설 대신 2023 AASLD practice guidance 전문을 1차 근거로 올렸어요. '90% 이상 간에서 1차 통과 대사', '인슐린 조절을 받지 않는다' 같은 종설 고유 표현은 빼고 지침 진술(식이 당이 새로운 지방생성의 기질)로 답지를 맞췄고요.",
+   "quote2": "Dietary carbohydrates are absorbed from the intestine via portal vein and directly reach the liver. More than 90% of fructose is metabolized by the liver via first pass metabolism. Fructose may directly upregulate transcriptional factors regulating de novo lipogenesis or may do so indirectly by inducing ER stress, insulin resistance and decreased mitochondrial metabolism leading to the production of uric acid and reactive oxygen species.",
+   "ref2": "softic2016"
   },
   "topics": [
    "masld",
@@ -1577,28 +1586,30 @@
   "fit": "core"
  },
  {
-  "q": "MASLD 환자에게 줄이라고 권하는 '과당'은 주로 무엇을 뜻하나요?",
+  "q": "MASLD 환자에게 '당을 줄이라'고 할 때 주로 무엇을 뜻할까요?",
   "a": [
-   "청량음료와 고과당 옥수수시럽에 든 과당",
+   "가당음료와 초가공식품에 든 당",
    "신선한 과일에 든 과당",
    "우유에 든 유당",
    "채소의 식이섬유"
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Softic, S., Cohen, D. E., & Kahn, C. R. (2016). Role of dietary fructose and hepatic de novo lipogenesis in fatty liver disease. Digestive Diseases and Sciences, 61(5), 1282–1293. https://doi.org/10.1007/s10620-016-4054-0 / European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
-  "exp": "여기서 말하는 과당은 청량음료나 고과당 옥수수시럽에 든 아주 높은 과당이지, 과일을 먹지 말라는 뜻이 아니에요.",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031 / Softic, S., Cohen, D. E., & Kahn, C. R. (2016). Role of dietary fructose and hepatic de novo lipogenesis in fatty liver disease. Digestive Diseases and Sciences, 61(5), 1282–1293. https://doi.org/10.1007/s10620-016-4054-0",
+  "exp": "가당음료를 피하고 당과 포화지방이 많은 초가공식품을 줄이면서 지중해식에 가깝게 식사의 질을 높이라는 뜻이에요. 과일을 먹지 말라는 얘기가 아니고요.",
   "refs": [
-   "softic2016",
-   "easl2024"
+   "easl2024",
+   "softic2016"
   ],
   "evidence": {
-   "quote": "Today the most commonly consumed sugar in the United States is high fructose corn syrup ( 83 ). In research studies, consumption of fructose, but not glucose sweetened drinks, has been associated with increased visceral adiposity, insulin resistance and increased hepatic de novo lipogenesis ( 84 – 86 ).",
-   "locator": "Body — Dietary fructose and NAFLD",
-   "ref": "softic2016",
+   "quote": "In adults with MASLD, improving diet quality (similar to the Mediterranean dietary pattern), limiting the consumption of ultra-processed food (rich in sugars and saturated fat) and avoiding sugar-sweetened beverages should be recommended to improve histologically or non-invasively assessed liver injury ( LoE 2, strong recommendation, strong consensus ).",
+   "locator": "Lifestyle — diet quality recommendation",
+   "ref": "easl2024",
    "support": "direct",
    "access": "fulltext",
-   "note": "softic2016 full text; body text ties the harm to high-fructose corn syrup and fructose-sweetened drinks rather than fruit."
+   "note": "2016 Softic 종설 대신 이미 refs에 있던 2024 EASL-EASD-EASO 지침 전문의 권고를 1차 근거로 승격했어요. 답지도 '고과당 옥수수시럽' 대신 지침 표현인 '가당음료와 초가공식품'으로 맞췄고요.",
+   "quote2": "Today the most commonly consumed sugar in the United States is high fructose corn syrup ( 83 ). In research studies, consumption of fructose, but not glucose sweetened drinks, has been associated with increased visceral adiposity, insulin resistance and increased hepatic de novo lipogenesis ( 84 – 86 ).",
+   "ref2": "softic2016"
   },
   "topics": [
    "masld",
@@ -1786,7 +1797,7 @@
   "fit": "core"
  },
  {
-  "q": "다음 가운데 대사증후군 진단기준(국제 공통 정의)에 들어가지 않는 항목은 무엇인가요?",
+  "q": "다음 가운데 대사증후군 진단기준에 들어가지 않는 항목은 무엇인가요?",
   "a": [
    "LDL 콜레스테롤",
    "HDL 콜레스테롤",
@@ -1795,18 +1806,21 @@
   ],
   "correct": 0,
   "diff": "easy",
-  "src": "Alberti, K. G. M. M., Eckel, R. H., Grundy, S. M., Zimmet, P. Z., Cleeman, J. I., Donato, K. A., Fruchart, J.-C., James, W. P. T., Loria, C. M., & Smith, S. C., Jr. (2009). Harmonizing the metabolic syndrome: A joint interim statement. Circulation, 120(16), 1640–1645. https://doi.org/10.1161/CIRCULATIONAHA.109.192644",
+  "src": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094 / Alberti, K. G. M. M., Eckel, R. H., Grundy, S. M., Zimmet, P. Z., Cleeman, J. I., Donato, K. A., Fruchart, J.-C., James, W. P. T., Loria, C. M., & Smith, S. C., Jr. (2009). Harmonizing the metabolic syndrome: A joint interim statement. Circulation, 120(16), 1640–1645. https://doi.org/10.1161/CIRCULATIONAHA.109.192644",
   "exp": "LDL 콜레스테롤은 대사증후군 합의 정의의 구성요소가 아니에요. 지질 항목은 높은 중성지방과 낮은 HDL이 짝을 이뤄요.",
   "refs": [
+   "kssoFS2025",
    "alberti2009"
   ],
   "evidence": {
-   "quote": "Elevated waist circumference* — Population- and country-specific definitions Elevated triglycerides (drug treatment for elevated triglycerides is an alternate indicator) — >=150 mg/dL (1.7 mmol/L) Reduced HDL-C (drug treatment for reduced HDL-C is an alternate indicator) — <40 mg/dL (1.0 mmol/L) in males; <50 mg/dL (1.3 mmol/L) in females",
-   "locator": "Table 1 — Criteria for Clinical Diagnosis of the Metabolic Syndrome",
-   "ref": "alberti2009",
+   "quote": "대사증후군은 아래 기준에서 세 가지 이상에 해당하는 경우로 정의함. 정신 및 수면관련 질환 유병률 ① 허리둘레 남자 90 cm 이상, 여자 85 cm 이상 만성콩팥병 유병률 ② 공복혈당 100 mg/dL 이상 혹은 당뇨병약 복용 혹은 인슐린 주사제 투여 ③ 혈압 130/85 mmHg 이상 혹은 고혈압약 복용 ④ 중성지방 150 mg/dL 이상 혹은 이상지질혈증약 복용 ⑤ •고밀도지단백콜레스테롤 남자 40 mg/dL 미만, 여자 50 mg/dL 미만 혹은 이상지질혈증약 복용",
+   "locator": "3. 비만에서 만성질환 유병률 — 만성질환 정의(대사증후군 ①~⑤)",
+   "ref": "kssoFS2025",
    "support": "direct",
    "access": "fulltext",
-   "note": "alberti2009 full text; Table 1 lists waist, triglycerides and HDL-C as the criteria — LDL cholesterol is not among them."
+   "note": "2009 국제 합의문 표 대신 2025 대한비만학회 비만 팩트시트 전문의 다섯 기준 목록을 1차 근거로 올렸어요. 목록에 중성지방과 HDL은 있고 LDL은 없다는 점이 그대로 보이고, 문항에서 '(국제 공통 정의)'라는 묶음말은 뺐어요.",
+   "quote2": "Elevated waist circumference* — Population- and country-specific definitions Elevated triglycerides (drug treatment for elevated triglycerides is an alternate indicator) — >=150 mg/dL (1.7 mmol/L) Reduced HDL-C (drug treatment for reduced HDL-C is an alternate indicator) — <40 mg/dL (1.0 mmol/L) in males; <50 mg/dL (1.3 mmol/L) in females",
+   "ref2": "alberti2009"
   },
   "topics": [
    "metabolic_syndrome"
