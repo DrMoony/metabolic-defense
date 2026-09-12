@@ -1832,5 +1832,429 @@
    "kasl"
   ],
   "fit": "core"
+ },
+ {
+  "q": "What clinical manifestations eventually emerge from long-standing insulin resistance?",
+  "a": [
+   "Prediabetes, dyslipidaemia, hypertension, metabolic syndrome and hepatic steatosis",
+   "Anaemia and hypothyroidism",
+   "Osteoporosis and sarcopenia",
+   "Asthma and allergy"
+  ],
+  "exp": "Insulin resistance can stay subclinical for years before manifesting as prediabetes, dyslipidaemia, hypertension, metabolic syndrome and hepatic steatosis, leading on to type 2 diabetes, CVD and MASLD.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "refs": [
+   "rubino2025"
+  ],
+  "evidence": {
+   "quote": "For someone with insulin resistance, the effects can be subclinical over much of their lifespan, but eventually give rise to clinical manifestations such as prediabetes, dyslipidaemia, hypertension, metabolic syndrome, and hepatic steatosis, contributing to the development of type 2 diabetes, cardiovascular disease, and metabolic dysfunction-associated steatotic liver disease (MASLD).",
+   "locator": "Pathophysiology — insulin resistance",
+   "ref": "rubino2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "diabetes_link",
+   "masld"
+  ],
+  "societies": [
+   "ksso",
+   "kda",
+   "kasl"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "On what basis were the five cardiometabolic risk factors for MASLD chosen?",
+  "a": [
+   "They relate to insulin resistance and are validated in the cardiovascular context",
+   "They are confirmed by genetic testing",
+   "They appear only on liver biopsy",
+   "They track liver enzyme levels"
+  ],
+  "exp": "The five cardiometabolic risk factors were selected because they relate to insulin resistance and have been validated in the cardiovascular context; the same factors apply to children and adolescents.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "심장대사 위험인자 중 인슐린저항성과 관련이 있으며, 심혈관질환의 맥락에서도 검증이 된 다섯 가지 인자를 진단 기준으로 삼았고",
+   "locator": "소아청소년 — 심장대사 위험인자의 선정",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "metabolic_syndrome",
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In imaging studies, what frequently accompanies visceral obesity?",
+  "a": [
+   "Higher liver fat accumulation",
+   "Gallstones",
+   "Renal cysts",
+   "Splenomegaly"
+  ],
+  "exp": "Visceral obesity is frequently accompanied by higher liver fat, and excess liver fat is associated with the same cardiovascular risk factor changes as visceral obesity.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Imaging studies have shown that a frequent partner of visceral obesity is higher liver fat accumulation, 54 , 55 for which nonalcoholic fatty liver disease is a clinical manifestation. 56 Overall excess liver fat has generally been associated with the same alterations in cardiovascular risk factors as visceral obesity.",
+   "locator": "Visceral adiposity, liver fat, and CVD risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "visceral_fat",
+   "masld"
+  ],
+  "societies": [
+   "ksso",
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Who should be actively looked at for MASLD with liver fibrosis?",
+  "a": [
+   "People with type 2 diabetes, abdominal obesity plus at least one metabolic risk factor, or abnormal liver function tests",
+   "Everyone over 60",
+   "Only heavy drinkers",
+   "Only those with a family history"
+  ],
+  "exp": "Providers should look for MASLD with fibrosis in people with type 2 diabetes, abdominal obesity plus at least one additional metabolic risk factor, or abnormal liver function tests.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "Healthcare providers should look for MASLD with liver fibrosis either in individuals with (1) type 2 diabetes; (2) abdominal obesity and ≥1 additional metabolic risk factor(s) (ESM Table 3 ); or (3) abnormal liver function tests",
+   "locator": "Screening, case-finding, diagnosis and monitoring — recommendations",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "diabetes_link",
+   "visceral_fat"
+  ],
+  "societies": [
+   "kasl",
+   "kda",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How is coffee described for adults with MASLD?",
+  "a": [
+   "In observational studies it was associated with improved liver damage and fewer liver-related outcomes",
+   "It is harmful and should be stopped",
+   "It is a proven treatment from randomised trials",
+   "It is not mentioned"
+  ],
+  "exp": "Coffee consumption has been associated with improvements in liver damage and reduced liver-related outcomes in observational studies, at a low level of evidence.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "In adults with MASLD, coffee consumption has been associated with improvements in liver damage and reduced liver-related clinical outcomes in observational studies",
+   "locator": "Lifestyle management — statement on coffee",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What is advised about alcohol in steatotic liver disease with advanced fibrosis or cirrhosis?",
+  "a": [
+   "All alcohol should be stopped completely and permanently",
+   "Only on weekends",
+   "One drink a day is fine",
+   "Beer only"
+  ],
+  "exp": "People with SLD should be discouraged from drinking, and all alcohol should be stopped completely and permanently once advanced fibrosis or cirrhosis is present.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "Individuals with SLD, particularly those with moderate or high alcohol intake, should be discouraged from consuming alcohol ( LoE 3, strong recommendation, consensus ). All alcohol consumption should be stopped completely and permanently in individuals with advanced fibrosis or cirrhosis",
+   "locator": "Alcohol consumption in MASLD — recommendations",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How much physical activity is recommended to reduce steatosis in adults with MASLD?",
+  "a": [
+   "Preferably over 150 min/week moderate or 75 min/week vigorous",
+   "30 min/week moderate",
+   "500 min/week vigorous",
+   "No specific amount"
+  ],
+  "exp": "Physical activity is recommended to reduce steatosis, preferably over 150 min/week of moderate or 75 min/week of vigorous intensity, tailored to the individual.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "In adults with MASLD, physical activity and exercise should be recommended to reduce steatosis, tailored to the individual’s preference and ability (preferably >150 min/week of moderate- or 75 min/week of vigorous-intensity physical activity",
+   "locator": "Lifestyle management — physical activity recommendation",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What is recommended for normal-weight adults with MASLD?",
+  "a": [
+   "Diet and exercise interventions to reduce liver fat",
+   "No lifestyle intervention needed",
+   "Weight gain",
+   "Start with medication"
+  ],
+  "exp": "In normal-weight adults with MASLD, diet and exercise interventions should still be recommended to reduce liver fat.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "In normal-weight adults with MASLD, diet and exercise interventions should be recommended to reduce liver fat",
+   "locator": "Lifestyle management — normal-weight MASLD",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How are nutraceuticals positioned in MASLD treatment?",
+  "a": [
+   "They cannot be recommended because evidence of effectiveness and safety is insufficient",
+   "They are first-line therapy",
+   "Recommended only in cirrhosis",
+   "Recommended alongside weight loss"
+  ],
+  "exp": "Nutraceuticals cannot be recommended, as there is insufficient evidence of effectiveness in reducing liver damage or fibrosis, nor of their safety.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "refs": [
+   "easl2024"
+  ],
+  "evidence": {
+   "quote": "In adults with MASLD, nutraceuticals cannot be recommended since there is insufficient evidence of their effectiveness in reducing histologically/non-invasively assessed liver damage/fibrosis and liver-related outcomes in MASLD, nor of their safety",
+   "locator": "Treatment of MASLD — nutraceuticals",
+   "ref": "easl2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "lifestyle"
+  ],
+  "societies": [
+   "kasl",
+   "ksso"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How closely does the MASLD-defined population overlap with the previous NAFLD population?",
+  "a": [
+   "Over 95% concordance",
+   "About half",
+   "Almost no overlap",
+   "About 70%"
+  ],
+  "exp": "The MASLD-defined population shows over 95% concordance with the previous NAFLD population, so accumulated evidence remains applicable.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "대사이상지방간질환(MASLD)이 있는 환자의 94.5% (704/745명)가 비알코올지방간질환으로 분류되었다. 비알코올지방간질환 환자의 95.8% (704/735명)가 대사이상지방간질환(MASLD)으로 분류되었고, 일치하지 않은 31명의 환자는 모두 원인 불명의 지방간질환(cryptogenic SLD)으로 확인되었다.32 요약 • 대사이상지방간질환(MASLD)은 영상검사 또는 간 조직검사에서 간내 지방 축적이 • 확인되고, 한 가지 이상의 심장대사 위험인자가 있으면서 유의한 알코올 섭취가 없는 경우 진단한다. • 대사이상지방간질환(MASLD)의 진단 기준을 적용한 환자군은 비알코올지방간질환 (NAFLD) 환자군과 95% 이상의 높은 일치율을 보인다.",
+   "locator": "정의 및 진단 — 진단 기준 간 일치율 및 요약",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In biopsy-proven MASLD, how much did type 2 diabetes raise the risk of fibrosis progressing by at least one stage?",
+  "a": [
+   "1.69 times",
+   "1.05 times",
+   "3.20 times",
+   "No difference"
+  ],
+  "exp": "Among 447 biopsy-proven MASLD patients, type 2 diabetes raised the risk of at least one-stage fibrosis progression 1.69-fold.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "447명의 대사이상지방간질환(MASLD) 환자에서 2형당뇨병이 있는 환자는 2형당뇨병이 없는 환자에 비해 1단계 이상의 간섬유화 진행의 위험도가 1.69배",
+   "locator": "임상양상 및 예후 — 간섬유화 진행의 위험인자",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In a Korean study, how much higher was all-cause mortality in MASLD when type 2 diabetes was present?",
+  "a": [
+   "1.85 times",
+   "1.10 times",
+   "3.50 times",
+   "No change"
+  ],
+  "exp": "All-cause mortality was 1.85 times higher in MASLD patients with type 2 diabetes than in those without.",
+  "correct": 0,
+  "diff": "mid",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "의하면 대사이상지방간질환(MASLD)에서 2형당뇨병이 있는 환자는 2형당뇨병이 없는 환자에 비해 전체사망률이 1.85배 높았다(HR, 1.85; 95% CI, 1.55- 2.21)",
+   "locator": "임상양상 및 예후 — 전체사망률",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "diabetes_link"
+  ],
+  "societies": [
+   "kasl",
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How is MASLD defined in children and adolescents?",
+  "a": [
+   "Hepatic steatosis on imaging or biopsy plus at least one cardiometabolic risk factor",
+   "Elevated liver enzymes alone",
+   "Any child with obesity",
+   "Abdominal pain"
+  ],
+  "exp": "In children and adolescents, MASLD is defined as hepatic steatosis on imaging or biopsy plus at least one cardiometabolic risk factor.",
+  "correct": 0,
+  "diff": "easy",
+  "src": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "refs": [
+   "kasl2025"
+  ],
+  "evidence": {
+   "quote": "소아청소년에서 영상검사 또는 간 조직검사에서 간내 지방 축적이 확인되고, 한 가지 이상의 심장대사 위험인자가 있을 때 대사이상지방간질환(MASLD)으로",
+   "locator": "요약 및 권고사항 — 소아청소년",
+   "ref": "kasl2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "masld",
+   "pediatric"
+  ],
+  "societies": [
+   "kasl",
+   "ksso",
+   "kda"
+  ],
+  "fit": "core"
  }
 ]

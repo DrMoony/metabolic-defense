@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a57';
-import { RouteEditor } from './route-editor.js?v=a57';
-import { World, THREE } from './world.js?v=a57';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a57';
+import { healthColor, weaponColor } from './feedback.js?v=a58';
+import { RouteEditor } from './route-editor.js?v=a58';
+import { World, THREE } from './world.js?v=a58';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a58';
 
-import { MAPS, getMap } from './maps/index.js?v=a57';
+import { MAPS, getMap } from './maps/index.js?v=a58';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));

@@ -3089,6 +3089,795 @@
   "question_index": 184
  },
  {
+  "id": "F-ob-186",
+  "set": "obesity",
+  "statement_ko": "2015년 높은 체질량지수 때문에 숨진 400만 명 가운데 3분의 2 넘는 죽음의 원인은 무엇이었을까요? → 심혈관질환",
+  "statement_en": "In 2015, high BMI accounted for 4.0 million deaths. More than two-thirds of them were caused by what? → Cardiovascular disease",
+  "concepts": [
+   "obesity",
+   "bmi",
+   "ckm",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 185
+ },
+ {
+  "id": "F-ob-187",
+  "set": "obesity",
+  "statement_ko": "체질량지수는 정상인데 허리둘레가 큰 사람에게서 확인할 수 있는 것은 무엇일까요? → 겉으로 드러나지 않던 심혈관질환 위험",
+  "statement_en": "In a person with normal weight but a high waist circumference, what does that measurement reveal? → Higher cardiovascular risk that BMI alone would miss",
+  "concepts": [
+   "abdominal-obesity",
+   "bmi",
+   "waist",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 186
+ },
+ {
+  "id": "F-ob-188",
+  "set": "obesity",
+  "statement_ko": "체질량지수가 같은 사람들 사이에서도 허리둘레와 허리엉덩이비가 클수록 어떻게 될까요? → 관상동맥질환과 심혈관 사망 위험이 더 높아져요",
+  "statement_en": "At any given BMI, what happens as waist circumference and waist-to-hip ratio rise? → Risk of coronary artery disease and cardiovascular death rises",
+  "concepts": [
+   "abdominal-obesity",
+   "bmi",
+   "waist",
+   "ckm",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 187
+ },
+ {
+  "id": "F-ob-189",
+  "set": "obesity",
+  "statement_ko": "180만 명을 모은 메타분석에서 과체중·비만과 관상동맥질환의 연관성 가운데 절반가량은 무엇으로 설명됐을까요? → 혈압, 콜레스테롤, 혈당 수치",
+  "statement_en": "In a meta-analysis of 21 studies and 1.8 million people, about half of the association between overweight/obesity and CAD was explained by what? → Blood pressure, cholesterol and glucose levels",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "hypertension",
+   "dyslipidemia",
+   "ckm",
+   "epidemiology",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "mid",
+  "question_index": 188
+ },
+ {
+  "id": "F-ob-190",
+  "set": "obesity",
+  "statement_ko": "과잉 지방이 혈압을 올리는 기전으로 이 성명이 든 것은 무엇일까요? → 레닌-안지오텐신-알도스테론계와 교감신경계 활성화",
+  "statement_en": "By what mechanism does excess adiposity raise blood pressure, according to this statement? → Activation of the renin-angiotensin-aldosterone and sympathetic nervous systems",
+  "concepts": [
+   "obesity",
+   "hypertension",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 189
+ },
+ {
+  "id": "F-ob-191",
+  "set": "obesity",
+  "statement_ko": "죽상경화(동맥경화)는 언제부터 시작될까요? → 소아기부터 시작돼요",
+  "statement_en": "When does the atherosclerotic process begin? → It begins in childhood",
+  "concepts": [
+   "childhood-obesity",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 190
+ },
+ {
+  "id": "F-ob-192",
+  "set": "obesity",
+  "statement_ko": "5,881명을 관찰한 코호트에서 체질량지수가 1 늘어날 때 심부전 발생은 얼마나 늘었을까요? → 남자 5%, 여자 7%",
+  "statement_en": "In a cohort of 5,881 participants, how much did heart failure incidence rise per 1-unit increase in BMI? → 5% in men and 7% in women",
+  "concepts": [
+   "obesity",
+   "bmi",
+   "ckm",
+   "weight-loss-target",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "mid",
+  "question_index": 191
+ },
+ {
+  "id": "F-ob-193",
+  "set": "obesity",
+  "statement_ko": "심폐체력이 낮으면 심부전 위험은 어떻게 될까요? → 모든 체질량지수 구간에서 높아지고 비만 관련 심부전 위험의 절반가량을 설명해요",
+  "statement_en": "How is low cardiorespiratory fitness related to heart failure risk? → It raises risk across all BMI categories and may explain close to half of BMI-related HF risk",
+  "concepts": [
+   "obesity",
+   "bmi",
+   "ckm",
+   "cvd",
+   "physical-fitness"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "mid",
+  "question_index": 192
+ },
+ {
+  "id": "F-ob-194",
+  "set": "obesity",
+  "statement_ko": "체질량지수가 5 늘어날 때 심장급사 위험은 얼마나 커질까요? → 16% 높아져요",
+  "statement_en": "How much does the risk of sudden cardiac death rise per 5-unit increase in BMI? → 16% higher",
+  "concepts": [
+   "obesity",
+   "bmi",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 193
+ },
+ {
+  "id": "F-ob-195",
+  "set": "obesity",
+  "statement_ko": "체질량지수가 5 늘어날 때 새로 생기는 심방세동 위험은 얼마나 커질까요? → 약 29% 높아져요",
+  "statement_en": "How much does the risk of incident atrial fibrillation rise per 5-unit increase in BMI? → About 29% higher",
+  "concepts": [
+   "obesity",
+   "bmi",
+   "ckm",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 194
+ },
+ {
+  "id": "F-ob-196",
+  "set": "obesity",
+  "statement_ko": "비만이 있는 사람의 심혈관질환 경과로 이 성명이 정리한 것은 무엇일까요? → 더 이른 나이에 심혈관질환을 겪고 평균 수명이 짧아요",
+  "statement_en": "How does this statement summarise the cardiovascular course in people with obesity? → They develop CVD at an earlier age and have a shorter average life span",
+  "concepts": [
+   "obesity",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 195
+ },
+ {
+  "id": "F-ob-197",
+  "set": "obesity",
+  "statement_ko": "이른바 '비만 역설'을 설명할 수 있는 요인으로 든 것은 무엇일까요? → 진단 시점이 앞당겨지는 리드타임 바이어스와 심폐체력의 차이",
+  "statement_en": "What may explain the so-called obesity paradox? → Lead-time bias from earlier diagnosis and differences in cardiorespiratory fitness",
+  "concepts": [
+   "obesity",
+   "ckm",
+   "physical-fitness"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "mid",
+  "question_index": 196
+ },
+ {
+  "id": "F-ob-198",
+  "set": "obesity",
+  "statement_ko": "심부전에서 관찰되는 비만 역설은 어느 쪽에서 더 뚜렷하게 보였을까요? → 박출률이 감소한 심부전(HFrEF)",
+  "statement_en": "In heart failure, the obesity paradox is seen more clearly in which type? → Heart failure with reduced ejection fraction (HFrEF)",
+  "concepts": [
+   "obesity",
+   "ckm",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "mid",
+  "question_index": 197
+ },
+ {
+  "id": "F-ob-199",
+  "set": "obesity",
+  "statement_ko": "심방세동 환자 150명을 대상으로 한 무작위 연구에서 집중 체중 감량과 위험인자 관리는 어떤 결과를 냈을까요? → 심방세동 지속 시간과 증상이 줄고 심장 구조도 좋아졌어요",
+  "statement_en": "In a randomised trial of 150 people with AF, what did intensive weight loss and risk-factor management achieve? → Less cumulative AF time and symptom burden, plus beneficial cardiac remodelling",
+  "concepts": [
+   "obesity",
+   "ckm",
+   "weight-loss-target",
+   "exercise",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 198
+ },
+ {
+  "id": "F-ob-200",
+  "set": "obesity",
+  "statement_ko": "심박수 조절, 리듬 조절, 항응고에 더해 심방세동 관리의 '네 번째 기둥'으로 꼽힌 것은 무엇일까요? → 심혈관 위험인자 관리",
+  "statement_en": "Alongside rate control, rhythm control and anticoagulation, what is called the fourth pillar of AF management? → Cardiovascular risk-factor management",
+  "concepts": [
+   "obesity",
+   "ckm",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 199
+ },
+ {
+  "id": "F-ob-201",
+  "set": "obesity",
+  "statement_ko": "지방이 과도하게 쌓이면 심장에 어떤 혈역학적 변화가 생길까요? → 혈액량과 심박출량이 늘고 전신혈관저항은 줄어요",
+  "statement_en": "What haemodynamic changes follow excess adipose tissue accumulation? → Higher blood volume and cardiac output with lower systemic vascular resistance",
+  "concepts": [
+   "obesity",
+   "ckm",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 200
+ },
+ {
+  "id": "F-ob-202",
+  "set": "obesity",
+  "statement_ko": "비만은 죽상경화성 심혈관질환과 심부전 가운데 어느 쪽과 더 강하게 이어질까요? → 심부전",
+  "statement_en": "Obesity shows stronger links with which outcome? → Incident heart failure",
+  "concepts": [
+   "clinical-obesity",
+   "t2dm",
+   "ckm",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 201
+ },
+ {
+  "id": "F-ob-203",
+  "set": "obesity",
+  "statement_ko": "오랜 기간 쌓인 과잉 체중이 심근경색이나 뇌졸중으로 이어지는 경로로 제시된 것은 무엇일까요? → 고혈압, 이상지질혈증, 당뇨병",
+  "statement_en": "Through which established causal risk factors does long-term excess weight lead to myocardial infarction and stroke? → Hypertension, dyslipidaemia and diabetes",
+  "concepts": [
+   "clinical-obesity",
+   "t2dm",
+   "hypertension",
+   "dyslipidemia",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 202
+ },
+ {
+  "id": "F-ob-204",
+  "set": "obesity",
+  "statement_ko": "당뇨병 전단계가 있는 비만 성인에게 권고된 체중 감량 목표는 어느 정도일까요? → 5~7%",
+  "statement_en": "What weight-loss target is recommended for adults with obesity and prediabetes? → 5%–7%",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "prediabetes",
+   "weight-loss-target",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "easy",
+  "question_index": 203
+ },
+ {
+  "id": "F-ob-205",
+  "set": "obesity",
+  "statement_ko": "체중이 줄지 않아도 규칙적인 신체활동이 좋아지게 하는 것은 무엇일까요? → 혈당과 인슐린 감수성, 높은 혈압, 이상지질혈증",
+  "statement_en": "Even without weight loss, what does regular physical activity improve? → Hyperglycaemia and insulin sensitivity, high blood pressure and dyslipidaemia",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "hypertension",
+   "dyslipidemia",
+   "weight-loss-target",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "source_family": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "diff": "easy",
+  "question_index": 204
+ },
+ {
+  "id": "F-ob-206",
+  "set": "obesity",
+  "statement_ko": "2025 비만 팩트시트에서 비만인 사람의 고혈압 유병률은 비만이 아닌 사람의 몇 배였을까요? → 1.9배",
+  "statement_en": "In the 2025 Korean obesity fact sheet, hypertension prevalence in people with obesity was how many times that of people without obesity? → 1.9 times",
+  "concepts": [
+   "abdominal-obesity",
+   "hypertension",
+   "metabolic-syndrome",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "source_family": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "diff": "easy",
+  "question_index": 205
+ },
+ {
+  "id": "F-ob-207",
+  "set": "obesity",
+  "statement_ko": "2025 비만 팩트시트에서 비만인 사람의 고콜레스테롤혈증 유병률은 비만이 아닌 사람의 몇 배였을까요? → 1.5배",
+  "statement_en": "In the 2025 Korean obesity fact sheet, hypercholesterolaemia prevalence in people with obesity was how many times that of people without obesity? → 1.5 times",
+  "concepts": [
+   "abdominal-obesity",
+   "dyslipidemia",
+   "metabolic-syndrome",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "source_family": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "diff": "easy",
+  "question_index": 206
+ },
+ {
+  "id": "F-ob-208",
+  "set": "obesity",
+  "statement_ko": "역대 비만 팩트시트에서 허리둘레가 클수록 발생률이 올라간다고 정리한 질환은 무엇일까요? → 당뇨병, 고혈압, 심근경색, 허혈성뇌졸중, 암",
+  "statement_en": "In the fact sheet series, a larger waist circumference was linked to a higher incidence of which conditions? → Diabetes, hypertension, myocardial infarction, ischaemic stroke and cancer",
+  "concepts": [
+   "abdominal-obesity",
+   "waist",
+   "t2dm",
+   "hypertension",
+   "cancer",
+   "metabolic-syndrome",
+   "epidemiology",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "source_family": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "diff": "easy",
+  "question_index": 207
+ },
+ {
+  "id": "F-ob-209",
+  "set": "obesity",
+  "statement_ko": "지방간질환 환자에게서 가장 흔한 사망 원인은 무엇일까요? → 심혈관질환과 간 이외 장기의 악성 종양",
+  "statement_en": "What are the most common causes of death in patients with fatty liver disease overall? → Cardiovascular disease and nonhepatic malignancy",
+  "concepts": [
+   "masld",
+   "ckm",
+   "alcohol"
+  ],
+  "concepts_manual": false,
+  "source": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
+  "source_family": "Rinella, M. E., Neuschwander-Tetri, B. A., Siddiqui, M. S., Abdelmalek, M. F., Caldwell, S., Barb, D., Kleiner, D. E., & Loomba, R. (2023). AASLD practice guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology, 77(5), 1797–1835. https://doi.org/10.1097/HEP.0000000000000323",
+  "diff": "easy",
+  "question_index": 208
+ },
+ {
+  "id": "F-ob-210",
+  "set": "obesity",
+  "statement_ko": "국내 전향적 코호트에서 대사이상지방간질환 환자에게 고혈압이 동반되면 심혈관질환 위험은 얼마나 커졌을까요? → 1.94배",
+  "statement_en": "In a Korean prospective cohort, how much did hypertension raise cardiovascular risk in people with MASLD? → 1.94 times",
+  "concepts": [
+   "masld",
+   "hypertension",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "source_family": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "diff": "mid",
+  "question_index": 209
+ },
+ {
+  "id": "F-ob-211",
+  "set": "obesity",
+  "statement_ko": "2025 비만 팩트시트에서 비만인 사람의 대사증후군 유병률은 비만이 아닌 사람의 몇 배였을까요? → 3.1배",
+  "statement_en": "In the 2025 Korean obesity fact sheet, metabolic syndrome prevalence in people with obesity was how many times that of people without obesity? → 3.1 times",
+  "concepts": [
+   "abdominal-obesity",
+   "metabolic-syndrome",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "source_family": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "diff": "easy",
+  "question_index": 210
+ },
+ {
+  "id": "F-ob-212",
+  "set": "obesity",
+  "statement_ko": "2025 비만 팩트시트에서 비만한 한국 성인의 대사증후군 유병률은 어느 정도였을까요? → 남자 57.4%, 여자 58.3%",
+  "statement_en": "In the 2025 fact sheet, what was the prevalence of metabolic syndrome among Korean adults with obesity? → 57.4% in men and 58.3% in women",
+  "concepts": [
+   "abdominal-obesity",
+   "metabolic-syndrome",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "source_family": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "diff": "easy",
+  "question_index": 211
+ },
+ {
+  "id": "F-ob-213",
+  "set": "obesity",
+  "statement_ko": "2025 비만 팩트시트에서 비만인 사람의 고요산혈증 유병률은 비만이 아닌 사람의 몇 배였을까요? → 2.4배",
+  "statement_en": "In the 2025 fact sheet, hyperuricaemia prevalence in people with obesity was how many times that of people without obesity? → 2.4 times",
+  "concepts": [
+   "abdominal-obesity",
+   "metabolic-syndrome",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "source_family": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "diff": "easy",
+  "question_index": 212
+ },
+ {
+  "id": "F-ob-214",
+  "set": "obesity",
+  "statement_ko": "2025 비만 팩트시트에서 비만인 사람의 당뇨병 유병률은 비만이 아닌 사람의 몇 배였을까요? → 2.1배",
+  "statement_en": "In the 2025 fact sheet, diabetes prevalence in people with obesity was how many times that of people without obesity? → 2.1 times",
+  "concepts": [
+   "abdominal-obesity",
+   "t2dm",
+   "metabolic-syndrome",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "source_family": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "diff": "easy",
+  "question_index": 213
+ },
+ {
+  "id": "F-ob-215",
+  "set": "obesity",
+  "statement_ko": "최근 10년간 한국 성인의 대사증후군 유병률은 어떻게 변했을까요? → 2013년 23.3%에서 2022년 28.6%로 늘었어요",
+  "statement_en": "How did metabolic syndrome prevalence in Korean adults change over the past decade? → It rose from 23.3% in 2013 to 28.6% in 2022",
+  "concepts": [
+   "abdominal-obesity",
+   "metabolic-syndrome",
+   "epidemiology"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "source_family": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "diff": "easy",
+  "question_index": 214
+ },
+ {
+  "id": "F-ob-216",
+  "set": "obesity",
+  "statement_ko": "대한비만학회 진료지침의 대사증후군 진단 기준 다섯 가지 가운데 몸을 직접 재서 확인하는 항목은 무엇일까요? → 허리둘레",
+  "statement_en": "Among the five metabolic syndrome criteria in the Korean guideline, which one is measured directly on the body? → Waist circumference",
+  "concepts": [
+   "abdominal-obesity",
+   "waist",
+   "metabolic-syndrome"
+  ],
+  "concepts_manual": false,
+  "source": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
+  "source_family": "Kim, K. K., Haam, J. H., Kim, B. T., Kim, E. M., Park, J. H., Rhee, S. Y., Jeon, E., Kang, E., Nam, G. E., Koo, H. Y., Lim, J. H., Jeong, J. E., Kim, J. H., Kim, J. W., Park, J. H., Hong, J. H., Lee, S. E., Min, S. H., Kim, S. J., … Kang, J. H. (2023). Evaluation and treatment of obesity and its comorbidities: 2022 update of clinical practice guidelines for obesity by the Korean Society for the Study of Obesity. Journal of Obesity & Metabolic Syndrome, 32(1), 1–24. https://doi.org/10.7570/jomes23016",
+  "diff": "easy",
+  "question_index": 215
+ },
+ {
+  "id": "F-ob-217",
+  "set": "obesity",
+  "statement_ko": "대사증후군이 있는 사람에게서 일상적인 검사로는 설명되지 않는 관상동맥질환 위험을 더하는 요인으로 든 것은 무엇일까요? → 아디포사이토카인 생성, 산화 스트레스, 혈전 성향",
+  "statement_en": "What adds coronary risk beyond routinely measured risk factors in people with metabolic syndrome? → Adipocytokine production, oxidative stress and a prothrombotic state",
+  "concepts": [
+   "obesity",
+   "ckm",
+   "metabolic-syndrome",
+   "environment",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "mid",
+  "question_index": 216
+ },
+ {
+  "id": "F-ob-218",
+  "set": "obesity",
+  "statement_ko": "인슐린저항성과 함께 나타나는 이상지질혈증의 특징은 무엇일까요? → 중성지방이 높고 HDL이 낮으며 작고 촘촘한 LDL 입자가 늘어요",
+  "statement_en": "What lipid pattern accompanies insulin resistance? → High triglycerides, low HDL cholesterol and small dense LDL particles",
+  "concepts": [
+   "obesity",
+   "dyslipidemia",
+   "ckm",
+   "exercise",
+   "insulin-resistance"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 217
+ },
+ {
+  "id": "F-ob-219",
+  "set": "obesity",
+  "statement_ko": "아시아인 비만에서 흔하게 관찰되는 이상지질혈증의 모습은 무엇일까요? → 중성지방이 높고 HDL 콜레스테롤이 낮아요",
+  "statement_en": "What dyslipidaemia pattern is common in Asian people with obesity? → High triglycerides with low HDL cholesterol",
+  "concepts": [
+   "clinical-obesity",
+   "dyslipidemia"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "easy",
+  "question_index": 218
+ },
+ {
+  "id": "F-ob-220",
+  "set": "obesity",
+  "statement_ko": "2025 비만 팩트시트에서 비만인 사람의 만성콩팥병 유병률은 비만이 아닌 사람의 몇 배였을까요? → 1.4배",
+  "statement_en": "In the 2025 fact sheet, chronic kidney disease prevalence in people with obesity was how many times that of people without obesity? → 1.4 times",
+  "concepts": [
+   "abdominal-obesity",
+   "metabolic-syndrome",
+   "epidemiology",
+   "ckd"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "source_family": "Korean Society for the Study of Obesity. (2025). 2025 Obesity fact sheet for Korea: Prevalence of obesity and abdominal obesity from 2014 to 2023 and prevalence of chronic disease by obesity status. Journal of Obesity & Metabolic Syndrome. https://doi.org/10.7570/jomes25094",
+  "diff": "easy",
+  "question_index": 219
+ },
+ {
+  "id": "F-ob-221",
+  "set": "obesity",
+  "statement_ko": "이소성 지방(ectopic fat)이란 무엇일까요? → 원래 지방이 저장되지 않는 간, 췌장, 심장, 골격근 같은 곳에 쌓인 지방",
+  "statement_en": "What is an ectopic fat depot? → Lipid deposited where it is not normally stored, such as liver, pancreas, heart and skeletal muscle",
+  "concepts": [
+   "obesity",
+   "dyslipidemia",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 220
+ },
+ {
+  "id": "F-ob-222",
+  "set": "obesity",
+  "statement_ko": "총 체지방이나 피하지방이 비슷한 사람들 사이에서 내장지방 양은 얼마나 차이 날 수 있을까요? → 2~3배까지 차이 날 수 있어요",
+  "statement_en": "Among people with similar total or subcutaneous adiposity, how much can visceral fat differ? → Up to 2- to 3-fold",
+  "concepts": [
+   "abdominal-obesity",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 221
+ },
+ {
+  "id": "F-ob-223",
+  "set": "obesity",
+  "statement_ko": "체중이 줄지 않아도 운동이 내장지방에 주는 영향은 무엇일까요? → 체중 변화 없이도 내장지방이 줄어요",
+  "statement_en": "What happens to visceral fat with exercise even when body weight does not change? → Visceral fat still decreases",
+  "concepts": [
+   "abdominal-obesity",
+   "ckm",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 222
+ },
+ {
+  "id": "F-ob-224",
+  "set": "obesity",
+  "statement_ko": "내장지방을 줄이는 데 가장 도움이 되는 운동 형태는 무엇일까요? → 유산소 운동",
+  "statement_en": "Which type of exercise appears most beneficial for reducing visceral fat? → Aerobic exercise",
+  "concepts": [
+   "abdominal-obesity",
+   "ckm",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 223
+ },
+ {
+  "id": "F-ob-225",
+  "set": "obesity",
+  "statement_ko": "허리엉덩이비(WHR)가 알려 주는 것은 무엇일까요? → 체질량지수와 상관없이 심혈관 사망 위험을 예측해요",
+  "statement_en": "What does waist-to-hip ratio tell us? → It predicts cardiovascular mortality independently of BMI",
+  "concepts": [
+   "abdominal-obesity",
+   "bmi",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 224
+ },
+ {
+  "id": "F-ob-226",
+  "set": "obesity",
+  "statement_ko": "심외막지방(epicardial adipose tissue)은 어디에 있는 지방일까요? → 심근 바깥벽과 심낭 내장층 사이의 내장지방",
+  "statement_en": "Where is epicardial adipose tissue located? → Visceral fat between the outer myocardial wall and the visceral layer of the pericardium",
+  "concepts": [
+   "abdominal-obesity",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "mid",
+  "question_index": 225
+ },
+ {
+  "id": "F-ob-227",
+  "set": "obesity",
+  "statement_ko": "'대사적으로 건강한 비만'에 대해 최근 자료가 알려 주는 것은 무엇일까요? → 상당수에서 일시적인 상태일 수 있어요",
+  "statement_en": "What do recent data suggest about metabolically healthy obesity? → It may be a transient phenotype for most people",
+  "concepts": [
+   "obesity",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "mid",
+  "question_index": 226
+ },
+ {
+  "id": "F-ob-228",
+  "set": "obesity",
+  "statement_ko": "CT와 MRI가 체성분 연구에서 해내는 일은 무엇일까요? → 몸의 단면 영상으로 지방 구획의 면적이나 부피를 재요",
+  "statement_en": "What do CT and MRI make possible in body composition research? → Quantifying areas or volumes of adipose and ectopic fat depots from cross-sectional images",
+  "concepts": [
+   "obesity",
+   "ckm",
+   "mri-pdff"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 227
+ },
+ {
+  "id": "F-ob-229",
+  "set": "obesity",
+  "statement_ko": "일본비만학회가 정한 복부비만 허리둘레 기준은 한국과 어떻게 다를까요? → 남자 85cm 이상, 여자 90cm 이상으로 여자 기준이 더 커요",
+  "statement_en": "How do the Japanese waist circumference cut-offs differ from the Korean ones? → 85 cm in men and 90 cm in women, so the cut-off is higher for women",
+  "concepts": [
+   "clinical-obesity",
+   "abdominal-obesity",
+   "waist"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "mid",
+  "question_index": 228
+ },
+ {
+  "id": "F-ob-230",
+  "set": "obesity",
+  "statement_ko": "일본인 코호트의 CT 분석에서 심혈관 위험인자의 개수와 이어진 지방은 어느 쪽이었을까요? → 내장지방",
+  "statement_en": "In a Japanese CT cohort, which fat depot was linked to the number of cardiovascular risk factors? → Visceral adipose tissue",
+  "concepts": [
+   "clinical-obesity",
+   "abdominal-obesity",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "easy",
+  "question_index": 229
+ },
+ {
+  "id": "F-ob-231",
+  "set": "obesity",
+  "statement_ko": "한국인 CT 연구에서 체질량지수와 내장지방을 보정한 뒤에도 관상동맥질환을 예측한 것은 무엇일까요? → 심낭지방과 근지방증",
+  "statement_en": "In Korean CT studies, what predicted coronary artery disease even after adjusting for BMI and visceral adiposity? → Pericardial adipose tissue and myosteatosis",
+  "concepts": [
+   "clinical-obesity",
+   "abdominal-obesity",
+   "bmi",
+   "cvd"
+  ],
+  "concepts_manual": false,
+  "source": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "source_family": "Lim, S., Ji, L., Tham, K. W., Misra, A., & Kadowaki, T. (2026). Clinical obesity in Asian people: Bridging the gap between adiposity and disease. Nature Reviews Endocrinology. Advance online publication. https://doi.org/10.1038/s41574-026-01239-8",
+  "diff": "mid",
+  "question_index": 230
+ },
+ {
+  "id": "F-ob-232",
+  "set": "obesity",
+  "statement_ko": "대사이상지방간질환 성인에게 함께 확인하라고 권고된 동반질환은 무엇일까요? → 2형당뇨병, 이상지질혈증, 고혈압, 신장질환, 수면무호흡, 다낭난소증후군",
+  "statement_en": "Which comorbidities should clinicians assess in adults with MASLD? → Type 2 diabetes, dyslipidaemia, hypertension, kidney disease, sleep apnoea and polycystic ovary syndrome",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld",
+   "hypertension",
+   "dyslipidemia",
+   "osa",
+   "environment",
+   "ckd",
+   "pcos"
+  ],
+  "concepts_manual": false,
+  "source": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "source_family": "EASO 2024",
+  "diff": "easy",
+  "question_index": 231
+ },
+ {
   "id": "F-ma-001",
   "set": "masld",
   "statement_ko": "2023년 새 명명법에서 NAFLD를 대체한 이름은 무엇일까요? → MASLD(대사이상 지방간질환)",
@@ -4035,6 +4824,226 @@
   "source_family": "AHA CKM 2023",
   "diff": "easy",
   "question_index": 54
+ },
+ {
+  "id": "F-ma-056",
+  "set": "masld",
+  "statement_ko": "인슐린저항성이 오랫동안 이어지면 결국 어떤 모습으로 드러날까요? → 당뇨병 전단계, 이상지질혈증, 고혈압, 대사증후군, 지방간",
+  "statement_en": "What clinical manifestations eventually emerge from long-standing insulin resistance? → Prediabetes, dyslipidaemia, hypertension, metabolic syndrome and hepatic steatosis",
+  "concepts": [
+   "clinical-obesity",
+   "t2dm",
+   "prediabetes",
+   "masld",
+   "hypertension",
+   "dyslipidemia",
+   "metabolic-syndrome",
+   "exercise",
+   "insulin-resistance"
+  ],
+  "concepts_manual": false,
+  "source": "Rubino, F., Cummings, D. E., Eckel, R. H., Cohen, R. V., Wilding, J. P. H., Brown, W. A., Stanford, F. C., Batterham, R. L., Farooqi, I. S., Farpour-Lambert, N. J., le Roux, C. W., Sattar, N., Baur, L. A., Morrison, K. M., Misra, A., Kadowaki, T., Tham, K. W., Sumithran, P., Garvey, W. T., … Mingrone, G. (2025). Definition and diagnostic criteria of clinical obesity. The Lancet Diabetes & Endocrinology, 13(3), 221–262. https://doi.org/10.1016/S2213-8587(24)00316-4",
+  "source_family": "Lancet Commission 2025",
+  "diff": "easy",
+  "question_index": 55
+ },
+ {
+  "id": "F-ma-057",
+  "set": "masld",
+  "statement_ko": "대사이상지방간질환의 진단에 쓰는 심장대사 위험인자 다섯 가지는 어떤 기준으로 골랐을까요? → 인슐린저항성과 관련이 있고 심혈관질환 맥락에서도 검증된 인자",
+  "statement_en": "On what basis were the five cardiometabolic risk factors for MASLD chosen? → They relate to insulin resistance and are validated in the cardiovascular context",
+  "concepts": [
+   "masld",
+   "ckm",
+   "exercise",
+   "insulin-resistance"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "source_family": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "diff": "mid",
+  "question_index": 56
+ },
+ {
+  "id": "F-ma-058",
+  "set": "masld",
+  "statement_ko": "영상 연구에서 내장비만과 자주 함께 나타나는 것은 무엇일까요? → 간에 지방이 쌓이는 것",
+  "statement_en": "In imaging studies, what frequently accompanies visceral obesity? → Higher liver fat accumulation",
+  "concepts": [
+   "abdominal-obesity",
+   "ckm"
+  ],
+  "concepts_manual": false,
+  "source": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "source_family": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "diff": "easy",
+  "question_index": 57
+ },
+ {
+  "id": "F-ma-059",
+  "set": "masld",
+  "statement_ko": "간섬유화를 동반한 대사이상지방간질환을 반드시 찾아봐야 하는 대상으로 꼽힌 사람은 누구일까요? → 2형당뇨병이 있는 사람, 복부비만에 대사 위험인자가 하나 이상 더 있는 사람, 간기능검사가 이상한 사람",
+  "statement_en": "Who should be actively looked at for MASLD with liver fibrosis? → People with type 2 diabetes, abdominal obesity plus at least one metabolic risk factor, or abnormal liver function tests",
+  "concepts": [
+   "abdominal-obesity",
+   "t2dm",
+   "masld",
+   "fibrosis"
+  ],
+  "concepts_manual": false,
+  "source": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "source_family": "EASO 2024",
+  "diff": "easy",
+  "question_index": 58
+ },
+ {
+  "id": "F-ma-060",
+  "set": "masld",
+  "statement_ko": "대사이상지방간질환이 있는 성인에게 커피는 어떻게 정리돼 있을까요? → 관찰연구에서 간손상 개선, 간질환 관련 결과 감소와 연관됐어요",
+  "statement_en": "How is coffee described for adults with MASLD? → In observational studies it was associated with improved liver damage and fewer liver-related outcomes",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld"
+  ],
+  "concepts_manual": false,
+  "source": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "source_family": "EASO 2024",
+  "diff": "easy",
+  "question_index": 59
+ },
+ {
+  "id": "F-ma-061",
+  "set": "masld",
+  "statement_ko": "진행성 섬유화나 간경변이 있는 지방간질환 환자에게 음주는 어떻게 권고될까요? → 완전히, 그리고 영구히 끊어야 해요",
+  "statement_en": "What is advised about alcohol in steatotic liver disease with advanced fibrosis or cirrhosis? → All alcohol should be stopped completely and permanently",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld",
+   "fibrosis",
+   "alcohol"
+  ],
+  "concepts_manual": false,
+  "source": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "source_family": "EASO 2024",
+  "diff": "easy",
+  "question_index": 60
+ },
+ {
+  "id": "F-ma-062",
+  "set": "masld",
+  "statement_ko": "대사이상지방간질환이 있는 성인에게 간 지방을 줄이려고 권고하는 운동량은 어느 정도일까요? → 주 150분 이상 중강도 또는 주 75분 고강도",
+  "statement_en": "How much physical activity is recommended to reduce steatosis in adults with MASLD? → Preferably over 150 min/week moderate or 75 min/week vigorous",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "source_family": "EASO 2024",
+  "diff": "easy",
+  "question_index": 61
+ },
+ {
+  "id": "F-ma-063",
+  "set": "masld",
+  "statement_ko": "체중이 정상인 대사이상지방간질환 환자에게는 어떤 권고가 주어질까요? → 식사와 운동 중재로 간 지방을 줄이도록 권해요",
+  "statement_en": "What is recommended for normal-weight adults with MASLD? → Diet and exercise interventions to reduce liver fat",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld",
+   "diet",
+   "exercise"
+  ],
+  "concepts_manual": false,
+  "source": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "source_family": "EASO 2024",
+  "diff": "easy",
+  "question_index": 62
+ },
+ {
+  "id": "F-ma-064",
+  "set": "masld",
+  "statement_ko": "대사이상지방간질환 치료에서 건강기능식품이나 생약 제제는 어떻게 정리돼 있을까요? → 효과와 안전성 근거가 충분하지 않아 권고할 수 없어요",
+  "statement_en": "How are nutraceuticals positioned in MASLD treatment? → They cannot be recommended because evidence of effectiveness and safety is insufficient",
+  "concepts": [
+   "obesity",
+   "t2dm",
+   "masld"
+  ],
+  "concepts_manual": false,
+  "source": "European Association for the Study of the Liver, European Association for the Study of Diabetes, & European Association for the Study of Obesity. (2024). EASL–EASD–EASO clinical practice guidelines on the management of metabolic dysfunction-associated steatotic liver disease (MASLD). Journal of Hepatology, 81(3), 492–542. https://doi.org/10.1016/j.jhep.2024.04.031",
+  "source_family": "EASO 2024",
+  "diff": "easy",
+  "question_index": 63
+ },
+ {
+  "id": "F-ma-065",
+  "set": "masld",
+  "statement_ko": "대사이상지방간질환(MASLD) 기준으로 분류한 환자군은 기존 비알코올지방간질환 환자군과 얼마나 겹칠까요? → 95% 이상 일치해요",
+  "statement_en": "How closely does the MASLD-defined population overlap with the previous NAFLD population? → Over 95% concordance",
+  "concepts": [
+   "masld",
+   "weight-loss-target"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "source_family": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "diff": "easy",
+  "question_index": 64
+ },
+ {
+  "id": "F-ma-066",
+  "set": "masld",
+  "statement_ko": "조직검사로 진단한 대사이상지방간질환 환자에서 2형당뇨병이 있으면 간섬유화가 한 단계 이상 진행할 위험은 얼마나 커졌을까요? → 1.69배",
+  "statement_en": "In biopsy-proven MASLD, how much did type 2 diabetes raise the risk of fibrosis progressing by at least one stage? → 1.69 times",
+  "concepts": [
+   "t2dm",
+   "masld",
+   "fibrosis",
+   "liver-biopsy"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "source_family": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "diff": "mid",
+  "question_index": 65
+ },
+ {
+  "id": "F-ma-067",
+  "set": "masld",
+  "statement_ko": "국내 연구에서 대사이상지방간질환 환자에게 2형당뇨병이 동반되면 전체사망률은 얼마나 높아졌을까요? → 1.85배",
+  "statement_en": "In a Korean study, how much higher was all-cause mortality in MASLD when type 2 diabetes was present? → 1.85 times",
+  "concepts": [
+   "t2dm",
+   "masld"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "source_family": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "diff": "mid",
+  "question_index": 66
+ },
+ {
+  "id": "F-ma-068",
+  "set": "masld",
+  "statement_ko": "소아청소년에서 대사이상지방간질환은 어떻게 정의할까요? → 영상이나 조직검사에서 간내 지방이 확인되고 심장대사 위험인자가 하나 이상 있을 때",
+  "statement_en": "How is MASLD defined in children and adolescents? → Hepatic steatosis on imaging or biopsy plus at least one cardiometabolic risk factor",
+  "concepts": [
+   "childhood-obesity",
+   "masld",
+   "ckm",
+   "liver-biopsy"
+  ],
+  "concepts_manual": false,
+  "source": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "source_family": "Korean Association for the Study of the Liver. (2025). 2025 KASL clinical practice guidelines for metabolic dysfunction-associated steatotic liver disease [대사이상지방간질환 진료 가이드라인]. Korean Association for the Study of the Liver. https://www.kasl.org",
+  "diff": "easy",
+  "question_index": 67
  },
  {
   "id": "F-src-001",
