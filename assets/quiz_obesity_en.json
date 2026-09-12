@@ -3729,5 +3729,925 @@
    "support": "direct",
    "access": "fulltext"
   }
+ },
+ {
+  "q": "What kind of wording is recommended when referring to a person who has obesity?",
+  "a": [
+   "Person-first language such as \"person with obesity\"",
+   "Condition-first labels such as \"the obese\"",
+   "Avoiding any mention of weight altogether",
+   "Informal euphemisms about body size"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "Person-first language keeps the person ahead of the condition and supports a collaborative conversation.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Use person-centered, nonjudgmental language that fosters collaboration between individuals and health care professionals, including person-first language (e.g., “person with obesity” rather than “obese person” and “person with diabetes” rather than “diabetic person",
+   "locator": "Recommendation 8.1 (Assessment and Monitoring)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "During active weight management treatment, how often should anthropometric measurements be repeated?",
+  "a": [
+   "At least every 3 months",
+   "At least every 6 months",
+   "At least once a year",
+   "Only when symptoms appear"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "Measure at least annually as a baseline, and at least every 3 months while weight management treatment is active.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Monitor obesity-related anthropometric measurements at least annually to inform treatment considerations. During active weight management treatment, increase monitoring to at least every 3 months",
+   "locator": "Recommendation 8.2b (Assessment and Monitoring)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "In people with type 2 diabetes and overweight or obesity, where does weight management sit?",
+  "a": [
+   "It is a primary treatment goal alongside glycemic management",
+   "It is a secondary goal started only after glycemic targets are met",
+   "It is an optional cosmetic concern",
+   "It is a last resort after drug treatment fails"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "Weight management is a primary treatment goal set alongside glycemic management, not after it.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "In people with type 2 diabetes and overweight or obesity, weight management should represent a primary goal of treatment along with glycemic management",
+   "locator": "Recommendation 8.4 (Assessment and Monitoring)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What does a 3-7% loss of baseline body weight improve?",
+  "a": [
+   "Glycemia and other intermediate cardiovascular risk factors",
+   "Nothing until more than 10% is lost",
+   "Bone density only, with no change in glycemia",
+   "Remission of diabetes in most people"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "Even a 3-7% loss improves glycemia and intermediate cardiovascular risk factors, so any magnitude is worth aiming for.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Provide weight management treatment, aiming for any magnitude of weight loss. Weight loss of 3–7% of baseline weight improves glycemia and other intermediate cardiovascular risk factors",
+   "locator": "Recommendation 8.5 (Assessment and Monitoring)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What additional benefits follow a sustained loss of more than 10% of body weight?",
+  "a": [
+   "Disease-modifying effects and possible remission of type 2 diabetes",
+   "A small drop in blood pressure and nothing more",
+   "A guarantee against weight regain",
+   "No further need for complication screening"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "A sustained loss above 10% usually confers disease-modifying effects and possible remission of type 2 diabetes.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Sustained loss of >10% of body weight usually confers greater benefits, including disease-modifying effects and possible remission of type 2 diabetes, and may improve long-term cardiovascular outcomes and mortality",
+   "locator": "Recommendation 8.5 (Assessment and Monitoring)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What do effective long-term (>=1 year) weight maintenance programs provide?",
+  "a": [
+   "Monthly contact, weekly or more frequent self-weighing, and 200-300 min/week of physical activity",
+   "Quarterly contact, monthly weighing, and 75 min/week of activity",
+   "Annual contact, no weighing, and food diaries only",
+   "Daily in-person visits and 60 min/week of activity"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "Long-term maintenance programs provide monthly contact, frequent self-monitoring, and 200-300 min/week of activity.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Effective long-term (≥1 year) weight maintenance programs provide monthly contact and support, include frequent self-monitoring of body weight (weekly or more frequently) and other self-monitoring strategies (e.g., food diaries or wearables), and encourage regular physical activity (200–300 min/week)",
+   "locator": "Recommendation 8.11 (Nutrition, Physical Activity, and Behavioral Therapy)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How are nutrition supplements marketed for weight loss evaluated?",
+  "a": [
+   "There is no clear evidence of effectiveness, so they are not recommended",
+   "They are recommended as first-line treatment",
+   "They clearly work when used short term",
+   "Vitamin products alone are proven to cause weight loss"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "There is no clear evidence that nutrition supplements are effective for weight loss, so they are not recommended.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "Despite widespread marketing and exorbitant claims, there is no clear evidence that nutrition supplements (e.g., herbs, vitamins and minerals, amino acids, enzymes, and antioxidants) are effective for obesity management or weight loss",
+   "locator": "Recommendation 8.13 / Behavioral Interventions",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Why are obesity and diabetes managed together?",
+  "a": [
+   "They aggravate each other in a vicious cycle that drives complications",
+   "They are unrelated and grouped only for convenience",
+   "Obesity matters only after diabetes appears",
+   "Obesity resolves by itself once glycemia improves"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "American Diabetes Association Professional Practice Committee. (2025). 8. Obesity and weight management for the prevention and treatment of type 2 diabetes: Standards of Care in Diabetes—2025. Diabetes Care, 48(Suppl. 1), S167–S180. https://doi.org/10.2337/dc25-S008",
+  "exp": "Obesity and diabetes worsen each other in a vicious cycle, so goals for both glycemia and weight are set together.",
+  "refs": [
+   "ada2025obesity"
+  ],
+  "evidence": {
+   "quote": "obesity can exacerbate hyperglycemia and diabetes, thereby setting up a vicious cycle that contributes to disease progression and occurrence of microvascular and macrovascular complications. As such, treatment goals for both glycemia and weight are recommended in people with diabetes to address both hyperglycemia and its underlying pathophysiologic driver (obesity) and therefore benefit the person holistically",
+   "locator": "Assessment and Monitoring of the Individual With Overweight or Obesity (narrative)",
+   "ref": "ada2025obesity",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What magnitude of weight loss was proposed as a primary management target for many people with type 2 diabetes?",
+  "a": [
+   "5-15%",
+   "1-3%",
+   "20-25%",
+   "More than 30%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "Weight loss of 5-15% was proposed as a primary target of management, not just a means to lower HbA1c.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "it was recently suggested that weight loss of 5–15% should be a primary target of management for many people living with type 2 diabetes ( 50 ). A higher magnitude of weight loss confers better outcomes",
+   "locator": "Weight Reduction as a Targeted Intervention",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How is remission of diabetes defined?",
+  "a": [
+   "Normal blood glucose levels for 3 months or more without pharmacological therapy",
+   "HbA1c below 6.5% while taking medication",
+   "Six weeks of normal fasting glucose on diet alone",
+   "A permanent cure with no possibility of relapse"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "Remission means normal blood glucose for three months or more in the absence of pharmacological therapy.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "Weight loss of 5–10% confers metabolic improvement; weight loss of 10–15% or more can have a disease-modifying effect and lead to remission of diabetes ( 50 ), defined as normal blood glucose levels for 3 months or more in the absence of pharmacological therapy in a 2021 consensus report",
+   "locator": "Weight Reduction as a Targeted Intervention",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which wording should be avoided when talking with a person living with diabetes?",
+  "a": [
+   "Calling them \"diabetics\" or \"noncompliant\", or blaming them for their condition",
+   "Inviting them to look at test results together",
+   "Asking what they find difficult",
+   "Suggesting they set the next goal together"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "Language should be neutral, stigma-free and strength-based; people should not be labelled or blamed.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "Language in diabetes care should be neutral, free of stigma, and based on facts; be strength-based (focus on what is working), respectful, and inclusive; encourage collaboration; and be person-centered ( 18 ). People living with diabetes should not be referred to as “diabetics” or described as “noncompliant” or blamed for their health condition",
+   "locator": "Language Matters",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How common is obstructive sleep apnea among people with type 2 diabetes?",
+  "a": [
+   "More than half",
+   "About 10%",
+   "About 25%",
+   "Very rare"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "Obstructive sleep apnea affects over half of people with type 2 diabetes, and its severity tracks with glucose levels.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "Additionally, obstructive sleep apnea affects over half of people with type 2 diabetes, and its severity is associated with blood glucose levels",
+   "locator": "Physical Activity Behaviors, Including Sleep - Sleep",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How is sleep duration related to obesity and HbA1c?",
+  "a": [
+   "A U-shaped relationship: both short (<6 h) and long (>8 h) sleep are harmful",
+   "Only short sleep is harmful; long sleep is always good",
+   "Only long sleep is harmful; short sleep is fine",
+   "There is no relationship at all"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "Sleep quantity shows a U-shaped association with obesity and HbA1c: both under 6 h and over 8 h are harmful.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "The quantity of sleep is known to be associated (in a U-shaped manner) with health outcomes (e.g., obesity and HbA 1c ), with both long (>8 h) and short (<6 h) sleep durations having negative impacts",
+   "locator": "Physical Activity Behaviors, Including Sleep - Sleep",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Can weekend catch-up sleep make up for insufficient weekday sleep?",
+  "a": [
+   "No - catch-up weekend sleep alone is not enough to reverse the impact",
+   "Yes - it fully restores what was lost",
+   "Weekend sleep is even more beneficial than weekday sleep",
+   "Insufficient sleep has no metabolic impact anyway"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "Extending short sleepers' sleep helps, but weekend catch-up sleep alone does not reverse the impact.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "By extending the sleep duration of short sleepers, it is possible to improve insulin sensitivity and reduce energy intake ( 117 , 125 ). However, “catch-up” weekend sleep alone is not enough to reverse the impact of insufficient sleep",
+   "locator": "Physical Activity Behaviors, Including Sleep - Sleep",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How are the glycemic effects of aerobic exercise maximized?",
+  "a": [
+   "By exercising in the postprandial period for 45 minutes or more",
+   "By exercising fasted at dawn for 10 minutes",
+   "By exercising briefly just before sleep",
+   "By doing one 2-hour session on weekends"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "Glycemic benefits are maximized by exercising during the postprandial period for at least 45 minutes.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "These glycemic effects can be maximized by undertaking activity during the postprandial period and engaging in activities for ≥45 min",
+   "locator": "Physical Activity Behaviors, Including Sleep",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "In trials longer than 6 months, how did a Mediterranean diet compare with a low-fat diet?",
+  "a": [
+   "Greater reductions in body weight and HbA1c, with cardiovascular benefits",
+   "More weight loss but worse glycemia",
+   "No difference between the two",
+   "The low-fat diet was better on every measure"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Davies, M. J., Aroda, V. R., Collins, B. S., Gabbay, R. A., Green, J., Maruthur, N. M., Rosas, S. E., Del Prato, S., Mathieu, C., Mingrone, G., Rossing, P., Tankova, T., Tsapas, A., & Buse, J. B. (2022). Management of hyperglycemia in type 2 diabetes, 2022: A consensus report by the American Diabetes Association (ADA) and the European Association for the Study of Diabetes (EASD). Diabetes Care, 45(11), 2753–2786. https://doi.org/10.2337/dci22-0034",
+  "exp": "In trials over 6 months the Mediterranean diet gave greater reductions in weight and HbA1c than a low-fat diet.",
+  "refs": [
+   "davies2022"
+  ],
+  "evidence": {
+   "quote": "compared with a low-fat diet, the Mediterranean diet demonstrated greater reductions in body weight and HbA 1c levels, delayed the requirement for diabetes medication, and provided benefits for cardiovascular health",
+   "locator": "Dietary Quality and Eating Patterns",
+   "ref": "davies2022",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How does the EASO 2024 framework define obesity?",
+  "a": [
+   "A multifactorial, chronic, relapsing, non-communicable disease",
+   "A temporary state that ends once habits change",
+   "A communicable disease passed between people",
+   "A natural change that comes with ageing"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "Obesity is a multifactorial, chronic, relapsing, non-communicable disease and a gateway to many other diseases.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "Obesity is a multifactorial, chronic, relapsing, non-communicable disease marked by an abnormal and/or excessive accumulation of body fat that presents a risk to health. It is well established that obesity acts as a gateway to a range of other non-communicable and communicable diseases",
+   "locator": "Opening paragraph",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Besides fat accumulation, what must a diagnosis of obesity include in the new framework?",
+  "a": [
+   "A careful analysis of present and potential effects on health (clinical component)",
+   "The speed at which weight was gained",
+   "The number of family members with obesity",
+   "An exact calculation of daily calorie intake"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "Diagnosis must combine the anthropometric component with a clinical analysis of effects on health.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "Based on current clinical evidence, the diagnosis of obesity should not be based solely on the presence of an abnormal and/or excessive fat accumulation (anthropometric component). The diagnosis of obesity should instead include a careful analysis of the present and potential effects that dysfunctional and/or excessive fat accumulation may have on health (clinical component) (statement 1)",
+   "locator": "A chronic progressive disease (statement 1)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Why was waist-to-height ratio introduced instead of waist circumference?",
+  "a": [
+   "Because it is superior as a cardiometabolic disease risk marker",
+   "Because waist can be measured over clothing",
+   "Because tall people carry no risk",
+   "Because it removes the need to weigh the person"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "Waist-to-height ratio was chosen for its superiority as a cardiometabolic disease risk marker.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "The choice of introducing waist-to-height ratio, instead of waist circumference, in the diagnostic process is due to its superiority as a cardiometabolic disease risk marker",
+   "locator": "Abdominal fat accumulation",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Under what condition does the new framework include people with BMI 25-30 in the definition of obesity?",
+  "a": [
+   "Increased abdominal fat plus medical, functional or psychological impairments or complications",
+   "Having a family member with obesity",
+   "Being older than 65 years",
+   "Gaining 3 kg over one year"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "People with BMI 25-30 plus increased abdominal fat and impairments are included, to reduce undertreatment.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "the new framework includes people with lower BMI (≥25–30 kg/m 2 ) but increased abdominal fat accumulation and the presence of any medical, functional or psychological impairments of complications in the definition of obesity, hence reducing the risk of undertreatment in this particular group of patients in comparison to the current BMI-based definition of obesity",
+   "locator": "Abdominal fat accumulation (statement 4)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What did the experts agree obesity staging should be based on?",
+  "a": [
+   "The severity of clinical manifestations and complications",
+   "BMI value alone, in four bands",
+   "How much of the weight-loss goal has been met",
+   "How many years obesity has been present"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "Staging should follow the severity of clinical manifestations and complications, as for other chronic diseases.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "the experts agreed on the importance of staging obesity as a chronic, relapsing disease, according to the severity of its clinical manifestations and complications (statement 14), as proposed by previous guidelines",
+   "locator": "Diagnostics and staging (statement 14)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which behavioral modifications were agreed as the main cornerstones of obesity management?",
+  "a": [
+   "Nutritional therapy, physical activity, stress reduction and sleep improvement",
+   "Nutritional therapy and surgical preparation classes",
+   "Fasting and daily weighing",
+   "Goal setting and supplement use"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "The cornerstones are nutritional therapy, physical activity, stress reduction and sleep improvement.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "Behavioral modifications, including nutritional therapy, physical activity, stress reduction and sleep improvement, were agreed as main cornerstones of obesity management",
+   "locator": "Obesity management (statements 15-21)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What did the experts fully agree obesity management should include beyond weight loss?",
+  "a": [
+   "Prevention or improvement of complications, quality of life and mental wellbeing, physical and social functioning",
+   "Reaching a preset target BMI",
+   "Achieving the fastest possible rate of weight loss",
+   "Lowering body fat to single digits"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "Full consensus: management should go beyond weight loss to complications, quality of life, wellbeing and functioning.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "the management of obesity should move beyond weight loss alone, and should include the prevention, resolution or improvement of obesity-related complications, a better quality of life and mental wellbeing, and improvement of physical and social functioning and fitness (statement 22)",
+   "locator": "Obesity management (statement 22)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which regular screening was included for any person with obesity?",
+  "a": [
+   "Screening for obesity-related cancers",
+   "Annual bone density testing",
+   "Annual pulmonary function testing",
+   "Thyroid ultrasound every 3 months"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "Because of the strong link with several cancers, regular screening for obesity-related cancers was included.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "considering the strong association between obesity and several types of cancer, a statement calling for regular screening for obesity-related cancers in any person with obesity was included (statement 12)",
+   "locator": "Diagnostics and staging (statement 12)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What should be avoided when choosing and intensifying the level of intervention?",
+  "a": [
+   "Repetitive, futile cycles of ineffective intervention and therapeutic inertia",
+   "Taking patient preferences into account",
+   "Making a long-term treatment plan",
+   "Working as a multidisciplinary team"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Busetto, L., Dicker, D., Frühbeck, G., Halford, J. C. G., Sbraccia, P., Yumuk, V., & Goossens, G. H. (2024). A new framework for the diagnosis, staging and management of obesity in adults. Nature Medicine, 30(9), 2395–2399. https://doi.org/10.1038/s41591-024-03095-3",
+  "exp": "Avoid repetitive futile cycles of intervention and therapeutic inertia when setting and escalating treatment.",
+  "refs": [
+   "busetto2024"
+  ],
+  "evidence": {
+   "quote": "The concept of obesity as a chronic disease and the discussion of therapeutic targets should also inform the choice of the initial level of intervention and eventual intensification of therapy (statements 26–28), avoiding the same repetitive and futile cycles of intervention that are not effective enough to achieve patient benefit, and preventing therapeutic inertia",
+   "locator": "Obesity management (statements 26-28)",
+   "ref": "busetto2024",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How do bias and stigma affect people living with obesity?",
+  "a": [
+   "They increase morbidity and mortality independent of weight or BMI",
+   "They help by increasing motivation to lose weight",
+   "They have no effect on health",
+   "They matter only at very high body weight"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "Weight bias and stigma raise morbidity and mortality independently of weight or BMI.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "People living with obesity face substantial bias and stigma, which contribute to increased morbidity and mortality independent of weight or body mass index",
+   "locator": "KEY POINTS",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which simplistic approach does the Canadian guideline say obesity care must move beyond?",
+  "a": [
+   "\"Eat less, move more\"",
+   "Chronic disease management principles",
+   "Validating patients' lived experiences",
+   "Addressing the root drivers of obesity"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "Obesity care must move beyond \"eat less, move more\" and address the root drivers of obesity.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Obesity care should be based on evidence-based principles of chronic disease management, must validate patients’ lived experiences, move beyond simplistic approaches of “eat less, move more,” and address the root drivers of obesity",
+   "locator": "KEY POINTS",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What characterises the Edmonton Obesity Staging System?",
+  "a": [
+   "A 5-stage system using metabolic, physical and psychological parameters that predicts all-cause mortality better than BMI or waist circumference alone",
+   "A four-band classification of BMI values only",
+   "A three-stage scale based on body fat percentage",
+   "A score for how much of the weight-loss goal was met"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "EOSS stages obesity in 5 levels using metabolic, physical and psychological parameters and predicts mortality better than BMI or waist alone.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "This 5-stage system of obesity classification considers metabolic, physical and psychological parameters to determine the optimal obesity treatment. In population studies, it has been shown to be a better predictor of all-cause mortality when compared with BMI or waist circumference measurements alone",
+   "locator": "Introduction (Edmonton obesity staging system)",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How should success in obesity management be explained?",
+  "a": [
+   "As improved health, function and quality of life from achievable behavioural goals",
+   "As the number of kilograms lost",
+   "As reaching a target BMI",
+   "As how quickly weight came off"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "Success relates to improved health, function and quality of life from achievable behavioural goals, not the amount of weight lost.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Health care providers should ask people living with obesity for permission to educate them that success in obesity management is related to improved health, function and quality of life resulting from achievable behavioural goals and not on the amount of weight loss",
+   "locator": "Table 1, Recommendation 34 (psychological and behavioural interventions)",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "In the 5-step patient arc, what does the assessment step identify?",
+  "a": [
+   "Appropriate measurements plus root causes, complications and barriers to treatment",
+   "A target weight and a deadline",
+   "Diet adherence scores and exercise logs",
+   "The body weight of family members"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "Assessment covers appropriate measurements plus root causes, complications and barriers to treatment.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Assessment of an individual living with obesity, using appropriate measurements, and identifying the root causes, complications and barriers to obesity treatment",
+   "locator": "Recommendations - the 5 steps in the patient arc (Step 2)",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "For which BMI range does the guideline recommend also measuring waist circumference?",
+  "a": [
+   "BMI 25-35",
+   "Only BMI 30 and above",
+   "Only BMI 40 and above",
+   "Only BMI below 18.5"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "Measure height, weight and BMI in all adults, and waist circumference in those with BMI 25-35.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Health care providers can measure height, weight and calculate the BMI in all adults (level 2a, grade B), and measure waist circumference in individuals with a BMI 25–35 kg/m 2 (level 2b, grade B)",
+   "locator": "Table 1, Recommendation 11 (Assessment)",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How much weight loss is usually achieved with health behaviour changes alone?",
+  "a": [
+   "3-5% of body weight",
+   "10-15% of body weight",
+   "More than 20%",
+   "Less than 1%"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "Health behaviour change usually achieves 3-5% weight loss, and the amount varies by biology and context, not effort.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "The weight loss achieved with health behavioural changes is usually 3%–5% of body weight, which can result in meaningful improvement in obesity-related comorbidities. 60 The amount of weight loss varies substantially among individuals, depending on biological and psychosocial factors and not simply on individual effort",
+   "locator": "Step 3: Discussion of treatment options - Nutrition and exercise",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What does \"best weight\" mean?",
+  "a": [
+   "The weight at which the body stabilizes with healthy behaviours, which may differ from an \"ideal\" BMI",
+   "A target weight calculated at BMI 22",
+   "The weight a person had in their twenties",
+   "Ninety percent of standard body weight"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "\"Best weight\" is where the body stabilizes with healthy behaviours; it may not be an \"ideal\" BMI.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "The weight at which the body stabilizes when engaging in healthy behaviours can be referred to as the “best weight”; this may not be an “ideal” weight on the BMI scale. Achieving an “ideal” BMI may be very difficult",
+   "locator": "Step 3: Discussion of treatment options - Nutrition and exercise",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What weight loss do intensive lifestyle interventions target in adults with obesity and type 2 diabetes?",
+  "a": [
+   "7-15%",
+   "1-2%",
+   "20-25%",
+   "More than 30%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Wharton, S., Lau, D. C. W., Vallis, M., Sharma, A. M., Biertho, L., Campbell-Scherer, D., Adamo, K., Alberga, A., Bell, R., Boulé, N., Boyling, E., Brown, J., Calam, B., Clarke, C., Crowshoe, L., Divalentino, D., Forhan, M., Freedhoff, Y., Gagner, M., … Wicklum, S. (2020). Obesity in adults: A clinical practice guideline. CMAJ, 192(31), E875–E891. https://doi.org/10.1503/cmaj.191707",
+  "exp": "Targeting 7-15% weight loss increases remission of type 2 diabetes and reduces nephropathy, sleep apnea and depression.",
+  "refs": [
+   "wharton2020"
+  ],
+  "evidence": {
+   "quote": "Adults living with obesity and type 2 diabetes should consider intensive lifestyle interventions that target a 7%–15% weight loss, to increase the remission of type 2 diabetes and reduce the incidence of nephropathy, obstructive sleep apnea and depression",
+   "locator": "Table 1, Recommendation 25 (Medical nutrition therapy)",
+   "ref": "wharton2020",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which cardiovascular risk factors does obesity contribute to directly?",
+  "a": [
+   "Dyslipidemia, type 2 diabetes, hypertension and sleep disorders",
+   "Anemia, osteoporosis and hypothyroidism",
+   "Asthma, atopic dermatitis and allergic rhinitis",
+   "Cataract, hearing loss and periodontal disease"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "Obesity directly drives dyslipidemia, type 2 diabetes, hypertension and sleep disorders, and leads to CVD independently of other risk factors.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Obesity contributes directly to incident cardiovascular risk factors, including dyslipidemia, type 2 diabetes, hypertension, and sleep disorders. Obesity also leads to the development of cardiovascular disease and cardiovascular disease mortality independently of other cardiovascular risk factors",
+   "locator": "Abstract",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "At any given BMI, which group is at the highest cardiovascular risk?",
+  "a": [
+   "Those with excess visceral adipose tissue",
+   "Those with more subcutaneous fat",
+   "Those with higher muscle mass",
+   "Those whose weight has been stable"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "Those with excess visceral adipose tissue are the subgroup at highest CVD risk, regardless of BMI.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "When those with metabolically healthy obesity are compared with patients with excess VAT those with excess VAT represent a subgroup of individuals at highest CVD risk regardless of BMI",
+   "locator": "Visceral Adiposity, Liver Fat, and CVD Risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "How much physical activity may be sufficient to reduce visceral fat?",
+  "a": [
+   "The current recommendation of 150 min/week may be sufficient",
+   "More than 400 min/week is needed before any reduction",
+   "Physical activity does not reduce visceral fat",
+   "Thirty minutes a week gives the maximum effect"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "Meeting the 150 min/week recommendation may suffice to reduce visceral fat, with no further gain from more.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Meeting the current recommendations for physical activity of 150 min/wk may be sufficient to reduce VAT, with no further reductions with additional activity",
+   "locator": "Impact of Lifestyle Interventions on Ectopic/Pericardial Fat",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What proportion of atrial fibrillation cases is obesity estimated to account for?",
+  "a": [
+   "About one-fifth",
+   "About one-fiftieth",
+   "More than half",
+   "Almost none"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "Obesity may account for about one-fifth of AF cases; each 5-unit BMI rise confers about 29% greater risk.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Estimates suggest that obesity may account for one-fifth of AF cases and 60% of recently documented population increases. 286 – 288 Weight gain and a higher midlife BMI are strongly correlated with incident AF in later life. 289 , 290 Every 5-unit increment in BMI confers an ≈29% greater risk of incident AF",
+   "locator": "Obesity and AF",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "Which type of heart failure is more strongly associated with higher BMI?",
+  "a": [
+   "Heart failure with preserved ejection fraction (HFpEF)",
+   "Only heart failure with reduced ejection fraction",
+   "Only valvular heart failure",
+   "Neither type"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "Overweight and class 1 obesity carried 38% and 56% higher risk of HFpEF, independently of other risk factors.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "demonstrated a greater association between higher BMI and risk of HFpEF, with participants with overweight and class 1 obesity having 38% and 56% higher risk of HFpEF, respectively, independently of other cardiovascular risk factors",
+   "locator": "Obesity and HF",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
+ },
+ {
+  "q": "What does lifestyle modification with weight loss improve?",
+  "a": [
+   "The diagnostic components of metabolic syndrome and associated systemic inflammation and endothelial dysfunction",
+   "Existing coronary stenosis itself",
+   "Only the shape of ECG waveforms",
+   "Nothing measurable"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "Powell-Wiley, T. M., Poirier, P., Burke, L. E., Després, J.-P., Gordon-Larsen, P., Lavie, C. J., Lear, S. A., Ndumele, C. E., Neeland, I. J., Sanders, P., & St-Onge, M.-P. (2021). Obesity and cardiovascular disease: A scientific statement from the American Heart Association. Circulation, 143(21), e984–e1010. https://doi.org/10.1161/CIR.0000000000000973",
+  "exp": "Lifestyle modification with weight loss improves metabolic syndrome components plus systemic inflammation and endothelial dysfunction.",
+  "refs": [
+   "powellwiley2021"
+  ],
+  "evidence": {
+   "quote": "Lifestyle modification, with associated weight loss, improves both the diagnostic components of metabolic syndrome and associated pathophysiologic abnormalities such as systemic inflammation and endothelial dysfunction",
+   "locator": "Weight Loss and CAD Risk",
+   "ref": "powellwiley2021",
+   "support": "direct",
+   "access": "fulltext"
+  }
  }
 ]
