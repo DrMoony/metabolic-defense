@@ -1,0 +1,963 @@
+[
+ {
+  "q": "After a fast of at least 8 hours, what plasma glucose level meets the diagnostic threshold for diabetes?",
+  "a": [
+   "≥200 mg/dL",
+   "≥100 mg/dL",
+   "≥140 mg/dL",
+   "≥126 mg/dL"
+  ],
+  "correct": 3,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Fasting plasma glucose ≥126 mg/dL is diagnostic. Below 100 mg/dL is normal, and 100-125 mg/dL is impaired fasting glucose.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "2) 8시간 이상 금식 후 혈장포도당 126 mg/dL 이상 또는",
+   "locator": "표 1-1.1 2. 당뇨병 진단기준",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What HbA1c value, on its own, meets the diagnostic threshold for diabetes?",
+  "a": [
+   "≥5.7%",
+   "≥6.5%",
+   "≥7.0%",
+   "≥8.0%"
+  ],
+  "correct": 1,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "HbA1c ≥6.5% is diagnostic. The 5.7-6.4% band is classified as prediabetes.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "1) 당화혈색소 6.5% 이상 또는",
+   "locator": "표 1-1.1 2. 당뇨병 진단기준",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "On a 75 g oral glucose tolerance test, what 2-hour plasma glucose level is diagnostic of diabetes?",
+  "a": [
+   "≥126 mg/dL",
+   "≥200 mg/dL",
+   "≥180 mg/dL",
+   "≥140 mg/dL"
+  ],
+  "correct": 1,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "A 2-hour value ≥200 mg/dL is diabetes, while 140-199 mg/dL is impaired glucose tolerance.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "3) 75 g 경구포도당부하 2시간 후 혈장포도당 200 mg/dL 이상 또는",
+   "locator": "표 1-1.1 2. 당뇨병 진단기준",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Before an oral glucose tolerance test, what should a person eat for the preceding three days?",
+  "a": [
+   "Fast for the whole three days",
+   "At least 150 g of carbohydrate a day",
+   "Protein only",
+   "No more than 50 g of carbohydrate a day"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Cutting carbohydrate sharply before the test distorts the result. Usual activity is maintained with at least 150 g of carbohydrate daily, followed by a 10 to 14 hour overnight fast.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "검사 전 적어도 3일 동안 평상 시의 활동을 유지하고 하루 150 g 이상의 탄수화물을 섭취한다.",
+   "locator": "표 1-1.2 경구포도당내성검사 방법 1",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "ogtt",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What defines normal glucose?",
+  "a": [
+   "Fasting below 126 mg/dL and a 2-hour value below 200 mg/dL",
+   "Fasting below 110 mg/dL and a 2-hour value below 160 mg/dL",
+   "Fasting below 90 mg/dL and a 2-hour value below 120 mg/dL",
+   "Fasting below 100 mg/dL and a 2-hour post-load value below 140 mg/dL"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Both conditions must hold. Fasting of 100-125 is impaired fasting glucose, and a 2-hour value of 140-199 is impaired glucose tolerance.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "정상혈당은 8시간 이상 금식 후 혈장포도당 100 mg/dL 미만, 75 g 경구포도당부하 2시간 후 혈장포도당 140 mg/dL 미만이다.",
+   "locator": "표 1-1.1 1. 정상혈당 기준",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which fasting range defines impaired fasting glucose in the Korean criteria?",
+  "a": [
+   "Fasting plasma glucose 110-125 mg/dL",
+   "Fasting plasma glucose 100-125 mg/dL",
+   "Fasting plasma glucose 126-139 mg/dL",
+   "Fasting plasma glucose 90-109 mg/dL"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Korea sets impaired fasting glucose at 100-125 mg/dL. Impaired glucose tolerance is a 2-hour value of 140-199 mg/dL, and the HbA1c band is 5.7-6.4%.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "1) 공복혈당장애: 공복혈장포도당 100-125 mg/dL",
+   "locator": "표 1-1.1 3. 당뇨병전단계 진단기준",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "prediabetes",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Who should be screened for diabetes under the 2025 guideline?",
+  "a": [
+   "All adults aged 65 years and older",
+   "All adults aged 19 and older who carry a risk factor, plus all adults aged 35 and older",
+   "All adults aged 40 and older regardless of risk factors",
+   "All adults with a family history of diabetes"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The 9th edition split the screening population in two. Screening starts at 19 when a risk factor is present, and at 35 for everyone else.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "1) 위험인자(표 1-2.1)가 있는 19세 이상 모든 성인은 당뇨병 선별검사를 시행한다. [기타연구, 일반적권고] 2) 35세 이상 모든 성인은 당뇨병 선별검사를 시행한다. [기타연구, 일반적권고]",
+   "locator": "1-2. 당뇨병 선별검사 권고 1",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "screening",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How often should an adult with a normal screening result be retested?",
+  "a": [
+   "Retest every 5 years",
+   "Retest every 3 years",
+   "Only when symptoms appear",
+   "Retest every year"
+  ],
+  "correct": 3,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The 9th edition asks for annual retesting even after a normal result. When one screening test lands in the prediabetes range and diabetes is suspected, a second method is added.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "2) 당뇨병 선별검사 결과가 정상인 성인은 매년 재검사를 시행한다. [전문가의견, 일반적권고]",
+   "locator": "1-2. 당뇨병 선별검사 권고 2",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "screening",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What is the general glycemic target for adults with type 2 diabetes?",
+  "a": [
+   "HbA1c below 7.0%",
+   "HbA1c below 8.0%",
+   "HbA1c below 6.5%",
+   "HbA1c below 7.5%"
+  ],
+  "correct": 2,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Korea sets the general type 2 target at below 6.5%. For type 1 diabetes the target is below 7.0%.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "2. 2형당뇨병 성인에게서 일반적인 혈당조절 목표는 당화혈색소 6.5% 미만이다. [무작위대조군연구, 일반적권고]",
+   "locator": "3-1. 혈당조절 목표 권고 2",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "glycemic_target",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "With continuous glucose monitoring, what share of time should be spent in the 70-180 mg/dL target range?",
+  "a": [
+   "More than 60%",
+   "More than 50%",
+   "More than 70%",
+   "More than 80%"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Time in range should exceed 70%, time below 70 mg/dL should stay under 4%, and time below 54 mg/dL under 1%.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "5. 연속혈당측정장치를 사용하는 경우 목표혈당범위(70-180 mg/dL) 내 시간이 70%를 초과하고, 목표혈당범위 미만 … 시간을 4% 미만, 특히 54 mg/dL 미만의 저혈당 시간은 1% 미만이다.",
+   "locator": "3-1. 혈당조절 목표 권고 5",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "cgm",
+   "glycemic_target",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How did the 9th edition change real-time CGM guidance for adults with type 2 diabetes on multiple daily injections or a pump?",
+  "a": [
+   "It was left in place for type 1 diabetes only",
+   "It moved down from a general to a limited recommendation",
+   "It moved up from a limited to a general recommendation",
+   "It was removed from the recommendations"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Strengthened evidence supports continuous use more assertively. Adults with type 2 diabetes on basal insulin alone remain at a limited recommendation.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "2형당뇨병 성인 중 인슐린치료를 하는 환자에서 실시간연속혈당측정기 사용은 다음 두 가지 경우로 구분하여 권고함. 다회 … 인슐린주사나 인슐린펌프를 사용하는 2형당뇨병 성인은 보강된 연구 결과들에 근거하여 실시간연속혈당측정장치를 상시 … 적으로 사용하도록 보다 적극적으로 권고하며 권고범위를 [제한적권고]에서 [일반적권고]로 상향 조정함.",
+   "locator": "2025 진료지침 요약 — 4-2. 연속혈당측정",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "cgm",
+   "guideline_update",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How often may HbA1c be measured in an adult whose glycemic control is stable?",
+  "a": [
+   "It can be reduced to twice a year",
+   "Fixed at every 2-3 months",
+   "It must be measured monthly",
+   "Once every three years is enough"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The usual interval is every 2-3 months, but stable control allows twice a year. Conversely, a medication change or a situation demanding tight control such as pregnancy calls for more frequent testing.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "당화혈색소 측정은 혈당조절 상태에 따라 구분하여 ‘일반적인 당뇨병 성인은 2-3개월마다’, ‘혈당조절이 안정적인 당뇨병 성 … 인은 연 2회까지 줄여서 시행’하도록 권고함.",
+   "locator": "2025 진료지침 요약 — 4-1. 혈당조절의 모니터링 및 평가",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "monitoring",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How often should a hypoglycaemia history be reviewed in someone at risk?",
+  "a": [
+   "Once a year",
+   "Once every three years",
+   "Only when the patient brings it up",
+   "At every clinical visit"
+  ],
+  "correct": 3,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The history is reviewed at every visit and assessed as needed. Knowing it in advance is what makes a prevention plan possible.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "저혈당 위험이 있는 모든 개인에 대해 임상진료 시마다 저혈당 병력을 검토하고 필요할 때마다 평가해야 한다. [전문가의견, 일반적권고]",
+   "locator": "3-2. 저혈당 평가 권고 1",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "hypoglycemia",
+   "monitoring",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What glucose level defines level 2, clinically significant hypoglycemia?",
+  "a": [
+   "Below 60 mg/dL",
+   "Below 54 mg/dL",
+   "Below 40 mg/dL",
+   "Below 70 mg/dL"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Level 1 is below 70 but at or above 54 mg/dL, and level 2 is below 54 mg/dL. Level 3, severe hypoglycemia, is defined by needing outside help rather than by a number.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "반 … 면, 54 mg/dL 미만의 혈당은 대응조절호르몬의 분비, 저혈당 관련 자율신경증상과 같은 저혈당 방어체계의 장애가 발생할 때 … 현재는 저혈당 단계를 기존의 2단계에서 54 mg/dL 미만의 수준을 포함한 3단계로 확대하였으며,",
+   "locator": "3-2. 저혈당 평가 — 저혈당 단계 표",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "hypoglycemia",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which hypoglycemia recommendation was newly added in the 9th edition?",
+  "a": [
+   "Require a bedtime snack",
+   "Mandate continuous glucose monitoring for every patient",
+   "Prescribe glucagon for insulin users and make sure people around them know where it is and how to use it",
+   "Go straight to the emergency department for any hypoglycemia"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Family members, caregivers and school staff are now expected to know the storage location and use of glucagon. It entered as an expert-opinion recommendation.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "인슐린을 사용하는 저혈당 위험이 높은 환자에게서 글루카곤을 처방하고 가 … 족, 간병인, 학교 직원 등을 포함한 주변인들이 글루카곤의 보관 위치와 사용법을 숙지하도록 [전문가의견]으로 새롭게 권 … 고안을 추가하고 권고범위는 [일반적권고]로 제시함.",
+   "locator": "2025 진료지침 요약 — 5-2. 저혈당관리",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "hypoglycemia",
+   "guideline_update"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How often does the 2025 guideline ask for diabetes self-management education to be repeated?",
+  "a": [
+   "Every five years",
+   "Every three years",
+   "Every year",
+   "Once at diagnosis"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The 9th edition fixed the interval at yearly. Even within a year, failing to reach targets or a self-management problem triggers a reassessment for re-education.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "당뇨병 진단 후 자기관리교육을 반복적으로 시행하는 것의 중요성을 강조하기 위해 시행 주기를 ‘매년’으로 명시하고",
+   "locator": "2025 진료지침 요약 — 5-1. 당뇨병 자기관리",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "education",
+   "guideline_update",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What does the guideline ask for at the very moment diabetes is diagnosed?",
+  "a": [
+   "Observe for three months without acting",
+   "Run complication screening first and nothing else",
+   "Actively teach lifestyle modification and self-management, then monitor that it continues",
+   "Start insulin injections immediately"
+  ],
+  "correct": 2,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Education comes before medication in the recommendation order. Lifestyle modification and self-management are taught at diagnosis and followed up for adherence.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "당뇨병 진단 즉시 생활습관교정과 자기관리 방법을 적극적으로 교육하고 지속하도록 모니터링 한다. [무작위대조군연구, 일반적권고]",
+   "locator": "6-2. 2형당뇨병의 약물치료 권고 1",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "education",
+   "lifestyle",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How did the 2025 guideline change its position on metformin?",
+  "a": [
+   "The first-line recommendation was strengthened",
+   "It was listed as contraindicated",
+   "The recommendation to use it first-line was deleted",
+   "It was demoted to second-line"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "A network meta-analysis of 60 studies including Korean data found no clear glucose-lowering advantage, and other national guidelines no longer name it first-line.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "메트포민을 1차약물로 우선 사용하도록 한 권고를 이번 개정판에서 삭제함.",
+   "locator": "2025 진료지침 요약 — 6-2. 2형당뇨병의 약물치료",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "pharmacotherapy",
+   "guideline_update",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How much aerobic exercise does the guideline recommend for people with diabetes?",
+  "a": [
+   "At least 150 minutes a week at moderate intensity or above, spread over at least three days",
+   "Five minutes of stretching daily",
+   "At least 60 minutes a week at low intensity, in a single session",
+   "At least 300 minutes a week, vigorous only"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Aerobic exercise is spread over at least three days with never more than two consecutive rest days. Resistance exercise is done separately at least twice a week.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "유산소운동은 일주일에 150분 이상, 중강도 이상으로, 적어도 3일 이상 하며, 연속해서 2일 이상 쉬지 않는다.",
+   "locator": "5-4. 운동요법 권고 6",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "exercise",
+   "lifestyle",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How did the 9th edition reword its carbohydrate recommendation?",
+  "a": [
+   "Prescribe a low-carbohydrate diet to everyone",
+   "Fix carbohydrate at no more than 20% of total energy",
+   "Limit excessive carbohydrate intake, then individualise by treatment goal and preference",
+   "Carbohydrate restriction is not recommended"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The 8th edition said only \"individualise\", which left the direction unclear, so a clause on limiting excess was placed in front. Quality also matters, met through wholegrains, legumes, vegetables and fresh fruit.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "혈당조절과 관리를 위해 과도한 탄수화물 섭취는 제한하되, 치료 목표와 선호에 따라 개별화한다.",
+   "locator": "2025 진료지침 요약 — 5-3. 의학영양요법",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "nutrition",
+   "guideline_update",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What should be assessed, and how often, to screen for diabetic kidney disease?",
+  "a": [
+   "Urinary albumin excretion and estimated GFR at diagnosis and at least once a year",
+   "Urinalysis only when symptoms appear",
+   "Renal ultrasound every year",
+   "Serum creatinine alone every three years"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Both urinary albumin excretion and estimated GFR are checked at diagnosis and at least annually. Albuminuria is defined as a spot urine albumin-to-creatinine ratio of 30 mg/g or above.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "1. 당뇨병 진단 시 그리고 적어도 1년마다 요알부민배설량과 추정사구체여과율을 평가해야 한다.",
+   "locator": "8-1. 당뇨병신장질환 권고 1",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "ckd",
+   "screening",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How did the 9th edition split its description of starting drug therapy?",
+  "a": [
+   "Combination therapy is not recommended",
+   "Start with triple therapy from the outset",
+   "Always start with monotherapy and combine after three months",
+   "Starting therapy may be single-agent or combination, and combination should be actively considered early on"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The existing recommendation was written out in two parts, making clear that combination deserves active consideration from early on.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "1) 약물치료 시작 시 단독 또는 병용요법이 모두 가능하며, 2) 약물치료 초기 시 병용요법을 적극적으로 고려하도록 구분하",
+   "locator": "2025 진료지침 요약 — 6-2. 2형당뇨병의 약물치료",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "pharmacotherapy",
+   "guideline_update",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "When triple oral therapy fails to reach target, what does the 9th edition text offer?",
+  "a": [
+   "Switch straight to intensive insulin therapy",
+   "Keep three drugs and observe for six more months",
+   "Stop all drugs and rely on lifestyle alone",
+   "Prefer a regimen including an injectable, and consider quadruple oral therapy when an injectable is not feasible"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Quadruple oral therapy has established benefit from a Korean systematic review, but promoting it to a formal recommendation risked delaying early insulin.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "주사제 기반의 치료가 어려운 경우에는 4제병용요법을 고려할 수 있다",
+   "locator": "2025 진료지침 요약 — 6-2. 2형당뇨병의 약물치료",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "pharmacotherapy",
+   "guideline_update",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which drug class is preferred for type 2 diabetes with heart failure?",
+  "a": [
+   "An SGLT2 inhibitor with proven heart failure benefit",
+   "A DPP-4 inhibitor",
+   "A thiazolidinedione",
+   "A sulfonylurea"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "With heart failure present, an SGLT2 inhibitor comes first regardless of HbA1c and is continued unless there is a contraindication or adverse effect.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "8. 심부전을 동반한 경우 심부전이익이 입증된 SGLT2억제제를 당화혈색소 수치와 무관하게 우선 사용하고 금기나 부 … 작용이 없는 한 유지한다. [무작위대조군연구, 일반적권고]",
+   "locator": "6-2. 2형당뇨병의 약물치료 권고 8",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "pharmacotherapy",
+   "heart_failure",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which drug class comes first when albuminuria is present or estimated GFR has fallen?",
+  "a": [
+   "A sulfonylurea",
+   "An alpha-glucosidase inhibitor",
+   "An SGLT2 inhibitor with proven kidney benefit",
+   "Metformin"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "When kidney markers have worsened, an SGLT2 inhibitor with proven renal benefit comes first regardless of HbA1c.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "9. 알부민뇨가 있거나 추정사구체여과율이 감소한 경우 신장이익이 입증된 SGLT2억제제를 당화혈색소 수치와 무관하 … 게 우선 사용하고 금기나 부작용이 없는 한 유지한다. [무작위대조군연구, 일반적권고]",
+   "locator": "6-2. 2형당뇨병의 약물치료 권고 9",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "pharmacotherapy",
+   "ckd",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "When an injectable-based combination is considered, which agent comes first?",
+  "a": [
+   "A GLP-1 receptor agonist ahead of basal insulin",
+   "Rapid-acting insulin",
+   "Basal insulin ahead of a GLP-1 receptor agonist",
+   "Always start both together"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "A GLP-1 receptor agonist is preferred over basal insulin. If either alone falls short, the two are combined.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "1) 주사제 기반의 병용요법을 고려할 때 기저인슐린보다 GLP-1수용체작용제를 우선한다. [무작위대조군연구, 일반적권고]",
+   "locator": "6-2. 2형당뇨병의 약물치료 권고 7-1)",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "pharmacotherapy",
+   "glp1",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How did the 9th edition change the trigger for starting insulin?",
+  "a": [
+   "The HbA1c 9% threshold was dropped in favour of hyperglycaemia with catabolic symptoms",
+   "The 9% threshold was kept as is",
+   "Insulin is now started at diagnosis",
+   "The threshold was lowered to 8%"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The 9% threshold was judged weak in evidence and out of step with practice. Insulin is indicated when hyperglycaemia comes with catabolic symptoms.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "권고문을 수정하여 ‘과이화작용 증상(체중 감소, 다음, 다뇨 등의 증상)과 동반된 고혈당의 경우 인슐린치료를 … 시 … 행한다’로 수정된 권고안을 [전문가의견, 일반적권고]로 제시함.",
+   "locator": "2025 진료지침 요약 — 6-2. 2형당뇨병의 약물치료",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "pharmacotherapy",
+   "insulin",
+   "guideline_update"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "As of 2022, what share of Korean adults aged 30 and over had diabetes?",
+  "a": [
+   "9.5%, about 1 in 10",
+   "20.3%, about 1 in 5",
+   "14.8%, about 1 in 7",
+   "5.1%, about 1 in 20"
+  ],
+  "correct": 2,
+  "diff": "easy",
+  "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
+  "exp": "About 1 in 7 adults aged 30 and over has diabetes. Among those aged 65 and over the figure rises to 3 in 10, or 28.0%.",
+  "refs": [
+   "kdaDFS2024"
+  ],
+  "evidence": {
+   "quote": "As of 2022, 1 in 7 adults aged ≥30 years (14.8%) had diabetes.",
+   "locator": "Prevalence of diabetes",
+   "ref": "kdaDFS2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "epidemiology",
+   "korea",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In 2021-2022, what share of Korean adults with diabetes reached an HbA1c below 6.5%?",
+  "a": [
+   "74.7%",
+   "32.4%",
+   "50.1%",
+   "70.9%"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
+  "exp": "Awareness reached 74.7% and treatment 70.9%, but the control rate stopped at 32.4%. The gap between knowing and reaching target is wide.",
+  "refs": [
+   "kdaDFS2024"
+  ],
+  "evidence": {
+   "quote": "Control rate: Percentage of people achieving HbA1c <6.5% among people with diabetes (based on HbA1c)",
+   "locator": "Management of diabetes (2021-2022) — Total (≥30 years old) 32.4",
+   "ref": "kdaDFS2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "epidemiology",
+   "korea",
+   "care_gap",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How many Korean adults aged 30 and over are estimated to have prediabetes?",
+  "a": [
+   "About 2 million",
+   "About 14 million",
+   "About 5.33 million",
+   "About 30 million"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
+  "exp": "Among adults aged 30 and over, 5.33 million have diabetes and 14.0 million have prediabetes, nearly three times as many.",
+  "refs": [
+   "kdaDFS2024"
+  ],
+  "evidence": {
+   "quote": "Among adults aged ≥30 years, an estimated 14.0 million people have prediabetes.",
+   "locator": "Population of prediabetes (2021-2022)",
+   "ref": "kdaDFS2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "epidemiology",
+   "korea",
+   "prediabetes"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ }
+]

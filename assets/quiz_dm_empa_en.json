@@ -1,0 +1,959 @@
+[
+ {
+  "q": "After a fast of at least 8 hours, what plasma glucose level meets the diagnostic threshold for diabetes?",
+  "a": [
+   "≥100 mg/dL",
+   "≥140 mg/dL",
+   "≥126 mg/dL",
+   "≥200 mg/dL"
+  ],
+  "correct": 2,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Fasting plasma glucose ≥126 mg/dL is diagnostic. Below 100 mg/dL is normal, and 100-125 mg/dL is impaired fasting glucose.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "2) 8시간 이상 금식 후 혈장포도당 126 mg/dL 이상 또는",
+   "locator": "표 1-1.1 2. 당뇨병 진단기준",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What HbA1c value, on its own, meets the diagnostic threshold for diabetes?",
+  "a": [
+   "≥5.7%",
+   "≥8.0%",
+   "≥6.5%",
+   "≥7.0%"
+  ],
+  "correct": 2,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "HbA1c ≥6.5% is diagnostic. The 5.7-6.4% band is classified as prediabetes.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "1) 당화혈색소 6.5% 이상 또는",
+   "locator": "표 1-1.1 2. 당뇨병 진단기준",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "On a 75 g oral glucose tolerance test, what 2-hour plasma glucose level is diagnostic of diabetes?",
+  "a": [
+   "≥180 mg/dL",
+   "≥140 mg/dL",
+   "≥126 mg/dL",
+   "≥200 mg/dL"
+  ],
+  "correct": 3,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "A 2-hour value ≥200 mg/dL is diabetes, while 140-199 mg/dL is impaired glucose tolerance.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "3) 75 g 경구포도당부하 2시간 후 혈장포도당 200 mg/dL 이상 또는",
+   "locator": "표 1-1.1 2. 당뇨병 진단기준",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What defines normal glucose?",
+  "a": [
+   "Fasting below 90 mg/dL and a 2-hour value below 120 mg/dL",
+   "Fasting below 126 mg/dL and a 2-hour value below 200 mg/dL",
+   "Fasting below 110 mg/dL and a 2-hour value below 160 mg/dL",
+   "Fasting below 100 mg/dL and a 2-hour post-load value below 140 mg/dL"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Both conditions must hold. Fasting of 100-125 is impaired fasting glucose, and a 2-hour value of 140-199 is impaired glucose tolerance.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "정상혈당은 8시간 이상 금식 후 혈장포도당 100 mg/dL 미만, 75 g 경구포도당부하 2시간 후 혈장포도당 140 mg/dL 미만이다.",
+   "locator": "표 1-1.1 1. 정상혈당 기준",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which fasting range defines impaired fasting glucose in the Korean criteria?",
+  "a": [
+   "Fasting plasma glucose 100-125 mg/dL",
+   "Fasting plasma glucose 126-139 mg/dL",
+   "Fasting plasma glucose 110-125 mg/dL",
+   "Fasting plasma glucose 90-109 mg/dL"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Korea sets impaired fasting glucose at 100-125 mg/dL. Impaired glucose tolerance is a 2-hour value of 140-199 mg/dL, and the HbA1c band is 5.7-6.4%.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "1) 공복혈당장애: 공복혈장포도당 100-125 mg/dL",
+   "locator": "표 1-1.1 3. 당뇨병전단계 진단기준",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "diagnosis",
+   "prediabetes",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Who should be screened for diabetes under the 2025 guideline?",
+  "a": [
+   "All adults aged 65 years and older",
+   "All adults aged 40 and older regardless of risk factors",
+   "All adults aged 19 and older who carry a risk factor, plus all adults aged 35 and older",
+   "All adults with a family history of diabetes"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The 9th edition split the screening population in two. Screening starts at 19 when a risk factor is present, and at 35 for everyone else.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "1) 위험인자(표 1-2.1)가 있는 19세 이상 모든 성인은 당뇨병 선별검사를 시행한다. [기타연구, 일반적권고] 2) 35세 이상 모든 성인은 당뇨병 선별검사를 시행한다. [기타연구, 일반적권고]",
+   "locator": "1-2. 당뇨병 선별검사 권고 1",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "screening",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How often should an adult with a normal screening result be retested?",
+  "a": [
+   "Retest every 3 years",
+   "Retest every year",
+   "Retest every 5 years",
+   "Only when symptoms appear"
+  ],
+  "correct": 1,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The 9th edition asks for annual retesting even after a normal result. When one screening test lands in the prediabetes range and diabetes is suspected, a second method is added.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "2) 당뇨병 선별검사 결과가 정상인 성인은 매년 재검사를 시행한다. [전문가의견, 일반적권고]",
+   "locator": "1-2. 당뇨병 선별검사 권고 2",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "screening",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What is the general glycemic target for adults with type 2 diabetes?",
+  "a": [
+   "HbA1c below 8.0%",
+   "HbA1c below 7.5%",
+   "HbA1c below 7.0%",
+   "HbA1c below 6.5%"
+  ],
+  "correct": 3,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Korea sets the general type 2 target at below 6.5%. For type 1 diabetes the target is below 7.0%.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "2. 2형당뇨병 성인에게서 일반적인 혈당조절 목표는 당화혈색소 6.5% 미만이다. [무작위대조군연구, 일반적권고]",
+   "locator": "3-1. 혈당조절 목표 권고 2",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "glycemic_target",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "With continuous glucose monitoring, what share of time should be spent in the 70-180 mg/dL target range?",
+  "a": [
+   "More than 50%",
+   "More than 80%",
+   "More than 60%",
+   "More than 70%"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Time in range should exceed 70%, time below 70 mg/dL should stay under 4%, and time below 54 mg/dL under 1%.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "5. 연속혈당측정장치를 사용하는 경우 목표혈당범위(70-180 mg/dL) 내 시간이 70%를 초과하고, 목표혈당범위 미만 … 시간을 4% 미만, 특히 54 mg/dL 미만의 저혈당 시간은 1% 미만이다.",
+   "locator": "3-1. 혈당조절 목표 권고 5",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "cgm",
+   "glycemic_target",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How did the 9th edition change real-time CGM guidance for adults with type 2 diabetes on multiple daily injections or a pump?",
+  "a": [
+   "It moved up from a limited to a general recommendation",
+   "It was left in place for type 1 diabetes only",
+   "It moved down from a general to a limited recommendation",
+   "It was removed from the recommendations"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Strengthened evidence supports continuous use more assertively. Adults with type 2 diabetes on basal insulin alone remain at a limited recommendation.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "2형당뇨병 성인 중 인슐린치료를 하는 환자에서 실시간연속혈당측정기 사용은 다음 두 가지 경우로 구분하여 권고함. 다회 … 인슐린주사나 인슐린펌프를 사용하는 2형당뇨병 성인은 보강된 연구 결과들에 근거하여 실시간연속혈당측정장치를 상시 … 적으로 사용하도록 보다 적극적으로 권고하며 권고범위를 [제한적권고]에서 [일반적권고]로 상향 조정함.",
+   "locator": "2025 진료지침 요약 — 4-2. 연속혈당측정",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "cgm",
+   "guideline_update",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How often may HbA1c be measured in an adult whose glycemic control is stable?",
+  "a": [
+   "It must be measured monthly",
+   "Once every three years is enough",
+   "Fixed at every 2-3 months",
+   "It can be reduced to twice a year"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The usual interval is every 2-3 months, but stable control allows twice a year. Conversely, a medication change or a situation demanding tight control such as pregnancy calls for more frequent testing.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "당화혈색소 측정은 혈당조절 상태에 따라 구분하여 ‘일반적인 당뇨병 성인은 2-3개월마다’, ‘혈당조절이 안정적인 당뇨병 성 … 인은 연 2회까지 줄여서 시행’하도록 권고함.",
+   "locator": "2025 진료지침 요약 — 4-1. 혈당조절의 모니터링 및 평가",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "monitoring",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What glucose level defines level 2, clinically significant hypoglycemia?",
+  "a": [
+   "Below 70 mg/dL",
+   "Below 54 mg/dL",
+   "Below 60 mg/dL",
+   "Below 40 mg/dL"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Level 1 is below 70 but at or above 54 mg/dL, and level 2 is below 54 mg/dL. Level 3, severe hypoglycemia, is defined by needing outside help rather than by a number.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "반 … 면, 54 mg/dL 미만의 혈당은 대응조절호르몬의 분비, 저혈당 관련 자율신경증상과 같은 저혈당 방어체계의 장애가 발생할 때 … 현재는 저혈당 단계를 기존의 2단계에서 54 mg/dL 미만의 수준을 포함한 3단계로 확대하였으며,",
+   "locator": "3-2. 저혈당 평가 — 저혈당 단계 표",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "hypoglycemia",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which hypoglycemia recommendation was newly added in the 9th edition?",
+  "a": [
+   "Require a bedtime snack",
+   "Mandate continuous glucose monitoring for every patient",
+   "Go straight to the emergency department for any hypoglycemia",
+   "Prescribe glucagon for insulin users and make sure people around them know where it is and how to use it"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Family members, caregivers and school staff are now expected to know the storage location and use of glucagon. It entered as an expert-opinion recommendation.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "인슐린을 사용하는 저혈당 위험이 높은 환자에게서 글루카곤을 처방하고 가 … 족, 간병인, 학교 직원 등을 포함한 주변인들이 글루카곤의 보관 위치와 사용법을 숙지하도록 [전문가의견]으로 새롭게 권 … 고안을 추가하고 권고범위는 [일반적권고]로 제시함.",
+   "locator": "2025 진료지침 요약 — 5-2. 저혈당관리",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext",
+   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
+  },
+  "topics": [
+   "hypoglycemia",
+   "guideline_update"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What does the guideline ask for at the very moment diabetes is diagnosed?",
+  "a": [
+   "Start insulin injections immediately",
+   "Observe for three months without acting",
+   "Run complication screening first and nothing else",
+   "Actively teach lifestyle modification and self-management, then monitor that it continues"
+  ],
+  "correct": 3,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Education comes before medication in the recommendation order. Lifestyle modification and self-management are taught at diagnosis and followed up for adherence.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "당뇨병 진단 즉시 생활습관교정과 자기관리 방법을 적극적으로 교육하고 지속하도록 모니터링 한다. [무작위대조군연구, 일반적권고]",
+   "locator": "6-2. 2형당뇨병의 약물치료 권고 1",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "education",
+   "lifestyle",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How did the 9th edition reword its carbohydrate recommendation?",
+  "a": [
+   "Carbohydrate restriction is not recommended",
+   "Prescribe a low-carbohydrate diet to everyone",
+   "Limit excessive carbohydrate intake, then individualise by treatment goal and preference",
+   "Fix carbohydrate at no more than 20% of total energy"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "The 8th edition said only \"individualise\", which left the direction unclear, so a clause on limiting excess was placed in front. Quality also matters, met through wholegrains, legumes, vegetables and fresh fruit.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "혈당조절과 관리를 위해 과도한 탄수화물 섭취는 제한하되, 치료 목표와 선호에 따라 개별화한다.",
+   "locator": "2025 진료지침 요약 — 5-3. 의학영양요법",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "nutrition",
+   "guideline_update",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How much aerobic exercise does the guideline recommend for people with diabetes?",
+  "a": [
+   "Five minutes of stretching daily",
+   "At least 150 minutes a week at moderate intensity or above, spread over at least three days",
+   "At least 60 minutes a week at low intensity, in a single session",
+   "At least 300 minutes a week, vigorous only"
+  ],
+  "correct": 1,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Aerobic exercise is spread over at least three days with never more than two consecutive rest days. Resistance exercise is done separately at least twice a week.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "유산소운동은 일주일에 150분 이상, 중강도 이상으로, 적어도 3일 이상 하며, 연속해서 2일 이상 쉬지 않는다.",
+   "locator": "5-4. 운동요법 권고 6",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "exercise",
+   "lifestyle",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What should be assessed, and how often, to screen for diabetic kidney disease?",
+  "a": [
+   "Renal ultrasound every year",
+   "Serum creatinine alone every three years",
+   "Urinary albumin excretion and estimated GFR at diagnosis and at least once a year",
+   "Urinalysis only when symptoms appear"
+  ],
+  "correct": 2,
+  "diff": "easy",
+  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
+  "exp": "Both urinary albumin excretion and estimated GFR are checked at diagnosis and at least annually. Albuminuria is defined as a spot urine albumin-to-creatinine ratio of 30 mg/g or above.",
+  "refs": [
+   "kdaGuide2025"
+  ],
+  "evidence": {
+   "quote": "1. 당뇨병 진단 시 그리고 적어도 1년마다 요알부민배설량과 추정사구체여과율을 평가해야 한다.",
+   "locator": "8-1. 당뇨병신장질환 권고 1",
+   "ref": "kdaGuide2025",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "ckd",
+   "screening",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "As of 2022, what share of Korean adults aged 30 and over had diabetes?",
+  "a": [
+   "5.1%, about 1 in 20",
+   "20.3%, about 1 in 5",
+   "14.8%, about 1 in 7",
+   "9.5%, about 1 in 10"
+  ],
+  "correct": 2,
+  "diff": "easy",
+  "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
+  "exp": "About 1 in 7 adults aged 30 and over has diabetes. Among those aged 65 and over the figure rises to 3 in 10, or 28.0%.",
+  "refs": [
+   "kdaDFS2024"
+  ],
+  "evidence": {
+   "quote": "As of 2022, 1 in 7 adults aged ≥30 years (14.8%) had diabetes.",
+   "locator": "Prevalence of diabetes",
+   "ref": "kdaDFS2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "epidemiology",
+   "korea",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In the Korean label, who is covered by the chronic heart failure indication?",
+  "a": [
+   "Adults with chronic heart failure, NYHA class II-IV",
+   "Only those with an ejection fraction above 40%",
+   "NYHA class I only",
+   "Patients with acute heart failure"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "NYHA class II through IV are covered, with the aim of reducing cardiovascular death and hospitalization for heart failure. It is given alongside standard heart failure therapy.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "만성 심부전: 성인 만성 심부전(NYHA class II-IV) 환자에서 심혈관질환으로 인한 사망 및 심부전으로 인한 입원 위험성 감소",
+   "locator": "효능효과 2",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "heart_failure",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What does the Korean chronic kidney disease indication aim to reduce?",
+  "a": [
+   "The frequency of urinary tract infections",
+   "Serum creatinine alone",
+   "The number of dialysis sessions",
+   "The risk of kidney disease progression or death from cardiovascular disease"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "The population is adults with chronic kidney disease, and it is given alongside standard chronic kidney disease therapy.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "만성 신장병: 성인 만성 신장병 환자에서 신장병의 진행 또는 심혈관 질환으로 인한 사망의 위험성 감소",
+   "locator": "효능효과 3",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "ckd",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Under the Korean label, in whom is this drug contraindicated?",
+  "a": [
+   "Patients with type 1 diabetes or diabetic ketoacidosis",
+   "Patients with mild hepatic impairment",
+   "People aged 75 and over",
+   "Patients with type 2 diabetes for over 10 years"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "The Korean label lists type 1 diabetes and diabetic ketoacidosis as contraindications, along with hypersensitivity to the ingredients and lactose-related genetic disorders.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "2) 제1형 당뇨병 또는 당뇨성 케톤산증 환자",
+   "locator": "1. 다음 환자에는 투여하지 말 것",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "contraindication",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which genetic conditions rule out this drug because of its lactose content?",
+  "a": [
+   "Phenylketonuria",
+   "Wilson's disease",
+   "Galactose intolerance, Lapp lactase deficiency and glucose-galactose malabsorption",
+   "Haemophilia"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "The tablet contains lactose monohydrate as an excipient. This is the third contraindication in the Korean label.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "이 약은 유당을 함유하고 있으므로, 갈락토오스 불내성(galactose intolerance), Lapp 유당분해효소 결핍증(Lapp lactase deficiency) 또는 포도당-갈락토오스 흡수장애(glucose-galactose malabsorption) 등의 유전적인 문제가 있는 환자에게는 투여하면 안 된다.",
+   "locator": "1. 다음 환자에는 투여하지 말 것 3)",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "contraindication",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What is the recommended dose and escalation rule in type 2 diabetes?",
+  "a": [
+   "10 mg once daily, raised to 25 mg if tolerated and more control is needed",
+   "Start at 25 mg once daily",
+   "10 mg twice daily with no escalation",
+   "Start at 5 mg once daily"
+  ],
+  "correct": 0,
+  "diff": "easy",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Whether alone or added to another glucose-lowering drug, it starts at 10 mg. Chronic heart failure and chronic kidney disease stay at 10 mg.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "이 약의 권장용량은 단독요법 및 인슐린 등 다른 혈당 강하제와의 추가 병용요법에 대하여 1일 1회 10 mg이다. 이 약 10 mg에 내약성이 우수하면서 추가적인 혈당조절이 필요한 경우, 이 약 용량을 1일 1회 25 mg으로 증량할 수 있다.",
+   "locator": "용법용량 — 제2형 당뇨병",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "dosing",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Below what kidney function does the Korean label stop recommending it for glycemic control?",
+  "a": [
+   "An eGFR below 60",
+   "An eGFR below 20",
+   "An eGFR below 30",
+   "An eGFR below 45 mL/min/1.73m²"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "The Korean threshold is 45, which differs from the US figure of 30, so the source matters. It is not used in end-stage kidney disease or on dialysis.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "혈당조절 개선 목적으로 추정 사구체 여과율(eGFR)이 45 ml/min/1.73m2 미만인 환자에게 이 약은 권장되지 않는다.",
+   "locator": "용법용량 — 특수집단, 신장애 환자, 제2형 당뇨병",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "ckd",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In chronic heart failure, below what kidney function must this drug not be used?",
+  "a": [
+   "An eGFR below 60",
+   "An eGFR below 45",
+   "It may be used at any level",
+   "An eGFR below 20 mL/min/1.73m²"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Heart failure carries a hard stop below 20. In chronic kidney disease it may be used at any level, but starting below 20 is not recommended.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "추정 사구체 여과율(eGFR)이 20 ml/min/1.73m2 미만인 환자에게 이 약을 사용해서는 안 된다.",
+   "locator": "용법용량 — 특수집단, 신장애 환자, 만성 심부전",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "heart_failure",
+   "ckd",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How often does the Korean label ask for renal function monitoring?",
+  "a": [
+   "Once every three years",
+   "Before starting, then regularly at least once a year",
+   "Only when symptoms appear",
+   "Only once, before starting"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Its glucose-lowering effect depends on renal function by mechanism. It is also checked before adding any drug that can reduce renal function.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "- 이 약 투여를 시작 전 및 투여 이후 정기적으로(1년에 1회 이상)",
+   "locator": "2. 다음 환자에는 신중히 투여할 것 — 1) 신장애 환자, 신기능 모니터링",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "monitoring",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which co-medications may need a dose reduction for hypoglycaemia risk?",
+  "a": [
+   "A statin",
+   "Insulin or an insulin secretagogue such as a sulfonylurea",
+   "A diuretic",
+   "An antiplatelet agent"
+  ],
+  "correct": 1,
+  "diff": "easy",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "The hypoglycaemia comes from the co-medication rather than empagliflozin. The Korean label repeats this under both dosage and cautious use.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "인슐린 및 설포닐우레아와 같은 인슐린 분비 촉진제는 저혈당을 일으킬 수 있다. 따라서, 이 약과 병용시 저혈당의 위험을 줄이기 위해, 인슐린 또는 인슐린 분비 촉진제의 용량을 줄여야 할 수 있다.",
+   "locator": "2. 다음 환자에는 신중히 투여할 것 2)",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "safety",
+   "hypoglycemia",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How should blood glucose be interpreted when ketoacidosis is suspected on this drug?",
+  "a": [
+   "A normal glucose rules it out",
+   "Diagnose it from the glucose test",
+   "It can occur below 250 mg/dL, so test regardless of the glucose value",
+   "Test only when glucose exceeds 300 mg/dL"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Euglycaemic ketoacidosis is possible. When signs consistent with severe metabolic acidosis appear, ketoacidosis is tested for regardless of glucose.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "혈당수치가 250 mg/dL 보다 낮더라도 이 약과 관련된 케톤산증은 발생할 수 있으므로, 이 약으로 치료한 환자에서 중증의 대사성 산증에 일치하는 징후와 증상이 관찰되는 경우 혈당 수치와 관계없이 케톤산증 검사를 실시해야 한다.",
+   "locator": "4. 일반적 주의 1) 케톤산증",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "safety",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What is done before surgery or a procedure involving prolonged fasting?",
+  "a": [
+   "Continue unchanged",
+   "Skip only the morning of surgery",
+   "Interrupt it at least three days beforehand where possible",
+   "Double the dose"
+  ],
+  "correct": 2,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Such situations predispose to ketoacidosis. It can be resumed once the patient is clinically stable and taking oral intake.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "케톤산증을 일으키기 쉬운 임상적 상황(예: 급성 질환 또는 중대한 수술 또는 시술로 인한 장기적인 단식)이 발생할 경우 가능한 최소 3일전에 이 약의 투여를 일시적으로 중단 해야 한다.",
+   "locator": "4. 일반적 주의 1) 케톤산증",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "safety",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What urine test result is expected in someone taking this drug?",
+  "a": [
+   "A positive urine protein test",
+   "A positive urine glucose test",
+   "An always-negative urine ketone test",
+   "No effect on urinalysis"
+  ],
+  "correct": 1,
+  "diff": "easy",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Its mechanism sends glucose into the urine, so a positive urine glucose is the expected finding during treatment.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "이 약을 복용하는 환자들은 작용기전으로 인하여 뇨 중 포도당에 대한 검사에서 양성을 나타낼 것이다.",
+   "locator": "4. 일반적 주의 8) 뇨 실험실적 평가",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "mechanism",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ }
+]
