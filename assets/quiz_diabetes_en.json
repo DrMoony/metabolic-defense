@@ -2,12 +2,12 @@
  {
   "q": "After a fast of at least 8 hours, what plasma glucose level meets the diagnostic threshold for diabetes?",
   "a": [
-   "≥200 mg/dL",
+   "≥126 mg/dL",
    "≥100 mg/dL",
    "≥140 mg/dL",
-   "≥126 mg/dL"
+   "≥200 mg/dL"
   ],
-  "correct": 3,
+  "correct": 0,
   "diff": "easy",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Fasting plasma glucose ≥126 mg/dL is diagnostic. Below 100 mg/dL is normal, and 100-125 mg/dL is impaired fasting glucose.",
@@ -33,12 +33,12 @@
  {
   "q": "What HbA1c value, on its own, meets the diagnostic threshold for diabetes?",
   "a": [
+   "≥8.0%",
    "≥5.7%",
-   "≥6.5%",
    "≥7.0%",
-   "≥8.0%"
+   "≥6.5%"
   ],
-  "correct": 1,
+  "correct": 3,
   "diff": "easy",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "HbA1c ≥6.5% is diagnostic. The 5.7-6.4% band is classified as prediabetes.",
@@ -64,12 +64,12 @@
  {
   "q": "On a 75 g oral glucose tolerance test, what 2-hour plasma glucose level is diagnostic of diabetes?",
   "a": [
-   "≥126 mg/dL",
    "≥200 mg/dL",
-   "≥180 mg/dL",
-   "≥140 mg/dL"
+   "≥126 mg/dL",
+   "≥140 mg/dL",
+   "≥180 mg/dL"
   ],
-  "correct": 1,
+  "correct": 0,
   "diff": "easy",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "A 2-hour value ≥200 mg/dL is diabetes, while 140-199 mg/dL is impaired glucose tolerance.",
@@ -95,12 +95,12 @@
  {
   "q": "Before an oral glucose tolerance test, what should a person eat for the preceding three days?",
   "a": [
-   "Fast for the whole three days",
    "At least 150 g of carbohydrate a day",
+   "Fast for the whole three days",
    "Protein only",
    "No more than 50 g of carbohydrate a day"
   ],
-  "correct": 1,
+  "correct": 0,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Cutting carbohydrate sharply before the test distorts the result. Usual activity is maintained with at least 150 g of carbohydrate daily, followed by a 10 to 14 hour overnight fast.",
@@ -127,12 +127,12 @@
  {
   "q": "What defines normal glucose?",
   "a": [
-   "Fasting below 126 mg/dL and a 2-hour value below 200 mg/dL",
-   "Fasting below 110 mg/dL and a 2-hour value below 160 mg/dL",
    "Fasting below 90 mg/dL and a 2-hour value below 120 mg/dL",
-   "Fasting below 100 mg/dL and a 2-hour post-load value below 140 mg/dL"
+   "Fasting below 100 mg/dL and a 2-hour post-load value below 140 mg/dL",
+   "Fasting below 126 mg/dL and a 2-hour value below 200 mg/dL",
+   "Fasting below 110 mg/dL and a 2-hour value below 160 mg/dL"
   ],
-  "correct": 3,
+  "correct": 1,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Both conditions must hold. Fasting of 100-125 is impaired fasting glucose, and a 2-hour value of 140-199 is impaired glucose tolerance.",
@@ -160,8 +160,8 @@
   "a": [
    "Fasting plasma glucose 110-125 mg/dL",
    "Fasting plasma glucose 100-125 mg/dL",
-   "Fasting plasma glucose 126-139 mg/dL",
-   "Fasting plasma glucose 90-109 mg/dL"
+   "Fasting plasma glucose 90-109 mg/dL",
+   "Fasting plasma glucose 126-139 mg/dL"
   ],
   "correct": 1,
   "diff": "mid",
@@ -221,9 +221,9 @@
  {
   "q": "How often should an adult with a normal screening result be retested?",
   "a": [
-   "Retest every 5 years",
-   "Retest every 3 years",
    "Only when symptoms appear",
+   "Retest every 3 years",
+   "Retest every 5 years",
    "Retest every year"
   ],
   "correct": 3,
@@ -252,12 +252,12 @@
  {
   "q": "What is the general glycemic target for adults with type 2 diabetes?",
   "a": [
-   "HbA1c below 7.0%",
-   "HbA1c below 8.0%",
    "HbA1c below 6.5%",
-   "HbA1c below 7.5%"
+   "HbA1c below 8.0%",
+   "HbA1c below 7.5%",
+   "HbA1c below 7.0%"
   ],
-  "correct": 2,
+  "correct": 0,
   "diff": "easy",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Korea sets the general type 2 target at below 6.5%. For type 1 diabetes the target is below 7.0%.",
@@ -285,10 +285,10 @@
   "a": [
    "More than 60%",
    "More than 50%",
-   "More than 70%",
-   "More than 80%"
+   "More than 80%",
+   "More than 70%"
   ],
-  "correct": 2,
+  "correct": 3,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Time in range should exceed 70%, time below 70 mg/dL should stay under 4%, and time below 54 mg/dL under 1%.",
@@ -316,12 +316,12 @@
  {
   "q": "How did the 9th edition change real-time CGM guidance for adults with type 2 diabetes on multiple daily injections or a pump?",
   "a": [
-   "It was left in place for type 1 diabetes only",
-   "It moved down from a general to a limited recommendation",
+   "It was removed from the recommendations",
    "It moved up from a limited to a general recommendation",
-   "It was removed from the recommendations"
+   "It was left in place for type 1 diabetes only",
+   "It moved down from a general to a limited recommendation"
   ],
-  "correct": 2,
+  "correct": 1,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Strengthened evidence supports continuous use more assertively. Adults with type 2 diabetes on basal insulin alone remain at a limited recommendation.",
@@ -349,12 +349,12 @@
  {
   "q": "How often may HbA1c be measured in an adult whose glycemic control is stable?",
   "a": [
-   "It can be reduced to twice a year",
-   "Fixed at every 2-3 months",
    "It must be measured monthly",
-   "Once every three years is enough"
+   "Once every three years is enough",
+   "Fixed at every 2-3 months",
+   "It can be reduced to twice a year"
   ],
-  "correct": 0,
+  "correct": 3,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "The usual interval is every 2-3 months, but stable control allows twice a year. Conversely, a medication change or a situation demanding tight control such as pregnancy calls for more frequent testing.",
@@ -382,11 +382,11 @@
   "q": "How often should a hypoglycaemia history be reviewed in someone at risk?",
   "a": [
    "Once a year",
+   "At every clinical visit",
    "Once every three years",
-   "Only when the patient brings it up",
-   "At every clinical visit"
+   "Only when the patient brings it up"
   ],
-  "correct": 3,
+  "correct": 1,
   "diff": "easy",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "The history is reviewed at every visit and assessed as needed. Knowing it in advance is what makes a prevention plan possible.",
@@ -413,12 +413,12 @@
  {
   "q": "What glucose level defines level 2, clinically significant hypoglycemia?",
   "a": [
-   "Below 60 mg/dL",
    "Below 54 mg/dL",
+   "Below 60 mg/dL",
    "Below 40 mg/dL",
    "Below 70 mg/dL"
   ],
-  "correct": 1,
+  "correct": 0,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Level 1 is below 70 but at or above 54 mg/dL, and level 2 is below 54 mg/dL. Level 3, severe hypoglycemia, is defined by needing outside help rather than by a number.",
@@ -477,10 +477,10 @@
  {
   "q": "How often does the 2025 guideline ask for diabetes self-management education to be repeated?",
   "a": [
-   "Every five years",
    "Every three years",
+   "Once at diagnosis",
    "Every year",
-   "Once at diagnosis"
+   "Every five years"
   ],
   "correct": 2,
   "diff": "mid",
@@ -510,10 +510,10 @@
  {
   "q": "What does the guideline ask for at the very moment diabetes is diagnosed?",
   "a": [
-   "Observe for three months without acting",
    "Run complication screening first and nothing else",
+   "Start insulin injections immediately",
    "Actively teach lifestyle modification and self-management, then monitor that it continues",
-   "Start insulin injections immediately"
+   "Observe for three months without acting"
   ],
   "correct": 2,
   "diff": "easy",
@@ -544,10 +544,10 @@
   "a": [
    "The first-line recommendation was strengthened",
    "It was listed as contraindicated",
-   "The recommendation to use it first-line was deleted",
-   "It was demoted to second-line"
+   "It was demoted to second-line",
+   "The recommendation to use it first-line was deleted"
   ],
-  "correct": 2,
+  "correct": 3,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "A network meta-analysis of 60 studies including Korean data found no clear glucose-lowering advantage, and other national guidelines no longer name it first-line.",
@@ -574,12 +574,12 @@
  {
   "q": "How much aerobic exercise does the guideline recommend for people with diabetes?",
   "a": [
-   "At least 150 minutes a week at moderate intensity or above, spread over at least three days",
-   "Five minutes of stretching daily",
+   "At least 300 minutes a week, vigorous only",
    "At least 60 minutes a week at low intensity, in a single session",
-   "At least 300 minutes a week, vigorous only"
+   "At least 150 minutes a week at moderate intensity or above, spread over at least three days",
+   "Five minutes of stretching daily"
   ],
-  "correct": 0,
+  "correct": 2,
   "diff": "easy",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Aerobic exercise is spread over at least three days with never more than two consecutive rest days. Resistance exercise is done separately at least twice a week.",
@@ -606,12 +606,12 @@
  {
   "q": "How did the 9th edition reword its carbohydrate recommendation?",
   "a": [
-   "Prescribe a low-carbohydrate diet to everyone",
-   "Fix carbohydrate at no more than 20% of total energy",
    "Limit excessive carbohydrate intake, then individualise by treatment goal and preference",
-   "Carbohydrate restriction is not recommended"
+   "Carbohydrate restriction is not recommended",
+   "Fix carbohydrate at no more than 20% of total energy",
+   "Prescribe a low-carbohydrate diet to everyone"
   ],
-  "correct": 2,
+  "correct": 0,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "The 8th edition said only \"individualise\", which left the direction unclear, so a clause on limiting excess was placed in front. Quality also matters, met through wholegrains, legumes, vegetables and fresh fruit.",
@@ -638,12 +638,12 @@
  {
   "q": "What should be assessed, and how often, to screen for diabetic kidney disease?",
   "a": [
-   "Urinary albumin excretion and estimated GFR at diagnosis and at least once a year",
    "Urinalysis only when symptoms appear",
+   "Serum creatinine alone every three years",
    "Renal ultrasound every year",
-   "Serum creatinine alone every three years"
+   "Urinary albumin excretion and estimated GFR at diagnosis and at least once a year"
   ],
-  "correct": 0,
+  "correct": 3,
   "diff": "easy",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Both urinary albumin excretion and estimated GFR are checked at diagnosis and at least annually. Albuminuria is defined as a spot urine albumin-to-creatinine ratio of 30 mg/g or above.",
@@ -670,8 +670,8 @@
  {
   "q": "How did the 9th edition split its description of starting drug therapy?",
   "a": [
-   "Combination therapy is not recommended",
    "Start with triple therapy from the outset",
+   "Combination therapy is not recommended",
    "Always start with monotherapy and combine after three months",
    "Starting therapy may be single-agent or combination, and combination should be actively considered early on"
   ],
@@ -703,12 +703,12 @@
  {
   "q": "When triple oral therapy fails to reach target, what does the 9th edition text offer?",
   "a": [
-   "Switch straight to intensive insulin therapy",
-   "Keep three drugs and observe for six more months",
    "Stop all drugs and rely on lifestyle alone",
-   "Prefer a regimen including an injectable, and consider quadruple oral therapy when an injectable is not feasible"
+   "Keep three drugs and observe for six more months",
+   "Prefer a regimen including an injectable, and consider quadruple oral therapy when an injectable is not feasible",
+   "Switch straight to intensive insulin therapy"
   ],
-  "correct": 3,
+  "correct": 2,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Quadruple oral therapy has established benefit from a Korean systematic review, but promoting it to a formal recommendation risked delaying early insulin.",
@@ -736,8 +736,8 @@
   "q": "Which drug class is preferred for type 2 diabetes with heart failure?",
   "a": [
    "An SGLT2 inhibitor with proven heart failure benefit",
-   "A DPP-4 inhibitor",
    "A thiazolidinedione",
+   "A DPP-4 inhibitor",
    "A sulfonylurea"
   ],
   "correct": 0,
@@ -768,12 +768,12 @@
  {
   "q": "Which drug class comes first when albuminuria is present or estimated GFR has fallen?",
   "a": [
+   "An SGLT2 inhibitor with proven kidney benefit",
    "A sulfonylurea",
    "An alpha-glucosidase inhibitor",
-   "An SGLT2 inhibitor with proven kidney benefit",
    "Metformin"
   ],
-  "correct": 2,
+  "correct": 0,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "When kidney markers have worsened, an SGLT2 inhibitor with proven renal benefit comes first regardless of HbA1c.",
@@ -801,12 +801,12 @@
  {
   "q": "When an injectable-based combination is considered, which agent comes first?",
   "a": [
+   "Basal insulin ahead of a GLP-1 receptor agonist",
    "A GLP-1 receptor agonist ahead of basal insulin",
    "Rapid-acting insulin",
-   "Basal insulin ahead of a GLP-1 receptor agonist",
    "Always start both together"
   ],
-  "correct": 0,
+  "correct": 1,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "A GLP-1 receptor agonist is preferred over basal insulin. If either alone falls short, the two are combined.",
@@ -834,8 +834,8 @@
   "q": "How did the 9th edition change the trigger for starting insulin?",
   "a": [
    "The HbA1c 9% threshold was dropped in favour of hyperglycaemia with catabolic symptoms",
-   "The 9% threshold was kept as is",
    "Insulin is now started at diagnosis",
+   "The 9% threshold was kept as is",
    "The threshold was lowered to 8%"
   ],
   "correct": 0,
@@ -866,12 +866,12 @@
  {
   "q": "As of 2022, what share of Korean adults aged 30 and over had diabetes?",
   "a": [
-   "9.5%, about 1 in 10",
-   "20.3%, about 1 in 5",
    "14.8%, about 1 in 7",
-   "5.1%, about 1 in 20"
+   "9.5%, about 1 in 10",
+   "5.1%, about 1 in 20",
+   "20.3%, about 1 in 5"
   ],
-  "correct": 2,
+  "correct": 0,
   "diff": "easy",
   "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
   "exp": "About 1 in 7 adults aged 30 and over has diabetes. Among those aged 65 and over the figure rises to 3 in 10, or 28.0%.",
@@ -898,12 +898,12 @@
  {
   "q": "In 2021-2022, what share of Korean adults with diabetes reached an HbA1c below 6.5%?",
   "a": [
+   "70.9%",
    "74.7%",
-   "32.4%",
    "50.1%",
-   "70.9%"
+   "32.4%"
   ],
-  "correct": 1,
+  "correct": 3,
   "diff": "mid",
   "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
   "exp": "Awareness reached 74.7% and treatment 70.9%, but the control rate stopped at 32.4%. The gap between knowing and reaching target is wide.",
@@ -931,10 +931,10 @@
  {
   "q": "How many Korean adults aged 30 and over are estimated to have prediabetes?",
   "a": [
-   "About 2 million",
+   "About 30 million",
    "About 14 million",
    "About 5.33 million",
-   "About 30 million"
+   "About 2 million"
   ],
   "correct": 1,
   "diff": "mid",
@@ -954,6 +954,72 @@
    "epidemiology",
    "korea",
    "prediabetes"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In 2021-2022, what were the awareness and treatment rates among Korean adults with diabetes?",
+  "a": [
+   "50.1% awareness and 45.2% treatment",
+   "74.7% awareness and 70.9% treatment",
+   "90.2% awareness and 88.1% treatment",
+   "32.4% awareness and 70.9% treatment"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
+  "exp": "Awareness and treatment have climbed into the seventies while control sits at 32.4%. What happens after diagnosis and prescription is the gap.",
+  "refs": [
+   "kdaDFS2024"
+  ],
+  "evidence": {
+   "quote": "Compared with 2019–2020, the 2021–2022 survey showed increases in diabetes awareness, treatment, and control rates.",
+   "locator": "Management of diabetes (2021-2022) — Total (≥30 years old) 74.7 / 70.9 / 32.4",
+   "ref": "kdaDFS2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "epidemiology",
+   "korea",
+   "care_gap",
+   "t2d"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What share of Korean adults aged 65 and over has diabetes?",
+  "a": [
+   "14.8%, about 1 in 7",
+   "28.0%, about 3 in 10",
+   "8.0%, about 1 in 12",
+   "45.2%, about 1 in 2"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
+  "exp": "The figure for all adults over 30 is 14.8%, so 28.0% at 65 and over is nearly double. That is why the 2024 fact sheet made older adults a focus.",
+  "refs": [
+   "kdaDFS2024"
+  ],
+  "evidence": {
+   "quote": "Among adults aged ≥65 years, 3 in 10 (28.0%) had diabetes.",
+   "locator": "Prevalence of diabetes",
+   "ref": "kdaDFS2024",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "epidemiology",
+   "korea",
+   "aging",
+   "t2d"
   ],
   "societies": [
    "kda"

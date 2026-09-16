@@ -2,10 +2,10 @@
  {
   "q": "After a fast of at least 8 hours, what plasma glucose level meets the diagnostic threshold for diabetes?",
   "a": [
-   "≥100 mg/dL",
+   "≥200 mg/dL",
    "≥140 mg/dL",
    "≥126 mg/dL",
-   "≥200 mg/dL"
+   "≥100 mg/dL"
   ],
   "correct": 2,
   "diff": "easy",
@@ -33,10 +33,10 @@
  {
   "q": "What HbA1c value, on its own, meets the diagnostic threshold for diabetes?",
   "a": [
+   "≥7.0%",
    "≥5.7%",
-   "≥8.0%",
    "≥6.5%",
-   "≥7.0%"
+   "≥8.0%"
   ],
   "correct": 2,
   "diff": "easy",
@@ -64,12 +64,12 @@
  {
   "q": "On a 75 g oral glucose tolerance test, what 2-hour plasma glucose level is diagnostic of diabetes?",
   "a": [
-   "≥180 mg/dL",
    "≥140 mg/dL",
-   "≥126 mg/dL",
-   "≥200 mg/dL"
+   "≥180 mg/dL",
+   "≥200 mg/dL",
+   "≥126 mg/dL"
   ],
-  "correct": 3,
+  "correct": 2,
   "diff": "easy",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "A 2-hour value ≥200 mg/dL is diabetes, while 140-199 mg/dL is impaired glucose tolerance.",
@@ -95,8 +95,8 @@
  {
   "q": "What defines normal glucose?",
   "a": [
-   "Fasting below 90 mg/dL and a 2-hour value below 120 mg/dL",
    "Fasting below 126 mg/dL and a 2-hour value below 200 mg/dL",
+   "Fasting below 90 mg/dL and a 2-hour value below 120 mg/dL",
    "Fasting below 110 mg/dL and a 2-hour value below 160 mg/dL",
    "Fasting below 100 mg/dL and a 2-hour post-load value below 140 mg/dL"
   ],
@@ -126,12 +126,12 @@
  {
   "q": "Which fasting range defines impaired fasting glucose in the Korean criteria?",
   "a": [
-   "Fasting plasma glucose 100-125 mg/dL",
-   "Fasting plasma glucose 126-139 mg/dL",
    "Fasting plasma glucose 110-125 mg/dL",
-   "Fasting plasma glucose 90-109 mg/dL"
+   "Fasting plasma glucose 90-109 mg/dL",
+   "Fasting plasma glucose 100-125 mg/dL",
+   "Fasting plasma glucose 126-139 mg/dL"
   ],
-  "correct": 0,
+  "correct": 2,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Korea sets impaired fasting glucose at 100-125 mg/dL. Impaired glucose tolerance is a 2-hour value of 140-199 mg/dL, and the HbA1c band is 5.7-6.4%.",
@@ -160,10 +160,10 @@
   "a": [
    "All adults aged 65 years and older",
    "All adults aged 40 and older regardless of risk factors",
-   "All adults aged 19 and older who carry a risk factor, plus all adults aged 35 and older",
-   "All adults with a family history of diabetes"
+   "All adults with a family history of diabetes",
+   "All adults aged 19 and older who carry a risk factor, plus all adults aged 35 and older"
   ],
-  "correct": 2,
+  "correct": 3,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "The 9th edition split the screening population in two. Screening starts at 19 when a risk factor is present, and at 35 for everyone else.",
@@ -220,9 +220,9 @@
  {
   "q": "What is the general glycemic target for adults with type 2 diabetes?",
   "a": [
-   "HbA1c below 8.0%",
-   "HbA1c below 7.5%",
    "HbA1c below 7.0%",
+   "HbA1c below 7.5%",
+   "HbA1c below 8.0%",
    "HbA1c below 6.5%"
   ],
   "correct": 3,
@@ -251,12 +251,12 @@
  {
   "q": "With continuous glucose monitoring, what share of time should be spent in the 70-180 mg/dL target range?",
   "a": [
-   "More than 50%",
-   "More than 80%",
    "More than 60%",
-   "More than 70%"
+   "More than 80%",
+   "More than 70%",
+   "More than 50%"
   ],
-  "correct": 3,
+  "correct": 2,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Time in range should exceed 70%, time below 70 mg/dL should stay under 4%, and time below 54 mg/dL under 1%.",
@@ -286,8 +286,8 @@
   "a": [
    "It moved up from a limited to a general recommendation",
    "It was left in place for type 1 diabetes only",
-   "It moved down from a general to a limited recommendation",
-   "It was removed from the recommendations"
+   "It was removed from the recommendations",
+   "It moved down from a general to a limited recommendation"
   ],
   "correct": 0,
   "diff": "mid",
@@ -317,12 +317,12 @@
  {
   "q": "How often may HbA1c be measured in an adult whose glycemic control is stable?",
   "a": [
-   "It must be measured monthly",
-   "Once every three years is enough",
+   "It can be reduced to twice a year",
    "Fixed at every 2-3 months",
-   "It can be reduced to twice a year"
+   "It must be measured monthly",
+   "Once every three years is enough"
   ],
-  "correct": 3,
+  "correct": 0,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "The usual interval is every 2-3 months, but stable control allows twice a year. Conversely, a medication change or a situation demanding tight control such as pregnancy calls for more frequent testing.",
@@ -349,12 +349,12 @@
  {
   "q": "What glucose level defines level 2, clinically significant hypoglycemia?",
   "a": [
-   "Below 70 mg/dL",
-   "Below 54 mg/dL",
    "Below 60 mg/dL",
-   "Below 40 mg/dL"
+   "Below 40 mg/dL",
+   "Below 54 mg/dL",
+   "Below 70 mg/dL"
   ],
-  "correct": 1,
+  "correct": 2,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Level 1 is below 70 but at or above 54 mg/dL, and level 2 is below 54 mg/dL. Level 3, severe hypoglycemia, is defined by needing outside help rather than by a number.",
@@ -382,11 +382,11 @@
   "q": "Which hypoglycemia recommendation was newly added in the 9th edition?",
   "a": [
    "Require a bedtime snack",
+   "Prescribe glucagon for insulin users and make sure people around them know where it is and how to use it",
    "Mandate continuous glucose monitoring for every patient",
-   "Go straight to the emergency department for any hypoglycemia",
-   "Prescribe glucagon for insulin users and make sure people around them know where it is and how to use it"
+   "Go straight to the emergency department for any hypoglycemia"
   ],
-  "correct": 3,
+  "correct": 1,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Family members, caregivers and school staff are now expected to know the storage location and use of glucagon. It entered as an expert-opinion recommendation.",
@@ -413,8 +413,8 @@
  {
   "q": "What does the guideline ask for at the very moment diabetes is diagnosed?",
   "a": [
-   "Start insulin injections immediately",
    "Observe for three months without acting",
+   "Start insulin injections immediately",
    "Run complication screening first and nothing else",
    "Actively teach lifestyle modification and self-management, then monitor that it continues"
   ],
@@ -477,12 +477,12 @@
  {
   "q": "How much aerobic exercise does the guideline recommend for people with diabetes?",
   "a": [
-   "Five minutes of stretching daily",
    "At least 150 minutes a week at moderate intensity or above, spread over at least three days",
+   "At least 300 minutes a week, vigorous only",
    "At least 60 minutes a week at low intensity, in a single session",
-   "At least 300 minutes a week, vigorous only"
+   "Five minutes of stretching daily"
   ],
-  "correct": 1,
+  "correct": 0,
   "diff": "easy",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
   "exp": "Aerobic exercise is spread over at least three days with never more than two consecutive rest days. Resistance exercise is done separately at least twice a week.",
@@ -509,10 +509,10 @@
  {
   "q": "What should be assessed, and how often, to screen for diabetic kidney disease?",
   "a": [
-   "Renal ultrasound every year",
    "Serum creatinine alone every three years",
+   "Urinalysis only when symptoms appear",
    "Urinary albumin excretion and estimated GFR at diagnosis and at least once a year",
-   "Urinalysis only when symptoms appear"
+   "Renal ultrasound every year"
   ],
   "correct": 2,
   "diff": "easy",
@@ -543,10 +543,10 @@
   "a": [
    "5.1%, about 1 in 20",
    "20.3%, about 1 in 5",
-   "14.8%, about 1 in 7",
-   "9.5%, about 1 in 10"
+   "9.5%, about 1 in 10",
+   "14.8%, about 1 in 7"
   ],
-  "correct": 2,
+  "correct": 3,
   "diff": "easy",
   "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
   "exp": "About 1 in 7 adults aged 30 and over has diabetes. Among those aged 65 and over the figure rises to 3 in 10, or 28.0%.",
@@ -573,12 +573,12 @@
  {
   "q": "In the Korean label, who is covered by the chronic heart failure indication?",
   "a": [
-   "Adults with chronic heart failure, NYHA class II-IV",
-   "Only those with an ejection fraction above 40%",
+   "Patients with acute heart failure",
    "NYHA class I only",
-   "Patients with acute heart failure"
+   "Adults with chronic heart failure, NYHA class II-IV",
+   "Only those with an ejection fraction above 40%"
   ],
-  "correct": 0,
+  "correct": 2,
   "diff": "mid",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
   "exp": "NYHA class II through IV are covered, with the aim of reducing cardiovascular death and hospitalization for heart failure. It is given alongside standard heart failure therapy.",
@@ -605,12 +605,12 @@
  {
   "q": "What does the Korean chronic kidney disease indication aim to reduce?",
   "a": [
-   "The frequency of urinary tract infections",
-   "Serum creatinine alone",
    "The number of dialysis sessions",
-   "The risk of kidney disease progression or death from cardiovascular disease"
+   "The risk of kidney disease progression or death from cardiovascular disease",
+   "Serum creatinine alone",
+   "The frequency of urinary tract infections"
   ],
-  "correct": 3,
+  "correct": 1,
   "diff": "mid",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
   "exp": "The population is adults with chronic kidney disease, and it is given alongside standard chronic kidney disease therapy.",
@@ -637,12 +637,12 @@
  {
   "q": "Under the Korean label, in whom is this drug contraindicated?",
   "a": [
-   "Patients with type 1 diabetes or diabetic ketoacidosis",
    "Patients with mild hepatic impairment",
+   "Patients with type 2 diabetes for over 10 years",
    "People aged 75 and over",
-   "Patients with type 2 diabetes for over 10 years"
+   "Patients with type 1 diabetes or diabetic ketoacidosis"
   ],
-  "correct": 0,
+  "correct": 3,
   "diff": "easy",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
   "exp": "The Korean label lists type 1 diabetes and diabetic ketoacidosis as contraindications, along with hypersensitivity to the ingredients and lactose-related genetic disorders.",
@@ -669,8 +669,8 @@
  {
   "q": "Which genetic conditions rule out this drug because of its lactose content?",
   "a": [
-   "Phenylketonuria",
    "Wilson's disease",
+   "Phenylketonuria",
    "Galactose intolerance, Lapp lactase deficiency and glucose-galactose malabsorption",
    "Haemophilia"
   ],
@@ -701,12 +701,12 @@
  {
   "q": "What is the recommended dose and escalation rule in type 2 diabetes?",
   "a": [
-   "10 mg once daily, raised to 25 mg if tolerated and more control is needed",
-   "Start at 25 mg once daily",
    "10 mg twice daily with no escalation",
-   "Start at 5 mg once daily"
+   "Start at 25 mg once daily",
+   "Start at 5 mg once daily",
+   "10 mg once daily, raised to 25 mg if tolerated and more control is needed"
   ],
-  "correct": 0,
+  "correct": 3,
   "diff": "easy",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
   "exp": "Whether alone or added to another glucose-lowering drug, it starts at 10 mg. Chronic heart failure and chronic kidney disease stay at 10 mg.",
@@ -734,8 +734,8 @@
   "q": "Below what kidney function does the Korean label stop recommending it for glycemic control?",
   "a": [
    "An eGFR below 60",
-   "An eGFR below 20",
    "An eGFR below 30",
+   "An eGFR below 20",
    "An eGFR below 45 mL/min/1.73m²"
   ],
   "correct": 3,
@@ -765,9 +765,9 @@
  {
   "q": "In chronic heart failure, below what kidney function must this drug not be used?",
   "a": [
+   "It may be used at any level",
    "An eGFR below 60",
    "An eGFR below 45",
-   "It may be used at any level",
    "An eGFR below 20 mL/min/1.73m²"
   ],
   "correct": 3,
@@ -798,12 +798,12 @@
  {
   "q": "How often does the Korean label ask for renal function monitoring?",
   "a": [
+   "Only when symptoms appear",
    "Once every three years",
    "Before starting, then regularly at least once a year",
-   "Only when symptoms appear",
    "Only once, before starting"
   ],
-  "correct": 1,
+  "correct": 2,
   "diff": "mid",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
   "exp": "Its glucose-lowering effect depends on renal function by mechanism. It is also checked before adding any drug that can reduce renal function.",
@@ -831,11 +831,11 @@
   "q": "Which co-medications may need a dose reduction for hypoglycaemia risk?",
   "a": [
    "A statin",
-   "Insulin or an insulin secretagogue such as a sulfonylurea",
    "A diuretic",
+   "Insulin or an insulin secretagogue such as a sulfonylurea",
    "An antiplatelet agent"
   ],
-  "correct": 1,
+  "correct": 2,
   "diff": "easy",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
   "exp": "The hypoglycaemia comes from the co-medication rather than empagliflozin. The Korean label repeats this under both dosage and cautious use.",
@@ -863,12 +863,12 @@
  {
   "q": "How should blood glucose be interpreted when ketoacidosis is suspected on this drug?",
   "a": [
-   "A normal glucose rules it out",
-   "Diagnose it from the glucose test",
    "It can occur below 250 mg/dL, so test regardless of the glucose value",
-   "Test only when glucose exceeds 300 mg/dL"
+   "A normal glucose rules it out",
+   "Test only when glucose exceeds 300 mg/dL",
+   "Diagnose it from the glucose test"
   ],
-  "correct": 2,
+  "correct": 0,
   "diff": "mid",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
   "exp": "Euglycaemic ketoacidosis is possible. When signs consistent with severe metabolic acidosis appear, ketoacidosis is tested for regardless of glucose.",
@@ -895,10 +895,10 @@
  {
   "q": "What is done before surgery or a procedure involving prolonged fasting?",
   "a": [
+   "Double the dose",
    "Continue unchanged",
-   "Skip only the morning of surgery",
    "Interrupt it at least three days beforehand where possible",
-   "Double the dose"
+   "Skip only the morning of surgery"
   ],
   "correct": 2,
   "diff": "mid",
@@ -927,10 +927,10 @@
  {
   "q": "What urine test result is expected in someone taking this drug?",
   "a": [
-   "A positive urine protein test",
+   "No effect on urinalysis",
    "A positive urine glucose test",
    "An always-negative urine ketone test",
-   "No effect on urinalysis"
+   "A positive urine protein test"
   ],
   "correct": 1,
   "diff": "easy",
@@ -949,6 +949,204 @@
   "topics": [
    "label",
    "mechanism",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "In EMPA-REG OUTCOME, which component of the primary composite did empagliflozin significantly reduce?",
+  "a": [
+   "Non-fatal stroke",
+   "Cardiovascular death",
+   "All three individually",
+   "Non-fatal myocardial infarction"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "The composite was superior overall, but the effect came from the reduction in cardiovascular death. Myocardial infarction and stroke showed no significant change.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "치료 효과는 심혈관계 질환 사망의 유의한 감소에서 기인한 것으로, 비치명적 심근경색 및 비치명적 뇌졸중에는 유의한 변화가 없었다.",
+   "locator": "10. 전문가를 위한 정보 — EMPA-REG OUTCOME",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "trial",
+   "ascvd",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What was the hazard ratio for cardiovascular death in EMPA-REG OUTCOME?",
+  "a": [
+   "0.86 (0.74, 0.99)",
+   "0.62 (0.49, 0.77)",
+   "0.95 (0.80, 1.12)",
+   "0.75 (0.65, 0.86)"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "MACE overall was 0.86, cardiovascular death 0.62 and all-cause death 0.68. The three figures are easiest remembered together.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "심혈관계 질환 사망 위험비 0.62 (0.49, 0.77)",
+   "locator": "10. 전문가를 위한 정보 — EMPA-REG OUTCOME 표 12",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "trial",
+   "ascvd",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which heart failure patients were studied in EMPEROR-Reduced?",
+  "a": [
+   "Acute decompensated heart failure",
+   "LVEF above 40%",
+   "All heart failure regardless of ejection fraction",
+   "Chronic heart failure with LVEF 40% or below, NYHA II-IV"
+  ],
+  "correct": 3,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Reduced ejection fraction belongs to EMPEROR-Reduced and preserved to EMPEROR-Preserved. Both enrolled NYHA II-IV.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "심박출률이 감소된(LVEF ≤ 40 %) 만성 심부전 환자(New York Heart Association [NYHA] II-IV) 3730명을 대상으로 무작위 배정, 이중 눈가림, 위약 대조 임상 시험(EMPEROR-reduced)이 수행되었다.",
+   "locator": "10. 전문가를 위한 정보 — EMPEROR-Reduced",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "trial",
+   "heart_failure",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Which pairing of primary composite hazard ratios is correct for EMPEROR-Reduced and EMPEROR-Preserved?",
+  "a": [
+   "Reduced 0.75, Preserved 0.79",
+   "Reduced 0.62, Preserved 0.72",
+   "Reduced 0.86, Preserved 0.65",
+   "Reduced 0.79, Preserved 0.75"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Both used cardiovascular death or hospitalization for heart failure as the primary composite. Reduced was 0.75 and preserved 0.79.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "CV 사망 또는 HHF 최초 발생 시점까지의 시간 위험비 0.75 (0.65, 0.86)",
+   "locator": "10. 전문가를 위한 정보 — EMPEROR-Reduced 표 13 / EMPEROR-Preserved 표 14",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "trial",
+   "heart_failure",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How did the EMPEROR primary outcome behave by diabetes status?",
+  "a": [
+   "No subgroup analysis was done",
+   "Significant only in those with diabetes",
+   "Significant only in those without diabetes",
+   "It was consistent across subgroups with and without diabetes"
+  ],
+  "correct": 3,
+  "diff": "easy",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "The result held regardless of diabetes status, which underpins a heart failure indication separate from diabetes.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "일차 복합 평가변수에 대한 결과는 제2형 당뇨병이 있거나 제2형 당뇨병이 없는 심부전 환자를 포함한 사전에 명시된 하위군들에 걸쳐 전반적으로 일관되게 나타났다.",
+   "locator": "10. 전문가를 위한 정보 — EMPEROR-Reduced 하위군 분석",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "trial",
+   "heart_failure",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What kidney function range defined entry to EMPA-KIDNEY?",
+  "a": [
+   "eGFR 20 to under 45, or UACR at least 200 mg/g with eGFR 45 to under 90",
+   "eGFR 60 and above only",
+   "eGFR 45 and above only",
+   "Only patients with albuminuria"
+  ],
+  "correct": 0,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Low eGFR alone could qualify without albuminuria. The underlying causes were correspondingly broad, with diabetic kidney disease at 31% and glomerular disease at 25%.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "동 임상은 eGFR ≥20 - <45 ml/min/1.73m2 또는 소변 알부민 대 크레아티닌 비율[UACR] ≥200 mg/g을 동반한 eGFR ≥45 - <90 ml/min/1.73m2 환자를 대상으로 수행되었다.",
+   "locator": "10. 전문가를 위한 정보 — EMPA-KIDNEY",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "trial",
+   "ckd",
    "empagliflozin"
   ],
   "societies": [
