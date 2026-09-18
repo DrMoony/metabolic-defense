@@ -773,7 +773,7 @@
   "correct": 3,
   "diff": "mid",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "Heart failure carries a hard stop below 20. In chronic kidney disease it may be used at any level, but starting below 20 is not recommended.",
+  "exp": "In chronic heart failure the drug must not be used below an eGFR of 20 mL/min/1.73m². In chronic kidney disease, starting treatment below an eGFR of 20 mL/min/1.73m² is not recommended.",
   "refs": [
    "jardianceKR2026"
   ],
@@ -967,7 +967,7 @@
   "correct": 1,
   "diff": "mid",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "The composite was superior overall, but the effect came from the reduction in cardiovascular death. Myocardial infarction and stroke showed no significant change.",
+  "exp": "The primary composite endpoint (3-point MACE) was significantly reduced, and among its individual components the reduction in cardiovascular death was statistically significant. Non-fatal myocardial infarction and non-fatal stroke showed no significant change.",
   "refs": [
    "jardianceKR2026"
   ],
