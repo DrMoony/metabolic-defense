@@ -9,7 +9,7 @@ const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
 const text = (ko, en) => state.lang === 'ko' ? ko : en;
 const strings = {
-  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],liver:['간 가디언','Liver Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],mix:['MASLD : Clinical Obesity 비율 (프로필이 기본일 때만 적용)','MASLD : Clinical Obesity ratio (used when profile is default)'],profile:['행사 프로필 (학회별 주제 가중치)','Event profile (society-specific topic weights)'],drug:['특정 약물 문항 포함 (기본: 숨김)','Include drug-specific questions (default: hidden)'],drugNote:['공정경쟁규약을 고려해 기본 출제에서 제외합니다. 이 설정은 이 기기에 저장됩니다.','Drug-specific questions are excluded by default for fair-competition compliance. Settings are saved on this device.'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],
+  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],mix:['MASLD : Clinical Obesity 비율 (프로필이 기본일 때만 적용)','MASLD : Clinical Obesity ratio (used when profile is default)'],profile:['행사 프로필 (학회별 주제 가중치)','Event profile (society-specific topic weights)'],drug:['특정 약물 문항 포함 (기본: 숨김)','Include drug-specific questions (default: hidden)'],drugNote:['공정경쟁규약을 고려해 기본 출제에서 제외합니다. 이 설정은 이 기기에 저장됩니다.','Drug-specific questions are excluded by default for fair-competition compliance. Settings are saved on this device.'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],
 };
 // Beta reference values are balance data; simulation, meshes and input are rebuilt.
 export const WEAPONS = [
@@ -71,7 +71,7 @@ const WAVES = [
   {duration:33,bossAt:25,boss:'pizzaking',quiz:[8,16,24],spawns:[['soda',1.7,1],['fries',3.1,2],['burger',8.5,5],['pizza',8,4],['icecream',5.8,3],['donut',5.5,3],['wing',5.5,6],['ramen',12,10],['burgerlord',24,11],['sodatitan',28,19],['cake',15,8],['pizzabox',16,15],['bubbletea',17,20]]},
   {duration:34,bossAt:26,boss:'plaque',quiz:[7,14,21,28],spawns:[['soda',1.5,1],['fries',2.8,2],['burger',7.5,5],['pizza',7,3],['icecream',5.4,4],['donut',5,2],['wing',4.8,5],['ramen',10,8],['burgerlord',22,10],['sodatitan',24,16],['energycan',14,7],['mayo',15,12],['popcorn',16,17],['cake',17,21]]},
 ];
-const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,liver:0,pancreas:100,sugar:8,strain:0,glucagon:0,slowField:0,supply:8,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
+const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,kidney:0,pancreas:100,sugar:8,strain:0,glucagon:0,slowField:0,supply:8,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
 state.lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ko';
 const bank=new QuizBank();
@@ -111,7 +111,7 @@ function sample(name,gain=1,rate=1){
 }
 function unlockAudio(){try{audioContext??=new(window.AudioContext||window.webkitAudioContext)();audioContext.resume().catch(()=>{});loadSfx();}catch{}}
 function notice(ko,en,seconds=2.7){$('notice').textContent=text(ko,en);noticeTime=seconds;$('notice').classList.add('show');}
-function stageOfLiver(){return Math.min(3,Math.floor(state.liver/25));}
+function stageOfKidney(){return Math.min(3,Math.floor(state.kidney/25));}
 function pancreaticPower(){return state.failed?0:state.pancreas>60?1:state.pancreas>30?.7:state.pancreas>10?.45:.2;}
 function weaponName(index=state.weapon){return WEAPONS[index].names[state.lang==='ko'?0:1];}
 function updateLanguage(){
@@ -126,7 +126,7 @@ function updateLanguage(){
   $('guide-cards').replaceChildren();
   for(const pair of [
     [['01 / 조준하고 쏘기','다가오는 정크푸드를 쏘세요. 방아쇠를 누르면 연사합니다. 재장전·무기 교체는 화면 버튼으로!'],['01 / Point and shoot','Shoot approaching junk food. Hold the trigger to fire. Use the on-screen reload and weapon buttons.']],
-    [['02 / 장기와 함께 방어','간은 정화 파동, 췌장은 당류 자동 요격. 고혈당이 지속되면 췌장이 지쳐 부전에 빠집니다. 당류 적부터 제거하세요.'],['02 / Protect your allies','The liver pulses; the pancreas targets sugar enemies. Sustained overload can cause permanent failure. Clear sugar enemies first.']],
+    [['02 / 장기와 함께 방어','콩팥은 웨이브로 지상 적을 공격하고, 췌장은 당류 적을 자동 요격합니다. 고혈당이 지속되면 췌장이 지쳐 부전에 빠집니다. 당류 적부터 제거하세요.'],['02 / Protect your allies','The kidney sends out waves; the pancreas targets sugar enemies. Sustained overload can cause permanent failure. Clear sugar enemies first.']],
     [['03 / 지식으로 회복','퀴즈 정답은 무기 승급과 장기 회복! 웨이브 끝의 보스를 처치하고 선택한 맵의 코어를 지켜가요.'],['03 / Knowledge restores','Correct answers upgrade weapons and heal organs. Defeat each wave boss to protect the selected core.']],
   ]){
     const [title,body]=pair[state.lang==='ko'?0:1],card=document.createElement('div');const b=document.createElement('b'),p=document.createElement('p');b.textContent=title;p.textContent=body;card.append(b,p);$('guide-cards').append(card);
@@ -301,7 +301,7 @@ function positionEnemy(enemy){
 function removeEnemy(enemy,dying=false){enemy.dead=true;const index=enemies.indexOf(enemy);if(index>=0)enemies.splice(index,1);world.remove(enemy.model,dying);updateBossHUD();}
 
 function upgrade(){
-  if(state.unlocked>=WEAPONS.length-1){state.liver=clamp(state.liver-15);return;}
+  if(state.unlocked>=WEAPONS.length-1){state.kidney=clamp(state.kidney-15);return;}
   state.unlocked++;state.weapon=state.unlocked;state.reload=0;state.reloadTotal=0;state.reloadFlash=0;state.ammo[state.weapon]=WEAPONS[state.weapon].mag;world.buildGun(state.weapon);
   upgradeTime=3;$('weapon-banner').textContent=text(`무기 획득 · ${weaponName()} · 탄창 ${WEAPONS[state.weapon].mag}`,`WEAPON ACQUIRED · ${weaponName()} · ${WEAPONS[state.weapon].mag} rounds`);$('weapon-banner').style.borderColor=weaponColor(state.weapon);show('weapon-banner',true);
   notice(`무기 승급 · ${weaponName()}`,`WEAPON UPGRADE · ${weaponName()}`);if(!sample('weapon_get',.8))sound(850,.22);
@@ -349,16 +349,16 @@ function damage(enemy,amount,byPlayer=true,point){
   if(enemy.boss){
     if(enemy.waveBoss)state.killedBosses.push(enemy.type);state.slow=.55;world.ring(position,0xffd39b,22);if(!sample('boss_die',1))sound(65,.5,'sawtooth',.06);
     // Sprites visualize the existing immediate recovery reward.
-    state.liver=clamp(state.liver-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;
+    state.kidney=clamp(state.kidney-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;
     const gcgr=enemy.type==='cancer';if(gcgr)state.glucagon=10;world.reward(position,gcgr?'item_gcgr':'item_glp1');
     // 보스를 잡으면 무기도 한 단계 올라간다 (퀴즈·장애물과 함께 세 번째 승급 경로)
     if(enemy.waveBoss&&state.unlocked<WEAPONS.length-1)upgrade();
-    notice('보스 격파! 정화 지원 · 간과 췌장 회복','BOSS DEFEATED · Purification support & organ recovery',3.5);
+    notice('보스 격파! 웨이브 지원 · 콩팥과 췌장 회복','BOSS DEFEATED · Wave support & organ recovery',3.5);
     if(enemy.type==='cancer')for(let i=0;i<5;i++)spawn('fragment',{progress:Math.max(.12,enemy.progress-.30-Math.random()*.12),routeId:enemy.routeId,lane:enemy.lane,from:position});
   }else if(byPlayer&&Math.random()<.08){
     const gcgr=Math.random()<.3;
-    state.core=clamp(state.core+2);state.liver=clamp(state.liver-2);world.ring(position,gcgr?0xffc46b:0xb8e88a,3);
-    if(gcgr){state.glucagon=Math.max(state.glucagon,7);world.reward(position,'item_gcgr');notice('글루카곤 획득 · 정화 파동 증폭','GLUCAGON · purification amplified',2);}
+    state.core=clamp(state.core+2);state.kidney=clamp(state.kidney-2);world.ring(position,gcgr?0xffc46b:0xb8e88a,3);
+    if(gcgr){state.glucagon=Math.max(state.glucagon,7);world.reward(position,'item_gcgr');notice('글루카곤 획득 · 콩팥 웨이브 증폭','GLUCAGON · kidney wave amplified',2);}
     else world.reward(position);
   }
 }
@@ -370,18 +370,14 @@ function collectItem(prop){
   const key=prop.item,position=prop.model.position.clone();
   world.removeProp(prop);world.reward(position,key);sample('rescue',.8);
   if(key==='item_glp1'){
-    state.liver=clamp(state.liver-18);state.core=clamp(state.core+6);
-    notice('GLP-1 · 간 회복 · 생명 +6','GLP-1 · liver restored · life +6',2.4);
+    state.kidney=clamp(state.kidney-18);state.core=clamp(state.core+6);
+    notice('GLP-1 · 콩팥 회복 · 생명 +6','GLP-1 · kidney restored · life +6',2.4);
   }else if(key==='item_gcgr'){
     state.glucagon=Math.max(state.glucagon,10);
-    notice('글루카곤 · 정화 파동 증폭','GLUCAGON · purification amplified',2.4);
+    notice('글루카곤 · 콩팥 웨이브 증폭','GLUCAGON · kidney wave amplified',2.4);
   }else if(key==='item_fiber'){
     state.slowField=Math.max(state.slowField,9);world.ring(position,0x9ce8a4,26);
     notice('식이섬유 · 지상 적 감속 9초','FIBER · ground enemies slowed for 9s',2.4);
-  }else if(key==='item_bile'){
-    world.ring(world.liver.position,0x7fe6c8,world.pulseRingRadius||60);world.shake=1.2;
-    for(const enemy of [...enemies])if(!enemy.fly){enemy.progress=Math.max(.02,enemy.progress-.14);damage(enemy,1.5,false);}
-    notice('담즙 방출 · 지상 적을 밀어냈어요','BILE FLUSH · ground enemies pushed back',2.4);
   }
 }
 // 두 적이 화면에서 얼마나 가까운지 (월드 거리는 원근 때문에 멀리서 과장된다)
@@ -477,7 +473,7 @@ function auraArmor(enemy){
 }
 function reload(){
   if(state.phase!=='combat'||state.paused||state.difficulty==='easy'||state.reload>0||state.ammo[state.weapon]===WEAPONS[state.weapon].mag)return;
-  state.reload=WEAPONS[state.weapon].reload*(1+stageOfLiver()*.16)*(state.shots>5&&state.hits/state.shots>.7?.88:1);
+  state.reload=WEAPONS[state.weapon].reload*(1+stageOfKidney()*.16)*(state.shots>5&&state.hits/state.shots>.7?.88:1);
   state.reloadTotal=state.reload;state.reloadFlash=0;updateReticle();if(!sample('reload_click',.7))sound(330,.12,'sine');
 }
 function swap(){
@@ -555,7 +551,7 @@ function openQuiz(transition=false){
   if(!bank.ready)return;
   state.quiz=bank.draw(state.difficulty);state.quizTotal++;state.quizTime=18;state.selection=null;state.answered=false;state.feedbackTime=0;quizTransition=transition;
   setPhase('quiz');$('answers').replaceChildren();$('question').textContent=state.quiz.q;$('feedback').textContent='';$('source').textContent='';$('explain').textContent='';show('explain',false);$('submit').disabled=true;show('submit',true);show('quiz-next',false);
-  $('quiz-tag').textContent=`KNOWLEDGE / ${state.quiz.set==='masld'?'MASLD · MASH':'CLINICAL OBESITY'} / ${state.quiz.diff.toUpperCase()}`;
+  $('quiz-tag').textContent=`KNOWLEDGE / DIABETES · CARDIORENAL / ${state.quiz.diff.toUpperCase()}`;
   shuffled([0,1,2,3]).forEach((answer,index)=>{
     const button=document.createElement('button');button.dataset.answer=answer;button.textContent=`${String(index+1).padStart(2,'0')}  ${state.quiz.a[answer]}`;
     tap(button,()=>{
@@ -571,9 +567,9 @@ function answerQuiz(){
   state.feedbackTime=state.quiz.exp?14:1.4;
   [...$('answers').children].forEach(button=>{button.disabled=true;button.classList.remove('selected');button.classList.toggle('correct',Number(button.dataset.answer)===state.quiz.correct);button.classList.toggle('wrong',Number(button.dataset.answer)===state.selection&&!correct);});
   if(correct){
-    state.correct++;state.score+=1500+Math.round(state.quizTime/18*500);state.core=clamp(state.core+8);state.liver=clamp(state.liver-25);state.sugar=clamp(state.sugar-20);
+    state.correct++;state.score+=1500+Math.round(state.quizTime/18*500);state.core=clamp(state.core+8);state.kidney=clamp(state.kidney-25);state.sugar=clamp(state.sugar-20);
     if(!state.failed){state.pancreas=clamp(state.pancreas+30);state.strain=Math.max(0,state.strain-6);}upgrade();
-    $('feedback').textContent=text('정답! 무기 승급 · 생명 +8 · 간 회복', 'Correct! Weapon upgrade · life +8 · liver restored');if(!sample('quiz_ok',.8))sound(950,.2);
+    $('feedback').textContent=text('정답! 무기 승급 · 생명 +8 · 콩팥 회복', 'Correct! Weapon upgrade · life +8 · kidney restored');if(!sample('quiz_ok',.8))sound(950,.2);
   }else{
     $('feedback').textContent=text(`정답: ${state.quiz.a[state.quiz.correct]}`,`Correct answer: ${state.quiz.a[state.quiz.correct]}`);if(!sample('quiz_no',.7))sound(150,.2,'sine');
   }
@@ -588,7 +584,7 @@ function continueQuiz(){
 }
 function finish(victory){
   state.core=clamp(state.core);setPhase('result');state.victory=victory;
-  const bonus=victory?Math.round(state.core*25+(100-state.liver)*15+state.pancreas*15):0;state.score+=bonus;
+  const bonus=victory?Math.round(state.core*25+(100-state.kidney)*15+state.pancreas*15):0;state.score+=bonus;
   const previous=storage.get('best',0);storage.set('best',Math.max(Number.isFinite(previous)?previous:0,state.score));
   $('result-title').textContent=victory?text('다시 흐르는 생명','Life flows again'):text('끝나지 않은 여정','The journey continues');
   $('result-map').textContent=`${text(...getMap(state.map).names)} / ${text(...getMap(state.map).core)}`;
@@ -611,7 +607,7 @@ function combat(dt){
   if(state.waveTime>=10&&!events.has('trap')){events.add('trap');world.spawnTrap();notice('지방 덫 · 자물쇠를 쏘면 코어가 회복돼요','FAT TRAP · Shoot the lock to restore the core');}
   const sugarCount=enemies.filter(e=>e.sugar).length;
   state.sugar=clamp(state.sugar+(sugarCount*2.2-3)*dt);
-  if(state.sugar>70)state.liver=clamp(state.liver+dt*1.1);
+  if(state.sugar>70)state.kidney=clamp(state.kidney+dt*1.1);
   for(const enemy of [...enemies]){
     // Bosses advance in 28s; regular soda lane travel is approximately 28s on NORMAL.
     const travel=enemy.boss?28:25*(3.2/enemy.speed);
@@ -620,8 +616,8 @@ function combat(dt){
     positionEnemy(enemy);
     tickTraits(enemy,dt,tuning);
     if(enemy.progress>.86&&!enemy.guarded&&!enemy.fly){
-      enemy.guarded=true;state.liver=clamp(state.liver+enemy.impact*.35*tuning.impact);
-      if(!enemy.boss&&stageOfLiver()<3){damage(enemy,[1.5,1,.5][stageOfLiver()]||0,false);}
+      enemy.guarded=true;state.kidney=clamp(state.kidney+enemy.impact*.35*tuning.impact);
+      if(!enemy.boss&&stageOfKidney()<3){damage(enemy,[1.5,1,.5][stageOfKidney()]||0,false);}
     }
     if(!enemy.dead&&enemy.progress>=1){
       state.core=clamp(state.core-enemy.impact*tuning.impact);state.combo=0;flashTime=.35;world.shake=1;
@@ -659,7 +655,7 @@ function combat(dt){
   if(state.pulse<=0){
     // 맵 전체를 훑는 대신 한 번의 피해는 작다. 글루카곤을 얻으면 더 자주, 더 세게 돈다.
     const rate=state.glucagon>0?.42:state.boost>0?.6:1;
-    state.pulse=[7,8.5,10,13][stageOfLiver()]*rate*DIFFICULTY[state.difficulty].pulse;
+    state.pulse=[7,8.5,10,13][stageOfKidney()]*rate*DIFFICULTY[state.difficulty].pulse;
     world.pulse();if(!sample('pulse',.6))sound(390,.14,'sine',.018);
     const power=state.glucagon>0?1.5:.5;
     for(const enemy of [...enemies])if(!enemy.fly)damage(enemy,power,false);   // 땅을 걷는 적은 맵 어디에 있든 맞는다
@@ -673,7 +669,7 @@ function combat(dt){
     if(state.strain>=PANCREAS.strainLimit){state.failed=true;state.pancreas=0;notice('췌장부전 · 이번 판 인슐린 지원이 중단됩니다.','PANCREATIC FAILURE · Insulin support lost for this run.',4);}
     state.insulin-=dt;
     if(targets.length&&state.insulin<=0&&!state.failed){
-      state.insulin=1+stageOfLiver()*.25;state.pancreas=clamp(state.pancreas-(state.sugar>70?PANCREAS.drainHigh:PANCREAS.drain));
+      state.insulin=1+stageOfKidney()*.25;state.pancreas=clamp(state.pancreas-(state.sugar>70?PANCREAS.drainHigh:PANCREAS.drain));
       const target=targets[0];world.fireTurret();
       sample('insulin',.35);world.bolt(world.tip.getWorldPosition(new THREE.Vector3()),target,1.2*pancreaticPower(),(e,d)=>damage(e,d,false));
     }
@@ -714,11 +710,11 @@ function updateHUD(){
   $('wave-name').textContent=`${state.wave===WAVES.length-1?'FINAL ':''}WAVE ${String(state.wave+1).padStart(2,'0')} / ${String(WAVES.length).padStart(2,'0')}`;
   $('wave-progress').style.width=`${clamp(state.waveTime/WAVES[state.wave].duration*100)}%`;
   $('wave-clock').textContent=`${Math.floor(state.waveTime)}s / ${WAVES[state.wave].duration}s`;
-  $('liver-state').textContent=text(['건강 · 정화 파동 정상','MASLD · 파동 둔화','MASH · 보급 저하','섬유화 · 방어 약화'][stageOfLiver()],['Healthy · purification online','MASLD · slower pulses','MASH · reduced support','Fibrosis · weakened defense'][stageOfLiver()]);
-  $('liver-fill').style.width=`${100-state.liver}%`;$('pulse-time').textContent=state.glucagon>0?text(`글루카곤 증폭 · 다음 정화 ${Math.ceil(state.pulse)}초`,`Glucagon boost · next pulse ${Math.ceil(state.pulse)}s`):text(`다음 정화 ${Math.ceil(state.pulse)}초`,`Next pulse ${Math.ceil(state.pulse)}s`);
+  $('kidney-state').textContent=text(['건강 · 웨이브 정상','과부하 · 웨이브 둔화','기능 저하 · 보급 저하','손상 · 방어 약화'][stageOfKidney()],['Healthy · wave online','Overloaded · slower waves','Declining · reduced support','Damaged · weakened defense'][stageOfKidney()]);
+  $('kidney-fill').style.width=`${100-state.kidney}%`;$('pulse-time').textContent=state.glucagon>0?text(`글루카곤 증폭 · 다음 웨이브 ${Math.ceil(state.pulse)}초`,`Glucagon boost · next wave ${Math.ceil(state.pulse)}s`):text(`다음 웨이브 ${Math.ceil(state.pulse)}초`,`Next wave ${Math.ceil(state.pulse)}s`);
   $('pancreas-state').textContent=state.failed?text('췌장부전 · 지원 중단','Failure · support offline'):text(`기능 ${Math.round(state.pancreas)}% · ${state.pancreas>60?'지원 사격 중':state.pancreas>30?'인슐린 약화':state.pancreas>10?'과로 상태':'인슐린 저항성 · 무력화'}`,`Function ${Math.round(state.pancreas)}% · ${state.pancreas>60?'supporting fire':state.pancreas>30?'insulin weakening':state.pancreas>10?'overworked':'insulin resistance'}`);
   $('pancreas-fill').style.width=`${state.pancreas}%`;$('strain').textContent=state.strain>0?text(`부전 부담 ${state.strain.toFixed(1)} / ${PANCREAS.strainLimit}초`,`Failure strain ${state.strain.toFixed(1)} / ${PANCREAS.strainLimit}s`):text('당류 적 자동 요격','Auto-targeting sugar enemies');
-  $('warning').textContent=state.failed?text('췌장부전 · 이번 판 회복 불가','PANCREATIC FAILURE · irreversible this run'):state.pancreas<=10?text('인슐린 무력화! 당류 적을 먼저 제거하세요','INSULIN RESISTANCE · clear sugar enemies'):state.sugar>70?text('고혈당 · 간과 췌장 부담 증가','HIGH GLUCOSE · liver & pancreas under strain'):'';
+  $('warning').textContent=state.failed?text('췌장부전 · 이번 판 회복 불가','PANCREATIC FAILURE · irreversible this run'):state.pancreas<=10?text('인슐린 무력화! 당류 적을 먼저 제거하세요','INSULIN RESISTANCE · clear sugar enemies'):state.sugar>70?text('고혈당 · 콩팥과 췌장 부담 증가','HIGH GLUCOSE · kidney & pancreas under strain'):'';
   $('weapon-tier').textContent=`ARSENAL ${String(state.weapon+1).padStart(2,'0')} / 12`;$('weapon-name').textContent=weaponName();
   $('ammo').textContent=state.difficulty==='easy'?text('∞ 무제한 탄약','∞ UNLIMITED AMMO'):state.reload>0?text(`재장전 ${state.reload.toFixed(1)}초`,`RELOAD ${state.reload.toFixed(1)}s`):`${state.ammo[state.weapon]} / ${WEAPONS[state.weapon].mag}`;
   $('reload').disabled=state.difficulty==='easy'||state.reload>0||state.ammo[state.weapon]===WEAPONS[state.weapon].mag;$('swap').disabled=state.unlocked<1;
@@ -778,7 +774,7 @@ function bindUI(){
   tap($('restart'),()=>{world.clear();enemies.length=0;state.paused=false;world.selectMap(state.map);setPhase('home');updateLanguage();});
   tap($('admin-open'),()=>{
     $('mix').value=bank.mix;$('drug').checked=bank.drug;$('profile').value=bank.profile;
-    $('bank-info').textContent=text(`공유 문제은행: MASLD ${bank.sets.masld.length}문 · Obesity ${bank.sets.obesity.length}문 / 최근 24문항 중복 회피`,`Shared banks: MASLD ${bank.sets.masld.length} · Obesity ${bank.sets.obesity.length} / avoids the last 24 questions`);setPhase('admin');
+    $('bank-info').textContent=text(`문제은행: 당뇨-Empa only ${bank.sets.empa.length}문 / 최근 24문항 중복 회피`,`Question bank: Diabetes-Empa only ${bank.sets.empa.length} / avoids the last 24 questions`);setPhase('admin');
   });
   tap($('admin-close'),()=>{
     const saved=bank.configure(Number($('mix').value),$('drug').checked,$('profile').value);setPhase('home');

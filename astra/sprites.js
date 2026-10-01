@@ -43,7 +43,7 @@ export function texture(key){
 }
 export function preloadSprites(){
   for(const art of Object.values(ENEMY_ART))art.frames.forEach(texture);
-  [...WEAPON_ART,'organ_liver','organ_pancreas','fatwall','trapcage','traplock','item_glp1','item_gcgr','item_fiber'].forEach(texture);
+  [...WEAPON_ART,'organ_kidney','organ_pancreas','fatwall','trapcage','traplock','item_glp1','item_gcgr','item_fiber'].forEach(texture);
   return Promise.all(spriteLoads);
 }
 

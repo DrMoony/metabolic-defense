@@ -53,15 +53,15 @@ export class World {
     this.scene.add(this.dust);this.dummy=new THREE.Object3D();
   }
   buildOrgans(){
-    for(const name of ['liver','pancreas']){
+    for(const name of ['kidney','pancreas']){
       const root=new THREE.Group(),body=cutout(`organ_${name}`,1);
       root.add(body);root.userData.body=body;this.scene.add(root);this[name]=root;
     }
-    this.liverBody=this.liver.userData.body;
+    this.kidneyBody=this.kidney.userData.body;
     this.turret=new THREE.Object3D();this.pancreas.add(this.turret);
     this.tip=new THREE.Object3D();this.tip.position.set(-.32,.57,.03);this.pancreas.add(this.tip);
     this.charge=glow(this.tip,0x65ffff,[0,0,0],.3,0);
-    this.turretDirection=V(-1,0,0);this.turretRecoil=0;this.liverPulse=0;
+    this.turretDirection=V(-1,0,0);this.turretRecoil=0;this.kidneyPulse=0;
   }
   configureMap(){
     if(this.map.plate){
@@ -78,12 +78,12 @@ export class World {
     }
   }
   placeOrgans(){
-    for(const name of ['liver','pancreas']){
+    for(const name of ['kidney','pancreas']){
       const model=this[name];
       if(this.map.plate){
         const data=this.map.organs[name];model.position.copy(groundPoint(this.camera,data.at));
         model.userData.baseScale=screenHeight(this.camera,model.position,data.height);
-      }else{model.position.set(name==='liver'?-8.3:9.2,0,name==='liver'?-9:-6);model.userData.baseScale=name==='liver'?7.5:5;}
+      }else{model.position.set(name==='kidney'?-8.3:9.2,0,name==='kidney'?-9:-6);model.userData.baseScale=name==='kidney'?7.5:5;}
       model.quaternion.copy(this.camera.quaternion);model.scale.setScalar(model.userData.baseScale);
       // The source turret points right; turn it toward the playable road on right-hand islands.
       if(name==='pancreas'){
@@ -91,26 +91,26 @@ export class World {
         model.userData.body.scale.x=Math.abs(model.userData.body.scale.x)*facing;this.tip.position.x=.32*facing;
       }
     }
-    // 정화 파동은 맵 전체를 덮는다. 넓은 대신 한 번에 주는 피해는 작다(main.js).
+    // 콩팥 웨이브는 맵 전체를 덮는다. 넓은 대신 한 번에 주는 피해는 작다(main.js).
     this.pulseRadius=25;this.pulseRingRadius=25;this.pulseCoverage=[];
     if(this.map.plate){
-      const doc=this.terrain.document,liver=this.liver.position;
+      const doc=this.terrain.document,kidney=this.kidney.position;
       this.pulseCoverage=[...doc.routes.flatMap(r=>r.points),...doc.trunk];
-      const far=Math.max(0,...this.pulseCoverage.map(p=>liver.distanceTo(groundPoint(this.camera,p))));
+      const far=Math.max(0,...this.pulseCoverage.map(p=>kidney.distanceTo(groundPoint(this.camera,p))));
       this.pulseRadius=far+8;
       // 링은 화면에 보기 좋은 크기까지만 퍼진다. 피해 판정은 맵 전체(main.js).
       this.pulseRingRadius=Math.min(this.pulseRadius,88);
     }
-    // 간이 화면에서 차지하는 폭을 재서 웨이브·보스 HUD를 그 바깥으로 밀어 둔다
+    // 콩팥이 화면에서 차지하는 폭을 재서 웨이브·보스 HUD를 그 바깥으로 밀어 둔다
     this.hudLeft=42;
-    if(this.map.plate&&this.liverBody){
-      const base=this.liver.scale.x;this.liver.scale.setScalar(this.liver.userData.baseScale*1.18);this.scene.updateMatrixWorld(true);
+    if(this.map.plate&&this.kidneyBody){
+      const base=this.kidney.scale.x;this.kidney.scale.setScalar(this.kidney.userData.baseScale*1.18);this.scene.updateMatrixWorld(true);
       const xs=[],ys=[];
       for(const [lx,ly] of [[-.5,0],[.5,0],[-.5,1],[.5,1]]){
-        const p=this.liverBody.localToWorld(new THREE.Vector3(lx,ly,0)).project(this.camera);
+        const p=this.kidneyBody.localToWorld(new THREE.Vector3(lx,ly,0)).project(this.camera);
         xs.push((p.x+1)/2);ys.push((1-p.y)/2);
       }
-      this.liver.scale.setScalar(base);this.scene.updateMatrixWorld(true);
+      this.kidney.scale.setScalar(base);this.scene.updateMatrixWorld(true);
       const box={left:Math.min(...xs),right:Math.max(...xs),top:Math.min(...ys)};
       const WIDTH=.23;
       if(box.top>.2)this.hudLeft=42;
@@ -135,9 +135,9 @@ export class World {
     bar.visible=!!enemy.boss||(enemy.showHealth&&enemy.hp<enemy.maxHp);
   }
   pulse(){
-    this.liverPulse=.35;this.liver.scale.setScalar(this.liver.userData.baseScale*1.18);
-    this.liverBody.material.color.setHex(0xd5ef9c);
-    this.ring(this.liver.position,0xd5ef9c,this.pulseRingRadius||this.pulseRadius);
+    this.kidneyPulse=.35;this.kidney.scale.setScalar(this.kidney.userData.baseScale*1.18);
+    this.kidneyBody.material.color.setHex(0x8fe9ff);
+    this.ring(this.kidney.position,0x8fe9ff,this.pulseRingRadius||this.pulseRadius);
   }
   aimTurret(target,charge=0){
     this.charge.material.opacity=target?charge*.95:0;
@@ -321,7 +321,7 @@ export class World {
     for(const model of [...this.root.children])this.remove(model);
     for(const entry of [...this.rewards,...this.props])disposeBillboard(entry.model);this.deaths=[];this.rewards=[];this.props=[];
     this.particles=[];this.sparks.count=0;
-    this.liverPulse=0;this.turretRecoil=0;this.charge.material.opacity=0;this.pancreas.userData.body.position.set(0,0,0);this.pancreas.userData.body.rotation.z=0;
+    this.kidneyPulse=0;this.turretRecoil=0;this.charge.material.opacity=0;this.pancreas.userData.body.position.set(0,0,0);this.pancreas.userData.body.rotation.z=0;
     for(const p of this.projectiles)this.disposeBolt(p);this.projectiles=[];
     for(const p of this.fx)this.disposeFx(p);this.fx=[];
   }
@@ -342,9 +342,9 @@ export class World {
     this.camera.updateMatrixWorld(true);
     this.kick=Math.max(0,this.kick-dt*7);this.gun.visible=active&&state.phase!=='result';this.gun.position.copy(this.gun.userData.rest);this.gun.position.z+=this.kick*.08;this.gun.position.y-=this.kick*.025;this.gun.rotation.z=-this.kick*.045;this.muzzleFlash.material.opacity=this.kick*.95;
     this.hitLight.intensity*=Math.exp(-dt*20);
-    this.liver.quaternion.copy(this.camera.quaternion);this.pancreas.quaternion.copy(this.camera.quaternion);this.liverPulse=Math.max(0,this.liverPulse-dt);const pulse=this.liverPulse/.35;
-    this.liver.scale.setScalar(this.liver.userData.baseScale*(1+.18*pulse));
-    this.liverBody.material.color.setHex(0xffffff).lerp(new THREE.Color(0x66503b),state.liver/100).lerp(new THREE.Color(0xd5ef9c),pulse*.85);
+    this.kidney.quaternion.copy(this.camera.quaternion);this.pancreas.quaternion.copy(this.camera.quaternion);this.kidneyPulse=Math.max(0,this.kidneyPulse-dt);const pulse=this.kidneyPulse/.35;
+    this.kidney.scale.setScalar(this.kidney.userData.baseScale*(1+.18*pulse));
+    this.kidneyBody.material.color.setHex(0xffffff).lerp(new THREE.Color(0x66503b),state.kidney/100).lerp(new THREE.Color(0x8fe9ff),pulse*.85);
     this.pancreas.scale.setScalar(this.pancreas.userData.baseScale*(1+Math.sin(t*2.4)*.015));
     this.turretRecoil=Math.max(0,this.turretRecoil-dt*.8);
     const back=this.turretDirection.clone().applyQuaternion(this.pancreas.quaternion.clone().invert()).multiplyScalar(-this.turretRecoil/this.pancreas.scale.x);

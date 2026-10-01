@@ -1,3 +1,11 @@
+# ASTRA · Metabolic Defense — ICDM2026 (자디앙 부스 리뷰용)
+
+> `ICDM2026` 브랜치는 astra를 자디앙(Jardiance, empagliflozin) 부스용으로 좁힌 리뷰 빌드예요.
+> - 맵: **관상동맥(심장) 1종만** 노출 (`maps/index.js`). 간 관련 맵 포함 나머지 맵 파일은 남겨두되 로드하지 않아요.
+> - 간 가디언 → **콩팥 가디언(Kidney Guardian)**. 정화 파동 → **콩팥 웨이브**. 메커닉·수치는 그대로이고 이름·문구·색(청록)만 바꿨어요. 스프라이트 `../assets/kidney.png`는 ChatGPT 웹으로 간 스프라이트를 스타일 레퍼런스 삼아 생성했어요.
+> - 퀴즈: **당뇨-Empa only(`quiz_dm_empa_*.json`, 36문항)만** 출제. 학회 프로필·MASLD/Obesity 비율·약물 필터는 끄고 운영자 화면에서 숨겼어요.
+> - 아래 본문(7맵 설명 등)은 원래 astra 기준 문서예요.
+
 # ASTRA · Metabolic Defense
 
 7개 맵을 `../assets/maps/map_<key>.jpg` 플레이트 위에서 플레이할 수 있어요. 그림 속 길의 화면상 거리에 따라 진행률을 계산하고 y=0 평면으로 역투영해 적을 배치해요. 몬스터·보스·장기·소품·아이템·무기는 생성 PNG 빌보드로 그리며 빌드 도구 없이 `../vendor/three.module.js`를 직접 가져와요.

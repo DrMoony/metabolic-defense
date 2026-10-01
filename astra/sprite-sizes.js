@@ -47,6 +47,6 @@ export const SPRITE_SIZES = {
   "w11_laser": [640, 447],
   "wing_0": [512, 498],
   "wing_1": [512, 498],
-  "organ_liver": [640, 635],
+  "organ_kidney": [427, 640],
   "organ_pancreas": [768, 768],
 };

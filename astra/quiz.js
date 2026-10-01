@@ -26,7 +26,8 @@ export const PROFILES = {
 };
 export class QuizBank {
   constructor() {
-    this.sets = { masld: [], obesity: [] };
+    // ICDM2026: 자디앙 부스용 — 당뇨-Empa only 문제은행(quiz_dm_empa) 하나만 출제한다.
+    this.sets = { empa: [] };
     this.mix = [0, 30, 50, 70, 100].includes(storage.get('mix', 30)) ? storage.get('mix', 30) : 30;   // 기본 MASLD 30 : Clinical Obesity 70 (임상 비만 중심)
     this.drug = storage.get('drug', false) === true;
     this.profile = PROFILES[storage.get('profile', 'none')] ? storage.get('profile', 'none') : 'none';
@@ -40,8 +41,8 @@ export class QuizBank {
   async load(language) {
     const request = ++this.version;
     this.ready = false;
-    const entries = await Promise.all(['masld', 'obesity'].map(async set => {
-      const file = set === 'masld' ? 'aasld' : 'obesity';
+    const entries = await Promise.all(['empa'].map(async set => {
+      const file = 'dm_empa';
       const response = await fetch(`../assets/quiz_${file}_${language}.json`);
       if (!response.ok) throw new Error(`Quiz HTTP ${response.status}`);
       const rows = await response.json();
@@ -89,16 +90,17 @@ export class QuizBank {
     return shuffled(matching.length ? matching : pick)[0];
   }
   reset() { this.used.clear(); this.schedule = []; }
-  visible(set) { return this.sets[set].filter(row => this.drug || row.drug !== true); }
+  visible(set) { return this.sets[set]; }   // ICDM2026: 자디앙 문항은 약물 필터를 적용하지 않는다
   draw(difficulty) {
     if (!this.ready) throw new Error('Quiz bank is not ready');
-    if (this.profile !== 'none') {
+    if (false) {   // ICDM2026: 학회 프로필 가중 출제 비활성
       const question = this.drawByProfile(difficulty);
       if (question) { this.used.add(question.id); this.recent = [...this.recent.filter(id => id !== question.id), question.id].slice(-24); storage.set('recent', this.recent); return question; }
     }
     // Exact ratios over every ten draws, including single-set 0/100 configurations.
     if (!this.schedule.length) this.schedule = shuffled(Array.from({ length: 10 }, (_, i) => i < this.mix / 10 ? 'masld' : 'obesity'));
-    const set = this.schedule.pop();
+    this.schedule.pop();
+    const set = 'empa';
     const all = this.visible(set);
     if (!all.length) throw new Error('Selected quiz bank has no eligible questions');
     let candidates = all.filter(row => !this.recent.includes(row.id) && !this.used.has(row.id));
