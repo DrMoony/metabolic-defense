@@ -1,0 +1,1 @@
+export default {key:'islet',ready:false,chapter:'07',names:['췌장 랑게르한스섬','Pancreatic islets'],core:['베타세포 섬','Beta-cell islet'],palette:{background:0x1e4145,accent:0x8feddf},routes:[],landmarks:[],plan:['inter-islet waterways','insulin secretion channels','exhausted beta cells / T2D']};

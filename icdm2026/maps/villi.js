@@ -1,0 +1,1 @@
+export default {key:'villi',ready:false,chapter:'08',names:['소장 융모 · 흡수 계곡','Villi valley'],core:['소장','Small intestine'],palette:{background:0x3a1b1e,accent:0xffb27a},routes:[],landmarks:[],plan:['Blender로 지은 첫 맵: 지형·카메라·경로가 한 좌표계'],legacy:{ready:false}};

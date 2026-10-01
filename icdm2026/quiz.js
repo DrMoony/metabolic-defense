@@ -1,0 +1,121 @@
+// Shared source banks remain read-only. No locally authored fallback questions.
+export function shuffled(values, random = Math.random) {
+  const result = [...values];
+  for (let end = result.length - 1; end > 0; end--) {
+    const index = Math.floor(random() * (end + 1));
+    [result[end], result[index]] = [result[index], result[end]];
+  }
+  return result;
+}
+export const storage = {
+  get(name, fallback) {
+    try { const value = localStorage.getItem(`icdm_${name}`); return value === null ? fallback : JSON.parse(value); }
+    catch { return fallback; }
+  },
+  set(name, value) {
+    try { localStorage.setItem(`icdm_${name}`, JSON.stringify(value)); return true; }
+    catch { return false; }
+  },
+};
+// 행사 프로필: 학회별 주제 가중치. 'none'이면 기존 세트 비율(mix) 방식.
+export const PROFILES = {
+  ksso: { obesity: 30, clinical_obesity: 20, visceral_fat: 15, metabolic_syndrome: 10, masld: 10, lifestyle: 10, stigma_communication: 5 },
+  kda:  { diabetes_link: 25, obesity: 20, masld: 20, visceral_fat: 10, metabolic_syndrome: 10, lifestyle: 10, clinical_obesity: 5 },
+  kasl: { masld: 55, visceral_fat: 15, obesity: 15, diabetes_link: 10, metabolic_syndrome: 5 },
+  ksc:  { cardio_link: 30, metabolic_syndrome: 20, visceral_fat: 20, obesity: 15, masld: 10, lifestyle: 5 },
+};
+export class QuizBank {
+  constructor() {
+    // ICDM2026: 자디앙 부스용 — 당뇨-Empa only 문제은행(quiz_dm_empa) 하나만 출제한다.
+    this.sets = { empa: [] };
+    this.mix = [0, 30, 50, 70, 100].includes(storage.get('mix', 30)) ? storage.get('mix', 30) : 30;   // 기본 MASLD 30 : Clinical Obesity 70 (임상 비만 중심)
+    this.drug = storage.get('drug', false) === true;
+    this.profile = PROFILES[storage.get('profile', 'none')] ? storage.get('profile', 'none') : 'none';
+    const history = storage.get('recent', []);
+    this.recent = Array.isArray(history) ? history.filter(id => typeof id === 'string').slice(-24) : [];
+    this.schedule = [];
+    this.used = new Set();
+    this.ready = false;
+    this.version = 0;
+  }
+  async load(language) {
+    const request = ++this.version;
+    this.ready = false;
+    const entries = await Promise.all(['empa'].map(async set => {
+      const file = 'dm_empa';
+      const response = await fetch(`../assets/quiz_${file}_${language}.json`);
+      if (!response.ok) throw new Error(`Quiz HTTP ${response.status}`);
+      const rows = await response.json();
+      if (!Array.isArray(rows)) throw new Error('Invalid quiz bank');
+      const valid = rows.map((row, index) => ({ ...row, set, id: `${set}:${index}` })).filter(row =>
+        typeof row.q === 'string' && Array.isArray(row.a) && row.a.length === 4 && row.a.every(a => typeof a === 'string') &&
+        Number.isInteger(row.correct) && row.correct >= 0 && row.correct < 4 && ['easy', 'mid', 'hard'].includes(row.diff));
+      if (!valid.length) throw new Error('Empty quiz bank');
+      return [set, valid];
+    }));
+    if (request !== this.version) return false;
+    this.sets = Object.fromEntries(entries);
+    this.ready = true;
+    this.reset();
+    return true;
+  }
+  configure(mix, drug, profile = 'none') {
+    this.mix = [0, 30, 50, 70, 100].includes(Number(mix)) ? Number(mix) : 30;
+    this.drug = drug === true;
+    this.profile = PROFILES[profile] ? profile : 'none';
+    const savedMix = storage.set('mix', this.mix);
+    const savedDrug = storage.set('drug', this.drug);
+    const savedProfile = storage.set('profile', this.profile);
+    this.reset();
+    return savedMix && savedDrug && savedProfile;
+  }
+  // 프로필이 켜져 있으면 두 세트를 합쳐 학회 태그로 거르고, 주제 가중치로 뽑는다.
+  drawByProfile(difficulty) {
+    const weights = PROFILES[this.profile];
+    const pool = [...this.visible('masld'), ...this.visible('obesity')].filter(row => row.fit !== 'off' && Array.isArray(row.societies) && row.societies.includes(this.profile));
+    if (!pool.length) return null;
+    const fresh = pool.filter(row => !this.recent.includes(row.id) && !this.used.has(row.id));
+    const base = fresh.length ? fresh : pool.filter(row => !this.used.has(row.id));
+    if (!base.length) { pool.forEach(row => this.used.delete(row.id)); return this.drawByProfile(difficulty); }
+    // 후보가 있는 주제만 가중 추첨
+    const topics = Object.entries(weights).filter(([t]) => base.some(row => (row.topics || []).includes(t)));
+    let pick = base;
+    if (topics.length) {
+      const total = topics.reduce((s, [, w]) => s + w, 0);
+      let r = Math.random() * total, chosen = topics[0][0];
+      for (const [t, w] of topics) { r -= w; if (r <= 0) { chosen = t; break; } }
+      pick = base.filter(row => (row.topics || []).includes(chosen));
+    }
+    const matching = pick.filter(row => row.diff === difficulty);
+    return shuffled(matching.length ? matching : pick)[0];
+  }
+  reset() { this.used.clear(); this.schedule = []; }
+  visible(set) { return this.sets[set]; }   // ICDM2026: 자디앙 문항은 약물 필터를 적용하지 않는다
+  draw(difficulty) {
+    if (!this.ready) throw new Error('Quiz bank is not ready');
+    if (false) {   // ICDM2026: 학회 프로필 가중 출제 비활성
+      const question = this.drawByProfile(difficulty);
+      if (question) { this.used.add(question.id); this.recent = [...this.recent.filter(id => id !== question.id), question.id].slice(-24); storage.set('recent', this.recent); return question; }
+    }
+    // Exact ratios over every ten draws, including single-set 0/100 configurations.
+    if (!this.schedule.length) this.schedule = shuffled(Array.from({ length: 10 }, (_, i) => i < this.mix / 10 ? 'masld' : 'obesity'));
+    this.schedule.pop();
+    const set = 'empa';
+    const all = this.visible(set);
+    if (!all.length) throw new Error('Selected quiz bank has no eligible questions');
+    let candidates = all.filter(row => !this.recent.includes(row.id) && !this.used.has(row.id));
+    if (!candidates.length) candidates = all.filter(row => !this.used.has(row.id));
+    if (!candidates.length) {
+      all.forEach(row => this.used.delete(row.id));
+      // Prefer the least recently asked question when a small pool is exhausted.
+      const oldest = Math.min(...all.map(row => this.recent.indexOf(row.id)));
+      candidates = all.filter(row => this.recent.indexOf(row.id) === oldest);
+    }
+    const matching = candidates.filter(row => row.diff === difficulty);
+    const question = shuffled(matching.length ? matching : candidates)[0];
+    this.used.add(question.id);
+    this.recent = [...this.recent.filter(id => id !== question.id), question.id].slice(-24);
+    storage.set('recent', this.recent);
+    return question;
+  }
+}

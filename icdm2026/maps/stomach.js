@@ -1,0 +1,1 @@
+export default {key:'stomach',ready:false,chapter:'05',names:['위','Stomach'],core:['유문','Pylorus'],palette:{background:0x542836,accent:0xff9f9d},routes:[],landmarks:[],plan:['rugae ridges','gastric acid pools','pyloric gate']};
