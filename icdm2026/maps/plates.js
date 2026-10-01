@@ -4,7 +4,7 @@ const route=(id,names,points)=>({id,names,points:points.map(point)});
 // 간 가디언·췌장 포탑은 플레이트 기준 측정치보다 30% 크게 세운다 (사용자 피드백)
 const ORGAN_SCALE=1.3;
 const organ=(at,height)=>({at:point(at),height:height*ORGAN_SCALE/941});
-const landmark=(kind,at,size,hp=0)=>({kind,at:point(at),size:size.map((n,i)=>n/(i?941:1672)),hp,names:({plaque:['플라크 협착','Plaque stenosis'],fat:['지방 둔덕','Fat mound'],stone:['징검다리','Stepping stone'],bridge:['섬 연결 다리','Island bridge'],fibrosis:['섬유화 띠','Fibrosis band'],macrophage:['대식세포 군집','Macrophage cluster'],crystal:['요산 결석','Urate stone']})[kind]});
+const landmark=(kind,at,size,hp=0)=>({kind,at:point(at),size:size.map((n,i)=>n/(i?941:1672)),hp,names:({plaque:['포도당 둔덕','Glucose mound'],fat:['지방 둔덕','Fat mound'],stone:['징검다리','Stepping stone'],bridge:['섬 연결 다리','Island bridge'],fibrosis:['섬유화 띠','Fibrosis band'],macrophage:['대식세포 군집','Macrophage cluster'],crystal:['포도당 둔덕','Glucose mound']})[kind]});
 const mask=(id,at,points)=>({id,at:point(at),points:points.map(point)});
 // A standing regular enemy occupies 15% of the plate at these foreground anchors.
 // Keep physical height fixed along a route so depth, not route progress, sets perspective.
@@ -55,7 +55,7 @@ export const PLATES={
   glomerulus:{
     topology:'switchback',camera:{height:25,fov:43,targetZ:-28},
     title:['요세관 스위치백','The tubule switchbacks'],subtitle:['세 단 테라스를 지그재그로 내려와요','Three stepped terraces, two hairpins'],
-    briefing:['보먼주머니에서 나온 적이 위 테라스를 가로지른 뒤 헤어핀을 두 번 돌아 전경으로 내려와요. 가운데 헤어핀 안쪽 결정 바위에 선 간 가디언과 오른쪽 단상의 췌장 포탑이 함께 막아요.','Invaders leave the Bowman capsule, cross the upper terrace and take two hairpins down to the foreground. The guardian stands on the crystal shelf inside the middle hairpin, with the turret on the right dais.'],
+    briefing:['보먼주머니에서 나온 적이 위 테라스를 가로지른 뒤 헤어핀을 두 번 돌아 전경으로 내려와요. 가운데 헤어핀 안쪽 결정 바위에 선 콩팥 가디언과 오른쪽 단상의 췌장 포탑이 함께 막아요.','Invaders leave the Bowman capsule, cross the upper terrace and take two hairpins down to the foreground. The guardian stands on the crystal shelf inside the middle hairpin, with the turret on the right dais.'],
     routes:[route('tubule',['요세관 내리막','Tubular descent'],[[335,160],[435,224],[619,231],[819,231],[1010,221],[1161,226],[1292,255],[1376,297],[1361,351],[1252,385],[1080,381],[900,391],[719,391],[540,412],[390,424],[312,440],[277,463],[300,490],[382,507],[501,543],[671,553],[843,557],[989,567],[1092,594],[1160,637],[937,765],[859,803],[771,822]])],trunk:[],
     organs:{kidney:organ([1520,521],186),pancreas:organ([168,413],213)},
     landmarks:[landmark('crystal',[1155,227],[96,84],10),landmark('crystal',[719,392],[92,78],8)],
@@ -71,13 +71,14 @@ export const PLATES={
     occluders:[mask('left-villi',[120,700],[[0,520],[150,505],[236,560],[250,700],[196,860],[92,941],[0,941]]),mask('right-villi',[1440,620],[[1200,600],[1330,560],[1500,566],[1672,600],[1672,941],[1180,941]])],
   },
   islet:{
-    beta:true,topology:'parallel-3',camera:{height:24,fov:44,targetZ:-28},
+    topology:'parallel-3',camera:{height:24,fov:44,targetZ:-28},
     title:['세 갈래의 섬','Three roads through the islets'],subtitle:['중앙 섬은 다리로 이어져요','The core island joins by bridge'],
     briefing:['좌우 길과 함께, 중앙 섬의 적이 오른쪽 다리를 건너 내려와요. 보스도 그 다리로 옵니다.','Enemies also cross the right-hand bridge from the core island; bosses take that bridge too.'],
     bossRoute:'islet-core',
     routes:[route('islet-left',['왼쪽 섬길','Left island road'],[[456,89],[403,111],[408,144],[420,170],[374,206],[294,236],[246,272],[252,311],[310,350],[281,383],[208,433],[197,484],[243,538],[310,600],[340,673],[331,752],[350,829],[429,922]]),route('islet-right',['오른쪽 섬길','Right island road'],[[1243,92],[1315,124],[1328,157],[1290,184],[1310,222],[1393,260],[1441,310],[1437,360],[1391,398],[1443,440],[1497,481],[1483,530],[1411,576],[1368,638],[1357,708],[1319,783],[1260,848],[1200,922]]),route('islet-core',['중앙 섬 다리길','Core island bridge road'],[[985,385],[1060,392],[1130,400],[1185,396],[1255,398],[1358,402],[1435,410],[1493,475],[1508,527],[1411,576],[1368,638],[1357,708],[1319,783],[1260,848],[1200,922]])],trunk:[],
     organs:{kidney:organ([472,494],202),pancreas:organ([1241,502],196)},
-    landmarks:[landmark('bridge',[1207,403],[139,21]),landmark('bridge',[450,356],[126,25]),landmark('bridge',[478,613],[131,38])],
+    // ICDM2026: 다리는 그림에 이미 그려져 있다. 축 정렬 덱(베이지 판)이 대각선 다리와 어긋나 물 위에 떠 보여서 뺐다.
+    landmarks:[],
     occluders:[mask('central-island',[850,355],[[540,373],[613,294],[778,247],[962,270],[1112,348],[1186,442],[1107,517],[942,571],[709,553],[576,481]]),mask('left-island',[219,575],[[51,501],[111,470],[178,491],[202,552],[246,585],[207,628],[92,632]]),mask('right-island',[1505,705],[[1475,542],[1553,519],[1645,549],[1672,595],[1672,733],[1470,721],[1411,661]])],
   },
 };

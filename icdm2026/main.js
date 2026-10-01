@@ -350,34 +350,35 @@ function damage(enemy,amount,byPlayer=true,point){
     if(enemy.waveBoss)state.killedBosses.push(enemy.type);state.slow=.55;world.ring(position,0xffd39b,22);if(!sample('boss_die',1))sound(65,.5,'sawtooth',.06);
     // Sprites visualize the existing immediate recovery reward.
     state.kidney=clamp(state.kidney-12);if(!state.failed)state.pancreas=clamp(state.pancreas+15);state.boost=5;
-    const gcgr=enemy.type==='cancer';if(gcgr)state.glucagon=10;world.reward(position,gcgr?'item_gcgr':'item_glp1');
+    const ugx=enemy.type==='cancer';if(ugx)state.glucagon=10;world.reward(position,ugx?'item_t2d':'item_kidney');
     // 보스를 잡으면 무기도 한 단계 올라간다 (퀴즈·장애물과 함께 세 번째 승급 경로)
     if(enemy.waveBoss&&state.unlocked<WEAPONS.length-1)upgrade();
     notice('보스 격파! 웨이브 지원 · 콩팥과 췌장 회복','BOSS DEFEATED · Wave support & organ recovery',3.5);
     if(enemy.type==='cancer')for(let i=0;i<5;i++)spawn('fragment',{progress:Math.max(.12,enemy.progress-.30-Math.random()*.12),routeId:enemy.routeId,lane:enemy.lane,from:position});
   }else if(byPlayer&&Math.random()<.08){
-    const gcgr=Math.random()<.3;
-    state.core=clamp(state.core+2);state.kidney=clamp(state.kidney-2);world.ring(position,gcgr?0xffc46b:0xb8e88a,3);
-    if(gcgr){state.glucagon=Math.max(state.glucagon,7);world.reward(position,'item_gcgr');notice('글루카곤 획득 · 콩팥 웨이브 증폭','GLUCAGON · kidney wave amplified',2);}
+    const ugx=Math.random()<.3;
+    state.core=clamp(state.core+2);state.kidney=clamp(state.kidney-2);world.ring(position,ugx?0xffc46b:0x8fe9ff,3);
+    if(ugx){state.glucagon=Math.max(state.glucagon,7);world.reward(position,'item_t2d');notice('요당 배출 · 콩팥 웨이브 증폭','GLUCOSE EXCRETION · kidney wave amplified',2);}
     else world.reward(position);
   }
 }
-// 보급 아이템 4종. 특정 약물이 아니라 대사 기전을 그대로 옮겼다.
+// ICDM2026 보급 아이템 3종 — 자디앙 적응증(T2D·HF·CKD)에 맞춘 당뇨 개념. 약물 이미지(주사펜 등)는 쓰지 않는다.
+// state.glucagon은 내부 변수명만 남았고 의미는 '요당 배출 증폭' 시간이다.
 // 광역 피해는 중심에서 멀수록 급격히 줄고, 관통은 뚫을수록 힘을 잃는다.
 const splashFalloff=(base,distance,radius)=>base*Math.pow(Math.max(0,1-distance/radius),1.6);
 const pierceFalloff=(base,index)=>base*Math.pow(.55,index);
 function collectItem(prop){
   const key=prop.item,position=prop.model.position.clone();
   world.removeProp(prop);world.reward(position,key);sample('rescue',.8);
-  if(key==='item_glp1'){
+  if(key==='item_kidney'){   // CKD/DKD
     state.kidney=clamp(state.kidney-18);state.core=clamp(state.core+6);
-    notice('GLP-1 · 콩팥 회복 · 생명 +6','GLP-1 · kidney restored · life +6',2.4);
-  }else if(key==='item_gcgr'){
+    notice('신장 보호 · 콩팥 회복 · 생명 +6','KIDNEY SHIELD · kidney restored · life +6',2.4);
+  }else if(key==='item_t2d'){   // T2D
     state.glucagon=Math.max(state.glucagon,10);
-    notice('글루카곤 · 콩팥 웨이브 증폭','GLUCAGON · kidney wave amplified',2.4);
-  }else if(key==='item_fiber'){
-    state.slowField=Math.max(state.slowField,9);world.ring(position,0x9ce8a4,26);
-    notice('식이섬유 · 지상 적 감속 9초','FIBER · ground enemies slowed for 9s',2.4);
+    notice('요당 배출 · 콩팥 웨이브 증폭','GLUCOSE EXCRETION · kidney wave amplified',2.4);
+  }else if(key==='item_hf'){   // HF
+    state.slowField=Math.max(state.slowField,9);world.ring(position,0xff9fb4,26);
+    notice('심장 부담 완화 · 지상 적 감속 9초','HEART RELIEF · ground enemies slowed for 9s',2.4);
   }
 }
 // 두 적이 화면에서 얼마나 가까운지 (월드 거리는 원근 때문에 멀리서 과장된다)
@@ -604,7 +605,7 @@ function combat(dt){
   if(state.waveTime<wave.bossAt){for(const timer of spawnTimers)if(state.waveTime>=timer.next){const variants={fries:['fries','ciga','soju'],burger:['burger','ramen'],donut:['donut','moth','bat']};
     const choices=state.wave>0?variants[timer.type]:null;spawn(choices?choices[(timer.count||0)%choices.length]:timer.type);timer.count=(timer.count||0)+1;timer.next+=timer.interval*tuning.gap;}}
   if(state.waveTime>=wave.bossAt&&!events.has('boss')){events.add('boss');spawn(wave.boss,{waveBoss:true,routeId:world.map.bossRoute});}
-  if(state.waveTime>=10&&!events.has('trap')){events.add('trap');world.spawnTrap();notice('지방 덫 · 자물쇠를 쏘면 코어가 회복돼요','FAT TRAP · Shoot the lock to restore the core');}
+  if(state.waveTime>=10&&!events.has('trap')){events.add('trap');world.spawnTrap();notice('고혈당 덫 · 자물쇠를 쏘면 코어가 회복돼요','HIGH-GLUCOSE TRAP · Shoot the lock to restore the core');}
   const sugarCount=enemies.filter(e=>e.sugar).length;
   state.sugar=clamp(state.sugar+(sugarCount*2.2-3)*dt);
   if(state.sugar>70)state.kidney=clamp(state.kidney+dt*1.1);
@@ -633,7 +634,7 @@ function combat(dt){
   if(state.supply<=0&&state.waveTime<wave.bossAt){
     state.supply=9.5+Math.random()*5.5;
     const routes=world.terrain.routes.items,route=routes[Math.floor(Math.random()*routes.length)];
-    const pool=['item_glp1','item_gcgr','item_fiber'];
+    const pool=['item_kidney','item_t2d','item_hf'];
     const key=pool[Math.floor(Math.random()*pool.length)];
     world.spawnPickup(route.id,key,.5+Math.random()*.28);
     notice('보급 캡슐 · 쏘면 획득','SUPPLY CAPSULE · shoot to collect',2);
@@ -653,7 +654,7 @@ function combat(dt){
   }
   state.pulse-=dt;
   if(state.pulse<=0){
-    // 맵 전체를 훑는 대신 한 번의 피해는 작다. 글루카곤을 얻으면 더 자주, 더 세게 돈다.
+    // 맵 전체를 훑는 대신 한 번의 피해는 작다. 요당 배출 아이템을 얻으면 더 자주, 더 세게 돈다.
     const rate=state.glucagon>0?.42:state.boost>0?.6:1;
     state.pulse=[7,8.5,10,13][stageOfKidney()]*rate*DIFFICULTY[state.difficulty].pulse;
     world.pulse();if(!sample('pulse',.6))sound(390,.14,'sine',.018);
@@ -711,7 +712,7 @@ function updateHUD(){
   $('wave-progress').style.width=`${clamp(state.waveTime/WAVES[state.wave].duration*100)}%`;
   $('wave-clock').textContent=`${Math.floor(state.waveTime)}s / ${WAVES[state.wave].duration}s`;
   $('kidney-state').textContent=text(['건강 · 웨이브 정상','과부하 · 웨이브 둔화','기능 저하 · 보급 저하','손상 · 방어 약화'][stageOfKidney()],['Healthy · wave online','Overloaded · slower waves','Declining · reduced support','Damaged · weakened defense'][stageOfKidney()]);
-  $('kidney-fill').style.width=`${100-state.kidney}%`;$('pulse-time').textContent=state.glucagon>0?text(`글루카곤 증폭 · 다음 웨이브 ${Math.ceil(state.pulse)}초`,`Glucagon boost · next wave ${Math.ceil(state.pulse)}s`):text(`다음 웨이브 ${Math.ceil(state.pulse)}초`,`Next wave ${Math.ceil(state.pulse)}s`);
+  $('kidney-fill').style.width=`${100-state.kidney}%`;$('pulse-time').textContent=state.glucagon>0?text(`요당 배출 증폭 · 다음 웨이브 ${Math.ceil(state.pulse)}초`,`Excretion boost · next wave ${Math.ceil(state.pulse)}s`):text(`다음 웨이브 ${Math.ceil(state.pulse)}초`,`Next wave ${Math.ceil(state.pulse)}s`);
   $('pancreas-state').textContent=state.failed?text('췌장부전 · 지원 중단','Failure · support offline'):text(`기능 ${Math.round(state.pancreas)}% · ${state.pancreas>60?'지원 사격 중':state.pancreas>30?'인슐린 약화':state.pancreas>10?'과로 상태':'인슐린 저항성 · 무력화'}`,`Function ${Math.round(state.pancreas)}% · ${state.pancreas>60?'supporting fire':state.pancreas>30?'insulin weakening':state.pancreas>10?'overworked':'insulin resistance'}`);
   $('pancreas-fill').style.width=`${state.pancreas}%`;$('strain').textContent=state.strain>0?text(`부전 부담 ${state.strain.toFixed(1)} / ${PANCREAS.strainLimit}초`,`Failure strain ${state.strain.toFixed(1)} / ${PANCREAS.strainLimit}s`):text('당류 적 자동 요격','Auto-targeting sugar enemies');
   $('warning').textContent=state.failed?text('췌장부전 · 이번 판 회복 불가','PANCREATIC FAILURE · irreversible this run'):state.pancreas<=10?text('인슐린 무력화! 당류 적을 먼저 제거하세요','INSULIN RESISTANCE · clear sugar enemies'):state.sugar>70?text('고혈당 · 콩팥과 췌장 부담 증가','HIGH GLUCOSE · kidney & pancreas under strain'):'';
