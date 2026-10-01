@@ -166,7 +166,7 @@
   "correct": 3,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "The 9th edition split the screening population in two. Screening starts at 19 when a risk factor is present, and at 35 for everyone else.",
+  "exp": "Screening has two arms. It starts at 19 when a risk factor is present, and at 35 even without one.",
   "refs": [
    "kdaGuide2025"
   ],
@@ -197,7 +197,7 @@
   "correct": 1,
   "diff": "easy",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "The 9th edition asks for annual retesting even after a normal result. When one screening test lands in the prediabetes range and diabetes is suspected, a second method is added.",
+  "exp": "Annual retesting is recommended even after a normal result. When one screening test lands in the prediabetes range and diabetes is suspected, a second method is added.",
   "refs": [
    "kdaGuide2025"
   ],
@@ -282,17 +282,17 @@
   "fit": "core"
  },
  {
-  "q": "How did the 9th edition change real-time CGM guidance for adults with type 2 diabetes on multiple daily injections or a pump?",
+  "q": "How is real-time CGM recommended for adults with type 2 diabetes on multiple daily injections or a pump?",
   "a": [
-   "It moved up from a limited to a general recommendation",
-   "It was left in place for type 1 diabetes only",
-   "It was removed from the recommendations",
-   "It moved down from a general to a limited recommendation"
+   "Continuous use is actively recommended",
+   "It is recommended for type 1 diabetes only",
+   "It is not recommended",
+   "Use it briefly only after a hypoglycaemic episode"
   ],
   "correct": 0,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "Strengthened evidence supports continuous use more assertively. Adults with type 2 diabetes on basal insulin alone remain at a limited recommendation.",
+  "exp": "Based on strengthened evidence, continuous use is actively recommended as a general recommendation. Adults with type 2 diabetes on basal insulin alone remain at a limited recommendation.",
   "refs": [
    "kdaGuide2025"
   ],
@@ -306,7 +306,6 @@
   },
   "topics": [
    "cgm",
-   "guideline_update",
    "t2d"
   ],
   "societies": [
@@ -379,38 +378,6 @@
   "fit": "core"
  },
  {
-  "q": "Which hypoglycemia recommendation was newly added in the 9th edition?",
-  "a": [
-   "Require a bedtime snack",
-   "Prescribe glucagon for insulin users and make sure people around them know where it is and how to use it",
-   "Mandate continuous glucose monitoring for every patient",
-   "Go straight to the emergency department for any hypoglycemia"
-  ],
-  "correct": 1,
-  "diff": "mid",
-  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "Family members, caregivers and school staff are now expected to know the storage location and use of glucagon. It entered as an expert-opinion recommendation.",
-  "refs": [
-   "kdaGuide2025"
-  ],
-  "evidence": {
-   "quote": "인슐린을 사용하는 저혈당 위험이 높은 환자에게서 글루카곤을 처방하고 가 … 족, 간병인, 학교 직원 등을 포함한 주변인들이 글루카곤의 보관 위치와 사용법을 숙지하도록 [전문가의견]으로 새롭게 권 … 고안을 추가하고 권고범위는 [일반적권고]로 제시함.",
-   "locator": "2025 진료지침 요약 — 5-2. 저혈당관리",
-   "ref": "kdaGuide2025",
-   "support": "direct",
-   "access": "fulltext",
-   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
-  },
-  "topics": [
-   "hypoglycemia",
-   "guideline_update"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
   "q": "What does the guideline ask for at the very moment diabetes is diagnosed?",
   "a": [
    "Observe for three months without acting",
@@ -443,7 +410,7 @@
   "fit": "core"
  },
  {
-  "q": "How did the 9th edition reword its carbohydrate recommendation?",
+  "q": "What carbohydrate principle does the diabetes guideline recommend?",
   "a": [
    "Carbohydrate restriction is not recommended",
    "Prescribe a low-carbohydrate diet to everyone",
@@ -453,7 +420,7 @@
   "correct": 2,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "The 8th edition said only \"individualise\", which left the direction unclear, so a clause on limiting excess was placed in front. Quality also matters, met through wholegrains, legumes, vegetables and fresh fruit.",
+  "exp": "Limit excessive carbohydrate intake, then individualise by treatment goal and preference. Quality also matters, met through wholegrains, legumes, vegetables and fresh fruit.",
   "refs": [
    "kdaGuide2025"
   ],
@@ -466,7 +433,6 @@
   },
   "topics": [
    "nutrition",
-   "guideline_update",
    "t2d"
   ],
   "societies": [
