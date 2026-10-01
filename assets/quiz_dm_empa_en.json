@@ -383,7 +383,7 @@
    "The number of dialysis sessions",
    "The risk of kidney disease progression or death from cardiovascular disease",
    "Serum creatinine alone",
-   "The frequency of urinary tract infections"
+   "Blood cholesterol level"
   ],
   "correct": 1,
   "diff": "mid",
