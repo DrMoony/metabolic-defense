@@ -225,7 +225,7 @@ export class World {
     const p=offset===undefined?this.center(model):model.getWorldPosition(new THREE.Vector3()).add(V(0,offset,0));p.project(this.camera);
     const rect=this.renderer.domElement.getBoundingClientRect();return {x:rect.left+(p.x+1)*rect.width/2,y:rect.top+(1-p.y)*rect.height/2,visible:p.z<1&&Math.abs(p.x)<1&&Math.abs(p.y)<1};
   }
-  reward(position,key='item_glp1'){
+  reward(position,key='item_kidney'){
     const model=new THREE.Group();model.add(cutout(key,2.5));model.position.copy(position);model.scale.setScalar(this.actorScale);model.quaternion.copy(this.camera.quaternion);this.scene.add(model);
     this.rewards.push({model,life:1.5});
   }
@@ -263,7 +263,7 @@ export class World {
     body.material.needsUpdate=true;
   }
   removeProp(prop){disposeBillboard(prop.model);const i=this.props.indexOf(prop);if(i>=0)this.props.splice(i,1);}
-  freeTrap(prop){disposeBillboard(prop.model);this.props.splice(this.props.indexOf(prop),1);this.reward(prop.model.position,'item_gcgr');}
+  freeTrap(prop){disposeBillboard(prop.model);this.props.splice(this.props.indexOf(prop),1);this.reward(prop.model.position,'item_t2d');}
   pick(x,y,enemies){
     const rect=this.renderer.domElement.getBoundingClientRect();
     this.aim.set((x-rect.left)/rect.width*2-1,1-(y-rect.top)/rect.height*2);

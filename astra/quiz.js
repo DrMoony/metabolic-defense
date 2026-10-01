@@ -9,11 +9,11 @@ export function shuffled(values, random = Math.random) {
 }
 export const storage = {
   get(name, fallback) {
-    try { const value = localStorage.getItem(`astra_${name}`); return value === null ? fallback : JSON.parse(value); }
+    try { const value = localStorage.getItem(`icdm_${name}`); return value === null ? fallback : JSON.parse(value); }
     catch { return fallback; }
   },
   set(name, value) {
-    try { localStorage.setItem(`astra_${name}`, JSON.stringify(value)); return true; }
+    try { localStorage.setItem(`icdm_${name}`, JSON.stringify(value)); return true; }
     catch { return false; }
   },
 };

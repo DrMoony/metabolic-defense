@@ -1,6 +1,5 @@
 // Source PNG dimensions; assets are read-only. Used before textures finish loading.
 export const SPRITE_SIZES = {
-  "item_fiber": [331, 512],
   "bat_0": [512, 324],
   "bat_1": [512, 324],
   "burger_0": [465, 512],
@@ -17,8 +16,6 @@ export const SPRITE_SIZES = {
   "fries_1": [361, 512],
   "icecream_0": [343, 512],
   "icecream_1": [343, 512],
-  "item_gcgr": [105, 384],
-  "item_glp1": [89, 384],
   "moth_0": [512, 359],
   "moth_1": [512, 359],
   "pizza_0": [381, 512],
@@ -47,6 +44,10 @@ export const SPRITE_SIZES = {
   "w11_laser": [640, 447],
   "wing_0": [512, 498],
   "wing_1": [512, 498],
+  "item_kidney": [332, 384],
+  "item_t2d": [277, 384],
+  "item_hf": [384, 254],
+  "age_deposit": [512, 342],
   "organ_kidney": [427, 640],
   "organ_pancreas": [768, 768],
 };

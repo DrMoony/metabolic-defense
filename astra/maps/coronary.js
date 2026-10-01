@@ -1,8 +1,8 @@
 export default {
-  key:'coronary', ready:true, chapter:'01', names:['관상동맥','Coronary artery'],
+  key:'coronary', ready:true, chapter:'01', names:['심혈관','Cardiovascular'],
   title:['박동을 지켜라','Guard the heartbeat'], core:['심장','Heart'],
   subtitle:['붉은 분지 너머, 심장으로 이어지는 두 갈래 길','Two crimson branches. One beating heart.'],
-  briefing:['분지부의 흐름을 따라 적이 다가와요. 길 가장자리의 플라크를 쏘아 협착 구간을 열고 심장을 지켜가요.','Invaders follow the arterial branches. Shoot the plaques along the road to clear the narrowed segments and protect the heart.'],
+  briefing:['분지부의 흐름을 따라 적이 다가와요. 길 가장자리의 포도당 둔덕을 쏘아 막힌 구간을 열고 심장을 지켜가요.','Invaders follow the arterial branches. Shoot the glucose mounds along the road to clear the blocked segments and protect the heart.'],
   fact:['혈관 분지부의 낮거나 교란된 전단응력은 플라크가 생기기 쉬운 환경과 관련돼요.','Low or disturbed wall shear stress at arterial branches is associated with plaque-prone regions.'],
   palette:{background:0x301226,fog:0x572438,road:0xa44550,edge:0xe49079,tissue:0xa53351,accent:0xffce81,floor:0x582331},
   fog:.012, seed:4291, width:5.8,
@@ -16,5 +16,5 @@ export default {
     {kind:'plaque',route:'right',at:.65,side:1,hp:10,names:['플라크 협착','Plaque stenosis']},
     {kind:'bifurcation',position:[0,0,-23],names:['혈관 분지부','Arterial bifurcation']},
   ],
-  gate:['관상동맥 분지','Coronary branches'],
+  gate:['심혈관 분지','Cardiovascular branches'],
 };
