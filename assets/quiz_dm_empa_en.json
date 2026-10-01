@@ -765,38 +765,6 @@
   "fit": "core"
  },
  {
-  "q": "Under the Korean label, which infection does Jardiance increase the risk of?",
-  "a": [
-   "Pneumonia",
-   "Herpes zoster",
-   "Genital mycotic infection",
-   "Tuberculosis"
-  ],
-  "correct": 2,
-  "diff": "easy",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "Jardiance increases the risk of genital mycotic infection, which is why perineal hygiene advice goes with it.",
-  "refs": [
-   "jardianceKR2026"
-  ],
-  "evidence": {
-   "quote": "이 약은 생식기 진균감염의 위험을 증가시킨다.",
-   "locator": "1. 경고 6) 생식기 진균감염",
-   "ref": "jardianceKR2026",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "label",
-   "safety",
-   "empagliflozin"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
   "q": "What should be watched for when Jardiance is combined with a thiazide or loop diuretic?",
   "a": [
    "The diuretic effect weakens",
