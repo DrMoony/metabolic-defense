@@ -1,6 +1,6 @@
 [
  {
-  "q": "After a fast of at least 8 hours, what plasma glucose level meets the diagnostic threshold for diabetes?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), after a fast of at least 8 hours, what plasma glucose level meets the diagnostic threshold for diabetes?",
   "a": [
    "≥200 mg/dL",
    "≥140 mg/dL",
@@ -31,7 +31,7 @@
   "fit": "core"
  },
  {
-  "q": "What HbA1c value, on its own, meets the diagnostic threshold for diabetes?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what HbA1c value, on its own, meets the diagnostic threshold for diabetes?",
   "a": [
    "≥7.0%",
    "≥5.7%",
@@ -62,7 +62,7 @@
   "fit": "core"
  },
  {
-  "q": "On a 75 g oral glucose tolerance test, what 2-hour plasma glucose level is diagnostic of diabetes?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), on a 75 g oral glucose tolerance test, what 2-hour plasma glucose level is diagnostic of diabetes?",
   "a": [
    "≥140 mg/dL",
    "≥180 mg/dL",
@@ -93,7 +93,7 @@
   "fit": "core"
  },
  {
-  "q": "What defines normal glucose?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what defines normal glucose?",
   "a": [
    "Fasting below 126 mg/dL and a 2-hour value below 200 mg/dL",
    "Fasting below 90 mg/dL and a 2-hour value below 120 mg/dL",
@@ -124,7 +124,7 @@
   "fit": "core"
  },
  {
-  "q": "Which fasting range defines impaired fasting glucose in the Korean criteria?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), which fasting range defines impaired fasting glucose?",
   "a": [
    "Fasting plasma glucose 110-125 mg/dL",
    "Fasting plasma glucose 90-109 mg/dL",
@@ -156,7 +156,7 @@
   "fit": "core"
  },
  {
-  "q": "Who should be screened for diabetes under the 2025 guideline?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), who should be screened for diabetes?",
   "a": [
    "All adults aged 65 years and older",
    "All adults aged 40 and older regardless of risk factors",
@@ -187,7 +187,7 @@
   "fit": "core"
  },
  {
-  "q": "How often should an adult with a normal screening result be retested?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), how often should an adult with a normal screening result be retested?",
   "a": [
    "Retest every 3 years",
    "Retest every year",
@@ -218,7 +218,7 @@
   "fit": "core"
  },
  {
-  "q": "What is the general glycemic target for adults with type 2 diabetes?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what is the general glycemic target for adults with type 2 diabetes?",
   "a": [
    "HbA1c below 7.0%",
    "HbA1c below 7.5%",
@@ -249,7 +249,7 @@
   "fit": "core"
  },
  {
-  "q": "With continuous glucose monitoring, what share of time should be spent in the 70-180 mg/dL target range?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), with continuous glucose monitoring, what share of time should be spent in the 70-180 mg/dL target range?",
   "a": [
    "More than 60%",
    "More than 80%",
@@ -282,7 +282,7 @@
   "fit": "core"
  },
  {
-  "q": "How is real-time CGM recommended for adults with type 2 diabetes on multiple daily injections or a pump?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), how is real-time CGM recommended for adults with type 2 diabetes on multiple daily injections or a pump?",
   "a": [
    "Continuous use is actively recommended",
    "It is recommended for type 1 diabetes only",
@@ -314,7 +314,7 @@
   "fit": "core"
  },
  {
-  "q": "How often may HbA1c be measured in an adult whose glycemic control is stable?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), how often may HbA1c be measured in an adult whose glycemic control is stable?",
   "a": [
    "It can be reduced to twice a year",
    "Fixed at every 2-3 months",
@@ -346,7 +346,7 @@
   "fit": "core"
  },
  {
-  "q": "What glucose level defines level 2, clinically significant hypoglycemia?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what glucose level defines level 2, clinically significant hypoglycemia?",
   "a": [
    "Below 60 mg/dL",
    "Below 40 mg/dL",
@@ -378,7 +378,7 @@
   "fit": "core"
  },
  {
-  "q": "What does the guideline ask for at the very moment diabetes is diagnosed?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what should be done at the very moment diabetes is diagnosed?",
   "a": [
    "Observe for three months without acting",
    "Start insulin injections immediately",
@@ -410,7 +410,7 @@
   "fit": "core"
  },
  {
-  "q": "What carbohydrate principle does the diabetes guideline recommend?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what carbohydrate principle is recommended?",
   "a": [
    "Carbohydrate restriction is not recommended",
    "Prescribe a low-carbohydrate diet to everyone",
@@ -441,7 +441,7 @@
   "fit": "core"
  },
  {
-  "q": "How much aerobic exercise does the guideline recommend for people with diabetes?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), how much aerobic exercise is recommended for people with diabetes?",
   "a": [
    "At least 150 minutes a week at moderate intensity or above, spread over at least three days",
    "At least 300 minutes a week, vigorous only",
@@ -473,7 +473,7 @@
   "fit": "core"
  },
  {
-  "q": "What should be assessed, and how often, to screen for diabetic kidney disease?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what should be assessed, and how often, to screen for diabetic kidney disease?",
   "a": [
    "Serum creatinine alone every three years",
    "Urinalysis only when symptoms appear",
