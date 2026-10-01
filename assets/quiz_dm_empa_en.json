@@ -93,100 +93,6 @@
   "fit": "core"
  },
  {
-  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what defines normal glucose?",
-  "a": [
-   "Fasting below 126 mg/dL and a 2-hour value below 200 mg/dL",
-   "Fasting below 90 mg/dL and a 2-hour value below 120 mg/dL",
-   "Fasting below 110 mg/dL and a 2-hour value below 160 mg/dL",
-   "Fasting below 100 mg/dL and a 2-hour post-load value below 140 mg/dL"
-  ],
-  "correct": 3,
-  "diff": "mid",
-  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "Both conditions must hold. Fasting of 100-125 is impaired fasting glucose, and a 2-hour value of 140-199 is impaired glucose tolerance.",
-  "refs": [
-   "kdaGuide2025"
-  ],
-  "evidence": {
-   "quote": "정상혈당은 8시간 이상 금식 후 혈장포도당 100 mg/dL 미만, 75 g 경구포도당부하 2시간 후 혈장포도당 140 mg/dL 미만이다.",
-   "locator": "표 1-1.1 1. 정상혈당 기준",
-   "ref": "kdaGuide2025",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "diagnosis",
-   "t2d"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
-  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), which fasting range defines impaired fasting glucose?",
-  "a": [
-   "Fasting plasma glucose 110-125 mg/dL",
-   "Fasting plasma glucose 90-109 mg/dL",
-   "Fasting plasma glucose 100-125 mg/dL",
-   "Fasting plasma glucose 126-139 mg/dL"
-  ],
-  "correct": 2,
-  "diff": "mid",
-  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "Korea sets impaired fasting glucose at 100-125 mg/dL. Impaired glucose tolerance is a 2-hour value of 140-199 mg/dL, and the HbA1c band is 5.7-6.4%.",
-  "refs": [
-   "kdaGuide2025"
-  ],
-  "evidence": {
-   "quote": "1) 공복혈당장애: 공복혈장포도당 100-125 mg/dL",
-   "locator": "표 1-1.1 3. 당뇨병전단계 진단기준",
-   "ref": "kdaGuide2025",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "diagnosis",
-   "prediabetes",
-   "t2d"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
-  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), who should be screened for diabetes?",
-  "a": [
-   "All adults aged 65 years and older",
-   "All adults aged 40 and older regardless of risk factors",
-   "All adults with a family history of diabetes",
-   "All adults aged 19 and older who carry a risk factor, plus all adults aged 35 and older"
-  ],
-  "correct": 3,
-  "diff": "mid",
-  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "Screening has two arms. It starts at 19 when a risk factor is present, and at 35 even without one.",
-  "refs": [
-   "kdaGuide2025"
-  ],
-  "evidence": {
-   "quote": "1) 위험인자(표 1-2.1)가 있는 19세 이상 모든 성인은 당뇨병 선별검사를 시행한다. [기타연구, 일반적권고] 2) 35세 이상 모든 성인은 당뇨병 선별검사를 시행한다. [기타연구, 일반적권고]",
-   "locator": "1-2. 당뇨병 선별검사 권고 1",
-   "ref": "kdaGuide2025",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "screening",
-   "t2d"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
   "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), how often should an adult with a normal screening result be retested?",
   "a": [
    "Retest every 3 years",
@@ -249,71 +155,6 @@
   "fit": "core"
  },
  {
-  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), with continuous glucose monitoring, what share of time should be spent in the 70-180 mg/dL target range?",
-  "a": [
-   "More than 60%",
-   "More than 80%",
-   "More than 70%",
-   "More than 50%"
-  ],
-  "correct": 2,
-  "diff": "mid",
-  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "Time in range should exceed 70%, time below 70 mg/dL should stay under 4%, and time below 54 mg/dL under 1%.",
-  "refs": [
-   "kdaGuide2025"
-  ],
-  "evidence": {
-   "quote": "5. 연속혈당측정장치를 사용하는 경우 목표혈당범위(70-180 mg/dL) 내 시간이 70%를 초과하고, 목표혈당범위 미만 … 시간을 4% 미만, 특히 54 mg/dL 미만의 저혈당 시간은 1% 미만이다.",
-   "locator": "3-1. 혈당조절 목표 권고 5",
-   "ref": "kdaGuide2025",
-   "support": "direct",
-   "access": "fulltext",
-   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
-  },
-  "topics": [
-   "cgm",
-   "glycemic_target",
-   "t2d"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
-  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), how is real-time CGM recommended for adults with type 2 diabetes on multiple daily injections or a pump?",
-  "a": [
-   "Continuous use is actively recommended",
-   "It is recommended for type 1 diabetes only",
-   "It is not recommended",
-   "Use it briefly only after a hypoglycaemic episode"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "Based on strengthened evidence, continuous use is actively recommended as a general recommendation. Adults with type 2 diabetes on basal insulin alone remain at a limited recommendation.",
-  "refs": [
-   "kdaGuide2025"
-  ],
-  "evidence": {
-   "quote": "2형당뇨병 성인 중 인슐린치료를 하는 환자에서 실시간연속혈당측정기 사용은 다음 두 가지 경우로 구분하여 권고함. 다회 … 인슐린주사나 인슐린펌프를 사용하는 2형당뇨병 성인은 보강된 연구 결과들에 근거하여 실시간연속혈당측정장치를 상시 … 적으로 사용하도록 보다 적극적으로 권고하며 권고범위를 [제한적권고]에서 [일반적권고]로 상향 조정함.",
-   "locator": "2025 진료지침 요약 — 4-2. 연속혈당측정",
-   "ref": "kdaGuide2025",
-   "support": "direct",
-   "access": "fulltext",
-   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
-  },
-  "topics": [
-   "cgm",
-   "t2d"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
   "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), how often may HbA1c be measured in an adult whose glycemic control is stable?",
   "a": [
    "It can be reduced to twice a year",
@@ -338,38 +179,6 @@
   },
   "topics": [
    "monitoring",
-   "t2d"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
-  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what glucose level defines level 2, clinically significant hypoglycemia?",
-  "a": [
-   "Below 60 mg/dL",
-   "Below 40 mg/dL",
-   "Below 54 mg/dL",
-   "Below 70 mg/dL"
-  ],
-  "correct": 2,
-  "diff": "mid",
-  "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "Level 1 is below 70 but at or above 54 mg/dL, and level 2 is below 54 mg/dL. Level 3, severe hypoglycemia, is defined by needing outside help rather than by a number.",
-  "refs": [
-   "kdaGuide2025"
-  ],
-  "evidence": {
-   "quote": "반 … 면, 54 mg/dL 미만의 혈당은 대응조절호르몬의 분비, 저혈당 관련 자율신경증상과 같은 저혈당 방어체계의 장애가 발생할 때 … 현재는 저혈당 단계를 기존의 2단계에서 54 mg/dL 미만의 수준을 포함한 3단계로 확대하였으며,",
-   "locator": "3-2. 저혈당 평가 — 저혈당 단계 표",
-   "ref": "kdaGuide2025",
-   "support": "direct",
-   "access": "fulltext",
-   "note": "9판 PDF가 2단 조판이라 한 문장 사이에 다른 단의 글자가 끼어 있어 실제로 이어지는 조각을 \" … \"로 연결했어요."
-  },
-  "topics": [
-   "hypoglycemia",
    "t2d"
   ],
   "societies": [
@@ -633,135 +442,6 @@
   "fit": "core"
  },
  {
-  "q": "Which genetic conditions rule out this drug because of its lactose content?",
-  "a": [
-   "Wilson's disease",
-   "Phenylketonuria",
-   "Galactose intolerance, Lapp lactase deficiency and glucose-galactose malabsorption",
-   "Haemophilia"
-  ],
-  "correct": 2,
-  "diff": "mid",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "The tablet contains lactose monohydrate as an excipient. This is the third contraindication in the Korean label.",
-  "refs": [
-   "jardianceKR2026"
-  ],
-  "evidence": {
-   "quote": "이 약은 유당을 함유하고 있으므로, 갈락토오스 불내성(galactose intolerance), Lapp 유당분해효소 결핍증(Lapp lactase deficiency) 또는 포도당-갈락토오스 흡수장애(glucose-galactose malabsorption) 등의 유전적인 문제가 있는 환자에게는 투여하면 안 된다.",
-   "locator": "1. 다음 환자에는 투여하지 말 것 3)",
-   "ref": "jardianceKR2026",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "label",
-   "contraindication",
-   "empagliflozin"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
-  "q": "What is the recommended dose and escalation rule in type 2 diabetes?",
-  "a": [
-   "10 mg twice daily with no escalation",
-   "Start at 25 mg once daily",
-   "Start at 5 mg once daily",
-   "10 mg once daily, raised to 25 mg if tolerated and more control is needed"
-  ],
-  "correct": 3,
-  "diff": "easy",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "Whether alone or added to another glucose-lowering drug, it starts at 10 mg. Chronic heart failure and chronic kidney disease stay at 10 mg.",
-  "refs": [
-   "jardianceKR2026"
-  ],
-  "evidence": {
-   "quote": "이 약의 권장용량은 단독요법 및 인슐린 등 다른 혈당 강하제와의 추가 병용요법에 대하여 1일 1회 10 mg이다. 이 약 10 mg에 내약성이 우수하면서 추가적인 혈당조절이 필요한 경우, 이 약 용량을 1일 1회 25 mg으로 증량할 수 있다.",
-   "locator": "용법용량 — 제2형 당뇨병",
-   "ref": "jardianceKR2026",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "label",
-   "dosing",
-   "empagliflozin"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
-  "q": "Below what kidney function does the Korean label stop recommending it for glycemic control?",
-  "a": [
-   "An eGFR below 60",
-   "An eGFR below 30",
-   "An eGFR below 20",
-   "An eGFR below 45 mL/min/1.73m²"
-  ],
-  "correct": 3,
-  "diff": "mid",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "The Korean threshold is 45, which differs from the US figure of 30, so the source matters. It is not used in end-stage kidney disease or on dialysis.",
-  "refs": [
-   "jardianceKR2026"
-  ],
-  "evidence": {
-   "quote": "혈당조절 개선 목적으로 추정 사구체 여과율(eGFR)이 45 ml/min/1.73m2 미만인 환자에게 이 약은 권장되지 않는다.",
-   "locator": "용법용량 — 특수집단, 신장애 환자, 제2형 당뇨병",
-   "ref": "jardianceKR2026",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "label",
-   "ckd",
-   "empagliflozin"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
-  "q": "In chronic heart failure, below what kidney function must this drug not be used?",
-  "a": [
-   "It may be used at any level",
-   "An eGFR below 60",
-   "An eGFR below 45",
-   "An eGFR below 20 mL/min/1.73m²"
-  ],
-  "correct": 3,
-  "diff": "mid",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "In chronic heart failure the drug must not be used below an eGFR of 20 mL/min/1.73m². In chronic kidney disease, starting treatment below an eGFR of 20 mL/min/1.73m² is not recommended.",
-  "refs": [
-   "jardianceKR2026"
-  ],
-  "evidence": {
-   "quote": "추정 사구체 여과율(eGFR)이 20 ml/min/1.73m2 미만인 환자에게 이 약을 사용해서는 안 된다.",
-   "locator": "용법용량 — 특수집단, 신장애 환자, 만성 심부전",
-   "ref": "jardianceKR2026",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "label",
-   "heart_failure",
-   "ckd",
-   "empagliflozin"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
   "q": "How often does the Korean label ask for renal function monitoring?",
   "a": [
    "Only when symptoms appear",
@@ -956,105 +636,6 @@
   "fit": "core"
  },
  {
-  "q": "What was the hazard ratio for cardiovascular death in EMPA-REG OUTCOME?",
-  "a": [
-   "0.86 (0.74, 0.99)",
-   "0.62 (0.49, 0.77)",
-   "0.95 (0.80, 1.12)",
-   "0.75 (0.65, 0.86)"
-  ],
-  "correct": 1,
-  "diff": "mid",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "MACE overall was 0.86, cardiovascular death 0.62 and all-cause death 0.68. The three figures are easiest remembered together.",
-  "refs": [
-   "jardianceKR2026"
-  ],
-  "evidence": {
-   "quote": "심혈관계 질환 사망 위험비 0.62 (0.49, 0.77)",
-   "locator": "10. 전문가를 위한 정보 — EMPA-REG OUTCOME 표 12",
-   "ref": "jardianceKR2026",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "label",
-   "trial",
-   "ascvd",
-   "empagliflozin"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
-  "q": "Which heart failure patients were studied in EMPEROR-Reduced?",
-  "a": [
-   "Acute decompensated heart failure",
-   "LVEF above 40%",
-   "All heart failure regardless of ejection fraction",
-   "Chronic heart failure with LVEF 40% or below, NYHA II-IV"
-  ],
-  "correct": 3,
-  "diff": "mid",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "Reduced ejection fraction belongs to EMPEROR-Reduced and preserved to EMPEROR-Preserved. Both enrolled NYHA II-IV.",
-  "refs": [
-   "jardianceKR2026"
-  ],
-  "evidence": {
-   "quote": "심박출률이 감소된(LVEF ≤ 40 %) 만성 심부전 환자(New York Heart Association [NYHA] II-IV) 3730명을 대상으로 무작위 배정, 이중 눈가림, 위약 대조 임상 시험(EMPEROR-reduced)이 수행되었다.",
-   "locator": "10. 전문가를 위한 정보 — EMPEROR-Reduced",
-   "ref": "jardianceKR2026",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "label",
-   "trial",
-   "heart_failure",
-   "empagliflozin"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
-  "q": "Which pairing of primary composite hazard ratios is correct for EMPEROR-Reduced and EMPEROR-Preserved?",
-  "a": [
-   "Reduced 0.75, Preserved 0.79",
-   "Reduced 0.62, Preserved 0.72",
-   "Reduced 0.86, Preserved 0.65",
-   "Reduced 0.79, Preserved 0.75"
-  ],
-  "correct": 0,
-  "diff": "mid",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "Both used cardiovascular death or hospitalization for heart failure as the primary composite. Reduced was 0.75 and preserved 0.79.",
-  "refs": [
-   "jardianceKR2026"
-  ],
-  "evidence": {
-   "quote": "CV 사망 또는 HHF 최초 발생 시점까지의 시간 위험비 0.75 (0.65, 0.86)",
-   "locator": "10. 전문가를 위한 정보 — EMPEROR-Reduced 표 13 / EMPEROR-Preserved 표 14",
-   "ref": "jardianceKR2026",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "label",
-   "trial",
-   "heart_failure",
-   "empagliflozin"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
   "q": "How did the EMPEROR primary outcome behave by diabetes status?",
   "a": [
    "No subgroup analysis was done",
@@ -1088,31 +669,159 @@
   "fit": "core"
  },
  {
-  "q": "What kidney function range defined entry to EMPA-KIDNEY?",
+  "q": "Under the Korean label, which three indications does Jardiance have?",
   "a": [
-   "eGFR 20 to under 45, or UACR at least 200 mg/g with eGFR 45 to under 90",
-   "eGFR 60 and above only",
-   "eGFR 45 and above only",
-   "Only patients with albuminuria"
+   "Type 2 diabetes · obesity · hypertension",
+   "Type 2 diabetes · chronic heart failure · chronic kidney disease",
+   "Type 1 diabetes · type 2 diabetes · chronic heart failure",
+   "Type 2 diabetes · dyslipidaemia · chronic kidney disease"
   ],
-  "correct": 0,
-  "diff": "mid",
+  "correct": 1,
+  "diff": "easy",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "Low eGFR alone could qualify without albuminuria. The underlying causes were correspondingly broad, with diabetic kidney disease at 31% and glomerular disease at 25%.",
+  "exp": "The Korean indications are type 2 diabetes, chronic heart failure and chronic kidney disease. It must not be given in type 1 diabetes.",
   "refs": [
    "jardianceKR2026"
   ],
   "evidence": {
-   "quote": "동 임상은 eGFR ≥20 - <45 ml/min/1.73m2 또는 소변 알부민 대 크레아티닌 비율[UACR] ≥200 mg/g을 동반한 eGFR ≥45 - <90 ml/min/1.73m2 환자를 대상으로 수행되었다.",
-   "locator": "10. 전문가를 위한 정보 — EMPA-KIDNEY",
+   "quote": "1. 제2형 당뇨병: 이 약은 성인 제2형 당뇨병 환자의 혈당조절을 향상시키기 위해 식사요법 및 운동요법의 보조제로 투여한다. … 2. 만성 심부전: 성인 만성 심부전(NYHA class II-IV) 환자에서 심혈관질환으로 인한 사망 및 심부전으로 인한 입원 위험성 감소 … 3. 만성 신장병: 성인 만성 신장병 환자에서 신장병의 진행 또는 심혈관 질환으로 인한 사망의 위험성 감소",
+   "locator": "효능효과 1-3",
    "ref": "jardianceKR2026",
    "support": "direct",
    "access": "fulltext"
   },
   "topics": [
    "label",
-   "trial",
-   "ckd",
+   "indication",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "How should Jardiance be taken in relation to meals?",
+  "a": [
+   "Always 30 minutes before a meal",
+   "Always right after a meal",
+   "With or without food",
+   "Only on an empty stomach"
+  ],
+  "correct": 2,
+  "diff": "easy",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "It can be taken with or without food, and the tablet is swallowed whole.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "이 약은 식사와 관계없이 투여할 수 있다. 정제는 통째로 삼켜서 복용한다. 이 약의 복용을 잊었을 때에는 생각나는 즉시 복용한다. 하루에 두 배의 용량을 복용하지 않는다.",
+   "locator": "용법용량 — 투여 방법",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "administration",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What should a patient do after missing a dose of Jardiance?",
+  "a": [
+   "Take a double dose the next day",
+   "Take it as soon as remembered, but never a double dose in one day",
+   "Stop taking it for that week",
+   "Skip it until the next clinic visit"
+  ],
+  "correct": 1,
+  "diff": "easy",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Take it as soon as remembered. Do not take a double dose in one day.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "이 약은 식사와 관계없이 투여할 수 있다. 정제는 통째로 삼켜서 복용한다. 이 약의 복용을 잊었을 때에는 생각나는 즉시 복용한다. 하루에 두 배의 용량을 복용하지 않는다.",
+   "locator": "용법용량 — 투여 방법",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "administration",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "Under the Korean label, which infection does Jardiance increase the risk of?",
+  "a": [
+   "Pneumonia",
+   "Herpes zoster",
+   "Genital mycotic infection",
+   "Tuberculosis"
+  ],
+  "correct": 2,
+  "diff": "easy",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Jardiance increases the risk of genital mycotic infection, which is why perineal hygiene advice goes with it.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "이 약은 생식기 진균감염의 위험을 증가시킨다.",
+   "locator": "1. 경고 6) 생식기 진균감염",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "safety",
+   "empagliflozin"
+  ],
+  "societies": [
+   "kda"
+  ],
+  "fit": "core"
+ },
+ {
+  "q": "What should be watched for when Jardiance is combined with a thiazide or loop diuretic?",
+  "a": [
+   "The diuretic effect weakens",
+   "Higher risk of dehydration and hypotension",
+   "The combination is contraindicated",
+   "Blood pressure may rise"
+  ],
+  "correct": 1,
+  "diff": "mid",
+  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
+  "exp": "Empagliflozin can add to the diuretic effect of thiazide and loop diuretics, raising the risk of dehydration and hypotension.",
+  "refs": [
+   "jardianceKR2026"
+  ],
+  "evidence": {
+   "quote": "① 이뇨제 : 엠파글리플로진은 티아지드와 루프계 이뇨제의 이뇨 효과를 증가시킬 수 있으며, 탈수 및 저혈압의 위험을 증가시킬 수 있다.",
+   "locator": "5. 상호작용 ① 이뇨제",
+   "ref": "jardianceKR2026",
+   "support": "direct",
+   "access": "fulltext"
+  },
+  "topics": [
+   "label",
+   "safety",
+   "interaction",
    "empagliflozin"
   ],
   "societies": [
