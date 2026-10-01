@@ -474,39 +474,6 @@
   "fit": "core"
  },
  {
-  "q": "Which co-medications may need a dose reduction for hypoglycaemia risk?",
-  "a": [
-   "A statin",
-   "A diuretic",
-   "Insulin or an insulin secretagogue such as a sulfonylurea",
-   "An antiplatelet agent"
-  ],
-  "correct": 2,
-  "diff": "easy",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "The hypoglycaemia comes from the co-medication rather than empagliflozin. The Korean label repeats this under both dosage and cautious use.",
-  "refs": [
-   "jardianceKR2026"
-  ],
-  "evidence": {
-   "quote": "인슐린 및 설포닐우레아와 같은 인슐린 분비 촉진제는 저혈당을 일으킬 수 있다. 따라서, 이 약과 병용시 저혈당의 위험을 줄이기 위해, 인슐린 또는 인슐린 분비 촉진제의 용량을 줄여야 할 수 있다.",
-   "locator": "2. 다음 환자에는 신중히 투여할 것 2)",
-   "ref": "jardianceKR2026",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "label",
-   "safety",
-   "hypoglycemia",
-   "empagliflozin"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
   "q": "How should blood glucose be interpreted when ketoacidosis is suspected on this drug?",
   "a": [
    "It can occur below 250 mg/dL, so test regardless of the glucose value",
@@ -757,39 +724,6 @@
   "topics": [
    "label",
    "administration",
-   "empagliflozin"
-  ],
-  "societies": [
-   "kda"
-  ],
-  "fit": "core"
- },
- {
-  "q": "What should be watched for when Jardiance is combined with a thiazide or loop diuretic?",
-  "a": [
-   "The diuretic effect weakens",
-   "Higher risk of dehydration and hypotension",
-   "The combination is contraindicated",
-   "Blood pressure may rise"
-  ],
-  "correct": 1,
-  "diff": "mid",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "Empagliflozin can add to the diuretic effect of thiazide and loop diuretics, raising the risk of dehydration and hypotension.",
-  "refs": [
-   "jardianceKR2026"
-  ],
-  "evidence": {
-   "quote": "① 이뇨제 : 엠파글리플로진은 티아지드와 루프계 이뇨제의 이뇨 효과를 증가시킬 수 있으며, 탈수 및 저혈압의 위험을 증가시킬 수 있다.",
-   "locator": "5. 상호작용 ① 이뇨제",
-   "ref": "jardianceKR2026",
-   "support": "direct",
-   "access": "fulltext"
-  },
-  "topics": [
-   "label",
-   "safety",
-   "interaction",
    "empagliflozin"
   ],
   "societies": [
