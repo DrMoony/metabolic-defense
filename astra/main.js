@@ -9,7 +9,7 @@ const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
 const text = (ko, en) => state.lang === 'ko' ? ko : en;
 const strings = {
-  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],qrTitle:['자디앙 더 알아보기','Learn more about Jardiance'],
+  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],qrTitle:['자디앙 더 알아보기','Learn more about Jardiance'],rounds:['라운드 수 (저장 후 다음 판부터 적용)','Number of rounds (applies from the next run)'],
 };
 // Beta reference values are balance data; simulation, meshes and input are rebuilt.
 export const WEAPONS = [
@@ -65,13 +65,16 @@ const LITE_TRAITS=new Set(['armor','charge','split','cloak']);
 const PANCREAS = {drain:1.5,drainHigh:4,regenBusy:1,regenIdle:2.2,strainLimit:20,strainRecover:.5};
 // ramp가 있으면 1웨이브에서는 배율의 ramp 비율만 적용하고 3웨이브부터 전량 적용한다 (초반 절벽 완화)
 function tuningFor(){const t=DIFFICULTY[state.difficulty];if(t.ramp==null)return t;const k=Math.min(1,t.ramp+(1-t.ramp)*state.wave/2),soften=v=>1+(v-1)*k;return {...t,hp:soften(t.hp),speed:soften(t.speed),gap:soften(t.gap),impact:soften(t.impact)};}
-const WAVES = [
+const FULL_WAVES = [
   {duration:30,bossAt:22,boss:'syrup',quiz:[15],spawns:[['soda',2.1,1],['fries',4.2,3],['icecream',6.5,7],['donut',9,11],['sodatitan',30,18],['pizzabox',17,12]]},
   {duration:31,bossAt:23,boss:'wingking',quiz:[10,20],spawns:[['soda',2,1],['fries',3.8,2],['icecream',6,5],['donut',6.5,4],['wing',7.5,8],['burger',11,9],['burgerlord',34,14],['bubbletea',15,10],['energycan',18,16]]},
   {duration:32,bossAt:24,boss:'cancer',quiz:[9,19],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',9.5,6],['pizza',9,8],['icecream',6.2,4],['donut',6,3],['wing',6.5,7],['sodatitan',26,12],['burgerlord',30,20],['mayo',16,9],['popcorn',18,14]]},
   {duration:33,bossAt:25,boss:'pizzaking',quiz:[8,16,24],spawns:[['soda',1.7,1],['fries',3.1,2],['burger',8.5,5],['pizza',8,4],['icecream',5.8,3],['donut',5.5,3],['wing',5.5,6],['ramen',12,10],['burgerlord',24,11],['sodatitan',28,19],['cake',15,8],['pizzabox',16,15],['bubbletea',17,20]]},
   {duration:34,bossAt:26,boss:'plaque',quiz:[7,14,21,28],spawns:[['soda',1.5,1],['fries',2.8,2],['burger',7.5,5],['pizza',7,3],['icecream',5.4,4],['donut',5,2],['wing',4.8,5],['ramen',10,8],['burgerlord',22,10],['sodatitan',24,16],['energycan',14,7],['mayo',15,12],['popcorn',16,17],['cake',17,21]]},
 ];
+const MIN_ROUNDS=2,MAX_ROUNDS=FULL_WAVES.length;
+const clampRounds=n=>Math.min(MAX_ROUNDS,Math.max(MIN_ROUNDS,Number(n)||MAX_ROUNDS));
+let WAVES=FULL_WAVES.slice(0,clampRounds(storage.get('rounds',3)));
 const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,kidney:0,pancreas:100,sugar:8,strain:0,glucagon:0,slowField:0,supply:8,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
 state.lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ko';
@@ -115,12 +118,20 @@ function notice(ko,en,seconds=2.7){$('notice').textContent=text(ko,en);noticeTim
 function stageOfKidney(){return Math.min(3,Math.floor(state.kidney/25));}
 function pancreaticPower(){return state.failed?0:state.pancreas>60?1:state.pancreas>30?.7:state.pancreas>10?.45:.2;}
 function weaponName(index=state.weapon){return WEAPONS[index].names[state.lang==='ko'?0:1];}
+function refreshWaveTags(){
+  const n=WAVES.length;
+  $('waves-tag').textContent=`${n} WAVES / ${n} BOSSES`;
+  const totalSec=WAVES.reduce((sum,w)=>sum+w.duration,0)+WAVES.reduce((sum,w)=>sum+w.quiz.length,0)*18;
+  const mins=Math.max(1,Math.round(totalSec/60));
+  $('time-tag').textContent=`${Math.max(1,mins-1)}–${mins+1} MIN`;
+}
 function updateLanguage(){
   document.documentElement.lang=state.lang;
   document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=text(...strings[el.dataset.i18n]));
   document.querySelectorAll('[data-lang]').forEach(el=>el.classList.toggle('selected',el.dataset.lang===state.lang));
   document.querySelectorAll('[data-diff]').forEach(el=>el.classList.toggle('selected',el.dataset.diff===state.difficulty));
   document.querySelector('h1').innerHTML=text('CKM<br>디펜스','CKM<br>DEFENSE');
+  refreshWaveTags();
 
   $('intro-text').textContent=text('몸속으로 이어지는 여정, 지식으로 지키는 방어선','A journey within. A defense powered by knowledge.');
   $('difficulty-hint').textContent=state.difficulty==='hard'?text('몬스터 특성 발현 · 투척·회복·장갑·분열까지 상대해야 해요','Monster traits awaken · ranged, healing, armour and splitting'):state.difficulty==='easy'?text('무제한 탄약 · 느린 적 · 첫 플레이에 추천','Unlimited ammo · slower enemies · a gentle first mission'):text('누르고 있으면 연사 · 탄약 소진 시 자동 재장전 · 장갑·돌진·분열 특성 일부 등장','Hold to fire · automatic reload when empty · some traits: armour, charge, splitting');
@@ -775,9 +786,15 @@ function bindUI(){
   tap($('quiz-screen'),()=>{if(state.answered&&state.quiz?.exp&&state.feedbackTime<=13.4)continueQuiz();});
   tap($('restart'),()=>{world.clear();enemies.length=0;state.paused=false;world.selectMap(state.map);setPhase('home');updateLanguage();});
   tap($('admin-open'),()=>{
-    $('bank-info').textContent=text(`문제은행: 당뇨-Empa only ${bank.sets.empa.length}문 / 최근 24문항 중복 회피`,`Question bank: Diabetes-Empa only ${bank.sets.empa.length} / avoids the last 24 questions`);setPhase('admin');
+    $('bank-info').textContent=text(`문제은행: 당뇨-Empa only ${bank.sets.empa.length}문 / 최근 24문항 중복 회피`,`Question bank: Diabetes-Empa only ${bank.sets.empa.length} / avoids the last 24 questions`);
+    $('rounds').value=String(WAVES.length);
+    setPhase('admin');
   });
   tap($('admin-close'),()=>{
+    const rounds=clampRounds($('rounds').value);
+    storage.set('rounds',rounds);
+    WAVES=FULL_WAVES.slice(0,rounds);
+    refreshWaveTags();
     setPhase('home');
   });
   // 라이트건은 화면 어디를 겨눠도 방아쇠가 들어온다. 조준·사격은 창 전체에서 받고, 실제 UI 위만 비켜준다.
