@@ -130,7 +130,7 @@ function updateLanguage(){
   document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=text(...strings[el.dataset.i18n]));
   document.querySelectorAll('[data-lang]').forEach(el=>el.classList.toggle('selected',el.dataset.lang===state.lang));
   document.querySelectorAll('[data-diff]').forEach(el=>el.classList.toggle('selected',el.dataset.diff===state.difficulty));
-  document.querySelector('h1').innerHTML=text('CKM<br>디펜스','CKM<br>DEFENSE');
+  document.querySelector('h1').innerHTML=text('메타볼릭<br>디펜스','METABOLIC<br>DEFENSE');
   refreshWaveTags();
 
   $('intro-text').textContent=text('몸속으로 이어지는 여정, 지식으로 지키는 방어선','A journey within. A defense powered by knowledge.');
