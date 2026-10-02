@@ -1,8 +1,8 @@
 // Traced against the original 1672 × 941 plates. Stored/exported coordinates are normalized.
 const point=([x,y])=>[x/1672,y/941];
 const route=(id,names,points)=>({id,names,points:points.map(point)});
-// 간 가디언·췌장 포탑은 플레이트 기준 측정치보다 30% 크게 세운다 (사용자 피드백)
-const ORGAN_SCALE=1.3;
+// ICDM2026: 콩팥 가디언·췌장 포탑이 화면을 가려 원래 1.3배에서 0.9배로 줄였다 (사용자 피드백)
+const ORGAN_SCALE=0.9;
 const organ=(at,height)=>({at:point(at),height:height*ORGAN_SCALE/941});
 const landmark=(kind,at,size,hp=0)=>({kind,at:point(at),size:size.map((n,i)=>n/(i?941:1672)),hp,names:({plaque:['포도당 둔덕','Glucose mound'],fat:['지방 둔덕','Fat mound'],stone:['징검다리','Stepping stone'],bridge:['섬 연결 다리','Island bridge'],fibrosis:['섬유화 띠','Fibrosis band'],macrophage:['대식세포 군집','Macrophage cluster'],crystal:['포도당 둔덕','Glucose mound']})[kind]});
 const mask=(id,at,points)=>({id,at:point(at),points:points.map(point)});

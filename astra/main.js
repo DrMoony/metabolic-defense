@@ -37,7 +37,8 @@ const TYPES = {
   ramen:{hp:6,speed:1.5,score:350,impact:11,charge:{at:.72,mul:2.1},names:['나트륨 컵라면 · 막판에 돌진한다','Sodium Cup Noodles · sprints at the end']},
   ciga:{hp:3,speed:2.5,score:250,impact:8,aura:{radius:.14,armor:.3},names:['꽁초 니코틴 · 연기로 주변을 감싼다','Nicotine Butt · smoke shields neighbours']},
   soju:{hp:4,speed:2,score:320,impact:6,ranged:{every:3.4,damage:3,from:.22},names:['초록 소주병 · 멀리서 병을 던진다','Green Soju Bottle · lobs bottles from afar']},
-  moth:{hp:1,speed:4.2,score:250,impact:6,fly:true,cloak:{every:3.6,duration:1.5},names:['날아온 과자봉지 · 잠깐씩 흐릿해진다','Flying Chip Bag · flickers out of sight']},
+  // ICDM2026: 은신(반투명) 특성은 버그처럼 보여 뺐다.
+  moth:{hp:1,speed:4.2,score:250,impact:6,fly:true,names:['날아온 과자봉지','Flying Chip Bag']},
   bat:{hp:2,speed:3.6,score:300,impact:7,sugar:true,fly:true,names:['초콜릿 박쥐','Chocolate Bat']},
   cancerlet:{hp:2,speed:3.4,score:150,impact:5,names:['암세포 조각','Cancer Fragment']},
   syrup:{hp:16,speed:.8,score:1500,impact:18,sugar:true,boss:true,names:['과당 시럽통 · 위쪽 밸브가 약점','Syrup Drum · shoot the top valve']},
@@ -122,7 +123,7 @@ function updateLanguage(){
   document.querySelector('h1').textContent='ASTRA';
 
   $('intro-text').textContent=text('몸속으로 이어지는 여정, 지식으로 지키는 방어선','A journey within. A defense powered by knowledge.');
-  $('difficulty-hint').textContent=state.difficulty==='hard'?text('몬스터 특성 발현 · 투척·회복·장갑·은신·분열까지 상대해야 해요','Monster traits awaken · ranged, healing, armour, cloaking and splitting'):state.difficulty==='easy'?text('무제한 탄약 · 느린 적 · 첫 플레이에 추천','Unlimited ammo · slower enemies · a gentle first mission'):text('누르고 있으면 연사 · 탄약 소진 시 자동 재장전 · 장갑·돌진·분열 특성 일부 등장','Hold to fire · automatic reload when empty · some traits: armour, charge, splitting');
+  $('difficulty-hint').textContent=state.difficulty==='hard'?text('몬스터 특성 발현 · 투척·회복·장갑·분열까지 상대해야 해요','Monster traits awaken · ranged, healing, armour and splitting'):state.difficulty==='easy'?text('무제한 탄약 · 느린 적 · 첫 플레이에 추천','Unlimited ammo · slower enemies · a gentle first mission'):text('누르고 있으면 연사 · 탄약 소진 시 자동 재장전 · 장갑·돌진·분열 특성 일부 등장','Hold to fire · automatic reload when empty · some traits: armour, charge, splitting');
   $('guide-cards').replaceChildren();
   for(const pair of [
     [['01 / 조준하고 쏘기','다가오는 정크푸드를 쏘세요. 방아쇠를 누르면 연사합니다. 재장전·무기 교체는 화면 버튼으로!'],['01 / Point and shoot','Shoot approaching junk food. Hold the trigger to fire. Use the on-screen reload and weapon buttons.']],
