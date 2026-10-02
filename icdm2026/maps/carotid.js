@@ -1,1 +1,0 @@
-export default {key:'carotid',ready:false,chapter:'04',names:['경동맥','Carotid artery'],core:['뇌혈관','Brain vessels'],palette:{background:0x252b48,accent:0xb9cdff},routes:[],landmarks:[],plan:['carotid bulb plaque','ascending cerebral route','stenosis gate']};
