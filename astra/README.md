@@ -1,4 +1,4 @@
-# Metabolic Defense — ICDM 2026 자디앙 부스 빌드
+# CKM 디펜스 — ICDM 2026 자디앙 부스 빌드
 
 배포 주소: https://drmoony.github.io/metabolic-defense/icdm2026/
 소스 브랜치: `ICDM2026` (`astra/` 폴더가 이 폴더와 같은 내용)
