@@ -52,3 +52,7 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 .dmg-pop{position:absolute;transform:translate(-50%,-100%);font-weight:900;letter-spacing:.02em;
   text-shadow:0 2px 6px #200a12,0 0 10px #00000088;animation:dmgpop .7s ease-out forwards;pointer-events:none}
 @keyframes dmgpop{0%{opacity:0;transform:translate(-50%,-90%) scale(.7)}12%{opacity:1;transform:translate(-50%,-115%) scale(1.15)}100%{opacity:0;transform:translate(-50%,-215%) scale(1)}}
+/* ICDM2026: 결과 화면 심의 문구 (QR 아래) */
+.compliance-result{font-size:1.45cqh;font-weight:700;letter-spacing:.02em;color:#fdf2ea;background:#1c091acc;border:1px solid #ffe0a066;border-radius:3px;padding:1cqh 1.4cqw;margin:0 0 2.2cqh;line-height:1.5}
+/* ICDM2026: QR·심의 문구가 들어가도 결과 화면이 한 화면에 들어가도록 여백·점수 크기 조정 */
+#result .panel{padding-block:2.4cqh}#result h2{margin:1.2cqh 0}#result-score{font-size:6.4cqh;line-height:1.1}#result .guide-grid{margin:1.8cqh 0}#result-note{margin:.8cqh 0}#result .qr-cta{margin:1.4cqh 0 1.2cqh;padding:1.4cqh 2cqw}#result .compliance-result{margin-bottom:1.6cqh}

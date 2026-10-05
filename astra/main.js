@@ -65,16 +65,18 @@ const LITE_TRAITS=new Set(['armor','charge','split','cloak']);
 const PANCREAS = {drain:1.5,drainHigh:4,regenBusy:1,regenIdle:2.2,strainLimit:20,strainRecover:.5};
 // ramp가 있으면 1웨이브에서는 배율의 ramp 비율만 적용하고 3웨이브부터 전량 적용한다 (초반 절벽 완화)
 function tuningFor(){const t=DIFFICULTY[state.difficulty];if(t.ramp==null)return t;const k=Math.min(1,t.ramp+(1-t.ramp)*state.wave/2),soften=v=>1+(v-1)*k;return {...t,hp:soften(t.hp),speed:soften(t.speed),gap:soften(t.gap),impact:soften(t.impact)};}
-const FULL_WAVES = [
+const EARLY_WAVES = [
   {duration:30,bossAt:22,boss:'syrup',quiz:[15],spawns:[['soda',2.1,1],['fries',4.2,3],['icecream',6.5,7],['donut',9,11],['sodatitan',30,18],['pizzabox',17,12]]},
   {duration:31,bossAt:23,boss:'wingking',quiz:[10,20],spawns:[['soda',2,1],['fries',3.8,2],['icecream',6,5],['donut',6.5,4],['wing',7.5,8],['burger',11,9],['burgerlord',34,14],['bubbletea',15,10],['energycan',18,16]]},
   {duration:32,bossAt:24,boss:'cancer',quiz:[9,19],spawns:[['soda',1.9,1],['fries',3.4,2],['burger',9.5,6],['pizza',9,8],['icecream',6.2,4],['donut',6,3],['wing',6.5,7],['sodatitan',26,12],['burgerlord',30,20],['mayo',16,9],['popcorn',18,14]]},
   {duration:33,bossAt:25,boss:'pizzaking',quiz:[8,16,24],spawns:[['soda',1.7,1],['fries',3.1,2],['burger',8.5,5],['pizza',8,4],['icecream',5.8,3],['donut',5.5,3],['wing',5.5,6],['ramen',12,10],['burgerlord',24,11],['sodatitan',28,19],['cake',15,8],['pizzabox',16,15],['bubbletea',17,20]]},
-  {duration:34,bossAt:26,boss:'plaque',quiz:[7,14,21,28],spawns:[['soda',1.5,1],['fries',2.8,2],['burger',7.5,5],['pizza',7,3],['icecream',5.4,4],['donut',5,2],['wing',4.8,5],['ramen',10,8],['burgerlord',22,10],['sodatitan',24,16],['energycan',14,7],['mayo',15,12],['popcorn',16,17],['cake',17,21]]},
 ];
-const MIN_ROUNDS=2,MAX_ROUNDS=FULL_WAVES.length;
+const FINALE_WAVE = {duration:34,bossAt:26,boss:'plaque',quiz:[7,14,21,28],spawns:[['soda',1.5,1],['fries',2.8,2],['burger',7.5,5],['pizza',7,3],['icecream',5.4,4],['donut',5,2],['wing',4.8,5],['ramen',10,8],['burgerlord',22,10],['sodatitan',24,16],['energycan',14,7],['mayo',15,12],['popcorn',16,17],['cake',17,21]]};
+const MIN_ROUNDS=2,MAX_ROUNDS=EARLY_WAVES.length+1;
 const clampRounds=n=>Math.min(MAX_ROUNDS,Math.max(MIN_ROUNDS,Number(n)||MAX_ROUNDS));
-let WAVES=FULL_WAVES.slice(0,clampRounds(storage.get('rounds',3)));
+// 라운드 수와 무관하게 플라크(동맥경화)가 항상 마지막 보스 — CKM 테마상 가장 잘 맞는 피날레라 운영자가 라운드를 줄여도 빠지지 않게 고정.
+const buildWaves=n=>EARLY_WAVES.slice(0,n-1).concat([FINALE_WAVE]);
+let WAVES=buildWaves(clampRounds(storage.get('rounds',3)));
 const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,kidney:0,pancreas:100,sugar:8,strain:0,glucagon:0,slowField:0,supply:8,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
 state.lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ko';
@@ -130,7 +132,7 @@ function updateLanguage(){
   document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=text(...strings[el.dataset.i18n]));
   document.querySelectorAll('[data-lang]').forEach(el=>el.classList.toggle('selected',el.dataset.lang===state.lang));
   document.querySelectorAll('[data-diff]').forEach(el=>el.classList.toggle('selected',el.dataset.diff===state.difficulty));
-  document.querySelector('h1').innerHTML=text('CKM<br>디펜스','CKM<br>DEFENSE');
+  document.querySelector('h1').innerHTML=text('메타볼릭<br>디펜스','METABOLIC<br>DEFENSE');
   refreshWaveTags();
 
   $('intro-text').textContent=text('몸속으로 이어지는 여정, 지식으로 지키는 방어선','A journey within. A defense powered by knowledge.');
@@ -793,7 +795,7 @@ function bindUI(){
   tap($('admin-close'),()=>{
     const rounds=clampRounds($('rounds').value);
     storage.set('rounds',rounds);
-    WAVES=FULL_WAVES.slice(0,rounds);
+    WAVES=buildWaves(rounds);
     refreshWaveTags();
     setPhase('home');
   });
@@ -843,7 +845,7 @@ try{
     $('fps').dataset.quality=String(world.quality);
     frameSamples=[];sampleStart=now;
   }
-  window.ASTRA={loadSfx,sample,sfxBuffers,unlockAudio,editor,MAPS,selectMap,state,enemies,world,bank,WEAPONS,TYPES,WAVES,DIFFICULTY,PANCREAS,performance:performanceStats,spawn,shot,reload,swap,start:resetGame,openQuiz,answerQuiz,continueQuiz,pause,step,project:enemy=>world.project(enemy.model),setManual(value=true){manual=value;lastTime=performance.now();frameSamples=[];sampleStart=lastTime;slowWindows=goodWindows=0;},damage,finish};
+  window.ASTRA={loadSfx,sample,sfxBuffers,unlockAudio,editor,MAPS,selectMap,state,enemies,world,bank,WEAPONS,TYPES,get WAVES(){return WAVES;},DIFFICULTY,PANCREAS,performance:performanceStats,spawn,shot,reload,swap,start:resetGame,openQuiz,answerQuiz,continueQuiz,pause,step,project:enemy=>world.project(enemy.model),setManual(value=true){manual=value;lastTime=performance.now();frameSamples=[];sampleStart=lastTime;slowWindows=goodWindows=0;},damage,finish};
   function frame(now){const elapsed=now-lastTime;lastTime=now;measureFrame(now,elapsed);if(!manual)step(Math.min(.05,elapsed/1000));requestAnimationFrame(frame);}requestAnimationFrame(frame);
 
 }catch(error){console.error(error);$('fatal-text').textContent=text('3D 화면을 시작하지 못했습니다. WebGL2를 지원하는 브라우저에서 서버 주소로 열어 주세요.','Could not start 3D graphics. Open the HTTP server URL in a browser supporting WebGL2.');show('fatal',true);}
