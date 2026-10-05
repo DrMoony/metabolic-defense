@@ -56,3 +56,18 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 .compliance-result{font-size:1.45cqh;font-weight:700;letter-spacing:.02em;color:#fdf2ea;background:#1c091acc;border:1px solid #ffe0a066;border-radius:3px;padding:1cqh 1.4cqw;margin:0 0 2.2cqh;line-height:1.5}
 /* ICDM2026: QR·심의 문구가 들어가도 결과 화면이 한 화면에 들어가도록 여백·점수 크기 조정 */
 #result .panel{padding-block:2.4cqh}#result h2{margin:1.2cqh 0}#result-score{font-size:6.4cqh;line-height:1.1}#result .guide-grid{margin:1.8cqh 0}#result-note{margin:.8cqh 0}#result .qr-cta{margin:1.4cqh 0 1.2cqh;padding:1.4cqh 2cqw}#result .compliance-result{margin-bottom:1.6cqh}
+/* ICDM2026 그래픽 리뷰 반영 (2026-10-05) */
+/* 하단 장기·무기 패널: 뒤의 무기·배경 그림이 비쳐 글자가 묻히지 않게 불투명도를 올림 */
+.organ{background:#240c20e6}.weapon{background:#240c20e0}
+/* 상단 웨이브 표시: 밝은 맵(신장·췌장섬)에서도 읽히게 점수·생명 패널과 같은 배경판 */
+.mission{padding:1cqh 1.2cqw;background:#260e22c4;border:1px solid #d0a27c38;border-radius:1cqh;text-shadow:none}
+.mission span{color:#f0daca;font-size:1.05cqh}.mission .track{background:#ffffff26}
+/* 가운데 알림: 그림 위에 글자만 뜨지 않게 배경판, 심혈관 맵의 콩팥 가디언과 겹치지 않게 아래로 */
+#notice{top:37%;width:auto;max-width:60%;padding:1.1cqh 2cqw;color:#ffe6a2;background:#260e22e0;border:1px solid #ffe0a066;border-radius:1cqh;text-shadow:none;font-weight:700}
+/* 퀴즈·결과: 보라·금색 패널 안의 청록·라임 잔재를 금색 톤으로 통일 (정답 초록·오답 빨강은 의미색이라 유지) */
+#answers button{background:#3a1d35;border-color:#d9b38a44;color:#fbeee2}
+#answers button.selected{background:#5a3448;border-color:#ffe0a0;color:#fff4dc}
+.explain{background:#2a1127e6;border-left-color:#ffe0a0;color:#fbeee2}.explain b{color:#ffe0a0}
+#result .guide-grid>div{background:#321d3280;border-color:#cbaa7844}#result .guide-grid b{color:#ffe0a0}
+/* 부스용: 프레임 디버그 표시 숨김 */
+#fps{display:none}

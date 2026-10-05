@@ -1,11 +1,11 @@
-import { healthColor } from './feedback.js?v=a58';
+import { healthColor } from './feedback.js?v=a59';
 import * as THREE from '../vendor/three.module.js';
 export { THREE };
-import { contact, glow, reflections } from './art.js?v=a58';
-import { buildTerrain } from './terrain.js?v=a58';
-import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a58';
-import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality, attachFlashOverlay } from './sprites.js?v=a58';
-import { getMap } from './maps/index.js?v=a58';
+import { contact, glow, reflections } from './art.js?v=a59';
+import { buildTerrain } from './terrain.js?v=a59';
+import { buildPlateTerrain, configurePlateCamera, groundPoint } from './plate.js?v=a59';
+import { cutout, enemyBillboard, animateEnemy, disposeBillboard, screenHeight, WEAPON_ART, spriteLoads, preloadSprites, setTextureQuality, attachFlashOverlay } from './sprites.js?v=a59';
+import { getMap } from './maps/index.js?v=a59';
 const V = (x, y, z) => new THREE.Vector3(x, y, z);
 const materials = new Map();
 const shapes = {
@@ -188,9 +188,10 @@ export class World {
     const group=this.gun,body=group.userData.body,tier=group.userData.tier;
     const viewHeight=2*1.5*Math.tan(THREE.MathUtils.degToRad(this.camera.fov/2)),viewWidth=viewHeight*this.camera.aspect;
     const aspect=body.scale.x/body.scale.y;
-    const height=Math.min(viewHeight*(tier===0?.43:.49),viewWidth*.44/aspect),width=height*aspect;
+    // 부스 빌드: 우하단 췌장 포탑 패널을 덮지 않도록 무기를 작게(높이 31~35%) 두고 패널 위쪽으로 살짝 띄운다.
+    const height=Math.min(viewHeight*(tier===0?.31:.35),viewWidth*.3/aspect),width=height*aspect;
     body.scale.set(width,height,1);
-    group.position.set(viewWidth*.5-width*.47,-viewHeight*.5+height*.43,-1.5);
+    group.position.set(viewWidth*.5-width*.62,-viewHeight*.5+height*.5+viewHeight*.1,-1.5);
     group.userData.rest=group.position.clone();
     // Barrel-tip coordinates in each source image, normalized from top-left.
     const tips=[[.5,.29],[.13,.12],[.09,.06],[.47,.05],[.10,.06],[.08,.07],[.11,.06],[.06,.06],[.06,.06],[.05,.10],[.08,.06],[.07,.08]];
