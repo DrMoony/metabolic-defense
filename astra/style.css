@@ -71,3 +71,8 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 #result .guide-grid>div{background:#321d3280;border-color:#cbaa7844}#result .guide-grid b{color:#ffe0a0}
 /* 부스용: 프레임 디버그 표시 숨김 */
 #fps{display:none}
+/* 퀴즈 정오 표시: 보라 테마에서 기존 어두운 적색(#6a3435)이 기본 버튼과 구분이 안 돼 색 대비를 키우고 ✓/✗ 표식을 붙인다. */
+#answers button.correct{background:#2e5a3e;border:2px solid #9fe8a0;color:#f2fff0}
+#answers button.wrong{background:#8c2b37;border:2px solid #ff8f80;color:#fff0ec}
+#answers button.correct::after,#answers button.wrong::after{float:right;margin-left:1cqw;font-weight:800;font-size:2.2cqh}
+#answers button.correct::after{content:"✓";color:#b8ffb4}#answers button.wrong::after{content:"✗";color:#ffd0c8}
