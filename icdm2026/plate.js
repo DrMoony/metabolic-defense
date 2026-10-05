@@ -1,6 +1,6 @@
 import * as T from '../vendor/three.module.js';
-import { cutout, screenHeight } from './sprites.js?v=a58';
-import { Routes } from './routes.js?v=a58';
+import { cutout, screenHeight } from './sprites.js?v=a59';
+import { Routes } from './routes.js?v=a59';
 
 export function configurePlateCamera(camera,map){
   camera.fov=map.camera.fov;camera.near=.1;camera.far=1500;
@@ -94,9 +94,11 @@ export function buildPlateTerrain(scene,map,camera){
       if(data.kind==='macrophage')body.material.color.setHex(0xcc95bd);
       item.anchor.position.y=body.scale.y*1.1;
       if(data.hp){
-        const bar=new T.Group();bar.position.y=body.scale.y*1.04;group.add(bar);
-        const bg=new T.Mesh(new T.PlaneGeometry(1,1),new T.MeshBasicMaterial({color:0x301a24}));bg.scale.set(body.scale.x,.12,1);bg.userData.decorative=true;bar.add(bg);
-        const fill=new T.Mesh(new T.PlaneGeometry(1,1),new T.MeshBasicMaterial({color:0xffd875}));fill.position.z=.035;fill.scale.set(body.scale.x,.08,1);fill.userData.decorative=true;bar.add(fill);item.bar=bar;item.fill=fill;item.barWidth=body.scale.x;
+        // 둔덕 체력바: 이미지 폭(투명 여백 포함) 그대로 쓰면 그림 위에 긴 잡선처럼 보여서 폭 55%·두께를 키우고, 첫 피격 전에는 숨긴다.
+        const barWidth=body.scale.x*.55,barHeight=Math.max(.26,body.scale.y*.07);
+        const bar=new T.Group();bar.position.y=body.scale.y*1.02;bar.visible=false;group.add(bar);
+        const bg=new T.Mesh(new T.PlaneGeometry(1,1),new T.MeshBasicMaterial({color:0x301a24}));bg.scale.set(barWidth+.08,barHeight+.08,1);bg.userData.decorative=true;bar.add(bg);
+        const fill=new T.Mesh(new T.PlaneGeometry(1,1),new T.MeshBasicMaterial({color:0xffd875}));fill.position.z=.035;fill.scale.set(barWidth,barHeight,1);fill.userData.decorative=true;bar.add(fill);item.bar=bar;item.fill=fill;item.barWidth=barWidth;
       }
     }else{
       // Deck footprints are unprojected independently so their outline sits on the painted stones/bridges.
@@ -118,7 +120,7 @@ export function buildPlateTerrain(scene,map,camera){
   }
   terrain.core=terrain.cores[0];
   terrain.setQuality=level=>{for(const mesh of terrain.density)mesh.count=Math.ceil(mesh.userData.fullCount*[1,.75,.5,.25][level]);};
-  terrain.animate=(t,wave,view)=>{for(const l of terrain.landmarks)if(l.bar){l.model.quaternion.copy(view.quaternion);l.fill.scale.x=l.barWidth*Math.max(0,l.hp/l.maxHp);}for(const fiber of terrain.fibers)fiber.scale.y=1+wave*.4;};
+  terrain.animate=(t,wave,view)=>{for(const l of terrain.landmarks)if(l.bar){l.model.quaternion.copy(view.quaternion);const r=Math.max(0,l.hp/l.maxHp);l.bar.visible=r<1;l.fill.scale.x=l.barWidth*r;l.fill.position.x=-l.barWidth*(1-r)/2;}for(const fiber of terrain.fibers)fiber.scale.y=1+wave*.4;};
   terrain.dispose=()=>{root.removeFromParent();disposeObject(root);};
   return terrain;
 }
