@@ -1,15 +1,19 @@
-import { groundPoint, routeDocument, validateRoutes, loadRoutes } from './plate.js?v=a63';
+import { groundPoint, routeDocument, validateRoutes, loadRoutes, routeStoreKey } from './plate.js?v=a65';
 const $=id=>document.getElementById(id);
 const clone=value=>JSON.parse(JSON.stringify(value));
 export class RouteEditor {
-  constructor(world,onChange){
-    this.world=world;this.onChange=onChange;this.active=false;this.selected=null;this.history=[];
+  constructor(world,onChange,options={}){
+    this.world=world;this.onChange=onChange;this.options=options;this.active=false;this.selected=null;this.history=[];
     $('route-editor-panel-toggle').onclick=()=>this.togglePanel();
     $('route-editor-close').onclick=()=>this.toggle(false);
     $('route-editor-save').onclick=()=>this.save();
     $('route-editor-export').onclick=()=>this.exportJSON();
     $('route-editor-undo').onclick=()=>this.undo();
-    $('route-editor-default').onclick=()=>this.replace(routeDocument(this.world.map));
+    $('route-editor-default').onclick=()=>this.resetDefault();
+    $('route-editor-insert').onclick=()=>this.insertAfter();
+    $('route-editor-remove').onclick=()=>this.remove();
+    // 편집기 안에서 맵을 바꾼다: 닫고 → 맵 교체 → 다시 연다(맵마다 지형·경로가 새로 만들어지므로).
+    $('route-editor-map').onchange=()=>{const key=$('route-editor-map').value;this.toggle(false);if(this.options.selectMap?.(key)===false)this.status('지금은 맵을 바꿀 수 없어요');this.toggle(true);};
     $('route-editor-reload').onclick=()=>this.replace(loadRoutes(this.world.map,this.world.camera).doc);
     $('route-editor-import').onclick=()=>{try{this.replace(JSON.parse($('route-editor-json').value));}catch(e){this.status(e.message);}};
     $('route-editor-route').onchange=()=>{this.selected=null;this.draw();};
@@ -42,7 +46,10 @@ export class RouteEditor {
       this.history=[];this.selected=null;this.wasDebug=this.world.terrain.debug.visible;this.world.terrain.debug.visible=false;
       $('route-editor-route').replaceChildren();
       this.paths.forEach((r,i)=>{const option=document.createElement('option');option.value=i;option.textContent=r.id;$('route-editor-route').append(option);});
-      $('route-editor-route').value='0';this.status(`${this.world.map.key} · ${this.world.terrain.storageStatus}`);this.draw();
+      $('route-editor-route').value='0';
+      const maps=this.options.maps?.()||[];$('route-editor-map').replaceChildren(...maps.map(m=>Object.assign(document.createElement('option'),{value:m.key,textContent:m.label})));$('route-editor-map').value=this.world.map.key;
+      const label={saved:'저장된 경로를 쓰고 있어요',default:'기본 경로를 쓰고 있어요'}[this.world.terrain.storageStatus]||`기본 경로를 쓰고 있어요 (${this.world.terrain.storageStatus})`;
+      this.status(label);this.draw();
     }else{this.world.terrain.debug.visible=this.wasDebug||false;this.world.render();}
     return next;
   }
@@ -90,19 +97,29 @@ export class RouteEditor {
   replace(doc){
     try{validateRoutes(this.world.map,doc,this.world.camera);this.snapshot();this.world.terrain.applyRoutes(doc);this.selected=null;this.draw();this.status('경로를 적용했어요. 저장 버튼으로 이 기기에 남길 수 있어요.');return true;}catch(e){this.status(e.message);return false;}
   }
+  insertAfter(){
+    if(!this.selected){this.status('점을 먼저 하나 눌러 고른 뒤 추가해 주세요.');return;}
+    const doc=clone(this.doc),{path,index}=this.selected,points=this.path(path,doc),at=index<points.length-1?index:index-1;
+    const a=points[at],b=points[at+1],mid=[Number(((a[0]+b[0])/2).toFixed(6)),Number(((a[1]+b[1])/2).toFixed(6))];
+    points.splice(at+1,0,mid);if(this.replace(doc)){this.selected={path,index:at+1};this.draw();this.status('두 점 사이에 새 점을 넣었어요. 끌어서 길 위로 옮겨 주세요.');}
+  }
+  resetDefault(){
+    try{localStorage.removeItem(routeStoreKey(this.world.map));}catch{}
+    this.history=[];if(this.replace(routeDocument(this.world.map))){this.world.terrain.storageStatus='default';this.status('저장본을 지우고 기본 경로로 돌아왔어요.');}
+  }
   remove(){
-    if(!this.selected)return;
+    if(!this.selected){this.status('지울 점을 먼저 눌러 골라 주세요.');return;}
     const doc=clone(this.doc),{path,index}=this.selected,points=this.path(path,doc);
     if(points.length<=2||index===0||index===points.length-1){this.status('시작점과 도착점은 드래그로 옮길 수 있어요.');return;}
     points.splice(index,1);this.replace(doc);
   }
   undo(){const doc=this.history.pop();if(doc){this.world.terrain.applyRoutes(doc);this.selected=null;this.draw();this.status('이전 경로로 돌아왔어요.');}}
   save(){
-    try{const doc=validateRoutes(this.world.map,this.doc,this.world.camera);localStorage.setItem(`astra_routes_${this.world.map.key}`,JSON.stringify(doc));this.world.terrain.storageStatus='saved';this.status(`저장했어요 · astra_routes_${this.world.map.key}`);return true;}
+    try{const doc=validateRoutes(this.world.map,this.doc,this.world.camera);localStorage.setItem(routeStoreKey(this.world.map),JSON.stringify(doc));this.world.terrain.storageStatus='saved';this.status('저장했어요. 이 PC에서는 다음 판부터 이 경로로 적이 걸어요.');return true;}
     catch(e){this.status(`저장하지 못했어요. JSON 내보내기로 경로를 보관해 주세요. (${e.message})`);return false;}
   }
   exportJSON(){
     const json=JSON.stringify(this.doc,null,2);$('route-editor-json').value=json;
-    const url=URL.createObjectURL(new Blob([json],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download=`astra_routes_${this.world.map.key}.json`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);this.status('JSON 파일을 내보냈어요. 아래 내용도 복사할 수 있어요.');return json;
+    const url=URL.createObjectURL(new Blob([json],{type:'application/json'})),link=document.createElement('a');link.href=url;link.download=`icdm_routes_${this.world.map.key}.json`;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);this.status('JSON 파일을 내보냈어요. 아래 내용도 복사할 수 있어요.');return json;
   }
 }

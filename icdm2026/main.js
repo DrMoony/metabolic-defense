@@ -1,15 +1,15 @@
-import { healthColor, weaponColor } from './feedback.js?v=a63';
-import { RouteEditor } from './route-editor.js?v=a63';
-import { World, THREE } from './world.js?v=a63';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a63';
+import { healthColor, weaponColor } from './feedback.js?v=a65';
+import { RouteEditor } from './route-editor.js?v=a65';
+import { World, THREE } from './world.js?v=a65';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a65';
 
-import { MAPS, getMap } from './maps/index.js?v=a63';
+import { MAPS, getMap } from './maps/index.js?v=a65';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
 const text = (ko, en) => state.lang === 'ko' ? ko : en;
 const strings = {
-  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],qrTitle:['자디앙 더 알아보기','Learn more about Jardiance'],rankTitle:['명예의 전당','Hall of fame'],rankOrg:['소속','Affiliation'],rankName:['닉네임','Nickname'],rankSubmit:['랭킹 등록','Submit score'],rankReset:['랭킹 초기화','Reset leaderboard'],rankEnabled:['랭킹 기능 사용 (결과 등록 · 메인 TOP 5)','Leaderboard on (result entry · home TOP 5)'],rounds:['라운드 수 (저장 후 다음 판부터 적용)','Number of rounds (applies from the next run)'],
+  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],qrTitle:['자디앙 더 알아보기','Learn more about Jardiance'],rankTitle:['명예의 전당','Hall of fame'],rankOrg:['소속','Affiliation'],rankName:['닉네임','Nickname'],rankSubmit:['랭킹 등록','Submit score'],rankReset:['랭킹 초기화','Reset leaderboard'],routeEdit:['경로 편집 (현재 맵)','Edit routes (current map)'],rankEnabled:['랭킹 기능 사용 (결과 등록 · 메인 TOP 5)','Leaderboard on (result entry · home TOP 5)'],rounds:['라운드 수 (저장 후 다음 판부터 적용)','Number of rounds (applies from the next run)'],
 };
 // Beta reference values are balance data; simulation, meshes and input are rebuilt.
 export const WEAPONS = [
@@ -312,6 +312,12 @@ function positionEnemy(enemy){
   }
   enemy.model.quaternion.copy(world.camera.quaternion);
   enemy.model.scale.setScalar(world.actorScale*enemy.scale*(.96+p*.08));
+  // 비행 적은 곡선·좌우 흔들림·분열 산포가 겹치면 화면 가장자리 밖으로 나간다. 같은 깊이에서 화면 안쪽(하단 HUD 위)으로 끌어온다.
+  if(enemy.fly){
+    const v=enemy.model.position.clone().project(world.camera),x=(v.x+1)/2,y=(1-v.y)/2;
+    const cx=Math.min(.94,Math.max(.06,x)),cy=Math.min(.84,Math.max(.14,y));
+    if(cx!==x||cy!==y)enemy.model.position.copy(new THREE.Vector3(cx*2-1,1-cy*2,v.z).unproject(world.camera));
+  }
 }
 function removeEnemy(enemy,dying=false){enemy.dead=true;const index=enemies.indexOf(enemy);if(index>=0)enemies.splice(index,1);world.remove(enemy.model,dying);updateBossHUD();}
 
@@ -825,6 +831,7 @@ function bindUI(){
   tap($('restart'),()=>{world.clear();enemies.length=0;state.paused=false;world.selectMap(state.map);setPhase('home');updateLanguage();});
   // 라이트건은 click 이 빠질 수 있어 버튼은 tap 으로, 키보드 Enter 는 form submit 으로 받는다(중복은 rankEntry 로 막힘).
   $('rank-form').addEventListener('submit',submitRanking);tap($('rank-submit'),submitRanking);
+  tap($('route-edit-open'),()=>editor.toggle(true));
   tap($('rank-reset'),()=>{storage.set('ranking',[]);rankEntry=null;$('rank-info').textContent=text('랭킹을 비웠어요','Leaderboard cleared');});
   tap($('admin-open'),()=>{
     $('rank-enabled').checked=rankingOn();
@@ -862,7 +869,7 @@ function bindUI(){
   $('world').addEventListener('webglcontextlost',event=>{event.preventDefault();pause(true);$('fatal-text').textContent=text('그래픽 연결이 중단됐습니다. 다시 불러와 주세요.','Graphics context lost. Please reload.');show('fatal',true);});
 }
 try{
-  world=new World($('world'));editor=new RouteEditor(world,()=>{state.shooting=false;pendingShots=[];});bindUI();updateLanguage();loadBanks();
+  world=new World($('world'));editor=new RouteEditor(world,()=>{state.shooting=false;pendingShots=[];},{selectMap,maps:()=>MAPS.filter(m=>m.ready).map(m=>({key:m.key,label:text(...m.names)}))});bindUI();updateLanguage();loadBanks();
   // Measure real rAF intervals, independent of capped simulation dt and ASTRA.step().
   const performanceStats={fps:60,frameMs:16.67,p95Ms:16.67,drawCalls:0,triangles:0,quality:0,samples:0};
   let frameSamples=[],sampleStart=performance.now(),slowWindows=0,goodWindows=0,lastQualityChange=0;

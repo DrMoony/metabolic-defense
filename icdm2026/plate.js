@@ -1,6 +1,6 @@
 import * as T from '../vendor/three.module.js';
-import { cutout, screenHeight } from './sprites.js?v=a63';
-import { Routes } from './routes.js?v=a63';
+import { cutout, screenHeight } from './sprites.js?v=a65';
+import { Routes } from './routes.js?v=a65';
 
 export function configurePlateCamera(camera,map){
   camera.fov=map.camera.fov;camera.near=.1;camera.far=1500;
@@ -31,9 +31,11 @@ export function validateRoutes(map,doc,camera){
 export function routeSignature(map){
   return `${map.routes.map(r=>`${r.id}:${r.points.length}:${r.points[0].map(v=>v.toFixed(3)).join()}:${r.points.at(-1).map(v=>v.toFixed(3)).join()}`).join('|')}#${(map.trunk||[]).length}`;
 }
+// 같은 도메인의 astra 빌드와 저장 칸이 섞이지 않도록 부스 빌드는 icdm_ 접두사를 쓴다.
+export const routeStoreKey=map=>`icdm_routes_${map.key}`;
 export function loadRoutes(map,camera){
   try{
-    const value=localStorage.getItem(`astra_routes_${map.key}`);
+    const value=localStorage.getItem(routeStoreKey(map));
     if(value){
       const parsed=JSON.parse(value);
       if(parsed.signature!==routeSignature(map))return {doc:routeDocument(map),status:'default (map changed)'};

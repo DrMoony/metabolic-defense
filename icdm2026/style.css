@@ -104,3 +104,10 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 #home-rank .rank-list .who{font-size:1.5cqh}#home-rank .rank-list .pts{font-size:1.6cqh}
 #home-rank .rank-list li.empty{padding:1cqh 0}
 #admin .check{margin:0 0 1cqh;cursor:pointer}
+/* 경로 편집기: 운영자 설정에서 열고 마우스만으로 고친다 */
+#route-editor-panel{max-height:60%;width:32%}
+#route-editor-panel b{font-size:1.5cqh}
+#route-editor-panel label{font-size:1.2cqh;margin-right:.6cqw}
+.route-editor-actions{margin:.6cqh 0}
+#route-editor-panel button.primary-lite{background:#ffe0a0;color:#2a1024;border-color:#ffe0a0;font-weight:800}
+#route-editor-status{font-size:1.25cqh;font-weight:700}
