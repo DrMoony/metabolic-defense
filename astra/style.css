@@ -76,3 +76,24 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 #answers button.wrong{background:#8c2b37;border:2px solid #ff8f80;color:#fff0ec}
 #answers button.correct::after,#answers button.wrong::after{float:right;margin-left:1cqw;font-weight:800;font-size:2.2cqh}
 #answers button.correct::after{content:"✓";color:#b8ffb4}#answers button.wrong::after{content:"✗";color:#ffd0c8}
+/* 부스 랭킹 (결과 화면 오른쪽) */
+#result .panel{width:60%;margin-left:-30%}
+#rank-board{position:absolute;right:4%;top:13%;bottom:9%;width:27%;display:flex;flex-direction:column;padding:2.4cqh 1.6cqw;background:#260e22d9;border:1px solid #d0a27c44;border-top:2px solid #f1d38d;border-radius:1cqh;user-select:text}
+#rank-board h3{font-family:Georgia,"AppleMyungjo",serif;font-weight:400;font-size:3.2cqh;margin:.8cqh 0 1.6cqh;color:#fbeee2}
+#rank-form{display:flex;flex-direction:column;gap:1cqh}
+#rank-form input{font:inherit;font-size:1.8cqh;padding:1.1cqh 1cqw;color:#fff4dc;background:#3a1d35;border:1px solid #d9b38a66;border-radius:.6cqh;outline:none}
+#rank-form input:focus{border-color:#ffe0a0;background:#4a2541}
+#rank-form input::placeholder{color:#c9a99a}
+#rank-form .primary{font-size:1.8cqh;min-height:5cqh;padding:.6em 1em;background:#ffe0a0;border-color:#ffe0a0;color:#2a1024}
+#rank-status{font-size:1.6cqh;color:#ffe0a0;font-weight:700;margin:1cqh 0 .4cqh;min-height:2cqh}
+#rank-list{list-style:none;margin:.6cqh 0 0;padding:0;overflow:auto;flex:1}
+#rank-list li{display:grid;grid-template-columns:2.6cqw 1fr auto;grid-template-areas:"no who pts" "no org pts";align-items:center;column-gap:.8cqw;padding:.8cqh .5cqw;border-bottom:1px solid #d0a27c26}
+#rank-list .no{grid-area:no;font-size:2cqh;font-weight:800;color:#d9b38a;text-align:center}
+#rank-list li:nth-child(1) .no{color:#ffd770}#rank-list li:nth-child(2) .no{color:#e6e0ea}#rank-list li:nth-child(3) .no{color:#e8a36f}
+#rank-list .who{grid-area:who;font-size:1.65cqh;font-weight:700;color:#fbeee2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#rank-list .org{grid-area:org;font-size:1.2cqh;color:#c9a99a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#rank-list .pts{grid-area:pts;font-size:1.8cqh;font-weight:800;color:#ffe0a0;font-variant-numeric:tabular-nums}
+#rank-list li.mine{background:#ffe0a024;border:1px solid #ffe0a088;border-radius:.6cqh}
+#rank-list li.gap{margin-top:1cqh;border-top:1px dashed #d0a27c66}
+#rank-list li.empty{display:block;font-size:1.5cqh;color:#c9a99a;border:0;padding:2cqh 0}
+#admin #rank-reset{margin:0 0 3cqh}
