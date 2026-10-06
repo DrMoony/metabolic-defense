@@ -1,15 +1,15 @@
-import { healthColor, weaponColor } from './feedback.js?v=a60';
-import { RouteEditor } from './route-editor.js?v=a60';
-import { World, THREE } from './world.js?v=a60';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a60';
+import { healthColor, weaponColor } from './feedback.js?v=a61';
+import { RouteEditor } from './route-editor.js?v=a61';
+import { World, THREE } from './world.js?v=a61';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a61';
 
-import { MAPS, getMap } from './maps/index.js?v=a60';
+import { MAPS, getMap } from './maps/index.js?v=a61';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
 const text = (ko, en) => state.lang === 'ko' ? ko : en;
 const strings = {
-  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],qrTitle:['자디앙 더 알아보기','Learn more about Jardiance'],rounds:['라운드 수 (저장 후 다음 판부터 적용)','Number of rounds (applies from the next run)'],
+  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],qrTitle:['자디앙 더 알아보기','Learn more about Jardiance'],rankTitle:['명예의 전당','Hall of fame'],rankOrg:['소속 (예: 서울대병원)','Affiliation'],rankName:['닉네임','Nickname'],rankSubmit:['랭킹 등록','Submit score'],rankReset:['랭킹 초기화','Reset leaderboard'],rounds:['라운드 수 (저장 후 다음 판부터 적용)','Number of rounds (applies from the next run)'],
 };
 // Beta reference values are balance data; simulation, meshes and input are rebuilt.
 export const WEAPONS = [
@@ -130,6 +130,7 @@ function refreshWaveTags(){
 function updateLanguage(){
   document.documentElement.lang=state.lang;
   document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=text(...strings[el.dataset.i18n]));
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>el.placeholder=text(...strings[el.dataset.i18nPh]));
   document.querySelectorAll('[data-lang]').forEach(el=>el.classList.toggle('selected',el.dataset.lang===state.lang));
   document.querySelectorAll('[data-diff]').forEach(el=>el.classList.toggle('selected',el.dataset.diff===state.difficulty));
   document.querySelector('h1').innerHTML=text('메타볼릭<br>디펜스','METABOLIC<br>DEFENSE');
@@ -608,7 +609,32 @@ function finish(victory){
     const div=document.createElement('div'),b=document.createElement('b'),p=document.createElement('p');b.textContent=value;p.textContent=label;div.append(b,p);$('result-stats').append(div);
   }
   $('result-note').textContent=text(`보스 ${state.killedBosses.length}/${WAVES.length} · 생존 보너스 ${bonus.toLocaleString()} · 최종 무기 ${weaponName()} · ${Math.floor(state.elapsed/60)}분 ${Math.floor(state.elapsed%60)}초`, `Bosses ${state.killedBosses.length}/${WAVES.length} · survival bonus ${bonus.toLocaleString()} · ${weaponName()} · ${Math.floor(state.elapsed/60)}m ${Math.floor(state.elapsed%60)}s`)+(state.failed?text(' / 췌장부전: 무력화 단계에서 당류 적을 먼저 정리하세요.',' / Pancreatic failure: prioritize sugar enemies during resistance.'):'');
+  rankEntry=null;$('rank-org').value='';$('rank-name').value='';show('rank-form',true);$('rank-status').textContent='';renderRanking();
   updateHUD();sound(victory?680:100,.5,'sine');
+}
+// 부스 랭킹: 소속·닉네임·점수만 이 PC의 브라우저 저장소에 둔다(외부 전송 없음). 상위 100건만 보관하고 화면엔 TOP 10.
+let rankEntry=null;
+const loadRanking=()=>{const list=storage.get('ranking',[]);return Array.isArray(list)?list.filter(r=>r&&Number.isFinite(r.score)):[];};
+function renderRanking(){
+  const list=loadRanking().sort((a,b)=>b.score-a.score||a.ts-b.ts),mine=rankEntry?list.findIndex(r=>r.ts===rankEntry.ts):-1;
+  const rows=list.slice(0,10).map((r,i)=>({...r,rank:i+1}));
+  if(mine>=10)rows.push({...list[mine],rank:mine+1,gap:true});
+  $('rank-list').replaceChildren(...rows.map(r=>{
+    const li=document.createElement('li');li.className=(rankEntry&&r.ts===rankEntry.ts?'mine':'')+(r.gap?' gap':'');
+    for(const [cls,value] of [['no',String(r.rank)],['who',r.name],['org',r.org],['pts',r.score.toLocaleString()]])li.append(Object.assign(document.createElement('span'),{className:cls,textContent:value}));
+    return li;
+  }));
+  if(!rows.length)$('rank-list').append(Object.assign(document.createElement('li'),{className:'empty',textContent:text('첫 기록의 주인공이 되어 보세요','Be the first on the board')}));
+}
+function submitRanking(event){
+  event?.preventDefault?.();if(state.phase!=='result'||rankEntry)return;
+  const org=$('rank-org').value.trim().slice(0,20),name=$('rank-name').value.trim().slice(0,12);
+  if(!org||!name){$('rank-status').textContent=text('소속과 닉네임을 모두 적어 주세요','Enter both affiliation and nickname');return;}
+  rankEntry={org,name,score:state.score,map:state.map,date:new Date().toISOString().slice(0,10),ts:Date.now()};
+  const list=loadRanking();list.push(rankEntry);list.sort((a,b)=>b.score-a.score||a.ts-b.ts);
+  if(!storage.set('ranking',list.slice(0,100))){rankEntry=null;$('rank-status').textContent=text('저장하지 못했어요. 운영자에게 알려 주세요','Could not save. Please tell the staff');return;}
+  const place=list.findIndex(r=>r.ts===rankEntry.ts)+1;
+  show('rank-form',false);$('rank-status').textContent=text(`${place}위로 등록됐어요!`,`You placed #${place}!`);renderRanking();
 }
 function combat(dt){
   state.waveTime+=dt;state.cooldown=Math.max(0,state.cooldown-dt);state.boost=Math.max(0,state.boost-dt);state.glucagon=Math.max(0,state.glucagon-dt);state.slowField=Math.max(0,state.slowField-dt);
@@ -787,7 +813,11 @@ function bindUI(){
   // 해설 팝업이 뜬 뒤에는 화면 아무 곳이나 한 번 더 쏘면 게임으로 돌아간다 (0.6초 오클릭 보호)
   tap($('quiz-screen'),()=>{if(state.answered&&state.quiz?.exp&&state.feedbackTime<=13.4)continueQuiz();});
   tap($('restart'),()=>{world.clear();enemies.length=0;state.paused=false;world.selectMap(state.map);setPhase('home');updateLanguage();});
+  // 라이트건은 click 이 빠질 수 있어 버튼은 tap 으로, 키보드 Enter 는 form submit 으로 받는다(중복은 rankEntry 로 막힘).
+  $('rank-form').addEventListener('submit',submitRanking);tap($('rank-submit'),submitRanking);
+  tap($('rank-reset'),()=>{storage.set('ranking',[]);rankEntry=null;$('rank-info').textContent=text('랭킹을 비웠어요','Leaderboard cleared');});
   tap($('admin-open'),()=>{
+    $('rank-info').textContent=text(`랭킹 기록 ${loadRanking().length}건 (이 PC에만 저장)`,`${loadRanking().length} leaderboard entries (stored on this PC only)`);
     $('bank-info').textContent=text(`문제은행: 당뇨-Empa only ${bank.sets.empa.length}문 / 최근 24문항 중복 회피`,`Question bank: Diabetes-Empa only ${bank.sets.empa.length} / avoids the last 24 questions`);
     $('rounds').value=String(WAVES.length);
     setPhase('admin');
