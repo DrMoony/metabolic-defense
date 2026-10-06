@@ -1,15 +1,15 @@
-import { healthColor, weaponColor } from './feedback.js?v=a61';
-import { RouteEditor } from './route-editor.js?v=a61';
-import { World, THREE } from './world.js?v=a61';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a61';
+import { healthColor, weaponColor } from './feedback.js?v=a62';
+import { RouteEditor } from './route-editor.js?v=a62';
+import { World, THREE } from './world.js?v=a62';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a62';
 
-import { MAPS, getMap } from './maps/index.js?v=a61';
+import { MAPS, getMap } from './maps/index.js?v=a62';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
 const text = (ko, en) => state.lang === 'ko' ? ko : en;
 const strings = {
-  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],qrTitle:['자디앙 더 알아보기','Learn more about Jardiance'],rankTitle:['명예의 전당','Hall of fame'],rankOrg:['소속 (예: 서울대병원)','Affiliation'],rankName:['닉네임','Nickname'],rankSubmit:['랭킹 등록','Submit score'],rankReset:['랭킹 초기화','Reset leaderboard'],rounds:['라운드 수 (저장 후 다음 판부터 적용)','Number of rounds (applies from the next run)'],
+  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],qrTitle:['자디앙 더 알아보기','Learn more about Jardiance'],rankTitle:['명예의 전당','Hall of fame'],rankOrg:['소속','Affiliation'],rankName:['닉네임','Nickname'],rankSubmit:['랭킹 등록','Submit score'],rankReset:['랭킹 초기화','Reset leaderboard'],rounds:['라운드 수 (저장 후 다음 판부터 적용)','Number of rounds (applies from the next run)'],
 };
 // Beta reference values are balance data; simulation, meshes and input are rebuilt.
 export const WEAPONS = [
