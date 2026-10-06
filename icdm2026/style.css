@@ -86,14 +86,21 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 #rank-form input::placeholder{color:#c9a99a}
 #rank-form .primary{font-size:1.8cqh;min-height:5cqh;padding:.6em 1em;background:#ffe0a0;border-color:#ffe0a0;color:#2a1024}
 #rank-status{font-size:1.6cqh;color:#ffe0a0;font-weight:700;margin:1cqh 0 .4cqh;min-height:2cqh}
-#rank-list{list-style:none;margin:.6cqh 0 0;padding:0;overflow:auto;flex:1}
-#rank-list li{display:grid;grid-template-columns:2.6cqw 1fr auto;grid-template-areas:"no who pts" "no org pts";align-items:center;column-gap:.8cqw;padding:.8cqh .5cqw;border-bottom:1px solid #d0a27c26}
-#rank-list .no{grid-area:no;font-size:2cqh;font-weight:800;color:#d9b38a;text-align:center}
-#rank-list li:nth-child(1) .no{color:#ffd770}#rank-list li:nth-child(2) .no{color:#e6e0ea}#rank-list li:nth-child(3) .no{color:#e8a36f}
-#rank-list .who{grid-area:who;font-size:1.65cqh;font-weight:700;color:#fbeee2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#rank-list .org{grid-area:org;font-size:1.2cqh;color:#c9a99a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-#rank-list .pts{grid-area:pts;font-size:1.8cqh;font-weight:800;color:#ffe0a0;font-variant-numeric:tabular-nums}
-#rank-list li.mine{background:#ffe0a024;border:1px solid #ffe0a088;border-radius:.6cqh}
-#rank-list li.gap{margin-top:1cqh;border-top:1px dashed #d0a27c66}
-#rank-list li.empty{display:block;font-size:1.5cqh;color:#c9a99a;border:0;padding:2cqh 0}
+.rank-list{list-style:none;margin:.6cqh 0 0;padding:0;overflow:auto;flex:1}
+.rank-list li{display:grid;grid-template-columns:2.6cqw 1fr auto;grid-template-areas:"no who pts" "no org pts";align-items:center;column-gap:.8cqw;padding:.8cqh .5cqw;border-bottom:1px solid #d0a27c26}
+.rank-list .no{grid-area:no;font-size:2cqh;font-weight:800;color:#d9b38a;text-align:center}
+.rank-list li:nth-child(1) .no{color:#ffd770}.rank-list li:nth-child(2) .no{color:#e6e0ea}.rank-list li:nth-child(3) .no{color:#e8a36f}
+.rank-list .who{grid-area:who;font-size:1.65cqh;font-weight:700;color:#fbeee2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank-list .org{grid-area:org;font-size:1.2cqh;color:#c9a99a;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank-list .pts{grid-area:pts;font-size:1.8cqh;font-weight:800;color:#ffe0a0;font-variant-numeric:tabular-nums}
+.rank-list li.mine{background:#ffe0a024;border:1px solid #ffe0a088;border-radius:.6cqh}
+.rank-list li.gap{margin-top:1cqh;border-top:1px dashed #d0a27c66}
+.rank-list li.empty{display:block;font-size:1.5cqh;color:#c9a99a;border:0;padding:2cqh 0}
 #admin #rank-reset{margin:0 0 3cqh}
+/* 랭킹 끔: 결과 패널 원래 폭 · 메인 TOP 5 */
+#result.rank-off .panel{width:78%;margin-left:-9%}
+#home-rank{position:absolute;right:4%;top:47%;width:29%;padding:1.6cqh 1.5cqw;background:linear-gradient(120deg,#331d2cd9,#25172599);border:1px solid #dfb88644;backdrop-filter:blur(6px)}
+#home-rank .rank-list{margin-top:1cqh}#home-rank .rank-list li{padding:.55cqh .5cqw}
+#home-rank .rank-list .who{font-size:1.5cqh}#home-rank .rank-list .pts{font-size:1.6cqh}
+#home-rank .rank-list li.empty{padding:1cqh 0}
+#admin .check{margin:0 0 1cqh;cursor:pointer}
