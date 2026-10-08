@@ -165,7 +165,7 @@
   "correct": 0,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "일반적으로는 2-3개월마다지만, 안정적이면 연 2회까지 줄일 수 있어요. 반대로 약을 바꾸거나 임신처럼 철저한 조절이 필요하면 더 자주 봅니다.",
+  "exp": "일반적으로는 2-3개월마다지만, 혈당 조절이 안정적이면 연 2회까지 줄일 수 있어요. 반대로 약을 바꾸거나 임신처럼 철저한 조절이 필요하면 더 자주 봅니다.",
   "refs": [
    "kdaGuide2025"
   ],
@@ -187,7 +187,7 @@
   "fit": "core"
  },
  {
-  "q": "대한당뇨병학회 2025 진료지침(제9판) 기준으로, 당뇨병을 진단한 바로 그 시점에 해야 할 일로 권고된 것은 무엇일까요?",
+  "q": "대한당뇨병학회 2025 진료지침(제9판) 기준으로, 당뇨병 진단 즉시 해야 할 일로 권고된 것은 무엇일까요?",
   "a": [
    "3개월간 경과만 관찰",
    "즉시 인슐린 주사를 시작",
@@ -314,23 +314,23 @@
   "fit": "core"
  },
  {
-  "q": "2022년 기준 우리나라 30세 이상 성인의 당뇨병 유병률은 얼마일까요?",
+  "q": "2021-2022년 기준 우리나라 30세 이상 성인의 당뇨병 유병률은 얼마일까요?",
   "a": [
    "5.1%, 약 20명 중 1명",
    "20.3%, 약 5명 중 1명",
    "9.5%, 약 10명 중 1명",
-   "14.8%, 약 7명 중 1명"
+   "15.5%, 약 6~7명 중 1명"
   ],
   "correct": 3,
   "diff": "easy",
   "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
-  "exp": "30세 이상 성인 7명 중 1명이 당뇨병이에요. 65세 이상에서는 10명 중 3명(28.0%)으로 올라갑니다.",
+  "exp": "30세 이상 성인 100명 중 약 15명(15.5%)이 당뇨병이에요. 65세 이상에서는 10명 중 3명꼴(29.3%)로 올라갑니다.",
   "refs": [
    "kdaDFS2024"
   ],
   "evidence": {
-   "quote": "As of 2022, 1 in 7 adults aged ≥30 years (14.8%) had diabetes.",
-   "locator": "Prevalence of diabetes",
+   "quote": "Among Korean adults aged ≥30 years, the prevalence of diabetes is 15.5% during 2021–2022.",
+   "locator": "Abstract — Results",
    "ref": "kdaDFS2024",
    "support": "direct",
    "access": "fulltext"
@@ -346,7 +346,7 @@
   "fit": "core"
  },
  {
-  "q": "국내 허가사항에서 자디앙의 만성 심부전 적응증 대상은 누구일까요?",
+  "q": "자디앙정 10mg의 국내 허가사항에서 만성 심부전 적응증 대상은 누구일까요?",
   "a": [
    "급성 심부전 환자",
    "NYHA class I 환자만",
@@ -378,7 +378,7 @@
   "fit": "core"
  },
  {
-  "q": "국내 허가사항의 만성 신장병 적응증은 무엇을 줄이는 것일까요?",
+  "q": "자디앙정 10mg의 국내 허가사항에서 만성 신장병 적응증은 무엇을 줄이는 것일까요?",
   "a": [
    "투석 횟수",
    "신장병의 진행 또는 심혈관 질환으로 인한 사망의 위험성",
@@ -446,7 +446,7 @@
   "a": [
    "증상이 있을 때만",
    "3년에 한 번",
-   "투여 시작 전, 그리고 이후 정기적으로 1년에 1회 이상",
+   "투여 시작 전 및 투여 이후 정기적으로(1년에 1회 이상)",
    "투여 시작 전 한 번만"
   ],
   "correct": 2,
@@ -579,15 +579,15 @@
   ],
   "correct": 1,
   "diff": "mid",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "일차 복합 평가지표(3-point MACE)는 유의하게 감소하였으며, 개별 구성요소 중에서는 심혈관계 질환 사망 감소가 통계적으로 유의하게 나타났습니다. 비치명적 심근경색과 비치명적 뇌졸중에는 유의한 변화가 없었습니다.",
+  "src": "Zinman, B., Wanner, C., Lachin, J. M., Fitchett, D., Bluhmki, E., Hantel, S., Mattheus, M., Devins, T., Johansen, O. E., Woerle, H. J., Broedl, U. C., & Inzucchi, S. E. (2015). Empagliflozin, cardiovascular outcomes, and mortality in type 2 diabetes. New England Journal of Medicine, 373(22), 2117-2128. https://doi.org/10.1056/NEJMoa1504720",
+  "exp": "일차 복합 평가지표(3-point MACE)는 유의하게 감소하였으며, 개별 구성요소 중에서는 심혈관계 질환 사망 감소가 통계적으로 유의하게 나타났습니다. 비치명적 심근경색과 비치명적 뇌졸중에는 유의한 변화가 없었습니다. ※ 자디앙정은 심혈관계 질환을 동반한 제2형 당뇨병 환자의 심혈관 사망 및 모든 원인으로 인한 사망 위험 감소로 국내 허가 받지 않았습니다.",
   "refs": [
-   "jardianceKR2026"
+   "zinman2015"
   ],
   "evidence": {
-   "quote": "치료 효과는 심혈관계 질환 사망의 유의한 감소에서 기인한 것으로, 비치명적 심근경색 및 비치명적 뇌졸중에는 유의한 변화가 없었다.",
-   "locator": "10. 전문가를 위한 정보 — EMPA-REG OUTCOME",
-   "ref": "jardianceKR2026",
+   "quote": "There were no significant between-group differences in the rates of myocardial infarction or stroke, but in the empagliflozin group there were significantly lower rates of death from cardiovascular causes (3.7%, vs. 5.9% in the placebo group; 38% relative risk reduction)",
+   "locator": "Abstract — Results",
+   "ref": "zinman2015",
    "support": "direct",
    "access": "fulltext"
   },
@@ -603,7 +603,7 @@
   "fit": "core"
  },
  {
-  "q": "EMPEROR 심부전 시험에서 일차 평가변수 결과는 당뇨병 동반 여부에 따라 어땠을까요?",
+  "q": "EMPEROR-Reduced 시험에서 일차 평가변수 결과는 당뇨병 동반 여부에 따라 어땠을까요?",
   "a": [
    "하위군 분석은 하지 않았어요",
    "당뇨병이 있는 군에서만 유의했어요",
@@ -612,15 +612,15 @@
   ],
   "correct": 3,
   "diff": "easy",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "당뇨병 유무와 무관하게 일관된 결과였어요. 심부전 적응증이 당뇨병과 분리돼 있는 근거이기도 합니다.",
+  "src": "Packer, M., Anker, S. D., Butler, J., Filippatos, G., Pocock, S. J., Carson, P., Januzzi, J., Verma, S., Tsutsui, H., Brueckmann, M., Jamal, W., Kimura, K., Schnee, J., Zeller, C., Cotton, D., Bocchi, E., Böhm, M., Choi, D.-J., Chopra, V., … Zannad, F. (2020). Cardiovascular and renal outcomes with empagliflozin in heart failure. New England Journal of Medicine, 383(15), 1413-1424. https://doi.org/10.1056/NEJMoa2022190",
+  "exp": "당뇨병이 있든 없든 일차 평가변수(심혈관 사망 또는 심부전 입원)에 대한 효과가 일관되게 나타났어요.",
   "refs": [
-   "jardianceKR2026"
+   "packer2020"
   ],
   "evidence": {
-   "quote": "일차 복합 평가변수에 대한 결과는 제2형 당뇨병이 있거나 제2형 당뇨병이 없는 심부전 환자를 포함한 사전에 명시된 하위군들에 걸쳐 전반적으로 일관되게 나타났다.",
-   "locator": "10. 전문가를 위한 정보 — EMPEROR-Reduced 하위군 분석",
-   "ref": "jardianceKR2026",
+   "quote": "The effect of empagliflozin on the primary outcome was consistent in patients regardless of the presence or absence of diabetes.",
+   "locator": "Abstract — Results",
+   "ref": "packer2020",
    "support": "direct",
    "access": "fulltext"
   },
@@ -636,7 +636,7 @@
   "fit": "core"
  },
  {
-  "q": "국내 허가사항에서 자디앙의 적응증 세 가지로 맞는 것은 무엇일까요?",
+  "q": "자디앙정 10mg의 국내 허가사항에서 적응증 세 가지로 맞는 것은 무엇일까요?",
   "a": [
    "제2형 당뇨병 · 비만 · 고혈압",
    "제2형 당뇨병 · 만성 심부전 · 만성 신장병",
@@ -646,7 +646,7 @@
   "correct": 1,
   "diff": "easy",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "자디앙의 국내 적응증은 제2형 당뇨병, 만성 심부전, 만성 신장병 세 가지예요. 제1형 당뇨병에는 투여하면 안 됩니다.",
+  "exp": "자디앙정 10mg의 국내 적응증은 제2형 당뇨병, 만성 심부전, 만성 신장병 세 가지예요. 제1형 당뇨병에는 투여하면 안 됩니다.",
   "refs": [
    "jardianceKR2026"
   ],
