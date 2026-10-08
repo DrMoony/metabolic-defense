@@ -165,7 +165,7 @@
   "correct": 0,
   "diff": "mid",
   "src": "대한당뇨병학회. (2025). 2025 당뇨병 진료지침 (제9판). 대한당뇨병학회.",
-  "exp": "The usual interval is every 2-3 months, but stable control allows twice a year. Conversely, a medication change or a situation demanding tight control such as pregnancy calls for more frequent testing.",
+  "exp": "The usual interval is every 2-3 months, but stable glycemic control allows twice a year. Conversely, a medication change or a situation demanding tight control such as pregnancy calls for more frequent testing.",
   "refs": [
    "kdaGuide2025"
   ],
@@ -187,7 +187,7 @@
   "fit": "core"
  },
  {
-  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what should be done at the very moment diabetes is diagnosed?",
+  "q": "Per the Korean Diabetes Association 2025 guidelines (9th edition), what should be done immediately at the diagnosis of diabetes?",
   "a": [
    "Observe for three months without acting",
    "Start insulin injections immediately",
@@ -314,23 +314,23 @@
   "fit": "core"
  },
  {
-  "q": "As of 2022, what share of Korean adults aged 30 and over had diabetes?",
+  "q": "In 2021-2022, what share of Korean adults aged 30 and over had diabetes?",
   "a": [
    "5.1%, about 1 in 20",
    "20.3%, about 1 in 5",
    "9.5%, about 1 in 10",
-   "14.8%, about 1 in 7"
+   "15.5%, about 1 in 6 to 7"
   ],
   "correct": 3,
   "diff": "easy",
   "src": "Bae, J. H., Han, K.-D., Ko, S.-H., Yang, Y. S., Choi, J. H., Choi, K. M., Kwon, H.-S., & Won, K. C. (2025). Diabetes fact sheet in Korea 2024. Diabetes & Metabolism Journal, 49(1), 24-33. https://doi.org/10.4093/dmj.2024.0818",
-  "exp": "About 1 in 7 adults aged 30 and over has diabetes. Among those aged 65 and over the figure rises to 3 in 10, or 28.0%.",
+  "exp": "About 15 in 100 adults aged 30 and over (15.5%) have diabetes. Among those aged 65 and over the figure rises to about 3 in 10, or 29.3%.",
   "refs": [
    "kdaDFS2024"
   ],
   "evidence": {
-   "quote": "As of 2022, 1 in 7 adults aged ≥30 years (14.8%) had diabetes.",
-   "locator": "Prevalence of diabetes",
+   "quote": "Among Korean adults aged ≥30 years, the prevalence of diabetes is 15.5% during 2021–2022.",
+   "locator": "Abstract — Results",
    "ref": "kdaDFS2024",
    "support": "direct",
    "access": "fulltext"
@@ -346,7 +346,7 @@
   "fit": "core"
  },
  {
-  "q": "In the Korean label, who is covered by the chronic heart failure indication?",
+  "q": "According to the Korean label, which patients are included in the chronic heart failure indication for Jardiance® 10mg?",
   "a": [
    "Patients with acute heart failure",
    "NYHA class I only",
@@ -378,7 +378,7 @@
   "fit": "core"
  },
  {
-  "q": "What does the Korean chronic kidney disease indication aim to reduce?",
+  "q": "What does the Korean chronic kidney disease indication of Jardiance® 10mg aim to reduce?",
   "a": [
    "The number of dialysis sessions",
    "The risk of kidney disease progression or death from cardiovascular disease",
@@ -410,7 +410,7 @@
   "fit": "core"
  },
  {
-  "q": "Under the Korean label, in whom is this drug contraindicated?",
+  "q": "Under the Korean label, in whom is Jardiance® contraindicated?",
   "a": [
    "Patients with mild hepatic impairment",
    "Patients with type 2 diabetes for over 10 years",
@@ -446,7 +446,7 @@
   "a": [
    "Only when symptoms appear",
    "Once every three years",
-   "Before starting, then regularly at least once a year",
+   "Before starting and regularly thereafter (at least once a year)",
    "Only once, before starting"
   ],
   "correct": 2,
@@ -474,7 +474,7 @@
   "fit": "core"
  },
  {
-  "q": "How should blood glucose be interpreted when ketoacidosis is suspected on this drug?",
+  "q": "How should blood glucose be interpreted when ketoacidosis is suspected on Jardiance®?",
   "a": [
    "It can occur below 250 mg/dL, so test regardless of the glucose value",
    "A normal glucose rules it out",
@@ -506,7 +506,7 @@
   "fit": "core"
  },
  {
-  "q": "What is done before surgery or a procedure involving prolonged fasting?",
+  "q": "What is done with Jardiance® before surgery or a procedure involving prolonged fasting?",
   "a": [
    "Double the dose",
    "Continue unchanged",
@@ -579,15 +579,15 @@
   ],
   "correct": 1,
   "diff": "mid",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "The primary composite endpoint (3-point MACE) was significantly reduced, and among its individual components the reduction in cardiovascular death was statistically significant. Non-fatal myocardial infarction and non-fatal stroke showed no significant change.",
+  "src": "Zinman, B., Wanner, C., Lachin, J. M., Fitchett, D., Bluhmki, E., Hantel, S., Mattheus, M., Devins, T., Johansen, O. E., Woerle, H. J., Broedl, U. C., & Inzucchi, S. E. (2015). Empagliflozin, cardiovascular outcomes, and mortality in type 2 diabetes. New England Journal of Medicine, 373(22), 2117-2128. https://doi.org/10.1056/NEJMoa1504720",
+  "exp": "The primary composite endpoint (3-point MACE) was significantly reduced, and among its individual components the reduction in cardiovascular death was statistically significant. Non-fatal myocardial infarction and non-fatal stroke showed no significant change. ※ Jardiance® is not approved in Korea for reducing the risk of cardiovascular death or all-cause death in patients with type 2 diabetes and cardiovascular disease.",
   "refs": [
-   "jardianceKR2026"
+   "zinman2015"
   ],
   "evidence": {
-   "quote": "치료 효과는 심혈관계 질환 사망의 유의한 감소에서 기인한 것으로, 비치명적 심근경색 및 비치명적 뇌졸중에는 유의한 변화가 없었다.",
-   "locator": "10. 전문가를 위한 정보 — EMPA-REG OUTCOME",
-   "ref": "jardianceKR2026",
+   "quote": "There were no significant between-group differences in the rates of myocardial infarction or stroke, but in the empagliflozin group there were significantly lower rates of death from cardiovascular causes (3.7%, vs. 5.9% in the placebo group; 38% relative risk reduction)",
+   "locator": "Abstract — Results",
+   "ref": "zinman2015",
    "support": "direct",
    "access": "fulltext"
   },
@@ -603,7 +603,7 @@
   "fit": "core"
  },
  {
-  "q": "How did the EMPEROR primary outcome behave by diabetes status?",
+  "q": "How did the EMPEROR-Reduced primary outcome behave by diabetes status?",
   "a": [
    "No subgroup analysis was done",
    "Significant only in those with diabetes",
@@ -612,15 +612,15 @@
   ],
   "correct": 3,
   "diff": "easy",
-  "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "The result held regardless of diabetes status, which underpins a heart failure indication separate from diabetes.",
+  "src": "Packer, M., Anker, S. D., Butler, J., Filippatos, G., Pocock, S. J., Carson, P., Januzzi, J., Verma, S., Tsutsui, H., Brueckmann, M., Jamal, W., Kimura, K., Schnee, J., Zeller, C., Cotton, D., Bocchi, E., Böhm, M., Choi, D.-J., Chopra, V., … Zannad, F. (2020). Cardiovascular and renal outcomes with empagliflozin in heart failure. New England Journal of Medicine, 383(15), 1413-1424. https://doi.org/10.1056/NEJMoa2022190",
+  "exp": "The effect on the primary outcome (cardiovascular death or hospitalization for heart failure) was consistent regardless of the presence or absence of diabetes.",
   "refs": [
-   "jardianceKR2026"
+   "packer2020"
   ],
   "evidence": {
-   "quote": "일차 복합 평가변수에 대한 결과는 제2형 당뇨병이 있거나 제2형 당뇨병이 없는 심부전 환자를 포함한 사전에 명시된 하위군들에 걸쳐 전반적으로 일관되게 나타났다.",
-   "locator": "10. 전문가를 위한 정보 — EMPEROR-Reduced 하위군 분석",
-   "ref": "jardianceKR2026",
+   "quote": "The effect of empagliflozin on the primary outcome was consistent in patients regardless of the presence or absence of diabetes.",
+   "locator": "Abstract — Results",
+   "ref": "packer2020",
    "support": "direct",
    "access": "fulltext"
   },
@@ -636,7 +636,7 @@
   "fit": "core"
  },
  {
-  "q": "Under the Korean label, which three indications does Jardiance have?",
+  "q": "Under the Korean label, which three indications does Jardiance® 10mg have?",
   "a": [
    "Type 2 diabetes · obesity · hypertension",
    "Type 2 diabetes · chronic heart failure · chronic kidney disease",
@@ -646,7 +646,7 @@
   "correct": 1,
   "diff": "easy",
   "src": "한국베링거인겔하임(주). (2026). 자디앙정10밀리그램(엠파글리플로진) 허가사항 — 효능효과·용법용량·사용상의 주의사항. 식품의약품안전처 의약품안전나라 (품목기준코드 201403744).",
-  "exp": "The Korean indications are type 2 diabetes, chronic heart failure and chronic kidney disease. It must not be given in type 1 diabetes.",
+  "exp": "The Korean indications of Jardiance® 10mg are type 2 diabetes, chronic heart failure and chronic kidney disease. It must not be given in type 1 diabetes.",
   "refs": [
    "jardianceKR2026"
   ],
