@@ -1,12 +1,11 @@
 // 시작 로고(Axino): 단순한 한 줄 선으로 글씨 쓰는 순서대로 그린다. 좌표는 400×206 기준.
-// A 왼쪽 획 → 오른쪽 획 → 가로획 → 대각선에서 새 머리 → 눈 → ino. 그은 선은 다시 지나가지 않고, 끝에 주황 부리·물방울·하트가 붙는다.
+// A 왼쪽 획 → 오른쪽 획에서 ino까지 한 번에 → 가로획 → 대각선에서 새 머리 → 눈. 그은 선은 다시 지나가지 않고, 끝에 주황 부리·물방울·하트가 붙는다.
 const INO=[[218,181],[234,176],[243,160],[248,140],[246,162],[249,178],[258,176],[264,156],[274,141],[286,141],[293,154],[296,178],[308,180],[322,172],[334,156],[350,138],[372,134],[388,144],[388,166],[372,182],[350,186],[333,176],[332,156],[348,140],[372,134],[396,134]];
 const STROKES=[
-  {pts:[[26,194],[60,138],[95,82],[120,48],[132,34],[140,32],[146,50],[152,85],[158,112],[168,142],[185,166],[202,178],[218,181]],curve:true},
+  {pts:[[26,194],[60,138],[95,82],[120,48],[132,34],[140,32],[146,50],[152,85],[158,112],[168,142],[185,166],[202,178],...INO],curve:true},
   {pts:[[10,151],[60,138],[136,118]]},
   {pts:[[90,195],[130,170],[168,142],[195,113],[212,88],[222,65],[222,42],[212,25],[197,17],[178,18],[162,28],[154,42],[151,58]],curve:true},
   {pts:[[205,46],[205,50]]},
-  {pts:INO,curve:true},
 ];
 const ACCENTS=[
   ['path','M222 42 L242 50 L221 59 Z',{fill:'#f5a312'}],
@@ -35,7 +34,7 @@ export function playSplash(root=document.getElementById('splash')){
   const SPEED=.55,LIFT=110;let clock=300;
   const lines=STROKES.map(seg=>{
     const path=el('path',{d:`M${seg.pts[0]}${segmentPath(seg)}`,...ink},svg),len=path.getTotalLength();
-    path.style.strokeDasharray=`${len} ${len}`;path.style.strokeDashoffset=len;
+    path.style.strokeDasharray=`${len} ${len}`;path.style.strokeDashoffset=len;path.style.opacity=0;
     const duration=Math.max(120,len/SPEED),delay=clock;clock+=duration+LIFT;
     return {path,len,duration,delay};
   });
@@ -46,7 +45,7 @@ export function playSplash(root=document.getElementById('splash')){
   return new Promise(resolve=>{
     const done=()=>{if(root.classList.contains('out'))return;clearTimeout(timer);root.classList.add('out');setTimeout(()=>{root.remove();resolve();},520);};
     root.addEventListener('pointerdown',done);
-    const draws=lines.map(({path,len,duration,delay})=>path.animate([{strokeDashoffset:len},{strokeDashoffset:0}],{duration,delay,easing:'cubic-bezier(.35,0,.45,1)',fill:'forwards'}));
+    const draws=lines.map(({path,len,duration,delay})=>path.animate([{strokeDashoffset:len,opacity:1},{strokeDashoffset:0,opacity:1}],{duration,delay,easing:'cubic-bezier(.35,0,.45,1)',fill:'forwards'}));
     // 검은 선을 다 그린 뒤에 주황 부리·물방울·하트를 차례로 톡 붙인다.
     pop(accents[0],clock);pop(accents[1],clock+140);pop(accents[2],clock+300);
     draws.at(-1).finished.then(()=>{timer=setTimeout(done,1500);},()=>{});
