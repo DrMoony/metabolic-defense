@@ -111,3 +111,8 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 .route-editor-actions{margin:.6cqh 0}
 #route-editor-panel button.primary-lite{background:#ffe0a0;color:#2a1024;border-color:#ffe0a0;font-weight:800}
 #route-editor-status{font-size:1.25cqh;font-weight:700}
+
+/* 시작 로고 스플래시 */
+#splash{position:fixed;inset:0;z-index:1000;background:#fbfaf7;display:grid;place-items:center;cursor:pointer;transition:opacity .5s ease}
+#splash svg{width:min(46vw,82vh);height:auto;overflow:visible}
+#splash.out{opacity:0;pointer-events:none}
