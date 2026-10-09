@@ -1,20 +1,12 @@
-// 시작 로고(Axino): 펜을 떼지 않는 한 줄 그리기. 좌표는 400×206 기준.
-// 새 머리 → 목 → 대각선 → A 오른쪽 획 위로 → 꼭대기 → 왼쪽 획 → 가로획 → 오른쪽 획 아래로 → ino.
-// back:true 구간은 이미 그린 선을 되짚는 길이라 화면엔 새로 생기지 않으므로 빠르게 지나간다.
-const INO=[[222,180],[234,176],[243,160],[248,140],[246,162],[249,178],[258,176],[264,156],[274,141],[286,141],[293,154],[296,178],[308,180],[322,172],[334,156],[350,138],[372,134],[388,144],[388,166],[372,182],[350,186],[333,176],[332,156],[348,140],[372,134],[396,134]];
-const SEGMENTS=[
-  {pts:[[151,58],[154,42],[162,28],[178,18],[197,17],[212,25],[222,42],[222,65],[212,88],[195,113],[168,142]],curve:true},
-  {pts:[[168,142],[90,195]]},
-  {pts:[[90,195],[168,142]],back:true},
-  {pts:[[168,142],[158,112]]},
-  {pts:[[158,112],[152,85],[146,50],[140,32],[132,34],[120,48],[95,82],[60,138]],curve:true},
-  {pts:[[60,138],[26,194]]},
-  {pts:[[26,194],[60,138]],back:true},
-  {pts:[[60,138],[10,151.4]]},
-  {pts:[[10,151.4],[60,138]],back:true},
-  {pts:[[60,138],[158,112]]},
-  {pts:[[158,112],[168,142]],back:true},
-  {pts:[[168,142],[185,166],[205,179],...INO],curve:true},
+// 시작 로고(Axino): 단순한 한 줄 선으로 글씨 쓰는 순서대로 그린다. 좌표는 400×206 기준.
+// A 왼쪽 획 → 오른쪽 획 → 가로획 → 대각선에서 새 머리 → 눈 → ino. 그은 선은 다시 지나가지 않고, 끝에 주황 부리·물방울·하트가 붙는다.
+const INO=[[218,181],[234,176],[243,160],[248,140],[246,162],[249,178],[258,176],[264,156],[274,141],[286,141],[293,154],[296,178],[308,180],[322,172],[334,156],[350,138],[372,134],[388,144],[388,166],[372,182],[350,186],[333,176],[332,156],[348,140],[372,134],[396,134]];
+const STROKES=[
+  {pts:[[26,194],[60,138],[95,82],[120,48],[132,34],[140,32],[146,50],[152,85],[158,112],[168,142],[185,166],[202,178],[218,181]],curve:true},
+  {pts:[[10,151],[60,138],[136,118]]},
+  {pts:[[90,195],[130,170],[168,142],[195,113],[212,88],[222,65],[222,42],[212,25],[197,17],[178,18],[162,28],[154,42],[151,58]],curve:true},
+  {pts:[[205,46],[205,50]]},
+  {pts:INO,curve:true},
 ];
 const ACCENTS=[
   ['path','M222 42 L242 50 L221 59 Z',{fill:'#f5a312'}],
@@ -39,29 +31,24 @@ export function playSplash(root=document.getElementById('splash')){
   if(!root)return Promise.resolve();
   const svg=el('svg',{viewBox:'-8 0 416 214','aria-label':'Axino'},root);
   const ink={fill:'none',stroke:'#1b1b1f','stroke-width':6.5,'stroke-linecap':'round','stroke-linejoin':'round'};
-  // 구간별 길이를 재서, 되짚는 구간은 시간을 1/5만 쓰는 키프레임을 만든다.
-  let d=`M${SEGMENTS[0].pts[0]}`;const marks=[0],weights=[0];
-  const probe=el('path',{},svg);
-  for(const seg of SEGMENTS){
-    const before=marks.at(-1);d+=segmentPath(seg);probe.setAttribute('d',d);const after=probe.getTotalLength();
-    marks.push(after);weights.push(weights.at(-1)+(after-before)*(seg.back?.2:1));
-  }
-  probe.remove();
-  const line=el('path',{d,...ink},svg),len=marks.at(-1),total=weights.at(-1);
-  line.style.strokeDasharray=`${len} ${len}`;line.style.strokeDashoffset=len;
-  const frames=marks.map((m,i)=>({strokeDashoffset:len-m,offset:weights[i]/total}));
-  const DRAW=3000,at=i=>300+DRAW*weights[i]/total;
-  const eye=el('circle',{cx:205,cy:48,r:5,fill:'#1b1b1f'},svg);
+  // 펜 속도를 일정하게: 획마다 길이에 비례한 시간을 주고, 획 사이엔 펜을 떼는 짧은 쉼을 둔다.
+  const SPEED=.55,LIFT=110;let clock=300;
+  const lines=STROKES.map(seg=>{
+    const path=el('path',{d:`M${seg.pts[0]}${segmentPath(seg)}`,...ink},svg),len=path.getTotalLength();
+    path.style.strokeDasharray=`${len} ${len}`;path.style.strokeDashoffset=len;
+    const duration=Math.max(120,len/SPEED),delay=clock;clock+=duration+LIFT;
+    return {path,len,duration,delay};
+  });
   const accents=ACCENTS.map(([tag,d,attrs])=>el(tag,{d,...attrs},svg));
-  for(const node of [eye,...accents]){node.style.transformBox='fill-box';node.style.transformOrigin='center';node.style.transform='scale(0)';}
+  for(const node of accents){node.style.transformBox='fill-box';node.style.transformOrigin='center';node.style.transform='scale(0)';}
   const pop=(node,delay)=>node.animate([{transform:'scale(0)'},{transform:'scale(1.2)',offset:.65},{transform:'scale(1)'}],{duration:260,delay,easing:'ease-out',fill:'forwards'});
   let timer=0;
   return new Promise(resolve=>{
     const done=()=>{if(root.classList.contains('out'))return;clearTimeout(timer);root.classList.add('out');setTimeout(()=>{root.remove();resolve();},520);};
     root.addEventListener('pointerdown',done);
-    const draw=line.animate(frames,{duration:DRAW,delay:300,fill:'forwards'});
-    // 머리를 다 그리면 눈·부리·물방울, ino를 쓰기 시작하면 하트가 톡 튀어나온다.
-    pop(eye,at(1)-200);pop(accents[0],at(1)-80);pop(accents[1],at(1)+60);pop(accents[2],at(11)+300);
-    draw.finished.then(()=>{timer=setTimeout(done,1200);},()=>{});
+    const draws=lines.map(({path,len,duration,delay})=>path.animate([{strokeDashoffset:len},{strokeDashoffset:0}],{duration,delay,easing:'cubic-bezier(.35,0,.45,1)',fill:'forwards'}));
+    // 검은 선을 다 그린 뒤에 주황 부리·물방울·하트를 차례로 톡 붙인다.
+    pop(accents[0],clock);pop(accents[1],clock+140);pop(accents[2],clock+300);
+    draws.at(-1).finished.then(()=>{timer=setTimeout(done,1500);},()=>{});
   });
 }
