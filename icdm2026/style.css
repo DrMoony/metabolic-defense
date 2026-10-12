@@ -116,3 +116,17 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 #splash{position:fixed;inset:0;z-index:1000;background:#fbfaf7;display:grid;place-items:center;cursor:pointer;transition:opacity .5s ease}
 #splash svg{width:min(46vw,82vh);height:auto;overflow:visible}
 #splash.out{opacity:0;pointer-events:none}
+
+/* 게임 선택 화면 */
+#chooser{z-index:30}.chooser-inner{width:84%;text-align:center}
+#chooser h2{font-family:Didot,"Bodoni 72",Georgia,serif;font-weight:400;font-size:5cqh;margin:1.6cqh 0 3.6cqh;letter-spacing:.02em}#chooser h2 span{display:block;font-family:inherit;font-size:1.9cqh;color:#e7cfa3;letter-spacing:.2em;margin-top:1cqh}
+.chooser-cards{display:grid;grid-template-columns:1fr 1fr;gap:3cqw}
+.game-card{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:.8cqh;padding:0 0 2.6cqh;background:linear-gradient(160deg,#4b263bee,#241425f5);border:1px solid #e3b77655;border-top:2px solid #f1d38d;border-radius:4px;overflow:hidden}
+.game-card:hover{background:linear-gradient(160deg,#5c2e48,#2e1830);transform:translateY(-.6cqh)}
+.game-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;margin-bottom:1.4cqh;border-bottom:1px solid #e3b77655}
+.game-card b,.game-card em,.game-card span,.game-card small{padding:0 2cqw}
+.game-card b{font-size:3.6cqh;font-weight:700;color:#fff3dd}.game-card em{font-style:normal;font-size:1.3cqh;letter-spacing:.24em;color:#f1d38d}
+.game-card span{font-size:1.6cqh;line-height:1.5;color:#e2cfd8}.game-card span+span{font-size:1.35cqh;color:#bfa9b6;margin-top:-.4cqh}
+.game-card small{margin-top:.8cqh;font-size:1.15cqh;letter-spacing:.16em;color:#d9b98a}
+#chooser .compliance-footer{display:inline-block;margin:3.4cqh auto 0}
+#back-to-chooser{display:block}
