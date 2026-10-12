@@ -1,15 +1,15 @@
-import { healthColor, weaponColor } from './feedback.js?v=a69';
-import { RouteEditor } from './route-editor.js?v=a69';
-import { World, THREE } from './world.js?v=a69';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a69';
+import { healthColor, weaponColor } from './feedback.js?v=a70';
+import { RouteEditor } from './route-editor.js?v=a70';
+import { World, THREE } from './world.js?v=a70';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a70';
 
-import { MAPS, getMap } from './maps/index.js?v=a69';
+import { MAPS, getMap } from './maps/index.js?v=a70';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
 const text = (ko, en) => state.lang === 'ko' ? ko : en;
 const strings = {
-  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],qrTitle:['자디앙 더 알아보기','Learn more about Jardiance'],rankTitle:['명예의 전당','Hall of fame'],rankOrg:['소속','Affiliation'],rankName:['닉네임','Nickname'],rankSubmit:['랭킹 등록','Submit score'],rankReset:['랭킹 초기화','Reset leaderboard'],routeEdit:['경로 편집 (현재 맵)','Edit routes (current map)'],rankEnabled:['랭킹 기능 사용 (결과 등록 · 메인 TOP 5)','Leaderboard on (result entry · home TOP 5)'],rounds:['라운드 수 (저장 후 다음 판부터 적용)','Number of rounds (applies from the next run)'],
+  pause:['일시정지','Pause'],score:['방어 점수','DEFENSE SCORE'],core:['심장 · 콩팥 · 뇌혈관','HEART · KIDNEYS · BRAIN'],accuracy:['명중률','ACCURACY'],quiz:['퀴즈','QUIZ'],kidney:['콩팥 가디언','Kidney Guardian'],pancreas:['췌장 포탑','Pancreas Turret'],reload:['재장전','Reload'],swap:['무기 교체','Switch weapon'],difficulty:['난이도','DIFFICULTY'],loading:['문제은행 불러오는 중…','Loading question banks…'],admin:['운영자 설정 ↗','Operator settings ↗'],mouse:['마우스 · 라이트건 전용 / 키보드 없이 플레이','MOUSE · LIGHTGUN / NO KEYBOARD NEEDED'],guideTitle:['몸속 방어에 오신 것을 환영합니다','Welcome to the inner frontier'],deploy:['방어선 진입 →','Enter the defense →'],adminTitle:['문제은행 운영 설정','Question bank settings'],save:['저장하고 돌아가기','Save and return'],quizHint:['정답을 고른 뒤 제출을 한 번 더 쏘세요. 정답이면 무기 승급 + 장기 회복!','Select an answer, then shoot Submit. Correct answers upgrade your weapon and restore organs!'],submit:['정답 제출 →','Submit answer →'],continue:['게임으로 돌아가기 →','Back to the game →'],paused:['방어선 대기 중','Defense on hold'],pauseNote:['전투와 퀴즈 시간이 멈췄습니다.','Combat and quiz timers are paused.'],resume:['계속 방어하기 →','Resume defense →'],restart:['다시 도전하기 →','Play again →'],qrTitle:['자디앙 더 알아보기','Learn more about Jardiance'],rankTitle:['명예의 전당','Hall of fame'],chooseGame:['← 게임 선택','← Choose game'],rankOrg:['소속','Affiliation'],rankName:['닉네임','Nickname'],rankSubmit:['랭킹 등록','Submit score'],rankReset:['랭킹 초기화','Reset leaderboard'],routeEdit:['경로 편집 (현재 맵)','Edit routes (current map)'],rankEnabled:['랭킹 기능 사용 (결과 등록 · 메인 TOP 5)','Leaderboard on (result entry · home TOP 5)'],rounds:['라운드 수 (저장 후 다음 판부터 적용)','Number of rounds (applies from the next run)'],
 };
 // Beta reference values are balance data; simulation, meshes and input are rebuilt.
 export const WEAPONS = [
@@ -77,6 +77,7 @@ const clampRounds=n=>Math.min(MAX_ROUNDS,Math.max(MIN_ROUNDS,Number(n)||MAX_ROUN
 // 라운드 수와 무관하게 플라크(동맥경화)가 항상 마지막 보스 — CKM 테마상 가장 잘 맞는 피날레라 운영자가 라운드를 줄여도 빠지지 않게 고정.
 const buildWaves=n=>EARLY_WAVES.slice(0,n-1).concat([FINALE_WAVE]);
 let WAVES=buildWaves(clampRounds(storage.get('rounds',3)));
+const BEAT_URL='https://rhythm-kr.vercel.app/';
 const freshState = () => ({phase:'home',map:'coronary',victory:false,lang:'ko',difficulty:'mid',wave:0,waveTime:0,elapsed:0,score:0,core:100,kidney:0,pancreas:100,sugar:8,strain:0,glucagon:0,slowField:0,supply:8,failed:false,weapon:0,unlocked:0,ammo:WEAPONS.map(w=>w.mag),reload:0,reloadTotal:0,reloadFlash:0,reticleKick:0,cooldown:0,pulse:4,insulin:1,shots:0,hits:0,combo:0,correct:0,quizTotal:0,quizTime:18,quiz:null,selection:null,answered:false,feedbackTime:0,nextUpgrade:18000,bosses:[],killedBosses:[],slow:0,boost:0,paused:false,shooting:false});
 const state = freshState();
 state.lang=new URLSearchParams(location.search).get('lang')==='en'?'en':'ko';
@@ -819,6 +820,11 @@ function bindUI(){
   document.querySelectorAll('[data-diff]').forEach(button=>tap(button,()=>{state.difficulty=button.dataset.diff;updateLanguage();}));
   tap($('start'),()=>{unlockAudio();if(loadFailed){loadBanks();return;}if(bank.ready)setPhase('guide');});
   tap($('guide-back'),()=>setPhase('home'));
+  // 게임 선택: 디펜스는 이 화면을 닫고, 비트는 리듬 게임으로 넘어간다. ?game=defense 로 들어오면 고르는 화면을 건너뛴다.
+  if(new URLSearchParams(location.search).get('game')==='defense')show('chooser',false);
+  tap($('choose-defense'),()=>{unlockAudio();show('chooser',false);});
+  tap($('choose-beat'),()=>{location.href=BEAT_URL;});
+  tap($('back-to-chooser'),()=>{if(state.phase==='home')show('chooser',true);});
   tap($('routes-toggle'),()=>{const on=world.toggleRoutes();$('routes-toggle').textContent=text(on?'경로선 끄기':'경로선 보기',on?'Hide routes':'Show routes');});
   window.addEventListener('keydown',event=>{if(!editor?.active&&event.code==='KeyR'&&!event.repeat&&!['INPUT','SELECT','TEXTAREA'].includes(event.target?.tagName))$('routes-toggle').click();});
   tap($('deploy'),()=>{unlockAudio();if(!document.fullscreenElement)$('stage').requestFullscreen?.({navigationUI:'hide'}).catch(()=>{});resetGame();});

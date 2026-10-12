@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#07191c">
 <link rel="icon" href="data:,">
 <title>메타볼릭 디펜스 · Metabolic Defense</title>
-<link rel="stylesheet" href="./style.css?v=a69">
+<link rel="stylesheet" href="./style.css?v=a70">
 </head>
 <body>
 <main id="stage">
@@ -24,11 +24,16 @@
   <div id="landmark-labels" aria-hidden="true"></div>
   <div id="fps" aria-label="Rendering frame rate">60 FPS</div>
   <div id="popups" aria-hidden="true"></div><div id="notice" role="status"></div><div id="reticle"><i id="reload-ring"></i><span></span></div>
+  <section id="chooser" class="screen veil"><div class="chooser-inner"><small class="eyebrow">ICDM 2026 · JARDIANCE BOOTH</small><h2>게임을 골라 주세요 <span>Choose your game</span></h2>
+    <div class="chooser-cards">
+      <button id="choose-defense" class="game-card"><img src="./assets/choose-defense.jpg" alt=""><b>메타볼릭 디펜스</b><em>METABOLIC DEFENSE</em><span>라이트건으로 몸속에 쳐들어오는 적을 막고, 퀴즈로 장기를 지켜요</span><span>Shoot invaders and answer quizzes to protect your organs</span><small>POINT. SHOOT. PROTECT. · 3–5 MIN</small></button>
+      <button id="choose-beat" class="game-card"><img src="./assets/choose-beat.jpg" alt=""><b>메타볼릭 비트</b><em>METABOLIC BEAT</em><span>리듬에 맞춰 버튼을 누르고, 퀴즈를 풀어 콩팥을 지켜요</span><span>Hit the beat and answer quizzes to protect the kidneys</span><small>PLAY. ANSWER. PROTECT. · 2 MIN</small></button>
+    </div><p class="compliance-footer">PC-KR-105596 · 202610&nbsp;&nbsp;※ HCP 대상으로 제작된 홍보물이며 가공 또는 복사 및 배포를 금지합니다.</p></div></section>
   <section id="home" class="screen">
     <div class="intro"><div id="map-chapter" class="eyebrow">THE INNER FRONTIER / 01</div><h1>메타볼릭<br>디펜스</h1><p id="intro-text"></p>
     <div class="tags"><span>METABOLIC DEFENSE</span><span id="waves-tag">5 WAVES / 5 BOSSES</span><span id="time-tag">5–7 MIN</span></div>
     <div class="options"><div><small>LANGUAGE</small><button data-lang="ko" class="selected">한국어</button><button data-lang="en">English</button></div><div><small data-i18n="difficulty">난이도</small><button data-diff="easy">EASY</button><button data-diff="mid" class="selected">NORMAL</button><button data-diff="hard">HARD</button></div></div>
-    <p id="difficulty-hint" class="hint"></p><button id="start" class="primary" disabled data-i18n="loading">문제은행 불러오는 중…</button><p id="load-status" role="status"></p><button id="admin-open" class="text-button" data-i18n="admin">운영자 설정 ↗</button></div>
+    <p id="difficulty-hint" class="hint"></p><button id="start" class="primary" disabled data-i18n="loading">문제은행 불러오는 중…</button><p id="load-status" role="status"></p><button id="admin-open" class="text-button" data-i18n="admin">운영자 설정 ↗</button><button id="back-to-chooser" class="text-button" data-i18n="chooseGame">← 게임 선택</button></div>
     <aside class="atlas"><small class="eyebrow">CHOOSE YOUR FRONTIER</small><div id="map-list" aria-label="Map selection"></div><div id="map-pending" aria-label="Future maps"></div></aside>
     <aside id="home-rank" class="hidden"><small class="eyebrow">LEADERBOARD · TOP 5</small><ol id="home-rank-list" class="rank-list"></ol></aside>
     <div class="world-caption"><small id="map-core"></small><h2 id="map-title"></h2><span id="map-subtitle"></span></div>
@@ -58,7 +63,7 @@
   </section>
 </main>
 <div id="splash" aria-hidden="true"></div>
-<script type="module">import{playSplash}from"./splash.js?v=a69";playSplash();</script>
-<script type="module" src="./main.js?v=a69"></script>
+<script type="module">import{playSplash}from"./splash.js?v=a70";playSplash();</script>
+<script type="module" src="./main.js?v=a70"></script>
 </body>
 </html>
