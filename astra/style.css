@@ -133,3 +133,12 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 
 /* 메타볼릭 비트를 같은 화면 안에 띄우는 틀 */
 #beat-frame{position:absolute;inset:0;z-index:40;background:#000}#beat-iframe{width:100%;height:100%;border:0;display:block}
+
+/* 제작사 링크드인 QR: 게임 선택·홈 화면 오른쪽 아래 */
+.studio-qr{position:absolute;right:3%;bottom:8.5%;display:flex;align-items:center;gap:1cqw;padding:1cqh 1.1cqw;background:#120a14cc;border:1px solid #f1d38d55;border-radius:4px;z-index:2}
+.studio-qr img{width:10cqh;height:10cqh;background:#fff;padding:.5cqh;border-radius:3px;display:block}
+.studio-qr span{display:flex;flex-direction:column;gap:.3cqh;font-size:1.3cqh;color:#e2cfd8;letter-spacing:.06em;text-align:left}
+.studio-qr b{font-size:1.7cqh;color:#fff3dd;letter-spacing:.02em}.studio-qr small{font-size:1cqh;color:#bfa9b6;letter-spacing:.02em}
+#chooser .studio-qr{top:4%;bottom:auto}#home .studio-qr{right:3.5%;bottom:10%}#home .studio-qr img{width:9cqh;height:9cqh}
+#splash .studio-qr{right:3.5%;bottom:5%;background:transparent;border-color:#1b1b1f22;opacity:0;transition:opacity .5s}#splash .studio-qr.show{opacity:1}
+#splash .studio-qr span{color:#55555c}#splash .studio-qr b{color:#1b1b1f}#splash .studio-qr small{color:#77777e}#splash .studio-qr img{background:transparent}
