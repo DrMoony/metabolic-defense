@@ -1,9 +1,9 @@
-import { healthColor, weaponColor } from './feedback.js?v=a72';
-import { RouteEditor } from './route-editor.js?v=a72';
-import { World, THREE } from './world.js?v=a72';
-import { QuizBank, shuffled, storage } from './quiz.js?v=a72';
+import { healthColor, weaponColor } from './feedback.js?v=a73';
+import { RouteEditor } from './route-editor.js?v=a73';
+import { World, THREE } from './world.js?v=a73';
+import { QuizBank, shuffled, storage } from './quiz.js?v=a73';
 
-import { MAPS, getMap } from './maps/index.js?v=a72';
+import { MAPS, getMap } from './maps/index.js?v=a73';
 const $ = id => document.getElementById(id);
 const show = (id, visible) => $(id).classList.toggle('hidden', !visible);
 const clamp = (n, lo = 0, hi = 100) => Math.min(hi, Math.max(lo, n));
@@ -815,7 +815,11 @@ function tap(element,handler){
   element.addEventListener('click',event=>{if(performance.now()-last<700)return;handler(event);});
   return element;
 }
+function enterFullscreen(){if(!document.fullscreenElement)$('stage').requestFullscreen?.({navigationUI:'hide'}).catch(()=>{});}
 function bindUI(){
+  // 다른 페이지에서 링크로 넘어오면 전체화면이 풀려 있다. 브라우저는 사용자 입력 없이 전체화면을 허용하지 않으니 첫 터치 때 다시 켠다.
+  const firstInput=event=>{if(event.key==='Escape')return;document.removeEventListener('pointerdown',firstInput,true);document.removeEventListener('keydown',firstInput,true);enterFullscreen();};
+  document.addEventListener('pointerdown',firstInput,true);document.addEventListener('keydown',firstInput,true);
   document.querySelectorAll('[data-lang]').forEach(button=>tap(button,()=>{state.lang=button.dataset.lang;updateLanguage();loadBanks();}));
   document.querySelectorAll('[data-diff]').forEach(button=>tap(button,()=>{state.difficulty=button.dataset.diff;updateLanguage();}));
   tap($('start'),()=>{unlockAudio();if(loadFailed){loadBanks();return;}if(bank.ready)setPhase('guide');});
@@ -823,11 +827,14 @@ function bindUI(){
   // 게임 선택: 디펜스는 이 화면을 닫고, 비트는 리듬 게임으로 넘어간다. ?game=defense 로 들어오면 고르는 화면을 건너뛴다.
   if(new URLSearchParams(location.search).get('game')==='defense')show('chooser',false);
   tap($('choose-defense'),()=>{unlockAudio();show('chooser',false);});
-  tap($('choose-beat'),()=>{location.href=BEAT_URL;});
+  // 비트는 다른 주소로 넘어가면 브라우저가 전체화면을 풀어 버리므로, 같은 화면(#stage) 안에 iframe으로 띄운다.
+  tap($('choose-beat'),()=>{enterFullscreen();const frame=$('beat-iframe');if(!frame.src.startsWith(BEAT_URL))frame.src=BEAT_URL+'?game=beat';show('beat-frame',true);frame.focus();});
+  // 비트 안의 선택 화면에서 디펜스를 고르면 iframe이 이 페이지로 넘어온다. 그때는 틀을 닫고 여기 디펜스 홈을 보여 준다.
+  $('beat-iframe').addEventListener('load',()=>{let href='';try{href=$('beat-iframe').contentWindow.location.href;}catch{return;}if(href.startsWith(location.origin)){show('beat-frame',false);$('beat-iframe').src='about:blank';show('chooser',false);}});
   tap($('back-to-chooser'),()=>{if(state.phase==='home')show('chooser',true);});
   tap($('routes-toggle'),()=>{const on=world.toggleRoutes();$('routes-toggle').textContent=text(on?'경로선 끄기':'경로선 보기',on?'Hide routes':'Show routes');});
   window.addEventListener('keydown',event=>{if(!editor?.active&&event.code==='KeyR'&&!event.repeat&&!['INPUT','SELECT','TEXTAREA'].includes(event.target?.tagName))$('routes-toggle').click();});
-  tap($('deploy'),()=>{unlockAudio();if(!document.fullscreenElement)$('stage').requestFullscreen?.({navigationUI:'hide'}).catch(()=>{});resetGame();});
+  tap($('deploy'),()=>{unlockAudio();enterFullscreen();resetGame();});
   tap($('fullscreen'),fullscreen);
   $('sound').textContent=muted?'♪ OFF':'♪ ON';tap($('sound'),()=>{unlockAudio();muted=!muted;storage.set('muted',muted);$('sound').textContent=muted?'♪ OFF':'♪ ON';});
   tap($('reload'),reload);tap($('swap'),swap);tap($('pause'),()=>pause());tap($('resume'),()=>pause(false));
