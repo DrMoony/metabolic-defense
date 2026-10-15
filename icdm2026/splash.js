@@ -28,6 +28,10 @@ function segmentPath({pts,curve}){
 
 export function playSplash(root=document.getElementById('splash')){
   if(!root)return Promise.resolve();
+  // 로고를 그리는 동안 오른쪽 아래에 제작사 링크드인 QR을 띄운다.
+  const qr=document.createElement('div');qr.className='studio-qr';
+  qr.innerHTML='<img src="./assets/qr-axinno-linkedin.svg?v=a75" alt="Axinno Studio 링크드인 QR 코드"><span><b>Axinno Studio</b>LinkedIn<small>linkedin.com/company/axinnostudio</small></span>';
+  root.append(qr);requestAnimationFrame(()=>requestAnimationFrame(()=>qr.classList.add('show')));
   const svg=el('svg',{viewBox:'-8 0 466 214','aria-label':'Axinno'},root);
   const ink={fill:'none',stroke:'#1b1b1f','stroke-width':6.5,'stroke-linecap':'round','stroke-linejoin':'round'};
   // 펜 속도를 일정하게: 획마다 길이에 비례한 시간을 주고, 획 사이엔 펜을 떼는 짧은 쉼을 둔다.
