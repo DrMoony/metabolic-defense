@@ -142,3 +142,4 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 #chooser .studio-qr{top:4%;bottom:auto}#home .studio-qr{right:3.5%;bottom:10%}#home .studio-qr img{width:9cqh;height:9cqh}
 #splash .studio-qr{right:3.5%;bottom:5%;background:transparent;border-color:#1b1b1f22;opacity:0;transition:opacity .5s}#splash .studio-qr.show{opacity:1}
 #splash .studio-qr span{color:#55555c}#splash .studio-qr b{color:#1b1b1f}#splash .studio-qr small{color:#77777e}#splash .studio-qr img{background:transparent}
+#splash .studio-qr{gap:1.6vh;padding:1.6vh 1.8vh}#splash .studio-qr img{width:22vh;height:22vh;padding:0}#splash .studio-qr span{font-size:1.9vh;gap:.6vh}#splash .studio-qr b{font-size:2.6vh}#splash .studio-qr small{font-size:1.4vh}
