@@ -129,4 +129,4 @@ html,body{background:#1d0b19}#stage{background:#381a31}.vignette{background:radi
 .game-card span{font-size:1.6cqh;line-height:1.5;color:#e2cfd8}.game-card span+span{font-size:1.35cqh;color:#bfa9b6;margin-top:-.4cqh}
 .game-card small{margin-top:.8cqh;font-size:1.15cqh;letter-spacing:.16em;color:#d9b98a}
 #chooser .compliance-footer{display:inline-block;margin:3.4cqh auto 0}
-#back-to-chooser{display:block}
+#back-to-chooser{display:inline-flex;align-items:center;vertical-align:top;margin:1cqh 0 0 1cqw;min-height:5.5cqh;padding:0 1.8cqw;font-size:1.8cqh;font-weight:700;letter-spacing:.02em;color:#ffe6b0;background:#2a1424cc;border:1.5px solid #f1d38d;border-radius:4px;box-shadow:0 .6cqh 2cqh #0006}#back-to-chooser:hover{background:#4a2238;color:#fff3dd}
