@@ -14,11 +14,11 @@ const ASSETS = new URL('../assets/', import.meta.url).href;
 // key·rims: [색, 세기, 위치]. hemi: [하늘, 땅, 세기]. motes: 떠다니는 빛 알갱이.
 export const STAGES = {
   heart: {
-    name: '하트 콜로세움', image: 'stage_heart.jpg', floor: .689, dark: '#12030a', shadow: ['#2a0410', .5],
-    hemi: ['#ffe6ea', '#6a1a34', 1.05], key: ['#fff0dc', 2.5, [-380, 980, 820]],
-    rims: [['#7fe6ff', 2.2, [-700, 520, -900]], ['#ffb46a', 2.0, [800, 420, -800]]],
-    motes: { colors: ['#ffd98a', '#ff9fb4', '#fff3d6'], count: 90, size: [5, 13], rise: [.15, .5], drift: .12 },
-    beams: { color: '#ffe2b0', xs: [-620, -210, 240, 660], power: .1 },
+    name: '하트 콜로세움', image: 'stage_heart.jpg', floor: .697, dark: '#03061a', shadow: ['#040a2c', .5],
+    hemi: ['#eaf0ff', '#22357a', 1.1], key: ['#fff4e2', 2.5, [-380, 980, 820]],
+    rims: [['#7fd8ff', 2.2, [-700, 520, -900]], ['#ffd07a', 1.9, [800, 420, -800]]],
+    motes: { colors: ['#ffe29a', '#a9c8ff', '#ffffff'], count: 90, size: [5, 13], rise: [.15, .5], drift: .12 },
+    beams: { color: '#dfe9ff', xs: [-620, -210, 240, 660], power: .1 },
   },
   kidney: {
     name: '아쿠아 돔', image: 'stage_kidney.jpg', floor: .692, gain: .74, calm: .2, dark: '#03101a', shadow: ['#06283a', .42],

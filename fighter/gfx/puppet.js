@@ -3,12 +3,15 @@ import * as THREE from '../../vendor/three.module.js';
 import { mesh as sdfMesh } from './sdf.js';
 import { MODELS, PARTS, PROPS, INK } from './chars.js';
 import { poseFor, blend } from './poses.js';
+import { built, stamp, material } from './models.js';
 
 const RAD = Math.PI / 180;
 const lin = v => (v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
 const shapes = new Map(), geoms = new Map(), faces = new Map();
 export const shapeOf = id => shapes.get(id) || shapes.set(id, MODELS[id].shape()).get(id);
+// 블렌더 모델이 있으면 그쪽 조형 값(built)을 덮어쓴다. classic이면 옛 몸을 그대로 쓴다.
+const modelOf = (id, classic) => (!classic && built(id) && MODELS[id].built ? { ...MODELS[id], ...MODELS[id].built } : MODELS[id]);
 const cached = (key, make) => geoms.get(key) || geoms.set(key, make()).get(key);
 
 function toGeometry(m) {
@@ -78,9 +81,9 @@ function stroke(shape, pts, r, lift = r * .3) {
 const arc = (cx, cy, w, h, n = 7) => Array.from({ length: n }, (_, i) => { const u = i / (n - 1) * 2 - 1; return [cx + u * w, cy + h * (1 - u * u)]; });
 
 // 얼굴 부품 틀. 표정마다 [재질 이름, 지오메트리] 묶음을 만들어 두고 인형마다 메시로 찍어낸다.
-function faceParts(id) {
-  if (faces.has(id)) return faces.get(id);
-  const M = MODELS[id], S = shapeOf(id), F = M.face, [ex, ey] = F.eyes, [rx, ry] = F.eye, [mx, my] = F.mouth, villain = F.brow === 'villain';
+function faceParts(key, M, S) {
+  if (faces.has(key)) return faces.get(key);
+  const F = M.face, [ex, ey] = F.eyes, [rx, ry] = F.eye, [mx, my] = F.mouth, villain = F.brow === 'villain';
   const look = rx * .3, both = make => merge([make(-1), make(1)]);
   const lid = (s, base, slope) => x => ey + ry * base + slope * s * (x - s * ex);
   const eye = (scale, pupil, clipOf) => {
@@ -122,7 +125,7 @@ function faceParts(id) {
     wavy: [['ink', stroke(S, Array.from({ length: 9 }, (_, i) => [mx - 10 + i * 2.5, my + Math.sin(i * 1.57) * 2.2]), 2)]],
   };
   const out = { eyes, brow, mouth };
-  faces.set(id, out);
+  faces.set(key, out);
   return out;
 }
 
@@ -139,9 +142,15 @@ const limbMats = new Map();
 const limbMaterial = color => limbMats.get(color) || limbMats.set(color, new THREE.MeshStandardMaterial({ color, roughness: .62, envMapIntensity: .5 })).get(color);
 
 // 휘는 호스. 시작점 a에서 조절점 c를 거쳐 b로 가는 곡선을 따라 관을 매 프레임 다시 세운다.
+// profile을 주면 굵기를 [자리, 반지름] 표로 읽고(근육), bands를 주면 [시작, 끝, 색] 구간을 꼭짓점 색으로 칠한다(바지 자락).
+const along = (profile, t) => {
+  let i = 1; while (i < profile.length - 1 && profile[i][0] < t) i++;
+  const [t0, r0] = profile[i - 1], [t1, r1] = profile[i], k = clamp((t - t0) / (t1 - t0 || 1), 0, 1), s = k * k * (3 - 2 * k);
+  return r0 + (r1 - r0) * s;
+};
 class Hose {
-  constructor(material, segs = 12, radial = 9) {
-    this.segs = segs; this.radial = radial;
+  constructor(material, { segs = 12, radial = 9, profile = null, color = null, bands = [] } = {}) {
+    this.segs = segs; this.radial = radial; this.profile = profile;
     const count = (segs + 1) * radial, index = [];
     this.pos = new Float32Array(count * 3); this.nor = new Float32Array(count * 3);
     for (let i = 0; i < segs; i++) for (let j = 0; j < radial; j++) {
@@ -150,10 +159,24 @@ class Hose {
     }
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.BufferAttribute(this.pos, 3)); g.setAttribute('normal', new THREE.BufferAttribute(this.nor, 3)); g.setIndex(index);
+    if (color) {
+      const tint = new Float32Array(count * 3), base = new THREE.Color(color), paint = new THREE.Color();
+      for (let i = 0; i <= segs; i++) {
+        const t = i / segs, band = bands.find(b => t >= b[0] && t <= b[1]);
+        if (band) paint.set(band[2]); else paint.copy(base);
+        for (let j = 0; j < radial; j++) paint.toArray(tint, (i * radial + j) * 3);
+      }
+      g.setAttribute('color', new THREE.BufferAttribute(tint, 3));
+      // 재질을 둘 주면 칠한 구간은 둘째 재질(천)로 그린다. 구간은 호스 첫머리부터 이어져 있어야 한다.
+      if (Array.isArray(material)) {
+        const cut = Math.round((bands[0] ? bands[0][1] : 0) * segs) * radial * 6;
+        g.addGroup(0, cut, 1); g.addGroup(cut, index.length - cut, 0);
+      }
+    }
     this.mesh = new THREE.Mesh(g, material); this.mesh.frustumCulled = false; this.mesh.castShadow = true;
   }
   set(a, c, b, r0, r1) {
-    const { segs, radial, pos, nor } = this;
+    const { segs, radial, pos, nor, profile } = this;
     let at = 0;
     for (let i = 0; i <= segs; i++) {
       const t = i / segs, u = 1 - t;
@@ -164,7 +187,7 @@ class Hose {
       let nx = ty, ny = -tx, nz = 0, nl = Math.hypot(nx, ny);
       if (nl < .2) { nx = 0; ny = tz; nz = -ty; nl = Math.hypot(ny, nz) || 1; }
       nx /= nl; ny /= nl; nz /= nl;
-      const bx = ty * nz - tz * ny, by = tz * nx - tx * nz, bz = tx * ny - ty * nx, r = r0 + (r1 - r0) * t;
+      const bx = ty * nz - tz * ny, by = tz * nx - tx * nz, bz = tx * ny - ty * nx, r = profile ? along(profile, t) : r0 + (r1 - r0) * t;
       for (let j = 0; j < radial; j++) {
         const ang = j / radial * Math.PI * 2, cs = Math.cos(ang), sn = Math.sin(ang), ox = nx * cs + bx * sn, oy = ny * cs + by * sn, oz = nz * cs + bz * sn;
         pos[at] = px + ox * r; pos[at + 1] = py + oy * r; pos[at + 2] = pz + oz * r;
@@ -178,19 +201,22 @@ class Hose {
 const A = new THREE.Vector3(), B = new THREE.Vector3(), C = new THREE.Vector3(), T = new THREE.Vector3(), V = new THREE.Vector3(), X = new THREE.Vector3(1, 0, 0), Q = new THREE.Quaternion();
 
 export class Puppet {
-  constructor(id) {
-    const M = this.model = MODELS[id];
+  constructor(id, { classic = false } = {}) {
+    const M = this.model = modelOf(id, classic), B = M === MODELS[id] ? null : built(id), mats = {};
     this.id = id; this.P = null; this.last = '';
     this.root = new THREE.Group();
     this.lean = new THREE.Group(); this.turn = new THREE.Group(); this.squash = new THREE.Group();
     this.root.add(this.lean); this.lean.add(this.turn); this.turn.add(this.squash);
-    this.skin = SKIN.clone();
-    const body = new THREE.Mesh(bodyGeometry(id), this.skin); body.castShadow = true;
-    this.squash.add(body);
+    this.flashers = [];
+    if (B) this.squash.add(stamp(B, 'body', mats, this.flashers));
+    else {
+      const skin = SKIN.clone(), body = new THREE.Mesh(bodyGeometry(id), skin); body.castShadow = true;
+      this.flashers.push(skin); this.squash.add(body);
+    }
 
     // 얼굴: 표정 묶음을 전부 만들어 두고 보이기만 바꾼다.
     this.face = {}; this.shown = {};
-    const parts = faceParts(id);
+    const parts = faceParts(B ? id + '+' : id, M, B ? B.shape : shapeOf(id));
     for (const kind in parts) {
       this.face[kind] = {};
       for (const name in parts[kind]) {
@@ -200,12 +226,25 @@ export class Puppet {
       }
     }
 
-    const limb = limbMaterial(M.limb), glove = M.glove || M.limb, shoe = M.shoe || M.limb;
-    this.hoses = { hf: new Hose(limb), hb: new Hose(limb), ff: new Hose(limb), fb: new Hose(limb) };
-    this.flashers = [this.skin];
+    const glove = M.glove || M.limb, shoe = M.shoe || M.limb;
+    if (B) {
+      // 블렌더 몸: 팔다리도 몸과 같은 윤기를 내고, 굵기 표를 따라 근육이 잡힌다.
+      const use = kind => { if (!mats[kind]) this.flashers.push(mats[kind] = material(kind)); return mats[kind]; };
+      const limb = use('limb'), thigh = M.legBands ? [limb, use('cloth')] : limb;
+      const arm = { segs: 22, radial: 14, color: M.limb, profile: M.armShape }, leg = { segs: 22, radial: 14, color: M.limb, profile: M.legShape, bands: M.legBands };
+      this.hoses = { hf: new Hose(limb, arm), hb: new Hose(limb, arm), ff: new Hose(thigh, leg), fb: new Hose(thigh, leg) };
+    } else {
+      const limb = limbMaterial(M.limb);
+      this.hoses = { hf: new Hose(limb), hb: new Hose(limb), ff: new Hose(limb), fb: new Hose(limb) };
+    }
     const piece = (kind, color, scale = 1) => {
-      const material = SKIN.clone(), m = new THREE.Mesh(partGeometry(kind, color), material);
-      m.castShadow = true; m.scale.setScalar(scale); this.flashers.push(material); this.root.add(m);
+      let m;
+      if (B && (kind === M.hand || kind === M.foot)) m = stamp(B, kind === M.hand ? 'hand' : 'foot', mats, this.flashers);
+      else {
+        const material = SKIN.clone(); m = new THREE.Mesh(partGeometry(kind, color), material);
+        m.castShadow = true; this.flashers.push(material);
+      }
+      m.scale.setScalar(scale); this.root.add(m);
       return m;
     };
     this.hands = { hf: piece(M.hand, glove, M.handScale || 1), hb: piece(M.hand, glove, M.handScale || 1) };
@@ -233,9 +272,10 @@ export class Puppet {
   // 몸통 좌표의 점을 발밑 기준 좌표로 옮긴다(어깨·골반 자리 계산).
   anchor(x, y, z, out) {
     const P = this.P, a = P.turn * RAD + P.spin, ca = Math.cos(a), sa = Math.sin(a), r = -(P.lean + P.roll), cr = Math.cos(r), sr = Math.sin(r);
-    x *= P.sx; y *= P.sy; z *= P.sx;
+    const k = this.model.girth || 1;
+    x *= P.sx * k; y *= P.sy * k; z *= P.sx * k;
     const x1 = x * ca + z * sa, z1 = -x * sa + z * ca;
-    return out.set(x1 * cr - y * sr + P.bx, x1 * sr + y * cr + P.by, z1);
+    return out.set(x1 * cr - y * sr + P.bx, x1 * sr + y * cr + P.by + (this.model.rise || 0), z1);
   }
 
   // 관절에서 손발까지 호스를 놓고 끝 방향을 T에 담는다. pref는 팔꿈치·무릎이 꺾이고 싶은 방향.
@@ -265,9 +305,10 @@ export class Puppet {
     const P = this.P, size = M.size || 1;
     this.root.position.set(f.x - 640, -f.y, f.side ? -5 : 5);
     this.root.scale.set(f.facing * size, size, size);
-    this.lean.position.set(P.bx, P.by, 0); this.lean.rotation.z = -(P.lean + P.roll);
+    this.lean.position.set(P.bx, P.by + (M.rise || 0), 0); this.lean.rotation.z = -(P.lean + P.roll);
     this.turn.rotation.y = P.turn * RAD + P.spin;
-    this.squash.scale.set(P.sx, P.sy, P.sx);
+    const girth = M.girth || 1;
+    this.squash.scale.set(P.sx * girth, P.sy * girth, P.sx * girth);
 
     // 표정. 가만히 있을 때는 가끔 눈을 깜빡인다.
     let eyes = P.eyes;

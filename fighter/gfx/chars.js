@@ -37,6 +37,17 @@ export const MODELS = {
     shoulder: [46, 0, 0], hip: [16, -46, 0], arm: [8.5, 8], leg: [9, 8.5],
     hand: 'boxing', foot: 'boot', limb: '#c92d50', glove: '#ffc531', shoe: '#ffc531', handScale: 1.18,
     stance: { hf: [68, 140, -14], hb: [70, 80, 40], bob: 5, bounce: 1 },
+    // 블렌더로 빚은 몸(assets/heart.glb)을 쓸 때 덮어쓰는 값. 몸이 넓고 장갑·부츠가 커서 관절 자리가 다르다.
+    built: {
+      face: { eyes: [19, 24], eye: [11, 13], mouth: [0, 2], brow: 'hero', calm: 'smirk' },
+      girth: .9, rise: 16, shoulder: [58, 4, 0], hip: [22, -52, 0], ankle: 32, stride: 66, legStretch: 2.1, handScale: .92, footScale: .88,
+      limb: '#c4202f', arm: [15, 11], leg: [19, 13],
+      // 팔: 어깨, 알통, 팔꿈치, 아래팔, 손목 순. 다리: 바지 자락(남색 천)이 끝나는 자리에서 한 단 가늘어진다.
+      armShape: [[0, 15], [.2, 17], [.45, 12.5], [.62, 14.5], [.9, 11], [1, 11]],
+      legShape: [[0, 19], [.42, 20], [.5, 16.5], [.7, 15], [1, 12.5]],
+      legBands: [[0, .45, '#2b2a5e']],
+      stance: { hf: [78, 136, -22], hb: [66, 86, 50], bob: 5, bounce: 1 },
+    },
   },
 
   // 탄산: 변칙 트릭스터. 돔 뚜껑에 꺾인 빨대를 꽂은 종이컵.
@@ -63,7 +74,10 @@ export const MODELS = {
   ...organs.MODELS, ...villains.MODELS,
 };
 
-for (const model of Object.values(MODELS)) model.stance = { ...STANCE, ...model.stance };
+for (const model of Object.values(MODELS)) {
+  model.stance = { ...STANCE, ...model.stance };
+  if (model.built) model.built.stance = { ...model.stance, ...model.built.stance };
+}
 
 // 손과 발. +x가 뻗는 방향이다.
 export const PARTS = {

@@ -18,7 +18,8 @@ const fake = (id, side) => {
 const ids = q.has('empty') ? [] : (q.has('solo') ? [q.get('c') || 'heart'] : [q.get('c') || 'heart', q.get('d') || 'soda']).filter(id => MODELS[id]);
 if (q.has('turn')) ids.forEach(id => { MODELS[id].stance.turn = +q.get('turn'); });
 const t0 = performance.now();
-const fighters = ids.map(fake), puppets = ids.map(id => new Puppet(id));
+// ?old=1 이면 블렌더 모델이 있어도 옛 몸으로, ?old=d 면 오른쪽 선수만 옛 몸으로(나란히 견주기).
+const fighters = ids.map(fake), puppets = ids.map((id, i) => new Puppet(id, { classic: q.get('old') === '1' || (q.get('old') === 'd' && i === 1) }));
 puppets.forEach(p => stage.scene.add(p.root));
 console.log('built in', Math.round(performance.now() - t0), 'ms');
 let frame = +(q.get('f') || 0);
