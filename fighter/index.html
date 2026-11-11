@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>메타볼릭 파이터 (시제품)</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="game" width="1280" height="720"></canvas>
+
+  <section id="title" class="overlay">
+    <div class="title-copy">
+      <h1>메타볼릭<br>파이터</h1>
+      <p class="lead">심장, 신장, 간, 췌장이 정크 푸드에 맞서 싸워요.</p>
+      <ul class="menu" id="menu">
+        <li data-mode="arcade"><b>1P 아케이드</b><span>정크 푸드 3연전</span></li>
+        <li data-mode="versus"><b>2P 대전</b><span>장기 대 장기, 3판 2선승</span></li>
+      </ul>
+      <p class="hint">위아래로 고르고 주먹 버튼으로 시작해요.</p>
+    </div>
+    <div class="keys">
+      <table>
+        <thead><tr><th></th><th>1P</th><th>2P</th></tr></thead>
+        <tbody>
+          <tr><th>이동, 점프, 앉기</th><td><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></td><td><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></td></tr>
+          <tr><th>주먹</th><td><kbd>F</kbd></td><td><kbd>K</kbd></td></tr>
+          <tr><th>킥</th><td><kbd>G</kbd></td><td><kbd>L</kbd></td></tr>
+          <tr><th>필살기</th><td><kbd>H</kbd></td><td><kbd>;</kbd></td></tr>
+        </tbody>
+      </table>
+      <dl>
+        <div><dt>장풍</dt><dd>필살기, 또는 ↓↘→ + 주먹</dd></div>
+        <div><dt>대공기</dt><dd>↓ + 필살기, 또는 →↓↘ + 주먹</dd></div>
+        <div><dt>돌진</dt><dd>→ + 필살기, 또는 ↓↙← + 킥</dd></div>
+        <div><dt>연속기</dt><dd>주먹 연타, 맞힌 뒤 킥이나 필살기로 이어요</dd></div>
+        <div><dt>초필살기</dt><dd>게이지가 가득 차면 주먹 + 킥</dd></div>
+        <div><dt>가드, 잡기</dt><dd>뒤로 당기면 가드, 붙어서 → + 주먹은 잡기</dd></div>
+      </dl>
+      <p class="note">조이스틱(게임패드)을 꽂으면 첫 번째가 1P, 두 번째가 2P예요.</p>
+    </div>
+  </section>
+
+  <section id="select" class="overlay" hidden>
+    <h2 id="selectTitle">장기를 골라요</h2>
+    <div class="cards" id="cards"></div>
+    <p class="hint" id="selectHint"></p>
+  </section>
+
+  <section id="vs" class="overlay" hidden>
+    <p class="label" id="vsLabel"></p>
+    <div class="vs-row">
+      <div class="vs-side"><canvas id="vsA" width="280" height="290"></canvas><strong id="vsNameA"></strong><span id="vsTagA"></span></div>
+      <em>VS</em>
+      <div class="vs-side flip"><canvas id="vsB" width="280" height="290"></canvas><strong id="vsNameB"></strong><span id="vsTagB"></span></div>
+    </div>
+    <p class="vs-note" id="vsNote"></p>
+  </section>
+
+  <section id="quiz" class="overlay" hidden>
+    <div class="panel">
+      <div class="quiz-top"><b>포션 퀴즈</b><span id="quizRule"></span></div>
+      <div class="timer"><i id="quizBar"></i></div>
+      <p class="quiz-q" id="quizQ"></p>
+      <ol class="choices" id="choices">
+        <li data-dir="up"><b>▲</b><span></span><i></i></li>
+        <li data-dir="left"><b>◀</b><span></span><i></i></li>
+        <li data-dir="right"><b>▶</b><span></span><i></i></li>
+        <li data-dir="down"><b>▼</b><span></span><i></i></li>
+      </ol>
+      <p class="quiz-status" id="quizStatus"></p>
+      <p class="quiz-exp" id="quizExp"></p>
+    </div>
+  </section>
+
+  <section id="result" class="overlay" hidden>
+    <canvas id="resultArt" width="280" height="290"></canvas>
+    <div class="result-copy">
+      <h2 id="resultTitle"></h2>
+      <p id="resultSub"></p>
+      <dl id="resultStats"></dl>
+      <p class="hint">주먹 버튼을 누르면 처음으로 돌아가요.</p>
+    </div>
+  </section>
+
+  <p id="proto">시제품이에요. 캐릭터 그림은 임시 도형이에요.</p>
+</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>
