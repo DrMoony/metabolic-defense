@@ -5,81 +5,84 @@ import { grounded } from './sim.js';
 const frame = (x = 0, y = 0, buttons = '') => ({ x, y, p: buttons.includes('p'), k: buttons.includes('k') });
 const hold = (input, frames) => Array.from({ length: Math.max(0, Math.round(frames)) }, () => input);
 
-// 커맨드별 스틱 경로(숫자패드, 5=중립). 623은 중립에서 앞을 새로 눌러야 인정된다.
-const PATHS = { '236': '26', '214': '24', '623': '5623', '426': '426', '22': '252', '236236': '2626' };
+// 커맨드별 스틱 경로(숫자패드, 5=중립). 같은 방향을 두 번 넣는 커맨드는 사이에 중립을 거친다.
+const PATHS = { '236': '26', '214': '24', '22': '252', '66': '656', '44': '454', '46': '46', '64': '64', '236236': '2626' };
 const stick = (digit, toward) => [((digit - 1) % 3 - 1) * toward, digit <= 3 ? 1 : digit >= 7 ? -1 : 0];
 function motion(name, button, toward, pace = 2) {
   const digits = [...PATHS[name]].map(Number), last = stick(digits.at(-1), toward);
   return [...digits.flatMap(digit => hold(frame(...stick(digit, toward)), pace)), frame(...last, button), frame(...last, button), frame()];
 }
 
-// 캐릭터별 싸움 방식. 거리(far·mid·close)마다 [가중치, 행동, 조건]을 고른다.
-// 행동: walk·back·wait·jump·jabs·kick·low·throw·dive, '@기술'=필살기, '+기술'=주먹 두 번 뒤 캔슬.
+// 캐릭터별 싸움 방식. 거리(far·mid·close)마다 [가중치, 행동, 조건(거리, 나, 상대, 판)]을 고른다.
+// 행동: walk·back·wait·jump·jabs·kick·low·throw·dive·cap, '@기술'=필살기, '+기술'=주먹 두 번 뒤 캔슬.
 // anti=대공기, dodge=장풍 대응기(dodgeAt 거리 안에 들어오면), parry=받아치기, shove=돌진을 밀어내는 기술, superAt=초필살기를 쓰는 거리,
 // follow=끝나자마자 주먹 연타로 잇는 이동기.
+const hurt = ratio => (d, me) => me.hp < me.char.hp * ratio;
+const charged = (d, me, opp) => opp.meter >= 30;
+const oiled = (d, me, opp, sim) => sim.shots.some(s => s.owner === me.side && s.kind === 'puddle' && Math.abs(s.x - opp.x) < 110);
 const PLANS = {
   heart: {
     anti: 'upper', dodge: 'weave', dodgeAt: 230, superAt: 210, follow: ['weave'],
-    far: [[5, 'walk'], [3, '@weave'], [1, 'jump']],
-    mid: [[3, 'walk'], [3, '@rush', d => d < 330], [2, '@weave'], [2, 'jump']],
-    close: [[4, '+rush'], [3, 'jabs'], [2, 'low'], [2, 'throw'], [1, '@upper'], [1, 'back']],
+    far: [[5, 'walk'], [2, '@dash', d => d < 470], [2, '@weave'], [1, 'jump']],
+    mid: [[3, 'walk'], [3, '@rush', d => d < 330], [2, '@knee', d => d < 290], [2, '@dash'], [2, '@weave'], [1, 'jump']],
+    close: [[4, '+rush'], [3, 'jabs'], [2, 'low'], [2, 'throw'], [2, '@shock'], [1, '+knee'], [1, '@upper'], [1, 'back']],
   },
   kidney: {
-    dodge: 'barrier', shove: 'barrier', dodgeAt: 150, superAt: 700,
+    anti: 'fountain', dodge: 'barrier', shove: 'barrier', dodgeAt: 150, superAt: 700,
     far: [[6, '@cast'], [3, '@lob', d => d < 520], [1, 'wait']],
-    mid: [[4, '@cast'], [3, '@lob', d => d > 300], [2, '@barrier', d => d < 210], [2, 'back'], [1, 'walk'], [1, 'kick', d => d < 200]],
-    close: [[3, '@barrier'], [3, 'jabs'], [2, '+cast'], [2, 'low'], [1, 'throw'], [2, 'back']],
+    mid: [[4, '@cast'], [3, '@lob', d => d > 300], [2, '@surf', d => d < 330], [2, '@barrier', d => d < 210], [2, 'back'], [1, 'walk'], [1, 'kick', d => d < 200]],
+    close: [[2, '@barrier'], [3, 'jabs'], [2, '+cast'], [2, '@flip'], [1, '@fountain'], [2, 'low'], [1, 'throw'], [1, 'back']],
   },
   liver: {
-    superAt: 250,
-    far: [[6, 'walk'], [2, '@charge'], [1, 'jump']],
-    mid: [[4, 'walk'], [3, '@charge', d => d < 330], [2, '@stomp', d => d < 250], [1, 'jump']],
-    close: [[4, '@grab'], [2, 'jabs'], [1, '+charge'], [2, 'low'], [1, 'throw'], [1, '@stomp']],
+    anti: 'heave', superAt: 250,
+    far: [[6, 'walk'], [2, '@charge'], [4, '@regen', hurt(.7)], [1, 'jump']],
+    mid: [[4, 'walk'], [3, '@charge', d => d < 330], [2, '@stomp', d => d < 250], [2, '@clap', d => d < 190], [1, 'jump']],
+    close: [[4, '@grab'], [2, 'jabs'], [1, '+charge'], [2, '@clap'], [1, '@heave'], [2, 'low'], [1, 'throw'], [1, '@stomp']],
   },
   pancreas: {
     anti: 'rising', parry: 'stance', dodge: 'stance', dodgeAt: 110, superAt: 270,
     far: [[5, 'walk'], [1, 'wait'], [1, 'jump']],
-    mid: [[4, '@lunge', d => d < 300], [3, 'kick', d => d < 230], [2, 'walk'], [1, 'back'], [1, '@stance', d => d < 230]],
-    close: [[3, 'jabs'], [3, '+lunge'], [2, '@stance'], [2, 'low'], [1, 'throw'], [2, 'back'], [1, '@rising']],
+    mid: [[4, '@lunge', d => d < 300], [2, '@reap', d => d < 280], [2, '@plunge', d => d > 150 && d < 290], [2, '@inject', (d, me, opp) => d < 190 && opp.meter >= 30], [3, 'kick', d => d < 230], [2, 'walk'], [1, 'back'], [1, '@stance', d => d < 230]],
+    close: [[3, 'jabs'], [3, '+lunge'], [2, '@inject', charged], [2, '@stance'], [2, 'low'], [1, 'throw'], [2, 'back'], [1, '@rising']],
   },
   soda: {
     anti: 'burst', dodge: 'slip', dodgeAt: 150, superAt: 160, follow: ['slip'],
-    far: [[5, 'walk'], [3, 'dive', d => d < 520], [1, 'jump']],
-    mid: [[4, 'dive'], [3, 'walk'], [2, '@slip', d => d < 250], [1, 'jump']],
+    far: [[5, 'walk'], [3, 'dive', d => d < 520], [2, 'cap', d => d < 560], [1, 'jump']],
+    mid: [[3, 'dive'], [2, 'cap'], [2, '@rocket', d => d < 340], [3, 'walk'], [2, '@slip', d => d < 250], [1, 'jump']],
     close: [[3, '@spray'], [3, 'jabs'], [2, '+spray'], [2, '@slip'], [1, '@burst'], [1, 'low'], [2, 'throw']],
   },
   fries: {
-    anti: 'spear', superAt: 270,
-    far: [[4, '@drop'], [4, 'walk'], [1, 'wait']],
-    mid: [[4, '@slide', d => d < 320], [2, 'kick', d => d < 220], [2, '@drop', d => d > 230], [2, 'walk']],
-    close: [[3, 'jabs'], [3, 'low'], [2, '+slide'], [1, 'throw'], [1, '@spear'], [2, 'back']],
+    anti: 'spear', dodge: 'flap', dodgeAt: 170, superAt: 270,
+    far: [[3, '@drop'], [3, '@darts'], [4, '@ignite', oiled], [4, 'walk'], [1, 'wait']],
+    mid: [[4, '@slide', d => d < 320], [2, '@darts'], [2, 'kick', d => d < 220], [2, '@drop', d => d > 230], [5, '@ignite', oiled], [1, '@ignite', d => d < 190], [2, 'walk']],
+    close: [[3, 'jabs'], [3, 'low'], [2, '+slide'], [2, '@flap'], [2, '@ignite'], [1, 'throw'], [1, '@spear'], [2, 'back']],
   },
   ramen: {
     anti: 'riser', superAt: 310,
-    far: [[5, 'walk'], [1, 'wait'], [1, 'jump']],
-    mid: [[5, '@whip', d => d < 390], [2, '@steam', d => d < 240], [1, 'walk'], [1, 'back'], [1, 'kick', d => d < 210]],
-    close: [[3, 'jabs'], [2, '+whip'], [2, '@steam'], [2, 'low'], [1, 'throw'], [1, '@riser'], [2, 'back']],
+    far: [[5, 'walk'], [3, '@broth'], [1, 'wait'], [1, 'jump']],
+    mid: [[5, '@whip', d => d < 390], [2, '@reel', d => d < 290], [2, '@stab', d => d < 290], [2, '@broth'], [2, '@steam', d => d < 240], [1, 'walk'], [1, 'back'], [1, 'kick', d => d < 210]],
+    close: [[3, 'jabs'], [2, '+whip'], [2, '+stab'], [2, '@steam'], [2, 'low'], [1, 'throw'], [1, '@riser'], [2, 'back']],
   },
   burger: {
-    superAt: 400,
+    anti: 'lid', dodge: 'roar', dodgeAt: 170, superAt: 400,
     far: [[4, 'walk'], [3, '@press', d => d < 450], [3, '@roll']],
-    mid: [[3, '@roll'], [3, '@press'], [3, 'walk'], [1, '@grab', d => d < 190]],
-    close: [[4, '@grab'], [2, 'jabs'], [2, 'low'], [1, 'kick'], [1, '@press']],
+    mid: [[3, '@roll'], [3, '@press'], [3, 'walk'], [2, '@hammer', d => d < 210], [1, '@grab', d => d < 190]],
+    close: [[4, '@grab'], [2, '@hammer'], [2, 'jabs'], [2, 'low'], [1, '@roar'], [1, 'kick'], [1, '@press']],
   },
 };
 
 export class CpuBrain {
   constructor(level = .5, random = Math.random) { this.level = level; this.random = random; this.queue = []; this.seenAttack = null; this.seenHit = false; this.guard = 0; this.guardLow = false; this.lastTotal = 0; this.quiet = 0; }
   chance(p) { return this.random() < p; }
-  pick(options, dist, sim, me) {
-    const usable = options.filter(([, action, when]) => (!when || when(dist)) && this.usable(action, sim, me));
+  pick(options, dist, sim, me, opp) {
+    const usable = options.filter(([, action, when]) => (!when || when(dist, me, opp, sim)) && this.usable(action, sim, me));
     let roll = this.random() * usable.reduce((sum, [weight]) => sum + weight, 0);
     for (const [weight, action] of usable) if ((roll -= weight) < 0) return action;
     return 'walk';
   }
   // 이미 깔린 장풍·웅덩이가 있어서 못 쓰는 기술은 후보에서 뺀다.
   usable(action, sim, me) {
-    const spawn = '@+'.includes(action[0]) && me.char.moves[action.slice(1)].spawn;
+    const spawn = action === 'cap' ? me.char.moves.capshot.spawn : '@+'.includes(action[0]) && me.char.moves[action.slice(1)].spawn;
     return !spawn || sim.canShoot(me, spawn);
   }
   jabs(me) {
@@ -100,7 +103,7 @@ export class CpuBrain {
 
     // 방어: 상대 공격 하나마다 막을지 한 번만 정한다(매 프레임 다시 굴리면 완벽하게 막아 버린다).
     const near = plan.dodge ? plan.dodgeAt : 240;
-    const shot = sim.shots.find(s => s.owner !== side && (s.still ? s.kind === 'steam' && Math.abs(s.x - me.x) < s.w / 2 + 50 : Math.sign(s.vx) === -toward && Math.abs(s.x - me.x) < near));
+    const shot = sim.shots.find(s => s.owner !== side && (s.still ? (s.kind === 'steam' || s.kind === 'flame') && Math.abs(s.x - me.x) < s.w / 2 + 50 : Math.sign(s.vx) === -toward && Math.abs(s.x - me.x) < near));
     const om = opp.state === 'attack' ? opp.move : null;
     const puddle = om?.spawn?.kind === 'puddle' && Math.abs(opp.x + opp.facing * om.spawn.at[0] - me.x) < 120;
     // 알아채는 데 걸리는 시간: 쉬운 단계는 빠른 주먹을 보고 막지 못한다.
@@ -171,7 +174,7 @@ export class CpuBrain {
     let action = trap && this.chance(.4 + .5 * this.level) ? 'jump'
       : stalled ? (this.chance(.75) ? 'walk' : 'jump')
       : dither ? (this.chance(.6) ? 'wait' : 'back')
-      : this.pick(dist > 400 ? plan.far : dist > closeAt ? plan.mid : plan.close, dist, sim, me);
+      : this.pick(dist > 400 ? plan.far : dist > closeAt ? plan.mid : plan.close, dist, sim, me, opp);
     // 장풍을 받아 마시는 상대에게는 장풍 대신 걸어 들어간다.
     // 쉬운 단계는 주먹에서 필살기로 잇는 연속기를 잘 못 쓴다.
     if (action[0] === '+' && !this.chance(.15 + 1.5 * this.level)) action = 'jabs';
@@ -183,6 +186,7 @@ export class CpuBrain {
       case 'wait': this.queue = hold(frame(), dither ? 26 : 14); break;
       case 'jump': this.queue = [...hold(frame(toward, -1), 4), ...hold(frame(), 20), frame(0, 0, 'k'), ...hold(frame(), 14)]; break;
       case 'dive': this.queue = [...hold(frame(toward, -1), 4), ...hold(frame(), Math.max(8, Math.min(22, (dist - 140) / 6.2))), ...press('k', 0, 1), ...hold(frame(), 18)]; break;
+      case 'cap': this.queue = [...hold(frame(toward, -1), 4), ...hold(frame(), Math.max(7, Math.min(16, (dist - 150) / 14))), ...press('p', 0, 1), ...hold(frame(), 26)]; break;
       case 'jabs': this.queue = [...this.jabs(me), ...pause]; break;
       case 'kick': this.queue = [...press('k'), ...pause]; break;
       case 'low': this.queue = [...press('k', 0, 1), ...pause]; break;

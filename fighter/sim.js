@@ -7,16 +7,18 @@ export const grounded = f => f.y >= 0 && f.vy >= 0;
 const clampX = x => Math.max(STAGE.left, Math.min(STAGE.right, x));
 
 // 숫자패드 표기 커맨드(바라보는 쪽 기준, 6=앞). 키보드로도 되게 대각선은 없어도 인정한다.
-// window는 넉넉하게 잡는다(키보드로 또박또박 눌러도 나오게). 623은 앞을 "새로, 짧게" 눌렀을 때만 본다:
-// 앞을 누르고 있던 시간이 tap 프레임을 넘으면 걷던 중으로 보고 236으로 넘긴다.
-const FWD = [6, 3], BACK = [4, 1], DOWN = [1, 2, 3], NOT_DOWN = [4, 5, 6, 7, 8, 9], NOT_FWD = [1, 2, 4, 5, 7, 8];
+// window는 넉넉하게 잡는다(키보드로 또박또박 눌러도 나오게). 모두가 쓰는 건 ↓→(236)·↓←(214) 둘뿐이고,
+// 나머지는 캐릭터마다 하나씩 갖는 고유 커맨드다: 방향 두 번(→→ ←← ↓↓)이나 방향 뒤집기(←→ →←).
+const FWD = [6, 3], BACK = [4, 1], DOWN = [1, 2, 3], NOT_DOWN = [4, 5, 6, 7, 8, 9];
 export const MOTIONS = {
   '236236': { seq: [[2], FWD, [2], FWD], window: 56 },
-  '426':    { seq: [BACK, [2], FWD], window: 38 },
-  '623':    { seq: [NOT_FWD, [6], DOWN, FWD], window: 34, tap: 14 },
   '236':    { seq: [[2], FWD], window: 26 },
   '214':    { seq: [[2], BACK], window: 26 },
   '22':     { seq: [DOWN, NOT_DOWN, DOWN], window: 28 },
+  '66':     { seq: [[6], [4, 5, 7, 8, 9], [6]], window: 24 },
+  '44':     { seq: [[4], [5, 6, 7, 8, 9], [4]], window: 24 },
+  '46':     { seq: [[4], [6]], window: 18 },
+  '64':     { seq: [[6], [4]], window: 18 },
 };
 
 function createFighter(char, side) {
@@ -65,17 +67,29 @@ export class Sim {
     if (f.hist.length > 40) f.hist.shift();
     f.in = inp;
   }
-  // 커맨드가 최근 window 프레임 안에 순서대로 들어왔는지. 마지막 방향이 들어온 위치를 돌려준다(없으면 -1).
+  // 커맨드가 최근 window 프레임 안에 순서대로 들어왔는지. 들어왔으면 점수를, 아니면 -1을 돌려준다.
+  // 점수는 늦게 시작한 커맨드일수록 크다(여러 커맨드가 겹쳐 보일 때 방금 넣은 쪽을 고르려고).
   motion(f, name) {
-    const { seq, window, tap } = MOTIONS[name], hist = f.hist;
-    let index = seq.length - 1, last = -1, second = -1;
+    const { seq, window } = MOTIONS[name], hist = f.hist;
+    let index = seq.length - 1, last = -1;
     for (let i = hist.length - 1; i >= Math.max(0, hist.length - window); i--) {
       if (!seq[index].includes(hist[i])) continue;
       if (last < 0) last = i;
-      if (index === 1) second = i;
-      if (--index < 0) return tap && second - i > tap ? -1 : last;
+      if (--index < 0) return i * 64 + last;
     }
     return -1;
+  }
+  // 눌린 버튼(buttons)으로 낼 수 있는 필살기 가운데 커맨드 점수가 가장 높은 것.
+  pickCommand(f, buttons) {
+    let best = null, top = -1;
+    for (const cmd of f.char.cmds) {
+      const [name, button, key] = cmd, spawn = f.char.moves[key].spawn;
+      if (!buttons.includes(button) || (spawn && !this.canShoot(f, spawn))) continue;
+      const score = this.motion(f, name);
+      // 점수가 같으면 뒤에 적힌 공통 커맨드(↓→, ↓←)를 고른다. ↓ 뒤에 대각선을 거쳐 일찍 누른 ↓→가 ↓↓로 읽히지 않게.
+      if (score >= 0 && score >= top) { top = score; best = cmd; }
+    }
+    return best;
   }
   canShoot(f, spawn) { return this.shots.filter(shot => shot.owner === f.side && shot.kind === spawn.kind).length < (spawn.max || 1); }
   grabbable(f, o, range) {
@@ -96,29 +110,22 @@ export class Sim {
     return true;
   }
 
-  // 필살기: 방향 커맨드 뒤에 주먹이나 킥. 초필살기는 게이지가 가득 찼을 때 ↓→↓→+주먹, 또는 주먹+킥.
+  // 필살기: 방향 커맨드 뒤에 주먹이나 킥(같은 커맨드라도 버튼에 따라 다른 기술). 초필살기는 게이지가 가득 찼을 때 주먹+킥, 또는 ↓→↓→+주먹.
   tryCommand(f) {
-    const b = f.buf, moves = f.char.moves;
+    const b = f.buf;
     if (b.p && f.meter >= 100 && (b.k || this.motion(f, '236236') >= 0)) { b.p = b.k = 0; return this.start(f, 'super'); }
-    for (const [name, button, key] of f.char.cmds) {
-      if (!b[button] || this.motion(f, name) < 0) continue;
-      if (moves[key].spawn && !this.canShoot(f, moves[key].spawn)) continue;
-      b[button] = 0;
-      return this.start(f, key);
-    }
-    return false;
+    const cmd = this.pickCommand(f, (b.p ? 'p' : '') + (b.k ? 'k' : ''));
+    if (!cmd) return false;
+    b[cmd[1]] = 0;
+    return this.start(f, cmd[2]);
   }
   // 버튼이 방향보다 조금 일러서 기본기가 먼저 나갔을 때: 나온 지 EARLY 프레임 안에 커맨드가 마저 들어오면 필살기로 바꿔 준다.
   // 주먹과 킥을 살짝 어긋나게 눌러도 초필살기가 나온다.
   tryLate(f) {
-    const by = f.earlyBy, other = by === 'p' ? 'k' : 'p', moves = f.char.moves;
+    const by = f.earlyBy, other = by === 'p' ? 'k' : 'p';
     if (f.meter >= 100 && (f.buf[other] || (by === 'p' && this.motion(f, '236236') >= 0))) { f.buf.p = f.buf.k = 0; return this.start(f, 'super'); }
-    for (const [name, button, key] of f.char.cmds) {
-      if (button !== by || this.motion(f, name) < 0) continue;
-      if (moves[key].spawn && !this.canShoot(f, moves[key].spawn)) continue;
-      return this.start(f, key);
-    }
-    return false;
+    const cmd = this.pickCommand(f, by);
+    return cmd ? this.start(f, cmd[2]) : false;
   }
   tryAttack(f, o, fx, down) {
     if (this.tryCommand(f)) return true;
@@ -157,9 +164,9 @@ export class Sim {
         break;
       case 'jump': {
         if (f.airActed) break;
-        const air = f.char.airCmd;
         // 공중 전용 기술(↓+버튼). 너무 낮으면 일반 점프 공격이 나간다.
-        if (air && inp.y > 0 && f.buf[air[0]] && f.y < -70) { f.buf[air[0]] = 0; f.airActed = true; f.facing = o.x >= f.x ? 1 : -1; this.start(f, air[1]); }
+        const air = inp.y > 0 && f.y < -70 && f.char.airCmds?.find(([button, key]) => f.buf[button] && (!f.char.moves[key].spawn || this.canShoot(f, f.char.moves[key].spawn)));
+        if (air) { f.buf[air[0]] = 0; f.airActed = true; f.facing = o.x >= f.x ? 1 : -1; this.start(f, air[1]); }
         else if (f.buf.p) { f.buf.p = 0; f.airActed = true; this.start(f, 'jpunch'); }
         else if (f.buf.k) { f.buf.k = 0; f.airActed = true; this.start(f, 'jkick'); }
         break;
@@ -188,6 +195,11 @@ export class Sim {
     if (m.rise && t === hitStart) { f.vx = f.facing * m.rise[0]; f.vy = m.rise[1]; }
     if (m.dive && t === hitStart) { f.vx = f.facing * m.dive[0]; f.vy = m.dive[1]; }
     if (m.spawn && t === hitStart) this.spawnShot(f, m.spawn);
+    // 회복기: 지속 프레임 동안 체력이 찬다. 맞으면 끊긴다.
+    if (m.heal && t > hitStart && t <= hitEnd && this.live) {
+      f.hp = Math.min(f.char.hp, f.hp + m.heal);
+      if ((t - hitStart) % 8 === 1) this.events.push({ type: 'heal', side: f.side, x: f.x, y: f.y - 110, char: f.char.id });
+    }
     if (m.grab && t > hitStart && t <= hitEnd && this.tryGrab(f, o)) return;
     if (m.isSlam && f.grab) {
       if (t < hitStart) this.hold(f, o); else if (t === hitStart) this.slam(f, o);
@@ -211,13 +223,19 @@ export class Sim {
   }
 
   spawnShot(f, spec) {
-    const x = clampX(f.x + f.facing * spec.at[0]), y = f.y + spec.at[1];
-    this.shots.push({
-      owner: f.side, kind: spec.kind, x, y, vx: f.facing * spec.speed, vy: spec.vy || 0, g: spec.g || 0, w: spec.w, h: spec.h, color: f.char.color, age: 0,
-      life: spec.life || 0, hits: spec.hits || 1, power: spec.power || 1, still: !spec.speed, dir: f.facing, lastHit: -99, hold: 0,
-      data: { ...spec, special: true },
-    });
-    this.events.push(spec.kind === 'puddle' ? { type: 'splash', x, y: 0, kind: spec.kind } : { type: 'fire', x, y, kind: spec.kind });
+    let x = clampX(f.x + f.facing * spec.at[0]), y = f.y + spec.at[1], big = false;
+    // 점화(ignite): 깔아 둔 내 웅덩이가 있으면 그 자리에서 더 큰 불기둥이 된다.
+    const puddle = spec.ignite && this.shots.find(shot => shot.owner === f.side && shot.kind === 'puddle');
+    if (puddle) { puddle.dead = true; spec = { ...spec, ...spec.ignite }; x = puddle.x; y = -spec.h / 2; big = true; }
+    // 부채꼴(fan): 위아래로 갈라지는 여러 발을 한 번에 던진다.
+    for (const vy of spec.fan || [spec.vy || 0]) {
+      this.shots.push({
+        owner: f.side, kind: spec.kind, x, y, vx: f.facing * spec.speed, vy, g: spec.g || 0, w: spec.w, h: spec.h, color: f.char.color, age: 0,
+        life: spec.life || 0, hits: spec.hits || 1, power: spec.power || 1, still: !spec.speed, dir: f.facing, lastHit: -99, hold: 0, big,
+        data: { ...spec, special: true },
+      });
+    }
+    this.events.push(spec.kind === 'puddle' ? { type: 'splash', x, y: 0, kind: spec.kind } : { type: 'fire', x, y, kind: spec.kind, big, dir: f.facing });
   }
 
   // 잡기: 가드를 무시한다. 잡으면 상대를 held로 묶고 메치기(slam) 동작으로 넘어간다.
@@ -229,14 +247,17 @@ export class Sim {
     Object.assign(o, { state: 'held', move: null, t: 0, vx: 0, vy: 0, kb: 0, y: 0, stun: 0, armor: false, flash: 4 });
     this.hold(f, o);
     this.hitstop = 6;
-    this.events.push({ type: 'grab', x: (f.x + o.x) / 2, y: -120, char: f.char.id, special: g.slam === 'slamBig' });
+    this.events.push({ type: 'grab', x: (f.x + o.x) / 2, y: -120, char: f.char.id, side: f.side, special: g.slam === 'slamBig', reel: !!g.reel, from: f.x, to: o.x });
     return true;
   }
   hold(f, o) {
     if (o.state !== 'held') return;
-    f.vx = 0;
-    o.x = clampX(f.x + f.facing * f.grab.hold); o.y = 0; o.facing = -f.facing;
-    f.x = clampX(o.x - f.facing * f.grab.hold);
+    f.vx = 0; o.y = 0; o.facing = -f.facing;
+    const g = f.grab, at = clampX(f.x + f.facing * g.hold), left = Math.abs(at - o.x);
+    // 멀리서 낚아챈 상대(reel)는 메치기 전까지 끌려온다.
+    if (g.reel && left > g.reel) { o.x += Math.sign(at - o.x) * Math.max(g.reel, left / Math.max(1, f.move.startup - f.t)); return; }
+    o.x = at;
+    f.x = clampX(o.x - f.facing * g.hold);
   }
   slam(f, o) {
     const g = f.grab;
@@ -335,8 +356,20 @@ export class Sim {
     }
   }
 
+  // 쓸어 내기(wipe): 기술 판정에 닿은 상대 장풍을 지운다.
+  wipeShots(f) {
+    const m = f.move;
+    if (f.state !== 'attack' || !m.box || !within(m.wipe, f.t)) return;
+    const box = this.hitBox(f);
+    for (const shot of this.shots) {
+      if (shot.owner === f.side || shot.still || shot.power > 1 || !overlap(box, this.shotBox(shot))) continue;
+      shot.dead = true;
+      this.events.push({ type: 'clash', x: shot.x, y: shot.y });
+    }
+  }
+
   resolveHits() {
-    this.f.forEach(f => this.reflectShots(f));
+    this.f.forEach(f => { this.reflectShots(f); this.wipeShots(f); });
     // 양쪽 판정을 먼저 모은 뒤 한꺼번에 적용해야 서로 동시에 맞는 상황(상쇄)이 나온다.
     const hits = [];
     this.f.forEach((f, i) => {
@@ -421,6 +454,12 @@ export class Sim {
     def.hp = Math.max(0, def.hp - dmg);
     if (!src.isSuper) att.meter = Math.min(100, att.meter + dmg * .07);
     def.meter = Math.min(100, def.meter + dmg * .04);
+    // 게이지 빼앗기(drain): 맞은 상대의 게이지를 덜어 내 것으로 만든다.
+    if (src.drain) {
+      const take = Math.min(def.meter, src.drain);
+      def.meter -= take; att.meter = Math.min(100, att.meter + take);
+      this.events.push({ type: 'drain', side: att.side, x: def.x, y, tx: att.x, amount: take });
+    }
     const wasAir = !onGround || def.state === 'air';
     if (def.state === 'air') def.juggle++;
     let launch = src.launch;
