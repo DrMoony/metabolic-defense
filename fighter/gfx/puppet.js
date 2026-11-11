@@ -231,7 +231,7 @@ export class Puppet {
       // 블렌더 몸: 팔다리도 몸과 같은 윤기를 내고, 굵기 표를 따라 근육이 잡힌다.
       const use = kind => { if (!mats[kind]) this.flashers.push(mats[kind] = material(kind)); return mats[kind]; };
       const limb = use('limb'), thigh = M.legBands ? [limb, use('cloth')] : limb;
-      const arm = { segs: 22, radial: 14, color: M.limb, profile: M.armShape }, leg = { segs: 22, radial: 14, color: M.limb, profile: M.legShape, bands: M.legBands };
+      const arm = { segs: 22, radial: 14, color: M.limb, profile: M.armShape, bands: M.armBands }, leg = { segs: 22, radial: 14, color: M.limb, profile: M.legShape, bands: M.legBands };
       this.hoses = { hf: new Hose(limb, arm), hb: new Hose(limb, arm), ff: new Hose(thigh, leg), fb: new Hose(thigh, leg) };
     } else {
       const limb = limbMaterial(M.limb);

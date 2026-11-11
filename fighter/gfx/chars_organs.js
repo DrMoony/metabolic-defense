@@ -37,6 +37,15 @@ export const MODELS = {
     shoulder: [44, -2, 0], hip: [15, -47, 0], arm: [7.5, 7], leg: [8.5, 8],
     hand: 'mitt', foot: 'boot', limb: '#8d4275', glove: '#4fa8f0', shoe: '#4fa8f0', handScale: 1.12,
     stance: { by: 112, turn: 32, hf: [80, 128, -12], hb: [70, 78, 44], bob: 3, sway: 3 },
+    // 블렌더로 빚은 몸(assets/kidney.glb). 둥근 안경 속에 눈이 들어가고, 팔다리는 가늘고 길다.
+    built: {
+      face: { eyes: [17, 33], eye: [9.5, 10.5], mouth: [0, 13], brow: 'hero', calm: 'smirk' },
+      girth: 1, rise: 16, shoulder: [37, -10, 0], hip: [17, -58, 0], ankle: 30, stride: 66, legStretch: 2.1, handScale: .86, footScale: .8,
+      limb: '#6e2459', arm: [8.5, 6.5], leg: [10, 7.5],
+      armShape: [[0, 8.5], [.25, 9.5], [.5, 7.5], [.7, 8], [1, 6.5]],
+      legShape: [[0, 10.5], [.4, 10], [.5, 8], [.75, 8.5], [1, 7.5]],
+      stance: { hf: [80, 130, -14], hb: [68, 82, 46] },
+    },
   },
 
   // 간: 잡기형 중량급. 넓은 쐐기 몸에 상투, 밧줄 띠, 옆구리에 초록 쓸개 주머니.
@@ -71,6 +80,16 @@ export const MODELS = {
     stance: { by: 106, turn: 30, hf: [90, 104, -34], hb: [74, 52, 56], ff: [46, 0, -20], fb: [-46, 0, 24], bob: 2.2, sway: 2 },
     // 손이 커서 공용 앉기·막기 자리에 두면 입을 가린다.
     fix: { crouch: { hf: [86, 82, -26], hb: [88, 34, 54] }, block: { hf: [84, 142, -10], hb: [92, 84, 40] }, blockLow: { hf: [84, 100, -10], hb: [90, 44, 46] } },
+    // 블렌더로 빚은 몸(assets/liver.glb). 팔꿈치·무릎 보호대와 붕대는 팔다리 호스에 색 띠로 칠한다.
+    built: {
+      face: { eyes: [20, 19], eye: [11.5, 12], mouth: [0, -3], brow: 'hero', calm: 'smirk' },
+      hand: 'taped', foot: 'bare', girth: 1, rise: 14, shoulder: [58, 8, 0], hip: [25, -56, 0], ankle: 34, stride: 70, legStretch: 2.1, handScale: .98, footScale: .95,
+      limb: '#6e2e1e', arm: [16, 13.5], leg: [20, 13],
+      armShape: [[0, 16], [.2, 19], [.36, 14.5], [.46, 17], [.56, 14], [.72, 16], [1, 14]],
+      armBands: [[.36, .56, '#3f7d36'], [.76, 1, '#f1e2c2']],
+      legShape: [[0, 21], [.3, 20], [.36, 17.5], [.46, 19.5], [.58, 16], [.75, 16.5], [1, 13]],
+      legBands: [[0, .34, '#4f2217'], [.36, .58, '#3f7d36']],
+    },
   },
 
   // 췌장: 긴 리치 테크니션. 길쭉하고 올록볼록한 몸에 말린 꼬리, 앞손에 인슐린 주사기.
@@ -101,6 +120,14 @@ export const MODELS = {
     hand: 'mitt', foot: 'sneaker', limb: '#c98622', glove: '#fff6e6', shoe: '#ff7a3d',
     props: [{ kind: 'syringe', color: '#ff7a3d', at: [-10, 1, 0], hand: 'hf', scale: 1.22 }],
     stance: { by: 124, turn: 40, hf: [82, 118, -8], hb: [-50, 154, 26], ff: [48, 0, -14], fb: [-42, 0, 20], bob: 3, bounce: 1 },
+    // 블렌더로 빚은 몸(assets/pancreas.glb). 꼬리와 망토는 등 왼쪽으로 뻗어 화면에서 몸 뒤로 보인다.
+    built: {
+      face: { eyes: [13, 29], eye: [10, 12], mouth: [0, 9], brow: 'hero', calm: 'smirk' },
+      girth: 1, rise: 14, shoulder: [25, -13, 0], hip: [11, -56, 0], ankle: 30, stride: 80, legStretch: 2.1, handScale: .8, footScale: .78,
+      limb: '#a85a1c', arm: [6.5, 5.5], leg: [7.5, 6.5],
+      armShape: [[0, 6.5], [.25, 7.5], [.5, 6], [.72, 6.8], [1, 5.5]],
+      legShape: [[0, 8], [.35, 8.5], [.5, 6.8], [.75, 7.4], [1, 6.5]],
+    },
   },
 };
 

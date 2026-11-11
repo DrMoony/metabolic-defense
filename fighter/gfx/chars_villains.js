@@ -34,6 +34,14 @@ export const MODELS = {
     shoulder: [34, 2, 0], hip: [14, -42, 0], arm: [6, 5.5], leg: [6.5, 6], reach: 128, stride: 104,
     hand: 'mitt', foot: 'pointy', limb: '#f0a93a', glove: '#fff6e6', shoe: '#7c2014', handScale: 1.05,
     stance: { by: 128, lean: -.06, hf: [70, 98, -18], hb: [28, 72, 46], ff: [40, 0, -16], fb: [-36, 0, 20], bob: 4, sway: 7 },
+    // 블렌더로 빚은 몸(assets/fries.glb). 앞머리 튀김은 앞으로 말리고, 목수건 매듭은 등 왼쪽에서 날린다.
+    built: {
+      face: { eyes: [14.5, 21], eye: [11, 10], mouth: [0, -12], brow: 'villain', calm: 'smirk' },
+      girth: 1.14, rise: 22, shoulder: [30, -8, 0], hip: [11, -56, 0], ankle: 18, stride: 90, legStretch: 2.1, handScale: .82, footScale: .86,
+      limb: '#f2b22c', arm: [6, 5.5], leg: [6.5, 6],
+      armShape: [[0, 6], [.25, 6.8], [.5, 5.4], [.72, 6.2], [1, 5.5]],
+      legShape: [[0, 6.8], [.35, 7.2], [.5, 5.8], [.75, 6.4], [1, 6]],
+    },
   },
 
   // 라면: 중거리 채찍. 컵라면에 뚜껑이 반쯤 벗겨져 뒤로 서 있고, 면발이 넘치고 젓가락이 꽂혔다.
@@ -68,6 +76,16 @@ export const MODELS = {
     hand: 'mitt', foot: 'sneaker', limb: '#f6c95c', glove: '#d9372c', shoe: '#d9372c',
     props: [{ kind: 'whip', color: '#ffe08a', at: [6, 0, 0], hang: [.8, -.6, 0], stretch: .28 }],
     stance: { by: 118, prop: 0, hf: [62, 104, -18], hb: [36, 80, 46], bob: 4, sway: 3 },
+    // 블렌더로 빚은 몸(assets/ramen.glb). 은박 뚜껑은 뒤로 서고, 땋은 면발과 젓가락은 등 왼쪽으로 나온다.
+    built: {
+      face: { eyes: [17, 13], eye: [11, 11], mouth: [0, -1], brow: 'villain', calm: 'grin' },
+      girth: 1.1, rise: 14, shoulder: [36, 4, 0], hip: [14, -58, 0], ankle: 24, stride: 86, legStretch: 2.1, handScale: .86, footScale: .84,
+      limb: '#f3dcc0', arm: [6, 5.5], leg: [8, 6.5],
+      armShape: [[0, 6], [.25, 6.8], [.5, 5.4], [.72, 6.2], [1, 5.5]],
+      legShape: [[0, 13], [.3, 14], [.52, 12.5], [.6, 6.4], [1, 6]],
+      legBands: [[0, .58, '#eedcbc'], [.58, 1, '#fbf6ea']],
+      stance: { hf: [62, 120, -18], hb: [36, 98, 46] },
+    },
   },
 
   // 대왕버거: 초중량 보스. 빵·치즈·패티·양상추가 겹겹이고 금 왕관을 썼다.
@@ -109,6 +127,14 @@ export const MODELS = {
     shoulder: [53, -3, 0], hip: [21, -53, 0], arm: [10.5, 9.5], leg: [11, 10.5], reach: 84, stride: 50,
     hand: 'mitt', foot: 'boot', limb: '#8a5a2b', glove: '#fff6e6', shoe: '#6b3a1e', handScale: 1.2, footScale: 1.2, stretch: 1.25,
     stance: { by: 92, turn: 26, far: .78, hf: [86, 90, -24], hb: [64, 56, 52], ff: [32, 0, -20], fb: [-32, 0, 24], bob: 2.5, sway: 2 },
+    // 블렌더로 빚은 몸(assets/burger.glb). 망토는 등 뒤로 늘어지고, 털 목도리 아래에서 팔이 나온다.
+    built: {
+      face: { eyes: [15.5, 21], eye: [10.5, 11.5], mouth: [0, 5], brow: 'villain', calm: 'frown' },
+      girth: 1, rise: 14, shoulder: [56, -17, 0], hip: [22, -60, 0], ankle: 30, handScale: .8, footScale: 1.05,
+      limb: '#d08c3c', arm: [10.5, 9.5], leg: [11, 10.5],
+      armShape: [[0, 11], [.25, 12.5], [.5, 9.5], [.75, 11.5], [1, 10]],
+      legShape: [[0, 12], [.4, 12.5], [1, 11]],
+    },
     // 얼굴이 몸 위쪽에 넓게 있어서 앉기·막기 손을 얼굴 밖으로 뺀다.
     fix: { crouch: { hf: [80, 62, -26], hb: [72, 28, 54] }, block: { hf: [80, 120, -12], hb: [82, 66, 46] }, blockLow: { hf: [80, 84, -12], hb: [80, 34, 50] }, win: { hf: [74, 168, -40], hb: [-74, 168, 44] } },
   },

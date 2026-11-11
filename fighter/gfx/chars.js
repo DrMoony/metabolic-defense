@@ -70,6 +70,14 @@ export const MODELS = {
     shoulder: [40, -4, 0], hip: [17, -56, 0], arm: [7.5, 7], leg: [8, 7.5],
     hand: 'mitt', foot: 'sneaker', limb: '#2a6fc0', glove: '#fff6e6', shoe: '#ff5a5f',
     stance: { by: 116, hf: [50, 120, -16], hb: [20, 74, 46], bob: 4, sway: 5 },
+    // 블렌더로 빚은 몸(assets/soda.glb). 캔 위로 거품이 넘치고, 목수건 매듭은 등 왼쪽에서 날린다.
+    built: {
+      face: { eyes: [17, 22], eye: [12, 13], mouth: [0, 1], brow: 'villain', calm: 'smirk' },
+      girth: 1, rise: 14, shoulder: [41, -22, 0], hip: [18, -56, 0], ankle: 30, stride: 70, legStretch: 2.1, handScale: .84, footScale: .84,
+      limb: '#243a7a', arm: [7.5, 6.5], leg: [8.5, 7.5],
+      armShape: [[0, 7.5], [.25, 8.5], [.5, 6.8], [.72, 7.6], [1, 6.5]],
+      legShape: [[0, 9], [.35, 9.5], [.5, 7.6], [.75, 8.2], [1, 7.5]],
+    },
   },
   ...organs.MODELS, ...villains.MODELS,
 };

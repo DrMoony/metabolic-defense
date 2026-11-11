@@ -3,7 +3,7 @@
 import * as THREE from '../../vendor/three.module.js';
 import { GLTFLoader } from '../../vendor/addons/GLTFLoader.js';
 
-const BUILT = ['heart'];
+const BUILT = ['heart', 'kidney', 'liver', 'pancreas', 'soda', 'fries', 'ramen', 'burger'];
 const base = new URL('../assets/', import.meta.url);
 const store = new Map();
 
@@ -16,6 +16,8 @@ const LOOK = {
   cloth: { roughness: .86, clearcoat: 0 },
   gold: { roughness: .3, metalness: .85, clearcoat: .3, clearcoatRoughness: .2 },
   matte: { roughness: .68, clearcoat: 0 },
+  // 물·유리: 비쳐 보이고 반짝인다.
+  glass: { roughness: .08, clearcoat: 1, clearcoatRoughness: .05, transparent: true, opacity: .86 },
 };
 export const material = kind => new THREE.MeshPhysicalMaterial({ vertexColors: true, ...(LOOK[kind] || LOOK.matte) });
 

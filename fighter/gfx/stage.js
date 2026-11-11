@@ -11,11 +11,11 @@ const MARGIN = 1.04;
 const ASSETS = new URL('../assets/', import.meta.url).href;
 
 // floor: 그림에서 바닥 먼 쪽 끝 선의 높이(위에서부터 비율). 여기서 뒷벽까지 거리가 정해진다.
-// gain·calm: 배경 밝기 배율과 채도를 빼는 정도(밝은 무대일수록 더 가라앉힌다).
+// gain·calm: 배경 밝기 배율과 채도를 빼는 정도(밝은 무대일수록 더 가라앉힌다). gloss: 바닥에 선수가 비치는 정도.
 // key·rims: [색, 세기, 위치]. hemi: [하늘, 땅, 세기]. motes: 떠다니는 빛 알갱이.
 export const STAGES = {
   heart: {
-    name: '하트 콜로세움', image: 'stage_heart.jpg', floor: .697, dark: '#03061a', shadow: ['#040a2c', .5],
+    name: '하트 콜로세움', image: 'stage_heart.jpg', floor: .697, dark: '#03061a', shadow: ['#040a2c', .5], gloss: .3,
     hemi: ['#eaf0ff', '#22357a', 1.1], key: ['#fff4e2', 2.5, [-380, 980, 820]],
     rims: [['#7fd8ff', 2.2, [-700, 520, -900]], ['#ffd07a', 1.9, [800, 420, -800]]],
     motes: { colors: ['#ffe29a', '#a9c8ff', '#ffffff'], count: 90, size: [5, 13], rise: [.15, .5], drift: .12 },
@@ -29,7 +29,7 @@ export const STAGES = {
     beams: { color: '#d8fbff', xs: [-420, -60, 330], power: .09 },
   },
   liver: {
-    name: '아이언 웍스', image: 'stage_liver.jpg', floor: .696, dark: '#120603', shadow: ['#1c0703', .55],
+    name: '아이언 웍스', image: 'stage_liver.jpg', floor: .696, dark: '#120603', shadow: ['#1c0703', .55], gloss: .18,
     hemi: ['#ffdcc0', '#4a1414', .95], key: ['#ffe2bd', 2.4, [-420, 940, 820]],
     rims: [['#ffa040', 2.6, [-300, 420, -900]], ['#c8ff5a', 1.5, [820, 420, -760]]],
     motes: { colors: ['#ffb14a', '#ff7a2a', '#ffe08a'], count: 110, size: [3, 8], rise: [.5, 1.6], drift: .35 },
@@ -42,7 +42,7 @@ export const STAGES = {
     beams: { color: '#fff6d8', xs: [-520, 0, 520], power: .07 },
   },
   alley: {
-    name: '야식 골목', image: 'stage_alley.jpg', floor: .692, dark: '#04030c', shadow: ['#02020a', .55],
+    name: '야식 골목', image: 'stage_alley.jpg', floor: .692, dark: '#04030c', shadow: ['#02020a', .55], gloss: .34,
     hemi: ['#b8c8ff', '#3a1a4a', .9], key: ['#ffe6d0', 2.0, [-380, 980, 820]],
     rims: [['#ff5fc8', 2.6, [-700, 420, -900]], ['#4fe8ff', 2.4, [800, 420, -800]]],
     motes: { colors: ['#ffd27a', '#ff8ad0', '#7fe9ff'], count: 60, size: [4, 10], rise: [.05, .25], drift: .25 },
@@ -151,6 +151,23 @@ export class Stage {
     const catcher = this.catcher = new THREE.Mesh(new THREE.PlaneGeometry(3200, 1500), new THREE.ShadowMaterial({ color: '#1a0410', opacity: .5 }));
     catcher.rotation.x = -Math.PI / 2; catcher.position.set(0, .5, -260); catcher.receiveShadow = true; catcher.renderOrder = -1; s.add(catcher);
 
+    // 바닥에 비친 모습: 무대를 위아래로 뒤집어 한 번 더 그린 그림을 바닥 위에 엷게 깐다.
+    this.mirrorRT = new THREE.WebGLRenderTarget(640, 360);
+    const sheen = this.sheen = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.ShaderMaterial({
+      uniforms: { tMap: { value: this.mirrorRT.texture }, uPx: { value: new THREE.Vector2(1 / 1280, 1 / 720) }, uPower: { value: .26 } },
+      vertexShader: 'void main() { gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }',
+      fragmentShader: `uniform sampler2D tMap; uniform vec2 uPx; uniform float uPower;
+        void main() {
+          vec2 uv = gl_FragCoord.xy * uPx, dx = vec2(uPx.x * 3., 0.), dy = vec2(0., uPx.y * 5.);
+          vec4 c = texture2D(tMap, uv) * .36 + (texture2D(tMap, uv + dx) + texture2D(tMap, uv - dx) + texture2D(tMap, uv + dy) + texture2D(tMap, uv - dy)) * .16;
+          gl_FragColor = vec4(c.rgb * uPower, c.a * uPower);
+          #include <colorspace_fragment>
+        }`,
+      transparent: true, premultipliedAlpha: true, depthWrite: false, toneMapped: false, fog: false,
+    }));
+    sheen.rotation.x = -Math.PI / 2; sheen.frustumCulled = false; sheen.visible = false; sheen.renderOrder = -1.5; s.add(sheen);
+    this.mirror = !/[?&]mirror=0/.test(location.search);
+
     // 떠다니는 빛 알갱이.
     const dot = canvasTexture(64, 64, (g, w) => {
       const grad = g.createRadialGradient(w / 2, w / 2, 0, w / 2, w / 2, w / 2);
@@ -235,6 +252,7 @@ export class Stage {
     this.floor.scale.set(wide, near - far, 1); this.floor.position.set(0, 0, (near + far) / 2);
     this.wall.scale.set(wide, 1400, 1); this.wall.position.set(0, 700, far);
     this.floor.visible = this.wall.visible = true;
+    this.sheen.scale.copy(this.floor.scale); this.sheen.position.set(0, .3, this.floor.position.z); this.sheen.visible = this.mirror; this.gloss = look.gloss ?? .26;
     this.plateUniforms.map.value = plate; this.plateUniforms.uDark.value.set(look.dark);
     this.plateUniforms.uGain.value = look.gain ?? .9; this.plateUniforms.uCalm.value = look.calm ?? .08;
     this.catcher.material.color.set(look.shadow[0]); this.catcher.material.opacity = this.shadowPower = look.shadow[1];
@@ -282,6 +300,7 @@ export class Stage {
     const lit = 1 - this.dim * .8, t = this.time;
     this.plateUniforms.uDim.value = this.dim * .86;
     this.catcher.material.opacity = (this.shadowPower || .5) * (1 - this.dim * .5);
+    this.sheen.material.uniforms.uPower.value = (this.gloss || 0) * (1 - this.dim * .4);
     if (this.motes.visible) {
       const pos = this.motes.geometry.attributes.position;
       this.moteData.forEach((d, i) => {
@@ -322,5 +341,23 @@ export class Stage {
     out[0] = (v.x + 1) * 640; out[1] = (1 - v.y) * 360;
     return out;
   }
-  render(dt = 1) { this.gl.render(this.scene, this.camera); this.post.render(dt); }
+  // 바닥에 비칠 그림: 배경과 빛 알갱이는 빼고 선수와 기술 효과만 위아래로 뒤집어 그린다.
+  reflect() {
+    const gl = this.gl, s = this.scene, rt = this.mirrorRT, size = gl.getDrawingBufferSize(this.tmp2 || (this.tmp2 = new THREE.Vector2()));
+    const w = Math.max(2, size.x >> 1), h = Math.max(2, size.y >> 1);
+    if (rt.width !== w || rt.height !== h) rt.setSize(w, h);
+    this.sheen.material.uniforms.uPx.value.set(1 / size.x, 1 / size.y);
+    const hide = [this.floor, this.wall, this.catcher, this.sheen, this.motes, this.rain, ...this.beams], was = hide.map(o => o.visible);
+    for (const o of hide) o.visible = false;
+    const bg = s.background, auto = gl.shadowMap.autoUpdate;
+    s.background = null; gl.shadowMap.autoUpdate = false;
+    s.scale.y = -1; s.updateMatrixWorld(true);
+    gl.setRenderTarget(rt); gl.render(s, this.camera); gl.setRenderTarget(null);
+    s.scale.y = 1; s.updateMatrixWorld(true);
+    s.background = bg; gl.shadowMap.autoUpdate = auto; hide.forEach((o, i) => { o.visible = was[i]; });
+  }
+  render(dt = 1) {
+    if (this.mirror && this.sheen.visible && this.gloss > 0) this.reflect();
+    this.gl.render(this.scene, this.camera); this.post.render(dt);
+  }
 }
