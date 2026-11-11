@@ -2,6 +2,7 @@
 // 렌더러·조명·환경 반사·카메라를 한곳에서 관리한다.
 // 좌표: 시뮬 x에서 640을 뺀 값이 월드 x, 바닥이 y=0, 화면 쪽이 +z. 1픽셀 = 1단위.
 import * as THREE from '../../vendor/three.module.js';
+import { Post } from './post.js';
 
 const TAN_V = Math.tan(15 * Math.PI / 180), TAN_H = TAN_V * 16 / 9;
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
@@ -90,6 +91,7 @@ export class Stage {
     ref.position.set(0, 316, 640 / TAN_H); ref.lookAt(0, 252, 0); ref.updateMatrixWorld(); ref.updateProjectionMatrix();
     this.refMatrix = new THREE.Matrix4().multiplyMatrices(ref.projectionMatrix, ref.matrixWorldInverse);
     this.environment(null); this.lights(); this.arena();
+    this.post = new Post(gl); this.post.on = !/[?&]post=0/.test(location.search);
     this.aim(true);
     this.use(stage);
   }
@@ -320,5 +322,5 @@ export class Stage {
     out[0] = (v.x + 1) * 640; out[1] = (1 - v.y) * 360;
     return out;
   }
-  render() { this.gl.render(this.scene, this.camera); }
+  render(dt = 1) { this.gl.render(this.scene, this.camera); this.post.render(dt); }
 }

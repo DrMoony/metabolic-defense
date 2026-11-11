@@ -1,5 +1,5 @@
 // 장면 흐름: 처음 화면 → 캐릭터 고르기 → 대진 → 퀴즈 → 대전 → (퀴즈 → 대전)… → 결과.
-import { CHARS, ORGANS, VILLAINS, BOSS, TYPES } from './data.js';
+import { CHARS, ORGANS, VILLAINS, BOSS, TYPES, ARROWS } from './data.js';
 import { readPlayer, Controller, NEUTRAL } from './input.js';
 import { Sim } from './sim.js';
 import { CpuBrain } from './ai.js';
@@ -82,12 +82,18 @@ function startDemo() {
 function paintMenu() { [...$('menu').children].forEach((item, index) => item.classList.toggle('on', index === menuIndex)); }
 function chooseMode(index) { sfx.confirm(); game.mode = index ? 'versus' : 'arcade'; go('select'); }
 
+// 기술표: 방향(세로) × 주먹·킥(가로). 위 두 줄은 모두가 같은 방향이고, 셋째 줄만 캐릭터 고유 방향이다.
+function cmdGrid(char) {
+  const rows = [...new Set(char.commands.filter(c => c.motion).map(c => c.motion))], of = (motion, button) => char.commands.find(c => c.motion === motion && c.button === button)?.name || '';
+  const sup = char.commands.find(c => c.key === 'super');
+  return `<table class="cmds"><thead><tr><th></th><th>주먹</th><th>킥</th></tr></thead><tbody>${rows.map((m, i) => `<tr${i === 2 ? ' class="own"' : ''}><th>${ARROWS[m]}</th><td>${of(m, 'p')}</td><td>${of(m, 'k')}</td></tr>`).join('')}<tr class="sup"><th>${sup.cmd}</th><td colspan="2">${sup.name}</td></tr></tbody></table>`;
+}
 function buildCards() {
   const strongAgainst = type => [...VILLAINS, BOSS].map(id => CHARS[id]).find(char => char.type === type);
   $('cards').replaceChildren(...ORGANS.map((id, index) => {
     const char = CHARS[id], card = document.createElement('div'), foe = strongAgainst(char.strong);
     card.className = 'card';
-    card.innerHTML = `<div class="tags"><i class="t0">1P</i><i class="t1">2P</i></div><canvas width="240" height="264"></canvas><strong>${char.name}</strong><small>${char.style}</small><p>${char.trait}</p><ul class="cmds">${char.commands.map(c => `<li><span>${c.name}</span><b>${c.cmd}</b></li>`).join('')}</ul><em>${TYPES[char.strong]}에 강해요 (${foe.name})</em>`;
+    card.innerHTML = `<div class="tags"><i class="t0">1P</i><i class="t1">2P</i></div><canvas width="240" height="264"></canvas><strong>${char.name}</strong><small>${char.style}</small><p>${char.trait}</p>${cmdGrid(char)}<em>${TYPES[char.strong]}에 강해요 (${foe.name})</em>`;
     drawPortrait(card.querySelector('canvas'), char);
     card.addEventListener('click', () => { if (game.scene === 'select' && !versus() && !sel.ready[0]) { sel.cursor[0] = index; confirmPick(0); } });
     return card;
@@ -318,6 +324,7 @@ $('result').addEventListener('click', () => { if (game.scene === 'result' && gam
 // 시험용 손잡이: DBG.cpu=[true,true]로 양쪽을 CPU에 맡기고 DBG.run(프레임 수)으로 빨리 감는다.
 Object.assign(DBG, {
   run(frames) { for (let i = 0; i < frames; i++) tick(); return DBG.state(); },
+  emit(event) { renderer.onEvent(event); },
   state: () => ({ scene: game.scene, t: game.t, mode: game.mode, round: game.round, stage: game.stage, wins: [...game.wins], score: game.score, potion: [...game.potion], hp: sim ? sim.f.map(f => Math.round(f.hp)) : null, over: sim?.over || null }),
   start(mode, a = 'heart', b = 'liver') { game.mode = mode; sel = { cursor: [ORGANS.indexOf(a), ORGANS.indexOf(b)], ready: [true, true], done: 0 }; beginMatch(); },
   answer, go, game,

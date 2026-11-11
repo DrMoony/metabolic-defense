@@ -66,14 +66,17 @@ export class Renderer {
     switch (event.type) {
       case 'hit':
         jolt(event.ko ? 22 : event.heavy ? 11 : 5);
+        // 세게 맞는 순간: 화면 가장자리 색이 갈라지고, 필살기 막타에는 집중선이 터진다.
+        this.stage.post.kick = Math.max(this.stage.post.kick, event.ko ? 1.6 : event.sup ? .9 : event.special && event.heavy ? .6 : event.heavy ? .3 : 0);
+        if (event.ko || (event.last && (event.sup || event.special))) this.hud.burst(event.x, event.y, event.ko || event.sup ? 16 : 9, CHARS[event.char]?.color);
         if (event.ko) this.hud.flash = 14;
         // 서로 치고받을 때마다 뜨면 정신없으니 연속기 첫 타에만, 한 번에 하나만 띄운다.
         if (event.counter && event.combo <= 1 && !this.hud.texts.some(t => t.text === 'COUNTER')) this.hud.say('COUNTER', event.x, event.y - 40, '#ff8a3d', 34);
         break;
       case 'land': if (event.heavy) jolt(6); break;
-      case 'slam': jolt(12); break;
-      case 'super': jolt(8); this.callout(event, '#ffd98a', 30, 56); break;
-      case 'special': this.callout(event, '#' + new THREE.Color(CHARS[event.char].color).lerp(new THREE.Color('#fff'), .55).getHexString(), 22, 40); break;
+      case 'slam': jolt(12); this.stage.post.kick = Math.max(this.stage.post.kick, event.big ? .9 : .4); break;
+      case 'super': jolt(8); this.hud.cutIn(event.char, event.side, CHARS[event.char].commands.find(c => c.key === 'super').name); break;
+      case 'special': this.hush = 16; this.callout(event, '#' + new THREE.Color(CHARS[event.char].color).lerp(new THREE.Color('#fff'), .55).getHexString(), 22, 40); break;
       case 'potion': this.hud.say('포션 +30%', event.x, event.y - 90, '#9dffb0', 70); break;
     }
   }
@@ -148,10 +151,12 @@ export class Renderer {
       stage.view.w += (1280 - stage.view.w) * .05; stage.view.x = Math.sin(stage.time * .003) * 60; stage.aim();
     }
     this.sim = sim;
-    stage.setDim(sim && sim.freeze > 0 ? 1 : 0);
+    // 초필살기는 무대를 다 어둡게, 필살기는 잠깐 살짝만 어둡게 해서 기술 효과가 도드라지게 한다.
+    this.hush = Math.max(0, (this.hush || 0) - dt);
+    stage.setDim(sim && sim.freeze > 0 ? 1 : sim && this.hush > 0 ? .42 : 0);
     stage.flow(dt);
     this.fx.update(sim, dt);
-    stage.render();
+    stage.render(dt);
     this.hud.draw(sim, o, dt, this.frame);
   }
 }

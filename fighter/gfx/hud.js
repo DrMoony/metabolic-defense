@@ -1,5 +1,5 @@
 // 화면 위 정보: 체력, 게이지, 시간, 연속기, 큰 글자. 3D 무대 위에 겹친 2D 캔버스에 그린다.
-import { STAGE, TYPES } from '../data.js';
+import { STAGE, TYPES, CHARS } from '../data.js';
 
 const W = STAGE.w, H = STAGE.h, TAU = Math.PI * 2;
 const FONT = '"Apple SD Gothic Neo","Malgun Gothic",Inter,sans-serif';
@@ -13,9 +13,14 @@ export class Hud {
     this.ratio = 1; this.debug = false; this.reset();
   }
   resize(ratio) { this.ratio = ratio; this.canvas.width = Math.round(W * ratio); this.canvas.height = Math.round(H * ratio); }
-  reset() { this.texts = []; this.flash = 0; this.lag = [1, 1]; this.combo = [0, 0]; this.pop = [0, 0]; }
+  reset() { this.texts = []; this.bursts = []; this.cut = null; this.flash = 0; this.lag = [1, 1]; this.combo = [0, 0]; this.pop = [0, 0]; }
   // 시뮬 좌표(x, 바닥 기준 y) 위에 잠깐 떠오르는 글자.
   say(text, x, y, color, max = 50, size = 26) { const t = { text, x, y, color, life: 0, max, size }; this.texts.push(t); return t; }
+
+  // 초필살기 컷인: 화면을 가로지르는 비스듬한 띠에 얼굴과 기술 이름이 미끄러져 들어온다.
+  cutIn(id, side, name) { this.cut = { id, side, name, life: 0, max: 46 }; }
+  // 집중선: 맞은 자리로 화면 가장자리에서 쐐기 선이 모여든다.
+  burst(x, y, max = 10, color = '#fff') { this.bursts.push({ x, y, life: 0, max, color: color || '#fff' }); }
 
   // 기울어진 막대 경로. s가 1이면 위쪽이 오른쪽으로, -1이면 왼쪽으로 밀린다.
   slab(x, y, w, h, s, lean = 12, grow = 0) {
@@ -28,11 +33,56 @@ export class Hud {
     const c = this.c;
     c.setTransform(this.ratio, 0, 0, this.ratio, 0, 0); c.clearRect(0, 0, W, H);
     if (sim && this.debug) this.boxes(sim);
+    this.focus(dt); this.cutScene(dt);
     this.floaters(dt);
     if (this.flash > 0) { c.fillStyle = `rgba(255,255,255,${Math.min(1, this.flash / 22)})`; c.fillRect(0, 0, W, H); this.flash -= dt; }
     if (o.dim) { c.fillStyle = `rgba(22,8,20,${o.dim})`; c.fillRect(0, 0, W, H); }
     if (sim && o.bars) this.bars(sim, o, dt, frame);
     if (o.banner) this.banner(o.banner);
+  }
+
+  focus(dt) {
+    const c = this.c, at = [0, 0];
+    for (const b of this.bursts) {
+      b.life += dt; const k = b.life / b.max; if (k >= 1) continue;
+      this.stage.project(b.x - 640, -b.y, 40, at);
+      c.save(); c.translate(at[0], at[1]); c.globalAlpha = (1 - k) * .9;
+      for (let i = 0; i < 34; i++) {
+        const a = i / 34 * TAU + Math.random() * .12, near = 150 + Math.random() * 130 + k * 60, wide = .012 + Math.random() * .022;
+        c.fillStyle = i % 3 ? '#fff' : b.color;
+        c.beginPath(); c.moveTo(Math.cos(a) * near, Math.sin(a) * near); c.lineTo(Math.cos(a - wide) * 1500, Math.sin(a - wide) * 1500); c.lineTo(Math.cos(a + wide) * 1500, Math.sin(a + wide) * 1500); c.closePath(); c.fill();
+      }
+      c.restore();
+    }
+    c.globalAlpha = 1;
+    this.bursts = this.bursts.filter(b => b.life < b.max);
+  }
+
+  cutScene(dt) {
+    const cut = this.cut; if (!cut) return;
+    cut.life += dt; if (cut.life >= cut.max) { this.cut = null; return; }
+    const c = this.c, char = CHARS[cut.id], s = cut.side === 0 ? 1 : -1, face = this.portraitOf?.(cut.id);
+    const enter = ease(Math.min(1, cut.life / 7)), leave = Math.max(0, (cut.life - (cut.max - 8)) / 8), open = enter * (1 - leave), Y = 300, BH = 190 * open;
+    c.save(); c.translate(W / 2, Y); c.rotate(-.07 * s);
+    // 띠: 캐릭터 색 바탕에 위아래 금색 줄, 안쪽으로 흐르는 속도선.
+    const band = c.createLinearGradient(0, -BH / 2, 0, BH / 2);
+    band.addColorStop(0, INK); band.addColorStop(.18, char.dark || char.color); band.addColorStop(.5, char.color); band.addColorStop(.82, char.dark || char.color); band.addColorStop(1, INK);
+    c.fillStyle = band; c.fillRect(-W, -BH / 2, W * 2, BH);
+    c.fillStyle = GOLD; c.fillRect(-W, -BH / 2, W * 2, 4); c.fillRect(-W, BH / 2 - 4, W * 2, 4);
+    c.save(); c.beginPath(); c.rect(-W, -BH / 2 + 4, W * 2, Math.max(0, BH - 8)); c.clip();
+    c.globalAlpha = .5; c.fillStyle = '#fff';
+    for (let i = 0; i < 16; i++) { const w = 120 + (i * 97) % 260, x = ((i * 331 + cut.life * 70 * s) % (W + 600) + W + 600) % (W + 600) - W / 2 - 300; c.fillRect(x, -BH / 2 + 10 + (i * 53) % 170 * open, w, 2 + i % 3); }
+    c.globalAlpha = 1;
+    if (face) {
+      const h = 330, w = h * face.width / face.height, slide = (1 - enter) * 420 + leave * 300;
+      c.save(); c.translate(-s * (360 + slide), 0); c.scale(s, 1); c.drawImage(face, -w / 2, -h * .46, w, h); c.restore();
+    }
+    c.restore();
+    c.globalAlpha = open; c.textAlign = 'center'; c.textBaseline = 'middle';
+    c.font = `italic 900 78px ${FONT}`; this.ink(cut.name, s * (150 + (1 - enter) * 260), 6, '#fff', 12);
+    c.font = `italic 900 20px ${FONT}`; this.ink('초필살기', s * (150 + (1 - enter) * 260), -62, GOLD, 6);
+    c.textBaseline = 'alphabetic'; c.globalAlpha = 1;
+    c.restore();
   }
 
   boxes(sim) {

@@ -20,11 +20,14 @@ function noise(seconds, volume, cutoff) {
   src.connect(filter).connect(gain).connect(ctx.destination); src.start();
 }
 
-// 필살기를 낼 때 나는 소리는 기술 성격에 따라 일곱 가지로 나눈다(기술 키 → 소리).
+// 필살기를 낼 때 나는 소리는 기술 성격에 따라 열두 가지로 나눈다(기술 키 → 소리).
 const VOICE = {
   rush: 'multi', spray: 'multi', roll: 'multi', upper: 'rise', rising: 'rise', riser: 'rise', spear: 'rise', burst: 'rise', riposte: 'rise',
   charge: 'dash', slide: 'dash', lunge: 'dash', dive: 'dash', weave: 'dash', slip: 'dash', cast: 'cast', lob: 'cast', drop: 'cast', steam: 'cast',
   barrier: 'guard', stance: 'guard', grab: 'heavy', press: 'heavy', stomp: 'heavy', whip: 'snap',
+  knee: 'rise', dash: 'dash', shock: 'zap', surf: 'splash', fountain: 'splash', flip: 'dash', heave: 'heavy', regen: 'heal', clap: 'boom',
+  plunge: 'dash', inject: 'zap', reap: 'snap', rocket: 'splash', capshot: 'cast', darts: 'multi', flap: 'multi', ignite: 'flare',
+  stab: 'multi', reel: 'snap', broth: 'splash', hammer: 'heavy', lid: 'rise', roar: 'boom',
 };
 const VOICES = {
   multi: () => [0, .05, .1].forEach((at, i) => tone('square', 520 + i * 130, 400 + i * 130, .05, .09, at)),
@@ -34,6 +37,11 @@ const VOICES = {
   guard: () => { tone('triangle', 990, 990, .1, .12); tone('triangle', 1480, 1480, .18, .1, .06); },
   heavy: () => { tone('sine', 110, 50, .24, .4); tone('square', 80, 60, .16, .1); },
   snap: () => { noise(.05, .3, 6000); tone('square', 1500, 600, .05, .08); },
+  zap: () => { [0, .04, .08].forEach((at, i) => tone('square', 1900 - i * 300, 240, .05, .09, at)); noise(.12, .16, 8000); },
+  splash: () => { noise(.3, .26, 3800); tone('sine', 520, 180, .22, .1); },
+  heal: () => [523, 659, 784].forEach((hz, i) => tone('sine', hz, hz * 1.02, .2, .1, i * .08)),
+  boom: () => { tone('sawtooth', 150, 60, .34, .3); tone('square', 75, 48, .34, .16); noise(.26, .24, 900); },
+  flare: () => { noise(.34, .3, 2600); tone('sawtooth', 180, 520, .26, .1); },
 };
 // 필살기가 맞을 때 기본 타격음 위에 얹는 소리. 캐릭터마다 다르다(심장은 쿵쿵 두 번 뛴다).
 const ACCENT = {

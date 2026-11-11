@@ -1,10 +1,16 @@
 // 효과: 타격 불꽃, 먼지, 장풍 모양, 기술마다 다른 분사. 스프라이트는 풀에 담아 돌려 쓴다.
 // 좌표는 무대와 같다(시뮬 x − 640, 바닥 y=0, 위가 +y). 시뮬의 y는 위가 음수라 부호를 뒤집어 받는다.
 import * as THREE from '../../vendor/three.module.js';
+import { T, toonTexture } from './toon.js';
+import { CAST, WIND, TRAIL, HIT, MAIN, UP, stand as standT } from './fx_moves.js';
+import './fx_organs.js';
+import './fx_villains.js';
 
-const TAU = Math.PI * 2, POOL = 280, DECALS = 12;
+const TAU = Math.PI * 2, POOL = 900, DECALS = 28;
 const rnd = (a, b) => a + Math.random() * (b - a), pick = list => list[Math.floor(Math.random() * list.length)];
 const easeOut = k => 1 - (1 - k) * (1 - k);
+// 색 묶음 하나(색 셋)를 줘도 되고 여러 묶음을 줘도 된다.
+const palOf = (p, i) => (Array.isArray(p[0]) ? p[i % p.length] : p);
 const seeded = seed => () => (seed = (seed * 16807) % 2147483647) / 2147483647;
 
 function texture(size, paint) {
@@ -78,6 +84,7 @@ const TEX = {
   },
 };
 
+const SHOT_PAL = { water: T.kidney.water, wave: T.kidney.water, stone: T.kidney.amber, steam: T.ramen.steam, cap: T.soda.cap, fry: T.fries.fry, flame: T.fries.fire, broth: T.ramen.broth };
 const KIND_COLOR = { water: '#7fd6ff', wave: '#7fd6ff', stone: '#ecd9b0', steam: '#fff4ea', puddle: '#ffd35a' };
 const WARM = ['#fff6c8', '#ffd166', '#ff8a3d'];
 // 캐릭터마다 기술 효과에 쓰는 색 셋(주색, 밝은 색, 강조색). 몸 색과 같은 계열이되 기술끼리는 모양으로 가른다.
@@ -115,24 +122,27 @@ export class Fx {
   }
 
   // o: { tex, x, y, z, vx, vy, g, drag, life, s0, s1, wide(가로 배율), color, alpha, add, rot, spin, fade }
+  // 만화풍 그림은 toon(모양)·pal(색 셋)·flip으로 고른다. 색이 그림에 들어 있어 섞지 않고 그대로 얹는다.
+  // delay만큼 늦게 나타나고, snap이면 수명 앞쪽에서 다 커지고, fade 'hold'면 끝에서만 옅어진다.
   emit(o) {
     let bit = null;
     for (let i = 0; i < POOL; i++) { const b = this.bits[(this.next + i) % POOL]; if (!b.live) { bit = b; this.next = (this.next + i + 1) % POOL; break; } }
     if (!bit) { bit = this.bits[this.next]; this.next = (this.next + 1) % POOL; }
     const m = bit.sprite.material;
-    Object.assign(bit, { live: true, age: 0, x: o.x, y: o.y, z: o.z ?? 40, vx: o.vx || 0, vy: o.vy || 0, g: o.g || 0, drag: o.drag ?? 1, life: o.life || 12, s0: o.s0 ?? 20, s1: o.s1 ?? o.s0 ?? 20, wide: o.wide || 1, alpha: o.alpha ?? 1, spin: o.spin || 0, fade: o.fade || 'out' });
-    m.map = this.tex[o.tex || 'glow']; m.color.set(o.color || '#fff'); m.blending = o.add === false ? THREE.NormalBlending : THREE.AdditiveBlending; m.rotation = o.rot || 0;
-    bit.sprite.visible = true;
+    Object.assign(bit, { live: true, age: -(o.delay || 0), snap: !!o.snap, x: o.x, y: o.y, z: o.z ?? 40, vx: o.vx || 0, vy: o.vy || 0, g: o.g || 0, drag: o.drag ?? 1, life: o.life || 12, s0: o.s0 ?? 20, s1: o.s1 ?? o.s0 ?? 20, wide: o.wide || 1, alpha: o.alpha ?? 1, spin: o.spin || 0, fade: o.fade || (o.toon ? 'hold' : 'out') });
+    m.map = o.toon ? toonTexture(o.toon, o.pal || T.hit, !!o.flip) : this.tex[o.tex || 'glow']; m.color.set(o.color || '#fff');
+    m.blending = (o.toon ? o.add === true : o.add !== false) ? THREE.AdditiveBlending : THREE.NormalBlending; m.rotation = o.rot || 0;
     this.place(bit);
   }
   place(b) {
-    const k = Math.min(1, b.age / b.life), size = b.s0 + (b.s1 - b.s0) * easeOut(k), s = b.sprite;
+    const s = b.sprite; s.visible = b.age >= 0; if (b.age < 0) return;
+    const k = Math.min(1, b.age / b.life), size = b.s0 + (b.s1 - b.s0) * easeOut(b.snap ? Math.min(1, k / .3) : k);
     s.position.set(b.x, b.y, b.z); s.scale.set(size * b.wide, size, 1);
-    s.material.opacity = b.alpha * (b.fade === 'inout' ? Math.sin(Math.PI * k) : 1 - k * k);
+    s.material.opacity = b.alpha * (b.fade === 'inout' ? Math.sin(Math.PI * k) : b.fade === 'hold' ? Math.min(1, (1 - k) / .3) : 1 - k * k);
   }
   floorRing(x, s0, s1, life, color, z = 0) {
     const r = this.floorSlot(), m = r.mesh.material;
-    Object.assign(r, { live: true, decal: false, age: 0, life, s0, s1 }); m.map = this.tex.ring; m.blending = THREE.AdditiveBlending; m.color.set(color);
+    Object.assign(r, { live: true, decal: false, hold: false, alpha: .8, age: 0, life, s0, s1 }); m.map = this.tex.ring; m.blending = THREE.AdditiveBlending; m.color.set(color);
     r.mesh.rotation.z = 0; r.mesh.position.set(x, 1.6, z); r.mesh.visible = true;
   }
   // 빈 자리가 없으면 가장 오래된 것을 덮어쓴다.
@@ -142,6 +152,51 @@ export class Fx {
     const r = this.floorSlot(), m = r.mesh.material;
     Object.assign(r, { live: true, decal: true, age: 0, life, s1: size, alpha }); m.map = this.tex[tex]; m.blending = add ? THREE.AdditiveBlending : THREE.NormalBlending; m.color.set(color);
     r.mesh.rotation.z = rnd(0, TAU); r.mesh.position.set(x, 1.7, z); r.mesh.visible = true;
+  }
+  // 바닥에 눕는 만화풍 그림. spread를 주면 그 비율에서 시작해 퍼지는 고리가 되고, 없으면 잠깐 남는 무늬가 된다.
+  floorT(shape, pal, x, size, life, { z = 0, alpha = 1, add = false, spread = 0, rot = 0 } = {}) {
+    const r = this.floorSlot(), m = r.mesh.material;
+    Object.assign(r, { live: true, decal: !spread, hold: true, age: 0, life, s0: size * spread, s1: size, alpha });
+    m.map = toonTexture(shape, pal); m.blending = add ? THREE.AdditiveBlending : THREE.NormalBlending; m.color.set('#fff');
+    r.mesh.rotation.z = rot; r.mesh.position.set(x, spread ? 1.8 : 1.7, z); r.mesh.visible = true;
+  }
+  // 그림 한 장이 탁 커졌다 사라진다(타격 별, 번쩍임).
+  pop(shape, pal, x, y, size, life = 10, o = {}) { this.emit({ toon: shape, pal, x, y, z: 47, s0: size * .45, s1: size, life, snap: true, ...o }); }
+  // 초승달 베기. rot은 베는 쪽(오른쪽 0, 위 π/2).
+  slashT(pal, x, y, size, rot = 0, life = 9, o = {}) { this.emit({ toon: 'arc', pal, x, y, z: 46, s0: size * .6, s1: size, life, snap: true, rot, ...o }); }
+  ringT(pal, x, y, s0, s1, life = 12, o = {}) { this.emit({ toon: 'ring', pal, x, y, z: 42, s0, s1, life, ...o }); }
+  // 위로 튀었다 떨어지는 조각(돌, 깨, 채소).
+  chunks(shape, pals, x, y, n, size, speed, o = {}) {
+    for (let i = 0; i < n; i++) {
+      const a = rnd(.2, Math.PI - .2), v = speed * rnd(.5, 1.2);
+      this.emit({ toon: Array.isArray(shape) ? shape[i % shape.length] : shape, pal: palOf(pals, i), x: x + rnd(-12, 12), y, z: 48, vx: Math.cos(a) * v, vy: Math.sin(a) * v, g: .55, drag: .985, life: rnd(22, 36), s0: size * rnd(.7, 1.3), s1: size * .6, rot: rnd(0, TAU), spin: rnd(-.25, .25), ...o });
+    }
+  }
+  // 한쪽으로 뿜는 조각(물방울, 거품, 불티).
+  sprayT(shape, pals, x, y, n, angle, spread, speed, size, o = {}) {
+    for (let i = 0; i < n; i++) {
+      const a = angle + rnd(-spread, spread), v = speed * rnd(.55, 1.2);
+      this.emit({ toon: shape, pal: palOf(pals, i), x, y, z: 46, vx: Math.cos(a) * v, vy: Math.sin(a) * v, g: .2, drag: .95, life: rnd(12, 22), s0: size * rnd(.7, 1.3), s1: size * .5, rot: rnd(0, TAU), spin: rnd(-.2, .2), ...o });
+    }
+  }
+  // 속도선. angle 쪽으로 뻗어 나간다.
+  linesT(pal, x, y, n, angle, spread, len = 150, speed = 10, o = {}) {
+    const th = o.thick || 14;
+    for (let i = 0; i < n; i++) {
+      const a = angle + rnd(-spread, spread), v = speed * rnd(.6, 1.3), off = rnd(0, 30);
+      this.emit({ toon: 'line', pal: palOf(pal, i), x: x + Math.cos(a) * off, y: y + Math.sin(a) * off, z: 45, vx: Math.cos(a) * v, vy: Math.sin(a) * v, drag: .9, life: rnd(7, 12), s0: th, s1: th * .5, wide: len * rnd(.6, 1.2) / th, rot: a, ...o });
+    }
+  }
+  // 두 점을 잇는 그림(번개, 면발, 치즈 줄).
+  link(shape, pal, x0, y0, x1, y1, thick, life = 8, o = {}) {
+    const dx = x1 - x0, dy = y1 - y0, len = Math.hypot(dx, dy) || 1;
+    this.emit({ toon: shape, pal, x: (x0 + x1) / 2, y: (y0 + y1) / 2, z: 46, s0: thick, s1: thick, wide: len / thick, rot: Math.atan2(dy, dx), life, ...o });
+  }
+  // 기술 효과 함수에 넘기는 값 묶음. bx·by는 판정 상자 한가운데.
+  ctx(sim, f) {
+    const m = f.move, d = f.facing, x = f.x - 640, y = -f.y, box = m.box ? sim.hitBox(f) : null;
+    return { sim, f, m, t: f.t, first: f.t === m.startup + 1, k: (f.t - m.startup) / (m.active || 1), d, x, y, fwd: d > 0 ? 0 : Math.PI, sup: !!m.isSuper, box,
+      bx: box ? box.x + box.w / 2 - 640 : x + d * 70, by: box ? -(box.y + box.h / 2) : y + 110, bw: box ? box.w : 80, bh: box ? box.h : 80 };
   }
   burst(x, y, count, colors, speed, size, o = {}) {
     for (let i = 0; i < count; i++) {
@@ -225,7 +280,10 @@ export class Fx {
       case 'hit': {
         const big = e.ko ? 1.7 : e.heavy ? 1.3 : 1;
         // 필살기는 기술마다 제 모양으로 터지고, 기본기만 아래의 흰 불꽃을 쓴다.
-        if (e.special || e.sup || e.key === 'slam') { this.impact(e, x, y, big); if (e.ko) { this.star(x, y, 220, '#fffbe8', 10); this.burst(x, y, 12, WARM, 12, 18); } if (e.counter) this.ringAt(x, y, 40, 230, '#ff8a3d', 16); break; }
+        if (e.special || e.sup || e.key === 'slam') {
+          const made = HIT[e.char + '.' + e.key];
+          if (made) made(this, { e, x, y, d: e.dir || 1, fwd: (e.dir || 1) > 0 ? 0 : Math.PI, fin: !!(e.last || e.ko), big, sup: !!e.sup, P: MAIN[e.char] || T.hit }); else this.impact(e, x, y, big);
+          if (e.ko) { this.star(x, y, 220, '#fffbe8', 10); this.burst(x, y, 12, WARM, 12, 18); } if (e.counter) this.ringAt(x, y, 40, 230, '#ff8a3d', 16); break; }
         this.flash(x, y, 170 * big, '#ffe9b0', 7, .8); this.star(x, y, 120 * big, '#fffbe8'); this.ringAt(x, y, 30, 150 * big, '#ffd166', 11);
         this.burst(x, y, e.ko ? 26 : e.heavy ? 15 : 9, WARM, e.heavy ? 12 : 8, e.heavy ? 20 : 15);
         if (e.counter) this.ringAt(x, y, 40, 230, '#ff8a3d', 16);
@@ -233,13 +291,36 @@ export class Fx {
       }
       case 'block': this.flash(x, y, 110, '#7cc8ff', 7); this.ringAt(x, y, 24, 96, '#bfe6ff', 9); this.burst(x, y, 6, ['#d9f2ff', '#7cc8ff'], 5, 11); break;
       case 'clash': this.flash(x, y, 230, '#fff'); this.star(x, y, 170); this.ringAt(x, y, 30, 180, '#bfe6ff'); this.burst(x, y, 16, ['#fff', '#ffd166', '#7cc8ff'], 9, 15); break;
-      case 'fire': this.ringAt(x, y, 30, 120, KIND_COLOR[e.kind] || '#fff', 10); this.flash(x, y, 120, KIND_COLOR[e.kind] || '#fff', 7); break;
+      case 'fire': { const pal = SHOT_PAL[e.kind] || T.white; this.ringT(pal, x, y, 30, e.big ? 230 : 140, 9, { toon: 'thin' }); this.pop('glint', pal, x, y, e.big ? 210 : 120, 6); this.flash(x, y, 110, KIND_COLOR[e.kind] || '#fff', 6, .5); break; }
+      // 회복: 초록 십자와 잎이 몸에서 떠오른다.
+      case 'heal':
+        for (let i = 0; i < 3; i++) this.emit({ toon: i ? 'plus' : 'leaf', pal: T.heal, x: x + rnd(-60, 60), y: y + rnd(-70, 50), z: 46, vy: rnd(2, 3.6), s0: 26, s1: rnd(46, 64), life: rnd(14, 20), rot: i ? 0 : rnd(-.6, .6) });
+        this.ringT(T.heal, x, y - 90, 220, 60, 9, { toon: 'thin' }); this.floorT('ring', T.heal, x, 260, 10, { spread: .25, alpha: .8 });
+        break;
+      // 흡수: 맞은 쪽에서 금빛 방울이 빨려 나와 때린 쪽으로 넘어간다.
+      case 'drain': {
+        const tx = e.tx - 640, G = T.pancreas.gold;
+        for (let i = 0; i < 7; i++) this.emit({ toon: 'drop', pal: i % 2 ? T.white : G, x: x + rnd(-20, 20), y: y + rnd(-40, 40), z: 46, vx: (tx - x) / 13, vy: rnd(-1, 1), s0: 34, s1: 16, life: 13, delay: i, rot: tx > x ? -UP : UP });
+        this.link('needle', T.pancreas.teal, x, y, tx, y, 150, 7); this.pop('plus', T.heal, tx, y + 40, 110, 12, { delay: 10 }); this.ringT(G, x, y, 40, 190, 9, { toon: 'thin' });
+        break;
+      }
       case 'land':
-        if (e.crater) { const P = PAL[e.char] || WARM; this.floorDecal(x, 'crack', 420, 80, '#fff1c8', { add: true, alpha: .7 }); this.floorDecal(x, 'splat', 260, 110, P[0], { alpha: .85 }); this.dust(x, 12, 100, 84, '#d8c0a0'); this.floorRing(x, 70, 440, 18, P[0]); this.bitsOf('shard', x, 10, 6, [P[1], '#5fb84a'], 18, 10); }
+        if (e.crater) {
+          // 무거운 몸이 떨어진 자리: 가시 고리, 구덩이, 튀는 돌과 재료.
+          const P = MAIN[e.char] || T.gold, B = T.burger;
+          this.floorT('spikes', P, x, 560, 14, { spread: .3 }); this.floorT('crater', B.rock, x, 380, 90); this.floorT('ring', T.white, x, 640, 16, { spread: .35 });
+          this.pop('burst', P, x, 50, 380, 11); this.chunks('rock', [B.rock, P], x, 14, 8, 30, 13); this.linesT([P, T.white], x, 20, 12, UP, 1.35, 240, 17); this.dust(x, 12, 100, 84, '#d8c0a0');
+          if (e.char === 'burger') this.chunks(['seed', 'leaf', 'tomato', 'cheese'], [B.seed, B.lettuce, B.tomato, B.cheese], x, 30, 8, 30, 13);
+        }
         else if (e.heavy) { this.dust(x, 9, 70, 70); this.floorRing(x, 60, 300, 16, '#ffd9c0'); } else this.dust(x, 3, 30, 36);
         break;
       // 필살기를 내는 순간: 캐릭터 색 고리가 몸 쪽으로 조여든다.
-      case 'special': { const P = PAL[e.char] || WARM; this.ringAt(x, y, 210, 50, P[0], 9); this.flash(x, y, 170, P[0], 9, .5); this.mark('cross', x, y, 150, P[1], 0, 8); break; }
+      case 'special': {
+        const P = MAIN[e.char] || T.hit, f = this.sim?.f[e.side], d = f ? f.facing : 1, cast = CAST[e.char + '.' + e.key];
+        if (cast) cast(this, { e, f, x, y, d, fwd: d > 0 ? 0 : Math.PI, P });
+        else { this.ringT(P, x, y, 190, 60, 8, { toon: 'thin' }); this.pop('glint', P, x, y, 150, 8); }
+        break;
+      }
       case 'jump': this.dust(x, 4, 34, 40); break;
       case 'potion':
         this.flash(x, y, 260, '#9dffb0', 16); this.ringAt(x, y, 40, 200, '#9dffb0', 18);
@@ -248,17 +329,26 @@ export class Fx {
       case 'super':
         this.flash(x, y, 620, '#ffd98a', 24, .7); this.ringAt(x, y, 60, 520, '#ffe0a0', 26); this.ringAt(x, y, 30, 320, '#fff', 18); this.star(x, y, 320, '#fff7dc', 20);
         this.floorRing(x, 80, 620, 28, '#ffd98a');
+        this.pop('glint', T.gold, x, y, 520, 26); this.linesT([T.gold, T.white], x, y, 18, 0, Math.PI, 260, 9, { thick: 12 });
+        { const f = this.sim?.f[e.side], d = f ? f.facing : 1, cast = CAST[e.char + '.' + e.key]; if (cast) cast(this, { e, f, x, y, d, fwd: d > 0 ? 0 : Math.PI, P: MAIN[e.char] || T.hit }); }
         break;
       case 'armor': this.flash(x, y, 150, '#ffb347', 9); this.ringAt(x, y, 40, 150, '#ffb347', 10); break;
       case 'counter': this.flash(x, y, 220, '#7cf0ff', 12); this.star(x, y, 200, '#e8fdff', 13); this.ringAt(x, y, 30, 200, '#7cf0ff', 14); break;
       case 'reflect': this.ringAt(x, y, 40, 210, '#8fe9ff', 14); this.star(x, y, 150, '#e8fdff'); this.burst(x, y, 10, ['#e8fdff', '#8fe9ff'], 8, 13); break;
       case 'grab': {
-        const P = PAL[e.char];
-        if (!e.special || !P) { this.star(x, y, 130); this.ringAt(x, y, 20, 110, '#fff6c8', 9); break; }
-        this.ringAt(x, y, 190, 40, P[0], 10); this.star(x, y, 150, P[1], 8);
-        // 버거는 치즈가 늘어져 붙고, 간은 두 손이 죄어 온다.
-        if (e.char === 'burger') for (let i = 0; i < 6; i++) this.emit({ tex: 'drop', add: false, x: x + rnd(-50, 50), y: y + rnd(20, 70), vy: -rnd(.5, 2), g: .25, life: rnd(20, 30), s0: 46, s1: 70, wide: .22, color: P[0] });
-        else this.rays(x, y, 6, [P[0], P[1]], 0, Math.PI, 90, -7);
+        const P = MAIN[e.char] || T.hit;
+        if (!e.special) { this.pop('glint', T.white, x, y, 150, 7); this.ringT(T.white, x, y, 30, 130, 8, { toon: 'thin' }); break; }
+        const x0 = e.from - 640, x1 = e.to - 640, back = x1 > x0 ? Math.PI : 0;
+        this.pop('glint', T.white, x1, y, 200, 8);
+        // 라면은 면발 올가미, 버거는 늘어나는 치즈 줄, 간은 조여 드는 가시 고리로 잡는다.
+        if (e.char === 'ramen') { this.link('lasso', T.ramen.noodle, x0, y, x1 + (x1 > x0 ? 60 : -60), y, 150, 12); this.linesT([T.ramen.noodle, T.white], x1, y, 5, back, .2, 230, 16); this.chunks(['cake', 'scallion'], [T.white, T.ramen.leek], x1, y, 3, 28, 8); }
+        else if (e.char === 'burger') {
+          // 몸집이 커서 가려지므로 치즈는 몸 앞(z 96)에 그린다. 상대를 감싸는 치즈 덩이와 뒤로 늘어지는 줄.
+          const far = x1 + (x1 > x0 ? 90 : -90);
+          for (const k of [-44, 0, 44]) this.link('noodle', T.burger.cheese, x0, y + k * .5, far, y + k, 64, 14, { z: 96, flip: k === 0 });
+          this.pop('splat', T.burger.cheese, x1, y, 250, 14, { z: 97 }); this.pop('glint', T.white, x1, y + 20, 170, 7, { z: 98 });
+          this.sprayT('drop', [T.burger.cheese, T.burger.gold], x1, y + 40, 10, UP, 1.3, 9, 34, { g: .5, z: 98 }); this.floorT('splat', T.burger.cheese, x1, 300, 50);
+        } else { this.ringT(P, x1, y, 260, 60, 9, { toon: 'spikes' }); this.ringT(T.white, x1, y, 190, 40, 9, { toon: 'thin' }); this.linesT([P, T.white], x1, y, 8, 0, Math.PI, 150, 6); }
         break;
       }
       case 'slam': {
@@ -301,6 +391,11 @@ export class Fx {
     const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: this.tex.glow, color, transparent: true, depthWrite: false, fog: false, toneMapped: false, blending: THREE.AdditiveBlending, opacity: .7 }));
     s.scale.set(size, size, 1); s.position.z = -12; return s;
   }
+  // 발사체에 붙는 만화풍 그림 한 장.
+  toonSprite(shape, pal, w, h = w, flip = false) {
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: toonTexture(shape, pal, flip), transparent: true, depthWrite: false, fog: false, toneMapped: false }));
+    s.scale.set(w, h, 1); s.position.z = 44; return s;
+  }
   makeShot(shot) {
     const S = this.shotParts, group = new THREE.Group(), v = { group, kind: shot.kind };
     const solid = (geometry, material) => { const m = new THREE.Mesh(geometry, material); m.castShadow = true; group.add(m); return m; };
@@ -310,6 +405,10 @@ export class Fx {
       case 'wave': v.body = solid(S.wave, S.waveMat); group.add(this.glowSprite('#58c4ff', 300)); break;
       case 'puddle': v.mat = S.oil.clone(); v.body = new THREE.Mesh(S.disc, v.mat); v.body.rotation.x = -Math.PI / 2; v.body.receiveShadow = true; v.body.renderOrder = 2; group.add(v.body); break;
       case 'steam': break;
+      case 'cap': v.spr = this.toonSprite('cap', T.soda.cap, 66); group.add(v.spr); break;
+      case 'fry': v.spr = this.toonSprite('fry', T.fries.fry, 96); group.add(v.spr); break;
+      case 'broth': v.spr = this.toonSprite('crest', T.ramen.broth, 170, 130, (shot.dir || 1) < 0); group.add(v.spr); break;
+      case 'flame': break;
       default: group.add(this.glowSprite(shot.color || '#fff', Math.max(shot.w, shot.h) * 1.8));
     }
     this.scene.add(group);
@@ -346,6 +445,31 @@ export class Fx {
           if (ticked && shot.age % 22 === 8) this.emit({ tex: 'bubble', add: false, x: x + rnd(-50, 50), y: 6, z: rnd(-14, 14), vy: .5, life: 16, s0: 6, s1: 16, color: '#fff2b8', alpha: .9 });
           break;
         }
+        case 'cap':
+          v.spr.material.rotation = -dir * shot.age * .55;
+          if (ticked && shot.age % 2 === 0) this.emit({ toon: 'bubble', pal: T.soda.foam, x: x - dir * 22, y: y + rnd(-10, 10), z: 40, vy: 1, s0: 16, s1: 34, life: 9 });
+          break;
+        case 'fry': {
+          const a = Math.atan2(-shot.vy, shot.vx); v.spr.material.rotation = a;
+          if (ticked) this.linesT(shot.age % 2 ? T.fries.oil : T.white, x, y, 1, a + Math.PI, .04, 110, 3, { thick: 10, life: 4 });
+          break;
+        }
+        case 'broth':
+          g.position.y = 62; v.spr.scale.y = 130 * (1 + wob * .06);
+          if (ticked) {
+            this.sprayT('drop', [T.ramen.broth, T.ramen.noodle], x - dir * 40, 40, 1, dir > 0 ? Math.PI - .8 : .8, .5, 6, 22, { g: .4 });
+            if (shot.age % 4 === 0) this.floorT('splat', T.ramen.broth, x - dir * 50, 130, 14, { alpha: .75 });
+            if (shot.age % 6 === 0) this.chunks(['cake', 'scallion'], [T.white, T.ramen.leek], x, 70, 1, 26, 6);
+          }
+          break;
+        case 'flame':
+          if (ticked) {
+            const F = T.fries;
+            if (shot.age % 2 === 0) for (let i = 0; i < (shot.big ? 3 : 2); i++) standT(this, 'flame', i % 2 ? F.oil : F.fire, x + rnd(-.36, .36) * shot.w, shot.h * rnd(.7, 1.12), 5, { wide: .6, flip: Math.random() < .5 });
+            if (shot.age % 3 === 0) this.sprayT('glint', [F.fire, F.oil], x + rnd(-.3, .3) * shot.w, rnd(40, shot.h), 2, UP, .6, 6, 34);
+            if (shot.age % 8 === 0) this.floorT('ring', F.fire, x, shot.w * 1.6, 9, { spread: .2, alpha: .8 });
+          }
+          break;
         case 'steam':
           if (ticked) for (let i = 0; i < 2; i++) this.emit({ tex: 'puff', add: false, x: x + rnd(-shot.w, shot.w) * .36, y: y + rnd(-shot.h, shot.h * .4) * .5, z: rnd(-20, 40), vx: rnd(-.6, .6), vy: rnd(1.4, 3.2), life: rnd(22, 32), s0: rnd(40, 60), s1: rnd(90, 130), color: '#fff6ee', alpha: .42, fade: 'inout', rot: rnd(0, TAU), spin: rnd(-.03, .03) });
           break;
@@ -355,6 +479,9 @@ export class Fx {
       // 사라지는 순간 물방울이나 돌가루로 흩어진다.
       const x = shot.x - 640, y = -shot.y;
       if (v.kind === 'water' || v.kind === 'wave') for (let i = 0; i < (v.kind === 'wave' ? 14 : 7); i++) this.emit({ tex: 'drop', add: false, x: x + rnd(-20, 20), y: y + rnd(-30, 30), vx: rnd(-5, 5), vy: rnd(1, 7), g: .45, life: rnd(14, 24), s0: rnd(10, 20), s1: 4, color: '#bfe9ff' });
+      if (v.kind === 'cap') { this.pop('burst', T.soda.cap, x, y, 130, 7); this.chunks('bubble', [T.soda.foam], x, y, 5, 26, 7); }
+      if (v.kind === 'fry') this.pop('glint', T.fries.oil, x, y, 110, 6);
+      if (v.kind === 'broth') this.sprayT('drop', [T.ramen.broth], x, 40, 7, UP, 1.6, 9, 24, { g: .45 });
       this.dropShot(v); this.shots.delete(shot);
     }
   }
@@ -440,7 +567,7 @@ export class Fx {
 
   update(sim, dt = 1) {
     for (const b of this.bits) if (b.live) {
-      b.age += dt;
+      b.age += dt; if (b.age < 0) continue;
       if (b.age >= b.life) { b.live = false; b.sprite.visible = false; continue; }
       b.x += b.vx * dt; b.y += b.vy * dt; b.vy -= b.g * dt; if (b.drag !== 1) { b.vx *= b.drag; b.vy *= b.drag; }
       if (b.spin) b.sprite.material.rotation += b.spin * dt;
@@ -450,7 +577,7 @@ export class Fx {
       r.age += dt; const k = r.age / r.life;
       if (k >= 1) { r.live = false; r.mesh.visible = false; continue; }
       if (r.decal) { const s = r.s1 * (.6 + .4 * easeOut(Math.min(1, k * 7))); r.mesh.scale.set(s, s * .56, 1); r.mesh.material.opacity = r.alpha * Math.min(1, (1 - k) * 2.2); }
-      else { const s = r.s0 + (r.s1 - r.s0) * easeOut(k); r.mesh.scale.set(s, s * .62, 1); r.mesh.material.opacity = .8 * (1 - k); }
+      else { const s = r.s0 + (r.s1 - r.s0) * easeOut(k); r.mesh.scale.set(s, s * .62, 1); r.mesh.material.opacity = r.alpha * (r.hold ? Math.min(1, (1 - k) / .35) : 1 - k); }
     }
     if (!sim) { this.clearShots(); for (const s of [...this.aura, ...this.shield]) s.visible = false; this.sim = null; return; }
     if (sim !== this.sim) { this.clearShots(); this.sim = sim; this.tick = -1; }
@@ -458,7 +585,11 @@ export class Fx {
     this.syncShots(sim, ticked);
     sim.f.forEach((f, i) => {
       const m = f.state === 'attack' ? f.move : null, x = f.x - 640, y = -f.y, aura = this.aura[i], shield = this.shield[i];
-      if (m && ticked && f.t > m.startup && f.t <= m.startup + m.active) this.poseFx(sim, f);
+      if (m && ticked) {
+        const key = f.char.id + '.' + f.moveKey;
+        if (f.t > m.startup && f.t <= m.startup + m.active) { const trail = TRAIL[key]; if (trail) trail(this, this.ctx(sim, f)); else this.poseFx(sim, f); }
+        else if (f.t <= m.startup && WIND[key]) WIND[key](this, this.ctx(sim, f));
+      }
       aura.visible = !!m && (!!m.isSuper || sim.freeze > 0 && !!m.special);
       if (aura.visible) { const s = 400 + Math.sin(this.stage.time * .4) * 36; aura.position.set(x, y + 115, -40); aura.scale.set(s, s, 1); aura.material.opacity = .6; }
       // 신장의 여과막과 췌장의 받아치기 자세는 몸 앞에 막이 뜬다.
