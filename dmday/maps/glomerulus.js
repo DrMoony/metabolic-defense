@@ -1,0 +1,1 @@
+export default {key:'glomerulus',ready:false,chapter:'02',names:['신장','Kidney'],core:['사구체','Glomerulus'],palette:{background:0x292340,accent:0xc0a5ff},routes:[],landmarks:[],plan:['capillary tuft maze','tubular bends','ureter tunnel']};
