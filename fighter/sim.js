@@ -204,7 +204,7 @@ export class Sim {
     if (m.isSlam && f.grab) {
       if (t < hitStart) this.hold(f, o); else if (t === hitStart) this.slam(f, o);
     }
-    if (t === hitStart && m.box) this.events.push({ type: 'swing', heavy: !!m.heavy, x: f.x, y: f.y - 120 });
+    if (t === hitStart && m.box) this.events.push({ type: 'swing', heavy: !!m.heavy, x: f.x, y: f.y - 120, char: f.char.id, side: f.side });
     // 맞히거나 막힌 뒤에만 다음 기술로 이어진다(연속기·캔슬).
     if (f.connected && !m.isSuper && onGround) {
       if (m.cancel && this.tryCommand(f)) return;

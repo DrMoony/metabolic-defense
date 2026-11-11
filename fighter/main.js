@@ -5,6 +5,7 @@ import { Sim } from './sim.js';
 import { CpuBrain } from './ai.js';
 import { Renderer, drawPortrait } from './render.js';
 import { sfx } from './sfx.js';
+import { music } from './snd/music.js';
 import { QuizBank } from './quiz.js';
 
 const params = new URLSearchParams(location.search);
@@ -47,24 +48,17 @@ function go(name) {
   for (const id of SCENES) $(id).hidden = id !== name;
   $('proto').hidden = name !== 'title';
   game.scene = name; game.t = 0; idle = 0;
+  music.hot(false); $('sound').classList.toggle('on', name === 'title');
   resetStage();
   scenes[name].enter?.();
 }
 
+// 대전 이벤트를 소리로 옮긴다. 두 선수 한가운데를 기준으로 왼쪽·오른쪽에서 들리게 한다.
 function play(event) {
-  switch (event.type) {
-    case 'hit': if (event.ko) sfx.ko(); else { sfx.hit(event.heavy); if (event.special || event.sup) sfx.accent(event.char); } break;
-    case 'special': sfx.special(event.key); break;
-    case 'swing': sfx.swing(event.heavy); break;
-    case 'land': sfx.land(event.heavy); break;
-    case 'timeup': sfx.round(); break;
-    case 'armor': sfx.block(); break;
-    case 'counter': case 'reflect': sfx.clash(); break;
-    case 'grab': sfx.swing(true); break;
-    case 'slam': sfx.land(true); break;
-    case 'splash': sfx.land(false); break;
-    default: sfx[event.type]?.();
-  }
+  const mid = (sim.f[0].x + sim.f[1].x) / 2, x = event.x ?? sim.f[event.side]?.x ?? mid;
+  sfx.play(event, Math.max(-.7, Math.min(.7, (x - mid) / 460)), event.type === 'hit' ? sim.f[1 - event.side]?.char.id : null);
+  if (event.type === 'super') music.duck();
+  if (event.type === 'timeup' || (event.type === 'hit' && event.ko)) music.stop(.4);
 }
 function stepSim(inputs, loud) {
   sim.step(inputs);
@@ -137,7 +131,7 @@ function paintQuiz() {
   $('quizStatus').textContent = status;
   $('quizExp').textContent = reveal ? quiz.item.exp : '';
 }
-function revealQuiz() { quiz.phase = 'reveal'; quiz.t = 0; $('quizBar').style.transform = 'scaleX(0)'; paintQuiz(); }
+function revealQuiz() { quiz.phase = 'reveal'; quiz.t = 0; music.hot(false); $('quizBar').style.transform = 'scaleX(0)'; paintQuiz(); }
 function answer(p, choice) {
   if (game.scene !== 'quiz' || quiz.phase !== 'answer' || quiz.locked[p]) return;
   quiz.locked[p] = true; quiz.picked[p] = choice;
@@ -177,7 +171,7 @@ function finishRound() {
 
 const scenes = {
   title: {
-    enter() { menuIndex = 0; paintMenu(); startDemo(); },
+    enter() { menuIndex = 0; paintMenu(); startDemo(); music.play('title'); },
     tick(inp) {
       stepSim(cpu.map(controller => controller.poll()), false);
       if (sim.over && sim.overFrames > 150) startDemo();
@@ -193,7 +187,7 @@ const scenes = {
       sel = { cursor: [0, 2], ready: [false, false], done: 0 };
       $('selectTitle').textContent = versus() ? '각자 장기를 골라요' : '장기를 골라요';
       $('selectHint').textContent = '좌우로 고르고 주먹 버튼으로 정해요. 킥 버튼은 취소예요.';
-      paintSelect();
+      paintSelect(); music.play('select');
     },
     tick(inp) {
       if (idle > 60 * 40) return go('title');
@@ -216,7 +210,7 @@ const scenes = {
       $('vsTagA').textContent = '1P'; $('vsTagB').textContent = versus() ? '2P' : `${TYPES[b.type]} 속성`;
       $('vsLabel').textContent = versus() ? '2P 대전' : `STAGE ${game.stage + 1} / ${game.ladder.length}`;
       $('vsNote').textContent = a.strong === b.type ? `${josa(a.name, '은', '는')} ${TYPES[b.type]}에 강해서 주는 피해가 20% 늘어요.` : '';
-      sfx.round();
+      music.play('vs');
     },
     tick(inp) { if (game.t > 150 || (game.t > 40 && inp.some(i => i.pp))) beforeFight(); },
   },
@@ -226,13 +220,14 @@ const scenes = {
       quiz = { item: bank.draw(), phase: 'read', t: 0, locked: [false, false], picked: [-1, -1], winner: -1 };
       game.potion = [false, false]; game.quizCount++;
       $('quizBar').style.transform = 'scaleX(1)';
-      paintQuiz();
+      paintQuiz(); music.play('quiz');
     },
     tick(inp) {
       quiz.t++;
       if (quiz.phase === 'read') { if (quiz.t >= READ_FRAMES) { quiz.phase = 'answer'; quiz.t = 0; paintQuiz(); } return; }
       if (quiz.phase === 'reveal') { if (quiz.t > 260 || (quiz.t > 50 && inp.some(i => i.pp))) go('fight'); return; }
       $('quizBar').style.transform = `scaleX(${1 - quiz.t / ANSWER_FRAMES})`;
+      music.hot(quiz.t > ANSWER_FRAMES * .6);
       for (const p of players()) { const choice = DIRS.indexOf(inp[p].dir); if (choice >= 0) answer(p, choice); }
       if (quiz.phase === 'answer' && (quiz.t >= ANSWER_FRAMES || players().every(p => quiz.locked[p]))) revealQuiz();
     },
@@ -245,16 +240,19 @@ const scenes = {
       sim.f.forEach((f, i) => { f.potion = game.potion[i]; });
       if (!versus()) sim.adv[1] *= CPU_POWER[game.stage] ?? 1;
       cpu = [DBG.cpu[0] ? cpuController(.6, 0) : null, versus() ? (DBG.cpu[1] ? cpuController(.6, 1) : null) : cpuController(CPU_LEVELS[game.stage] ?? .4, 1)];
-      overTick = 0; resetStage(); sfx.round();
+      overTick = 0; resetStage(); music.stop(.2); sfx.round();
     },
     tick(inp) {
-      if (game.t === 70) sfx.confirm();
+      if (game.t === 70) { sfx.fight(); music.play(sim.arena); }
       if (game.t === 100) sim.live = true;
       // KO 직후에는 잠깐 느리게 보여 준다.
       if (sim.over?.reason === 'ko' && sim.overFrames < 30 && game.t % 2) return;
       const wasOver = !!sim.over;
       stepSim([0, 1].map(i => (cpu[i] ? cpu[i].poll() : sim.live ? inp[i] : NEUTRAL)), true);
       if (sim.over && !wasOver) overTick = game.t;
+      // 체력이 얼마 안 남았거나 시간이 15초 아래면 음악이 급해지고, 승부가 나면 이긴 쪽 팡파르가 울린다.
+      if (!sim.over) music.hot(sim.live && (sim.timer < 15 * 60 || sim.f.some(f => f.hp < f.char.hp * .3)));
+      else if (sim.overFrames === 40 && (versus() ? sim.over.winner >= 0 : sim.over.winner === 0)) music.play('win');
       if (sim.over && sim.overFrames > 170) finishRound();
     },
   },
@@ -280,7 +278,7 @@ const scenes = {
       $('resultLabel').textContent = versus() ? 'VERSUS' : game.stage >= game.ladder.length ? 'ALL CLEAR' : 'GAME OVER';
       $('resultTitle').textContent = title; $('resultSub').textContent = sub;
       $('resultStats').innerHTML = stats.map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join('');
-      sfx.correct();
+      if (versus() || game.stage >= game.ladder.length) music.play('clear', 'select'); else music.play('lose');
     },
     tick(inp) { if (game.t > 60 * 25 || (game.t > 60 && inp.some(i => i.pp))) go('title'); },
   },
@@ -317,6 +315,14 @@ function loop(now) {
 
 // 마우스·터치와 Enter 키도 메뉴에서는 주먹 버튼처럼 쓴다.
 addEventListener('keydown', event => { if (event.code === 'Enter' && !event.repeat) enter = true; });
+// M 키로 소리를 전부 → 효과음만 → 끔 순서로 바꾼다. 처음 화면 말고는 바꿀 때만 잠깐 보여 준다.
+let soundTimer = 0;
+function paintSound() { $('sound').textContent = `M 키 · ${sfx.label()}`; }
+addEventListener('keydown', event => {
+  if (event.code !== 'KeyM' || event.repeat) return;
+  sfx.cycle(); paintSound(); $('sound').classList.add('on');
+  clearTimeout(soundTimer); soundTimer = setTimeout(() => $('sound').classList.toggle('on', game.scene === 'title'), 1800);
+});
 [...$('menu').children].forEach((item, index) => item.addEventListener('click', () => { if (game.scene === 'title') chooseMode(index); }));
 [...$('choices').children].forEach((item, index) => item.addEventListener('click', () => { if (!versus()) answer(0, index); }));
 $('result').addEventListener('click', () => { if (game.scene === 'result' && game.t > 60) go('title'); });
@@ -331,6 +337,6 @@ Object.assign(DBG, {
 });
 Object.defineProperty(DBG, 'sim', { get: () => sim });
 
-buildCards();
+buildCards(); paintSound();
 go('title');
 requestAnimationFrame(loop);
