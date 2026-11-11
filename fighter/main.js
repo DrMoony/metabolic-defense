@@ -38,6 +38,8 @@ let menuIndex = 0, sel = null, quiz = null;
 const versus = () => game.mode === 'versus';
 const players = () => (versus() ? [0, 1] : [0]);
 const opponent = () => (versus() ? game.picks[1] : game.ladder[game.stage]);
+// 어디서 싸울지: 상대가 장기면 그 장기의 홈, 정크 푸드가 쳐들어오면 내 홈, 보스전은 야식 골목.
+const arenaOf = (mine, foe) => params.get('stage') || (ORGANS.includes(foe) ? foe : foe !== BOSS && ORGANS.includes(mine) ? mine : 'alley');
 const cpuController = (level, side) => { const brain = new CpuBrain(level); return new Controller(() => brain.think(sim, side)); };
 
 function go(name) {
@@ -70,7 +72,8 @@ function resetStage() { renderer.reset(); }
 
 // 처음 화면 뒤에서 도는 CPU 대 CPU 시범 경기.
 function startDemo() {
-  sim = new Sim(CHARS[pick(ORGANS)], CHARS[pick([...VILLAINS, BOSS])], { seconds: 40 });
+  const organ = pick(ORGANS), food = pick([...VILLAINS, BOSS]);
+  sim = new Sim(CHARS[organ], CHARS[food], { seconds: 40 }); sim.arena = arenaOf(organ, food);
   sim.live = true; cpu = [cpuController(.6, 0), cpuController(.6, 1)]; resetStage();
 }
 
@@ -230,6 +233,7 @@ const scenes = {
   fight: {
     enter() {
       sim = new Sim(CHARS[game.picks[0]], CHARS[opponent()], { seconds: versus() ? 45 : 60 });
+      sim.arena = arenaOf(game.picks[0], opponent());
       sim.f.forEach((f, i) => { f.potion = game.potion[i]; });
       cpu = [DBG.cpu[0] ? cpuController(.6, 0) : null, versus() ? (DBG.cpu[1] ? cpuController(.6, 1) : null) : cpuController(CPU_LEVELS[game.stage] ?? .7, 1)];
       overTick = 0; resetStage(); sfx.round();

@@ -1,145 +1,272 @@
-// 무대: 혈관 속 경기장. 렌더러·조명·환경 반사·배경·카메라를 한곳에서 관리한다.
+// 무대: 그려 둔 배경 그림을 기준 카메라에서 바닥·뒷벽에 비춰 입히고, 그 위에 선수·그림자·떠다니는 빛을 올린다.
+// 렌더러·조명·환경 반사·카메라를 한곳에서 관리한다.
 // 좌표: 시뮬 x에서 640을 뺀 값이 월드 x, 바닥이 y=0, 화면 쪽이 +z. 1픽셀 = 1단위.
 import * as THREE from '../../vendor/three.module.js';
 
-const TAN_H = Math.tan(15 * Math.PI / 180) * 16 / 9;
+const TAN_V = Math.tan(15 * Math.PI / 180), TAN_H = TAN_V * 16 / 9;
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
-const R = 1500, CY = 520;   // 혈관 반지름과 중심 높이
+// 그림은 "가장 넓게 잡은 경기 화면"보다 가장자리가 이만큼 더 넓다고 본다(화면 흔들림 여유).
+const MARGIN = 1.04;
+const ASSETS = new URL('../assets/', import.meta.url).href;
 
-function canvasTexture(w, h, paint, repeat) {
+// floor: 그림에서 바닥 먼 쪽 끝 선의 높이(위에서부터 비율). 여기서 뒷벽까지 거리가 정해진다.
+// gain·calm: 배경 밝기 배율과 채도를 빼는 정도(밝은 무대일수록 더 가라앉힌다).
+// key·rims: [색, 세기, 위치]. hemi: [하늘, 땅, 세기]. motes: 떠다니는 빛 알갱이.
+export const STAGES = {
+  heart: {
+    name: '하트 콜로세움', image: 'stage_heart.jpg', floor: .689, dark: '#12030a', shadow: ['#2a0410', .5],
+    hemi: ['#ffe6ea', '#6a1a34', 1.05], key: ['#fff0dc', 2.5, [-380, 980, 820]],
+    rims: [['#7fe6ff', 2.2, [-700, 520, -900]], ['#ffb46a', 2.0, [800, 420, -800]]],
+    motes: { colors: ['#ffd98a', '#ff9fb4', '#fff3d6'], count: 90, size: [5, 13], rise: [.15, .5], drift: .12 },
+    beams: { color: '#ffe2b0', xs: [-620, -210, 240, 660], power: .1 },
+  },
+  kidney: {
+    name: '아쿠아 돔', image: 'stage_kidney.jpg', floor: .692, gain: .74, calm: .2, dark: '#03101a', shadow: ['#06283a', .42],
+    hemi: ['#e9fbff', '#2a6a82', 1.15], key: ['#f4ffff', 2.4, [-300, 1000, 800]],
+    rims: [['#6ff3ff', 2.4, [-700, 520, -900]], ['#ff9c8a', 1.6, [800, 380, -800]]],
+    motes: { colors: ['#c8fbff', '#ffffff', '#8fe9ff'], count: 80, size: [6, 18], rise: [.3, .9], drift: .2, ring: true },
+    beams: { color: '#d8fbff', xs: [-420, -60, 330], power: .09 },
+  },
+  liver: {
+    name: '아이언 웍스', image: 'stage_liver.jpg', floor: .696, dark: '#120603', shadow: ['#1c0703', .55],
+    hemi: ['#ffdcc0', '#4a1414', .95], key: ['#ffe2bd', 2.4, [-420, 940, 820]],
+    rims: [['#ffa040', 2.6, [-300, 420, -900]], ['#c8ff5a', 1.5, [820, 420, -760]]],
+    motes: { colors: ['#ffb14a', '#ff7a2a', '#ffe08a'], count: 110, size: [3, 8], rise: [.5, 1.6], drift: .35 },
+  },
+  pancreas: {
+    name: '인슐린 랩', image: 'stage_lab.jpg', floor: .69, gain: .78, calm: .16, dark: '#0c0a14', shadow: ['#2a2240', .38],
+    hemi: ['#fffdf2', '#6a5c8a', 1.2], key: ['#fffaf0', 2.3, [-360, 1000, 820]],
+    rims: [['#b9a2ff', 2.0, [-700, 520, -900]], ['#8affd9', 1.6, [800, 380, -800]]],
+    motes: { colors: ['#fff1b0', '#cdbdff', '#aaffe0'], count: 70, size: [5, 12], rise: [.1, .35], drift: .15 },
+    beams: { color: '#fff6d8', xs: [-520, 0, 520], power: .07 },
+  },
+  alley: {
+    name: '야식 골목', image: 'stage_alley.jpg', floor: .692, dark: '#04030c', shadow: ['#02020a', .55],
+    hemi: ['#b8c8ff', '#3a1a4a', .9], key: ['#ffe6d0', 2.0, [-380, 980, 820]],
+    rims: [['#ff5fc8', 2.6, [-700, 420, -900]], ['#4fe8ff', 2.4, [800, 420, -800]]],
+    motes: { colors: ['#ffd27a', '#ff8ad0', '#7fe9ff'], count: 60, size: [4, 10], rise: [.05, .25], drift: .25 },
+    rain: 150,
+  },
+};
+
+function canvasTexture(w, h, paint) {
   const c = document.createElement('canvas'); c.width = w; c.height = h;
   paint(c.getContext('2d'), w, h);
-  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8;
-  if (repeat) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(...repeat); }
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
   return t;
 }
 // 씨앗이 같은 난수(무대가 매번 같은 모습이도록).
 function rng(seed) { let s = seed; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
 
+// 기준 카메라에서 본 그림을 월드 좌표에 그대로 비추는 재질. 색은 그림 그대로 나온다.
+const PLATE_VERT = `
+uniform mat4 uRef; varying vec4 vRef;
+void main() { vec4 w = modelMatrix * vec4(position, 1.); vRef = uRef * w; gl_Position = projectionMatrix * viewMatrix * w; }`;
+const PLATE_FRAG = `
+uniform sampler2D map; uniform float uDim, uGain, uCalm; uniform vec3 uDark; varying vec4 vRef;
+void main() {
+  vec2 uv = clamp(vRef.xy / vRef.w * .5 + .5, 0., 1.);
+  vec3 c = texture2D(map, uv).rgb;
+  // 선수가 묻히지 않게 배경을 조금 가라앉힌다(밝기·채도), 화면 가장자리는 살짝 더.
+  c = mix(c, vec3(dot(c, vec3(.2126, .7152, .0722))), uCalm) * uGain * (1. - .22 * smoothstep(.3, .75, length(uv - vec2(.5, .56))));
+  c = mix(c, c * .14 + uDark, uDim);
+  gl_FragColor = vec4(c, 1.);
+  #include <colorspace_fragment>
+}`;
+
 export class Stage {
-  constructor(canvas, { ratio = 1, shadows = true } = {}) {
+  constructor(canvas, { ratio = 1, shadows = true, stage = 'heart' } = {}) {
     const gl = this.gl = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
     gl.setPixelRatio(ratio); gl.setSize(1280, 720, false);
     gl.outputColorSpace = THREE.SRGBColorSpace; gl.toneMapping = THREE.NeutralToneMapping; gl.toneMappingExposure = 1.05;
     gl.shadowMap.enabled = shadows; gl.shadowMap.type = THREE.PCFSoftShadowMap;
     this.scene = new THREE.Scene();
-    this.scene.background = new THREE.Color('#150a22');
-    this.scene.fog = new THREE.Fog('#1d0d2e', 1900, 7200);
+    this.scene.background = new THREE.Color('#0d0612');
     this.camera = new THREE.PerspectiveCamera(30, 16 / 9, 60, 14000);
     this.view = { x: 0, w: 1280 }; this.time = 0; this.dim = 0; this.dimTo = 0;
-    this.environment(); this.lights(); this.arena();
+    this.plates = new Map(); this.id = null; this.want = null;
+    // 그림을 찍은 것으로 치는 기준 카메라: 가장 넓게 잡은 경기 화면과 같은 자리, 시야만 여유만큼 넓다.
+    const ref = this.ref = new THREE.PerspectiveCamera(Math.atan(TAN_V * MARGIN) * 360 / Math.PI, 16 / 9, 60, 14000);
+    ref.position.set(0, 316, 640 / TAN_H); ref.lookAt(0, 252, 0); ref.updateMatrixWorld(); ref.updateProjectionMatrix();
+    this.refMatrix = new THREE.Matrix4().multiplyMatrices(ref.projectionMatrix, ref.matrixWorldInverse);
+    this.environment(null); this.lights(); this.arena();
     this.aim(true);
+    this.use(stage);
   }
 
-  // 반사용 환경: 어두운 자줏빛 돔에 밝은 조명판 몇 장. 몸통 광택에 맺힌다.
-  environment() {
+  // 반사용 환경: 배경 그림을 둥글게 두르고 밝은 조명판 몇 장을 띄운다. 몸통 광택에 무대 색이 맺힌다.
+  environment(plate, look) {
     const env = new THREE.Scene();
-    const dome = canvasTexture(64, 256, (g, w, h) => {
-      const grad = g.createLinearGradient(0, 0, 0, h);
-      grad.addColorStop(0, '#ffd9e2'); grad.addColorStop(.3, '#a5486c'); grad.addColorStop(.58, '#4a1838'); grad.addColorStop(1, '#16050f');
-      g.fillStyle = grad; g.fillRect(0, 0, w, h);
-    });
+    let dome;
+    if (plate) {
+      dome = plate.clone(); dome.wrapS = THREE.MirroredRepeatWrapping; dome.repeat.set(2, 1); dome.offset.set(.25, 0); dome.needsUpdate = true;
+    } else {
+      dome = canvasTexture(64, 256, (g, w, h) => {
+        const grad = g.createLinearGradient(0, 0, 0, h);
+        grad.addColorStop(0, '#ffd9e2'); grad.addColorStop(.3, '#a5486c'); grad.addColorStop(.58, '#4a1838'); grad.addColorStop(1, '#16050f');
+        g.fillStyle = grad; g.fillRect(0, 0, w, h);
+      });
+    }
     env.add(new THREE.Mesh(new THREE.SphereGeometry(100, 32, 16), new THREE.MeshBasicMaterial({ map: dome, side: THREE.BackSide })));
     const panel = (color, power, w, h, x, y, z) => {
       const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: new THREE.Color(color).multiplyScalar(power), side: THREE.DoubleSide }));
       m.position.set(x, y, z); m.lookAt(0, 0, 0); env.add(m);
     };
-    panel('#fff4e8', 9, 70, 40, -20, 80, 50);
-    panel('#ffe7c9', 5, 30, 60, -85, 20, 40);
-    panel('#7fe6ff', 7, 24, 80, -70, 30, -70);
-    panel('#ff7ab0', 6, 24, 80, 80, 20, -60);
-    const pmrem = new THREE.PMREMGenerator(this.gl);
-    this.scene.environment = pmrem.fromScene(env, .03).texture;
+    const key = look ? look.key[0] : '#fff4e8', a = look ? look.rims[0][0] : '#7fe6ff', b = look ? look.rims[1][0] : '#ff7ab0';
+    panel(key, 9, 70, 40, -20, 80, 50);
+    panel(key, 4.5, 30, 60, -85, 20, 40);
+    panel(a, 7, 24, 80, -70, 30, -70);
+    panel(b, 6, 24, 80, 80, 20, -60);
+    const pmrem = new THREE.PMREMGenerator(this.gl), old = this.scene.environment;
+    this.scene.environment = pmrem.fromScene(env, .035).texture;
     this.scene.environmentIntensity = .85;
-    pmrem.dispose();
+    pmrem.dispose(); if (old) old.dispose(); if (plate) dome.dispose();
   }
 
   lights() {
     const s = this.scene;
-    s.add(new THREE.HemisphereLight('#ffeef2', '#3a1a4a', 1.1));
+    this.hemi = new THREE.HemisphereLight('#ffeef2', '#3a1a4a', 1.1); s.add(this.hemi);
     const key = this.key = new THREE.DirectionalLight('#fff2e2', 2.5);
     key.castShadow = true; key.shadow.mapSize.set(2048, 2048);
     Object.assign(key.shadow.camera, { left: -820, right: 820, top: 560, bottom: -240, near: 100, far: 2600 });
     key.shadow.bias = -.0006; key.shadow.normalBias = 2.2; key.shadow.radius = 5; key.shadow.camera.updateProjectionMatrix();
+    this.keyAt = [-380, 980, 820];
     s.add(key, key.target);
     const rim = (color, power, x, y, z) => { const l = new THREE.DirectionalLight(color, power); l.position.set(x, y, z); s.add(l); return l; };
-    rim('#74e4ff', 2.4, -700, 520, -900);
-    rim('#ff8fb8', 1.9, 800, 380, -800);
+    this.rims = [rim('#74e4ff', 2.4, -700, 520, -900), rim('#ff8fb8', 1.9, 800, 380, -800)];
   }
 
   arena() {
-    const s = this.scene, rand = rng(7);
-    // 바닥: 혈관 안쪽 세포가 깔린 젖은 바닥.
-    const tiles = canvasTexture(512, 512, (g, w, h) => {
-      g.fillStyle = '#1c0e2a'; g.fillRect(0, 0, w, h);
-      const cols = 6, rows = 10, cw = w / cols, ch = h / rows;
-      for (let j = 0; j < rows; j++) for (let i = -1; i <= cols; i++) {
-        const x = i * cw + (j % 2 ? cw / 2 : 0), y = j * ch;
-        g.fillStyle = `hsl(286 30% ${13 + rand() * 3}%)`;
-        g.beginPath(); g.roundRect(x + 2, y + 2, cw - 4, ch - 4, 14); g.fill();
-        const sheen = g.createLinearGradient(0, y, 0, y + ch); sheen.addColorStop(0, '#ffffff0a'); sheen.addColorStop(.5, '#ffffff00');
-        g.fillStyle = sheen; g.beginPath(); g.roundRect(x + 2, y + 2, cw - 4, ch - 4, 14); g.fill();
-      }
-    }, [14, 19]);
-    const floor = new THREE.Mesh(new THREE.PlaneGeometry(7000, 9600), new THREE.MeshStandardMaterial({ map: tiles, roughness: .3, metalness: .15, envMapIntensity: .8 }));
-    floor.rotation.x = -Math.PI / 2; floor.position.z = -3300; floor.receiveShadow = true; s.add(floor);
+    const s = this.scene;
+    // 그림을 입히는 바닥과 뒷벽. 뒷벽 자리는 무대마다 그림의 바닥 끝 선에 맞춰 옮긴다.
+    const uniforms = this.plateUniforms = { map: { value: null }, uRef: { value: this.refMatrix }, uDim: { value: 0 }, uGain: { value: 1 }, uCalm: { value: 0 }, uDark: { value: new THREE.Color('#0a020c') } };
+    const mat = this.plateMat = new THREE.ShaderMaterial({ uniforms, vertexShader: PLATE_VERT, fragmentShader: PLATE_FRAG, toneMapped: false, fog: false });
+    const floor = this.floor = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), mat); floor.rotation.x = -Math.PI / 2;
+    const wall = this.wall = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), mat);
+    floor.frustumCulled = wall.frustumCulled = false; floor.visible = wall.visible = false; floor.renderOrder = wall.renderOrder = -2;
+    s.add(floor, wall);
+    // 선수 그림자만 받는 투명 판.
+    const catcher = this.catcher = new THREE.Mesh(new THREE.PlaneGeometry(3200, 1500), new THREE.ShadowMaterial({ color: '#1a0410', opacity: .5 }));
+    catcher.rotation.x = -Math.PI / 2; catcher.position.set(0, .5, -260); catcher.receiveShadow = true; catcher.renderOrder = -1; s.add(catcher);
 
-    // 경기장 금빛 원.
-    const ring = canvasTexture(1024, 1024, (g, w) => {
-      const c = w / 2;
-      const glow = g.createRadialGradient(c, c, 0, c, c, c); glow.addColorStop(0, '#ffcf7a30'); glow.addColorStop(.7, '#ff9a6a10'); glow.addColorStop(1, '#ff9a6a00');
-      g.fillStyle = glow; g.fillRect(0, 0, w, w);
-      g.strokeStyle = '#ffd98a'; g.lineWidth = 13; g.beginPath(); g.arc(c, c, c * .86, 0, 7); g.stroke();
-      g.lineWidth = 4; g.globalAlpha = .8; g.beginPath(); g.arc(c, c, c * .8, 0, 7); g.stroke();
-      g.globalAlpha = .6; g.setLineDash([26, 22]); g.lineWidth = 6; g.beginPath(); g.arc(c, c, c * .56, 0, 7); g.stroke();
-    });
-    const mark = new THREE.Mesh(new THREE.PlaneGeometry(1500, 1500), new THREE.MeshBasicMaterial({ map: ring, transparent: true, opacity: .8, depthWrite: false, blending: THREE.AdditiveBlending }));
-    mark.rotation.x = -Math.PI / 2; mark.position.set(0, .6, -40); s.add(mark);
-
-    // 혈관 벽: 멀리 뻗는 원통과 주름 고리.
-    const wall = canvasTexture(512, 512, (g, w, h) => {
-      g.fillStyle = '#44204f'; g.fillRect(0, 0, w, h);
-      for (let i = 0; i < 90; i++) {
-        const x = rand() * w, y = rand() * h, len = 80 + rand() * 220;
-        g.strokeStyle = rand() < .5 ? '#6a3a7a55' : '#24102e66'; g.lineWidth = 3 + rand() * 9; g.lineCap = 'round';
-        g.beginPath(); g.moveTo(x, y); g.bezierCurveTo(x + 14, y + len * .3, x - 14, y + len * .6, x + 6, y + len); g.stroke();
-      }
-    }, [10, 8]);
-    const tube = new THREE.Mesh(new THREE.CylinderGeometry(R, R, 9600, 56, 1, true), new THREE.MeshStandardMaterial({ map: wall, side: THREE.BackSide, roughness: .55, envMapIntensity: .5 }));
-    tube.rotation.x = Math.PI / 2; tube.position.set(0, CY, -3300); s.add(tube);
-    const ribMat = new THREE.MeshStandardMaterial({ color: '#6c3a82', roughness: .4, envMapIntensity: .8 });
-    for (let i = 0; i < 9; i++) {
-      const rib = new THREE.Mesh(new THREE.TorusGeometry(R - 16, 52, 12, 72), ribMat);
-      rib.position.set(0, CY, -420 - i * 760); s.add(rib);
-    }
-    // 혈관 끝의 빛.
-    const glowTex = canvasTexture(256, 256, (g, w) => {
+    // 떠다니는 빛 알갱이.
+    const dot = canvasTexture(64, 64, (g, w) => {
       const grad = g.createRadialGradient(w / 2, w / 2, 0, w / 2, w / 2, w / 2);
-      grad.addColorStop(0, '#fff1e0'); grad.addColorStop(.25, '#ffb08fcc'); grad.addColorStop(.6, '#ff5f8a44'); grad.addColorStop(1, '#ff5f8a00');
+      grad.addColorStop(0, '#ffffff'); grad.addColorStop(.25, '#ffffffb0'); grad.addColorStop(.6, '#ffffff30'); grad.addColorStop(1, '#ffffff00');
       g.fillStyle = grad; g.fillRect(0, 0, w, w);
     });
-    const glow = new THREE.Mesh(new THREE.PlaneGeometry(3800, 3800), new THREE.MeshBasicMaterial({ map: glowTex, transparent: true, fog: false, depthWrite: false, blending: THREE.AdditiveBlending }));
-    glow.position.set(0, CY - 60, -7900); s.add(glow);
+    const ring = canvasTexture(64, 64, (g, w) => {
+      const c = w / 2;
+      g.strokeStyle = '#ffffffd0'; g.lineWidth = 3.5; g.beginPath(); g.arc(c, c, c - 8, 0, 7); g.stroke();
+      g.strokeStyle = '#ffffff'; g.lineWidth = 3; g.lineCap = 'round'; g.beginPath(); g.arc(c, c, c - 15, 3.6, 4.6); g.stroke();
+      const grad = g.createRadialGradient(c, c, 0, c, c, c - 8); grad.addColorStop(0, '#ffffff10'); grad.addColorStop(1, '#ffffff38');
+      g.fillStyle = grad; g.beginPath(); g.arc(c, c, c - 8, 0, 7); g.fill();
+    });
+    this.moteTex = { dot, ring };
+    const MAX = 140, geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(MAX * 3), 3));
+    geo.setAttribute('color', new THREE.BufferAttribute(new Float32Array(MAX * 3), 3));
+    geo.setAttribute('size', new THREE.BufferAttribute(new Float32Array(MAX), 1));
+    const moteMat = this.moteMat = new THREE.ShaderMaterial({
+      uniforms: { map: { value: dot }, uScale: { value: 1 }, uFade: { value: 1 } },
+      vertexShader: `attribute float size; attribute vec3 color; varying vec3 vColor; uniform float uScale;
+        void main() { vColor = color; vec4 mv = modelViewMatrix * vec4(position, 1.); gl_Position = projectionMatrix * mv; gl_PointSize = size * uScale / -mv.z; }`,
+      fragmentShader: `uniform sampler2D map; uniform float uFade; varying vec3 vColor;
+        void main() {
+          vec4 t = texture2D(map, gl_PointCoord); gl_FragColor = vec4(vColor * t.rgb * t.a * uFade, 1.);
+          #include <colorspace_fragment>
+        }`,
+      transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false,
+    });
+    this.motes = new THREE.Points(geo, moteMat); this.motes.frustumCulled = false; this.motes.visible = false; s.add(this.motes);
+    this.moteData = [];
 
-    // 떠다니는 적혈구.
-    const profile = [];
-    for (let i = 0; i <= 14; i++) { const a = i / 14 * Math.PI, x = Math.sin(a), y = -Math.cos(a); profile.push(new THREE.Vector2(x * (1 + .06 * Math.cos(a * 2)), y * (.18 + .2 * x * x))); }
-    const cellGeo = new THREE.LatheGeometry(profile, 28);
-    const cells = this.cells = new THREE.InstancedMesh(cellGeo, new THREE.MeshPhysicalMaterial({ color: '#c22f48', roughness: .42, clearcoat: .4, clearcoatRoughness: .3 }), 46);
-    this.cellData = [];
-    for (let i = 0; i < 46; i++) {
-      const a = rand() * Math.PI * 2, rad = 420 + rand() * 900, z = -1300 - rand() * 5200;
-      this.cellData.push({ x: Math.cos(a) * rad, y: Math.max(260, CY + Math.sin(a) * rad * .8), z, size: 40 + rand() * 44, rx: rand() * 6, ry: rand() * 6, spin: (.2 + rand() * .5) * (rand() < .5 ? -1 : 1), speed: .5 + rand() * .9 });
-      if (rand() < .1) cells.setColorAt(i, new THREE.Color('#f3e6ee')); else cells.setColorAt(i, new THREE.Color('#ffffff'));
+    // 위에서 내려오는 빛줄기.
+    const beamTex = canvasTexture(64, 256, (g, w, h) => {
+      const v = g.createLinearGradient(0, 0, 0, h); v.addColorStop(0, '#ffffff'); v.addColorStop(.7, '#ffffff50'); v.addColorStop(1, '#ffffff00');
+      g.fillStyle = v; g.fillRect(0, 0, w, h);
+      g.globalCompositeOperation = 'destination-in';
+      const hz = g.createLinearGradient(0, 0, w, 0); hz.addColorStop(0, '#ffffff00'); hz.addColorStop(.5, '#ffffff'); hz.addColorStop(1, '#ffffff00');
+      g.fillStyle = hz; g.fillRect(0, 0, w, h);
+    });
+    this.beams = [];
+    for (let i = 0; i < 4; i++) {
+      const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ map: beamTex, transparent: true, opacity: 0, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false, fog: false }));
+      m.visible = false; m.frustumCulled = false; s.add(m); this.beams.push(m);
     }
-    cells.frustumCulled = false; s.add(cells);
 
-    // 초필살기 연출용 암막: 선수 뒤 배경과 바닥을 어둡게 덮는다.
-    const shade = () => new THREE.MeshBasicMaterial({ color: '#0a020c', transparent: true, opacity: 0, depthWrite: false, fog: false });
-    const curtain = new THREE.Mesh(new THREE.PlaneGeometry(9000, 5000), shade()); curtain.position.set(0, 1200, -60);
-    const mat = new THREE.Mesh(new THREE.PlaneGeometry(9000, 3200), shade()); mat.rotation.x = -Math.PI / 2; mat.position.set(0, .4, 1540);
-    curtain.visible = mat.visible = false; curtain.renderOrder = mat.renderOrder = 1; s.add(curtain, mat);
-    this.shades = [curtain, mat];
+    // 비(야식 골목).
+    const RAIN = 220, rg = new THREE.BufferGeometry();
+    rg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(RAIN * 6), 3));
+    this.rain = new THREE.LineSegments(rg, new THREE.LineBasicMaterial({ color: '#bfd8ff', transparent: true, opacity: .2, depthWrite: false, blending: THREE.AdditiveBlending, toneMapped: false }));
+    this.rain.frustumCulled = false; this.rain.visible = false; s.add(this.rain);
+    this.rainData = [];
+  }
+
+  // 무대를 바꾼다. 그림을 다 받으면 그때 갈아 끼운다(그 전까지는 앞 무대가 그대로 보인다).
+  use(id) {
+    if (!STAGES[id]) id = 'heart';
+    if (this.want === id) return this.ready;
+    this.want = id;
+    return this.ready = this.plate(id).then(t => { if (this.want === id) this.apply(id, t); }).catch(() => {});
+  }
+  plate(id) {
+    let load = this.plates.get(id);
+    if (!load) {
+      load = new THREE.TextureLoader().loadAsync(ASSETS + STAGES[id].image).then(t => {
+        t.colorSpace = THREE.SRGBColorSpace; t.generateMipmaps = false; t.minFilter = t.magFilter = THREE.LinearFilter;
+        this.gl.initTexture(t); return t;
+      });
+      this.plates.set(id, load);
+    }
+    return load;
+  }
+  // 나머지 무대 그림을 미리 받아 둔다(경기 시작 때 앞 무대가 잠깐 비치지 않게).
+  warm() { for (const id in STAGES) this.plate(id).catch(() => {}); }
+  apply(id, plate) {
+    const look = STAGES[id], rand = rng(11);
+    this.id = id; this.look = look;
+    // 그림의 바닥 끝 선을 기준 카메라에서 쏘아 바닥에 닿는 곳이 뒷벽 자리다.
+    const ray = new THREE.Vector3(0, 1 - 2 * look.floor, .5).unproject(this.ref).sub(this.ref.position);
+    const far = this.far = this.ref.position.z + ray.z * (-this.ref.position.y / ray.y);
+    const near = 620, wide = 2 * (640 * MARGIN + (this.ref.position.z - far) * TAN_H * MARGIN) + 400;
+    this.floor.scale.set(wide, near - far, 1); this.floor.position.set(0, 0, (near + far) / 2);
+    this.wall.scale.set(wide, 1400, 1); this.wall.position.set(0, 700, far);
+    this.floor.visible = this.wall.visible = true;
+    this.plateUniforms.map.value = plate; this.plateUniforms.uDark.value.set(look.dark);
+    this.plateUniforms.uGain.value = look.gain ?? .9; this.plateUniforms.uCalm.value = look.calm ?? .08;
+    this.catcher.material.color.set(look.shadow[0]); this.catcher.material.opacity = this.shadowPower = look.shadow[1];
+    this.catcher.position.z = (far + 420) / 2; this.catcher.scale.set(1, (420 - far) / 1500, 1);
+
+    this.hemi.color.set(look.hemi[0]); this.hemi.groundColor.set(look.hemi[1]); this.hemi.intensity = look.hemi[2];
+    this.key.color.set(look.key[0]); this.key.intensity = look.key[1]; this.keyAt = look.key[2];
+    look.rims.forEach((r, i) => { this.rims[i].color.set(r[0]); this.rims[i].intensity = r[1]; this.rims[i].position.set(...r[2]); });
+    this.environment(plate, look);
+
+    // 빛 알갱이: 뒷벽 앞에서 화면 앞까지 흩어 놓는다.
+    const m = look.motes, pos = this.motes.geometry.attributes.position, col = this.motes.geometry.attributes.color, size = this.motes.geometry.attributes.size, c = new THREE.Color();
+    this.moteData = [];
+    for (let i = 0; i < pos.count; i++) {
+      const on = m && i < m.count;
+      if (on) {
+        const z = far + 40 + rand() * (300 - far), d = { x: (rand() * 2 - 1) * 1150, y: rand() * 760, z, vy: m.rise[0] + rand() * (m.rise[1] - m.rise[0]), sway: rand() * 6.3, drift: m.drift * (.5 + rand()) };
+        this.moteData.push(d);
+        c.set(m.colors[i % m.colors.length]).multiplyScalar(.35 + rand() * .5); col.setXYZ(i, c.r, c.g, c.b);
+        size.setX(i, (m.size[0] + rand() * (m.size[1] - m.size[0])) * (z > 60 ? 1.8 : 1));
+      } else { size.setX(i, 0); pos.setXYZ(i, 0, -999, 0); }
+    }
+    col.needsUpdate = size.needsUpdate = true;
+    this.motes.visible = !!m; this.moteMat.uniforms.map.value = m && m.ring ? this.moteTex.ring : this.moteTex.dot;
+
+    this.beams.forEach((b, i) => {
+      const on = look.beams && i < look.beams.xs.length; b.visible = !!on; if (!on) return;
+      b.material.color.set(look.beams.color); b.userData.power = look.beams.power; b.userData.phase = rand() * 6.3;
+      b.scale.set(300 + rand() * 160, 900, 1); b.position.set(look.beams.xs[i], 470, far + 30 + i * 6); b.rotation.z = (rand() - .5) * .5;
+    });
+
+    this.rain.visible = !!look.rain; this.rainData = [];
+    for (let i = 0; i < (look.rain || 0); i++) this.rainData.push({ x: (rand() * 2 - 1) * 1100, y: rand() * 800, z: far + 60 + rand() * (360 - far), v: 26 + rand() * 12 });
+    this.rain.geometry.setDrawRange(0, (look.rain || 0) * 2);
     this.flow(0);
   }
 
@@ -148,17 +275,29 @@ export class Stage {
   setDim(k) { this.dimTo = k; }
 
   flow(dt) {
-    const dummy = this.dummy || (this.dummy = new THREE.Object3D());
     this.time += dt;
     this.dim += (this.dimTo - this.dim) * Math.min(1, .25 * dt);
-    for (const m of this.shades) { m.visible = this.dim > .01; m.material.opacity = this.dim * .62; }
-    this.cellData.forEach((c, i) => {
-      c.z += c.speed * dt; if (c.z > -1100) c.z -= 5400;
-      dummy.position.set(c.x, c.y + Math.sin(this.time * .01 + i) * 14, c.z);
-      dummy.rotation.set(c.rx + this.time * .006 * c.spin, c.ry + this.time * .004 * c.spin, 0);
-      dummy.scale.setScalar(c.size); dummy.updateMatrix(); this.cells.setMatrixAt(i, dummy.matrix);
-    });
-    this.cells.instanceMatrix.needsUpdate = true;
+    const lit = 1 - this.dim * .8, t = this.time;
+    this.plateUniforms.uDim.value = this.dim * .86;
+    this.catcher.material.opacity = (this.shadowPower || .5) * (1 - this.dim * .5);
+    if (this.motes.visible) {
+      const pos = this.motes.geometry.attributes.position;
+      this.moteData.forEach((d, i) => {
+        d.y += d.vy * dt; if (d.y > 780) d.y -= 800;
+        pos.setXYZ(i, d.x + Math.sin(t * .012 * d.drift + d.sway) * 40, d.y, d.z);
+      });
+      pos.needsUpdate = true;
+      this.moteMat.uniforms.uScale.value = this.gl.getPixelRatio() * 720 / (2 * TAN_V); this.moteMat.uniforms.uFade.value = lit;
+    }
+    for (const b of this.beams) if (b.visible) b.material.opacity = b.userData.power * (.7 + .3 * Math.sin(t * .011 + b.userData.phase)) * lit;
+    if (this.rain.visible) {
+      const pos = this.rain.geometry.attributes.position;
+      this.rainData.forEach((d, i) => {
+        d.y -= d.v * dt; d.x -= d.v * .18 * dt; if (d.y < 0) { d.y += 800; d.x += 144; }
+        pos.setXYZ(i * 2, d.x, d.y, d.z); pos.setXYZ(i * 2 + 1, d.x + 7, d.y + 40, d.z);
+      });
+      pos.needsUpdate = true; this.rain.material.opacity = .2 * lit;
+    }
   }
 
   // 두 선수가 화면에 다 들어오게 카메라를 맞춘다. ax·bx는 시뮬 x, top은 가장 높은 머리 높이.
@@ -170,10 +309,10 @@ export class Stage {
     this.aim();
   }
   aim() {
-    const { x, w } = this.view, k = w / 1280, lookY = 252 * k, cam = this.camera;
+    const { x, w } = this.view, k = w / 1280, lookY = 252 * k, cam = this.camera, at = this.keyAt;
     cam.position.set(x + (this.shakeX || 0), lookY + 64 * k + (this.shakeY || 0), w / (2 * TAN_H));
     cam.lookAt(x, lookY, 0);
-    this.key.position.set(x - 380, 980, 820); this.key.target.position.set(x, 120, 0);
+    this.key.position.set(x + at[0], at[1], at[2]); this.key.target.position.set(x, 120, 0);
   }
   // 월드 좌표가 화면의 어느 픽셀에 찍히는지(HUD 글자 위치용).
   project(x, y, z = 0, out = [0, 0]) {

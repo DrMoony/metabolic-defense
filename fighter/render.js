@@ -42,7 +42,7 @@ function dropPuppet(puppet) {
 export class Renderer {
   constructor(canvas, { debug = false } = {}) {
     const ratio = pixelRatio();
-    this.stage = new Stage(canvas, { ratio });
+    this.stage = new Stage(canvas, { ratio }); this.stage.warm();
     this.fx = new Fx(this.stage);
     this.hud = new Hud(document.getElementById('hud'), this.stage, portraitOf);
     this.hud.debug = debug; this.hud.resize(ratio);
@@ -123,6 +123,7 @@ export class Renderer {
     this.shake *= .86 ** dt; if (this.shake < .4) this.shake = 0;
     if (sim) {
       const fresh = sim !== this.sim;
+      if (fresh) stage.use(sim.arena || 'heart');
       sim.f.forEach((f, i) => {
         let puppet = this.puppets[i];
         if (!puppet || puppet.id !== f.char.id) {
