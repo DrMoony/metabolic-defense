@@ -1,28 +1,29 @@
 // 격투 판정. 화면·소리와 분리된 순수 계산이라 그림 방식(2D·2.5D)이 바뀌어도 그대로 쓴다.
 import { STAGE, advantage } from './data.js';
 
-const GRAVITY = 1.05, HALF = 34, BUFFER = 8, JUGGLE_MAX = 3;
+const GRAVITY = 1.05, HALF = 34, BUFFER = 10, EARLY = 6, JUGGLE_MAX = 3;
 const NEUTRAL_STATES = ['idle', 'walk', 'crouch'];
 export const grounded = f => f.y >= 0 && f.vy >= 0;
 const clampX = x => Math.max(STAGE.left, Math.min(STAGE.right, x));
 
 // 숫자패드 표기 커맨드(바라보는 쪽 기준, 6=앞). 키보드로도 되게 대각선은 없어도 인정한다.
-// 623은 앞을 "새로" 눌렀을 때만 본다(앞으로 걷다가 236을 넣으면 623이 되어 버리는 걸 막는다).
+// window는 넉넉하게 잡는다(키보드로 또박또박 눌러도 나오게). 623은 앞을 "새로, 짧게" 눌렀을 때만 본다:
+// 앞을 누르고 있던 시간이 tap 프레임을 넘으면 걷던 중으로 보고 236으로 넘긴다.
 const FWD = [6, 3], BACK = [4, 1], DOWN = [1, 2, 3], NOT_DOWN = [4, 5, 6, 7, 8, 9], NOT_FWD = [1, 2, 4, 5, 7, 8];
 export const MOTIONS = {
-  '236236': { seq: [[2], FWD, [2], FWD], window: 36 },
-  '426':    { seq: [BACK, [2], FWD], window: 26 },
-  '623':    { seq: [NOT_FWD, [6], DOWN, FWD], window: 22 },
-  '236':    { seq: [[2], FWD], window: 16 },
-  '214':    { seq: [[2], BACK], window: 16 },
-  '22':     { seq: [DOWN, NOT_DOWN, DOWN], window: 18 },
+  '236236': { seq: [[2], FWD, [2], FWD], window: 56 },
+  '426':    { seq: [BACK, [2], FWD], window: 38 },
+  '623':    { seq: [NOT_FWD, [6], DOWN, FWD], window: 34, tap: 14 },
+  '236':    { seq: [[2], FWD], window: 26 },
+  '214':    { seq: [[2], BACK], window: 26 },
+  '22':     { seq: [DOWN, NOT_DOWN, DOWN], window: 28 },
 };
 
 function createFighter(char, side) {
   return {
     char, side, x: side ? 860 : 420, y: 0, vx: 0, vy: 0, kb: 0, facing: side ? -1 : 1,
     hp: char.hp, meter: 0, potion: false, state: 'idle', t: 0, stun: 0,
-    move: null, moveKey: '', connected: false, hasHit: false, lastHit: -99, chainCount: 0, airActed: false,
+    move: null, moveKey: '', connected: false, hasHit: false, lastHit: -99, chainCount: 0, airActed: false, early: 0, earlyBy: '',
     armor: false, armorLeft: 0, grab: null,
     combo: 0, comboShown: 0, juggle: 0, invuln: 0, throwInvuln: 0, flash: 0, blockLow: false, jumpDir: 0, isKo: false,
     buf: { p: 0, k: 0 }, hist: [], in: { x: 0, y: 0 },
@@ -66,12 +67,13 @@ export class Sim {
   }
   // 커맨드가 최근 window 프레임 안에 순서대로 들어왔는지. 마지막 방향이 들어온 위치를 돌려준다(없으면 -1).
   motion(f, name) {
-    const { seq, window } = MOTIONS[name], hist = f.hist;
-    let index = seq.length - 1, last = -1;
+    const { seq, window, tap } = MOTIONS[name], hist = f.hist;
+    let index = seq.length - 1, last = -1, second = -1;
     for (let i = hist.length - 1; i >= Math.max(0, hist.length - window); i--) {
       if (!seq[index].includes(hist[i])) continue;
       if (last < 0) last = i;
-      if (--index < 0) return last;
+      if (index === 1) second = i;
+      if (--index < 0) return tap && second - i > tap ? -1 : last;
     }
     return -1;
   }
@@ -82,14 +84,15 @@ export class Sim {
 
   start(f, key) {
     const move = f.char.moves[key];
-    Object.assign(f, { state: 'attack', move, moveKey: key, t: 0, connected: false, hasHit: false, lastHit: -99, armor: false, armorLeft: move.armor ? move.armorHits || 1 : 0, grab: null });
+    Object.assign(f, { state: 'attack', move, moveKey: key, t: 0, connected: false, hasHit: false, lastHit: -99, armor: false, armorLeft: move.armor ? move.armorHits || 1 : 0, grab: null, early: 0 });
     if (grounded(f)) f.vx = 0;
     if (move.special) {
       f.hist.length = 0;
       if (!move.noMeter && !move.isSuper) f.meter = Math.min(100, f.meter + 3);
     }
     if (move.invuln) f.invuln = move.invuln;
-    if (move.isSuper) { f.meter = 0; this.freeze = 34; this.events.push({ type: 'super', side: f.side, x: f.x, y: f.y - 120 }); }
+    if (move.isSuper) { f.meter = 0; this.freeze = 34; this.events.push({ type: 'super', side: f.side, key, char: f.char.id, x: f.x, y: f.y - 120 }); }
+    else if (move.special) this.events.push({ type: 'special', side: f.side, key, char: f.char.id, x: f.x, y: f.y - 120 });
     return true;
   }
 
@@ -105,16 +108,28 @@ export class Sim {
     }
     return false;
   }
+  // 버튼이 방향보다 조금 일러서 기본기가 먼저 나갔을 때: 나온 지 EARLY 프레임 안에 커맨드가 마저 들어오면 필살기로 바꿔 준다.
+  // 주먹과 킥을 살짝 어긋나게 눌러도 초필살기가 나온다.
+  tryLate(f) {
+    const by = f.earlyBy, other = by === 'p' ? 'k' : 'p', moves = f.char.moves;
+    if (f.meter >= 100 && (f.buf[other] || (by === 'p' && this.motion(f, '236236') >= 0))) { f.buf.p = f.buf.k = 0; return this.start(f, 'super'); }
+    for (const [name, button, key] of f.char.cmds) {
+      if (button !== by || this.motion(f, name) < 0) continue;
+      if (moves[key].spawn && !this.canShoot(f, moves[key].spawn)) continue;
+      return this.start(f, key);
+    }
+    return false;
+  }
   tryAttack(f, o, fx, down) {
     if (this.tryCommand(f)) return true;
-    const b = f.buf;
-    if (b.p) {
-      b.p = 0; f.chainCount = 0;
-      if (fx !== 0 && !down && this.grabbable(f, o, f.char.moves.throw.grab.range)) return this.start(f, 'throw');
-      return this.start(f, down ? 'cjab' : 'jab');
-    }
-    if (b.k) { b.k = 0; f.chainCount = 0; return this.start(f, down ? 'sweep' : 'kick'); }
-    return false;
+    const b = f.buf, by = b.p ? 'p' : b.k ? 'k' : '';
+    if (!by) return false;
+    b[by] = 0; f.chainCount = 0;
+    if (by === 'k') this.start(f, down ? 'sweep' : 'kick');
+    else if (fx !== 0 && !down && this.grabbable(f, o, f.char.moves.throw.grab.range)) this.start(f, 'throw');
+    else this.start(f, down ? 'cjab' : 'jab');
+    f.early = EARLY; f.earlyBy = by;
+    return true;
   }
 
   recover(f, o, state = f.in.y > 0 ? 'crouch' : 'idle') {
@@ -162,6 +177,7 @@ export class Sim {
     const m = f.move, t = ++f.t, hitStart = m.startup, hitEnd = m.startup + m.active, total = hitEnd + m.recovery;
     const onGround = grounded(f), down = f.in.y > 0;
     f.armor = f.armorLeft > 0 && within(m.armor, t);
+    if (f.early > 0 && f.early-- && this.tryLate(f)) return;
     if (onGround) {
       if (m.move) f.vx = t > hitStart && t <= hitEnd ? f.facing * m.move : t <= hitStart ? f.facing * (m.approach ?? m.move * .25) : 0;
       else f.vx = m.step && t <= hitStart ? f.facing * m.step : 0;
@@ -213,7 +229,7 @@ export class Sim {
     Object.assign(o, { state: 'held', move: null, t: 0, vx: 0, vy: 0, kb: 0, y: 0, stun: 0, armor: false, flash: 4 });
     this.hold(f, o);
     this.hitstop = 6;
-    this.events.push({ type: 'grab', x: (f.x + o.x) / 2, y: -120 });
+    this.events.push({ type: 'grab', x: (f.x + o.x) / 2, y: -120, char: f.char.id, special: g.slam === 'slamBig' });
     return true;
   }
   hold(f, o) {
@@ -232,8 +248,8 @@ export class Sim {
     Object.assign(o, { state: 'air', move: null, vx: f.facing * g.launch[0], vy: g.launch[1], y: -1, kb: 0, juggle: JUGGLE_MAX, flash: 6 });
     if (o.hp <= 0 && !this.over) o.isKo = true;
     this.hitstop = o.isKo ? 22 : 12;
-    this.events.push({ type: 'slam', x: o.x, y: 0 });
-    this.events.push({ type: 'hit', heavy: true, ko: o.isKo, side: f.side, x: o.x, y: -60 });
+    this.events.push({ type: 'slam', x: o.x, y: 0, char: f.char.id, big: g.slam === 'slamBig', sup: !!g.isSuper });
+    this.events.push({ type: 'hit', heavy: true, ko: o.isKo, side: f.side, x: o.x, y: -60, dir: f.facing, char: f.char.id, key: 'slam', special: g.slam === 'slamBig', sup: !!g.isSuper });
   }
 
   physics(f) {
@@ -257,7 +273,7 @@ export class Sim {
       if (m.dive) f.t = m.startup + m.active;
       else if (m.air) { f.state = 'idle'; f.move = null; }
       else if (m.rise) f.t = m.startup + m.active + m.recovery - m.landRecovery;
-      if (m.heavyLand) this.events.push({ type: 'land', heavy: true, x: f.x, y: 0 });
+      if (m.heavyLand) this.events.push({ type: 'land', heavy: true, x: f.x, y: 0, char: f.char.id, crater: true });
     }
   }
 
@@ -423,7 +439,7 @@ export class Sim {
     if (!src.pull) this.pushBackAttacker(att, def, dir, src, shot);
     const heavy = !!(src.heavy || src.special) && !src.isSuper;
     this.hitstop = def.isKo ? 22 : src.rehit ? 4 : heavy ? 11 : 8;
-    this.events.push({ type: 'hit', heavy, counter, ko: def.isKo, combo: att.combo, side: att.side, x, y });
+    this.events.push({ type: 'hit', heavy, counter, ko: def.isKo, combo: att.combo, side: att.side, x, y, dir, char: att.char.id, key: shot ? shot.kind : att.moveKey, special: !!(shot || src.special), sup: !!src.isSuper, last: !!(src.finalLaunch && last) });
     return true;
   }
   // 구석에 몰린 상대를 때리면 상대 대신 내가 밀려나야 무한 압박이 안 된다.

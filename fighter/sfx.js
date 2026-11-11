@@ -20,7 +20,36 @@ function noise(seconds, volume, cutoff) {
   src.connect(filter).connect(gain).connect(ctx.destination); src.start();
 }
 
+// 필살기를 낼 때 나는 소리는 기술 성격에 따라 일곱 가지로 나눈다(기술 키 → 소리).
+const VOICE = {
+  rush: 'multi', spray: 'multi', roll: 'multi', upper: 'rise', rising: 'rise', riser: 'rise', spear: 'rise', burst: 'rise', riposte: 'rise',
+  charge: 'dash', slide: 'dash', lunge: 'dash', dive: 'dash', weave: 'dash', slip: 'dash', cast: 'cast', lob: 'cast', drop: 'cast', steam: 'cast',
+  barrier: 'guard', stance: 'guard', grab: 'heavy', press: 'heavy', stomp: 'heavy', whip: 'snap',
+};
+const VOICES = {
+  multi: () => [0, .05, .1].forEach((at, i) => tone('square', 520 + i * 130, 400 + i * 130, .05, .09, at)),
+  rise: () => { tone('sawtooth', 200, 980, .2, .13); tone('sine', 300, 1300, .2, .1); },
+  dash: () => { noise(.16, .2, 1800); tone('sawtooth', 260, 110, .16, .1); },
+  cast: () => { tone('triangle', 880, 660, .12, .12); tone('triangle', 1320, 990, .16, .08, .05); },
+  guard: () => { tone('triangle', 990, 990, .1, .12); tone('triangle', 1480, 1480, .18, .1, .06); },
+  heavy: () => { tone('sine', 110, 50, .24, .4); tone('square', 80, 60, .16, .1); },
+  snap: () => { noise(.05, .3, 6000); tone('square', 1500, 600, .05, .08); },
+};
+// 필살기가 맞을 때 기본 타격음 위에 얹는 소리. 캐릭터마다 다르다(심장은 쿵쿵 두 번 뛴다).
+const ACCENT = {
+  heart: () => { tone('sine', 95, 50, .1, .5); tone('sine', 80, 45, .12, .45, .11); },
+  kidney: () => { noise(.14, .22, 5200); tone('sine', 760, 320, .09, .12); },
+  liver: () => tone('sine', 90, 34, .28, .55),
+  pancreas: () => { tone('square', 1500, 520, .06, .1); tone('triangle', 2100, 1500, .1, .08, .03); },
+  soda: () => { noise(.2, .2, 7000); tone('sine', 900, 1400, .07, .08); },
+  fries: () => { noise(.22, .18, 6500); tone('triangle', 420, 240, .08, .1); },
+  ramen: () => { noise(.06, .28, 5000); tone('sawtooth', 340, 200, .1, .08); },
+  burger: () => { tone('sine', 100, 40, .24, .5); noise(.1, .2, 600); },
+};
+
 export const sfx = {
+  special: key => (VOICES[VOICE[key]] || VOICES.rise)(),
+  accent: char => ACCENT[char]?.(),
   swing: heavy => noise(.07, heavy ? .1 : .06, 2600),
   hit: heavy => { noise(heavy ? .16 : .09, heavy ? .5 : .34, heavy ? 1100 : 1700); tone('sine', heavy ? 150 : 190, 45, heavy ? .2 : .12, .5); },
   block: () => { tone('square', 320, 180, .06, .12); noise(.05, .14, 3200); },

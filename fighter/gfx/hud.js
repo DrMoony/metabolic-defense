@@ -15,7 +15,7 @@ export class Hud {
   resize(ratio) { this.ratio = ratio; this.canvas.width = Math.round(W * ratio); this.canvas.height = Math.round(H * ratio); }
   reset() { this.texts = []; this.flash = 0; this.lag = [1, 1]; this.combo = [0, 0]; this.pop = [0, 0]; }
   // 시뮬 좌표(x, 바닥 기준 y) 위에 잠깐 떠오르는 글자.
-  say(text, x, y, color, max = 50) { this.texts.push({ text, x, y, color, life: 0, max }); }
+  say(text, x, y, color, max = 50, size = 26) { const t = { text, x, y, color, life: 0, max, size }; this.texts.push(t); return t; }
 
   // 기울어진 막대 경로. s가 1이면 위쪽이 오른쪽으로, -1이면 왼쪽으로 밀린다.
   slab(x, y, w, h, s, lean = 12, grow = 0) {
@@ -47,8 +47,9 @@ export class Hud {
 
   floaters(dt) {
     const c = this.c, at = [0, 0];
-    c.textAlign = 'center'; c.font = `900 26px ${FONT}`;
+    c.textAlign = 'center';
     for (const t of this.texts) {
+      c.font = `900 ${t.size}px ${FONT}`;
       t.life += dt; this.stage.project(t.x - 640, -t.y, 40, at);
       c.globalAlpha = Math.max(0, Math.min(1, (t.max - t.life) / 14));
       const k = ease(Math.min(1, t.life / 8));

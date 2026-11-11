@@ -1,4 +1,5 @@
 // CPU 상대. 사람과 똑같이 스틱·버튼 입력을 내놓는다(필살기 커맨드도 한 프레임씩 직접 넣는다). level 0(쉬움)~1(어려움).
+// 낮은 단계는 늦게 알아채고, 덜 막고, 위아래를 자주 틀리고, 한 번 움직인 뒤 오래 쉰다(사람이 기술을 넣을 틈).
 import { grounded } from './sim.js';
 
 const frame = (x = 0, y = 0, buttons = '') => ({ x, y, p: buttons.includes('p'), k: buttons.includes('k') });
@@ -102,19 +103,25 @@ export class CpuBrain {
     const shot = sim.shots.find(s => s.owner !== side && (s.still ? s.kind === 'steam' && Math.abs(s.x - me.x) < s.w / 2 + 50 : Math.sign(s.vx) === -toward && Math.abs(s.x - me.x) < near));
     const om = opp.state === 'attack' ? opp.move : null;
     const puddle = om?.spawn?.kind === 'puddle' && Math.abs(opp.x + opp.facing * om.spawn.at[0] - me.x) < 120;
-    const attacking = om && (om.box || puddle) && opp.t <= om.startup + om.active && dist < (om.move || om.home ? 330 : om.box?.[2] > 200 ? 400 : 230);
+    // 알아채는 데 걸리는 시간: 쉬운 단계는 빠른 주먹을 보고 막지 못한다.
+    const notice = Math.round(9 * (1 - this.level));
+    const attacking = om && (om.box || puddle) && opp.t >= notice && opp.t <= om.startup + om.active && dist < (om.move || om.home ? 330 : om.box?.[2] > 200 ? 400 : 230);
     const threat = shot || (attacking ? opp : null);
     if (threat && threat !== this.seenAttack) {
       this.seenAttack = threat;
-      if (this.chance(.2 + .65 * this.level)) {
+      if (this.chance(.06 + .72 * this.level)) {
         this.queue.length = 0;
         // 캐릭터 고유 대응: 장풍은 흘리거나 되돌리고, 타격은 받아친다.
-        if (free && shot && !shot.still && plan.dodge && this.chance(.6)) this.queue = [...this.special(me, plan.dodge, toward, 1), ...hold(frame(), 6)];
-        else if (free && !shot && plan.parry && !om.isSuper && dist < (om.box?.[2] > 200 ? 380 : 220) && this.chance(.35)) this.queue = [...this.special(me, plan.parry, toward, 1), ...hold(frame(), 4)];
-        else if (free && !shot && plan.shove && om.move && !om.isSuper && dist < 280 && this.chance(.5)) this.queue = [...this.special(me, plan.shove, toward, 1), ...hold(frame(), 4)];
+        if (free && shot && !shot.still && plan.dodge && this.chance(.1 + .7 * this.level)) this.queue = [...this.special(me, plan.dodge, toward, 1), ...hold(frame(), 6)];
+        else if (free && !shot && plan.parry && !om.isSuper && dist < (om.box?.[2] > 200 ? 380 : 220) && this.chance(.5 * this.level)) this.queue = [...this.special(me, plan.parry, toward, 1), ...hold(frame(), 4)];
+        else if (free && !shot && plan.shove && om.move && !om.isSuper && dist < 280 && this.chance(.7 * this.level)) this.queue = [...this.special(me, plan.shove, toward, 1), ...hold(frame(), 4)];
         // 곧게 날아오는 장풍은 앞으로 뛰어넘기도 한다.
-        else if (free && grounded(me) && shot && !shot.still && !shot.g && shot.h < 100 && Math.abs(shot.x - me.x) > 130 && this.chance(.4)) this.queue = [...hold(frame(toward, -1), 4), ...hold(frame(), 20), frame(0, 0, 'k'), ...hold(frame(), 14)];
-        else { this.guard = 26; this.guardLow = shot ? shot.data.guard === 'low' : om.guard === 'low' || puddle; }
+        else if (free && grounded(me) && shot && !shot.still && !shot.g && shot.h < 100 && Math.abs(shot.x - me.x) > 130 && this.chance(.15 + .4 * this.level)) this.queue = [...hold(frame(toward, -1), 4), ...hold(frame(), 20), frame(0, 0, 'k'), ...hold(frame(), 14)];
+        else {
+          // 위아래 읽기도 단계만큼만 맞힌다. 틀리면 반대로 막다가 맞는다.
+          const low = shot ? shot.data.guard === 'low' : om.guard === 'low' || puddle;
+          this.guard = 26; this.guardLow = this.chance(.5 + .5 * this.level) ? low : !low;
+        }
       }
     }
     if (!threat) this.seenAttack = null;
@@ -127,25 +134,27 @@ export class CpuBrain {
 
     // 상대가 가까이에서 경직에 걸렸으면(채찍에 끌려왔을 때 등) 쉬지 않고 주먹 연타로 잇는다. 이것도 한 번만 정한다.
     const open = opp.state === 'hit' && dist < 150;
-    if (open && !this.seenHit && free && !this.queue.some(input => input.x || input.y || input.p || input.k) && this.chance(.3 + .6 * this.level)) this.queue = this.jabs(me);
+    if (open && !this.seenHit && free && !this.queue.some(input => input.x || input.y || input.p || input.k) && this.chance(.1 + .7 * this.level)) this.queue = this.jabs(me);
     this.seenHit = open;
 
     if (this.queue.length) return this.queue.shift();
     if (!free || !grounded(me)) return frame();
 
     // 대공: 뛰어 들어오는 상대를 대공기로 받는다.
-    if (plan.anti && opp.state === 'jump' && opp.vy > 0 && dist < 190 && this.chance(.03 + .1 * this.level)) {
+    if (plan.anti && opp.state === 'jump' && opp.vy > 0 && dist < 190 && this.chance(.14 * this.level)) {
       this.queue = [...this.special(me, plan.anti, toward, 1), ...hold(frame(), 8)];
       return this.queue.shift();
     }
     // 잡으러 오는 상대는 뛰어서 피한다.
-    if (om?.grab && opp.t <= om.startup && dist < om.grab.range + 40 && this.chance(.1 + .25 * this.level)) {
+    if (om?.grab && opp.t <= om.startup && dist < om.grab.range + 40 && this.chance(.35 * this.level)) {
       this.queue = [...hold(frame(-toward, -1), 4), ...hold(frame(), 24)];
       return this.queue.shift();
     }
 
-    const pause = hold(frame(), 22 - 16 * this.level + this.random() * 10);
-    if (me.meter >= 100 && dist < plan.superAt && this.chance(.5)) {
+    // 한 번 움직인 뒤 쉬는 시간. 쉬운 단계는 1초 넘게 틈을 준다.
+    const slack = 1 - this.level;
+    const pause = hold(frame(), 14 + 50 * slack * slack + this.random() * (8 + 12 * slack));
+    if (me.meter >= 100 && dist < plan.superAt && this.chance(.15 + .5 * this.level)) {
       this.queue = [...(this.chance(.5) ? [frame(0, 0, 'pk'), frame()] : motion('236236', 'p', toward)), ...pause];
       return this.queue.shift();
     }
@@ -157,16 +166,21 @@ export class CpuBrain {
     const total = me.hp + opp.hp;
     if (total !== this.lastTotal) { this.lastTotal = total; this.quiet = sim.frame; }
     const stalled = dist > 170 && sim.frame - this.quiet > 200;
+    // 쉬운 단계는 가끔 멍하니 서 있거나 물러선다.
+    const dither = this.chance(.36 - .6 * this.level);
     let action = trap && this.chance(.4 + .5 * this.level) ? 'jump'
       : stalled ? (this.chance(.75) ? 'walk' : 'jump')
+      : dither ? (this.chance(.6) ? 'wait' : 'back')
       : this.pick(dist > 400 ? plan.far : dist > closeAt ? plan.mid : plan.close, dist, sim, me);
     // 장풍을 받아 마시는 상대에게는 장풍 대신 걸어 들어간다.
+    // 쉬운 단계는 주먹에서 필살기로 잇는 연속기를 잘 못 쓴다.
+    if (action[0] === '+' && !this.chance(.15 + 1.5 * this.level)) action = 'jabs';
     if (opp.char.absorb && '@+'.includes(action[0]) && me.char.moves[action.slice(1)].spawn?.speed && this.chance(.7)) action = dist > closeAt ? 'walk' : 'jabs';
     const press = (buttons, x = 0, y = 0) => [frame(x, y, buttons), frame(x, y)];
     switch (action) {
       case 'walk': this.queue = hold(frame(toward), dist > 400 ? 22 : 12); break;
       case 'back': this.queue = hold(frame(-toward), 16); break;
-      case 'wait': this.queue = hold(frame(), 14); break;
+      case 'wait': this.queue = hold(frame(), dither ? 26 : 14); break;
       case 'jump': this.queue = [...hold(frame(toward, -1), 4), ...hold(frame(), 20), frame(0, 0, 'k'), ...hold(frame(), 14)]; break;
       case 'dive': this.queue = [...hold(frame(toward, -1), 4), ...hold(frame(), Math.max(8, Math.min(22, (dist - 140) / 6.2))), ...press('k', 0, 1), ...hold(frame(), 18)]; break;
       case 'jabs': this.queue = [...this.jabs(me), ...pause]; break;

@@ -11,7 +11,8 @@ const params = new URLSearchParams(location.search);
 const $ = id => document.getElementById(id);
 const stage = $('stage'), renderer = new Renderer($('game'), { debug: params.has('debug') });
 const SCENES = ['title', 'select', 'vs', 'quiz', 'result'];
-const STEP = 1000 / 60, WINS_NEEDED = 2, CPU_LEVELS = [.35, .5, .7];
+// 아케이드 단계별 CPU 실력(0 쉬움~1 어려움)과 주먹 세기. 첫 판은 기술을 익히는 판이라 덜 막고 덜 아프게 때린다.
+const STEP = 1000 / 60, WINS_NEEDED = 2, CPU_LEVELS = [.04, .14, .26, .38], CPU_POWER = [.75, .85, .95, 1];
 const READ_FRAMES = 120, ANSWER_FRAMES = 720, DIRS = ['up', 'left', 'right', 'down'];
 // 받침이 있으면 앞, 없으면 뒤 조사를 붙인다. josa('췌장', '은', '는') → '췌장은'
 const josa = (word, withFinal, without) => word + ((word.charCodeAt(word.length - 1) - 0xac00) % 28 ? withFinal : without);
@@ -52,7 +53,8 @@ function go(name) {
 
 function play(event) {
   switch (event.type) {
-    case 'hit': if (event.ko) sfx.ko(); else sfx.hit(event.heavy); break;
+    case 'hit': if (event.ko) sfx.ko(); else { sfx.hit(event.heavy); if (event.special || event.sup) sfx.accent(event.char); } break;
+    case 'special': sfx.special(event.key); break;
     case 'swing': sfx.swing(event.heavy); break;
     case 'land': sfx.land(event.heavy); break;
     case 'timeup': sfx.round(); break;
@@ -235,7 +237,8 @@ const scenes = {
       sim = new Sim(CHARS[game.picks[0]], CHARS[opponent()], { seconds: versus() ? 45 : 60 });
       sim.arena = arenaOf(game.picks[0], opponent());
       sim.f.forEach((f, i) => { f.potion = game.potion[i]; });
-      cpu = [DBG.cpu[0] ? cpuController(.6, 0) : null, versus() ? (DBG.cpu[1] ? cpuController(.6, 1) : null) : cpuController(CPU_LEVELS[game.stage] ?? .7, 1)];
+      if (!versus()) sim.adv[1] *= CPU_POWER[game.stage] ?? 1;
+      cpu = [DBG.cpu[0] ? cpuController(.6, 0) : null, versus() ? (DBG.cpu[1] ? cpuController(.6, 1) : null) : cpuController(CPU_LEVELS[game.stage] ?? .4, 1)];
       overTick = 0; resetStage(); sfx.round();
     },
     tick(inp) {

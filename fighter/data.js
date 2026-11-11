@@ -34,7 +34,7 @@ const hyper = (pose, startup, active, recovery, rest = {}) => sp(pose, startup, 
 export const TYPES = { sugar: '당', fat: '지방', salt: '소금', overeat: '과식' };
 
 // cmds: [커맨드, 버튼, 기술] 을 우선순위 순서로(긴 커맨드 먼저). 커맨드는 바라보는 쪽 기준 숫자패드 표기.
-// commands: 고르기 화면에 보여 줄 기술표(오른쪽을 볼 때 기준).
+// commands: 고르기 화면에 보여 줄 기술표(오른쪽을 볼 때 기준). key는 moves의 기술 키로, 발동할 때 이름을 띄우는 데 쓴다.
 const SUPER_CMD = '↓ → ↓ → + 주먹';
 export const CHARS = {
   heart: {
@@ -49,10 +49,10 @@ export const CHARS = {
     },
     cmds: [['623', 'p', 'upper'], ['236', 'p', 'rush'], ['214', 'k', 'weave']],
     commands: [
-      { name: '박동 연타', cmd: '↓ → + 주먹', note: '달려들며 세 번 때려요' },
-      { name: '수축 어퍼', cmd: '→ ↓ → + 주먹', note: '뛰어오르는 상대를 받아쳐요' },
-      { name: '위빙 스텝', cmd: '↓ ← + 킥', note: '장풍 밑으로 파고들어요' },
-      { name: '심박 폭주', cmd: SUPER_CMD, note: '초필살기' },
+      { key: 'rush', name: '박동 연타', cmd: '↓ → + 주먹', note: '달려들며 세 번 때려요' },
+      { key: 'upper', name: '수축 어퍼', cmd: '→ ↓ → + 주먹', note: '뛰어오르는 상대를 받아쳐요' },
+      { key: 'weave', name: '위빙 스텝', cmd: '↓ ← + 킥', note: '장풍 밑으로 파고들어요' },
+      { key: 'super', name: '심박 폭주', cmd: SUPER_CMD, note: '초필살기' },
     ],
   },
   kidney: {
@@ -67,10 +67,10 @@ export const CHARS = {
     },
     cmds: [['22', 'p', 'lob'], ['236', 'p', 'cast'], ['214', 'p', 'barrier']],
     commands: [
-      { name: '물방울 탄', cmd: '↓ → + 주먹', note: '곧게 날아가는 장풍이에요' },
-      { name: '여과막', cmd: '↓ ← + 주먹', note: '장풍을 되돌리고, 버티며 오는 상대도 밀어내요' },
-      { name: '결석 던지기', cmd: '↓ ↓ + 주먹', note: '포물선으로 떨어져요. 서서 막아야 해요' },
-      { name: '대홍수', cmd: SUPER_CMD, note: '초필살기' },
+      { key: 'cast', name: '물방울 탄', cmd: '↓ → + 주먹', note: '곧게 날아가는 장풍이에요' },
+      { key: 'barrier', name: '여과막', cmd: '↓ ← + 주먹', note: '장풍을 되돌리고, 버티며 오는 상대도 밀어내요' },
+      { key: 'lob', name: '결석 던지기', cmd: '↓ ↓ + 주먹', note: '포물선으로 떨어져요. 서서 막아야 해요' },
+      { key: 'super', name: '대홍수', cmd: SUPER_CMD, note: '초필살기' },
     ],
   },
   liver: {
@@ -85,10 +85,10 @@ export const CHARS = {
     },
     cmds: [['426', 'p', 'grab'], ['22', 'k', 'stomp'], ['236', 'k', 'charge']],
     commands: [
-      { name: '해독 슬램', cmd: '← ↓ → + 주먹', note: '가드를 무시하고 잡아 메쳐요' },
-      { name: '돌진 박치기', cmd: '↓ → + 킥', note: '한 대 맞아도 버티며 들이받아요' },
-      { name: '지면 강타', cmd: '↓ ↓ + 킥', note: '바닥 충격파예요. 앉아서 막아야 해요' },
-      { name: '대해독', cmd: SUPER_CMD, note: '초필살기. 달려가 잡아요' },
+      { key: 'grab', name: '해독 슬램', cmd: '← ↓ → + 주먹', note: '가드를 무시하고 잡아 메쳐요' },
+      { key: 'charge', name: '돌진 박치기', cmd: '↓ → + 킥', note: '한 대 맞아도 버티며 들이받아요' },
+      { key: 'stomp', name: '지면 강타', cmd: '↓ ↓ + 킥', note: '바닥 충격파예요. 앉아서 막아야 해요' },
+      { key: 'super', name: '대해독', cmd: SUPER_CMD, note: '초필살기. 달려가 잡아요' },
     ],
   },
   pancreas: {
@@ -104,10 +104,10 @@ export const CHARS = {
     },
     cmds: [['623', 'p', 'rising'], ['236', 'p', 'lunge'], ['214', 'p', 'stance']],
     commands: [
-      { name: '인슐린 찌르기', cmd: '↓ → + 주먹', note: '멀리까지 두 번 찔러요' },
-      { name: '받아치기', cmd: '↓ ← + 주먹', note: '맞는 순간 흘리고 되받아쳐요. 장풍도 흘려요' },
-      { name: '올려 베기', cmd: '→ ↓ → + 주먹', note: '높이 닿는 대공기예요' },
-      { name: '인슐린 난무', cmd: SUPER_CMD, note: '초필살기' },
+      { key: 'lunge', name: '인슐린 찌르기', cmd: '↓ → + 주먹', note: '멀리까지 두 번 찔러요' },
+      { key: 'stance', name: '받아치기', cmd: '↓ ← + 주먹', note: '맞는 순간 흘리고 되받아쳐요. 장풍도 흘려요' },
+      { key: 'rising', name: '올려 베기', cmd: '→ ↓ → + 주먹', note: '높이 닿는 대공기예요' },
+      { key: 'super', name: '인슐린 난무', cmd: SUPER_CMD, note: '초필살기' },
     ],
   },
   soda: {
@@ -124,11 +124,11 @@ export const CHARS = {
     cmds: [['623', 'p', 'burst'], ['236', 'p', 'spray'], ['214', 'k', 'slip']],
     airCmd: ['k', 'dive'],
     commands: [
-      { name: '탄산 분사', cmd: '↓ → + 주먹', note: '가까이에서 여러 번 맞아요' },
-      { name: '흔들어 폭발', cmd: '→ ↓ → + 주먹', note: '몸 둘레가 터져요. 잠깐 무적이에요' },
-      { name: '급강하 킥', cmd: '공중에서 ↓ + 킥', note: '비스듬히 내리꽂아요' },
-      { name: '거품 슬립', cmd: '↓ ← + 킥', note: '상대를 지나 뒤로 미끄러져요' },
-      { name: '탄산 간헐천', cmd: SUPER_CMD, note: '초필살기' },
+      { key: 'spray', name: '탄산 분사', cmd: '↓ → + 주먹', note: '가까이에서 여러 번 맞아요' },
+      { key: 'burst', name: '흔들어 폭발', cmd: '→ ↓ → + 주먹', note: '몸 둘레가 터져요. 잠깐 무적이에요' },
+      { key: 'dive', name: '급강하 킥', cmd: '공중에서 ↓ + 킥', note: '비스듬히 내리꽂아요' },
+      { key: 'slip', name: '거품 슬립', cmd: '↓ ← + 킥', note: '상대를 지나 뒤로 미끄러져요' },
+      { key: 'super', name: '탄산 간헐천', cmd: SUPER_CMD, note: '초필살기' },
     ],
   },
   fries: {
@@ -143,10 +143,10 @@ export const CHARS = {
     },
     cmds: [['623', 'p', 'spear'], ['236', 'k', 'slide'], ['214', 'p', 'drop']],
     commands: [
-      { name: '기름 슬라이딩', cmd: '↓ → + 킥', note: '바닥으로 미끄러져 넘어뜨려요. 앉아서 막아야 해요' },
-      { name: '기름 웅덩이', cmd: '↓ ← + 주먹', note: '바닥에 3초 남아요. 밟으면 미끄러져요' },
-      { name: '감자 솟구침', cmd: '→ ↓ → + 주먹', note: '위로 길게 찌르는 대공기예요' },
-      { name: '기름 쓰나미', cmd: SUPER_CMD, note: '초필살기' },
+      { key: 'slide', name: '기름 슬라이딩', cmd: '↓ → + 킥', note: '바닥으로 미끄러져 넘어뜨려요. 앉아서 막아야 해요' },
+      { key: 'drop', name: '기름 웅덩이', cmd: '↓ ← + 주먹', note: '바닥에 3초 남아요. 밟으면 미끄러져요' },
+      { key: 'spear', name: '감자 솟구침', cmd: '→ ↓ → + 주먹', note: '위로 길게 찌르는 대공기예요' },
+      { key: 'super', name: '기름 쓰나미', cmd: SUPER_CMD, note: '초필살기' },
     ],
   },
   ramen: {
@@ -161,10 +161,10 @@ export const CHARS = {
     },
     cmds: [['623', 'k', 'riser'], ['236', 'p', 'whip'], ['214', 'p', 'steam']],
     commands: [
-      { name: '면발 채찍', cmd: '↓ → + 주먹', note: '멀리서 맞히면 끌려와요. 앉으면 머리 위로 지나가요' },
-      { name: '김 뿜기', cmd: '↓ ← + 주먹', note: '앞에 김이 잠깐 남아 여러 번 맞아요' },
-      { name: '젓가락 올려차기', cmd: '→ ↓ → + 킥', note: '뛰어오르며 두 번 차요' },
-      { name: '면발 소용돌이', cmd: SUPER_CMD, note: '초필살기' },
+      { key: 'whip', name: '면발 채찍', cmd: '↓ → + 주먹', note: '멀리서 맞히면 끌려와요. 앉으면 머리 위로 지나가요' },
+      { key: 'steam', name: '김 뿜기', cmd: '↓ ← + 주먹', note: '앞에 김이 잠깐 남아 여러 번 맞아요' },
+      { key: 'riser', name: '젓가락 올려차기', cmd: '→ ↓ → + 킥', note: '뛰어오르며 두 번 차요' },
+      { key: 'super', name: '면발 소용돌이', cmd: SUPER_CMD, note: '초필살기' },
     ],
   },
   burger: {
@@ -179,10 +179,10 @@ export const CHARS = {
     },
     cmds: [['426', 'p', 'grab'], ['22', 'k', 'press'], ['236', 'k', 'roll']],
     commands: [
-      { name: '통구르기', cmd: '↓ → + 킥', note: '두 대까지 버티며 굴러가요' },
-      { name: '보디 프레스', cmd: '↓ ↓ + 킥', note: '뛰어올라 상대 위로 떨어져요. 서서 막아야 해요' },
-      { name: '치즈 잡기', cmd: '← ↓ → + 주먹', note: '멀리서도 잡아 메쳐요' },
-      { name: '대왕 압사', cmd: SUPER_CMD, note: '초필살기' },
+      { key: 'roll', name: '통구르기', cmd: '↓ → + 킥', note: '두 대까지 버티며 굴러가요' },
+      { key: 'press', name: '보디 프레스', cmd: '↓ ↓ + 킥', note: '뛰어올라 상대 위로 떨어져요. 서서 막아야 해요' },
+      { key: 'grab', name: '치즈 잡기', cmd: '← ↓ → + 주먹', note: '멀리서도 잡아 메쳐요' },
+      { key: 'super', name: '대왕 압사', cmd: SUPER_CMD, note: '초필살기' },
     ],
   },
 };
@@ -192,3 +192,6 @@ export const BOSS = 'burger';
 
 // 담당 장기가 그 속성 빌런에게 주는 피해 배율.
 export const advantage = (attacker, defender) => (attacker.strong && attacker.strong === defender.type ? 1.2 : 1);
+
+// 기술 키로 기술 이름을 찾는다(기술표에 없는 동작은 빈 문자열).
+export const moveName = (char, key) => char.commands.find(c => c.key === key)?.name || '';

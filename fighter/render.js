@@ -1,7 +1,7 @@
 // 그리기 총괄. 3D 무대(gfx/stage)에 인형(gfx/puppet)을 세우고, 효과(gfx/fx)와 화면 정보(gfx/hud)를 얹는다.
 // 캐릭터 조형은 gfx/chars*.js, 자세는 gfx/poses.js에 있다.
 import * as THREE from '../vendor/three.module.js';
-import { CHARS } from './data.js';
+import { CHARS, moveName } from './data.js';
 import { Stage } from './gfx/stage.js';
 import { Puppet } from './gfx/puppet.js';
 import { Fx } from './gfx/fx.js';
@@ -53,6 +53,13 @@ export class Renderer {
   resize() { const ratio = pixelRatio(); this.stage.setRatio(ratio); this.hud.resize(ratio); }
   reset() { this.hud.reset(); this.fx.clear(); this.shake = 0; }
 
+  // 기술을 내는 순간 머리 위에 기술 이름을 띄운다. 같은 선수의 앞 이름은 지워서 겹치지 않게 한다.
+  callout(event, color, size, life) {
+    const name = moveName(CHARS[event.char], event.key);
+    if (!name) return;
+    this.hud.texts = this.hud.texts.filter(t => t.owner !== event.side);
+    this.hud.say(name, event.x, event.y - 185, color, life, size).owner = event.side;
+  }
   onEvent(event) {
     this.fx.onEvent(event);
     const jolt = power => { this.shake = Math.max(this.shake, power); };
@@ -65,7 +72,8 @@ export class Renderer {
         break;
       case 'land': if (event.heavy) jolt(6); break;
       case 'slam': jolt(12); break;
-      case 'super': jolt(8); break;
+      case 'super': jolt(8); this.callout(event, '#ffd98a', 30, 56); break;
+      case 'special': this.callout(event, '#' + new THREE.Color(CHARS[event.char].color).lerp(new THREE.Color('#fff'), .55).getHexString(), 22, 40); break;
       case 'potion': this.hud.say('포션 +30%', event.x, event.y - 90, '#9dffb0', 70); break;
     }
   }
