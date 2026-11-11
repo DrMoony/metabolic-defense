@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>모델 살펴보기</title>
+<style>html,body{margin:0;background:#120611;overflow:hidden}canvas{display:block;width:1280px;height:720px}</style>
+<canvas id="c" width="1280" height="720"></canvas>
+<script type="module">
+// 개발용 살펴보기 화면. ?c=heart&d=soda&pose=punch&t=8&still=1&w=700
+import { Stage } from './stage.js';
+import { Puppet } from './puppet.js';
+import { MODELS } from './chars.js';
+const q = new URLSearchParams(location.search), stage = new Stage(document.getElementById('c'), { ratio: +q.get('ratio') || 1 });
+const STATES = ['idle', 'walk', 'crouch', 'prejump', 'jump', 'block', 'hit', 'held', 'air', 'down', 'getup', 'win'];
+const fake = (id, side) => {
+  const pose = (side ? q.get('pd') : q.get('pose')) || 'idle', state = STATES.includes(pose) ? pose : 'attack';
+  return { char: { id }, side, x: +(q.get(side ? 'xb' : 'xa') || (side ? 800 : 480)), y: state === 'jump' || state === 'air' ? -120 : 0, vx: 0, vy: 0, facing: side ? -1 : 1, state, t: +(q.get('t') || 8), flash: 0,
+    move: state === 'attack' ? { pose, startup: 6, active: 4, recovery: 14 } : null };
+};
+const ids = (q.has('solo') ? [q.get('c') || 'heart'] : [q.get('c') || 'heart', q.get('d') || 'soda']).filter(id => MODELS[id]);
+if (q.has('turn')) ids.forEach(id => { MODELS[id].stance.turn = +q.get('turn'); });
+const t0 = performance.now();
+const fighters = ids.map(fake), puppets = ids.map(id => new Puppet(id));
+puppets.forEach(p => stage.scene.add(p.root));
+console.log('built in', Math.round(performance.now() - t0), 'ms');
+let frame = +(q.get('f') || 0);
+const still = q.has('still');
+function tick() {
+  if (!still) { frame++; fighters.forEach(f => { if (f.state === 'attack' && q.has('loop')) f.t = frame % 40; }); }
+  puppets.forEach((p, i) => p.update(fighters[i], frame));
+  if (q.has('w')) { stage.view.w = +q.get('w'); stage.view.x = +(q.get('x') || 0); stage.aim(); }
+  else stage.follow(fighters[0].x, fighters[fighters.length - 1].x, 200, frame < 3);
+  stage.flow(1); stage.render();
+  window.LAB = { ready: true, frame };
+  requestAnimationFrame(tick);
+}
+tick();
+</script>

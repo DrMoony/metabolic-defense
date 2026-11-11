@@ -27,7 +27,7 @@ bank.load(clean(params.get('bank'), 'quiz_dm_empa'), clean(params.get('lang'), '
   .catch(error => console.warn('문제은행을 읽지 못해 퀴즈 없이 진행해요.', error));
 
 const fit = () => { stage.style.transform = `translate(-50%,-50%) scale(${Math.min(innerWidth / 1280, innerHeight / 720)})`; };
-addEventListener('resize', fit); fit();
+addEventListener('resize', () => { fit(); renderer.resize(); }); fit();
 
 const pads = [0, 1].map(player => new Controller(() => readPlayer(player)));
 const game = { scene: '', t: 0, mode: 'arcade', picks: ['heart', 'liver'], wins: [0, 0], round: 1, stage: 0, ladder: [], score: 0, quizRight: 0, quizCount: 0, potion: [false, false] };
@@ -54,6 +54,11 @@ function play(event) {
     case 'swing': sfx.swing(event.heavy); break;
     case 'land': sfx.land(event.heavy); break;
     case 'timeup': sfx.round(); break;
+    case 'armor': sfx.block(); break;
+    case 'counter': case 'reflect': sfx.clash(); break;
+    case 'grab': sfx.swing(true); break;
+    case 'slam': sfx.land(true); break;
+    case 'splash': sfx.land(false); break;
     default: sfx[event.type]?.();
   }
 }
@@ -61,7 +66,7 @@ function stepSim(inputs, loud) {
   sim.step(inputs);
   for (const event of sim.events) { renderer.onEvent(event); if (loud) play(event); }
 }
-function resetStage() { renderer.lag = [1, 1]; renderer.particles = []; renderer.texts = []; renderer.shake = 0; renderer.flash = 0; }
+function resetStage() { renderer.reset(); }
 
 // 처음 화면 뒤에서 도는 CPU 대 CPU 시범 경기.
 function startDemo() {
@@ -77,7 +82,7 @@ function buildCards() {
   $('cards').replaceChildren(...ORGANS.map((id, index) => {
     const char = CHARS[id], card = document.createElement('div'), foe = strongAgainst(char.strong);
     card.className = 'card';
-    card.innerHTML = `<div class="tags"><i class="t0">1P</i><i class="t1">2P</i></div><canvas width="240" height="264"></canvas><strong>${char.name}</strong><small>${char.en}</small><p>${char.trait}</p><em>${TYPES[char.strong]}에 강해요 (${foe.name})</em>`;
+    card.innerHTML = `<div class="tags"><i class="t0">1P</i><i class="t1">2P</i></div><canvas width="240" height="264"></canvas><strong>${char.name}</strong><small>${char.style}</small><p>${char.trait}</p><ul class="cmds">${char.commands.map(c => `<li><span>${c.name}</span><b>${c.cmd}</b></li>`).join('')}</ul><em>${TYPES[char.strong]}에 강해요 (${foe.name})</em>`;
     drawPortrait(card.querySelector('canvas'), char);
     card.addEventListener('click', () => { if (game.scene === 'select' && !versus() && !sel.ready[0]) { sel.cursor[0] = index; confirmPick(0); } });
     return card;
@@ -258,7 +263,8 @@ const scenes = {
         face = cleared ? game.picks[0] : opponent();
         stats.push(['점수', game.score.toLocaleString('ko-KR')], ['돌파한 스테이지', `${game.stage} / ${game.ladder.length}`], ['퀴즈 정답', `${game.quizRight} / ${game.quizCount}`]);
       }
-      drawPortrait($('resultArt'), CHARS[face]);
+      drawPortrait($('resultArt'), CHARS[face], 'win');
+      $('resultLabel').textContent = versus() ? 'VERSUS' : game.stage >= game.ladder.length ? 'ALL CLEAR' : 'GAME OVER';
       $('resultTitle').textContent = title; $('resultSub').textContent = sub;
       $('resultStats').innerHTML = stats.map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join('');
       sfx.correct();
@@ -270,7 +276,7 @@ const scenes = {
 function tick() {
   const inp = pads.map(pad => pad.poll());
   if (enter) { if (game.scene !== 'fight') inp[0] = { ...inp[0], pp: true }; enter = false; }
-  idle = inp.some(i => i.x || i.y || i.p || i.k || i.s) ? 0 : idle + 1;
+  idle = inp.some(i => i.x || i.y || i.p || i.k) ? 0 : idle + 1;
   game.t++;
   scenes[game.scene].tick(inp);
 }
@@ -289,7 +295,8 @@ let last = performance.now(), acc = 0;
 function loop(now) {
   acc += Math.min(100, now - last); last = now;
   let steps = 0;
-  while (acc >= STEP && steps < 5) { tick(); acc -= STEP; steps++; }
+  while (acc >= STEP && steps < 5 && !DBG.pause) { tick(); acc -= STEP; steps++; if (DBG.watch?.()) DBG.pause = true; }
+  if (DBG.pause) renderer.last = performance.now();
   if (steps === 5) acc = 0;
   draw();
   requestAnimationFrame(loop);

@@ -4,6 +4,7 @@
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#120611;color:var(--cream);font-family:"Apple SD Gothic Neo","Malgun Gothic",Inter,sans-serif}
 #stage{position:absolute;left:50%;top:50%;width:1280px;height:720px;transform:translate(-50%,-50%);overflow:hidden;background:var(--ink);user-select:none}
 canvas#game{display:block;width:1280px;height:720px}
+#hud{position:absolute;inset:0;width:1280px;height:720px;pointer-events:none}
 [hidden]{display:none!important}
 .overlay{position:absolute;inset:0}
 h1,h2,p,ul,ol,dl,dd,table{margin:0;padding:0}
@@ -33,15 +34,20 @@ h1{font-size:104px;line-height:1.02;font-weight:900;letter-spacing:-.04em;color:
 .note{margin-top:14px;font-size:13px;color:var(--muted)}
 
 /* 캐릭터 고르기 */
-#select{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:#1d0b19b8}
+#select{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:#1d0b19b8}
 h2{font-size:44px;font-weight:900;letter-spacing:-.03em;color:var(--gold)}
 .cards{display:grid;grid-template-columns:repeat(4,250px);gap:18px}
-.card{position:relative;padding:14px 16px 18px;border:2px solid #ffe0a02e;border-radius:8px;background:linear-gradient(160deg,#4b263bee,#241425f5);text-align:center;cursor:pointer;transition:transform .25s var(--ease),border-color .25s var(--ease)}
-.card canvas{width:200px;height:220px}
+.card{position:relative;padding:10px 16px 14px;border:2px solid #ffe0a02e;border-radius:8px;background:linear-gradient(160deg,#4b263bee,#241425f5);text-align:center;cursor:pointer;transition:transform .25s var(--ease),border-color .25s var(--ease)}
+.card canvas{width:176px;height:194px}
 .card strong{display:block;font-size:30px;font-weight:900}
-.card small{display:block;margin:2px 0 10px;font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--muted)}
-.card p{min-height:42px;font-size:14px;line-height:1.5;color:var(--cream)}
-.card em{display:block;margin-top:10px;padding-top:10px;border-top:1px solid #ffe0a033;font-style:normal;font-size:14px;color:var(--good)}
+.card small{display:block;margin:2px 0 8px;font-size:13px;font-weight:800;letter-spacing:.04em;color:var(--gold)}
+.card p{min-height:40px;font-size:13px;line-height:1.5;color:var(--cream);word-break:keep-all}
+.card .cmds{margin-top:8px;padding-top:8px;border-top:1px solid #ffe0a033;font-size:12.5px;line-height:1.75;text-align:left}
+.card .cmds li{display:flex;justify-content:space-between;gap:8px}
+.card .cmds span{color:var(--muted)}
+.card .cmds b{font-weight:700;color:var(--cream);white-space:nowrap}
+.card .cmds li:last-child b,.card .cmds li:last-child span{color:#7cf0ff}
+.card em{display:block;margin-top:8px;padding-top:8px;border-top:1px solid #ffe0a033;font-style:normal;font-size:14px;color:var(--good)}
 .card.c0,.card.c1{transform:translateY(-10px);border-color:var(--gold)}
 .card .tags{position:absolute;top:-15px;left:0;right:0;display:flex;justify-content:center;gap:6px}
 .card .tags i{display:none;padding:4px 12px;border-radius:5px;font:900 14px/1.2 inherit;font-style:normal;color:var(--ink)}
@@ -88,9 +94,14 @@ h2{font-size:44px;font-weight:900;letter-spacing:-.03em;color:var(--gold)}
 .quiz-exp{min-height:52px;margin-top:6px;font-size:16px;line-height:1.6;color:var(--cream);word-break:keep-all}
 
 /* 결과 */
-#result{display:flex;align-items:center;justify-content:center;gap:60px;background:#1d0b19d1}
-.result-copy{width:560px}
-#resultSub{margin:10px 0 22px;font-size:22px}
+#result{display:flex;align-items:center;justify-content:center;gap:50px;background:#1d0b19d1}
+.result-art{position:relative;flex:none;width:480px;height:497px}
+.result-art::before{content:"";position:absolute;inset:6% -4% 2%;border-radius:50%;background:radial-gradient(closest-side,#ffe0a038,#ff8fb81a 55%,#0000)}
+.result-art::after{content:"";position:absolute;left:12%;right:12%;bottom:-8px;height:34px;border-radius:50%;background:radial-gradient(closest-side,#0a0308b0,#0000)}
+.result-art canvas{position:relative;z-index:1;width:100%;height:100%}
+.result-copy{width:580px}
+#resultTitle{margin-top:8px;font-size:58px;line-height:1.15;word-break:keep-all}
+#resultSub{margin:12px 0 26px;font-size:24px}
 #resultStats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:26px}
 #resultStats div{padding:14px 16px;border:1px solid #ffe0a033;border-radius:8px;background:#2a1226cc}
 #resultStats dt{font-size:13px;color:var(--muted)}

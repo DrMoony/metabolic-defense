@@ -3,13 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>메타볼릭 파이터 (시제품)</title>
+<title>메타볼릭 파이터</title>
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="stage">
   <canvas id="game" width="1280" height="720"></canvas>
+  <canvas id="hud" width="1280" height="720"></canvas>
 
   <section id="title" class="overlay">
     <div class="title-copy">
@@ -28,15 +29,14 @@
           <tr><th>이동, 점프, 앉기</th><td><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></td><td><kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd></td></tr>
           <tr><th>주먹</th><td><kbd>F</kbd></td><td><kbd>K</kbd></td></tr>
           <tr><th>킥</th><td><kbd>G</kbd></td><td><kbd>L</kbd></td></tr>
-          <tr><th>필살기</th><td><kbd>H</kbd></td><td><kbd>;</kbd></td></tr>
         </tbody>
       </table>
       <dl>
-        <div><dt>장풍</dt><dd>필살기, 또는 ↓↘→ + 주먹</dd></div>
-        <div><dt>대공기</dt><dd>↓ + 필살기, 또는 →↓↘ + 주먹</dd></div>
-        <div><dt>돌진</dt><dd>→ + 필살기, 또는 ↓↙← + 킥</dd></div>
+        <div><dt>필살기</dt><dd>방향을 차례로 넣고 주먹이나 킥을 눌러요</dd></div>
+        <div><dt>예시</dt><dd>↓ → + 주먹, ← ↓ → + 주먹 (오른쪽을 볼 때)</dd></div>
+        <div><dt>기술표</dt><dd>캐릭터마다 기술이 달라서 고르는 화면에서 보여 줘요</dd></div>
         <div><dt>연속기</dt><dd>주먹 연타, 맞힌 뒤 킥이나 필살기로 이어요</dd></div>
-        <div><dt>초필살기</dt><dd>게이지가 가득 차면 주먹 + 킥</dd></div>
+        <div><dt>초필살기</dt><dd>게이지가 가득 차면 ↓ → ↓ → + 주먹, 또는 주먹 + 킥</dd></div>
         <div><dt>가드, 잡기</dt><dd>뒤로 당기면 가드, 붙어서 → + 주먹은 잡기</dd></div>
       </dl>
       <p class="note">조이스틱(게임패드)을 꽂으면 첫 번째가 1P, 두 번째가 2P예요.</p>
@@ -76,8 +76,9 @@
   </section>
 
   <section id="result" class="overlay" hidden>
-    <canvas id="resultArt" width="280" height="290"></canvas>
+    <div class="result-art"><canvas id="resultArt" width="480" height="497"></canvas></div>
     <div class="result-copy">
+      <p class="label" id="resultLabel"></p>
       <h2 id="resultTitle"></h2>
       <p id="resultSub"></p>
       <dl id="resultStats"></dl>
@@ -85,7 +86,7 @@
     </div>
   </section>
 
-  <p id="proto">시제품이에요. 캐릭터 그림은 임시 도형이에요.</p>
+  <p id="proto">시제품이에요. 기술 수치와 균형은 계속 다듬고 있어요.</p>
 </div>
 <script type="module" src="main.js"></script>
 </body>
