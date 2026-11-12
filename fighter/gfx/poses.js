@@ -1,5 +1,6 @@
 // 자세 사전. 시뮬 상태(f.state, f.move.pose, f.t)를 몸통 위치·기울기와 손발 목표점으로 바꾼다.
 // 좌표는 발밑 기준: x 앞(상대 쪽), y 위, z 화면 쪽. lean은 앞으로 숙이는 각(라디안), turn은 몸을 상대 쪽으로 돌린 각(도).
+import { REACH, PACE } from '../data.js';
 const lerp = (a, b, k) => a + (b - a) * k;
 const smooth = k => k * k * (3 - 2 * k);
 const easeOut = k => 1 - (1 - k) * (1 - k);
@@ -185,7 +186,7 @@ export function poseFor(f, frame, model) {
   switch (f.state) {
     case 'idle': idle(); break;
     case 'walk': {
-      const back = f.vx * f.facing < 0, w = Math.sin(frame * .34) * (back ? -1 : 1);
+      const back = f.vx * f.facing < 0, w = Math.sin(frame * .34 * PACE) * (back ? -1 : 1);
       P.ff[0] += w * 22; P.ff[1] = Math.max(0, w) * 14; P.fb[0] -= w * 22; P.fb[1] = Math.max(0, -w) * 14;
       P.by += Math.abs(w) * 4 + bob * .4; P.lean += back ? -.05 : .06; P.hf[0] -= w * 6; P.hb[0] += w * 6;
       break;
@@ -209,6 +210,8 @@ export function poseFor(f, frame, model) {
       const Q = make(c);
       // 몸을 키운 캐릭터는 멀리 뻗는 손발만 판정 길이에 맞춰 줄인다.
       if (S.far) for (const key of LIMBS) if (Q[key] && Q[key][0] > 100) Q[key] = [Q[key][0] * S.far, Q[key][1] * S.far, Q[key][2]];
+      // 판정을 REACH만큼 늘린 만큼 앞으로 뻗는 손발도 같이 뻗는다.
+      for (const key of LIMBS) if (Q[key] && Q[key][0] > 60) Q[key] = [Q[key][0] * REACH, Q[key][1], Q[key][2]];
       P.eyes = 'fierce'; P.mouth = c.k > .3 ? 'open' : 'grit'; P.rate = .7;
       if (m.crouch) put(crouched(S));
       if (Q.raw) { const fade = !Q.hold && f.t > (m.startup || 0) + (m.active ?? 0) ? clamp01(c.k) : 1; blend(P, Q, fade); }

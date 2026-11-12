@@ -4,6 +4,7 @@ import { mesh as sdfMesh } from './sdf.js';
 import { MODELS, PARTS, PROPS, INK } from './chars.js';
 import { poseFor, blend } from './poses.js';
 import { built, stamp, material } from './models.js';
+import { REACH } from '../data.js';
 
 const RAD = Math.PI / 180;
 const lin = v => (v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
@@ -322,7 +323,7 @@ export class Puppet {
     for (const [key, side] of [['hf', 1], ['hb', -1]]) {
       this.anchor(sx * side, sy, sz, A); B.set(...P[key]);
       // 고무 팔이라 늘어나긴 하지만 한도를 넘으면 손을 당겨 온다.
-      const far = B.distanceTo(A), most = reach * (M.stretch || 1.6);
+      const far = B.distanceTo(A), most = reach * (M.stretch || 1.6) * REACH;
       if (far > most) B.sub(A).multiplyScalar(most / far).add(A);
       this.limb(this.hoses[key], A, B, reach, -.35, -1, -.5 * side, M.arm[0], M.arm[1]);
       const hand = this.hands[key];
@@ -333,7 +334,7 @@ export class Puppet {
       this.anchor(hx * side, hy, hz, A);
       const foot = this.feet[key], p = B.set(...P[key]), lift = clamp(p.y / 14, 0, 1), ankle = M.ankle || 15;
       // 다리도 한도까지만 늘어난다.
-      const far = p.distanceTo(A), most = stride * (M.legStretch || 1.7);
+      const far = p.distanceTo(A), most = stride * (M.legStretch || 1.7) * REACH;
       if (far > most) p.sub(A).multiplyScalar(most / far).add(A);
       const px = p.x, py = p.y, pz = p.z;
       V.set(px - A.x, py + ankle - A.y, pz - A.z).normalize();

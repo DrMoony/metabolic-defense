@@ -1,5 +1,5 @@
 // 격투 판정. 화면·소리와 분리된 순수 계산이라 그림 방식(2D·2.5D)이 바뀌어도 그대로 쓴다.
-import { STAGE, advantage } from './data.js';
+import { STAGE, REACH, PACE, advantage } from './data.js';
 
 const GRAVITY = 1.05, HALF = 34, BUFFER = 10, EARLY = 6, JUGGLE_MAX = 3;
 const NEUTRAL_STATES = ['idle', 'walk', 'crouch'];
@@ -155,7 +155,7 @@ export class Sim {
         if (this.tryAttack(f, o, fx, down)) break;
         if (inp.y < 0) { f.state = 'prejump'; f.t = 0; f.jumpDir = inp.x; f.vx = 0; }
         else if (down) { f.state = 'crouch'; f.vx = 0; }
-        else if (fx) { f.state = 'walk'; f.vx = inp.x * f.char.walk * (fx > 0 ? 1 : .78); }
+        else if (fx) { f.state = 'walk'; f.vx = inp.x * f.char.walk * PACE * (fx > 0 ? 1 : .78); }
         else { f.state = 'idle'; f.vx = 0; }
         break;
       }
@@ -335,7 +335,11 @@ export class Sim {
     this.shots = this.shots.filter(shot => !shot.dead);
   }
   shotBox(shot) { return { x: shot.x - shot.w / 2, y: shot.y - shot.h / 2, w: shot.w, h: shot.h }; }
-  hitBox(f) { const [bx, by, bw, bh] = f.move.box; return { x: f.facing > 0 ? f.x + bx : f.x - bx - bw, y: f.y + by, w: bw, h: bh }; }
+  // 앞쪽 끝을 REACH만큼 더 뻗는다. 몸 뒤까지 감싸는 상자(앞 x가 음수)는 뒤쪽 끝도 같이 늘린다.
+  hitBox(f) {
+    const [x0, by, w0, bh] = f.move.box, bx = x0 < 0 ? x0 * REACH : x0, bw = (x0 + w0) * REACH - bx;
+    return { x: f.facing > 0 ? f.x + bx : f.x - bx - bw, y: f.y + by, w: bw, h: bh };
+  }
   hurtBox(f) {
     const low = f.state === 'crouch' || (f.state === 'attack' && f.move.crouch) || (f.state === 'block' && f.blockLow);
     const height = f.state === 'down' ? 50 : low ? 125 : grounded(f) ? 200 : 170;

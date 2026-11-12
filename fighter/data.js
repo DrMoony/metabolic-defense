@@ -1,5 +1,7 @@
 // 메타볼릭 파이터 시제품 — 캐릭터·기술 수치. 프레임은 60fps 기준.
 export const STAGE = { w: 1280, h: 720, left: 70, right: 1210, floor: 612 };
+// 몸으로 치는 기술의 판정 길이와 걷기 속도에 모두 곱하는 배율(2026-11-12 무니: "사거리가 짧고 움직임이 쪼금씩" → 30% 늘림).
+export const REACH = 1.3, PACE = 1.3;
 
 // 모두가 쓰는 기본기. 캐릭터마다 리치·속도·세기를 조정한 사본을 char.moves에 담는다.
 // box: [앞쪽 x, 발 기준 y(위가 음수), 너비, 높이]. guard: mid=서서·앉아 모두 막힘, low=앉아야 막힘, over=서야 막힘.
@@ -100,7 +102,7 @@ export const CHARS = {
     ], '대홍수'),
   },
   liver: {
-    id: 'liver', name: '간', en: 'LIVER', kind: 'organ', color: '#b0603f', dark: '#63301c', glove: '#f4d9c2', hp: 1240, walk: 4, jump: 19.5, air: 5, dmg: 1.16, regen: 0.07, strong: 'fat',
+    id: 'liver', name: '간', en: 'LIVER', kind: 'organ', color: '#b0603f', dark: '#63301c', glove: '#f4d9c2', hp: 1240, walk: 4, jump: 19.5, air: 5, dmg: 1.044, regen: 0.063, strong: 'fat',   // 2026-11-12 무니 "간이 너무 세" → 위력·회복 10%씩 내림(1.16·0.07)
     style: '잡기형 중량급', trait: '느리지만 붙으면 잡아 메쳐요. 체력이 조금씩 돌아와요',
     moves: {
       ...tuned({ slow: 2, power: 1.25 }),
@@ -108,7 +110,7 @@ export const CHARS = {
       charge: sp('charge', 12, 12, 24, { dmg: 112, blockstun: 15, push: 12, box: [16, -170, 96, 130], launch: [9, -9], move: 10, approach: 2, armor: [4, 24], heavy: true }),
       stomp:  sp('stomp', 15, 5, 24, { dmg: 95, blockstun: 14, box: [10, -46, 210, 46], guard: 'low', knockdown: true, heavy: true }),
       heave:  sp('heave', 9, 7, 28, { dmg: 125, blockstun: 16, box: [10, -290, 115, 250], launch: [4, -18], armor: [3, 16], step: 3, heavy: true }),
-      regen:  sp('regen', 10, 44, 16, { heal: 2.4, noMeter: true }),
+      regen:  sp('regen', 10, 44, 16, { heal: 2.16, noMeter: true }),
       clap:   sp('clap', 11, 4, 22, { dmg: 70, hitstun: 34, blockstun: 16, push: 2, box: [20, -210, 150, 120], heavy: true }),
       super:  hyper('grab', 12, 14, 34, { move: 11, approach: 8, invuln: 16, grab: { range: 130, dmg: 290, hold: 66, launch: [5, -9], slam: 'slamBig', isSuper: true } }),
     },
