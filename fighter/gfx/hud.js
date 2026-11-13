@@ -183,6 +183,8 @@ export class Hud {
       t.life += dt; this.stage.project(t.x - 640, -t.y, 40, at);
       c.globalAlpha = Math.max(0, Math.min(1, (t.max - t.life) / 14));
       const k = ease(Math.min(1, t.life / 8));
+      // 기술 이름 상자는 화면이 가까이 잡혀도 체력바 아래에 둔다.
+      if (t.caption) at[1] = Math.max(at[1], 150 + t.life * .8);
       c.save(); c.translate(at[0], at[1] - t.life * .8); c.scale(lerp(1.6, 1, k), lerp(1.6, 1, k));
       if (COMIC && t.caption) this.caption(t.text, 0, -t.size * .35, t.size); else this.ink(t.text, 0, 0, t.color);
       c.restore();

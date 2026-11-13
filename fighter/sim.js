@@ -1,6 +1,8 @@
 // 격투 판정. 화면·소리와 분리된 순수 계산이라 그림 방식(2D·2.5D)이 바뀌어도 그대로 쓴다.
 import { STAGE, REACH, PACE, advantage } from './data.js';
 
+// hop: 점프 높이 배율, tuck: 그냥 뛴 몸의 맞는 범위 [발밑에서 빈 높이, 머리 높이] (2026-11-13 무니 "점프로 피하기 어려워").
+export const JUMP = { hop: 1.06, tuck: [42, 158], wind: 2 };   // wind: 뛰기 전 웅크리는 프레임
 const GRAVITY = 1.05, HALF = 34, BUFFER = 10, EARLY = 6, JUGGLE_MAX = 3;
 const NEUTRAL_STATES = ['idle', 'walk', 'crouch'];
 export const grounded = f => f.y >= 0 && f.vy >= 0;
@@ -160,7 +162,7 @@ export class Sim {
         break;
       }
       case 'prejump':
-        if (++f.t >= 3) { f.state = 'jump'; f.vy = -f.char.jump; f.vx = f.jumpDir * f.char.air; f.airActed = false; this.events.push({ type: 'jump', x: f.x, y: 0 }); }
+        if (++f.t >= JUMP.wind) { f.state = 'jump'; f.vy = -f.char.jump * JUMP.hop; f.vx = f.jumpDir * f.char.air; f.airActed = false; this.events.push({ type: 'jump', x: f.x, y: 0 }); }
         break;
       case 'jump': {
         if (f.airActed) break;
@@ -342,6 +344,8 @@ export class Sim {
   }
   hurtBox(f) {
     const low = f.state === 'crouch' || (f.state === 'attack' && f.move.crouch) || (f.state === 'block' && f.blockLow);
+    // 그냥 뛰어오른 몸은 무릎을 끌어안아 발밑이 비고 키가 줄어든다(장풍·발 공격을 넘기 쉽게).
+    if (f.state === 'jump') return { x: f.x - HALF, y: f.y - JUMP.tuck[1], w: HALF * 2, h: JUMP.tuck[1] - JUMP.tuck[0] };
     const height = f.state === 'down' ? 50 : low ? 125 : grounded(f) ? 200 : 170;
     return { x: f.x - HALF, y: f.y - height, w: HALF * 2, h: height };
   }

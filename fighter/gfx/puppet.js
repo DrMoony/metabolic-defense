@@ -203,10 +203,34 @@ class Hose {
 
 const A = new THREE.Vector3(), B = new THREE.Vector3(), C = new THREE.Vector3(), T = new THREE.Vector3(), V = new THREE.Vector3(), X = new THREE.Vector3(1, 0, 0), Q = new THREE.Quaternion();
 
+// 같은 캐릭터끼리 붙으면 2P는 색상환을 돌려(팔레트 바꾸기) 누가 누군지 보이게 한다. 얼굴 그림은 그대로 둔다.
+const ALT = { hue: .47, light: .92 }, hsl = {};
+const turn = color => { color.getHSL(hsl); color.setHSL((hsl.h + ALT.hue) % 1, hsl.s, hsl.l * ALT.light); };
+function recolor(puppet, face) {
+  const done = new Set(), c = new THREE.Color();
+  puppet.root.traverse(o => {
+    if (!o.isMesh || face.has(o.material)) return;
+    // 모양은 다른 인형과 같이 쓰므로 복사해서 칠한다. 팔다리 호스는 자기 것이라 그 자리에서 칠한다.
+    if (o.geometry.attributes.color && !done.has(o.geometry)) {
+      if (!o.userData.inside) { o.geometry = o.geometry.clone(); (puppet.owned ||= []).push(o.geometry); }
+      const col = o.geometry.attributes.color;
+      for (let i = 0; i < col.count; i++) { c.fromBufferAttribute(col, i); turn(c); col.setXYZ(i, c.r, c.g, c.b); }
+      col.needsUpdate = true; done.add(o.geometry);
+    }
+    const swap = m => {
+      if (m.vertexColors || !m.color) return m;
+      const copy = m.clone(); turn(copy.color);
+      const at = puppet.flashers.indexOf(m); if (at >= 0) puppet.flashers[at] = copy;
+      return copy;
+    };
+    o.material = Array.isArray(o.material) ? o.material.map(swap) : swap(o.material);
+  });
+}
+
 export class Puppet {
-  constructor(id, { classic = false } = {}) {
+  constructor(id, { classic = false, alt = false } = {}) {
     const M = this.model = modelOf(id, classic), B = M === MODELS[id] ? null : built(id), mats = {};
-    this.id = id; this.P = null; this.last = '';
+    this.id = id; this.alt = alt; this.P = null; this.last = '';
     this.root = new THREE.Group();
     this.lean = new THREE.Group(); this.turn = new THREE.Group(); this.squash = new THREE.Group();
     this.root.add(this.lean); this.lean.add(this.turn); this.turn.add(this.squash);
@@ -264,6 +288,7 @@ export class Puppet {
     });
     // 만화풍이면 몸·팔다리·손발·소품에 먹선을 두른다. 얼굴 그림은 표면에 붙은 얇은 조각이라 뺀다.
     const face = new Set(Object.values(MATS));
+    if (alt) recolor(this, face);
     outline(this.root, o => face.has(o.material));
   }
 

@@ -82,31 +82,64 @@ function cmdGrid(char) {
   const sup = char.commands.find(c => c.key === 'super');
   return `<table class="cmds"><thead><tr><th></th><th>주먹</th><th>킥</th></tr></thead><tbody>${rows.map((m, i) => `<tr${i === 2 ? ' class="own"' : ''}><th>${ARROWS[m]}</th><td>${of(m, 'p')}</td><td>${of(m, 'k')}</td></tr>`).join('')}<tr class="sup"><th>${sup.cmd}</th><td colspan="2">${sup.name}</td></tr></tbody></table>`;
 }
+// 고르기 화면: 가운데 얼굴 칸 격자(윗줄 장기, 아랫줄 빌런), 양옆 판에 1P·2P가 올려 둔 캐릭터의 설명과 기술표.
+const ROWS = [ORGANS, [...VILLAINS, BOSS]], ROSTER = ROWS.flat();
+const rowOf = index => { let n = index; for (let r = 0; r < ROWS.length; r++) { if (n < ROWS[r].length) return [r, n]; n -= ROWS[r].length; } return [0, 0]; };
+const indexOf = (r, c) => ROWS.slice(0, r).reduce((n, row) => n + row.length, 0) + Math.min(c, ROWS[r].length - 1);
+const strongAgainst = type => [...VILLAINS, BOSS].map(id => CHARS[id]).find(char => char.type === type);
+const weakTo = type => ORGANS.map(id => CHARS[id]).find(char => char.strong === type);
+function matchup(char) {
+  if (char.kind === 'organ') return `${TYPES[char.strong]}에 강해요 (${strongAgainst(char.strong).name})`;
+  const organ = weakTo(char.type);
+  return `${TYPES[char.type]} 덩어리라 ${josa(organ.name, '을', '를')} 조심해요`;
+}
 function buildCards() {
-  const strongAgainst = type => [...VILLAINS, BOSS].map(id => CHARS[id]).find(char => char.type === type);
-  $('cards').replaceChildren(...ORGANS.map((id, index) => {
-    const char = CHARS[id], card = document.createElement('div'), foe = strongAgainst(char.strong);
-    card.className = 'card';
-    card.innerHTML = `<div class="tags"><i class="t0">1P</i><i class="t1">2P</i></div><canvas width="240" height="264"></canvas><strong>${char.name}</strong><small>${char.style}</small><p>${char.trait}</p>${cmdGrid(char)}<em>${TYPES[char.strong]}에 강해요 (${foe.name})</em>`;
-    drawPortrait(card.querySelector('canvas'), char);
-    card.addEventListener('click', () => { if (game.scene === 'select' && !versus() && !sel.ready[0]) { sel.cursor[0] = index; confirmPick(0); } });
-    return card;
-  }));
+  $('cards').style.setProperty('--cols', Math.max(...ROWS.map(row => row.length)));
+  $('cards').replaceChildren(...ROWS.flatMap((row, r) => [
+    Object.assign(document.createElement('b'), { className: 'rowname', textContent: r ? '빌런' : '장기' }),
+    ...row.map((id, c) => {
+      const char = CHARS[id], tile = document.createElement('div'), index = indexOf(r, c);
+      tile.className = 'card'; tile.style.setProperty('--tint', char.color);
+      tile.innerHTML = `<div class="tags"><i class="t0">1P</i><i class="t1">2P</i></div><canvas width="200" height="220"></canvas><strong>${char.name}</strong>`;
+      drawPortrait(tile.querySelector('canvas'), char);
+      tile.addEventListener('click', () => { if (game.scene === 'select' && !versus() && !sel.ready[0]) { sel.cursor[0] = index; confirmPick(0); } });
+      return tile;
+    }),
+  ]));
+}
+// 옆 판: 커서가 올라간 캐릭터가 바뀔 때만 다시 그린다.
+function paintPane(p) {
+  const pane = $(`pane${p}`), on = players().includes(p);
+  pane.classList.toggle('off', !on); pane.classList.toggle('ready', on && sel.ready[p]);
+  if (!on) {
+    // 아케이드: 1P가 장기에 있으면 정크 푸드 셋, 빌런에 있으면 장기 셋과 싸운다고 미리 보여 준다.
+    const villain = CHARS[ROSTER[sel.cursor[0]]].kind !== 'organ';
+    pane.innerHTML = p ? `<i class="who">CPU</i><strong class="vs3">${villain ? '장기 3연전' : '정크 푸드 3연전'}</strong><p>${villain ? '몸속 장기 셋을 차례로 쓰러뜨려요. 마지막은 심장이에요.' : '정크 푸드 둘을 이기면 대왕버거가 나와요.'}</p>` : '';
+    pane.dataset.id = ''; return;
+  }
+  const id = ROSTER[sel.cursor[p]];
+  if (pane.dataset.id === id) return;
+  const char = CHARS[id]; pane.dataset.id = id;
+  pane.innerHTML = `<i class="who">${p + 1}P</i><canvas width="240" height="264"></canvas><strong>${char.name}</strong><small>${char.style}</small><p>${char.trait}</p>${cmdGrid(char)}<em>${matchup(char)}</em>`;
+  drawPortrait(pane.querySelector('canvas'), char);
 }
 function paintSelect() {
-  [...$('cards').children].forEach((card, index) => {
+  [...$('cards').querySelectorAll('.card')].forEach((card, index) => {
     for (const p of [0, 1]) {
       const here = players().includes(p) && sel.cursor[p] === index;
       card.classList.toggle(`c${p}`, here); card.classList.toggle(`r${p}`, here && sel.ready[p]);
     }
   });
+  paintPane(0); paintPane(1);
 }
 function confirmPick(p) { sel.ready[p] = true; sfx.confirm(); paintSelect(); }
 
 function beginMatch() {
-  game.picks = [ORGANS[sel.cursor[0]], ORGANS[sel.cursor[1]]];
+  game.picks = [ROSTER[sel.cursor[0]], ROSTER[sel.cursor[1]]];
   Object.assign(game, { wins: [0, 0], round: 1, stage: 0, score: 0, quizRight: 0, quizCount: 0, potion: [false, false] });
-  game.ladder = [...shuffle(VILLAINS).slice(0, 2), BOSS];
+  // 장기를 고르면 정크 푸드 셋, 빌런을 고르면 장기 셋과 싸운다(마지막은 심장, 심장이 나 자신이면 간).
+  const villain = CHARS[game.picks[0]].kind !== 'organ', last = 'heart';
+  game.ladder = villain ? [...shuffle(ORGANS.filter(id => id !== last)).slice(0, 2), last] : [...shuffle(VILLAINS).slice(0, 2), BOSS];
   go('vs');
 }
 const beforeFight = () => go(bankReady ? 'quiz' : 'fight');
@@ -185,8 +218,9 @@ const scenes = {
   select: {
     enter() {
       sel = { cursor: [0, 2], ready: [false, false], done: 0 };
-      $('selectTitle').textContent = versus() ? '각자 장기를 골라요' : '장기를 골라요';
-      $('selectHint').textContent = '좌우로 고르고 주먹 버튼으로 정해요. 킥 버튼은 취소예요.';
+      $('selectTitle').textContent = versus() ? '각자 캐릭터를 골라요' : '캐릭터를 골라요';
+      $('selectHint').textContent = '상하좌우로 고르고 주먹 버튼으로 정해요. 킥 버튼은 취소예요.';
+      for (const p of [0, 1]) $(`pane${p}`).dataset.id = '';
       paintSelect(); music.play('select');
     },
     tick(inp) {
@@ -195,7 +229,13 @@ const scenes = {
       for (const p of players()) {
         const i = inp[p];
         if (sel.ready[p]) { if (i.pk) { sel.ready[p] = false; paintSelect(); } continue; }
-        if (i.dir === 'left' || i.dir === 'right') { sel.cursor[p] = (sel.cursor[p] + (i.dir === 'left' ? 3 : 1)) % 4; sfx.move(); paintSelect(); }
+        if (i.dir) {
+          // 좌우는 줄 안에서 돌고, 위아래는 다른 줄의 같은 칸(없으면 끝 칸)으로 간다.
+          let [r, c] = rowOf(sel.cursor[p]);
+          if (i.dir === 'left' || i.dir === 'right') c = (c + (i.dir === 'left' ? -1 : 1) + ROWS[r].length) % ROWS[r].length;
+          else r = (r + (i.dir === 'up' ? -1 : 1) + ROWS.length) % ROWS.length;
+          sel.cursor[p] = indexOf(r, c); sfx.move(); paintSelect();
+        }
         if (i.pp) confirmPick(p);
         else if (i.pk && !sel.ready.some(Boolean)) return go('title');
       }
@@ -207,9 +247,10 @@ const scenes = {
       const a = CHARS[game.picks[0]], b = CHARS[opponent()];
       drawPortrait($('vsA'), a); drawPortrait($('vsB'), b);
       $('vsNameA').textContent = a.name; $('vsNameB').textContent = b.name;
-      $('vsTagA').textContent = '1P'; $('vsTagB').textContent = versus() ? '2P' : `${TYPES[b.type]} 속성`;
+      $('vsTagA').textContent = '1P'; $('vsTagB').textContent = versus() ? '2P' : b.kind === 'organ' ? b.style : `${TYPES[b.type]} 속성`;
       $('vsLabel').textContent = versus() ? '2P 대전' : `STAGE ${game.stage + 1} / ${game.ladder.length}`;
-      $('vsNote').textContent = a.strong === b.type ? `${josa(a.name, '은', '는')} ${TYPES[b.type]}에 강해서 주는 피해가 20% 늘어요.` : '';
+      $('vsNote').textContent = a.strong && a.strong === b.type ? `${josa(a.name, '은', '는')} ${TYPES[b.type]}에 강해서 주는 피해가 20% 늘어요.`
+        : b.strong && b.strong === a.type ? `${josa(b.name, '은', '는')} ${TYPES[a.type]}에 강해서 받는 피해가 20% 늘어요. 조심해요.` : '';
       music.play('vs');
     },
     tick(inp) { if (game.t > 150 || (game.t > 40 && inp.some(i => i.pp))) beforeFight(); },
@@ -269,8 +310,9 @@ const scenes = {
         stats.push(['라운드', game.round], ['퀴즈 정답', `${game.quizRight} / ${game.quizCount}`]);
       } else {
         const cleared = game.stage >= game.ladder.length;
-        title = cleared ? '정크 푸드를 모두 물리쳤어요' : `${CHARS[opponent()].name}에게 졌어요`;
-        sub = cleared ? `${josa(CHARS[game.picks[0]].name, '이', '가')} 몸을 지켜 냈어요.` : '다시 도전해 봐요.';
+        const villain = CHARS[game.picks[0]].kind !== 'organ';
+        title = cleared ? (villain ? '장기를 모두 물리쳤어요' : '정크 푸드를 모두 물리쳤어요') : `${CHARS[opponent()].name}에게 졌어요`;
+        sub = cleared ? (villain ? `${josa(CHARS[game.picks[0]].name, '이', '가')} 몸을 점령했어요.` : `${josa(CHARS[game.picks[0]].name, '이', '가')} 몸을 지켜 냈어요.`) : '다시 도전해 봐요.';
         face = cleared ? game.picks[0] : opponent();
         stats.push(['점수', game.score.toLocaleString('ko-KR')], ['돌파한 스테이지', `${game.stage} / ${game.ladder.length}`], ['퀴즈 정답', `${game.quizRight} / ${game.quizCount}`]);
       }
@@ -332,7 +374,7 @@ Object.assign(DBG, {
   run(frames) { for (let i = 0; i < frames; i++) tick(); return DBG.state(); },
   emit(event) { renderer.onEvent(event); },
   state: () => ({ scene: game.scene, t: game.t, mode: game.mode, round: game.round, stage: game.stage, wins: [...game.wins], score: game.score, potion: [...game.potion], hp: sim ? sim.f.map(f => Math.round(f.hp)) : null, over: sim?.over || null }),
-  start(mode, a = 'heart', b = 'liver') { game.mode = mode; sel = { cursor: [ORGANS.indexOf(a), ORGANS.indexOf(b)], ready: [true, true], done: 0 }; beginMatch(); },
+  start(mode, a = 'heart', b = 'liver') { game.mode = mode; sel = { cursor: [ROSTER.indexOf(a), ROSTER.indexOf(b)], ready: [true, true], done: 0 }; beginMatch(); },
   answer, go, game,
 });
 Object.defineProperty(DBG, 'sim', { get: () => sim });

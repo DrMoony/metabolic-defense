@@ -15,10 +15,10 @@
   <section id="title" class="overlay">
     <div class="title-copy">
       <h1>메타볼릭<br>파이터</h1>
-      <p class="lead">심장, 신장, 간, 췌장이 정크 푸드에 맞서 싸워요.</p>
+      <p class="lead">몸을 지키는 장기와 몸을 노리는 정크 푸드가 맞붙어요.</p>
       <ul class="menu" id="menu">
-        <li data-mode="arcade"><b>1P 아케이드</b><span>정크 푸드 3연전</span></li>
-        <li data-mode="versus"><b>2P 대전</b><span>장기 대 장기, 3판 2선승</span></li>
+        <li data-mode="arcade"><b>1P 아케이드</b><span>3연전, 장기나 빌런으로</span></li>
+        <li data-mode="versus"><b>2P 대전</b><span>누구든 골라서 3판 2선승</span></li>
       </ul>
       <p class="hint">위아래로 고르고 주먹 버튼으로 시작해요.</p>
     </div>
@@ -44,8 +44,12 @@
   </section>
 
   <section id="select" class="overlay" hidden>
-    <h2 id="selectTitle">장기를 골라요</h2>
-    <div class="cards" id="cards"></div>
+    <h2 id="selectTitle">캐릭터를 골라요</h2>
+    <div class="pick">
+      <aside class="pane" id="pane0"></aside>
+      <div class="cards" id="cards"></div>
+      <aside class="pane" id="pane1"></aside>
+    </div>
     <p class="hint" id="selectHint"></p>
   </section>
 

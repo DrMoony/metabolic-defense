@@ -44,6 +44,7 @@ function dropPuppet(puppet) {
   puppet.root.removeFromParent();
   for (const material of puppet.flashers) material.dispose();
   for (const key in puppet.hoses) puppet.hoses[key].mesh.geometry.dispose();
+  for (const geometry of puppet.owned || []) geometry.dispose();
 }
 
 export class Renderer {
@@ -159,9 +160,10 @@ export class Renderer {
       if (fresh) stage.use(sim.arena || 'heart');
       sim.f.forEach((f, i) => {
         let puppet = this.puppets[i];
-        if (!puppet || puppet.id !== f.char.id) {
+        const alt = i === 1 && sim.f[0].char.id === f.char.id;   // 같은 캐릭터끼리면 2P는 다른 색
+        if (!puppet || puppet.id !== f.char.id || puppet.alt !== alt) {
           if (puppet) dropPuppet(puppet);
-          puppet = this.puppets[i] = new Puppet(f.char.id); stage.scene.add(puppet.root);
+          puppet = this.puppets[i] = new Puppet(f.char.id, { alt }); stage.scene.add(puppet.root);
         }
         if (fresh) puppet.P = null;
         puppet.root.visible = true; puppet.update(f, this.frame);
