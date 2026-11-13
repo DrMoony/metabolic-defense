@@ -1,5 +1,5 @@
 // 장면 흐름: 처음 화면 → 캐릭터 고르기 → 대진 → 퀴즈 → 대전 → (퀴즈 → 대전)… → 결과.
-import { CHARS, ORGANS, VILLAINS, BOSS, TYPES, ARROWS } from './data.js';
+import { CHARS, ORGANS, VILLAINS, BOSS, TYPES, ARROWS, REACH } from './data.js';
 import { readPlayer, Controller, NEUTRAL } from './input.js';
 import { Sim } from './sim.js';
 import { CpuBrain } from './ai.js';
@@ -82,6 +82,37 @@ function cmdGrid(char) {
   const sup = char.commands.find(c => c.key === 'super');
   return `<table class="cmds"><thead><tr><th></th><th>주먹</th><th>킥</th></tr></thead><tbody>${rows.map((m, i) => `<tr${i === 2 ? ' class="own"' : ''}><th>${ARROWS[m]}</th><td>${of(m, 'p')}</td><td>${of(m, 'k')}</td></tr>`).join('')}<tr class="sup"><th>${sup.cmd}</th><td colspan="2">${sup.name}</td></tr></tbody></table>`;
 }
+// 능력치: 데이터에서 바로 재서 막대로 보여 준다. 막대 길이는 전체 캐릭터 중 가장 낮은 값~가장 높은 값 사이의 위치다.
+const NORMAL_KEYS = ['jab', 'straight', 'finisher', 'kick', 'cjab', 'sweep', 'jpunch', 'jkick'];
+const avg = list => list.reduce((a, b) => a + b, 0) / list.length;
+const STATS = [
+  ['체력', c => c.hp, v => Math.round(v)],
+  ['힘', c => c.dmg * avg(Object.values(c.moves).filter(m => m.dmg && !m.isSuper).map(m => m.dmg)), v => Math.round(v)],
+  ['이동', c => c.walk, v => v.toFixed(1)],
+  ['점프', c => c.jump, v => v.toFixed(1)],
+  ['사거리', c => Math.max(...NORMAL_KEYS.map(k => c.moves[k]).filter(Boolean).map(m => (m.box[0] + m.box[2]) * REACH)), v => Math.round(v)],
+  ['손빠르기', c => -avg(NORMAL_KEYS.map(k => c.moves[k]).filter(Boolean).map(m => m.startup)), v => `${(-v).toFixed(1)}F`],
+];
+let statRange = null;
+function statBars(char) {
+  const all = [...ORGANS, ...VILLAINS, BOSS].map(id => CHARS[id]);
+  statRange ||= STATS.map(([, get]) => { const vals = all.map(get); return [Math.min(...vals), Math.max(...vals)]; });
+  const bars = STATS.map(([label, get, show], i) => {
+    const v = get(char), [lo, hi] = statRange[i], k = hi > lo ? (v - lo) / (hi - lo) : 1;
+    return `<li><b>${label}</b><span><i style="width:${Math.round(18 + k * 82)}%"></i></span><output>${show(v)}</output></li>`;
+  }).join('');
+  const shots = char.commands.filter(c => char.moves[c.key]?.spawn).length;
+  const tags = [
+    shots && `장풍 ${shots}개`,
+    char.extraJab && '잽 한 번 더',
+    char.regen && `서 있으면 회복 (초당 ${Math.round(char.regen * 60)})`,
+    char.noChip && '막으면 깎이지 않음',
+    char.absorb && '장풍 막으면 게이지',
+    Object.values(char.moves).some(m => m.armor) && '버티며 치는 기술',
+    char.boss && '보스',
+  ].filter(Boolean).map(t => `<i>${t}</i>`).join('');
+  return `<ul class="stats">${bars}</ul>${tags ? `<div class="tags">${tags}</div>` : ''}`;
+}
 // 고르기 화면: 가운데 얼굴 칸 격자(윗줄 장기, 아랫줄 빌런), 양옆 판에 1P·2P가 올려 둔 캐릭터의 설명과 기술표.
 const ROWS = [ORGANS, [...VILLAINS, BOSS]], ROSTER = ROWS.flat();
 const rowOf = index => { let n = index; for (let r = 0; r < ROWS.length; r++) { if (n < ROWS[r].length) return [r, n]; n -= ROWS[r].length; } return [0, 0]; };
@@ -120,7 +151,7 @@ function paintPane(p) {
   const id = ROSTER[sel.cursor[p]];
   if (pane.dataset.id === id) return;
   const char = CHARS[id]; pane.dataset.id = id;
-  pane.innerHTML = `<i class="who">${p + 1}P</i><canvas width="240" height="264"></canvas><strong>${char.name}</strong><small>${char.style}</small><p>${char.trait}</p>${cmdGrid(char)}<em>${matchup(char)}</em>`;
+  pane.innerHTML = `<i class="who">${p + 1}P</i><canvas width="240" height="264"></canvas><strong>${char.name}</strong><small>${char.style}</small><p>${char.trait}</p>${statBars(char)}${cmdGrid(char)}<em>${matchup(char)}</em>`;
   drawPortrait(pane.querySelector('canvas'), char);
 }
 function paintSelect() {

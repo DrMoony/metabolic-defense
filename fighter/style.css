@@ -59,7 +59,7 @@ h2{font-size:44px;font-weight:900;letter-spacing:-.03em;color:var(--gold)}
 .pane .who{position:absolute;top:-14px;left:50%;transform:translateX(-50%);padding:4px 14px;border-radius:5px;font:900 14px/1.2 inherit;font-style:normal;color:var(--ink);background:var(--gold)}
 #pane1 .who{background:#8fd6ff}
 .pane.ready .who::after{content:" 확정"}
-.pane canvas{width:168px;height:185px}
+.pane canvas{width:132px;height:145px}
 .pane strong{display:block;font-size:30px;font-weight:900}
 .pane .vs3{font-size:24px}
 .pane small{display:block;margin:2px 0 6px;font-size:13px;font-weight:800;letter-spacing:.04em;color:var(--gold)}
@@ -130,3 +130,11 @@ h2{font-size:44px;font-weight:900;letter-spacing:-.03em;color:var(--gold)}
 #proto{position:absolute;right:16px;bottom:8px;font-size:12px;color:#e0b78999;pointer-events:none}
 #sound{position:absolute;left:16px;bottom:8px;font-size:12px;color:#e0b789cc;pointer-events:none;opacity:0;transition:opacity .5s var(--ease)}
 #sound.on{opacity:1}
+.pane .stats{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px;margin:2px 0 4px;padding:8px 0 2px;border-top:1px solid #ffe0a033;list-style:none;font-size:12px;line-height:1}
+.pane .stats li{display:grid;grid-template-columns:44px 1fr 34px;align-items:center;gap:5px}
+.pane .stats b{font-weight:800;color:var(--gold);text-align:left;white-space:nowrap}
+.pane .stats span{height:8px;border-radius:4px;background:#ffffff14;overflow:hidden}
+.pane .stats span i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,#ffcf5a,#ff7a59);transition:width .35s var(--ease)}
+.pane .stats output{font-weight:700;color:var(--cream);text-align:right;font-variant-numeric:tabular-nums}
+.pane .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin:4px 0 2px}
+.pane .tags i{padding:2px 7px;border-radius:9px;font-size:11px;font-weight:700;line-height:1.4;font-style:normal;color:#7cf0ff;background:#7cf0ff1c}
