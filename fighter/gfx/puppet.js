@@ -309,7 +309,7 @@ export class Puppet {
     return out.set(x1 * cr - y * sr + P.bx, x1 * sr + y * cr + P.by + (this.model.rise || 0), z1);
   }
 
-  // 관절에서 손발까지 호스를 놓고 끝 방향을 T에 담는다. pref는 팔꿈치·무릎이 꺾이고 싶은 방향.
+  // 관절에서 손발까지 호스를 놓고(hose가 없으면 재기만 한다) 끝 방향을 T에 담는다. pref는 팔꿈치·무릎이 꺾이고 싶은 방향.
   limb(hose, a, b, length, px, py, pz, r0, r1) {
     const dx = b.x - a.x, dy = b.y - a.y, dz = b.z - a.z, d = Math.hypot(dx, dy, dz) || 1, ax = dx / d, ay = dy / d, az = dz / d;
     const dot = px * ax + py * ay + pz * az;
@@ -318,7 +318,7 @@ export class Puppet {
     // 다 뻗어도 자처럼 곧지 않게 살짝 휜다.
     const h = d < length ? Math.max(Math.sqrt(length * length - d * d) * .75, d * .05) : d * .05;
     C.set((a.x + b.x) / 2 + ox / ol * h, (a.y + b.y) / 2 + oy / ol * h, (a.z + b.z) / 2 + oz / ol * h);
-    hose.set(a, C, b, r0, r1);
+    if (hose) hose.set(a, C, b, r0, r1);
     T.set(b.x - C.x, b.y - C.y, b.z - C.z).normalize();
   }
 
@@ -360,16 +360,20 @@ export class Puppet {
       hand.position.copy(B); hand.quaternion.setFromUnitVectors(X, T);
     }
     // 다리: 무릎은 앞으로. 발이 땅에 닿아 있으면 바닥에 붙이고, 떠 있으면 정강이 방향을 따라 꺾는다.
+    // 공중에 떴거나 몸이 크게 넘어가면(누움·구르기) 발도 끝까지 정강이를 따르고, 몸이 돌면 발끝도 같이 돈다.
+    if (this.rest === undefined) this.rest = P.turn;
+    const free = f.y < 0 || Math.abs(P.lean + P.roll) > .6, twist = P.spin + (P.turn - this.rest) * RAD * .5;
     for (const [key, side] of [['ff', 1], ['fb', -1]]) {
       this.anchor(hx * side, hy, hz, A);
-      const foot = this.feet[key], p = B.set(...P[key]), lift = clamp(p.y / 14, 0, 1), ankle = M.ankle || 15;
+      const foot = this.feet[key], p = B.set(...P[key]), lift = free ? 1 : clamp(p.y / 14, 0, 1), ankle = M.ankle || 15;
       // 다리도 한도까지만 늘어난다.
       const far = p.distanceTo(A), most = stride * (M.legStretch || 1.7) * REACH;
       if (far > most) p.sub(A).multiplyScalar(most / far).add(A);
       const px = p.x, py = p.y, pz = p.z;
-      V.set(px - A.x, py + ankle - A.y, pz - A.z).normalize();
-      const pitch = clamp(Math.atan2(V.y, V.x) + Math.PI / 2, -1.1, 2.2) * lift;
-      foot.position.set(px, py, pz); foot.rotation.set(0, (side > 0 ? 8 : -34) * RAD * (1 - lift * .6), pitch, 'YZX');
+      // 무릎이 꺾인 채로 한 번 놓아 보고, 발목에 들어오는 정강이 방향(T)으로 발을 꺾는다.
+      this.limb(null, A, p, stride, 1, .25, .3 * -side);
+      const bend = Math.atan2(T.x, -T.y), pitch = free ? bend : clamp(bend, -1.1, 2.2) * lift;
+      foot.position.set(px, py, pz); foot.rotation.set(0, (side > 0 ? 8 : -34) * RAD * (1 - lift * .6) + twist, pitch, 'YZX');
       B.set(px - Math.sin(pitch) * ankle - 3 * Math.cos(pitch), py + Math.cos(pitch) * ankle - 3 * Math.sin(pitch), pz);
       this.limb(this.hoses[key], A, B, stride, 1, .25, .3 * -side, M.leg[0], M.leg[1]);
     }
