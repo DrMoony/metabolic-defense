@@ -2,9 +2,10 @@
 // 좌표는 무대와 같다(시뮬 x − 640, 바닥 y=0, 위가 +y). 시뮬의 y는 위가 음수라 부호를 뒤집어 받는다.
 import * as THREE from '../../vendor/three.module.js';
 import { T, toonTexture } from './toon.js';
-import { CAST, WIND, TRAIL, HIT, MAIN, UP, stand as standT } from './fx_moves.js';
+import { CAST, WIND, TRAIL, HIT, MAIN, SHOT, GRAB, UP, stand as standT } from './fx_moves.js';
 import './fx_organs.js';
 import './fx_villains.js';
+import './fx_new.js';
 
 const TAU = Math.PI * 2, POOL = 900, DECALS = 28;
 const rnd = (a, b) => a + Math.random() * (b - a), pick = list => list[Math.floor(Math.random() * list.length)];
@@ -89,6 +90,7 @@ const KIND_COLOR = { water: '#7fd6ff', wave: '#7fd6ff', stone: '#ecd9b0', steam:
 const WARM = ['#fff6c8', '#ffd166', '#ff8a3d'];
 // 캐릭터마다 기술 효과에 쓰는 색 셋(주색, 밝은 색, 강조색). 몸 색과 같은 계열이되 기술끼리는 모양으로 가른다.
 const PAL = {
+  muscle: ['#5af0dc', '#e0fffa', '#ffc531'], soju: ['#6ab8ff', '#e8f6ff', '#5fe09a'], smoke: ['#ff8a3a', '#fff0c8', '#b8b4c0'], visceral: ['#ffd86a', '#fff4c0', '#e05a7a'],
   heart: ['#ff6f91', '#ffd0dc', '#ff2e63'], kidney: ['#7fd6ff', '#e8f8ff', '#e08af0'], liver: ['#ffb347', '#ffe0a0', '#9dffb0'], pancreas: ['#7cf0d8', '#c8fff0', '#ffd98a'],
   soda: ['#bfe9ff', '#ffffff', '#58c4ff'], fries: ['#ffd35a', '#ffe58a', '#ff6a4a'], ramen: ['#ffe9a8', '#ff9a4a', '#fff6ee'], burger: ['#ffd24a', '#8fdc6a', '#ff6a4a'],
 };
@@ -332,6 +334,7 @@ export class Fx {
         this.pop('glint', T.gold, x, y, 520, 26); this.linesT([T.gold, T.white], x, y, 18, 0, Math.PI, 260, 9, { thick: 12 });
         { const f = this.sim?.f[e.side], d = f ? f.facing : 1, cast = CAST[e.char + '.' + e.key]; if (cast) cast(this, { e, f, x, y, d, fwd: d > 0 ? 0 : Math.PI, P: MAIN[e.char] || T.hit }); }
         break;
+      case 'warp': case 'buff': case 'status': GRAB['@' + e.type]?.(this, e, x, y); break;
       case 'armor': this.flash(x, y, 150, '#ffb347', 9); this.ringAt(x, y, 40, 150, '#ffb347', 10); break;
       case 'counter': this.flash(x, y, 220, '#7cf0ff', 12); this.star(x, y, 200, '#e8fdff', 13); this.ringAt(x, y, 30, 200, '#7cf0ff', 14); break;
       case 'reflect': this.ringAt(x, y, 40, 210, '#8fe9ff', 14); this.star(x, y, 150, '#e8fdff'); this.burst(x, y, 10, ['#e8fdff', '#8fe9ff'], 8, 13); break;
@@ -348,7 +351,8 @@ export class Fx {
           for (const k of [-44, 0, 44]) this.link('noodle', T.burger.cheese, x0, y + k * .5, far, y + k, 64, 14, { z: 96, flip: k === 0 });
           this.pop('splat', T.burger.cheese, x1, y, 250, 14, { z: 97 }); this.pop('glint', T.white, x1, y + 20, 170, 7, { z: 98 });
           this.sprayT('drop', [T.burger.cheese, T.burger.gold], x1, y + 40, 10, UP, 1.3, 9, 34, { g: .5, z: 98 }); this.floorT('splat', T.burger.cheese, x1, 300, 50);
-        } else { this.ringT(P, x1, y, 260, 60, 9, { toon: 'spikes' }); this.ringT(T.white, x1, y, 190, 40, 9, { toon: 'thin' }); this.linesT([P, T.white], x1, y, 8, 0, Math.PI, 150, 6); }
+        } else if (GRAB[e.char]) GRAB[e.char](this, e, x0, x1, y);
+        else { this.ringT(P, x1, y, 260, 60, 9, { toon: 'spikes' }); this.ringT(T.white, x1, y, 190, 40, 9, { toon: 'thin' }); this.linesT([P, T.white], x1, y, 8, 0, Math.PI, 150, 6); }
         break;
       }
       case 'slam': {
@@ -409,7 +413,7 @@ export class Fx {
       case 'fry': v.spr = this.toonSprite('fry', T.fries.fry, 96); group.add(v.spr); break;
       case 'broth': v.spr = this.toonSprite('crest', T.ramen.broth, 170, 130, (shot.dir || 1) < 0); group.add(v.spr); break;
       case 'flame': break;
-      default: group.add(this.glowSprite(shot.color || '#fff', Math.max(shot.w, shot.h) * 1.8));
+      default: if (SHOT[shot.kind]) { SHOT[shot.kind].make(this, shot, v); break; } group.add(this.glowSprite(shot.color || '#fff', Math.max(shot.w, shot.h) * 1.8));
     }
     this.scene.add(group);
     return v;
@@ -473,6 +477,7 @@ export class Fx {
         case 'steam':
           if (ticked) for (let i = 0; i < 2; i++) this.emit({ tex: 'puff', add: false, x: x + rnd(-shot.w, shot.w) * .36, y: y + rnd(-shot.h, shot.h * .4) * .5, z: rnd(-20, 40), vx: rnd(-.6, .6), vy: rnd(1.4, 3.2), life: rnd(22, 32), s0: rnd(40, 60), s1: rnd(90, 130), color: '#fff6ee', alpha: .42, fade: 'inout', rot: rnd(0, TAU), spin: rnd(-.03, .03) });
           break;
+        default: SHOT[shot.kind]?.tick?.(this, shot, v, x, y, dir, ticked);
       }
     }
     for (const [shot, v] of this.shots) if (!v.seen) {
@@ -482,6 +487,7 @@ export class Fx {
       if (v.kind === 'cap') { this.pop('burst', T.soda.cap, x, y, 130, 7); this.chunks('bubble', [T.soda.foam], x, y, 5, 26, 7); }
       if (v.kind === 'fry') this.pop('glint', T.fries.oil, x, y, 110, 6);
       if (v.kind === 'broth') this.sprayT('drop', [T.ramen.broth], x, 40, 7, UP, 1.6, 9, 24, { g: .45 });
+      SHOT[v.kind]?.end?.(this, shot, x, y);
       this.dropShot(v); this.shots.delete(shot);
     }
   }
@@ -590,6 +596,7 @@ export class Fx {
         if (f.t > m.startup && f.t <= m.startup + m.active) { const trail = TRAIL[key]; if (trail) trail(this, this.ctx(sim, f)); else this.poseFx(sim, f); }
         else if (f.t <= m.startup && WIND[key]) WIND[key](this, this.ctx(sim, f));
       }
+      if (ticked && f.status) GRAB['@aura']?.(this, f, x, y, sim.tick);
       aura.visible = !!m && (!!m.isSuper || sim.freeze > 0 && !!m.special);
       if (aura.visible) { const s = 400 + Math.sin(this.stage.time * .4) * 36; aura.position.set(x, y + 115, -40); aura.scale.set(s, s, 1); aura.material.opacity = .6; }
       // 신장의 여과막과 췌장의 받아치기 자세는 몸 앞에 막이 뜬다.

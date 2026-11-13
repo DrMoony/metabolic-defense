@@ -10,6 +10,11 @@ export const VOICE = {
   knee: 'rise', dash: 'dash', shock: 'zap', surf: 'splash', fountain: 'splash', flip: 'dash', heave: 'heavy', regen: 'heal', clap: 'boom',
   plunge: 'dash', inject: 'zap', reap: 'snap', rocket: 'splash', capshot: 'cast', darts: 'multi', flap: 'multi', ignite: 'flare',
   stab: 'multi', reel: 'snap', broth: 'splash', hammer: 'heavy', lid: 'rise', roar: 'boom',
+  // 2026-11-13 새 캐릭터 넷.
+  lariat: 'dash', dropkick: 'rise', bomb: 'heavy', pump: 'flex', dumbbell: 'cast', tackle: 'dash',
+  breath: 'flare', stagger: 'gulp', bottle: 'rise', sway: 'gulp', hiccup: 'gulp', glass: 'cast', flop: 'gulp',
+  ember: 'cast', vanish: 'smoke', flare: 'rise', screen: 'smoke', ash: 'smoke', snare: 'heavy',
+  glob: 'squish', belly: 'squish', bounce: 'squish', quake: 'heavy', engulf: 'squish', lard: 'squish',
 };
 const VOICES = {
   multi: o => [0, .055, .11].forEach((at, i) => { tone(o, 'square', 540 + i * 140, 380 + i * 120, .06, .16, at); noise(o, .05, .34, 'bandpass', 2200 + i * 500, 1200, 1.5, at); }),
@@ -24,6 +29,14 @@ const VOICES = {
   heal: o => [523, 659, 784, 1047].forEach((hz, i) => tone(o, 'sine', hz, hz * 1.01, .26, .1, i * .07, .01)),
   boom: o => { tone(o, 'sawtooth', 160, 52, .4, .3); tone(o, 'sine', 78, 34, .5, .5); noise(o, .32, .28, 'lowpass', 1200, 300); },
   flare: o => { noise(o, .4, .8, 'bandpass', 900, 4200, .8); tone(o, 'sawtooth', 170, 560, .3, .17); },
+  // 기합으로 부풀기: 낮은 울림 위로 화음이 차오른다.
+  flex: o => { tone(o, 'sine', 90, 140, .4, .45); [262, 330, 392, 523].forEach((hz, i) => tone(o, 'sawtooth', hz, hz * 1.02, .3, .07, i * .05, .02)); noise(o, .3, .2, 'bandpass', 600, 2400, 1); },
+  // 연기: 쉬익 하고 빠지는 바람.
+  smoke: o => { noise(o, .45, .55, 'bandpass', 3200, 600, .6); noise(o, .3, .25, 'lowpass', 900, 300, .8, .05); },
+  // 꿀꺽·딸꾹: 짧게 튀는 거품 소리.
+  gulp: o => { tone(o, 'sine', 260, 520, .09, .3); tone(o, 'sine', 330, 700, .08, .22, .1); noise(o, .08, .2, 'bandpass', 1400, 2600, 2, .1); },
+  // 출렁: 낮게 늘어지는 물컹한 소리.
+  squish: o => { tone(o, 'sine', 160, 70, .3, .5); tone(o, 'triangle', 110, 180, .2, .2, .06); noise(o, .25, .4, 'lowpass', 700, 200, 1.4); },
 };
 // 필살기가 맞을 때 기본 타격음 위에 얹는 소리. 캐릭터마다 다르다(심장은 쿵쿵 두 번 뛴다).
 const ACCENT = {
@@ -35,6 +48,10 @@ const ACCENT = {
   fries: o => { noise(o, .24, .18, 'highpass', 4800, 6800, .7); tone(o, 'triangle', 420, 240, .08, .1); },
   ramen: o => { noise(o, .06, .28, 'highpass', 4000, 5200, .7); tone(o, 'sawtooth', 340, 200, .1, .08); },
   burger: o => { tone(o, 'sine', 100, 40, .26, .5); noise(o, .12, .22, 'lowpass', 600, 200); },
+  muscle: o => { tone(o, 'sine', 110, 50, .2, .5); tone(o, 'square', 220, 160, .06, .1); noise(o, .08, .25, 'bandpass', 1200, 600, 1.2); },
+  soju: o => { tone(o, 'triangle', 1800, 1400, .12, .1); tone(o, 'triangle', 2400, 2100, .16, .06, .03); noise(o, .1, .2, 'highpass', 4000, 7000, .7); },
+  smoke: o => { noise(o, .28, .3, 'bandpass', 2400, 500, .6); tone(o, 'sawtooth', 300, 120, .1, .06); },
+  visceral: o => { tone(o, 'sine', 80, 34, .32, .55); tone(o, 'triangle', 140, 90, .2, .2, .05); noise(o, .2, .25, 'lowpass', 500, 150, 1.2); },
 };
 
 // 타격음은 세 겹: 몸통 울림(낮은 사인) + 살이 맞는 소리(띠 소음) + 딱 하는 머리(높은 소음). 맞을 때마다 높이가 조금씩 달라진다.
@@ -71,6 +88,13 @@ const EVENTS = {
   heal: (e, o) => tone(o, 'sine', 880 * [1, 1.25, 1.5][Math.floor(Math.random() * 3)], 900, .14, .08, 0, .01),
   drain: (e, o) => { tone(o, 'sine', 300, 900, .2, .14); noise(o, .2, .2, 'bandpass', 1500, 4000, 1.5); },
   potion: (e, o) => { [523, 659, 784, 1047].forEach((hz, i) => tone(o, 'triangle', hz, hz, .16, .15, i * .07)); noise(o, .3, .06, 'highpass', 6000, 9000, .7, .2); },
+  buff: (e, o) => VOICES.flex(o),
+  warp: (e, o) => { VOICES.smoke(o); tone(o, 'sine', 900, 300, .12, .1, .2); },
+  status: (e, o) => {
+    if (e.kinds.includes('drunk')) [0, .09, .18].forEach((at, i) => tone(o, 'sine', 600 - i * 120, 900 - i * 160, .08, .12, at));
+    if (e.kinds.includes('poison')) { tone(o, 'sawtooth', 220, 150, .3, .08); noise(o, .25, .2, 'bandpass', 900, 400, 1.4); }
+    if (e.kinds.includes('slow')) tone(o, 'sine', 300, 120, .3, .16);
+  },
   timeup: (e, o) => { tone(o, 'square', 440, 440, .18, .14); tone(o, 'square', 330, 330, .34, .14, .2); },
 };
 

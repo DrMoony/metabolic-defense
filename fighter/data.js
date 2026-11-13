@@ -18,11 +18,13 @@ export const MOVES = {
   throw:    { startup: 4,  active: 2,  recovery: 22, pose: 'throw', grab: { range: 104, dmg: 110, hold: 60, launch: [7, -11], slam: 'slam' } },
   slam:     { startup: 14, active: 1,  recovery: 20, pose: 'slam', isSlam: true },
   slamBig:  { startup: 26, active: 1,  recovery: 26, pose: 'slam', isSlam: true },
+  slamSpin: { startup: 44, active: 1,  recovery: 26, pose: 'swing', isSlam: true },
+  slamSqueeze: { startup: 40, active: 1, recovery: 24, pose: 'squeeze', isSlam: true },
 };
 
 const NORMALS = ['jab', 'straight', 'finisher', 'kick', 'cjab', 'sweep', 'jpunch', 'jkick'];
 function tuned({ reach = 1, slow = 0, power = 1 } = {}) {
-  const moves = { throw: MOVES.throw, slam: MOVES.slam, slamBig: MOVES.slamBig };
+  const moves = { throw: MOVES.throw, slam: MOVES.slam, slamBig: MOVES.slamBig, slamSpin: MOVES.slamSpin, slamSqueeze: MOVES.slamSqueeze };
   for (const key of NORMALS) {
     const m = MOVES[key], [bx, by, bw, bh] = m.box;
     moves[key] = { ...m, startup: Math.max(3, m.startup + slow), recovery: Math.max(4, m.recovery + Math.round(slow * 1.5)), dmg: Math.round(m.dmg * power), box: [bx, by, Math.round(bw * reach), bh] };
@@ -33,7 +35,7 @@ function tuned({ reach = 1, slow = 0, power = 1 } = {}) {
 const sp = (pose, startup, active, recovery, rest = {}) => ({ startup, active, recovery, pose, special: true, guard: 'mid', hitstun: 18, blockstun: 13, push: 8, ...rest });
 const hyper = (pose, startup, active, recovery, rest = {}) => sp(pose, startup, active, recovery, { isSuper: true, ...rest });
 
-export const TYPES = { sugar: '당', fat: '지방', salt: '소금', overeat: '과식' };
+export const TYPES = { sugar: '당', fat: '지방', salt: '소금', overeat: '과식', alcohol: '술', smoke: '담배', visceral: '내장지방' };
 
 // 커맨드 규칙: 모두가 ↓→(236)·↓←(214)를 주먹과 킥으로 하나씩 갖는다(↓→주먹=주력, ↓→킥=전진, ↓←주먹=대공, ↓←킥=수비·변칙).
 // 여기에 캐릭터마다 고유 커맨드(own) 하나를 주먹과 킥으로 하나씩 더 갖는다. 초필살기는 모두 주먹+킥.
@@ -58,7 +60,7 @@ function book(own, rows, superName, superNote = '초필살기') {
 }
 export const CHARS = {
   heart: {
-    id: 'heart', name: '심장', en: 'HEART', kind: 'organ', color: '#ee4a66', dark: '#8f1c36', glove: '#ffd7c4', hp: 1040, walk: 5.4, jump: 21, air: 6.2, dmg: 1, extraJab: true, strong: 'overeat',
+    id: 'heart', name: '심장', en: 'HEART', kind: 'organ', color: '#ee4a66', dark: '#8f1c36', glove: '#ffd7c4', hp: 1040, walk: 5.4, jump: 21, air: 6.2, dmg: 1, extraJab: true, strong: ['overeat', 'smoke'],
     style: '러시형 복서', trait: '장풍 없이 파고들어 4연타로 몰아쳐요',
     moves: {
       ...tuned(),
@@ -102,7 +104,7 @@ export const CHARS = {
     ], '대홍수'),
   },
   liver: {
-    id: 'liver', name: '간', en: 'LIVER', kind: 'organ', color: '#b0603f', dark: '#63301c', glove: '#f4d9c2', hp: 1240, walk: 4, jump: 19.5, air: 5, dmg: 1.044, regen: 0.063, strong: 'fat',   // 2026-11-12 무니 "간이 너무 세" → 위력·회복 10%씩 내림(1.16·0.07)
+    id: 'liver', name: '간', en: 'LIVER', kind: 'organ', color: '#b0603f', dark: '#63301c', glove: '#f4d9c2', hp: 1240, walk: 4, jump: 19.5, air: 5, dmg: 1.044, regen: 0.063, strong: ['fat', 'alcohol'],   // 2026-11-12 무니 "간이 너무 세" → 위력·회복 10%씩 내림(1.16·0.07)
     style: '잡기형 중량급', trait: '느리지만 붙으면 잡아 메쳐요. 체력이 조금씩 돌아와요',
     moves: {
       ...tuned({ slow: 2, power: 1.25 }),
@@ -234,13 +236,105 @@ export const CHARS = {
       ['66', 'k', 'roll', '통구르기', '두 대까지 버티며 굴러가요'],
     ], '대왕 압사'),
   },
+  // ── 2026-11-13 새 캐릭터 넷(무니 "근육하고 술 담배 그리고 빌런으로 내장지방(보스)") ──
+  muscle: {
+    id: 'muscle', name: '근육', en: 'MUSCLE', kind: 'organ', color: '#e8785a', dark: '#8a3424', glove: '#d6fff6', hp: 1120, walk: 4.6, jump: 20, air: 5.4, dmg: 1.05, strong: 'visceral', home: 'gym',
+    style: '파워 레슬러', trait: '기합으로 힘을 끌어올리고, 뛰어드는 상대도 붙잡아 메쳐요',
+    moves: {
+      ...tuned({ slow: 1, power: 1.12 }),
+      lariat:  sp('lariat', 11, 10, 22, { dmg: 100, blockstun: 15, push: 10, box: [10, -190, 110, 80], launch: [9, -10], move: 9, approach: 3, armor: [3, 14], heavy: true }),
+      dropkick: sp('dropkick', 9, 14, 22, { dmg: 96, blockstun: 15, push: 12, box: [20, -150, 110, 90], launch: [11, -8], rise: [9, -9.5], landRecovery: 18, heavy: true }),
+      bomb:    sp('catch', 6, 6, 30, { invuln: 6, grab: { range: 128, air: true, dmg: 170, hold: 62, launch: [4, -8], slam: 'slamBig' } }),
+      pump:    sp('flex', 8, 26, 10, { pump: 420, noMeter: true }),
+      dumbbell: sp('lob', 14, 1, 26, { spawn: { kind: 'dumbbell', at: [40, -200], speed: 6, vy: -14, g: .62, w: 56, h: 44, dmg: 82, hitstun: 20, blockstun: 14, push: 6, guard: 'over', launch: [3, -9] } }),
+      tackle:  sp('charge', 8, 14, 24, { dmg: 88, blockstun: 14, push: 16, box: [16, -170, 96, 130], launch: [12, -7], move: 13, approach: 4, armor: [2, 18], armorHits: 2, heavy: true }),
+      super:   hyper('catch', 10, 14, 34, { move: 11, approach: 8, invuln: 18, grab: { range: 132, air: true, dmg: 285, hold: 70, launch: [12, -12], slam: 'slamSpin', isSuper: true } }),
+    },
+    ...book('66', [
+      ['236', 'p', 'lariat', '래리어트', '달려가 팔로 후려쳐요. 한 대는 버텨요'],
+      ['236', 'k', 'dropkick', '드롭킥', '두 발로 날아 차서 멀리 날려요'],
+      ['214', 'p', 'bomb', '파워 밤', '뛰어드는 상대도 붙잡아 내리꽂아요'],
+      ['214', 'k', 'pump', '펌프업', '7초 동안 모든 공격이 세져요'],
+      ['66', 'p', 'dumbbell', '덤벨 던지기', '포물선으로 떨어져요. 서서 막아야 해요'],
+      ['66', 'k', 'tackle', '숄더 태클', '두 대까지 버티며 어깨로 들이받아요'],
+    ], '자이언트 스윙', '초필살기. 달려가 잡아 돌려요'),
+  },
+  soju: {
+    id: 'soju', name: '소주', en: 'SOJU', kind: 'villain', color: '#2fa66a', dark: '#145236', glove: '#e9e2d0', hp: 980, walk: 4.3, jump: 20.5, air: 5.6, dmg: 1, type: 'alcohol',
+    style: '취권 트릭스터', trait: '비틀거리며 피하고, 맞으면 잠깐 취해서 좌우가 뒤바뀌어요',
+    moves: {
+      ...tuned({ reach: 1.05 }),
+      breath:  sp('breath', 12, 1, 24, { spawn: { kind: 'breath', at: [96, -150], speed: 3.2, w: 130, h: 90, dmg: 24, hitstun: 15, blockstun: 10, push: 3, hits: 3, rehit: 8, life: 34, drunk: 150 } }),
+      stagger: sp('stagger', 6, 22, 20, { dmg: 82, blockstun: 14, push: 9, box: [14, -190, 100, 110], launch: [7, -11], move: 6, approach: 5, shotInvuln: [1, 28], heavy: true }),
+      bottle:  sp('bottle', 4, 12, 20, { dmg: 98, blockstun: 15, box: [-60, -270, 170, 230], launch: [3, -16], invuln: 9, rehit: 6, heavy: true }),
+      sway:    sp('sway', 3, 22, 16, { counter: [3, 25], riposte: 'hiccup', noMeter: true }),
+      hiccup:  sp('hiccup', 3, 6, 20, { dmg: 115, box: [10, -220, 150, 200], launch: [6, -14], invuln: 10, drunk: 180, heavy: true }),
+      glass:   sp('darts', 12, 1, 22, { spawn: { kind: 'glass', at: [50, -170], speed: 8, vy: -9, g: .5, w: 36, h: 40, dmg: 58, hitstun: 18, blockstun: 12, push: 5, drunk: 150 } }),
+      flop:    sp('flop', 16, 8, 20, { dmg: 100, blockstun: 15, box: [10, -200, 120, 200], launch: [4, -16], lie: [2, 16], heavy: true }),
+      super:   hyper('bender', 9, 38, 26, { dmg: 44, hitstun: 20, blockstun: 14, push: 3, box: [20, -210, 200, 190], rehit: 6, move: 3, invuln: 12, finalLaunch: [10, -14], drunk: 300 }),
+    },
+    ...book('44', [
+      ['236', 'p', 'breath', '불 뿜기', '파란 불길이 천천히 번져요. 맞으면 취해요'],
+      ['236', 'k', 'stagger', '비틀 돌진', '휘청이며 들이받아요. 장풍을 흘려요'],
+      ['214', 'p', 'bottle', '병 돌려치기', '병을 휘둘러 머리 위까지 쳐요'],
+      ['214', 'k', 'sway', '비틀 피하기', '맞는 순간 흘리고 딸꾹질로 받아쳐요'],
+      ['44', 'p', 'glass', '술잔 던지기', '포물선으로 던져요. 맞으면 취해요'],
+      ['44', 'k', 'flop', '쓰러진 척', '바닥에 드러누웠다가 차올려요'],
+    ], '취권 난무'),
+  },
+  smoke: {
+    id: 'smoke', name: '담배', en: 'SMOKE', kind: 'villain', color: '#d9d4c8', dark: '#3a3a42', glove: '#2c2c34', hp: 960, walk: 5.2, jump: 21.5, air: 6.4, dmg: 1, type: 'smoke',
+    style: '연기 닌자', trait: '연기 속으로 사라지고, 불씨로 중독시켜 체력을 갉아요',
+    moves: {
+      ...tuned({ slow: -1, power: .96 }),
+      ember:  sp('darts', 9, 1, 18, { spawn: { kind: 'ember', at: [60, -140], speed: 12, w: 34, h: 30, dmg: 42, hitstun: 15, blockstun: 10, push: 4, poison: 150 } }),
+      vanish: sp('vanish', 10, 6, 14, { warp: 96, invuln: 18, noMeter: true }),
+      flare:  sp('flare', 4, 10, 22, { dmg: 92, blockstun: 15, box: [6, -260, 110, 210], launch: [4, -16], invuln: 7, rise: [3, -13], landRecovery: 12, heavy: true }),
+      screen: sp('screen', 12, 1, 18, { spawn: { kind: 'smoke', at: [110, -110], speed: 0, w: 190, h: 220, dmg: 9, hitstun: 10, blockstun: 6, push: 1, life: 150, hits: 6, rehit: 22, still: true, poison: 90 } }),
+      ash:    sp('broth', 12, 1, 22, { spawn: { kind: 'ash', at: [60, -26], speed: 8.5, w: 84, h: 50, dmg: 56, hitstun: 0, blockstun: 12, push: 6, guard: 'low', launch: [3, -9], life: 46 } }),
+      snare:  sp('grab', 7, 3, 30, { grab: { range: 118, dmg: 95, hold: 60, launch: [5, -9], slam: 'slam', poison: 300 } }),
+      super:  hyper('storm', 10, 1, 30, { invuln: 14, spawn: { kind: 'storm', at: [150, -150], speed: 1.5, w: 280, h: 300, dmg: 36, hitstun: 20, blockstun: 14, push: 2, hits: 7, rehit: 7, life: 70, power: 2, finalLaunch: [8, -14], poison: 360, isSuper: true } }),
+    },
+    ...book('22', [
+      ['236', 'p', 'ember', '불씨 표창', '빠르게 날아가요. 맞으면 중독돼요'],
+      ['236', 'k', 'vanish', '연기 순간이동', '사라졌다가 상대 등 뒤에 나타나요'],
+      ['214', 'p', 'flare', '불꽃 올려차기', '뛰어오르며 차올리는 대공기예요'],
+      ['214', 'k', 'screen', '연막', '앞에 연기가 남아 조금씩 갉아요'],
+      ['22', 'p', 'ash', '재 털기', '바닥을 타고 가요. 앉아서 막아야 해요'],
+      ['22', 'k', 'snare', '니코틴 올가미', '잡아서 오래 중독시켜요'],
+    ], '연기 폭풍'),
+  },
+  visceral: {
+    id: 'visceral', name: '내장지방', en: 'VISCERAL FAT', kind: 'villain', color: '#f1cf72', dark: '#7a5418', glove: '#4a2346', hp: 1250, walk: 3.4, jump: 18.5, air: 4.6, dmg: 1, type: 'visceral', boss: true, bulk: .93, home: 'belly',
+    style: '최종 보스', trait: '몸이 두꺼워 덜 아프고, 감싸 조여 체력을 빼앗아요',
+    moves: {
+      ...tuned({ reach: 1.15, slow: 3, power: 1.12 }),
+      glob:   sp('lob', 15, 1, 26, { spawn: { kind: 'glob', at: [40, -210], speed: 6.5, vy: -13, g: .6, w: 64, h: 56, dmg: 78, hitstun: 20, blockstun: 14, push: 6, guard: 'over', slow: 200, leave: { kind: 'lard', w: 160, h: 18, life: 210 } } }),
+      belly:  sp('belly', 10, 8, 26, { dmg: 92, blockstun: 16, push: 30, box: [10, -200, 110, 190], launch: [14, -6], armor: [2, 16], step: 6, heavy: true }),
+      bounce: sp('lid', 7, 8, 28, { dmg: 110, blockstun: 16, box: [0, -330, 140, 280], launch: [3, -18], armor: [2, 10], heavy: true }),
+      quake:  sp('quake', 13, 40, 24, { dmg: 70, blockstun: 14, box: [-70, -110, 140, 120], guard: 'over', knockdown: true, rise: [0, -17], landRecovery: 22, home: 14, homeMax: 7, heavyLand: true, fall: true, landWave: { kind: 'quake', speed: 7, w: 90, h: 40, dmg: 48, hitstun: 0, blockstun: 12, push: 6, guard: 'low', launch: [2, -8], life: 40 }, heavy: true }),
+      engulf: sp('engulf', 10, 4, 34, { grab: { range: 160, dmg: 150, hold: 52, launch: [5, -8], slam: 'slamSqueeze', heal: .35 } }),
+      lard:   sp('drop', 14, 1, 22, { spawn: { kind: 'lard', at: [220, -9], speed: 0, w: 170, h: 18, life: 240, max: 1, field: true, slow: 150, rehit: 20 } }),
+      super:  hyper('engulf', 10, 14, 34, { move: 9, approach: 7, invuln: 18, grab: { range: 170, dmg: 300, hold: 52, launch: [8, -12], slam: 'slamSqueeze', heal: .6, isSuper: true } }),
+    },
+    ...book('64', [
+      ['236', 'p', 'glob', '지방 덩어리', '포물선으로 던져요. 떨어진 자리에 기름이 남아요'],
+      ['236', 'k', 'belly', '배치기', '버티며 배로 멀리 튕겨 내요'],
+      ['214', 'p', 'bounce', '출렁 어퍼', '뱃살로 높이 쳐올려요'],
+      ['214', 'k', 'quake', '출렁 점프', '뛰어올라 떨어지며 바닥을 울려요'],
+      ['64', 'p', 'engulf', '감싸 조이기', '잡아서 조이며 체력을 빼앗아요'],
+      ['64', 'k', 'lard', '기름띠', '밟으면 한동안 느려져요'],
+    ], '전신 압박', '초필살기. 달려가 감싸 조여요'),
+  },
 };
-export const ORGANS = ['heart', 'kidney', 'liver', 'pancreas'];
-export const VILLAINS = ['soda', 'fries', 'ramen'];
-export const BOSS = 'burger';
+export const ORGANS = ['heart', 'kidney', 'liver', 'pancreas', 'muscle'];
+export const VILLAINS = ['soda', 'fries', 'ramen', 'soju', 'smoke'];
+// 보스 둘: 대왕버거(중간 보스)와 내장지방(최종 보스). BOSS는 마지막 상대.
+export const BOSSES = ['burger', 'visceral'];
+export const BOSS = 'visceral';
 
 // 담당 장기가 그 속성 빌런에게 주는 피해 배율.
-export const advantage = (attacker, defender) => (attacker.strong && attacker.strong === defender.type ? 1.2 : 1);
+export const advantage = (attacker, defender) => ([].concat(attacker.strong || []).includes(defender.type) ? 1.2 : 1);
 
 // 기술 키로 기술 이름을 찾는다(기술표에 없는 동작은 빈 문자열).
 export const moveName = (char, key) => char.commands.find(c => c.key === key)?.name || '';

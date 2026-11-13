@@ -13,6 +13,10 @@ const WHO = {
   fries: { hz: 168, size: 1.05, grit: .28 },
   ramen: { hz: 232, size: .96, grit: .18 },
   burger: { hz: 86, size: 1.4, grit: .42 },
+  muscle: { hz: 150, size: 1.18, grit: .26 },
+  soju: { hz: 245, size: .94, grit: .14 },
+  smoke: { hz: 190, size: .9, grit: .36 },
+  visceral: { hz: 70, size: 1.55, grit: .5 },
 };
 // 외침: [소리(h는 숨, 나머지는 모음), 길이(초), 높이 곡선(배율)].
 const CRY = {

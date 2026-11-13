@@ -5,6 +5,8 @@ import { COMIC } from './comic.js';
 const W = STAGE.w, H = STAGE.h, TAU = Math.PI * 2;
 const FONT = '"Apple SD Gothic Neo","Malgun Gothic",Inter,sans-serif';
 const INK = '#1b0a14', GOLD = '#ffe0a0', CREAM = '#fff3dd', MUTED = '#e0b789', GOOD = '#9dffb0';
+// 상태 이상 표시 순서와 색.
+const STATUS = [['pump', '펌프업', '#5af0dc'], ['drunk', '취함', '#7ee0a0'], ['poison', '중독', '#c79aff'], ['slow', '느려짐', '#ffd86a']];
 const lerp = (a, b, k) => a + (b - a) * k, ease = k => 1 - (1 - k) * (1 - k);
 
 export class Hud {
@@ -232,7 +234,17 @@ export class Hud {
         c.beginPath(); c.roundRect(lx, ny - 17, lw, 20, 10); c.fillStyle = '#1b0a14cc'; c.fill(); c.lineWidth = 1; c.strokeStyle = MUTED; c.stroke();
         c.textAlign = 'center'; c.fillStyle = MUTED; c.fillText(label, lx + lw / 2, ny - 3);
       }
-      if (sim.adv[i] > 1) { c.textAlign = left ? 'left' : 'right'; c.font = `700 13px ${FONT}`; this.ink(`상성 유리 (${TYPES[f.char.strong]})`, tx, ny + 21, GOOD, 4); }
+      if (sim.adv[i] > 1) { c.textAlign = left ? 'left' : 'right'; c.font = `700 13px ${FONT}`; this.ink(`상성 유리 (${TYPES[sim.f[1 - i].char.type]})`, tx, ny + 21, GOOD, 4); }
+      // 상태 이상: 남은 시간이 줄어드는 알약 모양 표시.
+      let sx = tx;
+      for (const [key, label, color] of STATUS) {
+        const remain = f.status?.[key] || 0; if (remain <= 0) continue;
+        c.font = `800 13px ${FONT}`; const sw = c.measureText(label).width + 22, x = left ? sx : sx - sw, y = ny + (sim.adv[i] > 1 ? 32 : 10);
+        c.beginPath(); c.roundRect(x, y, sw, 22, 11); c.fillStyle = '#1b0a14d9'; c.fill(); c.lineWidth = 1.5; c.strokeStyle = color; c.stroke();
+        c.save(); c.beginPath(); c.roundRect(x, y, sw, 22, 11); c.clip(); c.fillStyle = color + '40'; c.fillRect(x, y, sw * Math.min(1, remain / 300), 22); c.restore();
+        c.textAlign = 'center'; c.fillStyle = color; c.fillText(label, x + sw / 2, y + 16);
+        sx += s * (sw + 6);
+      }
 
       // 이긴 판 수와 포션.
       let px = left ? x0 + BW - 16 : x0 + 16;

@@ -1,5 +1,5 @@
 // 장면 흐름: 처음 화면 → 캐릭터 고르기 → 대진 → 퀴즈 → 대전 → (퀴즈 → 대전)… → 결과.
-import { CHARS, ORGANS, VILLAINS, BOSS, TYPES, ARROWS, REACH } from './data.js';
+import { CHARS, ORGANS, VILLAINS, BOSSES, BOSS, TYPES, ARROWS, REACH } from './data.js';
 import { readPlayer, Controller, NEUTRAL } from './input.js';
 import { Sim } from './sim.js';
 import { CpuBrain } from './ai.js';
@@ -13,7 +13,7 @@ const $ = id => document.getElementById(id);
 const stage = $('stage'), renderer = new Renderer($('game'), { debug: params.has('debug') });
 const SCENES = ['title', 'select', 'vs', 'quiz', 'result'];
 // 아케이드 단계별 CPU 실력(0 쉬움~1 어려움)과 주먹 세기. 첫 판은 기술을 익히는 판이라 덜 막고 덜 아프게 때린다.
-const STEP = 1000 / 60, WINS_NEEDED = 2, CPU_LEVELS = [.04, .14, .26, .38], CPU_POWER = [.75, .85, .95, 1];
+const STEP = 1000 / 60, WINS_NEEDED = 2, CPU_LEVELS = [.04, .14, .24, .32], CPU_POWER = [.75, .85, .92, .95];
 const READ_FRAMES = 120, ANSWER_FRAMES = 720, DIRS = ['up', 'left', 'right', 'down'];
 // 받침이 있으면 앞, 없으면 뒤 조사를 붙인다. josa('췌장', '은', '는') → '췌장은'
 const josa = (word, withFinal, without) => word + ((word.charCodeAt(word.length - 1) - 0xac00) % 28 ? withFinal : without);
@@ -40,8 +40,9 @@ let menuIndex = 0, sel = null, quiz = null;
 const versus = () => game.mode === 'versus';
 const players = () => (versus() ? [0, 1] : [0]);
 const opponent = () => (versus() ? game.picks[1] : game.ladder[game.stage]);
-// 어디서 싸울지: 상대가 장기면 그 장기의 홈, 정크 푸드가 쳐들어오면 내 홈, 보스전은 야식 골목.
-const arenaOf = (mine, foe) => params.get('stage') || (ORGANS.includes(foe) ? foe : foe !== BOSS && ORGANS.includes(mine) ? mine : 'alley');
+// 어디서 싸울지: 상대가 장기면 그 장기의 홈, 정크 푸드가 쳐들어오면 내 홈, 보스전은 보스의 홈(대왕버거는 야식 골목, 내장지방은 뱃속).
+const homeOf = id => CHARS[id].home || (ORGANS.includes(id) ? id : 'alley');
+const arenaOf = (mine, foe) => params.get('stage') || (ORGANS.includes(foe) || BOSSES.includes(foe) ? homeOf(foe) : ORGANS.includes(mine) ? homeOf(mine) : 'alley');
 const cpuController = (level, side) => { const brain = new CpuBrain(level); return new Controller(() => brain.think(sim, side)); };
 
 function go(name) {
@@ -94,14 +95,15 @@ const STATS = [
   ['손빠르기', c => -avg(NORMAL_KEYS.map(k => c.moves[k]).filter(Boolean).map(m => m.startup)), v => `${(-v).toFixed(1)}F`],
 ];
 let statRange = null;
+const has = (char, test) => Object.values(char.moves).some(test);
 function statBars(char) {
-  const all = [...ORGANS, ...VILLAINS, BOSS].map(id => CHARS[id]);
+  const all = [...ORGANS, ...VILLAINS, ...BOSSES].map(id => CHARS[id]);
   statRange ||= STATS.map(([, get]) => { const vals = all.map(get); return [Math.min(...vals), Math.max(...vals)]; });
   const bars = STATS.map(([label, get, show], i) => {
     const v = get(char), [lo, hi] = statRange[i], k = hi > lo ? (v - lo) / (hi - lo) : 1;
     return `<li><b>${label}</b><span><i style="width:${Math.round(18 + k * 82)}%"></i></span><output>${show(v)}</output></li>`;
   }).join('');
-  const shots = char.commands.filter(c => char.moves[c.key]?.spawn).length;
+  const shots = char.commands.filter(c => c.key !== 'super' && char.moves[c.key]?.spawn && !char.moves[c.key].spawn.field).length;
   const tags = [
     shots && `장풍 ${shots}개`,
     char.extraJab && '잽 한 번 더',
@@ -109,25 +111,34 @@ function statBars(char) {
     char.noChip && '막으면 깎이지 않음',
     char.absorb && '장풍 막으면 게이지',
     Object.values(char.moves).some(m => m.armor) && '버티며 치는 기술',
+    char.bulk && `받는 피해 ${Math.round((1 - char.bulk) * 100)}% 덜함`,
+    has(char, m => m.grab?.air) && '공중 잡기',
+    has(char, m => m.pump) && '힘 올리기',
+    has(char, m => m.drunk || m.spawn?.drunk) && '맞히면 취함',
+    has(char, m => m.poison || m.spawn?.poison || m.grab?.poison) && '맞히면 중독',
+    has(char, m => m.slow || m.spawn?.slow) && '맞히면 느려짐',
+    has(char, m => m.grab?.heal) && '잡아서 회복',
+    has(char, m => m.warp) && '순간이동',
     char.boss && '보스',
   ].filter(Boolean).map(t => `<i>${t}</i>`).join('');
   return `<ul class="stats">${bars}</ul>${tags ? `<div class="tags">${tags}</div>` : ''}`;
 }
 // 고르기 화면: 가운데 얼굴 칸 격자(윗줄 장기, 아랫줄 빌런), 양옆 판에 1P·2P가 올려 둔 캐릭터의 설명과 기술표.
-const ROWS = [ORGANS, [...VILLAINS, BOSS]], ROSTER = ROWS.flat();
+const ROWS = [ORGANS, VILLAINS, BOSSES], ROW_NAMES = ['장기', '빌런', '보스'], ROSTER = ROWS.flat();
 const rowOf = index => { let n = index; for (let r = 0; r < ROWS.length; r++) { if (n < ROWS[r].length) return [r, n]; n -= ROWS[r].length; } return [0, 0]; };
 const indexOf = (r, c) => ROWS.slice(0, r).reduce((n, row) => n + row.length, 0) + Math.min(c, ROWS[r].length - 1);
-const strongAgainst = type => [...VILLAINS, BOSS].map(id => CHARS[id]).find(char => char.type === type);
-const weakTo = type => ORGANS.map(id => CHARS[id]).find(char => char.strong === type);
+const strongList = char => [].concat(char.strong || []);
+const strongAgainst = type => [...VILLAINS, ...BOSSES].map(id => CHARS[id]).find(char => char.type === type);
+const weakTo = type => ORGANS.map(id => CHARS[id]).find(char => strongList(char).includes(type));
 function matchup(char) {
-  if (char.kind === 'organ') return `${TYPES[char.strong]}에 강해요 (${strongAgainst(char.strong).name})`;
+  if (char.kind === 'organ') return `${strongList(char).map(type => `${TYPES[type]}(${strongAgainst(type).name})`).join('·')}에 강해요`;
   const organ = weakTo(char.type);
   return `${TYPES[char.type]} 덩어리라 ${josa(organ.name, '을', '를')} 조심해요`;
 }
 function buildCards() {
   $('cards').style.setProperty('--cols', Math.max(...ROWS.map(row => row.length)));
   $('cards').replaceChildren(...ROWS.flatMap((row, r) => [
-    Object.assign(document.createElement('b'), { className: 'rowname', textContent: r ? '빌런' : '장기' }),
+    Object.assign(document.createElement('b'), { className: 'rowname', textContent: ROW_NAMES[r] }),
     ...row.map((id, c) => {
       const char = CHARS[id], tile = document.createElement('div'), index = indexOf(r, c);
       tile.className = 'card'; tile.style.setProperty('--tint', char.color);
@@ -145,7 +156,7 @@ function paintPane(p) {
   if (!on) {
     // 아케이드: 1P가 장기에 있으면 정크 푸드 셋, 빌런에 있으면 장기 셋과 싸운다고 미리 보여 준다.
     const villain = CHARS[ROSTER[sel.cursor[0]]].kind !== 'organ';
-    pane.innerHTML = p ? `<i class="who">CPU</i><strong class="vs3">${villain ? '장기 3연전' : '정크 푸드 3연전'}</strong><p>${villain ? '몸속 장기 셋을 차례로 쓰러뜨려요. 마지막은 심장이에요.' : '정크 푸드 둘을 이기면 대왕버거가 나와요.'}</p>` : '';
+    pane.innerHTML = p ? `<i class="who">CPU</i><strong class="vs3">${villain ? '장기 4연전' : '정크 푸드 4연전'}</strong><p>${villain ? '몸속 장기 넷을 차례로 쓰러뜨려요. 마지막은 심장이에요.' : '빌런 둘을 이기면 대왕버거, 마지막에 내장지방이 나와요.'}</p>` : '';
     pane.dataset.id = ''; return;
   }
   const id = ROSTER[sel.cursor[p]];
@@ -168,9 +179,9 @@ function confirmPick(p) { sel.ready[p] = true; sfx.confirm(); paintSelect(); }
 function beginMatch() {
   game.picks = [ROSTER[sel.cursor[0]], ROSTER[sel.cursor[1]]];
   Object.assign(game, { wins: [0, 0], round: 1, stage: 0, score: 0, quizRight: 0, quizCount: 0, potion: [false, false] });
-  // 장기를 고르면 정크 푸드 셋, 빌런을 고르면 장기 셋과 싸운다(마지막은 심장, 심장이 나 자신이면 간).
+  // 장기를 고르면 빌런 둘 → 대왕버거 → 내장지방, 빌런을 고르면 장기 셋 → 심장과 싸운다(넷 다 CPU_LEVELS 단계를 하나씩 쓴다).
   const villain = CHARS[game.picks[0]].kind !== 'organ', last = 'heart';
-  game.ladder = villain ? [...shuffle(ORGANS.filter(id => id !== last)).slice(0, 2), last] : [...shuffle(VILLAINS).slice(0, 2), BOSS];
+  game.ladder = villain ? [...shuffle(ORGANS.filter(id => id !== last)).slice(0, 3), last] : [...shuffle(VILLAINS).slice(0, 2), ...BOSSES];
   go('vs');
 }
 const beforeFight = () => go(bankReady ? 'quiz' : 'fight');
@@ -280,8 +291,8 @@ const scenes = {
       $('vsNameA').textContent = a.name; $('vsNameB').textContent = b.name;
       $('vsTagA').textContent = '1P'; $('vsTagB').textContent = versus() ? '2P' : b.kind === 'organ' ? b.style : `${TYPES[b.type]} 속성`;
       $('vsLabel').textContent = versus() ? '2P 대전' : `STAGE ${game.stage + 1} / ${game.ladder.length}`;
-      $('vsNote').textContent = a.strong && a.strong === b.type ? `${josa(a.name, '은', '는')} ${TYPES[b.type]}에 강해서 주는 피해가 20% 늘어요.`
-        : b.strong && b.strong === a.type ? `${josa(b.name, '은', '는')} ${TYPES[a.type]}에 강해서 받는 피해가 20% 늘어요. 조심해요.` : '';
+      $('vsNote').textContent = strongList(a).includes(b.type) ? `${josa(a.name, '은', '는')} ${TYPES[b.type]}에 강해서 주는 피해가 20% 늘어요.`
+        : strongList(b).includes(a.type) ? `${josa(b.name, '은', '는')} ${TYPES[a.type]}에 강해서 받는 피해가 20% 늘어요. 조심해요.` : '';
       music.play('vs');
     },
     tick(inp) { if (game.t > 150 || (game.t > 40 && inp.some(i => i.pp))) beforeFight(); },

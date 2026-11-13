@@ -69,6 +69,31 @@ const PLANS = {
     mid: [[3, '@roll'], [3, '@press'], [3, 'walk'], [2, '@hammer', d => d < 210], [1, '@grab', d => d < 190]],
     close: [[4, '@grab'], [2, '@hammer'], [2, 'jabs'], [2, 'low'], [1, '@roar'], [1, 'kick'], [1, '@press']],
   },
+  // 2026-11-13 새 캐릭터 넷.
+  muscle: {
+    anti: 'bomb', superAt: 260, follow: [],
+    far: [[5, 'walk'], [3, '@dumbbell', d => d < 560], [3, '@pump', (d, me) => me.status.pump <= 0], [1, 'jump']],
+    mid: [[3, 'walk'], [3, '@lariat', d => d < 330], [2, '@dropkick', d => d < 300], [2, '@tackle', d => d < 320], [2, '@dumbbell', d => d > 260], [2, '@pump', (d, me) => me.status.pump <= 0 && d > 220]],
+    close: [[3, '@bomb'], [3, 'jabs'], [2, '+lariat'], [2, 'throw'], [2, 'low'], [1, '@tackle'], [1, 'back']],
+  },
+  soju: {
+    anti: 'bottle', parry: 'sway', superAt: 240,
+    far: [[4, 'walk'], [3, '@glass', d => d < 560], [2, '@stagger', d => d < 460], [1, 'jump']],
+    mid: [[3, '@breath', d => d < 330], [3, '@stagger', d => d < 360], [2, '@glass'], [2, '@flop', d => d < 220], [2, 'walk'], [1, '@sway', d => d < 230], [1, 'kick', d => d < 220]],
+    close: [[3, 'jabs'], [2, '+breath'], [2, '@sway'], [2, '@flop'], [2, 'low'], [1, 'throw'], [1, '@bottle'], [1, 'back']],
+  },
+  smoke: {
+    anti: 'flare', dodge: 'vanish', dodgeAt: 200, superAt: 330, follow: ['vanish'],
+    far: [[5, '@ember'], [3, '@ash', d => d < 560], [3, 'walk'], [2, '@vanish', d => d < 420], [1, 'jump']],
+    mid: [[3, '@ember'], [3, '@screen', d => d < 280], [2, '@ash'], [2, '@vanish'], [2, 'walk'], [1, 'kick', d => d < 220]],
+    close: [[3, 'jabs'], [3, '@snare'], [2, '+ember'], [2, '@screen'], [2, 'low'], [1, '@flare'], [1, '@vanish'], [1, 'back']],
+  },
+  visceral: {
+    anti: 'bounce', shove: 'belly', superAt: 300,
+    far: [[4, 'walk'], [4, '@glob', d => d < 600], [2, '@lard'], [2, '@quake', d => d < 460]],
+    mid: [[3, '@glob', d => d > 260], [3, '@belly', d => d < 260], [3, '@quake'], [2, 'walk'], [2, '@engulf', d => d < 200], [1, '@lard', d => d > 230]],
+    close: [[4, '@engulf'], [2, '@belly'], [2, 'jabs'], [2, 'low'], [1, '@bounce'], [1, 'kick']],
+  },
 };
 
 export class CpuBrain {

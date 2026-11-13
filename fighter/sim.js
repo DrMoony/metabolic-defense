@@ -29,6 +29,8 @@ function createFighter(char, side) {
     hp: char.hp, meter: 0, potion: false, state: 'idle', t: 0, stun: 0,
     move: null, moveKey: '', connected: false, hasHit: false, lastHit: -99, chainCount: 0, airActed: false, early: 0, earlyBy: '',
     armor: false, armorLeft: 0, grab: null,
+    // 상태 이상(남은 프레임): pump 힘 올리기, drunk 취함(좌우 뒤바뀜), poison 중독(체력이 조금씩 빠짐), slow 느려짐.
+    status: { pump: 0, drunk: 0, poison: 0, slow: 0 },
     combo: 0, comboShown: 0, juggle: 0, invuln: 0, throwInvuln: 0, flash: 0, blockLow: false, jumpDir: 0, isKo: false,
     buf: { p: 0, k: 0 }, hist: [], in: { x: 0, y: 0 },
   };
@@ -64,6 +66,8 @@ export class Sim {
 
   // 입력 버퍼: 경직·히트스톱 중에 누른 버튼도 몇 프레임 기억해 다음 동작으로 이어 준다.
   buffer(f, inp) {
+    // 취하면 스틱 좌우가 뒤바뀐다(커맨드도 거꾸로 넣어야 나간다).
+    if (f.status.drunk > 0 && inp.x) inp = { ...inp, x: -inp.x };
     if (inp.pp) f.buf.p = BUFFER; if (inp.pk) f.buf.k = BUFFER;
     f.hist.push(5 + inp.x * f.facing + (inp.y < 0 ? 3 : inp.y > 0 ? -3 : 0));
     if (f.hist.length > 40) f.hist.shift();
@@ -94,8 +98,10 @@ export class Sim {
     return best;
   }
   canShoot(f, spawn) { return this.shots.filter(shot => shot.owner === f.side && shot.kind === spawn.kind).length < (spawn.max || 1); }
-  grabbable(f, o, range) {
-    return grounded(o) && [...NEUTRAL_STATES, 'attack'].includes(o.state) && o.throwInvuln <= 0 && o.invuln <= 0 && !o.isKo && Math.abs(o.x - f.x) < range;
+  // air: 뛰어오른 상대도 머리 높이(220)까지는 붙잡는다(근육 파워 밤).
+  grabbable(f, o, range, air = false) {
+    const reach = grounded(o) ? [...NEUTRAL_STATES, 'attack'].includes(o.state) : air && o.y > -220 && ['jump', 'attack'].includes(o.state);
+    return reach && o.throwInvuln <= 0 && o.invuln <= 0 && !o.isKo && Math.abs(o.x - f.x) < range;
   }
 
   start(f, key) {
@@ -157,12 +163,12 @@ export class Sim {
         if (this.tryAttack(f, o, fx, down)) break;
         if (inp.y < 0) { f.state = 'prejump'; f.t = 0; f.jumpDir = inp.x; f.vx = 0; }
         else if (down) { f.state = 'crouch'; f.vx = 0; }
-        else if (fx) { f.state = 'walk'; f.vx = inp.x * f.char.walk * PACE * (fx > 0 ? 1 : .78); }
+        else if (fx) { f.state = 'walk'; f.vx = inp.x * f.char.walk * PACE * (fx > 0 ? 1 : .78) * (f.status.slow > 0 ? .55 : 1); }
         else { f.state = 'idle'; f.vx = 0; }
         break;
       }
       case 'prejump':
-        if (++f.t >= JUMP.wind) { f.state = 'jump'; f.vy = -f.char.jump * JUMP.hop; f.vx = f.jumpDir * f.char.air; f.airActed = false; this.events.push({ type: 'jump', x: f.x, y: 0 }); }
+        if (++f.t >= JUMP.wind) { f.state = 'jump'; f.vy = -f.char.jump * JUMP.hop; f.vx = f.jumpDir * f.char.air * (f.status.slow > 0 ? .6 : 1); f.airActed = false; this.events.push({ type: 'jump', x: f.x, y: 0 }); }
         break;
       case 'jump': {
         if (f.airActed) break;
@@ -197,6 +203,14 @@ export class Sim {
     if (m.rise && t === hitStart) { f.vx = f.facing * m.rise[0]; f.vy = m.rise[1]; }
     if (m.dive && t === hitStart) { f.vx = f.facing * m.dive[0]; f.vy = m.dive[1]; }
     if (m.spawn && t === hitStart) this.spawnShot(f, m.spawn);
+    // 힘 올리기(pump): 한동안 모든 공격이 세진다.
+    if (m.pump && t === hitStart) { f.status.pump = m.pump; this.events.push({ type: 'buff', side: f.side, x: f.x, y: f.y - 120, char: f.char.id }); }
+    // 순간이동(warp): 연기 속으로 사라졌다가 상대 등 뒤로 나온다. 등 뒤가 벽이면 벽 앞에 선다.
+    if (m.warp && t === hitStart) {
+      const side = Math.sign(o.x - f.x) || f.facing, from = f.x;
+      f.x = clampX(o.x + side * m.warp); f.facing = o.x >= f.x ? 1 : -1;
+      this.events.push({ type: 'warp', side: f.side, from, x: f.x, y: f.y - 100, char: f.char.id });
+    }
     // 회복기: 지속 프레임 동안 체력이 찬다. 맞으면 끊긴다.
     if (m.heal && t > hitStart && t <= hitEnd && this.live) {
       f.hp = Math.min(f.char.hp, f.hp + m.heal);
@@ -224,7 +238,7 @@ export class Sim {
     }
   }
 
-  spawnShot(f, spec) {
+  spawnShot(f, spec, dir = f.facing) {
     let x = clampX(f.x + f.facing * spec.at[0]), y = f.y + spec.at[1], big = false;
     // 점화(ignite): 깔아 둔 내 웅덩이가 있으면 그 자리에서 더 큰 불기둥이 된다.
     const puddle = spec.ignite && this.shots.find(shot => shot.owner === f.side && shot.kind === 'puddle');
@@ -232,18 +246,18 @@ export class Sim {
     // 부채꼴(fan): 위아래로 갈라지는 여러 발을 한 번에 던진다.
     for (const vy of spec.fan || [spec.vy || 0]) {
       this.shots.push({
-        owner: f.side, kind: spec.kind, x, y, vx: f.facing * spec.speed, vy, g: spec.g || 0, w: spec.w, h: spec.h, color: f.char.color, age: 0,
-        life: spec.life || 0, hits: spec.hits || 1, power: spec.power || 1, still: !spec.speed, dir: f.facing, lastHit: -99, hold: 0, big,
+        owner: f.side, kind: spec.kind, x, y, vx: dir * spec.speed, vy, g: spec.g || 0, w: spec.w, h: spec.h, color: f.char.color, age: 0,
+        life: spec.life || 0, hits: spec.hits || 1, power: spec.power || 1, still: !spec.speed, dir, lastHit: -99, hold: 0, big,
         data: { ...spec, special: true },
       });
     }
-    this.events.push(spec.kind === 'puddle' ? { type: 'splash', x, y: 0, kind: spec.kind } : { type: 'fire', x, y, kind: spec.kind, big, dir: f.facing });
+    this.events.push(spec.kind === 'puddle' || spec.field ? { type: 'splash', x, y: 0, kind: spec.kind } : { type: 'fire', x, y, kind: spec.kind, big, dir });
   }
 
   // 잡기: 가드를 무시한다. 잡으면 상대를 held로 묶고 메치기(slam) 동작으로 넘어간다.
   tryGrab(f, o) {
     const g = f.move.grab;
-    if (this.over || !this.grabbable(f, o, g.range)) return false;
+    if (this.over || !this.grabbable(f, o, g.range, g.air)) return false;
     this.start(f, g.slam);
     Object.assign(f, { grab: g, connected: true, combo: 0, invuln: f.move.startup + 2 });
     Object.assign(o, { state: 'held', move: null, t: 0, vx: 0, vy: 0, kb: 0, y: 0, stun: 0, armor: false, flash: 4 });
@@ -264,8 +278,11 @@ export class Sim {
   slam(f, o) {
     const g = f.grab;
     if (o.state !== 'held') return;
-    const dmg = this.over ? 0 : g.dmg * f.char.dmg * this.adv[f.side];
+    const dmg = this.over ? 0 : g.dmg * f.char.dmg * this.adv[f.side] * this.power(f, o);
     o.hp = Math.max(0, o.hp - dmg);
+    // 감싸 조이기(heal): 빼앗은 만큼 일부를 내 체력으로 채운다. 중독 올가미(poison)는 메친 뒤에도 갉는다.
+    if (g.heal && dmg) { f.hp = Math.min(f.char.hp, f.hp + dmg * g.heal); this.events.push({ type: 'heal', side: f.side, x: f.x, y: f.y - 110, char: f.char.id }); }
+    this.afflict(o, g);
     if (!g.isSuper) f.meter = Math.min(100, f.meter + dmg * .07);
     o.meter = Math.min(100, o.meter + dmg * .04);
     Object.assign(o, { state: 'air', move: null, vx: f.facing * g.launch[0], vy: g.launch[1], y: -1, kb: 0, juggle: JUGGLE_MAX, flash: 6 });
@@ -297,6 +314,8 @@ export class Sim {
       else if (m.air) { f.state = 'idle'; f.move = null; }
       else if (m.rise) f.t = m.startup + m.active + m.recovery - m.landRecovery;
       if (m.heavyLand) this.events.push({ type: 'land', heavy: true, x: f.x, y: 0, char: f.char.id, crater: true });
+      // 떨어지며 바닥을 울리는 기술(landWave): 양쪽으로 땅울림이 퍼진다.
+      if (m.landWave) for (const dir of [-1, 1]) this.spawnShot(f, { ...m.landWave, at: [dir * f.facing * 70, -m.landWave.h / 2] }, dir);
     }
   }
 
@@ -317,13 +336,23 @@ export class Sim {
   }
 
   moveShots() {
+    this.fresh = [];
     for (const shot of this.shots) {
       shot.age++;
       // 여러 번 맞는 장풍은 맞힌 직후 잠깐 멈춰서 상대를 갈아 낸다.
       if (shot.hold > 0) shot.hold--;
       else { shot.vy += shot.g; shot.x += shot.vx; shot.y += shot.vy; }
       if (shot.life && shot.age >= shot.life) shot.dead = true;
-      if (shot.g && shot.y + shot.h / 2 >= 0) { shot.dead = true; this.events.push({ type: 'splash', x: shot.x, y: 0, kind: shot.kind }); }
+      if (shot.g && shot.y + shot.h / 2 >= 0) {
+        shot.dead = true; this.events.push({ type: 'splash', x: shot.x, y: 0, kind: shot.kind });
+        // 떨어진 자리에 남는 것(leave): 지방 덩어리는 기름띠가 된다.
+        const left = shot.data.leave;
+        if (left) {
+          for (const old of this.shots) if (old.owner === shot.owner && old.kind === left.kind) old.dead = true;
+          this.fresh.push({ owner: shot.owner, kind: left.kind, x: shot.x, y: -left.h / 2, vx: 0, vy: 0, g: 0, w: left.w, h: left.h, age: 0, life: left.life, hits: 1, power: 1, still: true, dir: shot.dir, lastHit: -99, hold: 0,
+            data: { kind: left.kind, field: true, slow: shot.data.slow, rehit: 20 } });
+        }
+      }
       if (shot.x < -60 || shot.x > STAGE.w + 60) shot.dead = true;
     }
     // 마주 날아온 장풍끼리는 서로 지운다. 센 쪽(power)이 있으면 그쪽만 남는다.
@@ -334,7 +363,7 @@ export class Sim {
         this.events.push({ type: 'clash', x: (one.x + other.x) / 2, y: (one.y + other.y) / 2 });
       }
     }
-    this.shots = this.shots.filter(shot => !shot.dead);
+    this.shots = this.shots.filter(shot => !shot.dead).concat(this.fresh);
   }
   shotBox(shot) { return { x: shot.x - shot.w / 2, y: shot.y - shot.h / 2, w: shot.w, h: shot.h }; }
   // 앞쪽 끝을 REACH만큼 더 뻗는다. 몸 뒤까지 감싸는 상자(앞 x가 음수)는 뒤쪽 끝도 같이 늘린다.
@@ -344,6 +373,8 @@ export class Sim {
   }
   hurtBox(f) {
     const low = f.state === 'crouch' || (f.state === 'attack' && f.move.crouch) || (f.state === 'block' && f.blockLow);
+    // 드러눕는 기술(lie): 그동안은 쓰러진 몸처럼 낮다.
+    if (f.state === 'attack' && within(f.move.lie, f.t)) return { x: f.x - HALF - 20, y: f.y - 50, w: HALF * 2 + 40, h: 50 };
     // 그냥 뛰어오른 몸은 무릎을 끌어안아 발밑이 비고 키가 줄어든다(장풍·발 공격을 넘기 쉽게).
     if (f.state === 'jump') return { x: f.x - HALF, y: f.y - JUMP.tuck[1], w: HALF * 2, h: JUMP.tuck[1] - JUMP.tuck[0] };
     const height = f.state === 'down' ? 50 : low ? 125 : grounded(f) ? 200 : 170;
@@ -393,7 +424,12 @@ export class Sim {
       const d = this.f[1 - shot.owner], src = shot.data;
       if (this.tick - shot.lastHit < (src.rehit || 0)) continue;
       // 바닥 웅덩이는 땅에 선 상대만 밟는다. 위빙처럼 장풍을 흘리는 동작 중에는 안 맞는다.
-      if (shot.kind === 'puddle' && !grounded(d)) continue;
+      if ((shot.kind === 'puddle' || shot.data.field) && !grounded(d)) continue;
+      // 밟으면 상태만 거는 바닥(field): 맞는 판정 없이 느려지게 한다.
+      if (shot.data.field) {
+        if (overlap(this.shotBox(shot), this.hurtBox(d)) && d.invuln <= 0 && !d.isKo) { shot.lastHit = this.tick; this.afflict(d, shot.data, true); }
+        continue;
+      }
       if (d.state === 'attack' && within(d.move.shotInvuln, d.t)) continue;
       if (!overlap(this.shotBox(shot), this.hurtBox(d))) continue;
       const dir = shot.still ? (Math.sign(d.x - this.f[shot.owner].x) || shot.dir) : Math.sign(shot.vx) || shot.dir;
@@ -444,7 +480,7 @@ export class Sim {
     }
     // 아머: 버티는 동안은 피해만 조금 받고 동작이 안 끊긴다. 초필살기에는 깨진다.
     if (def.armor && def.state === 'attack' && !src.isSuper && !src.breakArmor) {
-      const dmg = base * att.char.dmg * this.adv[att.side] * .6;
+      const dmg = base * att.char.dmg * this.adv[att.side] * this.power(att, def) * .6;
       if (def.hp - dmg > 0) {
         def.hp -= dmg; def.flash = 4;
         if (--def.armorLeft <= 0) def.armor = false;
@@ -458,8 +494,9 @@ export class Sim {
     att.combo = ['hit', 'air'].includes(def.state) ? att.combo + 1 : 1;
     att.comboShown = 70;
     const scale = Math.max(.4, 1 - .1 * (att.combo - 1));
-    const dmg = base * att.char.dmg * this.adv[att.side] * scale * (counter ? 1.15 : 1);
+    const dmg = base * att.char.dmg * this.adv[att.side] * this.power(att, def) * scale * (counter ? 1.15 : 1);
     def.hp = Math.max(0, def.hp - dmg);
+    this.afflict(def, src);
     if (!src.isSuper) att.meter = Math.min(100, att.meter + dmg * .07);
     def.meter = Math.min(100, def.meter + dmg * .04);
     // 게이지 빼앗기(drain): 맞은 상대의 게이지를 덜어 내 것으로 만든다.
@@ -489,6 +526,14 @@ export class Sim {
     this.events.push({ type: 'hit', heavy, counter, ko: def.isKo, combo: att.combo, side: att.side, x, y, dir, char: att.char.id, key: shot ? shot.kind : att.moveKey, special: !!(shot || src.special), sup: !!src.isSuper, last: !!(src.finalLaunch && last) });
     return true;
   }
+  // 힘 올리기 중이면 세게, 몸이 두꺼운 상대(bulk)에게는 덜 들어간다.
+  power(att, def) { return (att.status.pump > 0 ? 1.25 : 1) * (def.char.bulk || 1); }
+  // 맞힌 기술에 붙은 상태 이상을 건다. 이미 걸려 있으면 남은 시간만 늘린다.
+  afflict(def, src, quiet = false) {
+    let any = false;
+    for (const key of ['drunk', 'poison', 'slow']) if (src[key] && !def.isKo) { if (def.status[key] < src[key]) any = true; def.status[key] = Math.max(def.status[key], src[key]); }
+    if (any && !quiet) this.events.push({ type: 'status', side: def.side, x: def.x, y: def.y - 200, kinds: ['drunk', 'poison', 'slow'].filter(key => src[key]) });
+  }
   // 구석에 몰린 상대를 때리면 상대 대신 내가 밀려나야 무한 압박이 안 된다.
   pushBackAttacker(att, def, dir, src, shot) {
     const cornered = dir > 0 ? def.x >= STAGE.right - 4 : def.x <= STAGE.left + 4;
@@ -503,6 +548,9 @@ export class Sim {
       return;
     }
     if (f.char.regen && !['hit', 'air', 'down', 'held'].includes(f.state)) f.hp = Math.min(f.char.hp, f.hp + f.char.regen);
+    for (const key in f.status) if (f.status[key] > 0) f.status[key]--;
+    // 중독: 1초에 18씩 빠지지만 이것만으로는 쓰러지지 않는다.
+    if (f.status.poison > 0) f.hp = Math.max(Math.min(f.hp, 1), f.hp - .3);
     // 퀴즈로 얻은 포션은 체력이 30% 아래로 떨어지면 자동으로 마신다.
     if (f.potion && f.hp < f.char.hp * .3) {
       f.potion = false; f.hp += f.char.hp * .3;

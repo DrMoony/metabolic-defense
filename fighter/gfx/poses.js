@@ -111,6 +111,57 @@ const ATTACKS = {
   press: c => ({ lean: c.k < .5 ? -.2 : 1.25, by: c.k < .5 ? 98 : 66, hf: [70, 150, -60], hb: [60, 140, 64], ff: [-50, 70, -24], fb: [-60, 60, 26], mouth: 'open' }),
 };
 
+// 2026-11-13 새 캐릭터 넷.
+Object.assign(ATTACKS, {
+  // 근육: 팔 뻗고 달려가 후려치기, 두 발 날아 차기, 위로 붙잡기, 두 팔 알통 자랑, 잡고 빙빙 돌리기.
+  lariat: c => ({ hf: [128, 168, -60], hb: [-40, 120, 44], lean: .3, bx: 18, by: 104, turn: 64, ff: [70, 0, -16], fb: [-70, 6, 20], mouth: 'grit' }),
+  dropkick: c => (c.air
+    ? { raw: true, hold: true, lean: -1.25, by: c.S.by + 10, ff: [128, 120, -12], fb: [120, 96, 16], hf: [-50, 150, -34], hb: [-60, 120, 44], mouth: 'open' }
+    : { by: c.S.by - 24, sy: .88, sx: 1.08, lean: .2, hf: [40, 120, -20], hb: [30, 90, 44], ff: [30, 0, -16], fb: [-36, 0, 20], mouth: 'grit' }),
+  catch: c => ({ hf: [104, 214, -58], hb: [96, 190, 52], bx: 16, lean: -.06, by: c.S.by + 10, sy: 1.06, ff: [50, 0, -16], fb: [-40, 0, 22], mouth: 'grit' }),
+  flex: c => { const pulse = 1 + Math.sin(c.t * .9) * .03; return { raw: true, by: c.S.by + 6, sx: 1.08 * pulse, sy: 1.04 * pulse, lean: -.06, turn: 6, hf: [86, 196, -60], hb: [-86, 196, 64], ff: [44, 0, -22], fb: [-48, 0, 26], eyes: 'fierce', mouth: 'grin' }; },
+  swing: c => {
+    // 잡은 상대를 붙든 채로 제자리에서 돈다. 마지막에 한 번 크게 던진다.
+    const u = clamp01(c.t / Math.max(1, c.m.startup)), spin = u * u * Math.PI * 6;
+    return u < 1
+      ? { raw: true, spin, by: c.S.by - 6, lean: -.18, hf: [96, 118, -30], hb: [92, 100, 34], ff: [40, 0, -18], fb: [-40, 0, 22], mouth: 'grit' }
+      : { hf: [130, 160, -20], hb: [110, 150, 30], lean: .3, bx: 18, mouth: 'open' };
+  },
+
+  // 소주: 휘청 돌진, 병 휘둘러 돌기, 비틀 흘리기, 딸꾹 받아치기, 드러누웠다 차오르기, 취권 난무.
+  stagger: c => { const w = Math.sin(c.t * .7); return { raw: c.k > .05, lean: .34 + w * .12, bx: 14 + w * 6, by: 100 + w * 4, turn: 30 + w * 30, hf: [100, 172, -40], hb: [40, 90, 44], ff: [56 + w * 20, 0, -16], fb: [-50 - w * 20, 0, 20], mouth: 'grin' }; },
+  bottle: c => ({ raw: c.k > .2, spin: c.k > .2 ? (c.t - c.m.startup) * .55 : 0, by: c.S.by + 30 * Math.max(0, c.k), sy: 1.12, lean: -.12, hf: [60, 240, -40], hb: [-50, 200, 44], ff: [24, 20, -14], fb: [-24, 0, 18], mouth: 'open' }),
+  sway: c => { const w = Math.sin(c.t * .5); return { raw: true, lean: -.36 + w * .14, bx: -14 + w * 8, by: c.S.by - 8, turn: 40 + w * 20, hf: [40, 150 + w * 10, -24], hb: [-30, 170, 44], ff: [30, 0, -16], fb: [-50, 20, 20], eyes: 'happy', mouth: 'grin' }; },
+  hiccup: () => ({ hf: [150, 190, -10], hb: [60, 120, 30], lean: .2, bx: 20, by: 128, sy: 1.12, ff: [50, 0, -16], fb: [-60, 30, 20], mouth: 'open' }),
+  flop: c => {
+    if (c.t < 16) return { raw: true, lean: -Math.PI / 2 * clamp01(c.t / 6), by: 40, hf: [-70, 30, -30], hb: [-60, 20, 40], ff: [70, 14, -14], fb: [60, 8, 18], eyes: 'shut', mouth: 'grin' };
+    return { lean: -.4, by: c.S.by + 10, sy: 1.1, ff: [70, 230, -6], fb: [-30, 0, 20], hf: [-40, 120, -24], hb: [-60, 90, 40], mouth: 'open' };
+  },
+  bender: c => ({ raw: true, spin: Math.sin(c.t * .4) * .9, lean: .2 + Math.sin(c.t * .9) * .15, by: 108 + Math.sin(c.t * .6) * 8, bx: 16, hf: [150 - (c.t % 5) * 18, 100 + (c.t * 41 % 110), -10], hb: [130 - (c.t * 3 % 7) * 12, 90 + (c.t * 29 % 100), 20], ff: (c.t >> 3) % 2 ? [150, 120, -6] : [40, 0, -16], fb: [-50, 0, 20], mouth: 'open' }),
+
+  // 담배: 연기로 사라지기, 뒤로 돌며 차올리기, 연기 내뿜기, 연기 폭풍.
+  vanish: c => ({ by: c.S.by - 30 * clamp01(c.t / 10), sy: 1 - .3 * clamp01(c.t / 10), sx: 1 + .1 * clamp01(c.t / 10), lean: .1, hf: [30, 70, -24], hb: [-30, 70, 40], ff: [30, 0, -16], fb: [-30, 0, 20], eyes: 'shut', mouth: 'smirk' }),
+  flare: c => {
+    if (!c.air) return { by: c.S.by - 22, sy: .88, lean: .2, hf: [40, 80, -20], hb: [-30, 70, 40], ff: [36, 0, -16], fb: [-40, 0, 20] };
+    const r = -Math.PI * 1.6 * clamp01((c.t - c.m.startup) / 18), by = c.S.by, at = rolled(r, by);
+    return { raw: true, hold: true, roll: r, by, hf: at(-40, 40, -30), hb: at(-50, 20, 40), ff: at(60, 140, -8), fb: at(-20, -60, 20), mouth: 'grin' };
+  },
+  screen: () => ({ lean: .3, bx: 6, by: 100, hf: [70, 150, -30], hb: [60, 120, 40], ff: [40, 0, -16], fb: [-40, 0, 20], mouth: 'open' }),
+  storm: c => ({ raw: true, spin: c.t * .5, by: 110, hf: [110, 170, -50], hb: [-110, 170, 50], ff: [30, 10, -14], fb: [-30, 0, 18], mouth: 'open' }),
+
+  // 내장지방: 배 내밀기, 두 팔로 감싸기, 감싸 조이기.
+  belly: c => ({ lean: -.42, bx: 30 * Math.max(0, c.k), by: c.S.by - 6, sx: 1 + .12 * Math.max(0, c.k), sy: .94, hf: [-30, 140, -60], hb: [-40, 130, 64], ff: [40, 0, -20], fb: [-50, 0, 24], mouth: 'grin' }),
+  // 출렁 점프: 몸을 숙이지 않고 배부터 떨어진다(공용 press는 앞으로 엎어져 거구가 바닥에 묻힌다).
+  quake: c => ({ lean: c.k < .5 ? -.2 : .3, by: c.k < .5 ? 110 : 96, sy: c.k < .5 ? 1.08 : .92, sx: c.k < .5 ? .95 : 1.08, hf: [70, 190, -70], hb: [60, 180, 74], ff: [30, 40, -24], fb: [-30, 30, 26], mouth: 'open' }),
+  engulf: c => ({ hf: [120, 150, -80], hb: [116, 140, 84], lean: .3, bx: 20, by: c.S.by - 6, sx: 1.08, ff: [50, 0, -20], fb: [-50, 0, 24], mouth: 'open' }),
+  squeeze: c => {
+    const u = clamp01(c.t / Math.max(1, c.m.startup)), q = Math.sin(c.t * .7);
+    return u < 1
+      ? { raw: true, hf: [80, 130, -18 + q * 6], hb: [78, 120, 22 - q * 6], lean: .16, sx: 1.1 + q * .05, sy: .95 - q * .04, bx: 10, mouth: 'grin' }
+      : { hf: [140, 120, -20], hb: [120, 110, 30], lean: .3, bx: 18, mouth: 'open' };
+  },
+});
+
 // 4차에 더한 기술들.
 Object.assign(ATTACKS, {
   // 심장: 날아 차는 무릎, 곧게 뚫는 주먹, 두 주먹을 벌려 터뜨리는 전기 충격.

@@ -9,8 +9,8 @@ import { Hud } from './gfx/hud.js';
 import { VOICE } from './sfx.js';
 
 // 만화 의성어. 필살기는 소리 갈래(sfx.js VOICE)마다, 장풍은 종류마다 다른 글자가 튀어나온다.
-const WORDS = { multi: '다다닥!', rise: '슈왁!', dash: '쿠당탕!', cast: '파앗!', guard: '팅!', heavy: '쿠웅!', snap: '빠직!', zap: '지지직!', splash: '촤아악!', heal: '뿅!', boom: '콰앙!', flare: '화르륵!' };
-const SHOT_WORDS = { water: '촤악!', wave: '촤아악!', stone: '쾅!', steam: '치익!', cap: '딱!', fry: '퍽퍽!', flame: '화륵!', broth: '촤악!' };
+const WORDS = { multi: '다다닥!', rise: '슈왁!', dash: '쿠당탕!', cast: '파앗!', guard: '팅!', heavy: '쿠웅!', snap: '빠직!', zap: '지지직!', splash: '촤아악!', heal: '뿅!', boom: '콰앙!', flare: '화르륵!', flex: '불끈!', smoke: '푸슉!', gulp: '딸꾹!', squish: '출렁!' };
+const SHOT_WORDS = { water: '촤악!', wave: '촤아악!', stone: '쾅!', steam: '치익!', cap: '딱!', fry: '퍽퍽!', flame: '화륵!', broth: '촤악!', dumbbell: '쿵!', breath: '화르륵!', glass: '쨍그랑!', ember: '팟!', smoke: '콜록!', ash: '푸석!', storm: '콜록콜록!', glob: '철퍽!', quake: '쿠르릉!' };
 const LIGHT = ['퍽!', '팍!', '탁!'], HEAVY = ['빡!', '퍼억!', '빠악!'];
 const any = list => list[Math.floor(Math.random() * list.length)];
 
@@ -166,7 +166,9 @@ export class Renderer {
           puppet = this.puppets[i] = new Puppet(f.char.id, { alt }); stage.scene.add(puppet.root);
         }
         if (fresh) puppet.P = null;
-        puppet.root.visible = true; puppet.update(f, this.frame);
+        // 연기 순간이동: 연기 속으로 줄어든 뒤 나타날 때까지 몸을 감춘다.
+        const hidden = f.state === 'attack' && f.move.warp && f.t > f.move.startup - 4 && f.t <= f.move.startup + 1;
+        puppet.root.visible = !hidden; puppet.update(f, this.frame);
       });
       stage.follow(sim.f[0].x, sim.f[1].x, Math.max(-sim.f[0].y, -sim.f[1].y) + 230, fresh);
     } else {

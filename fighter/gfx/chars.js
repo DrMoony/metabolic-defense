@@ -3,6 +3,10 @@
 import { Shape, ball, cap, box, torus, cone } from './sdf.js';
 import * as organs from './chars_organs.js';
 import * as villains from './chars_villains.js';
+import { MODEL as muscle } from './chars_muscle.js';
+import { MODEL as soju } from './chars_soju.js';
+import { MODEL as smoke } from './chars_smoke.js';
+import { MODEL as visceral } from './chars_visceral.js';
 
 export const INK = '#2b0f1d';
 
@@ -80,6 +84,8 @@ export const MODELS = {
     },
   },
   ...organs.MODELS, ...villains.MODELS,
+  // 2026-11-13 새 캐릭터: 한 명에 파일 하나.
+  muscle, soju, smoke, visceral,
 };
 
 for (const model of Object.values(MODELS)) {

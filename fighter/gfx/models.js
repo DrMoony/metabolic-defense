@@ -4,7 +4,7 @@ import * as THREE from '../../vendor/three.module.js';
 import { GLTFLoader } from '../../vendor/addons/GLTFLoader.js';
 import { COMIC, toonOf } from './comic.js';
 
-const BUILT = ['heart', 'kidney', 'liver', 'pancreas', 'soda', 'fries', 'ramen', 'burger'];
+const BUILT = ['heart', 'kidney', 'liver', 'pancreas', 'soda', 'fries', 'ramen', 'burger', 'muscle', 'soju', 'smoke', 'visceral'];
 const base = new URL('../assets/', import.meta.url);
 const store = new Map();
 

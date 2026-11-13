@@ -42,6 +42,20 @@ export const STAGES = {
     motes: { colors: ['#fff1b0', '#cdbdff', '#aaffe0'], count: 70, size: [5, 12], rise: [.1, .35], drift: .15 },
     beams: { color: '#fff6d8', xs: [-520, 0, 520], power: .07 },
   },
+  // 2026-11-13 근육의 홈(파워 짐)과 최종 보스 내장지방의 홈(뱃속 심연).
+  gym: {
+    name: '파워 짐', image: 'stage_gym.jpg', floor: .668, gain: .86, calm: .1, dark: '#07061a', shadow: ['#0a0a2c', .52], gloss: .32,
+    hemi: ['#fff1dc', '#2a2a6a', 1.05], key: ['#ffe6c0', 2.5, [-380, 980, 820]],
+    rims: [['#ffc46a', 2.4, [-700, 520, -900]], ['#8aa0ff', 1.8, [800, 420, -800]]],
+    motes: { colors: ['#ffe29a', '#ffd0a0', '#ffffff'], count: 80, size: [4, 10], rise: [.2, .6], drift: .15 },
+    beams: { color: '#ffe8c0', xs: [-560, -180, 200, 580], power: .1 },
+  },
+  belly: {
+    name: '뱃속 심연', image: 'stage_belly.jpg', floor: .684, gain: .9, dark: '#0a0412', shadow: ['#14061e', .58], gloss: .34,
+    hemi: ['#e8d8ff', '#3a1a4a', .95], key: ['#fff0d8', 2.3, [-380, 980, 820]],
+    rims: [['#b6ff4a', 2.4, [-700, 420, -900]], ['#c07aff', 2.2, [800, 420, -800]]],
+    motes: { colors: ['#ffe27a', '#c8ff6a', '#e8c8ff'], count: 90, size: [4, 12], rise: [-.3, -.1], drift: .12 },
+  },
   alley: {
     name: '야식 골목', image: 'stage_alley.jpg', floor: .692, dark: '#04030c', shadow: ['#02020a', .55], gloss: .34,
     hemi: ['#b8c8ff', '#3a1a4a', .9], key: ['#ffe6d0', 2.0, [-380, 980, 820]],
@@ -321,7 +335,7 @@ export class Stage {
     if (this.motes.visible) {
       const pos = this.motes.geometry.attributes.position;
       this.moteData.forEach((d, i) => {
-        d.y += d.vy * dt; if (d.y > 780) d.y -= 800;
+        d.y += d.vy * dt; if (d.y > 780) d.y -= 800; else if (d.y < -20) d.y += 800;
         pos.setXYZ(i, d.x + Math.sin(t * .012 * d.drift + d.sway) * 40, d.y, d.z);
       });
       pos.needsUpdate = true;

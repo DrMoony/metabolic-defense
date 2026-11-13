@@ -48,6 +48,24 @@ export const SONGS = {
       ['D E F#m F#m D E C# C#', 'F#5 - A5 D6 - - A5 - | G#5 - B5 E6 - - B5 - | A5 - C#6 F#6 - E6 C#6 A5 | F#5 - - . C#5 F#5 A5 . | F#5 - A5 D6 - - F#6 - | G#5 - B5 E6 - - G#6 - | F6 - C#6 G#5 F5 - G#5 C#6 | F6 - G#6 - C#6 - - .'],
     ],
   },
+  // 근육 스테이지(파워 짐): 라장조, 금관처럼 밀어붙이는 응원가.
+  gym: {
+    bpm: 144, voice: 'square', loud: .11, bright: 4200, pad: .028, bass: 'r.r.o.r.r.r.o.5.',
+    drums: { kick: 'x...x...x...x...', clap: '....x.......x...', hat: 'x.xxx.xxx.xxx.xx' }, fill: { clap: '....x...x.x.xxxx' },
+    parts: [
+      ['D A Bm G D A G A', 'D5 - F#5 A5 D6 - A5 F#5 | E5 - A5 C#6 E6 - C#6 A5 | F#5 - B5 D6 F#6 - D6 B5 | G5 - B5 D6 G5 - - . | A5 - D6 F#6 A6 - F#6 D6 | C#6 - E6 C#6 A5 - E5 A5 | B5 - D6 B5 G5 - B5 D6 | C#6 - A5 E5 A5 - - .'],
+      ['G A F#m Bm G A Em A', 'D6 - B5 G5 D6 - B5 G5 | E6 - C#6 A5 E6 - C#6 A5 | F#6 - C#6 A5 F#5 - A5 C#6 | D6 - B5 F#5 D5 - - . | G5 - B5 D6 G6 - D6 B5 | A5 - C#6 E6 A6 - E6 C#6 | B5 - G5 E5 B5 - E6 G6 | E6 - C#6 A5 E5 - - .'],
+    ],
+  },
+  // 최종 보스(뱃속 심연): 바단조, 느리고 무겁게 짓누르다가 둘째 마디부터 몰아친다.
+  belly: {
+    bpm: 128, voice: 'sawtooth', loud: .12, bright: 3000, low: 'square', pad: .034, bass: 'r..r..r.r..r.5o.',
+    drums: { kick: 'x..x..x.x..x..x.', snare: '....x.......x...', tom: '..........x..xx.', hat: 'x.x.x.x.x.x.x.x.' }, fill: { tom: '........xxx.xxxx' },
+    parts: [
+      ['Fm Fm Db C Fm Fm Bbm C', 'F4 - - Ab4 C5 - Db5 C5 | Ab4 - F4 - C4 - - . | Db5 - F5 Ab5 Db5 - C5 Bb4 | C5 - E4 G4 C5 - - . | F5 - Ab5 C6 F5 - Eb5 Db5 | C5 - Ab4 F4 C5 - - . | Db5 - F5 Bb5 Db6 - C6 Bb4 | E5 - G5 C6 E5 - - .'],
+      ['Db Eb Fm Fm Db Eb C C', 'F5 - Ab5 Db6 - - C6 Ab5 | G5 - Bb5 Eb6 - - Db6 Bb5 | C6 - Ab5 F5 C6 - Ab5 F5 | Ab5 - - . F5 - Ab5 C6 | Db6 - F6 Ab5 Db6 - F6 Db6 | Eb6 - G6 Bb5 Eb6 - G6 Eb6 | E6 - C6 G5 E6 - C6 G5 | C6 - - - G5 - - .'],
+    ],
+  },
   // 처음 화면: 다장조, 주제가.
   title: {
     bpm: 120, voice: 'sawtooth', loud: .13, bright: 3800, pad: .034, bass: 'r...r..r..r.5.o.', arp: '0.1.2.3.2.1.2.1.', pluck: 'triangle', arpLoud: .07,

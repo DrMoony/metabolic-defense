@@ -36,13 +36,13 @@ h1{font-size:104px;line-height:1.02;font-weight:900;letter-spacing:-.04em;color:
 /* 캐릭터 고르기 */
 #select{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:#1d0b19b8}
 h2{font-size:44px;font-weight:900;letter-spacing:-.03em;color:var(--gold)}
-.pick{display:grid;grid-template-columns:300px auto 300px;gap:22px;align-items:center}
+.pick{display:grid;grid-template-columns:300px auto 300px;gap:16px;align-items:center}
 /* 가운데 얼굴 칸: 줄 이름 + 캐릭터 칸 */
-.cards{display:grid;grid-template-columns:34px repeat(var(--cols,4),126px);gap:14px 10px;align-items:center}
+.cards{display:grid;grid-template-columns:28px repeat(var(--cols,4),108px);gap:14px 8px;align-items:center}
 .rowname{writing-mode:vertical-rl;font-size:14px;font-weight:900;letter-spacing:.3em;color:var(--muted);justify-self:center}
 .card{position:relative;padding:6px 4px 8px;border:2px solid #ffe0a02e;border-radius:8px;background:radial-gradient(circle at 50% 38%,color-mix(in srgb,var(--tint) 34%,transparent),transparent 70%),linear-gradient(160deg,#4b263bee,#241425f5);text-align:center;cursor:pointer;transition:transform .25s var(--ease),border-color .25s var(--ease)}
-.card canvas{width:112px;height:123px}
-.card strong{display:block;font-size:18px;font-weight:900}
+.card canvas{width:98px;height:108px}
+.card strong{display:block;font-size:16px;font-weight:900}
 .card.c0,.card.c1{transform:translateY(-6px);border-color:var(--gold)}
 .card.c1:not(.c0){border-color:#8fd6ff}
 .card .tags{position:absolute;top:-13px;left:0;right:0;display:flex;justify-content:center;gap:4px}

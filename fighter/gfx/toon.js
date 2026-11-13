@@ -158,6 +158,41 @@ const SHAPES = {
     g.lineJoin = 'round'; path(); g.strokeStyle = pal[2]; g.lineWidth = s * .045; g.stroke(); g.fillStyle = pal[1]; g.fill('evenodd');
     g.beginPath(); g.arc(s / 2, s / 2, s * .305, 0, TAU); g.strokeStyle = pal[0]; g.lineWidth = s * .035; g.stroke();
   },
+  // 2026-11-13 새 캐릭터용 모양.
+  // 덤벨(근육): 가운데 손잡이에 양쪽 원판.
+  dumbbell: (g, s, pal) => {
+    g.lineJoin = 'round';
+    g.beginPath(); g.roundRect(s * .26, s * .44, s * .48, s * .12, s * .03); g.strokeStyle = pal[2]; g.lineWidth = s * .05; g.stroke(); g.fillStyle = pal[0]; g.fill();
+    for (const x of [.08, .7]) { g.beginPath(); g.roundRect(s * x, s * .2, s * .22, s * .6, s * .06); g.strokeStyle = pal[2]; g.lineWidth = s * .05; g.stroke(); g.fillStyle = pal[1]; g.fill(); g.fillStyle = pal[0]; g.fillRect(s * (x + .04), s * .26, s * .05, s * .48); }
+  },
+  // 소주잔: 아래가 좁은 투명 잔에 술이 반쯤.
+  cup: (g, s, pal) => {
+    g.lineJoin = 'round';
+    poly(g, s, [[.24, .14], [.76, .14], [.68, .88], [.32, .88]]); g.strokeStyle = pal[2]; g.lineWidth = s * .05; g.stroke(); g.globalAlpha = .35; g.fillStyle = '#ffffff'; g.fill(); g.globalAlpha = 1;
+    poly(g, s, [[.27, .44], [.73, .44], [.68, .86], [.32, .86]]); g.fillStyle = pal[1]; g.fill();
+    g.beginPath(); g.ellipse(s * .5, s * .44, s * .23, s * .04, 0, 0, TAU); g.fillStyle = pal[0]; g.fill();
+    g.beginPath(); g.moveTo(s * .3, s * .2); g.lineTo(s * .35, s * .8); g.strokeStyle = '#ffffffc0'; g.lineWidth = s * .035; g.lineCap = 'round'; g.stroke();
+  },
+  // 표창(담배): 네 갈래 별에 가운데 구멍.
+  shuriken: (g, s, pal) => {
+    layers(g, s, pal, () => poly(g, s, star(4, .47, .14)), { edge: .03, core: .5 });
+    g.beginPath(); g.arc(s / 2, s / 2, s * .07, 0, TAU); g.fillStyle = '#1a1418'; g.fill();
+  },
+  // 지방 덩어리(내장지방): 동글동글 뭉친 혹 여러 개.
+  blob: (g, s, pal) => {
+    const R = seeded(41), c = s / 2, lumps = [[0, 0, .3]];
+    for (let i = 0; i < 7; i++) { const a = i / 7 * TAU + R() * .5, d = .2 + R() * .08; lumps.push([Math.cos(a) * d, Math.sin(a) * d, .13 + R() * .07]); }
+    const all = (grow, color) => { g.fillStyle = color; for (const [x, y, r] of lumps) { g.beginPath(); g.arc(c + x * c * 1.4, c + y * c * 1.4, (r + grow) * c * 1.15, 0, TAU); g.fill(); } };
+    all(.06, pal[2]); all(0, pal[1]);
+    g.fillStyle = pal[0]; for (const [x, y, r] of lumps.slice(0, 5)) { g.beginPath(); g.ellipse(c + (x - r * .3) * c * 1.4, c + (y - r * .35) * c * 1.4, r * c * .42, r * c * .26, -.6, 0, TAU); g.fill(); }
+    g.strokeStyle = '#e0607088'; g.lineWidth = s * .012; g.lineCap = 'round'; g.beginPath(); g.moveTo(c * .7, c * 1.2); g.quadraticCurveTo(c * .95, c * 1.0, c * 1.15, c * 1.25); g.stroke();
+  },
+  // 해골 연기(중독 표시).
+  skull: (g, s, pal) => {
+    layers(g, s, pal, () => curve(g, s, [.5, .1], [.82, .1, .88, .4, .8, .56], [.74, .64, .72, .8, .62, .84], [.56, .9, .44, .9, .38, .84], [.28, .8, .26, .64, .2, .56], [.12, .4, .18, .1, .5, .1]), { edge: .05, core: .5, cy: .35 });
+    g.fillStyle = '#1a1020'; for (const x of [.37, .63]) { g.beginPath(); g.ellipse(s * x, s * .46, s * .09, s * .1, 0, 0, TAU); g.fill(); }
+    g.beginPath(); g.moveTo(s * .5, s * .56); g.lineTo(s * .46, s * .64); g.lineTo(s * .54, s * .64); g.closePath(); g.fill();
+  },
   star5: (g, s, pal) => layers(g, s, pal, () => poly(g, s, star(5, .44, .19)), { edge: .045, core: .5 }),
   // 기름·국물이 튄 얼룩.
   splat: (g, s, pal) => {
@@ -167,7 +202,7 @@ const SHAPES = {
     all(.05, pal[2]); all(0, pal[1]); g.fillStyle = pal[0]; g.beginPath(); g.ellipse(c * .8, c * .78, c * .16, c * .09, -.6, 0, TAU); g.fill();
   },
 };
-const BIG = { arc: 512, burst: 512, crest: 512, pillar: 512, crater: 512, spikes: 512, flame: 256, cloud: 256, ring: 256, thin: 256, sonic: 256, bolt: 256, ecg: 256, noodle: 256, lasso: 256, lance: 256, cone: 256, hex: 256, heart: 256, splat: 256, cheese: 256, glint: 256 };
+const BIG = { blob: 256, dumbbell: 256, arc: 512, burst: 512, crest: 512, pillar: 512, crater: 512, spikes: 512, flame: 256, cloud: 256, ring: 256, thin: 256, sonic: 256, bolt: 256, ecg: 256, noodle: 256, lasso: 256, lance: 256, cone: 256, hex: 256, heart: 256, splat: 256, cheese: 256, glint: 256 };
 
 // 색 묶음: [속, 몸, 테두리].
 export const T = {
@@ -179,6 +214,10 @@ export const T = {
   soda: { foam: ['#ffffff', '#ffeccb', '#8a5a3c'], fizz: ['#ffffff', '#ff8fc0', '#7a1f6a'], cap: ['#ffffff', '#e8323c', '#e2b030'], cola: ['#ffe8d0', '#b0522a', '#3d1408'] },
   fries: { oil: ['#fff8c8', '#ffc21a', '#a05a00'], fire: ['#fff7b0', '#ff7a1a', '#a01a00'], fry: ['#fff0a0', '#f5b82e', '#8a5210'] },
   ramen: { noodle: ['#fff8d0', '#ffcc4a', '#9a5a10'], steam: ['#ffffff', '#f4ece4', '#a89888'], broth: ['#ffe8b0', '#f08a2a', '#7a2e08'], leek: ['#e8ffc0', '#6fd04a', '#2a6a1a'] },
+  muscle: { power: ['#ffffff', '#33e0c8', '#0a5a58'], sweat: ['#ffffff', '#bff4ff', '#3a8aa8'], heat: ['#fff2e0', '#ff8a5a', '#8a2a14'], iron: ['#f4f6fa', '#9aa4b4', '#2c323e'], gold: ['#fffbe0', '#ffc531', '#8a5a00'] },
+  soju: { flame: ['#ffffff', '#4aa8ff', '#1a2a9a'], glass: ['#f0fff4', '#4fd08a', '#145236'], drink: ['#ffffff', '#e4fff0', '#58a07a'], blush: ['#fff0f4', '#ff8aa8', '#a02a50'] },
+  smoke: { ember: ['#fff4b0', '#ff6a1a', '#8a1400'], ash: ['#e8e4e0', '#8a8690', '#2a2830'], smoke: ['#f4f2f6', '#b4b0bc', '#4a4654'], toxin: ['#f0e0ff', '#9a6ad0', '#3a1a5a'] },
+  visceral: { fat: ['#fffbe0', '#f6d272', '#9a6a14'], oil: ['#fffbd0', '#ffd23a', '#8a5a00'], vein: ['#ffe0e8', '#e05a7a', '#7a1a3a'], strap: ['#e8c0ff', '#5a2a6a', '#1a0a20'] },
   burger: { gold: ['#fffbe0', '#ffc02e', '#8a4a00'], lettuce: ['#e8ffc0', '#6fd04a', '#2a6a1a'], tomato: ['#ffd8c8', '#f0463a', '#8a1410'], cheese: ['#fff6b0', '#ffb81a', '#b06a00'], seed: ['#ffffff', '#fff1c8', '#a8824a'], rock: ['#d9c2a8', '#9a6a4c', '#3d2416'] },
 };
 

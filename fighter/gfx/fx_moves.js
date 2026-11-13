@@ -2,8 +2,12 @@
 // CAST: 기술을 내는 순간 · WIND: 준비 동작 틱마다 · TRAIL: 판정이 살아 있는 틱마다 · HIT: 맞은 순간.
 import { T } from './toon.js';
 
-export const MAIN = { heart: T.heart.pulse, kidney: T.kidney.water, liver: T.liver.vital, pancreas: T.pancreas.teal, soda: T.soda.fizz, fries: T.fries.oil, ramen: T.ramen.noodle, burger: T.burger.gold };
+export const MAIN = { heart: T.heart.pulse, kidney: T.kidney.water, liver: T.liver.vital, pancreas: T.pancreas.teal, soda: T.soda.fizz, fries: T.fries.oil, ramen: T.ramen.noodle, burger: T.burger.gold,
+  muscle: T.muscle.power, soju: T.soju.flame, smoke: T.smoke.ember, visceral: T.visceral.fat };
 export const CAST = {}, WIND = {}, TRAIL = {}, HIT = {};
+// 장풍 모양(종류마다): MAKE(fx, shot, v) 처음 나올 때 부품을 단다 · TICK(fx, shot, v, x, y, dir, ticked) 매 틱 · END(fx, shot, x, y) 사라질 때.
+// GRAB[캐릭터](fx, e, x0, x1, y): 필살 잡기 순간. STATUS: 상태 이상이 걸린 몸 위에 도는 표시.
+export const SHOT = {}, GRAB = {};
 
 export const TAU = Math.PI * 2, UP = Math.PI / 2;
 export const rnd = (a, b) => a + Math.random() * (b - a);
