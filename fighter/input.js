@@ -1,7 +1,7 @@
 // 키보드와 게임패드(조이스틱)를 한 형태로 읽는다. 0번 패드=1P, 1번 패드=2P.
 const KEYS = [
-  { left: ['KeyA'], right: ['KeyD'], up: ['KeyW'], down: ['KeyS'], p: ['KeyF'], k: ['KeyG'] },
-  { left: ['ArrowLeft'], right: ['ArrowRight'], up: ['ArrowUp'], down: ['ArrowDown'], p: ['KeyK', 'Numpad1'], k: ['KeyL', 'Numpad2'] },
+  { left: ['KeyA'], right: ['KeyD'], up: ['KeyW'], down: ['KeyS'], p: ['KeyG'], k: ['KeyH'] },
+  { left: ['ArrowLeft'], right: ['ArrowRight'], up: ['ArrowUp'], down: ['ArrowDown'], p: ['Comma', 'Numpad1'], k: ['Period', 'Numpad2'] },
 ];
 const held = new Set();
 const GAME_KEYS = new Set(KEYS.flatMap(map => Object.values(map).flat()));
