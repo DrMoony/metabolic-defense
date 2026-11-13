@@ -3,6 +3,7 @@
 // 좌표: 시뮬 x에서 640을 뺀 값이 월드 x, 바닥이 y=0, 화면 쪽이 +z. 1픽셀 = 1단위.
 import * as THREE from '../../vendor/three.module.js';
 import { Post } from './post.js';
+import { COMIC, setView } from './comic.js';
 
 const TAN_V = Math.tan(15 * Math.PI / 180), TAN_H = TAN_V * 16 / 9;
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
@@ -64,10 +65,24 @@ const PLATE_VERT = `
 uniform mat4 uRef; varying vec4 vRef;
 void main() { vec4 w = modelMatrix * vec4(position, 1.); vRef = uRef * w; gl_Position = projectionMatrix * viewMatrix * w; }`;
 const PLATE_FRAG = `
-uniform sampler2D map; uniform float uDim, uGain, uCalm; uniform vec3 uDark; varying vec4 vRef;
+uniform sampler2D map; uniform float uDim, uGain, uCalm, uComic, uDot; uniform vec2 uPx; uniform vec3 uDark; varying vec4 vRef;
+float lum(vec3 c) { return dot(c, vec3(.2126, .7152, .0722)); }
+float at(vec2 uv, float x, float y) { return sqrt(lum(texture2D(map, uv + uPx * vec2(x, y)).rgb)); }
 void main() {
   vec2 uv = clamp(vRef.xy / vRef.w * .5 + .5, 0., 1.);
   vec3 c = texture2D(map, uv).rgb;
+  // 만화풍: 밝기를 몇 단으로 끊고, 어두운 곳에 인쇄 망점을 찍고, 밝기가 확 바뀌는 경계에 먹선을 넣는다.
+  if (uComic > 0.) {
+    float tl = at(uv, -1., 1.), t = at(uv, 0., 1.), tr = at(uv, 1., 1.), l = at(uv, -1., 0.), r = at(uv, 1., 0.), bl = at(uv, -1., -1.), b = at(uv, 0., -1.), br = at(uv, 1., -1.);
+    float edge = length(vec2(tr + 2. * r + br - tl - 2. * l - bl, tl + 2. * t + tr - bl - 2. * b - br));
+    float y = lum(c), v = sqrt(y), q = floor(v * 5. + .5) / 5.;
+    c *= mix(1., q * q / max(y, .002), .65);
+    c = max(mix(vec3(lum(c)), c, 1.25), 0.);
+    vec2 p = mat2(.7071, -.7071, .7071, .7071) * gl_FragCoord.xy / uDot, cell = fract(p) - .5;
+    float radius = clamp((.6 - v) * 1.05, 0., .62), dots = 1. - smoothstep(radius - .07, radius + .07, length(cell));
+    c *= 1. - dots * .5;
+    c *= 1. - smoothstep(.16, .34, edge) * .85;
+  }
   // 선수가 묻히지 않게 배경을 조금 가라앉힌다(밝기·채도), 화면 가장자리는 살짝 더.
   c = mix(c, vec3(dot(c, vec3(.2126, .7152, .0722))), uCalm) * uGain * (1. - .22 * smoothstep(.3, .75, length(uv - vec2(.5, .56))));
   c = mix(c, c * .14 + uDark, uDim);
@@ -90,7 +105,7 @@ export class Stage {
     const ref = this.ref = new THREE.PerspectiveCamera(Math.atan(TAN_V * MARGIN) * 360 / Math.PI, 16 / 9, 60, 14000);
     ref.position.set(0, 316, 640 / TAN_H); ref.lookAt(0, 252, 0); ref.updateMatrixWorld(); ref.updateProjectionMatrix();
     this.refMatrix = new THREE.Matrix4().multiplyMatrices(ref.projectionMatrix, ref.matrixWorldInverse);
-    this.environment(null); this.lights(); this.arena();
+    this.environment(null); this.lights(); this.arena(); this.fitInk(ratio);
     this.post = new Post(gl); this.post.on = !/[?&]post=0/.test(location.search);
     this.aim(true);
     this.use(stage);
@@ -141,7 +156,7 @@ export class Stage {
   arena() {
     const s = this.scene;
     // 그림을 입히는 바닥과 뒷벽. 뒷벽 자리는 무대마다 그림의 바닥 끝 선에 맞춰 옮긴다.
-    const uniforms = this.plateUniforms = { map: { value: null }, uRef: { value: this.refMatrix }, uDim: { value: 0 }, uGain: { value: 1 }, uCalm: { value: 0 }, uDark: { value: new THREE.Color('#0a020c') } };
+    const uniforms = this.plateUniforms = { uComic: { value: COMIC ? 1 : 0 }, uDot: { value: 5.5 }, uPx: { value: new THREE.Vector2(1 / 2048, 1 / 1152) }, map: { value: null }, uRef: { value: this.refMatrix }, uDim: { value: 0 }, uGain: { value: 1 }, uCalm: { value: 0 }, uDark: { value: new THREE.Color('#0a020c') } };
     const mat = this.plateMat = new THREE.ShaderMaterial({ uniforms, vertexShader: PLATE_VERT, fragmentShader: PLATE_FRAG, toneMapped: false, fog: false });
     const floor = this.floor = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), mat); floor.rotation.x = -Math.PI / 2;
     const wall = this.wall = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), mat);
@@ -253,7 +268,7 @@ export class Stage {
     this.wall.scale.set(wide, 1400, 1); this.wall.position.set(0, 700, far);
     this.floor.visible = this.wall.visible = true;
     this.sheen.scale.copy(this.floor.scale); this.sheen.position.set(0, .3, this.floor.position.z); this.sheen.visible = this.mirror; this.gloss = look.gloss ?? .26;
-    this.plateUniforms.map.value = plate; this.plateUniforms.uDark.value.set(look.dark);
+    this.plateUniforms.map.value = plate; this.plateUniforms.uPx.value.set(1.4 / plate.image.width, 1.4 / plate.image.height); this.plateUniforms.uDark.value.set(look.dark);
     this.plateUniforms.uGain.value = look.gain ?? .9; this.plateUniforms.uCalm.value = look.calm ?? .08;
     this.catcher.material.color.set(look.shadow[0]); this.catcher.material.opacity = this.shadowPower = look.shadow[1];
     this.catcher.position.z = (far + 420) / 2; this.catcher.scale.set(1, (420 - far) / 1500, 1);
@@ -290,7 +305,9 @@ export class Stage {
     this.flow(0);
   }
 
-  setRatio(ratio) { this.gl.setPixelRatio(ratio); this.gl.setSize(1280, 720, false); }
+  setRatio(ratio) { this.gl.setPixelRatio(ratio); this.gl.setSize(1280, 720, false); this.fitInk(ratio); }
+  // 먹선 굵기와 망점 크기는 실제 화소 수를 따라간다.
+  fitInk(ratio) { setView(1280 * ratio, 720 * ratio); if (this.plateUniforms) this.plateUniforms.uDot.value = 5.5 * ratio; }
   // 0이면 평소, 1이면 배경이 어두워진다. 부드럽게 따라간다.
   setDim(k) { this.dimTo = k; }
 

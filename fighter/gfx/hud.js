@@ -1,5 +1,6 @@
 // 화면 위 정보: 체력, 게이지, 시간, 연속기, 큰 글자. 3D 무대 위에 겹친 2D 캔버스에 그린다.
 import { STAGE, TYPES, CHARS } from '../data.js';
+import { COMIC } from './comic.js';
 
 const W = STAGE.w, H = STAGE.h, TAU = Math.PI * 2;
 const FONT = '"Apple SD Gothic Neo","Malgun Gothic",Inter,sans-serif';
@@ -10,12 +11,61 @@ export class Hud {
   // stage: 월드 좌표를 화면 픽셀로 바꿔 준다. portraitOf(id): 얼굴 배지에 쓸 그림(없으면 null).
   constructor(canvas, stage, portraitOf) {
     this.canvas = canvas; this.c = canvas.getContext('2d'); this.stage = stage; this.portraitOf = portraitOf;
-    this.ratio = 1; this.debug = false; this.reset();
+    this.ratio = 1; this.debug = false; this.patterns = new Map(); this.reset();
   }
   resize(ratio) { this.ratio = ratio; this.canvas.width = Math.round(W * ratio); this.canvas.height = Math.round(H * ratio); }
-  reset() { this.texts = []; this.bursts = []; this.cut = null; this.flash = 0; this.lag = [1, 1]; this.combo = [0, 0]; this.pop = [0, 0]; }
+  reset() { this.texts = []; this.words = []; this.bursts = []; this.cut = null; this.flash = 0; this.lag = [1, 1]; this.combo = [0, 0]; this.pop = [0, 0]; }
   // 시뮬 좌표(x, 바닥 기준 y) 위에 잠깐 떠오르는 글자.
   say(text, x, y, color, max = 50, size = 26) { const t = { text, x, y, color, life: 0, max, size }; this.texts.push(t); return t; }
+
+  // 만화 의성어: 맞은 자리 위로 뾰족한 말풍선과 큰 글자가 튀어나온다. 같은 선수의 앞 글자는 바로 지운다.
+  word(text, x, y, { size = 1, owner = null, balloon = true } = {}) {
+    if (!COMIC) return;
+    if (owner != null) this.words = this.words.filter(w => w.owner !== owner);
+    this.words.push({ text, x, y, size, owner, balloon, life: 0, max: 30, tilt: (Math.random() - .5) * .44, seed: 1 + Math.floor(Math.random() * 9999), dx: (Math.random() - .5) * 60 });
+  }
+  // 망점 채우기: 지금 잡힌 경로를 45도 격자 점무늬로 칠한다. 점 타일은 한 번 만들어 무늬로 돌려 쓴다.
+  dots(color, step, radius, alpha = 1) {
+    const key = color + '|' + step + '|' + radius;
+    let pattern = this.patterns.get(key);
+    if (!pattern) {
+      const t = Math.round(step * Math.SQRT2), tile = document.createElement('canvas'), g = tile.getContext('2d');
+      tile.width = tile.height = t; g.fillStyle = color;
+      for (const [x, y] of [[0, 0], [t, 0], [0, t], [t, t], [t / 2, t / 2]]) { g.beginPath(); g.arc(x, y, radius, 0, TAU); g.fill(); }
+      this.patterns.set(key, pattern = this.c.createPattern(tile, 'repeat'));
+    }
+    const c = this.c; c.save(); c.globalAlpha *= alpha; c.fillStyle = pattern; c.fill(); c.restore();
+  }
+  // 코믹스 글자: 먹색 그림자를 오른쪽 아래로 밀어 두고, 굵은 먹선 위에 노랑에서 주황으로 넘어가는 글자를 얹는다.
+  letter(text, x, y, px, width = px * .2, top = '#fff36a', bottom = '#ff5a1f') {
+    const c = this.c; c.lineJoin = 'round';
+    c.fillStyle = INK; c.strokeStyle = INK; c.lineWidth = width; c.strokeText(text, x + px * .07, y + px * .07); c.fillText(text, x + px * .07, y + px * .07);
+    c.strokeText(text, x, y);
+    const fill = c.createLinearGradient(0, y - px * .8, 0, y); fill.addColorStop(0, top); fill.addColorStop(1, bottom);
+    c.fillStyle = fill; c.fillText(text, x, y);
+  }
+  sounds(dt) {
+    const c = this.c, at = [0, 0];
+    for (const w of this.words) {
+      w.life += dt; const k = ease(Math.min(1, w.life / 5)), fade = Math.min(1, (w.max - w.life) / 8);
+      this.stage.project(w.x - 640, -w.y, 60, at);
+      c.save(); c.translate(at[0] + w.dx, at[1] - 130 - w.life * .6); c.rotate(w.tilt); c.scale(lerp(1.9, 1, k) * w.size, lerp(1.9, 1, k) * w.size); c.globalAlpha = Math.max(0, fade);
+      c.font = `italic 900 48px ${FONT}`; c.textAlign = 'center'; c.textBaseline = 'middle';
+      const half = c.measureText(w.text).width / 2 + 34;
+      if (w.balloon) {
+        // 뾰족한 폭발 말풍선. 꼭짓점 길이는 글자마다 정해 둔 씨앗으로 흔든다.
+        let r = w.seed; const rnd = () => (r = (r * 16807) % 2147483647) / 2147483647, n = 14;
+        c.beginPath();
+        for (let i = 0; i < n * 2; i++) { const a = i / (n * 2) * TAU, out = i % 2 ? .7 : 1 + rnd() * .28; c.lineTo(Math.cos(a) * half * out, Math.sin(a) * (half * .62 + 18) * out); }
+        c.closePath(); c.lineJoin = 'miter'; c.lineWidth = 6; c.strokeStyle = INK; c.stroke(); c.fillStyle = '#fffbe6'; c.fill();
+        this.dots('#ff9a3d', 9, 2.6, .5);
+      }
+      c.transform(1, 0, -.12, 1, 0, 0); this.letter(w.text, 0, 4, 48);
+      c.restore();
+    }
+    c.globalAlpha = 1; c.textBaseline = 'alphabetic';
+    this.words = this.words.filter(w => w.life < w.max);
+  }
 
   // 초필살기 컷인: 화면을 가로지르는 비스듬한 띠에 얼굴과 기술 이름이 미끄러져 들어온다.
   cutIn(id, side, name) { this.cut = { id, side, name, life: 0, max: 46 }; }
@@ -34,7 +84,7 @@ export class Hud {
     c.setTransform(this.ratio, 0, 0, this.ratio, 0, 0); c.clearRect(0, 0, W, H);
     if (sim && this.debug) this.boxes(sim);
     this.focus(dt); this.cutScene(dt);
-    this.floaters(dt);
+    this.floaters(dt); this.sounds(dt);
     if (this.flash > 0) { c.fillStyle = `rgba(255,255,255,${Math.min(1, this.flash / 22)})`; c.fillRect(0, 0, W, H); this.flash -= dt; }
     if (o.dim) { c.fillStyle = `rgba(22,8,20,${o.dim})`; c.fillRect(0, 0, W, H); }
     if (sim && o.bars) this.bars(sim, o, dt, frame);
@@ -67,8 +117,21 @@ export class Hud {
     // 띠: 캐릭터 색 바탕에 위아래 금색 줄, 안쪽으로 흐르는 속도선.
     const band = c.createLinearGradient(0, -BH / 2, 0, BH / 2);
     band.addColorStop(0, INK); band.addColorStop(.18, char.dark || char.color); band.addColorStop(.5, char.color); band.addColorStop(.82, char.dark || char.color); band.addColorStop(1, INK);
-    c.fillStyle = band; c.fillRect(-W, -BH / 2, W * 2, BH);
-    c.fillStyle = GOLD; c.fillRect(-W, -BH / 2, W * 2, 4); c.fillRect(-W, BH / 2 - 4, W * 2, 4);
+    if (COMIC) {
+      // 만화 칸: 캐릭터 색을 평평하게 깔고 진한 색 망점, 위아래로 흰 여백과 먹선 테두리, 둘레에 검은 에너지 방울(커비 크래클).
+      c.fillStyle = char.color; c.fillRect(-W, -BH / 2, W * 2, BH);
+      c.beginPath(); c.rect(-W, -BH / 2, W * 2, BH); this.dots(char.dark || INK, 11, 3.4, .55);
+      for (const edge of [-1, 1]) { const y = edge * BH / 2; c.fillStyle = '#fff'; c.fillRect(-W, y - (edge > 0 ? 0 : 10), W * 2, 10); c.fillStyle = INK; c.fillRect(-W, y - 3, W * 2, 6); }
+      let r = 7; const rnd = () => (r = (r * 16807) % 2147483647) / 2147483647;
+      for (let i = 0; i < 26; i++) {
+        const x = (rnd() - .5) * W * 1.6, y = (rnd() < .5 ? -1 : 1) * (BH / 2 - 14 - rnd() * 26), big = 4 + rnd() * 11;
+        c.beginPath(); c.arc(x, y, big + 2.5, 0, TAU); c.fillStyle = '#fff'; c.fill();
+        c.beginPath(); c.arc(x, y, big, 0, TAU); c.fillStyle = INK; c.fill();
+      }
+    } else {
+      c.fillStyle = band; c.fillRect(-W, -BH / 2, W * 2, BH);
+      c.fillStyle = GOLD; c.fillRect(-W, -BH / 2, W * 2, 4); c.fillRect(-W, BH / 2 - 4, W * 2, 4);
+    }
     c.save(); c.beginPath(); c.rect(-W, -BH / 2 + 4, W * 2, Math.max(0, BH - 8)); c.clip();
     c.globalAlpha = .5; c.fillStyle = '#fff';
     for (let i = 0; i < 16; i++) { const w = 120 + (i * 97) % 260, x = ((i * 331 + cut.life * 70 * s) % (W + 600) + W + 600) % (W + 600) - W / 2 - 300; c.fillRect(x, -BH / 2 + 10 + (i * 53) % 170 * open, w, 2 + i % 3); }
@@ -79,8 +142,14 @@ export class Hud {
     }
     c.restore();
     c.globalAlpha = open; c.textAlign = 'center'; c.textBaseline = 'middle';
-    c.font = `italic 900 78px ${FONT}`; this.ink(cut.name, s * (150 + (1 - enter) * 260), 6, '#fff', 12);
-    c.font = `italic 900 20px ${FONT}`; this.ink('초필살기', s * (150 + (1 - enter) * 260), -62, GOLD, 6);
+    const tx = s * (150 + (1 - enter) * 260);
+    if (COMIC) {
+      c.font = `italic 900 78px ${FONT}`; this.letter(cut.name, tx, 6, 78, 16);
+      this.caption('초필살기', tx, -70, 20);
+    } else {
+      c.font = `italic 900 78px ${FONT}`; this.ink(cut.name, tx, 6, '#fff', 12);
+      c.font = `italic 900 20px ${FONT}`; this.ink('초필살기', tx, -62, GOLD, 6);
+    }
     c.textBaseline = 'alphabetic'; c.globalAlpha = 1;
     c.restore();
   }
@@ -95,6 +164,17 @@ export class Hud {
     for (const shot of sim.shots) rect(sim.shotBox(shot), '#fc4');
   }
 
+  // 코믹스 캡션 상자: 노란 네모에 먹선 테두리, 오른쪽 아래로 먹색 그림자. (x, y)가 글자 가운데.
+  caption(text, x, y, px) {
+    const c = this.c; c.save(); c.font = `900 ${px}px ${FONT}`; c.textAlign = 'center'; c.textBaseline = 'middle';
+    const w = c.measureText(text).width + px * 1.1, h = px * 1.55;
+    c.translate(x, y); c.rotate(-.035);
+    c.fillStyle = INK; c.fillRect(-w / 2 + 5, -h / 2 + 5, w, h);
+    c.fillStyle = '#ffe14a'; c.fillRect(-w / 2, -h / 2, w, h); c.lineWidth = 3.5; c.strokeStyle = INK; c.strokeRect(-w / 2, -h / 2, w, h);
+    c.fillStyle = INK; c.fillText(text, 0, px * .06);
+    c.restore();
+  }
+
   floaters(dt) {
     const c = this.c, at = [0, 0];
     c.textAlign = 'center';
@@ -103,7 +183,9 @@ export class Hud {
       t.life += dt; this.stage.project(t.x - 640, -t.y, 40, at);
       c.globalAlpha = Math.max(0, Math.min(1, (t.max - t.life) / 14));
       const k = ease(Math.min(1, t.life / 8));
-      c.save(); c.translate(at[0], at[1] - t.life * .8); c.scale(lerp(1.6, 1, k), lerp(1.6, 1, k)); this.ink(t.text, 0, 0, t.color); c.restore();
+      c.save(); c.translate(at[0], at[1] - t.life * .8); c.scale(lerp(1.6, 1, k), lerp(1.6, 1, k));
+      if (COMIC && t.caption) this.caption(t.text, 0, -t.size * .35, t.size); else this.ink(t.text, 0, 0, t.color);
+      c.restore();
     }
     c.globalAlpha = 1;
     this.texts = this.texts.filter(t => t.life < t.max);

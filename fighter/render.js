@@ -6,6 +6,13 @@ import { Stage } from './gfx/stage.js';
 import { Puppet } from './gfx/puppet.js';
 import { Fx } from './gfx/fx.js';
 import { Hud } from './gfx/hud.js';
+import { VOICE } from './sfx.js';
+
+// 만화 의성어. 필살기는 소리 갈래(sfx.js VOICE)마다, 장풍은 종류마다 다른 글자가 튀어나온다.
+const WORDS = { multi: '다다닥!', rise: '슈왁!', dash: '쿠당탕!', cast: '파앗!', guard: '팅!', heavy: '쿠웅!', snap: '빠직!', zap: '지지직!', splash: '촤아악!', heal: '뿅!', boom: '콰앙!', flare: '화르륵!' };
+const SHOT_WORDS = { water: '촤악!', wave: '촤아악!', stone: '쾅!', steam: '치익!', cap: '딱!', fry: '퍽퍽!', flame: '화륵!', broth: '촤악!' };
+const LIGHT = ['퍽!', '팍!', '탁!'], HEAVY = ['빡!', '퍼억!', '빠악!'];
+const any = list => list[Math.floor(Math.random() * list.length)];
 
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
 const pixelRatio = () => clamp(Math.min(innerWidth / 1280, innerHeight / 720) * (devicePixelRatio || 1), 1, 2);
@@ -58,7 +65,21 @@ export class Renderer {
     const name = moveName(CHARS[event.char], event.key);
     if (!name) return;
     this.hud.texts = this.hud.texts.filter(t => t.owner !== event.side);
-    this.hud.say(name, event.x, event.y - 185, color, life, size).owner = event.side;
+    const t = this.hud.say(name, event.x, event.y - 185, color, life, size); t.owner = event.side; t.caption = true;
+  }
+  // 맞은 순간 의성어를 띄운다. 여러 번 맞는 기술은 막타에서 크게, 사이사이는 앞 글자가 남아 있으면 건너뛴다.
+  shout(event) {
+    const busy = this.hud.words.some(w => w.owner === event.side && w.life < 12);
+    if (event.ko) return this.hud.word('콰쾅!!', event.x, event.y, { owner: event.side, size: 1.45 });
+    if (event.sup) { if (event.last || !busy) this.hud.word(event.last ? '콰과광!!' : '쾅!', event.x, event.y, { owner: event.side, size: event.last ? 1.35 : .9 }); return; }
+    if (event.key === 'slam') return this.hud.word(event.special ? '쿠쾅!!' : '쿵!', event.x, event.y, { owner: event.side, size: event.special ? 1.2 : .95 });
+    if (event.special) {
+      if (busy && !event.last) return;
+      const text = SHOT_WORDS[event.key] || WORDS[VOICE[event.key]] || '콰앙!';
+      return this.hud.word(text, event.x, event.y, { owner: event.side, size: event.last ? 1.15 : 1 });
+    }
+    if (event.heavy) return this.hud.word(any(HEAVY), event.x, event.y, { owner: event.side, size: .82 });
+    if (!busy && Math.random() < .45) this.hud.word(any(LIGHT), event.x, event.y, { owner: event.side, size: .58, balloon: false });
   }
   onEvent(event) {
     this.fx.onEvent(event);
@@ -70,6 +91,7 @@ export class Renderer {
         this.stage.post.kick = Math.max(this.stage.post.kick, event.ko ? 1.6 : event.sup ? .9 : event.special && event.heavy ? .6 : event.heavy ? .3 : 0);
         if (event.ko || (event.last && (event.sup || event.special))) this.hud.burst(event.x, event.y, event.ko || event.sup ? 16 : 9, CHARS[event.char]?.color);
         if (event.ko) this.hud.flash = 14;
+        this.shout(event);
         // 서로 치고받을 때마다 뜨면 정신없으니 연속기 첫 타에만, 한 번에 하나만 띄운다.
         if (event.counter && event.combo <= 1 && !this.hud.texts.some(t => t.text === 'COUNTER')) this.hud.say('COUNTER', event.x, event.y - 40, '#ff8a3d', 34);
         break;

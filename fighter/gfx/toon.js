@@ -1,6 +1,7 @@
 // 만화풍 효과 그림. 흰 속(core) · 진한 몸(body) · 어두운 테두리(edge) 세 겹으로 또렷하게 그린다.
 // 색이 그림에 구워져 있어서 섞지 않고(일반 블렌딩) 그대로 찍는다. 같은 모양·색은 한 번만 그려서 돌려 쓴다.
 import * as THREE from '../../vendor/three.module.js';
+import { COMIC, INK } from './comic.js';
 
 const TAU = Math.PI * 2;
 const seeded = seed => () => (seed = (seed * 16807) % 2147483647) / 2147483647;
@@ -187,7 +188,28 @@ export function toonCanvas(shape, pal, flip = false) {
   c.width = c.height = s;
   if (flip) { g.translate(s, 0); g.scale(-1, 1); }
   SHAPES[shape](g, s, pal);
-  return c;
+  return COMIC ? inked(c) : c;
+}
+// 만화풍 마무리: 그림 둘레에 굵은 먹선을 한 번 더 두르고, 오른쪽 아래(그늘 쪽)로 갈수록 커지는 망점을 찍는다.
+function inked(src) {
+  const s = src.width, make = () => { const c = document.createElement('canvas'); c.width = c.height = s; return c; };
+  // 반투명 꼬리까지 먹선을 두르면 지저분하니 절반 이상 진한 곳만 테두리를 딴다.
+  const sil = make(), k = sil.getContext('2d'); k.drawImage(src, 0, 0);
+  const img = k.getImageData(0, 0, s, s), d = img.data;
+  for (let i = 3; i < d.length; i += 4) d[i] = d[i] > 120 ? 255 : 0;
+  k.putImageData(img, 0, 0); k.globalCompositeOperation = 'source-in'; k.fillStyle = INK; k.fillRect(0, 0, s, s);
+  const out = make(), g = out.getContext('2d'), r = Math.max(2, s * .024);
+  for (let i = 0; i < 16; i++) { const a = i / 16 * TAU; g.drawImage(sil, Math.cos(a) * r, Math.sin(a) * r); }
+  g.drawImage(src, 0, 0);
+  // 망점: 45도로 기운 격자, 그림이 있는 곳에만 얹는다.
+  const dots = make(), h = dots.getContext('2d'), step = s / 20;
+  h.fillStyle = INK; h.translate(s / 2, s / 2); h.rotate(Math.PI / 4);
+  for (let y = -s; y < s; y += step) for (let x = -s; x < s; x += step) {
+    const sx = (x - y) * .7071 + s / 2, sy = (x + y) * .7071 + s / 2, shade = Math.min(1, Math.max(0, (sx + sy) / s - .75) * 1.6);
+    if (shade > 0) { h.beginPath(); h.arc(x, y, step * .46 * Math.sqrt(shade), 0, TAU); h.fill(); }
+  }
+  g.globalCompositeOperation = 'source-atop'; g.globalAlpha = .34; g.drawImage(dots, 0, 0);
+  return out;
 }
 export function toonTexture(shape, pal = T.hit, flip = false) {
   const key = shape + '|' + pal.join() + (flip ? '|f' : '');

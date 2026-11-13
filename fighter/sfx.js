@@ -3,7 +3,7 @@ import { ctx, spot, tone, noise, jit, cycle, mix, MODES } from './snd/core.js';
 import { shout } from './snd/voice.js';
 
 // 필살기를 낼 때 나는 소리는 기술 성격에 따라 열두 가지로 나눈다(기술 키 → 소리).
-const VOICE = {
+export const VOICE = {
   rush: 'multi', spray: 'multi', roll: 'multi', upper: 'rise', rising: 'rise', riser: 'rise', spear: 'rise', burst: 'rise', riposte: 'rise',
   charge: 'dash', slide: 'dash', lunge: 'dash', dive: 'dash', weave: 'dash', slip: 'dash', cast: 'cast', lob: 'cast', drop: 'cast', steam: 'cast',
   barrier: 'guard', stance: 'guard', grab: 'heavy', press: 'heavy', stomp: 'heavy', whip: 'snap',

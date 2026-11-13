@@ -5,6 +5,7 @@ import { MODELS, PARTS, PROPS, INK } from './chars.js';
 import { poseFor, blend } from './poses.js';
 import { built, stamp, material } from './models.js';
 import { REACH } from '../data.js';
+import { COMIC, toonOf, outline } from './comic.js';
 
 const RAD = Math.PI / 180;
 const lin = v => (v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
@@ -138,9 +139,9 @@ const MATS = {
   mouth: new THREE.MeshStandardMaterial({ color: '#571023', roughness: .6 }),
   tongue: new THREE.MeshStandardMaterial({ color: '#ff8496', roughness: .45 }),
 };
-const SKIN = new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: .4, clearcoat: .6, clearcoatRoughness: .28 });
+const SKIN = COMIC ? toonOf({ vertexColors: true }) : new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: .4, clearcoat: .6, clearcoatRoughness: .28 });
 const limbMats = new Map();
-const limbMaterial = color => limbMats.get(color) || limbMats.set(color, new THREE.MeshStandardMaterial({ color, roughness: .62, envMapIntensity: .5 })).get(color);
+const limbMaterial = color => limbMats.get(color) || limbMats.set(color, COMIC ? toonOf({ color }) : new THREE.MeshStandardMaterial({ color, roughness: .62, envMapIntensity: .5 })).get(color);
 
 // 휘는 호스. 시작점 a에서 조절점 c를 거쳐 b로 가는 곡선을 따라 관을 매 프레임 다시 세운다.
 // profile을 주면 굵기를 [자리, 반지름] 표로 읽고(근육), bands를 주면 [시작, 끝, 색] 구간을 꼭짓점 색으로 칠한다(바지 자락).
@@ -175,6 +176,7 @@ class Hose {
       }
     }
     this.mesh = new THREE.Mesh(g, material); this.mesh.frustumCulled = false; this.mesh.castShadow = true;
+    this.mesh.userData.inside = true;   // 면이 안쪽을 보게 감겨 있다(먹선을 반대 면으로 그릴 때 쓴다)
   }
   set(a, c, b, r0, r1) {
     const { segs, radial, pos, nor, profile } = this;
@@ -260,6 +262,9 @@ export class Puppet {
       if (d.hang) { m.userData.hang = new THREE.Vector3(...d.hang).normalize(); m.userData.dir = m.userData.hang.clone(); m.userData.hand = this.hands[d.hand || 'hf']; m.userData.stretch = d.stretch || 0; m.userData.scale = d.scale || 1; }
       return m;
     });
+    // 만화풍이면 몸·팔다리·손발·소품에 먹선을 두른다. 얼굴 그림은 표면에 붙은 얇은 조각이라 뺀다.
+    const face = new Set(Object.values(MATS));
+    outline(this.root, o => face.has(o.material));
   }
 
   show(kind, name) {

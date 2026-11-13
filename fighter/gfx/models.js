@@ -2,6 +2,7 @@
 // glb 안에는 body·hand·foot 세 덩어리가 들어 있고, 얼굴을 붙일 앞면 높이는 같은 이름의 json에 적혀 있다.
 import * as THREE from '../../vendor/three.module.js';
 import { GLTFLoader } from '../../vendor/addons/GLTFLoader.js';
+import { COMIC, toonOf } from './comic.js';
 
 const BUILT = ['heart', 'kidney', 'liver', 'pancreas', 'soda', 'fries', 'ramen', 'burger'];
 const base = new URL('../assets/', import.meta.url);
@@ -19,7 +20,7 @@ const LOOK = {
   // 물·유리: 비쳐 보이고 반짝인다.
   glass: { roughness: .08, clearcoat: 1, clearcoatRoughness: .05, transparent: true, opacity: .86 },
 };
-export const material = kind => new THREE.MeshPhysicalMaterial({ vertexColors: true, ...(LOOK[kind] || LOOK.matte) });
+export const material = kind => COMIC ? toonOf({ vertexColors: true, ...(LOOK[kind] || LOOK.matte) }) : new THREE.MeshPhysicalMaterial({ vertexColors: true, ...(LOOK[kind] || LOOK.matte) });
 
 // 정면에서 본 (x, y) 자리의 표면 점과 법선. 높이표를 두 방향으로 이어 읽는다.
 function surfaceOf({ x0, y0, step, nx, ny, z }) {
