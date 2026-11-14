@@ -304,7 +304,7 @@ export class Puppet {
   anchor(x, y, z, out) {
     const P = this.P, a = P.turn * RAD + P.spin, ca = Math.cos(a), sa = Math.sin(a), r = -(P.lean + P.roll), cr = Math.cos(r), sr = Math.sin(r);
     const k = this.model.girth || 1;
-    x *= P.sx * k; y *= P.sy * k; z *= P.sx * k;
+    x *= P.sx * k * (this.jx || 1); y *= P.sy * k * (this.jy || 1); z *= P.sx * k * (this.jx || 1);
     const x1 = x * ca + z * sa, z1 = -x * sa + z * ca;
     return out.set(x1 * cr - y * sr + P.bx, x1 * sr + y * cr + P.by + (this.model.rise || 0), z1);
   }
@@ -334,12 +334,27 @@ export class Puppet {
     }
     this.last = key;
     const P = this.P, size = M.size || 1;
+    // 살이 출렁인다: 몸이 갑자기 솟거나 멈추거나 맞으면 용수철처럼 눌렸다 펴지기를 몇 번 되풀이한다.
+    let jx = 1, jy = 1;
+    if (M.jiggle) {
+      const J = this.jig || (this.jig = { p: 0, v: 0, x: null, y: 0, vx: 0, vy: 0 }), x = f.x + P.bx * f.facing, y = P.by - f.y;
+      if (J.x !== null) {
+        const vx = x - J.x, vy = y - J.y;
+        J.v -= (clamp(vy - J.vy, -24, 24) + Math.abs(clamp(vx - J.vx, -24, 24)) * .6) * M.jiggle;
+        J.vx = vx; J.vy = vy;
+      }
+      if (f.flash > 0 && !J.hit) J.v -= .09;
+      J.hit = f.flash > 0; J.x = x; J.y = y;
+      J.v += -J.p * .3 - J.v * .14; J.p = clamp(J.p + J.v, -.2, .2);
+      jy = 1 + J.p; jx = 1 - J.p * .7;
+    }
+    this.jx = jx; this.jy = jy;
     this.root.position.set(f.x - 640, -f.y, f.side ? -5 : 5);
     this.root.scale.set(f.facing * size, size, size);
     this.lean.position.set(P.bx, P.by + (M.rise || 0), 0); this.lean.rotation.z = -(P.lean + P.roll);
     this.turn.rotation.y = P.turn * RAD + P.spin;
     const girth = M.girth || 1;
-    this.squash.scale.set(P.sx * girth, P.sy * girth, P.sx * girth);
+    this.squash.scale.set(P.sx * girth * jx, P.sy * girth * jy, P.sx * girth * jx);
 
     // 표정. 가만히 있을 때는 가끔 눈을 깜빡인다.
     let eyes = P.eyes;

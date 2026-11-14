@@ -6,6 +6,12 @@ const smooth = k => k * k * (3 - 2 * k);
 const easeOut = k => 1 - (1 - k) * (1 - k);
 const clamp01 = v => (v < 0 ? 0 : v > 1 ? 1 : v);
 const LIMBS = ['hf', 'hb', 'ff', 'fb'];
+// 구간 진행도(a틱에서 b틱까지 0→1), 두 자리 사이 섞기, 가운데 점을 거쳐 휘어 가는 길.
+const seg = (t, a, b) => clamp01((t - a) / Math.max(1, b - a));
+const mix = (a, b, k) => [lerp(a[0], b[0], k), lerp(a[1], b[1], k), lerp(a[2], b[2], k)];
+const curve = (a, m, b, k) => mix(mix(a, m, k), mix(m, b, k), k);
+// 몸 기준으로 적은 손 자리를 몸이 옮겨 간 만큼(bx, by) 따라 옮긴다.
+const rel = (c, Q) => { const dx = Q.bx || 0, dy = Q.by - c.S.by; for (const key of ['hf', 'hb']) Q[key] = [Q[key][0] + dx, Q[key][1] + dy, Q[key][2]]; return Q; };
 
 // P에 Q를 w만큼 섞는다. 숫자와 좌표는 보간하고 표정 같은 글자는 w가 절반을 넘으면 바꾼다.
 export function blend(P, Q, w) {
@@ -149,16 +155,73 @@ Object.assign(ATTACKS, {
   screen: () => ({ lean: .3, bx: 6, by: 100, hf: [70, 150, -30], hb: [60, 120, 40], ff: [40, 0, -16], fb: [-40, 0, 20], mouth: 'open' }),
   storm: c => ({ raw: true, spin: c.t * .5, by: 110, hf: [110, 170, -50], hb: [-110, 170, 50], ff: [30, 10, -14], fb: [-30, 0, 18], mouth: 'open' }),
 
-  // 내장지방: 배 내밀기, 두 팔로 감싸기, 감싸 조이기.
-  belly: c => ({ lean: -.42, bx: 30 * Math.max(0, c.k), by: c.S.by - 6, sx: 1 + .12 * Math.max(0, c.k), sy: .94, hf: [-30, 140, -60], hb: [-40, 130, 64], ff: [40, 0, -20], fb: [-50, 0, 24], mouth: 'grin' }),
-  // 출렁 점프: 몸을 숙이지 않고 배부터 떨어진다(공용 press는 앞으로 엎어져 거구가 바닥에 묻힌다).
-  quake: c => ({ lean: c.k < .5 ? -.2 : .3, by: c.k < .5 ? 110 : 96, sy: c.k < .5 ? 1.08 : .92, sx: c.k < .5 ? .95 : 1.08, hf: [70, 190, -70], hb: [60, 180, 74], ff: [30, 40, -24], fb: [-30, 30, 26], mouth: 'open' }),
-  engulf: c => ({ hf: [120, 150, -80], hb: [116, 140, 84], lean: .3, bx: 20, by: c.S.by - 6, sx: 1.08, ff: [50, 0, -20], fb: [-50, 0, 24], mouth: 'open' }),
+  // 내장지방. 전용 자세라 손발 자리를 몸집에 맞춰 적었고(fit), 준비·타격을 틱으로 나눠 두 팔을 다 쓴다.
+  // 손 자리는 몸 기준으로 적는다(rel). 몸이 앞으로 나가거나 솟을 때 손이 제자리에 남아 팔이 고무줄처럼 늘어나지 않게.
+  // 배치기: 배를 쑥 집어넣고 두 손을 앞에 모았다가, 두 팔을 뒤로 젖히며 배를 내지른다.
+  belly: c => {
+    const s = c.m.startup, w = easeOut(seg(c.t, 0, s - 3)), v = easeOut(seg(c.t, s - 3, s + 1));
+    return rel(c, { raw: true, fit: true, bx: -24 * w + 78 * v, by: c.S.by - 14 * w + 12 * v, lean: .26 * w - .38 * v, turn: 26 + 14 * v,
+      sx: 1 - .1 * w + .3 * v, sy: 1 + .07 * w - .12 * v,
+      hf: mix(mix(c.S.hf, [96, 70, -40], w), [34, 206, -70], v), hb: mix(mix(c.S.hb, [30, 52, 96], w), [-104, 168, 70], v),
+      ff: [34 + 44 * v, 0, -22], fb: [-34 - 6 * v, 0, 26], mouth: v > .2 ? 'grin' : 'grit' });
+  },
+  // 출렁 어퍼: 웅크려 오른 주먹을 뒤로 감았다가, 폴짝 뛰며 배와 주먹을 한꺼번에 위로 쳐올린다.
+  vupper: c => {
+    const s = c.m.startup, w = easeOut(seg(c.t, 0, s - 2)), v = easeOut(seg(c.t, s - 2, s + 3));
+    return rel(c, { raw: true, fit: true, bx: -8 * w + 28 * v, by: c.S.by - 24 * w + 78 * v, lean: .2 * w - .34 * v, turn: 26 - 18 * w + 36 * v,
+      sx: 1 + .14 * w - .24 * v, sy: 1 - .17 * w + .39 * v,
+      hb: curve(mix(c.S.hb, [-92, 30, 80], w), [100, 20, 96], [50, 244, 52], v), hf: mix(mix(c.S.hf, [100, 92, -34], w), [-14, 110, -84], v),
+      ff: [42 + 10 * v, 30 * v, -22], fb: [-42 + 8 * v, 22 * v, 26], mouth: v > .2 ? 'open' : 'grit' });
+  },
+  // 지방 덩어리: 두 손으로 뱃살을 한 움큼 떠서 머리 위로 들었다가 앞으로 내던진다.
+  vlob: c => {
+    const s = c.m.startup, a = smooth(seg(c.t, 0, 5)), b = smooth(seg(c.t, 5, s - 3)), v = easeOut(seg(c.t, s - 3, s + 2));
+    return rel(c, { raw: true, fit: true, bx: 18 * v, by: c.S.by - 18 * a + 26 * b - 16 * v, lean: .26 * a - .5 * b + .56 * v, turn: 26 + 18 * v,
+      sx: 1 + .1 * a - .14 * b + .1 * v, sy: 1 - .1 * a + .18 * b - .12 * v,
+      hf: mix(mix(mix(c.S.hf, [70, 60, -34], a), [44, 280, -40], b), [140, 146, -24], v),
+      hb: mix(mix(mix(c.S.hb, [-10, 48, 96], a), [-40, 274, 64], b), [92, 58, 82], v),
+      ff: [36 + 20 * v, 0, -22], fb: [-36, 0, 26], mouth: v > .2 ? 'open' : 'grit' });
+  },
+  // 출렁 점프: 웅크렸다 두 팔을 치켜들고 솟고, 팔다리를 쫙 벌려 배부터 떨어져 바닥에 납작 눌린다.
+  quake: c => {
+    const s = c.m.startup;
+    if (c.air) return c.f.vy < 0
+      ? { raw: true, hold: true, fit: true, by: c.S.by + 12, sx: .88, sy: 1.22, lean: -.12, hf: [70, 270, -64], hb: [-70, 270, 72], ff: [28, 46, -24], fb: [-28, 38, 26], mouth: 'open' }
+      : { raw: true, hold: true, fit: true, by: c.S.by - 6, sx: 1.2, sy: .9, lean: .14, hf: [136, 196, -76], hb: [-136, 196, 84], ff: [88, 36, -24], fb: [-88, 36, 28], mouth: 'grin' };
+    if (c.t <= s) {
+      const w = easeOut(seg(c.t, 0, s - 3));
+      return { raw: true, fit: true, by: c.S.by - 28 * w, sx: 1 + .16 * w, sy: 1 - .2 * w, lean: .12 * w, hf: mix(c.S.hf, [-10, 48, -90], w), hb: mix(c.S.hb, [-104, 44, 84], w), ff: [46, 0, -22], fb: [-46, 0, 26], mouth: 'grit' };
+    }
+    return { raw: true, fit: true, by: c.S.by - 46, sx: 1.36, sy: .6, lean: .06, hf: [132, 44, -70], hb: [-132, 44, 80], ff: [70, 0, -24], fb: [-70, 0, 28], mouth: 'open' };
+  },
+  // 감싸 조이기·전신 압박: 두 팔을 양옆으로 활짝 벌렸다가 앞에서 닫아 감싼다. 초필살기는 벌린 채로 달려든다.
+  engulf: c => {
+    const s = c.m.startup, sup = c.m.isSuper, shut = sup ? s + c.m.active - 3 : s - 3;
+    const w = easeOut(seg(c.t, 0, s - 3)), v = easeOut(seg(c.t, shut, shut + 4)), run = sup && c.t < shut ? Math.sin(c.t * 1.05) : 0;
+    return rel(c, { raw: true, fit: true, bx: -10 * w + 38 * v, by: c.S.by + 8 * w - 16 * v + Math.abs(run) * 7, lean: -.18 * w + .44 * v + (sup ? .16 * w * (1 - v) : 0), turn: 26 + 10 * w + 14 * v,
+      sx: 1 + .1 * w + .04 * v, sy: 1 + .05 * w - .1 * v,
+      hf: mix(mix(c.S.hf, [66, 222, -126], w), [130, 150, -40], v), hb: mix(mix(c.S.hb, [-100, 212, 112], w), [108, 70, 62], v),
+      ff: [40 + run * 30 + 18 * v, Math.max(0, run) * 18, -22], fb: [-40 - run * 30, Math.max(0, -run) * 18, 26], mouth: 'open' });
+  },
+  // 조이기: 세 번, 갈수록 세게 조인다. 조일 때마다 팔이 좁아지고 몸이 옆으로 불룩해지며, 끝에는 배로 튕겨 낸다.
   squeeze: c => {
-    const u = clamp01(c.t / Math.max(1, c.m.startup)), q = Math.sin(c.t * .7);
-    return u < 1
-      ? { raw: true, hf: [80, 130, -18 + q * 6], hb: [78, 120, 22 - q * 6], lean: .16, sx: 1.1 + q * .05, sy: .95 - q * .04, bx: 10, mouth: 'grin' }
-      : { hf: [140, 120, -20], hb: [120, 110, 30], lean: .3, bx: 18, mouth: 'open' };
+    const s = Math.max(1, c.m.startup);
+    if (c.t < s) {
+      const q = Math.sin(seg(c.t % 13, 0, 13) * Math.PI) ** 2 * (.55 + .45 * c.t / s);
+      return rel(c, { raw: true, fit: true, bx: 24, by: c.S.by + 2 - 10 * q, lean: -.08 + .12 * q, turn: 30, sx: 1.05 + .18 * q, sy: .98 - .11 * q,
+        hf: [112 - 34 * q, 118, -44 + 28 * q], hb: [96 - 30 * q, 62, 84 - 32 * q], ff: [56, 0, -22], fb: [-42, 0, 26], mouth: q > .5 ? 'grit' : 'grin' });
+    }
+    const v = easeOut(seg(c.t, s, s + 3));
+    return rel(c, { raw: true, fit: true, bx: 24 + 34 * v, by: c.S.by + 2 + 8 * v, lean: -.08 - .2 * v, turn: 30, sx: 1.05 + .25 * v, sy: .98 - .1 * v,
+      hf: mix([112, 118, -44], [34, 206, -70], v), hb: mix([96, 62, 84], [-104, 168, 70], v), ff: [62, 0, -22], fb: [-46, 0, 26], mouth: 'open' });
+  },
+  // 기름띠: 오른팔을 뒤로 높이 들었다가 바닥을 훑듯 앞으로 쓸어 기름을 바른다.
+  vsmear: c => {
+    const s = c.m.startup, w = easeOut(seg(c.t, 0, s - 6)), v = easeOut(seg(c.t, s - 6, s));
+    return rel(c, { raw: true, fit: true, bx: -8 * w + 22 * v, by: c.S.by + 8 * w - 26 * v, lean: -.18 * w + .44 * v, turn: 26 - 16 * w + 36 * v,
+      sx: 1 - .04 * w + .12 * v, sy: 1 + .06 * w - .14 * v,
+      hb: curve(mix(c.S.hb, [-102, 230, 72], w), [-20, 34, 112], [118, 40, 70], v), hf: mix(mix(c.S.hf, [112, 134, -34], w), [-20, 150, -84], v),
+      ff: [58, 0, -22], fb: [-52, 0, 26], mouth: v > .3 ? 'open' : 'grit' });
   },
 });
 
@@ -231,6 +294,8 @@ export function poseFor(f, frame, model) {
   const idle = () => {
     P.by += bob; P.hf[1] += bob * 1.2; P.hb[1] += bob * .8; P.sy = 1 + Math.sin(phase) * .012;
     if (S.sway) { P.lean += Math.sin(phase * .6) * .012 * S.sway; P.bx += Math.sin(phase * .6) * S.sway; }
+    // 두 주먹을 번갈아 앞뒤로 굴리며 벼른다.
+    if (S.pump) { const a = phase * .7; P.hb[0] += Math.sin(a) * S.pump; P.hb[1] += (1 - Math.cos(a * 2)) * S.pump * .5; P.hf[0] -= Math.sin(a) * S.pump * .7; P.hf[1] += (1 + Math.cos(a * 2)) * S.pump * .35; }
     // 복서는 제자리에서 통통 튄다.
     if (S.bounce) { const hop = Math.abs(Math.sin(frame * .21 + f.side)); P.by += hop * 5; P.ff[1] = hop * 4; P.fb[1] = (1 - hop) * 3; }
   };
@@ -239,7 +304,10 @@ export function poseFor(f, frame, model) {
     case 'walk': {
       const back = f.vx * f.facing < 0, w = Math.sin(frame * .34 * PACE) * (back ? -1 : 1);
       P.ff[0] += w * 22; P.ff[1] = Math.max(0, w) * 14; P.fb[0] -= w * 22; P.fb[1] = Math.max(0, -w) * 14;
-      P.by += Math.abs(w) * 4 + bob * .4; P.lean += back ? -.05 : .06; P.hf[0] -= w * 6; P.hb[0] += w * 6;
+      P.by += Math.abs(w) * 4 + bob * .4; P.lean += back ? -.05 : .06;
+      // 팔은 다리와 엇갈려 흔든다. swing을 적은 캐릭터는 크게 휘젓는다.
+      const swing = S.swing || 6; P.hf[0] -= w * swing; P.hb[0] += w * swing;
+      if (S.swing) { P.hb[1] += Math.max(0, w) * swing * .5; P.hf[1] += Math.max(0, -w) * swing * .4; }
       break;
     }
     case 'crouch': put(crouched(S)); break;
@@ -262,10 +330,10 @@ export function poseFor(f, frame, model) {
       // 캐릭터별 손보기: 몸집 때문에 공용 공격 자세에서 팔이 몸에 묻히는 캐릭터는 그 자세의 손발 자리를 바꾼다.
       const own = model.fixMove && model.fixMove[m.pose || 'punch'];
       if (own) Object.assign(Q, own);
-      // 몸을 키운 캐릭터는 멀리 뻗는 손발만 판정 길이에 맞춰 줄인다.
-      if (S.far) for (const key of LIMBS) if (Q[key] && Q[key][0] > 100) Q[key] = [Q[key][0] * S.far, Q[key][1] * S.far, Q[key][2]];
+      // 몸을 키운 캐릭터는 멀리 뻗는 손발만 판정 길이에 맞춰 줄인다. 그 캐릭터 전용 자세(fit)는 이미 맞춰 적었으니 건너뛴다.
+      if (S.far && !Q.fit) for (const key of LIMBS) if (Q[key] && Q[key][0] > 100) Q[key] = [Q[key][0] * S.far, Q[key][1] * S.far, Q[key][2]];
       // 판정을 REACH만큼 늘린 만큼 앞으로 뻗는 손발도 같이 뻗는다.
-      for (const key of LIMBS) if (Q[key] && Q[key][0] > 60) Q[key] = [Q[key][0] * REACH, Q[key][1], Q[key][2]];
+      if (!Q.fit) for (const key of LIMBS) if (Q[key] && Q[key][0] > 60) Q[key] = [Q[key][0] * REACH, Q[key][1], Q[key][2]];
       P.eyes = 'fierce'; P.mouth = c.k > .3 ? 'open' : 'grit'; P.rate = .7;
       if (m.crouch) put(crouched(S));
       if (Q.raw) { const fade = !Q.hold && f.t > (m.startup || 0) + (m.active ?? 0) ? clamp01(c.k) : 1; blend(P, Q, fade); }

@@ -309,12 +309,12 @@ export const CHARS = {
     style: '최종 보스', trait: '몸이 두꺼워 덜 아프고, 감싸 조여 체력을 빼앗아요',
     moves: {
       ...tuned({ reach: 1.15, slow: 3, power: 1.12 }),
-      glob:   sp('lob', 15, 1, 26, { spawn: { kind: 'glob', at: [40, -210], speed: 6.5, vy: -13, g: .6, w: 64, h: 56, dmg: 78, hitstun: 20, blockstun: 14, push: 6, guard: 'over', slow: 200, leave: { kind: 'lard', w: 160, h: 18, life: 210 } } }),
+      glob:   sp('vlob', 15, 1, 26, { spawn: { kind: 'glob', at: [40, -210], speed: 6.5, vy: -13, g: .6, w: 64, h: 56, dmg: 78, hitstun: 20, blockstun: 14, push: 6, guard: 'over', slow: 200, leave: { kind: 'lard', w: 160, h: 18, life: 210 } } }),
       belly:  sp('belly', 10, 8, 26, { dmg: 92, blockstun: 16, push: 30, box: [10, -200, 110, 190], launch: [14, -6], armor: [2, 16], step: 6, heavy: true }),
-      bounce: sp('lid', 7, 8, 28, { dmg: 110, blockstun: 16, box: [0, -330, 140, 280], launch: [3, -18], armor: [2, 10], heavy: true }),
+      bounce: sp('vupper', 7, 8, 28, { dmg: 110, blockstun: 16, box: [0, -330, 140, 280], launch: [3, -18], armor: [2, 10], heavy: true }),
       quake:  sp('quake', 13, 40, 24, { dmg: 70, blockstun: 14, box: [-70, -110, 140, 120], guard: 'over', knockdown: true, rise: [0, -17], landRecovery: 22, home: 14, homeMax: 7, heavyLand: true, fall: true, landWave: { kind: 'quake', speed: 7, w: 90, h: 40, dmg: 48, hitstun: 0, blockstun: 12, push: 6, guard: 'low', launch: [2, -8], life: 40 }, heavy: true }),
       engulf: sp('engulf', 10, 4, 34, { grab: { range: 160, dmg: 150, hold: 52, launch: [5, -8], slam: 'slamSqueeze', heal: .35 } }),
-      lard:   sp('drop', 14, 1, 22, { spawn: { kind: 'lard', at: [220, -9], speed: 0, w: 170, h: 18, life: 240, max: 1, field: true, slow: 150, rehit: 20 } }),
+      lard:   sp('vsmear', 14, 1, 22, { spawn: { kind: 'lard', at: [220, -9], speed: 0, w: 170, h: 18, life: 240, max: 1, field: true, slow: 150, rehit: 20 } }),
       super:  hyper('engulf', 10, 14, 34, { move: 9, approach: 7, invuln: 18, grab: { range: 170, dmg: 300, hold: 52, launch: [8, -12], slam: 'slamSqueeze', heal: .6, isSuper: true } }),
     },
     ...book('64', [
