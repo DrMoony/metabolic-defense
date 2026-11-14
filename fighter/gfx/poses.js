@@ -259,6 +259,9 @@ export function poseFor(f, frame, model) {
       const m = f.move || {}, make = ATTACKS[m.pose] || ATTACKS.punch;
       const c = { f, t: f.t, m, k: strike(f.t, m), S, air: f.y < 0 };
       const Q = make(c);
+      // 캐릭터별 손보기: 몸집 때문에 공용 공격 자세에서 팔이 몸에 묻히는 캐릭터는 그 자세의 손발 자리를 바꾼다.
+      const own = model.fixMove && model.fixMove[m.pose || 'punch'];
+      if (own) Object.assign(Q, own);
       // 몸을 키운 캐릭터는 멀리 뻗는 손발만 판정 길이에 맞춰 줄인다.
       if (S.far) for (const key of LIMBS) if (Q[key] && Q[key][0] > 100) Q[key] = [Q[key][0] * S.far, Q[key][1] * S.far, Q[key][2]];
       // 판정을 REACH만큼 늘린 만큼 앞으로 뻗는 손발도 같이 뻗는다.
