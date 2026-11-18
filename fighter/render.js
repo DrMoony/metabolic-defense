@@ -170,7 +170,8 @@ export class Renderer {
         const hidden = f.state === 'attack' && f.move.warp && f.t > f.move.startup - 4 && f.t <= f.move.startup + 1;
         puppet.root.visible = !hidden; puppet.update(f, this.frame);
       });
-      stage.follow(sim.f[0].x, sim.f[1].x, Math.max(-sim.f[0].y, -sim.f[1].y) + 230, fresh);
+      const bounds = this.puppets.map(puppet => puppet.getBounds()).filter(box => !box.isEmpty());
+      stage.follow(sim.f[0].x, sim.f[1].x, Math.max(...bounds.map(box => box.max.y)), fresh, bounds);
     } else {
       // 경기가 없는 화면: 빈 경기장을 천천히 훑는다.
       for (const puppet of this.puppets) if (puppet) puppet.root.visible = false;

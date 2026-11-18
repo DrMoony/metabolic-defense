@@ -353,18 +353,43 @@ export class Stage {
   }
 
   // 두 선수가 화면에 다 들어오게 카메라를 맞춘다. ax·bx는 시뮬 x, top은 가장 높은 머리 높이.
-  follow(ax, bx, top = 200, snap = false) {
+  follow(ax, bx, top = 200, snap = false, bounds = []) {
     const need = clamp(Math.max(Math.abs(ax - bx) + 520, (top + 46) / .478), 800, 1280);
     const x = clamp((ax + bx) / 2 - 640, -640 + need / 2, 640 - need / 2);
-    const v = this.view;
-    if (snap) { v.w = need; v.x = x; } else { v.w += (need - v.w) * (need > v.w ? .16 : .05); v.x += (x - v.x) * .12; }
+    const v = this.view, previousWidth = v.w;
+    v.w = need; v.x = snap ? x : v.x + (x - v.x) * .12;
     this.aim();
+    // The HUD occupies the top 100px. Include raised hands, props and depth,
+    // not just the simulation's jump height. Zoom out immediately when needed;
+    // the normal follow easing still brings the camera back in afterwards.
+    const point = this.framePoint ||= new THREE.Vector3();
+    for (let attempt = 0; attempt < 16 && bounds.length; attempt++) {
+      this.camera.updateMatrixWorld(true);
+      let fits = true;
+      // Below-floor box corners are occluded, not visible framing targets.
+      for (const box of bounds) for (const x of [box.min.x, box.max.x]) for (const y of [Math.max(0, box.min.y), Math.max(0, box.max.y)]) for (const z of [box.min.z, box.max.z]) {
+        point.set(x, y, z).project(this.camera);
+        if (point.x < -.96 || point.x > .96 || point.y > .68 || point.y < -.81) fits = false;
+      }
+      if (fits) break;
+      v.w *= 1.06;
+      v.x = v.w >= 1280 ? 0 : clamp(v.x, -640 + v.w / 2, 640 - v.w / 2);
+      this.aim();
+    }
+    // Ease towards a fitted target, rather than repeatedly easing into the HUD
+    // then jumping back out (which would make a held pose pulse in size).
+    if (!snap && previousWidth > v.w) { v.w = previousWidth + (v.w - previousWidth) * .05; this.aim(); }
   }
   aim() {
     const { x, w } = this.view, k = w / 1280, lookY = 252 * k, cam = this.camera, at = this.keyAt;
     cam.position.set(x + (this.shakeX || 0), lookY + 64 * k + (this.shakeY || 0), w / (2 * TAN_H));
     cam.lookAt(x, lookY, 0);
     this.key.position.set(x + at[0], at[1], at[2]); this.key.target.position.set(x, 120, 0);
+    // Wider framing must also widen the painted backdrop's reference view;
+    // otherwise clamped UVs smear the image's edge into long stripes.
+    const backdrop = this.backdropCamera ||= this.ref.clone(), wide = Math.max(1, w / 1280);
+    backdrop.position.copy(this.ref.position).multiplyScalar(wide); backdrop.lookAt(0, 252 * wide, 0); backdrop.updateMatrixWorld(true);
+    this.refMatrix.multiplyMatrices(backdrop.projectionMatrix, backdrop.matrixWorldInverse);
   }
   // 월드 좌표가 화면의 어느 픽셀에 찍히는지(HUD 글자 위치용).
   project(x, y, z = 0, out = [0, 0]) {
