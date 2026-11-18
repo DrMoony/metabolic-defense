@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Metabolic Fighter · Mission</title><link rel="icon" href="data:,"><link rel="stylesheet" href="mission.css"></head>
+<body>
+<div id="mission-stage">
+  <canvas id="world" width="1280" height="720" aria-label="Mission game"></canvas>
+  <div class="vignette"></div>
+  <header id="mission-hud" hidden>
+    <div class="player-info"><span id="hero-label"></span><div class="health"><i id="health-fill"></i></div><div class="player-meta"><b id="hp-number"></b><span id="lives"></span><span id="power"></span></div></div>
+    <div class="mission-info"><small id="stage-number"></small><strong id="stage-name"></strong><div class="route"><i id="route-fill"></i></div></div>
+    <div class="score-info"><small>SCORE</small><strong id="score">000000</strong><span id="kill-count"></span></div>
+  </header>
+  <nav class="top-nav"><a id="back-link"></a><div class="language"><a data-lang="ko">한국어</a><a data-lang="en">English</a></div><button id="pause-button" hidden></button></nav>
+  <div id="boss-hud" hidden><div><span id="boss-label"></span><span id="boss-hp"></span></div><div class="boss-health"><i id="boss-fill"></i></div></div>
+  <div id="objective" hidden></div>
+  <div id="ability" hidden><span id="super-label"></span><div><i id="super-fill"></i></div></div>
+  <div id="toast" role="status"></div>
+  <div id="mission-overlay">
+    <div class="briefing" id="briefing">
+      <div class="mission-kicker">METABOLIC FIGHTER / SOLO CAMPAIGN</div>
+      <h1 id="mission-title"></h1><p class="brief" id="mission-brief"></p>
+      <div class="operation-details"><span id="mission-length"></span><span id="mission-checkpoint"></span><span id="mission-loadout"></span></div>
+      <div class="recruit"><small id="hero-prompt"></small><div id="heroes" role="group" aria-label="Choose hero"></div></div>
+      <button class="primary" id="start"></button>
+      <p class="controls" id="controls"></p>
+    </div>
+    <div class="end-panel" id="end-panel" hidden><small id="end-kicker"></small><h2 id="end-title"></h2><p id="end-copy"></p><div id="end-stats"></div><button class="primary" id="continue"></button><button class="secondary" id="return-briefing"></button></div>
+  </div>
+  <div id="touch-controls" aria-label="Touch controls"><div class="touch-directions"><button data-action="left">◀</button><button data-action="down">▼</button><button data-action="right">▶</button></div><div><button data-action="jump" id="touch-jump"></button><button data-action="melee" id="touch-melee"></button><button data-action="shoot" id="touch-shoot"></button><button data-action="super" id="touch-super"></button></div></div>
+  <div id="loading">LOADING FIELD OPERATIVES…</div>
+</div>
+<script type="module" src="mission.js"></script>
+</body></html>

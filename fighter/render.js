@@ -1,3 +1,4 @@
+import { t } from './locale.js';
 // 그리기 총괄. 3D 무대(gfx/stage)에 인형(gfx/puppet)을 세우고, 효과(gfx/fx)와 화면 정보(gfx/hud)를 얹는다.
 // 캐릭터 조형은 gfx/chars*.js, 자세는 gfx/poses.js에 있다.
 import * as THREE from '../vendor/three.module.js';
@@ -9,9 +10,9 @@ import { Hud } from './gfx/hud.js';
 import { VOICE } from './sfx.js';
 
 // 만화 의성어. 필살기는 소리 갈래(sfx.js VOICE)마다, 장풍은 종류마다 다른 글자가 튀어나온다.
-const WORDS = { multi: '다다닥!', rise: '슈왁!', dash: '쿠당탕!', cast: '파앗!', guard: '팅!', heavy: '쿠웅!', snap: '빠직!', zap: '지지직!', splash: '촤아악!', heal: '뿅!', boom: '콰앙!', flare: '화르륵!', flex: '불끈!', smoke: '푸슉!', gulp: '딸꾹!', squish: '출렁!' };
-const SHOT_WORDS = { water: '촤악!', wave: '촤아악!', stone: '쾅!', steam: '치익!', cap: '딱!', fry: '퍽퍽!', flame: '화륵!', broth: '촤악!', dumbbell: '쿵!', breath: '화르륵!', glass: '쨍그랑!', ember: '팟!', smoke: '콜록!', ash: '푸석!', storm: '콜록콜록!', glob: '철퍽!', quake: '쿠르릉!' };
-const LIGHT = ['퍽!', '팍!', '탁!'], HEAVY = ['빡!', '퍼억!', '빠악!'];
+const WORDS = { multi: t('다다닥!', 'POW!'), rise: t('슈왁!', 'WHOOSH!'), dash: t('쿠당탕!', 'POW!'), cast: t('파앗!', 'POW!'), guard: t('팅!', 'POW!'), heavy: t('쿠웅!', 'POW!'), snap: t('빠직!', 'POW!'), zap: t('지지직!', 'POW!'), splash: t('촤아악!', 'WHOOSH!'), heal: t('뿅!', 'POW!'), boom: t('콰앙!', 'BOOM!!'), flare: t('화르륵!', 'POW!'), flex: t('불끈!', 'POW!'), smoke: t('푸슉!', 'POW!'), gulp: t('딸꾹!', 'POW!'), squish: t('출렁!', 'POW!') };
+const SHOT_WORDS = { water: t('촤악!', 'WHOOSH!'), wave: t('촤아악!', 'WHOOSH!'), stone: t('쾅!', 'BOOM!!'), steam: t('치익!', 'POW!'), cap: t('딱!', 'POW!'), fry: t('퍽퍽!', 'THWACK!'), flame: t('화륵!', 'POW!'), broth: t('촤악!', 'WHOOSH!'), dumbbell: t('쿵!', 'POW!'), breath: t('화르륵!', 'POW!'), glass: t('쨍그랑!', 'POW!'), ember: t('팟!', 'POW!'), smoke: t('콜록!', 'POW!'), ash: t('푸석!', 'POW!'), storm: t('콜록콜록!', 'POW!'), glob: t('철퍽!', 'THWACK!'), quake: t('쿠르릉!', 'POW!') };
+const LIGHT = [t('퍽!', 'THWACK!'), t('팍!', 'POW!'), t('탁!', 'POW!')], HEAVY = [t('빡!', 'THWACK!'), t('퍼억!', 'POW!'), t('빠악!', 'THWACK!')];
 const any = list => list[Math.floor(Math.random() * list.length)];
 
 const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
@@ -71,12 +72,12 @@ export class Renderer {
   // 맞은 순간 의성어를 띄운다. 여러 번 맞는 기술은 막타에서 크게, 사이사이는 앞 글자가 남아 있으면 건너뛴다.
   shout(event) {
     const busy = this.hud.words.some(w => w.owner === event.side && w.life < 12);
-    if (event.ko) return this.hud.word('콰쾅!!', event.x, event.y, { owner: event.side, size: 1.45 });
-    if (event.sup) { if (event.last || !busy) this.hud.word(event.last ? '콰과광!!' : '쾅!', event.x, event.y, { owner: event.side, size: event.last ? 1.35 : .9 }); return; }
-    if (event.key === 'slam') return this.hud.word(event.special ? '쿠쾅!!' : '쿵!', event.x, event.y, { owner: event.side, size: event.special ? 1.2 : .95 });
+    if (event.ko) return this.hud.word(t('콰쾅!!', 'BOOM!!'), event.x, event.y, { owner: event.side, size: 1.45 });
+    if (event.sup) { if (event.last || !busy) this.hud.word(event.last ? t('콰과광!!', 'BOOM!!') : t('쾅!', 'BOOM!!'), event.x, event.y, { owner: event.side, size: event.last ? 1.35 : .9 }); return; }
+    if (event.key === 'slam') return this.hud.word(event.special ? t('쿠쾅!!', 'BOOM!!') : t('쿵!', 'POW!'), event.x, event.y, { owner: event.side, size: event.special ? 1.2 : .95 });
     if (event.special) {
       if (busy && !event.last) return;
-      const text = SHOT_WORDS[event.key] || WORDS[VOICE[event.key]] || '콰앙!';
+      const text = SHOT_WORDS[event.key] || WORDS[VOICE[event.key]] || t('콰앙!', 'BOOM!!');
       return this.hud.word(text, event.x, event.y, { owner: event.side, size: event.last ? 1.15 : 1 });
     }
     if (event.heavy) return this.hud.word(any(HEAVY), event.x, event.y, { owner: event.side, size: .82 });
@@ -100,7 +101,7 @@ export class Renderer {
       case 'slam': jolt(12); this.stage.post.kick = Math.max(this.stage.post.kick, event.big ? .9 : .4); break;
       case 'super': jolt(8); this.hud.cutIn(event.char, event.side, CHARS[event.char].commands.find(c => c.key === 'super').name); break;
       case 'special': this.hush = 16; this.callout(event, '#' + new THREE.Color(CHARS[event.char].color).lerp(new THREE.Color('#fff'), .55).getHexString(), 22, 40); break;
-      case 'potion': this.hud.say('포션 +30%', event.x, event.y - 90, '#9dffb0', 70); break;
+      case 'potion': this.hud.say(t('포션 +30%', 'POTION +30%'), event.x, event.y - 90, '#9dffb0', 70); break;
     }
   }
 
@@ -170,7 +171,8 @@ export class Renderer {
         const hidden = f.state === 'attack' && f.move.warp && f.t > f.move.startup - 4 && f.t <= f.move.startup + 1;
         puppet.root.visible = !hidden; puppet.update(f, this.frame);
       });
-      stage.follow(sim.f[0].x, sim.f[1].x, Math.max(-sim.f[0].y, -sim.f[1].y) + 230, fresh);
+      const bounds = this.puppets.map(puppet => puppet.getBounds()).filter(box => !box.isEmpty());
+      stage.follow(sim.f[0].x, sim.f[1].x, Math.max(...bounds.map(box => box.max.y)), fresh, bounds);
     } else {
       // 경기가 없는 화면: 빈 경기장을 천천히 훑는다.
       for (const puppet of this.puppets) if (puppet) puppet.root.visible = false;

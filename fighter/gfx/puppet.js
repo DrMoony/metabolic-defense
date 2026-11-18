@@ -198,6 +198,7 @@ class Hose {
       }
     }
     const g = this.mesh.geometry; g.attributes.position.needsUpdate = true; g.attributes.normal.needsUpdate = true;
+    g.boundingBox = null;
   }
 }
 
@@ -322,6 +323,25 @@ export class Puppet {
     T.set(b.x - C.x, b.y - C.y, b.z - C.z).normalize();
   }
 
+  // Camera framing uses cheap cached geometry bounds. Floor contact needs the
+  // actual vertices: rotated box corners would leave a lying fighter hovering.
+  getBounds(precise = false) {
+    const bounds = this.bounds ||= new THREE.Box3(), box = this.partBounds ||= new THREE.Box3(), point = this.boundPoint ||= new THREE.Vector3();
+    bounds.makeEmpty(); this.root.updateWorldMatrix(true, true);
+    this.root.traverseVisible(mesh => {
+      if (!mesh.isMesh || mesh.userData.ink) return;
+      const geometry = mesh.geometry;
+      if (precise) {
+        const positions = geometry.attributes.position;
+        for (let i = 0; i < positions.count; i++) bounds.expandByPoint(point.fromBufferAttribute(positions, i).applyMatrix4(mesh.matrixWorld));
+      } else {
+        if (!geometry.boundingBox) geometry.computeBoundingBox();
+        bounds.union(box.copy(geometry.boundingBox).applyMatrix4(mesh.matrixWorld));
+      }
+    });
+    return bounds;
+  }
+
   update(f, frame) {
     const M = this.model, target = poseFor(f, frame, M);
     const key = f.state + (f.move ? f.move.pose || f.move.name || '' : '');
@@ -403,6 +423,13 @@ export class Puppet {
       Q.copy(u.hand.quaternion).invert(); m.quaternion.setFromUnitVectors(X, u.dir).premultiply(Q);
       m.scale.set(u.scale * (1 + u.stretch * w), u.scale, u.scale);
     }
+
+    // Lift the rendered puppet, never the simulation/hitboxes. Continue through
+    // the blended recovery pose so returning to idle cannot cut through the floor.
+    if (f.y >= 0 && (f.state === 'down' || f.state === 'getup' || this.floorLift > .01)) {
+      this.floorLift = Math.max(0, -this.getBounds(true).min.y);
+      this.root.position.y += this.floorLift;
+    } else this.floorLift = 0;
 
     // 맞은 순간 하얗게 번쩍인다.
     const glow = f.flash > 0 ? .3 : 0;

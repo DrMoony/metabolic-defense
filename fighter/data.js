@@ -1,3 +1,4 @@
+import { localizeCharacters } from './locale.js';
 // 메타볼릭 파이터 시제품 — 캐릭터·기술 수치. 프레임은 60fps 기준.
 export const STAGE = { w: 1280, h: 720, left: 70, right: 1210, floor: 612 };
 // 몸으로 치는 기술의 판정 길이와 걷기 속도에 모두 곱하는 배율(2026-11-12 무니: "사거리가 짧고 움직임이 쪼금씩" → 30% 늘림).
@@ -338,3 +339,5 @@ export const advantage = (attacker, defender) => ([].concat(attacker.strong || [
 
 // 기술 키로 기술 이름을 찾는다(기술표에 없는 동작은 빈 문자열).
 export const moveName = (char, key) => char.commands.find(c => c.key === key)?.name || '';
+
+localizeCharacters(CHARS, TYPES, ARROWS);

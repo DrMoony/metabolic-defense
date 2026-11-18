@@ -1,3 +1,4 @@
+import { t as tr, EN, LANG, localizePage, languageURL } from './locale.js';
 // 장면 흐름: 처음 화면 → 캐릭터 고르기 → 대진 → 퀴즈 → 대전 → (퀴즈 → 대전)… → 결과.
 import { CHARS, ORGANS, VILLAINS, BOSSES, BOSS, TYPES, ARROWS, REACH } from './data.js';
 import { readPlayer, Controller, NEUTRAL } from './input.js';
@@ -24,7 +25,7 @@ const shuffle = list => { const out = [...list]; for (let i = out.length - 1; i 
 const bank = new QuizBank();
 let bankReady = false;
 const clean = (value, fallback) => (value || fallback).replace(/[^\w-]/g, '') || fallback;
-bank.load(clean(params.get('bank'), 'quiz_dm_empa'), clean(params.get('lang'), 'ko'))
+bank.load(clean(params.get('bank'), 'quiz_dm_empa'), LANG)
   .then(() => { bankReady = true; })
   .catch(error => console.warn('문제은행을 읽지 못해 퀴즈 없이 진행해요.', error));
 
@@ -48,7 +49,7 @@ const cpuController = (level, side) => { const brain = new CpuBrain(level); retu
 function go(name) {
   for (const id of SCENES) $(id).hidden = id !== name;
   $('proto').hidden = name !== 'title';
-  game.scene = name; game.t = 0; idle = 0;
+  game.scene = name; stage.dataset.scene = name; game.t = 0; idle = 0;
   music.hot(false); $('sound').classList.toggle('on', name === 'title');
   resetStage();
   scenes[name].enter?.();
@@ -75,24 +76,24 @@ function startDemo() {
 }
 
 function paintMenu() { [...$('menu').children].forEach((item, index) => item.classList.toggle('on', index === menuIndex)); }
-function chooseMode(index) { sfx.confirm(); game.mode = index ? 'versus' : 'arcade'; go('select'); }
+function chooseMode(index) { sfx.confirm(); if (index === 2) { location.href = languageURL(LANG, 'mission.html'); return; } game.mode = index ? 'versus' : 'arcade'; go('select'); }
 
 // 기술표: 방향(세로) × 주먹·킥(가로). 위 두 줄은 모두가 같은 방향이고, 셋째 줄만 캐릭터 고유 방향이다.
 function cmdGrid(char) {
   const rows = [...new Set(char.commands.filter(c => c.motion).map(c => c.motion))], of = (motion, button) => char.commands.find(c => c.motion === motion && c.button === button)?.name || '';
   const sup = char.commands.find(c => c.key === 'super');
-  return `<table class="cmds"><thead><tr><th></th><th>주먹</th><th>킥</th></tr></thead><tbody>${rows.map((m, i) => `<tr${i === 2 ? ' class="own"' : ''}><th>${ARROWS[m]}</th><td>${of(m, 'p')}</td><td>${of(m, 'k')}</td></tr>`).join('')}<tr class="sup"><th>${sup.cmd}</th><td colspan="2">${sup.name}</td></tr></tbody></table>`;
+  return `<table class="cmds"><thead><tr><th></th><th>${tr("주먹", "Punch")}</th><th>${tr("킥", "Kick")}</th></tr></thead><tbody>${rows.map((m, i) => `<tr${i === 2 ? ' class="own"' : ''}><th>${ARROWS[m]}</th><td>${of(m, 'p')}</td><td>${of(m, 'k')}</td></tr>`).join('')}<tr class="sup"><th>${EN ? "P + K" : sup.cmd}</th><td colspan="2">${sup.name}</td></tr></tbody></table>`;
 }
 // 능력치: 데이터에서 바로 재서 막대로 보여 준다. 막대 길이는 전체 캐릭터 중 가장 낮은 값~가장 높은 값 사이의 위치다.
 const NORMAL_KEYS = ['jab', 'straight', 'finisher', 'kick', 'cjab', 'sweep', 'jpunch', 'jkick'];
 const avg = list => list.reduce((a, b) => a + b, 0) / list.length;
 const STATS = [
-  ['체력', c => c.hp, v => Math.round(v)],
-  ['힘', c => c.dmg * avg(Object.values(c.moves).filter(m => m.dmg && !m.isSuper).map(m => m.dmg)), v => Math.round(v)],
-  ['이동', c => c.walk, v => v.toFixed(1)],
-  ['점프', c => c.jump, v => v.toFixed(1)],
-  ['사거리', c => Math.max(...NORMAL_KEYS.map(k => c.moves[k]).filter(Boolean).map(m => (m.box[0] + m.box[2]) * REACH)), v => Math.round(v)],
-  ['손빠르기', c => -avg(NORMAL_KEYS.map(k => c.moves[k]).filter(Boolean).map(m => m.startup)), v => `${(-v).toFixed(1)}F`],
+  [tr('체력', 'HP'), c => c.hp, v => Math.round(v)],
+  [tr('힘', 'Power'), c => c.dmg * avg(Object.values(c.moves).filter(m => m.dmg && !m.isSuper).map(m => m.dmg)), v => Math.round(v)],
+  [tr('이동', 'Speed'), c => c.walk, v => v.toFixed(1)],
+  [tr('점프', 'Jump'), c => c.jump, v => v.toFixed(1)],
+  [tr('사거리', 'Reach'), c => Math.max(...NORMAL_KEYS.map(k => c.moves[k]).filter(Boolean).map(m => (m.box[0] + m.box[2]) * REACH)), v => Math.round(v)],
+  [tr('손빠르기', 'Startup'), c => -avg(NORMAL_KEYS.map(k => c.moves[k]).filter(Boolean).map(m => m.startup)), v => `${(-v).toFixed(1)}F`],
 ];
 let statRange = null;
 const has = (char, test) => Object.values(char.moves).some(test);
@@ -105,32 +106,33 @@ function statBars(char) {
   }).join('');
   const shots = char.commands.filter(c => c.key !== 'super' && char.moves[c.key]?.spawn && !char.moves[c.key].spawn.field).length;
   const tags = [
-    shots && `장풍 ${shots}개`,
-    char.extraJab && '잽 한 번 더',
-    char.regen && `서 있으면 회복 (초당 ${Math.round(char.regen * 60)})`,
-    char.noChip && '막으면 깎이지 않음',
-    char.absorb && '장풍 막으면 게이지',
-    Object.values(char.moves).some(m => m.armor) && '버티며 치는 기술',
-    char.bulk && `받는 피해 ${Math.round((1 - char.bulk) * 100)}% 덜함`,
-    has(char, m => m.grab?.air) && '공중 잡기',
-    has(char, m => m.pump) && '힘 올리기',
-    has(char, m => m.drunk || m.spawn?.drunk) && '맞히면 취함',
-    has(char, m => m.poison || m.spawn?.poison || m.grab?.poison) && '맞히면 중독',
-    has(char, m => m.slow || m.spawn?.slow) && '맞히면 느려짐',
-    has(char, m => m.grab?.heal) && '잡아서 회복',
-    has(char, m => m.warp) && '순간이동',
-    char.boss && '보스',
+    shots && tr(`장풍 ${shots}개`, `${shots} projectile${shots === 1 ? '' : 's'}`),
+    char.extraJab && tr('잽 한 번 더', 'Extra jab'),
+    char.regen && tr(`서 있으면 회복 (초당 ${Math.round(char.regen * 60)})`, `Idle healing (${Math.round(char.regen * 60)}/s)`),
+    char.noChip && tr('막으면 깎이지 않음', 'No chip damage'),
+    char.absorb && tr('장풍 막으면 게이지', 'Blocking shots builds meter'),
+    Object.values(char.moves).some(m => m.armor) && tr('버티며 치는 기술', 'Armored moves'),
+    char.bulk && tr(`받는 피해 ${Math.round((1 - char.bulk) * 100)}% 덜함`, `${Math.round((1 - char.bulk) * 100)}% damage resistance`),
+    has(char, m => m.grab?.air) && tr('공중 잡기', 'Air grab'),
+    has(char, m => m.pump) && tr('힘 올리기', 'Power boost'),
+    has(char, m => m.drunk || m.spawn?.drunk) && tr('맞히면 취함', 'Intoxicates'),
+    has(char, m => m.poison || m.spawn?.poison || m.grab?.poison) && tr('맞히면 중독', 'Poisons'),
+    has(char, m => m.slow || m.spawn?.slow) && tr('맞히면 느려짐', 'Slows'),
+    has(char, m => m.grab?.heal) && tr('잡아서 회복', 'Life-steal grab'),
+    has(char, m => m.warp) && tr('순간이동', 'Teleport'),
+    char.boss && tr('보스', 'Boss'),
   ].filter(Boolean).map(t => `<i>${t}</i>`).join('');
   return `<ul class="stats">${bars}</ul>${tags ? `<div class="tags">${tags}</div>` : ''}`;
 }
 // 고르기 화면: 가운데 얼굴 칸 격자(윗줄 장기, 아랫줄 빌런), 양옆 판에 1P·2P가 올려 둔 캐릭터의 설명과 기술표.
-const ROWS = [ORGANS, VILLAINS, BOSSES], ROW_NAMES = ['장기', '빌런', '보스'], ROSTER = ROWS.flat();
+const ROWS = [ORGANS, VILLAINS, BOSSES], ROW_NAMES = [tr('장기', 'Organs'), tr('빌런', 'Villains'), tr('보스', 'Bosses')], ROSTER = ROWS.flat();
 const rowOf = index => { let n = index; for (let r = 0; r < ROWS.length; r++) { if (n < ROWS[r].length) return [r, n]; n -= ROWS[r].length; } return [0, 0]; };
 const indexOf = (r, c) => ROWS.slice(0, r).reduce((n, row) => n + row.length, 0) + Math.min(c, ROWS[r].length - 1);
 const strongList = char => [].concat(char.strong || []);
 const strongAgainst = type => [...VILLAINS, ...BOSSES].map(id => CHARS[id]).find(char => char.type === type);
 const weakTo = type => ORGANS.map(id => CHARS[id]).find(char => strongList(char).includes(type));
 function matchup(char) {
+  if (EN) return char.kind === 'organ' ? `Strong against ${strongList(char).map(type => `${TYPES[type]} (${strongAgainst(type).name})`).join(' · ')}` : `${TYPES[char.type]} fighter. Watch out for ${weakTo(char.type).name}.`;
   if (char.kind === 'organ') return `${strongList(char).map(type => `${TYPES[type]}(${strongAgainst(type).name})`).join('·')}에 강해요`;
   const organ = weakTo(char.type);
   return `${TYPES[char.type]} 덩어리라 ${josa(organ.name, '을', '를')} 조심해요`;
@@ -156,7 +158,7 @@ function paintPane(p) {
   if (!on) {
     // 아케이드: 1P가 장기에 있으면 정크 푸드 셋, 빌런에 있으면 장기 셋과 싸운다고 미리 보여 준다.
     const villain = CHARS[ROSTER[sel.cursor[0]]].kind !== 'organ';
-    pane.innerHTML = p ? `<i class="who">CPU</i><strong class="vs3">${villain ? '장기 4연전' : '정크 푸드 4연전'}</strong><p>${villain ? '몸속 장기 넷을 차례로 쓰러뜨려요. 마지막은 심장이에요.' : '빌런 둘을 이기면 대왕버거, 마지막에 내장지방이 나와요.'}</p>` : '';
+    pane.innerHTML = p ? `<i class="who">CPU</i><strong class="vs3">${villain ? tr('장기 4연전', 'Four organ fights') : tr('정크 푸드 4연전', 'Four villain fights')}</strong><p>${villain ? tr('몸속 장기 넷을 차례로 쓰러뜨려요. 마지막은 심장이에요.', 'Defeat four organs. Heart is your final opponent.') : tr('빌런 둘을 이기면 대왕버거, 마지막에 내장지방이 나와요.', 'Beat two villains, then Big Burger and Visceral Fat.')}</p>` : '';
     pane.dataset.id = ''; return;
   }
   const id = ROSTER[sel.cursor[p]];
@@ -197,11 +199,11 @@ function paintQuiz() {
     item.classList.toggle('wrong', quiz.picked.includes(index) && index !== quiz.item.correct);
   });
   $('quizQ').textContent = quiz.item.q;
-  $('quizRule').textContent = versus() ? '먼저 맞힌 쪽이 포션을 가져가요. 틀리면 답할 기회가 없어져요.' : '맞히면 체력 회복 포션을 들고 싸워요.';
-  let status = quiz.phase === 'read' ? '문제를 먼저 읽어요. 곧 보기가 열려요.' : '스틱 방향으로 답을 골라요.';
+  $('quizRule').textContent = versus() ? tr('먼저 맞힌 쪽이 포션을 가져가요. 틀리면 답할 기회가 없어져요.', 'First correct answer wins a potion. One attempt each.') : tr('맞히면 체력 회복 포션을 들고 싸워요.', 'Answer correctly to earn a healing potion.');
+  let status = quiz.phase === 'read' ? tr('문제를 먼저 읽어요. 곧 보기가 열려요.', 'Read the question. Choices open shortly.') : tr('스틱 방향으로 답을 골라요.', 'Choose an answer with a direction.');
   if (reveal) {
-    if (quiz.winner >= 0) status = versus() ? `${quiz.winner + 1}P가 먼저 맞혀서 포션을 얻었어요.` : '정답이에요. 포션을 얻었어요.';
-    else status = quiz.picked.some(choice => choice >= 0) ? '아쉽게 틀렸어요. 이번에는 포션 없이 싸워요.' : '시간이 다 됐어요. 이번에는 포션 없이 싸워요.';
+    if (quiz.winner >= 0) status = versus() ? tr(`${quiz.winner + 1}P가 먼저 맞혀서 포션을 얻었어요.`, `Player ${quiz.winner + 1} answered first and earned a potion.`) : tr('정답이에요. 포션을 얻었어요.', 'Correct! You earned a potion.');
+    else status = quiz.picked.some(choice => choice >= 0) ? tr('아쉽게 틀렸어요. 이번에는 포션 없이 싸워요.', 'Incorrect. No potion this round.') : tr('시간이 다 됐어요. 이번에는 포션 없이 싸워요.', 'Time is up. No potion this round.');
   }
   $('quizStatus').textContent = status;
   $('quizExp').textContent = reveal ? quiz.item.exp : '';
@@ -221,10 +223,10 @@ function fightBanner() {
   const t = game.t;
   if (sim.over) {
     const age = t - overTick, winner = sim.over.winner;
-    const sub = sim.overFrames > 60 ? (winner < 0 ? '무승부' : `${sim.f[winner].char.name} 승리`) : '';
+    const sub = sim.overFrames > 60 ? (winner < 0 ? tr('무승부', 'Draw') : tr(`${sim.f[winner].char.name} 승리`, `${sim.f[winner].char.name} wins`)) : '';
     return { text: sim.over.reason === 'ko' ? 'K.O.' : 'TIME UP', sub, age };
   }
-  if (t < 70) return { text: versus() ? `ROUND ${game.round}` : `STAGE ${game.stage + 1}`, sub: `${sim.f[0].char.name} 대 ${sim.f[1].char.name}`, age: t };
+  if (t < 70) return { text: versus() ? `ROUND ${game.round}` : `STAGE ${game.stage + 1}`, sub: `${sim.f[0].char.name} ${tr("대", "vs")} ${sim.f[1].char.name}`, age: t };
   if (t < 118) return { text: 'FIGHT!', age: t - 70 };
   return null;
 }
@@ -251,7 +253,7 @@ const scenes = {
       stepSim(cpu.map(controller => controller.poll()), false);
       if (sim.over && sim.overFrames > 150) startDemo();
       for (const i of inp) {
-        if (i.dir === 'up' || i.dir === 'down') { menuIndex = 1 - menuIndex; sfx.move(); paintMenu(); }
+        if (i.dir === 'up' || i.dir === 'down') { menuIndex = (menuIndex + (i.dir === 'up' ? 2 : 1)) % 3; sfx.move(); paintMenu(); }
         if (i.pp) return chooseMode(menuIndex);
       }
     },
@@ -260,8 +262,8 @@ const scenes = {
   select: {
     enter() {
       sel = { cursor: [0, 2], ready: [false, false], done: 0 };
-      $('selectTitle').textContent = versus() ? '각자 캐릭터를 골라요' : '캐릭터를 골라요';
-      $('selectHint').textContent = '상하좌우로 고르고 주먹 버튼으로 정해요. 킥 버튼은 취소예요.';
+      $('selectTitle').textContent = versus() ? tr('각자 캐릭터를 골라요', 'Both players: choose your fighter') : tr('캐릭터를 골라요', 'Choose your fighter');
+      $('selectHint').textContent = tr('상하좌우로 고르고 주먹 버튼으로 정해요. 킥 버튼은 취소예요.', 'Directions: choose · Punch: confirm · Kick: cancel');
       for (const p of [0, 1]) $(`pane${p}`).dataset.id = '';
       paintSelect(); music.play('select');
     },
@@ -289,10 +291,10 @@ const scenes = {
       const a = CHARS[game.picks[0]], b = CHARS[opponent()];
       drawPortrait($('vsA'), a); drawPortrait($('vsB'), b);
       $('vsNameA').textContent = a.name; $('vsNameB').textContent = b.name;
-      $('vsTagA').textContent = '1P'; $('vsTagB').textContent = versus() ? '2P' : b.kind === 'organ' ? b.style : `${TYPES[b.type]} 속성`;
-      $('vsLabel').textContent = versus() ? '2P 대전' : `STAGE ${game.stage + 1} / ${game.ladder.length}`;
-      $('vsNote').textContent = strongList(a).includes(b.type) ? `${josa(a.name, '은', '는')} ${TYPES[b.type]}에 강해서 주는 피해가 20% 늘어요.`
-        : strongList(b).includes(a.type) ? `${josa(b.name, '은', '는')} ${TYPES[a.type]}에 강해서 받는 피해가 20% 늘어요. 조심해요.` : '';
+      $('vsTagA').textContent = '1P'; $('vsTagB').textContent = versus() ? '2P' : b.kind === 'organ' ? b.style : tr(`${TYPES[b.type]} 속성`, `${TYPES[b.type]} type`);
+      $('vsLabel').textContent = versus() ? tr('2P 대전', '2P Versus') : `STAGE ${game.stage + 1} / ${game.ladder.length}`;
+      $('vsNote').textContent = strongList(a).includes(b.type) ? tr(`${josa(a.name, '은', '는')} ${TYPES[b.type]}에 강해서 주는 피해가 20% 늘어요.`, `${a.name} deals 20% more damage against ${TYPES[b.type]}.`)
+        : strongList(b).includes(a.type) ? tr(`${josa(b.name, '은', '는')} ${TYPES[a.type]}에 강해서 받는 피해가 20% 늘어요. 조심해요.`, `Watch out: ${b.name} deals 20% more damage against ${TYPES[a.type]}.`) : '';
       music.play('vs');
     },
     tick(inp) { if (game.t > 150 || (game.t > 40 && inp.some(i => i.pp))) beforeFight(); },
@@ -346,17 +348,17 @@ const scenes = {
       let title, sub, face;
       if (versus()) {
         const [a, b] = game.wins, winner = a > b ? 0 : b > a ? 1 : -1;
-        title = winner < 0 ? '무승부예요' : `${winner + 1}P가 이겼어요`;
+        title = winner < 0 ? tr('무승부예요', 'It’s a draw') : tr(`${winner + 1}P가 이겼어요`, `Player ${winner + 1} wins`);
         sub = `${CHARS[game.picks[0]].name} ${a} : ${b} ${CHARS[game.picks[1]].name}`;
         face = game.picks[Math.max(0, winner)];
-        stats.push(['라운드', game.round], ['퀴즈 정답', `${game.quizRight} / ${game.quizCount}`]);
+        stats.push([tr('라운드', 'Rounds'), game.round], [tr('퀴즈 정답', 'Quiz correct'), `${game.quizRight} / ${game.quizCount}`]);
       } else {
         const cleared = game.stage >= game.ladder.length;
         const villain = CHARS[game.picks[0]].kind !== 'organ';
-        title = cleared ? (villain ? '장기를 모두 물리쳤어요' : '정크 푸드를 모두 물리쳤어요') : `${CHARS[opponent()].name}에게 졌어요`;
-        sub = cleared ? (villain ? `${josa(CHARS[game.picks[0]].name, '이', '가')} 몸을 점령했어요.` : `${josa(CHARS[game.picks[0]].name, '이', '가')} 몸을 지켜 냈어요.`) : '다시 도전해 봐요.';
+        title = cleared ? (villain ? tr('장기를 모두 물리쳤어요', 'All organs defeated') : tr('정크 푸드를 모두 물리쳤어요', 'All villains defeated')) : tr(`${CHARS[opponent()].name}에게 졌어요`, `Defeated by ${CHARS[opponent()].name}`);
+        sub = cleared ? (villain ? tr(`${josa(CHARS[game.picks[0]].name, '이', '가')} 몸을 점령했어요.`, `${CHARS[game.picks[0]].name} has taken over the body.`) : tr(`${josa(CHARS[game.picks[0]].name, '이', '가')} 몸을 지켜 냈어요.`, `${CHARS[game.picks[0]].name} has defended the body.`)) : tr('다시 도전해 봐요.', 'Give it another try.');
         face = cleared ? game.picks[0] : opponent();
-        stats.push(['점수', game.score.toLocaleString('ko-KR')], ['돌파한 스테이지', `${game.stage} / ${game.ladder.length}`], ['퀴즈 정답', `${game.quizRight} / ${game.quizCount}`]);
+        stats.push([tr('점수', 'Score'), game.score.toLocaleString('ko-KR')], [tr('돌파한 스테이지', 'Stages cleared'), `${game.stage} / ${game.ladder.length}`], [tr('퀴즈 정답', 'Quiz correct'), `${game.quizRight} / ${game.quizCount}`]);
       }
       drawPortrait($('resultArt'), CHARS[face], 'win');
       $('resultLabel').textContent = versus() ? 'VERSUS' : game.stage >= game.ladder.length ? 'ALL CLEAR' : 'GAME OVER';
@@ -401,7 +403,7 @@ function loop(now) {
 addEventListener('keydown', event => { if (event.code === 'Enter' && !event.repeat) enter = true; });
 // M 키로 소리를 전부 → 효과음만 → 끔 순서로 바꾼다. 처음 화면 말고는 바꿀 때만 잠깐 보여 준다.
 let soundTimer = 0;
-function paintSound() { $('sound').textContent = `M 키 · ${sfx.label()}`; }
+function paintSound() { $('sound').textContent = tr(`M 키 · ${sfx.label()}`, `M · ${sfx.label()}`); }
 addEventListener('keydown', event => {
   if (event.code !== 'KeyM' || event.repeat) return;
   sfx.cycle(); paintSound(); $('sound').classList.add('on');
@@ -421,6 +423,6 @@ Object.assign(DBG, {
 });
 Object.defineProperty(DBG, 'sim', { get: () => sim });
 
-buildCards(); paintSound();
+localizePage(); buildCards(); paintSound();
 go('title');
 requestAnimationFrame(loop);

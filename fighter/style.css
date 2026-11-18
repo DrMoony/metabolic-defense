@@ -138,3 +138,28 @@ h2{font-size:44px;font-weight:900;letter-spacing:-.03em;color:var(--gold)}
 .pane .stats output{font-weight:700;color:var(--cream);text-align:right;font-variant-numeric:tabular-nums}
 .pane .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:4px;margin:4px 0 2px}
 .pane .tags i{padding:2px 7px;border-radius:9px;font-size:11px;font-weight:700;line-height:1.4;font-style:normal;color:#7cf0ff;background:#7cf0ff1c}
+/* Locale controls remain available in every scene. */
+.language{position:absolute;top:16px;right:20px;z-index:20;display:flex;gap:6px;font-size:13px}
+.language a{padding:7px 12px;border:1px solid #ffe0a055;background:#201020dd;border-radius:5px;color:var(--muted);text-decoration:none;cursor:pointer}
+.language a[aria-current=true]{color:var(--gold);border-color:var(--gold)}
+html[lang=en] h1{font-size:76px}
+html[lang=en] .menu{width:490px}
+html[lang=en] .menu b{font-size:23px}
+html[lang=en] .menu span{font-size:13px}
+html[lang=en] .lead{font-size:19px}
+html[lang=en] .keys dl div{grid-template-columns:85px 1fr;font-size:13px}
+html[lang=en] .rowname{writing-mode:horizontal-tb;transform:rotate(-90deg);letter-spacing:0;font-size:12px}
+html[lang=en] .card strong{font-size:13px}
+html[lang=en] .pane .stats li{grid-template-columns:45px 1fr 28px;font-size:10px}
+html[lang=en] .pane strong{font-size:27px}
+html[lang=en] .pane .cmds{font-size:11px}
+html[lang=en] .pane em{font-size:12px}
+html[lang=en] .card.r0 .t0::after,html[lang=en] .card.r1 .t1::after,html[lang=en] .pane.ready .who::after{content:" READY"}
+html[lang=en] #resultTitle{font-size:45px}
+html[lang=en] #resultSub{font-size:21px}
+#title{padding-top:44px;padding-bottom:44px}
+.menu{gap:8px}
+.menu li{padding:12px 18px}
+#stage[data-scene=fight] .language{top:auto;bottom:8px;right:auto;left:50%;transform:translateX(-50%);font-size:10px}
+#stage[data-scene=fight] .language a{padding:4px 8px;background:#201020b8}
+html[lang=en] .keys dl div{grid-template-columns:92px 1fr;gap:9px}

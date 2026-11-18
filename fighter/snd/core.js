@@ -1,9 +1,10 @@
+import { t } from '../locale.js';
 // 소리 뼈대. 파일 없이 전부 즉석에서 합성하고, 한 줄기로 모아 눌러 준 뒤(컴프레서) 내보낸다.
 // 줄기는 sfx(효과음)와 music(음악) 둘. 울림(hall)은 보낸 양만큼 섞인다.
 const KEY = 'mf.sound';
 const saved = (() => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } })();
 export const mix = { mode: saved.mode ?? 0 };   // 0 전부, 1 효과음만, 2 끔
-export const MODES = ['소리 전부', '효과음만', '소리 끔'];
+export const MODES = [t('소리 전부', 'Music + SFX'), t('효과음만', 'SFX only'), t('소리 끔', 'Muted')];
 export let ctx = null;
 export const bus = {};
 const wakers = [];
