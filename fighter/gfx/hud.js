@@ -1,3 +1,4 @@
+import { t, EN } from '../locale.js';
 // 화면 위 정보: 체력, 게이지, 시간, 연속기, 큰 글자. 3D 무대 위에 겹친 2D 캔버스에 그린다.
 import { STAGE, TYPES, CHARS } from '../data.js';
 import { COMIC } from './comic.js';
@@ -6,7 +7,7 @@ const W = STAGE.w, H = STAGE.h, TAU = Math.PI * 2;
 const FONT = '"Apple SD Gothic Neo","Malgun Gothic",Inter,sans-serif';
 const INK = '#1b0a14', GOLD = '#ffe0a0', CREAM = '#fff3dd', MUTED = '#e0b789', GOOD = '#9dffb0';
 // 상태 이상 표시 순서와 색.
-const STATUS = [['pump', '펌프업', '#5af0dc'], ['drunk', '취함', '#7ee0a0'], ['poison', '중독', '#c79aff'], ['slow', '느려짐', '#ffd86a']];
+const STATUS = [['pump', t('펌프업', 'PUMP UP'), '#5af0dc'], ['drunk', t('취함', 'DRUNK'), '#7ee0a0'], ['poison', t('중독', 'POISON'), '#c79aff'], ['slow', t('느려짐', 'SLOW'), '#ffd86a']];
 const lerp = (a, b, k) => a + (b - a) * k, ease = k => 1 - (1 - k) * (1 - k);
 
 export class Hud {
@@ -146,11 +147,11 @@ export class Hud {
     c.globalAlpha = open; c.textAlign = 'center'; c.textBaseline = 'middle';
     const tx = s * (150 + (1 - enter) * 260);
     if (COMIC) {
-      c.font = `italic 900 78px ${FONT}`; this.letter(cut.name, tx, 6, 78, 16);
-      this.caption('초필살기', tx, -70, 20);
+      c.font = `italic 900 ${EN ? 48 : 78}px ${FONT}`; this.letter(cut.name, tx, 6, EN ? 48 : 78, 16);
+      this.caption(t('초필살기', 'SUPER MOVE'), tx, -70, 20);
     } else {
-      c.font = `italic 900 78px ${FONT}`; this.ink(cut.name, tx, 6, '#fff', 12);
-      c.font = `italic 900 20px ${FONT}`; this.ink('초필살기', tx, -62, GOLD, 6);
+      c.font = `italic 900 ${EN ? 48 : 78}px ${FONT}`; this.ink(cut.name, tx, 6, '#fff', 12);
+      c.font = `italic 900 20px ${FONT}`; this.ink(t('초필살기', 'SUPER MOVE'), tx, -62, GOLD, 6);
     }
     c.textBaseline = 'alphabetic'; c.globalAlpha = 1;
     c.restore();
@@ -234,7 +235,7 @@ export class Hud {
         c.beginPath(); c.roundRect(lx, ny - 17, lw, 20, 10); c.fillStyle = '#1b0a14cc'; c.fill(); c.lineWidth = 1; c.strokeStyle = MUTED; c.stroke();
         c.textAlign = 'center'; c.fillStyle = MUTED; c.fillText(label, lx + lw / 2, ny - 3);
       }
-      if (sim.adv[i] > 1) { c.textAlign = left ? 'left' : 'right'; c.font = `700 13px ${FONT}`; this.ink(`상성 유리 (${TYPES[sim.f[1 - i].char.type]})`, tx, ny + 21, GOOD, 4); }
+      if (sim.adv[i] > 1) { c.textAlign = left ? 'left' : 'right'; c.font = `700 13px ${FONT}`; this.ink(t(`상성 유리 (${TYPES[sim.f[1 - i].char.type]})`, `ADVANTAGE (${TYPES[sim.f[1 - i].char.type]})`), tx, ny + 21, GOOD, 4); }
       // 상태 이상: 남은 시간이 줄어드는 알약 모양 표시.
       let sx = tx;
       for (const [key, label, color] of STATUS) {
@@ -254,9 +255,9 @@ export class Hud {
         c.restore(); px -= s * 26;
       }
       if (f.potion) {
-        c.font = `800 13px ${FONT}`; const pw = c.measureText('포션 보유').width + 20, x = left ? px - pw + 8 : px - 8;
+        c.font = `800 13px ${FONT}`; const pw = c.measureText(t('포션 보유', 'POTION READY')).width + 20, x = left ? px - pw + 8 : px - 8;
         c.beginPath(); c.roundRect(x, Y + BH + 11, pw, 22, 11); c.fillStyle = '#12301ecc'; c.fill(); c.lineWidth = 1.5; c.strokeStyle = GOOD; c.stroke();
-        c.textAlign = 'center'; c.fillStyle = GOOD; c.fillText('포션 보유', x + pw / 2, Y + BH + 27);
+        c.textAlign = 'center'; c.fillStyle = GOOD; c.fillText(t('포션 보유', 'POTION READY'), x + pw / 2, Y + BH + 27);
       }
 
       // 초필살기 게이지.
@@ -267,7 +268,7 @@ export class Hud {
         this.slab(left ? mx : mx + mw - w, my, w, mh, s, 6); c.fillStyle = glow; c.fill();
       }
       c.font = `800 13px ${FONT}`; c.textAlign = left ? 'left' : 'right';
-      this.ink(full ? `초필살기 준비 완료 (${f.char.commands.at(-1).cmd})` : 'SUPER', left ? mx : mx + mw, my - 9, full ? '#fff' : '#9fd8e8', 4);
+      this.ink(full ? t(`초필살기 준비 완료 (${f.char.commands.at(-1).cmd})`, `SUPER READY (${f.char.commands.at(-1).cmd})`) : 'SUPER', left ? mx : mx + mw, my - 9, full ? '#fff' : '#9fd8e8', 4);
 
       // 연속기. 숫자가 오를 때마다 살짝 튄다.
       if (f.comboShown > 0 && f.combo >= 2) {
