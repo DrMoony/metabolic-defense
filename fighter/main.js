@@ -33,7 +33,7 @@ addEventListener('resize', () => { fit(); renderer.resize(); }); fit();
 
 const pads = [0, 1].map(player => new Controller(() => readPlayer(player)));
 const game = { scene: '', t: 0, mode: 'arcade', picks: ['heart', 'liver'], wins: [0, 0], round: 1, stage: 0, ladder: [], score: 0, quizRight: 0, quizCount: 0, potion: [false, false] };
-const DBG = window.DBG = { cpu: [false, false] };
+const DBG = window.DBG = { cpu: [false, false], renderer };
 let sim = null, cpu = [null, null], overTick = 0, idle = 0, enter = false;
 let menuIndex = 0, sel = null, quiz = null;
 
