@@ -13,7 +13,7 @@ const $ = id => document.getElementById(id);
 const stage = $('stage'), renderer = new Renderer($('game'), { debug: params.has('debug') });
 const SCENES = ['title', 'select', 'vs', 'quiz', 'result'];
 // 아케이드 단계별 CPU 실력(0 쉬움~1 어려움)과 주먹 세기. 첫 판은 기술을 익히는 판이라 덜 막고 덜 아프게 때린다.
-const STEP = 1000 / 60, WINS_NEEDED = 2, CPU_LEVELS = [.04, .14, .24, .32], CPU_POWER = [.75, .85, .92, .95];
+const STEP = 1000 / 60, WINS_NEEDED = 2, CPU_LEVELS = [.04, .14, .2, .32], CPU_POWER = [.75, .85, .84, .95];
 const READ_FRAMES = 120, ANSWER_FRAMES = 720, DIRS = ['up', 'left', 'right', 'down'];
 // 받침이 있으면 앞, 없으면 뒤 조사를 붙인다. josa('췌장', '은', '는') → '췌장은'
 const josa = (word, withFinal, without) => word + ((word.charCodeAt(word.length - 1) - 0xac00) % 28 ? withFinal : without);

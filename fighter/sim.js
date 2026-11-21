@@ -3,7 +3,7 @@ import { STAGE, REACH, PACE, advantage } from './data.js';
 
 // hop: 점프 높이 배율, tuck: 그냥 뛴 몸의 맞는 범위 [발밑에서 빈 높이, 머리 높이] (2026-11-13 무니 "점프로 피하기 어려워").
 export const JUMP = { hop: 1.06, tuck: [42, 158], wind: 2 };   // wind: 뛰기 전 웅크리는 프레임
-const GRAVITY = 1.05, HALF = 34, BUFFER = 10, EARLY = 6, JUGGLE_MAX = 3;
+const GRAVITY = 1.05, HALF = 34, BUFFER = 10, EARLY = 6, JUGGLE_MAX = 3, WAKE_SAFE = 24;   // WAKE_SAFE: 일어선 뒤 무적 틱
 const NEUTRAL_STATES = ['idle', 'walk', 'crouch'];
 export const grounded = f => f.y >= 0 && f.vy >= 0;
 const clampX = x => Math.max(STAGE.left, Math.min(STAGE.right, x));
@@ -31,7 +31,7 @@ function createFighter(char, side) {
     armor: false, armorLeft: 0, grab: null,
     // 상태 이상(남은 프레임): pump 힘 올리기, drunk 취함(좌우 뒤바뀜), poison 중독(체력이 조금씩 빠짐), slow 느려짐.
     status: { pump: 0, drunk: 0, poison: 0, slow: 0 },
-    combo: 0, comboShown: 0, juggle: 0, invuln: 0, throwInvuln: 0, flash: 0, blockLow: false, jumpDir: 0, isKo: false,
+    combo: 0, comboShown: 0, juggle: 0, invuln: 0, throwInvuln: 0, wake: 0, flash: 0, blockLow: false, jumpDir: 0, isKo: false,
     buf: { p: 0, k: 0 }, hist: [], in: { x: 0, y: 0 },
   };
 }
@@ -112,7 +112,9 @@ export class Sim {
       f.hist.length = 0;
       if (!move.noMeter && !move.isSuper) f.meter = Math.min(100, f.meter + 3);
     }
-    if (move.invuln) f.invuln = move.invuln;
+    // 일어난 직후 무적은 공격을 내밀면 그 기술이 나갈 때까지만 남는다(무적으로 밀어붙이지 못하게).
+    if (f.wake > 0) { f.invuln = Math.min(f.invuln, move.startup + 1); f.wake = 0; }
+    if (move.invuln) f.invuln = Math.max(f.invuln, move.invuln);
     if (move.isSuper) { f.meter = 0; this.freeze = 34; this.events.push({ type: 'super', side: f.side, key, char: f.char.id, x: f.x, y: f.y - 120 }); }
     else if (move.special) this.events.push({ type: 'special', side: f.side, key, char: f.char.id, x: f.x, y: f.y - 120 });
     return true;
@@ -154,7 +156,7 @@ export class Sim {
   control(f, o) {
     const inp = f.in;
     for (const key of 'pk') if (f.buf[key] > 0) f.buf[key]--;
-    if (f.invuln > 0) f.invuln--; if (f.throwInvuln > 0) f.throwInvuln--;
+    if (f.invuln > 0) f.invuln--; if (f.throwInvuln > 0) f.throwInvuln--; if (f.wake > 0) f.wake--;
     if (f.state !== 'attack') f.armor = false;
     switch (f.state) {
       case 'idle': case 'walk': case 'crouch': {
@@ -184,7 +186,8 @@ export class Sim {
       // 잡힌 상태: 잡은 쪽이 메칠 때까지 끌려다닌다. 잡은 쪽 동작이 끊기면 풀려난다.
       case 'held': f.t++; if (!(o.state === 'attack' && o.move.isSlam && o.grab)) this.recover(f, o, 'idle'); break;
       case 'down': if (++f.t >= 34 && !f.isKo) { f.state = 'getup'; f.t = 0; f.invuln = 18; } break;
-      case 'getup': if (++f.t >= 16) this.recover(f, o, 'idle'); break;
+      // 일어나자마자 겹쳐 둔 공격에 다시 쓰러지는 일이 없게, 일어선 뒤에도 잠깐은 맞지도 잡히지도 않는다.
+      case 'getup': if (++f.t >= 16) { this.recover(f, o, 'idle'); f.invuln = f.wake = WAKE_SAFE; f.throwInvuln = WAKE_SAFE + 9; } break;
     }
   }
 
